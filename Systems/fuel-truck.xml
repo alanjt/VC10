@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--####################################################################
+Lake of Constance Hangar
+Vickers VC10 for Flightgear
+Copyright (C) 2013 M.Kraus
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Every software has a developer, also free software. 
+As a gesture of courtesy and respect, I would be delighted 
+if you contacted me before making any changes to this software. 
+<info (at) marc-kraus.de> April, 2017
+########################################################################-->
+<!-- script is stolen from Omega Hangar ... thank you very much :-) -->
+<PropertyList>
+
+	<name>fuel_truck</name>
+	<layout>vbox</layout>
+
+	<text>
+		<label>Fuel Truck Controls</label>
+	</text>
+
+	<hrule />
+
+	<group>
+	<layout>vbox</layout>
+	
+		<group>
+		<layout>table</layout>
+		
+		<text>
+		    <label>Total Fuel Quantity (kg)</label>
+		    <halign>right</halign>
+		    <row>0</row>
+		    <col>0</col>
+		</text>
+		
+		<text>
+		    <label>Request Fuel Quantity (kg)</label>
+		    <halign>right</halign>
+		    <row>1</row>
+		    <col>0</col>
+		</text>
+		
+		<input>
+            <row>0</row>
+            <col>1</col>
+            <property>consumables/fuel/total-fuel-kg</property>
+            <live>true</live>
+            <binding>
+                <command>dialog-apply</command>
+            </binding>
+        </input>
+	
+		<input>
+            <row>1</row>
+            <col>1</col>
+            <property>VC10/ground-service/fuel-truck/request-kg</property>
+            <live>true</live>
+            <binding>
+                <command>dialog-apply</command>
+            </binding>
+        </input>
+		
+		</group>
+		
+		<hrule />
+		
+			<checkbox>
+				<label>Enable Fuel Truck</label>
+				<property>VC10/ground-service/fuel-truck/enable</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<live>true</live>
+			</checkbox>
+			
+			<checkbox>
+				<label>Connect pipe to Aircraft</label>
+				<property>VC10/ground-service/fuel-truck/connect</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<live>true</live>
+			</checkbox>
+		
+		<hrule />
+		
+		<group>
+		<layout>hbox</layout>
+		
+			<button>
+				<legend>Re-fuel</legend>
+				<padding>5</padding>
+				<binding>
+					<command>nasal</command>
+					<script>
+						if ((getprop("VC10/ground-service/fuel-truck/enable") == 1) and (getprop("VC10/ground-service/fuel-truck/connect") == 1)) {
+							if(getprop("VC10/ground-service/fuel-truck/transfer") == nil or getprop("VC10/ground-service/fuel-truck/transfer") == 0){
+								setprop("VC10/ground-service/fuel-truck/transfer", 1);
+								screen.log.write("Re-fueling process started...", 0.0, 0.9, 0.0);
+							}else{
+								setprop("VC10/ground-service/fuel-truck/transfer", 0);
+								screen.log.write("Stoped Re-fueling process!", 0.0, 0.9, 0.0);
+							}
+						} else {
+							screen.log.write("Please enable and connect the Fuel Truck First!", 1, 0, 0);
+						}
+					</script>
+				</binding>
+			</button>
+			
+			<button>
+				<legend>Drain Tanks</legend>
+				<padding>5</padding>
+				<binding>
+					<command>nasal</command>
+					<script>
+						if ((getprop("VC10/ground-service/fuel-truck/enable") == 1) and (getprop("VC10/ground-service/fuel-truck/connect") == 1)) {
+						
+							if (getprop("VC10/ground-service/fuel-truck/transfer") == 1)
+								screen.log.write("You can't clean the tanks while loading fuel!'", 1, 0, 0);
+							else {
+								if(getprop("VC10/ground-service/fuel-truck/clean") == nil or getprop("VC10/ground-service/fuel-truck/clean") == 0){
+									setprop("VC10/ground-service/fuel-truck/clean", 1);
+									screen.log.write("Cleaning Fuel Tanks...", 0.0, 0.9, 0.0);
+								}else{
+									setprop("VC10/ground-service/fuel-truck/clean", 0);
+									screen.log.write("Stoped cleaning Fuel Tanks!", 0.0, 0.9, 0.0);
+								}
+							}
+						} else {
+							screen.log.write("Please enable and connect the Fuel Truck First!", 1, 0, 0);
+						}
+					</script>
+				</binding>
+			</button>
+		
+		</group>
+	
+	</group>
+
+	<hrule />
+	
+	<group>
+	<layout>hbox</layout>
+
+		<button>
+			<legend>Close</legend>
+			<default>true</default>
+			<key>Esc</key>
+		<padding>5</padding>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+			<binding>
+				<command>dialog-close</command>
+			</binding>
+		</button>
+		
+	</group>
+
+</PropertyList>

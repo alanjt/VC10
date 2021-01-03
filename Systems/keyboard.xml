@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--####################################################################
+Lake of Constance Hangar
+Vickers VC10 for Flightgear
+Copyright (C) 2013 M.Kraus
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Every software has a developer, also free software. 
+As a gesture of courtesy and respect, I would be delighted 
+if you contacted me before making any changes to this software. 
+<info (at) marc-kraus.de> April, 2017
+########################################################################-->
+<PropertyList>
+<key n="127">
+	<name>Delete</name>
+	<desc>Toggle Reversers</desc>
+  <binding>
+      <command>nasal</command>
+      <script>VC10.togglereverser();</script>
+  </binding>
+</key>
+<key n="60">
+  <name> > </name>
+  <desc>toggle pilot engineer view</desc>
+  <binding>
+		  <command>nasal</command>
+		  <script>VC10.changeView(9);</script>
+  </binding>
+</key>
+
+<key n="108">
+  <name>L</name>
+  <desc>toggle landing lights</desc>
+  <binding>
+      <command>nasal</command>
+      <script>VC10.toggleLandingLights();</script>
+  </binding>
+</key>
+<key n="121">
+  <name>y</name>
+  <desc>toggle yokes</desc>
+  <binding>
+      <command>property-toggle</command>
+      <property>sim/yokes-visible</property>
+  </binding>
+</key>
+
+<key n="94"> <!-- ^ -->
+    <name>short start</name>
+    <desc>Test startup</desc>
+  <binding>
+      <command>nasal</command>
+      <script>VC10.short_startup();</script>
+  </binding>
+</key>
+
+<key n="257">
+    <name>F1</name>
+    <desc>Checklists</desc>
+    <binding>
+      <command>dialog-show</command>
+      <dialog-name>checklist</dialog-name>
+    </binding>
+</key>
+
+<key n="263">
+	<name>F7</name>
+	<desc>Show map</desc>
+	<binding>
+	<command>dialog-show</command>
+	<dialog-name>map</dialog-name>
+	</binding>
+</key>
+
+<key n="264">
+	<name>F8</name>
+	<desc>Show map</desc>
+	<binding>
+	<command>dialog-show</command>
+	<dialog-name>route-manager</dialog-name>
+	</binding>
+</key>
+
+<key n="265">
+    <name>F9</name>
+    <desc>Pop up Fuel and Weight dialog</desc>
+    <binding>
+        <command>nasal</command>
+        <script>VC10.WeightFuelDialog()</script>
+    </binding>
+</key>
+<!--
+<key n="267">
+  <name>F11</name>
+  <desc>Pop up autopilot dialog</desc>
+  <binding>
+		  <command>nasal</command>
+		  <script>VC10.changeView(11);</script>
+  </binding>
+</key>
+-->
+<key n="62">
+  <name>Shift + ></name>
+  <desc>Pop up autopilot dialog</desc>
+  <binding>
+		  <command>nasal</command>
+		  <script>VC10.changeView(11);</script>
+  </binding>
+</key>
+
+<key n="79">
+  <name>O</name>
+  <desc>Extend Refuelling Drogues</desc>  
+  <binding>
+		  <command>nasal</command>
+		  <script>VC10.toggleRefuelling();</script>
+  </binding>
+</key>
+<key n="2">
+  <name>Ctrl + b</name>
+  <desc>Speedbrakes/Spoiler full</desc>  
+  <binding>
+		  <command>nasal</command>
+		  <script>VC10.fullSpeedbrakes();</script>
+  </binding>
+</key>
+
+</PropertyList>

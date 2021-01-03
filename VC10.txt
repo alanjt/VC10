@@ -1,0 +1,43 @@
+####################################################################
+Lake of Constance Hangar
+Vickers VC10  for Flightgear
+Copyright (C) 2013 M.Kraus
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Every software has a developer, also free software. 
+As a gesture of courtesy and respect, I would be delighted 
+if you contacted me before making any changes to this software. 
+<info (at) marc-kraus.de> April, 2017
+########################################################################
+
+Innis Cunningham build this aircraft for Flightgear times ago
+using the program AC3D. There was no change for me to open this files in blender without loosing
+a lot of objects.
+The texture was very dark since FG 2.9 and there are no other features inside and 
+outside the model. So I write a new plane with lot of scripts and details from other
+aircrafts. All instruments are written, all textures painted new.
+Also the jsbsim fdm is new. The original BENDIX PB 20 autopilot system was written and
+embeded in the flightgear environment by Markus Bulik.
+
+Thanks to 
+Innis Cunningham and all the other flightgear developers
+
+Marc Kraus
+
+NOTE:
+##########################
+Vckers Standard VC10 and Super VC10
+##########################
+

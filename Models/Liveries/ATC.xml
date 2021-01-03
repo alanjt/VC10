@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!--###################################################################################
+		MD-GRK
+		Vickers VC10 for Flightgear December 2016
+		This file is licensed under the terms of the GNU General Public Licence V2 or later
+		###################################################################################
+-->
+
+<PropertyList>
+<sim>
+    <model>
+        <livery>
+            <name type="string">Air Tanzania</name>
+            <texture>Liveries/ATC.png</texture>
+        </livery>
+    </model>
+    <multiplay>
+    	<generic>
+    		<int n="8">0</int>   <!-- engine type -->
+    		<int n="9">0</int>   <!-- cargo aircraft -->
+    		<int n="16">0</int>  <!-- immat position -->
+			<!-- 0 no immat, 1 on fuselage down, 2 on fuselage upper back, 3 on rudder and wings --> 
+    	</generic>
+    </multiplay>
+</sim>
+</PropertyList>

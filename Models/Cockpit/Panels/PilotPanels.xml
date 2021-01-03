@@ -1,0 +1,939 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--####################################################################
+Lake of Constance Hangar
+Vickers VC10 for Flightgear
+Copyright (C) 2013 M.Kraus
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Every software has a developer, also free software. 
+As a gesture of courtesy and respect, I would be delighted 
+if you contacted me before making any changes to this software. 
+<info (at) marc-kraus.de> April, 2017
+########################################################################-->
+<PropertyList>
+
+	<path>PilotPanels.ac</path>
+
+	<model>
+		<name>testwarn</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/testwarn/testwarn.xml</path>
+		<offsets>
+			<!--    <x-m>1.521</x-m>  -->
+			<x-m>1.521</x-m>
+			<y-m>-0.62</y-m>
+			<z-m>0.882</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>refuel_Lamp</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/lamps/refuel_lamp_pilot.xml</path>
+		<condition>		
+			<equals>
+				<property>sim/aircraft</property>
+				<value type="string">EC-137D</value>
+			</equals>
+		</condition>
+		<offsets>
+			<!--    <x-m>-18.916</x-m> -->
+			<x-m>1.524</x-m>
+			<y-m>-0.612</y-m>
+			<z-m>0.806</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>asi</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/asi/asi.xml</path>
+		<offsets>
+			<x-m>0</x-m>
+			<y-m>-0.581</y-m>
+			<z-m>-0.097</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>ai</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/ai/ai.xml</path>
+		<offsets>
+			<x-m>-0.0</x-m>
+			<y-m>-0.481</y-m>
+			<z-m>-0.089</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>alt</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/alt/alt.xml</path>
+		<offsets>
+			<x-m>-0.0</x-m>
+			<y-m>-0.362</y-m>
+			<z-m>-0.089</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>agl</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/agl/agl.xml</path>
+		<offsets>
+			<!--    <x-m>-18.967</x-m> -->
+			<x-m>1.473</x-m>
+			<y-m>-0.343</y-m>
+			<z-m>0.878</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>agl-switch</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/agl/agl-switch.xml</path>
+		<offsets>
+			<!--    <x-m>-18.967</x-m> -->
+			<x-m>1.473</x-m>
+			<y-m>-0.343</y-m>
+			<z-m>0.878</z-m>
+		</offsets>
+	</model>
+
+
+	<model>
+		<name>marker_beacon</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/lamps/marker_beacon.xml</path>
+		<offsets>
+			<!--    <x-m>-18.921</x-m> -->
+			<x-m>1.519</x-m>
+			<y-m>-0.21</y-m>
+			<z-m>0.885</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>pneumatic_brake</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/pneubrake/pneubrake.xml</path>
+		<offsets>
+			<x-m>0</x-m>
+			<y-m>0</y-m>
+			<z-m>0</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>mach</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/mach/mach.xml</path>
+		<offsets>
+			<x-m>-0.0</x-m>
+			<y-m>-0.659</y-m>
+			<z-m>-0.197</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>VORrmi</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/rmi/rmi.xml</path>
+		<offsets>
+			<x-m>-0.0</x-m>
+			<y-m>-0.585</y-m>
+			<z-m>-0.197</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>hsi</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/hsi/hsi.xml</path>
+		<offsets>
+			<x-m>-0.0</x-m>
+			<y-m>-0.481</y-m>
+			<z-m>-0.211</z-m>
+			<pitch-deg>0</pitch-deg>
+		</offsets>
+	</model>
+
+	<model>
+		<name>vsi</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/vs/vsi.xml</path>
+		<offsets>
+			<x-m>-0.0</x-m>
+			<y-m>-0.382</y-m>
+			<z-m>-0.197</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>clock</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/clock/clock.xml</path>
+		<condition>
+			<and>
+				<equals>
+					<property>sim/aircraft</property>
+					<value type="string">VC10</value>
+				</equals>
+				<not>
+					<equals>
+						<property>sim/model/livery/file</property>
+						<value type="string">USA</value>
+					</equals>
+				</not>
+				<not>
+					<equals>
+						<property>sim/model/livery/file</property>
+						<value type="string">FAE</value>
+					</equals>
+				</not>
+				<not>
+					<equals>
+						<property>sim/model/livery/file</property>
+						<value type="string">CR</value>
+					</equals>
+				</not>
+			</and>
+		</condition>
+		<offsets>
+			<x-m>-0.0</x-m>
+			<y-m>-0.657</y-m>
+			<z-m>-0.281</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>tacan_dme</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/tacan/dme/dme.xml</path>
+		<condition>
+			<or>		
+				<equals>
+					<property>sim/aircraft</property>
+					<value type="string">EC-137D</value>
+				</equals>
+				<equals>
+					<property>sim/aircraft</property>
+					<value type="string">VC10-TT</value>
+				</equals>
+				<equals>
+					<property>sim/model/livery/file</property>
+					<value type="string">USA</value>
+				</equals>
+				<equals>
+					<property>sim/model/livery/file</property>
+					<value type="string">FAE</value>
+				</equals>
+				<equals>
+					<property>sim/model/livery/file</property>
+					<value type="string">CR</value>
+				</equals>
+			</or>
+		</condition>
+		<offsets>
+			<x-m>-0.0</x-m>
+			<y-m>-0.379</y-m>
+			<z-m>-0.281</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>ADF_rmi</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/rmi/rmi.xml</path>
+		<offsets>
+			<x-m>-0.0</x-m>
+			<y-m>-0.382</y-m>
+			<z-m>-0.281</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>speed-limit-lamps</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/lamps/speed-limit.xml</path>
+		<offsets>
+			<!--    <x-m>-18.916</x-m> -->
+			<x-m>1.524</x-m>
+			<y-m>-0.6</y-m>
+			<z-m>0.78</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>turn</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/turn/turn.xml</path>
+		<offsets>
+			<x-m>-0.0</x-m>
+			<y-m>-0.480</y-m>
+			<z-m>-0.296</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>dme</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/dme/dme.xml</path>
+		<offsets>
+			<!--    <x-m>-18.916</x-m> -->
+			<x-m>1.524</x-m>
+			<y-m>-0.33</y-m>
+			<z-m>0.71</z-m>
+		</offsets>
+	</model>
+
+
+	<!-- Centre Panel -->
+	<model>
+		<name>gear_handle</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/gear-handle.xml</path>
+		<offsets>
+			<x-m>0.0</x-m>
+			<y-m>0.218</y-m>
+			<z-m>-0.140</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>gear_lamps</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/gear/gearlamps.xml</path>
+		<offsets>
+			<x-m>0.0</x-m>
+			<y-m>0.200</y-m>
+			<z-m>-0.040</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>air_temp</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/airtemp/airtemp.xml</path>
+		<offsets>
+			<x-m>0.0</x-m>
+			<y-m>-0.189</y-m>
+			<z-m>-0.043</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>reverser_warning_lights</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/lamps/reverser.xml</path>
+		<offsets>
+			<!--    <x-m>-18.92</x-m> -->
+			<x-m>1.52</x-m>
+			<y-m> 0.0</y-m>
+			<z-m> 0.985</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>ALT-Setting</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/alt-set/alt-set.xml</path>
+		<offsets>
+			<!--    <x-m>-18.92</x-m> -->
+			<x-m>1.52</x-m>
+			<y-m>-0.141</y-m>
+			<z-m> 0.993</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>lamp-mach-trim</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/lamps/machtrim.xml</path>
+		<offsets>
+			<!--    <x-m>-18.919</x-m> -->
+			<x-m>1.521</x-m>
+			<y-m>-0.141</y-m>
+			<z-m> 0.974</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>altm</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/altm/altm.xml</path>
+		<offsets>
+			<x-m>0.0</x-m>
+			<y-m>-0.193</y-m>
+			<z-m>-0.206</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>adi</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/adi/adi.xml</path>
+		<offsets>
+			<x-m>0.0</x-m>
+			<y-m>-0.193</y-m>
+			<z-m>-0.119</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>epr1</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/eng_control/epr_1.xml</path>
+		<offsets>
+			<!--    <x-m>-18.919</x-m> -->
+			<x-m>1.521</x-m>
+			<y-m>-0.08</y-m>
+			<z-m> 0.976</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>epr2</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/eng_control/epr_2.xml</path>
+		<offsets>
+			<!--    <x-m>-18.919</x-m> -->
+			<x-m>1.521</x-m>
+			<y-m>-0.038</y-m>
+			<z-m> 0.976</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>epr3</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/eng_control/epr_3.xml</path>
+		<offsets>
+			<!--    <x-m>-18.919</x-m> -->
+			<x-m>1.521</x-m>
+			<y-m> 0.004</y-m>
+			<z-m> 0.976</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>epr4</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/eng_control/epr_4.xml</path>
+		<offsets>
+			<!--    <x-m>-18.919</x-m> -->
+			<x-m>1.521</x-m>
+			<y-m> 0.046</y-m>
+			<z-m> 0.976</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>n21</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/eng_control/n2_1.xml</path>
+		<offsets>
+			<x-m>0.0</x-m>
+			<y-m>-0.096</y-m>
+			<z-m> -0.047</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>n22</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/eng_control/n2_2.xml</path>
+		<offsets>
+			<x-m>0.0</x-m>
+			<y-m>-0.032</y-m>
+			<z-m> -0.047</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>n23</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/eng_control/n2_3.xml</path>
+		<offsets>
+			<x-m>0.0</x-m>
+			<y-m>0.032</y-m>
+			<z-m> -0.047</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>n24</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/eng_control/n2_4.xml</path>
+		<offsets>
+			<x-m>0.0</x-m>
+			<y-m>0.096</y-m>
+			<z-m> -0.047</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>extemp1</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/eng_control/exh_1.xml</path>
+		<offsets>
+			<!--    <x-m>-18.919</x-m> -->
+			<x-m>1.521</x-m>
+			<y-m>-0.08</y-m>
+			<z-m> 0.887</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>extemp2</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/eng_control/exh_2.xml</path>
+		<offsets>
+			<!--    <x-m>-18.919</x-m> -->
+			<x-m>1.521</x-m>
+			<y-m>-0.038</y-m>
+			<z-m> 0.887</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>extemp3</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/eng_control/exh_3.xml</path>
+		<offsets>
+			<!--    <x-m>-18.919</x-m> -->
+			<x-m>1.521</x-m>
+			<y-m> 0.004</y-m>
+			<z-m> 0.887</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>extemp4</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/eng_control/exh_4.xml</path>
+		<offsets>
+			<!--    <x-m>-18.919</x-m> -->
+			<x-m>1.521</x-m>
+			<y-m> 0.046</y-m>
+			<z-m> 0.887</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>n11</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/eng_control/n1_1.xml</path>
+		<offsets>
+			<!--    <x-m>-18.919</x-m> -->
+			<x-m>1.521</x-m>
+			<y-m>-0.08</y-m>
+			<z-m> 0.841</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>n12</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/eng_control/n1_2.xml</path>
+		<offsets>
+			<!--    <x-m>-18.919</x-m> -->
+			<x-m>1.521</x-m>
+			<y-m>-0.038</y-m>
+			<z-m> 0.841</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>n13</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/eng_control/n1_3.xml</path>
+		<offsets>
+			<!--    <x-m>-18.919</x-m> -->
+			<x-m>1.521</x-m>
+			<y-m> 0.004</y-m>
+			<z-m> 0.841</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>n14</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/eng_control/n1_4.xml</path>
+		<offsets>
+			<!--    <x-m>-18.919</x-m> -->
+			<x-m>1.521</x-m>
+			<y-m> 0.046</y-m>
+			<z-m> 0.841</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>ff1</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/eng_control/ffkgh_1.xml</path>
+		<offsets>
+			<!--    <x-m>-18.919</x-m> -->
+			<x-m>1.521</x-m>
+			<y-m>-0.08</y-m>
+			<z-m> 0.795</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>ff2</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/eng_control/ffkgh_2.xml</path>
+		<offsets>
+			<!--    <x-m>-18.919</x-m> -->
+			<x-m>1.521</x-m>
+			<y-m>-0.038</y-m>
+			<z-m> 0.795</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>ff3</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/eng_control/ffkgh_3.xml</path>
+		<offsets>
+			<!--    <x-m>-18.919</x-m> -->
+			<x-m>1.521</x-m>
+			<y-m> 0.004</y-m>
+			<z-m> 0.795</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>ff4</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/eng_control/ffkgh_4.xml</path>
+		<offsets>
+			<!--    <x-m>-18.919</x-m> -->
+			<x-m>1.521</x-m>
+			<y-m> 0.046</y-m>
+			<z-m> 0.795</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>gears_and_flaps</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/flapstack/flapstack.xml</path>
+		<offsets>
+			<!--    <x-m>-18.92</x-m> -->
+			<x-m>1.52</x-m>
+			<y-m>  0.0</y-m>
+			<z-m>  0.89</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>oil_and_flaps_warning</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/lamps/oil_and_flaps.xml</path>
+		<offsets>
+			<!--    <x-m>-18.92</x-m> -->
+			<x-m>1.52</x-m>
+			<y-m>  0.093</y-m>
+			<z-m>  0.80</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>oil_and_slats_warning</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/lamps/oil_and_slats.xml</path>
+		<offsets>
+			<!--    <x-m>-18.92</x-m> -->
+			<x-m>1.52</x-m>
+			<y-m> -0.126</y-m>
+			<z-m>  0.80</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>gs_in_range_lamp</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/lamps/gs_range.xml</path>
+		<offsets>
+			<!--    <x-m>-18.92</x-m> -->
+			<x-m>1.52</x-m>
+			<y-m> -0.160</y-m>
+			<z-m>  0.793</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>flight rallye watch</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/frw/frw.xml</path>
+		<offsets>
+			<!--    <x-m>-18.95</x-m> -->
+			<x-m>1.49</x-m>
+			<y-m>-0.06</y-m>
+			<z-m>1.35</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>trim</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/trim/trim.xml</path>
+		<offsets>
+			<x-m>0.0</x-m>
+			<y-m>-0.184</y-m>
+			<z-m>-0.40</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>trim_cp</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/trim/trim.xml</path>
+		<offsets>
+			<x-m>0.0</x-m>
+			<y-m>0.184</y-m>
+			<z-m>-0.40</z-m>
+		</offsets>
+	</model>
+
+	<!-- Copilot Panel -->
+
+	<model>
+		<name>total_air_temperature_indicator</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/tat/tat.xml</path>
+		<offsets>
+			<!--    <x-m>-18.919</x-m> -->
+			<x-m>1.521</x-m>
+			<y-m> 0.23</y-m>
+			<z-m>0.886</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>operating_time_indicator</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/operating_time/opt.xml</path>
+		<offsets>
+			<!--    <x-m>-18.919</x-m> -->
+			<x-m>1.521</x-m>
+			<y-m> 0.22</y-m>
+			<z-m>0.84</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>asi_cp</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/asi/asi.xml</path>
+		<offsets>
+			<x-m>0.0</x-m>
+			<y-m>0.374</y-m>
+			<z-m>-0.097</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>ai_cp</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/ai/ai.xml</path>
+		<offsets>
+			<x-m>-0.0</x-m>
+			<y-m>0.481</y-m>
+			<z-m>-0.089</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>alt_cp</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/alt/alt.xml</path>
+		<offsets>
+			<x-m>-0.0</x-m>
+			<y-m>0.608</y-m>
+			<z-m>-0.141</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>mach_cp</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/mach/mach.xml</path>
+		<offsets>
+			<x-m>-0.0</x-m>
+			<y-m>0.293</y-m>
+			<z-m>-0.202</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>VORrmi_cp</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/rmi/rmi.xml</path>
+		<offsets>
+			<x-m>-0.0</x-m>
+			<y-m>0.379</y-m>
+			<z-m>-0.202</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>hsi_cp</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/hsi/hsi-copilot.xml</path>
+		<offsets>
+			<x-m>-0.0</x-m>
+			<y-m>0.480</y-m>
+			<z-m>-0.210</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>ADF_rmi_cp</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/rmi/rmi.xml</path>
+		<offsets>
+			<x-m>-0.0</x-m>
+			<y-m>0.293</y-m>
+			<z-m>-0.281</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>turn_cp</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/turn/turn.xml</path>
+		<offsets>
+			<x-m>-0.0</x-m>
+			<y-m>0.480</y-m>
+			<z-m>-0.296</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>vsi_cp</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/vs/vsi.xml</path>
+		<offsets>
+			<x-m>-0.0</x-m>
+			<y-m>0.63</y-m>
+			<z-m>-0.266</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>clock_cp</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/clock/clock.xml</path>
+		<offsets>
+			<x-m>-0.0</x-m>
+			<y-m>0.70</y-m>
+			<z-m>-0.291</z-m>
+		</offsets>
+	</model>
+
+
+
+	<model>
+		<name>agl_cp</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/agl/agl.xml</path>
+		<offsets>
+			<!--    <x-m>-18.967</x-m> -->
+			<x-m>1.473</x-m>
+			<y-m> 0.482</y-m>
+			<z-m>0.878</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>agl-switch_cp</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/agl/agl-switch.xml</path>
+		<offsets>
+			<!--    <x-m>-18.967</x-m> -->
+			<x-m>1.473</x-m>
+			<y-m> 0.335</y-m>
+			<z-m>0.878</z-m>
+		</offsets>
+	</model>
+
+
+	<model>
+		<name>marker_beacon_cp</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/lamps/marker_beacon.xml</path>
+		<offsets>
+			<!--    <x-m>-18.921</x-m> -->
+			<x-m>1.519</x-m>
+			<y-m> 0.61</y-m>
+			<z-m>0.885</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>rmi_cp</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/rmi/rmi.xml</path>
+		<offsets>
+			<!--    <x-m>-18.919</x-m> -->
+			<x-m>1.521</x-m>
+			<y-m> 0.305</y-m>
+			<z-m>0.797</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>dme_cp</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/dme/dme.xml</path>
+		<offsets>
+			<!--    <x-m>-18.916</x-m> -->
+			<x-m>1.524</x-m>
+			<y-m> 0.495</y-m>
+			<z-m>0.71</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>speed-limit-lamps_cp</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/lamps/speed-limit.xml</path>
+		<offsets>
+			<!--    <x-m>-18.916</x-m> -->
+			<x-m>1.524</x-m>
+			<y-m>0.231</y-m>
+			<z-m>0.78</z-m>
+		</offsets>
+	</model>
+
+
+	<model>
+		<name>turn_cp</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/turn/turn.xml</path>
+		<offsets>
+			<!--    <x-m>-18.916</x-m> -->
+			<x-m>1.524</x-m>
+			<y-m> 0.308</y-m>
+			<z-m>0.71</z-m>
+		</offsets>
+	</model>
+
+
+	<!-- center top panel -->
+
+	<model>
+		<name>firewarning_lamps</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/firewarning/firewarning.xml</path>
+		<offsets>
+			<!--   <x-m>-18.797</x-m>  -->
+			<x-m>1.683</x-m>
+			<y-m>  0.00</y-m>
+			<z-m>  1.05</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>Autopilot Helper</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/ap/ap-fg.xml</path>
+		<offsets>
+			<!--      <x-m>-18.812</x-m> -->
+			<x-m>-18.812</x-m>
+			<y-m>-0.126</y-m>
+			<z-m> 1.043</z-m>
+		</offsets>
+	</model>
+
+
+	<model>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/radio/tacan.xml</path>
+		<condition>
+			<or>		
+				<equals>
+					<property>sim/aircraft</property>
+					<value type="string">EC-137D</value>
+				</equals>
+				<equals>
+					<property>sim/aircraft</property>
+					<value type="string">VC10-TT</value>
+				</equals>
+				<equals>
+					<property>sim/model/livery/file</property>
+					<value type="string">USA</value>
+				</equals>
+				<equals>
+					<property>sim/model/livery/file</property>
+					<value type="string">FAE</value>
+				</equals>
+				<equals>
+					<property>sim/model/livery/file</property>
+					<value type="string">CR</value>
+				</equals>
+			</or>
+		</condition>
+		<offsets>   
+			<!--		  <x-m>-18.325</x-m> -->
+			<x-m>2.115</x-m>
+			<y-m>  0.0675</y-m>
+			<z-m>  0.625</z-m>
+			<pitch-deg>-90</pitch-deg>
+		</offsets>
+	</model>
+
+	<model>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/radar/radar.xml</path>
+		<offsets>
+			<!--			<x-m>-18.85</x-m> -->
+			<x-m>1.55</x-m>
+			<y-m>-0.0</y-m>
+			<z-m>0.729</z-m>
+			<pitch-deg>-70</pitch-deg>
+		</offsets>
+	</model>
+
+</PropertyList>
+
+

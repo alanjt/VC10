@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--####################################################################
+Lake of Constance Hangar
+Vickers VC10 for Flightgear
+Copyright (C) 2013 M.Kraus
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Every software has a developer, also free software. 
+As a gesture of courtesy and respect, I would be delighted 
+if you contacted me before making any changes to this software. 
+<info (at) marc-kraus.de> April, 2017
+########################################################################-->
+<PropertyList>
+ <path>extPower.ac</path>
+
+	<animation>
+		<type>material</type>
+		<object-name>LampGreen</object-name>
+		<object-name>LampBlue</object-name>
+		<object-name>sockle</object-name>
+		<object-name>switch</object-name>
+		<condition>	
+			<not><property>/sim/rendering/rembrandt/enabled</property></not>
+		</condition>
+		<emission>
+		  <red>0.2</red>
+		  <green>0.2</green>
+		  <blue>0.2</blue>
+		  <factor-prop>systems/electrical/outputs/engineer-dim</factor-prop>
+		</emission>
+	</animation>
+
+	<animation>
+		<type>noshadow</type>
+		<object-name>LampGreen</object-name>
+		<object-name>LampBlue</object-name>
+		<object-name>LampGreenON</object-name>
+		<object-name>LampBlueON</object-name>
+	</animation>
+
+	<animation>
+		<type>material</type>
+		<object-name>LampGreenON</object-name>
+		<emission>
+		  <red>   0 </red>
+		  <green> 1.0 </green>
+		  <blue>  0 </blue>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>LampBlueON</object-name>
+		<emission>
+		  <red>   0.5 </red>
+		  <green> 1.0 </green>
+		  <blue>  1.0 </blue>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>LampGreenON</object-name>
+		<condition>		
+		  <or>
+		    <property>VC10/external-power-connected</property>
+		    <property>controls/test/warn-knob</property>
+		  </or>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>LampBlueON</object-name>
+		<condition>	
+			<greater-than>
+				<property>VC10/ess-bus</property>
+				<value>20</value>
+			</greater-than>
+		  <or>
+		    <and>
+		    	<property>VC10/external-power-connected</property>
+		    	<property>controls/electric/battery-switch</property>		    
+				  <property>VC10/ground-connect</property>	
+				  <equals>	    
+		    		<property>VC10/ess-power-switch</property>
+		    		<value>5</value>
+		    	</equals>
+				</and>
+		    <and>
+		      <equals>
+		    		<property>VC10/apu/off-start-run</property>
+		    		<value>2</value>
+		    	</equals>
+		    	<property>VC10/generator/gen-drive[4]</property>	
+				  <equals>	    
+		    		<property>VC10/ess-power-switch</property>
+		    		<value>0</value>
+		    	</equals>
+				</and>
+		    <property>controls/test/warn-knob</property>
+		  </or>
+		</condition>
+	</animation>
+
+  <!-- ground switch -->
+	<animation>
+		  <type>rotate</type>
+		  <object-name>switch</object-name>
+		  <property>VC10/ground-connect</property>
+      <factor>-60</factor>
+		  <axis>
+		   <x>1</x>
+		   <y>0</y>
+		   <z>0</z>
+		  </axis>
+		  <center>
+		  <x-m>0.0</x-m>
+		  <y-m>0.004</y-m>
+		  <z-m>0.0</z-m>
+		  </center>  
+	</animation>
+
+	<animation>
+		  <type>pick</type>
+		  <object-name>switch</object-name>
+		  <action>
+		    <button>0</button>
+		    <repeatable>false</repeatable>
+		    <binding>
+		        <command>property-toggle</command>
+		  			<property>VC10/ground-connect</property>
+		    </binding>
+        <binding>
+            <command>nasal</command>
+            <script>	
+							var exco = getprop("VC10/external-power-connected") or 0;
+							var elbat = getprop("/controls/electric/battery-switch") or 0;
+							var epow = getprop("VC10/ess-power-switch") or 0;
+							var ofstaru = getprop("VC10/apu/off-start-run") or 0;
+							var g4d = getprop("VC10/generator/gen-drive[4]") or 0;
+
+							if(!elbat or !exco or epow != 5){
+								settimer(func{ setprop("VC10/ground-connect", 0);}, 0.2);
+							}
+						</script>
+        </binding>
+		    <binding>
+		      <command>property-toggle</command>
+		      <property>sim/sound/switch2</property>
+		    </binding>
+		  </action>
+	</animation>
+
+</PropertyList>

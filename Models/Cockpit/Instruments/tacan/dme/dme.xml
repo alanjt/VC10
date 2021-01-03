@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--####################################################################
+Lake of Constance Hangar
+Vickers VC10 for Flightgear
+Copyright (C) 2013 M.Kraus
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Every software has a developer, also free software. 
+As a gesture of courtesy and respect, I would be delighted 
+if you contacted me before making any changes to this software. 
+<info (at) marc-kraus.de> April, 2017
+########################################################################-->
+<PropertyList>
+
+ <name>dme</name>
+ <path>dme.ac</path>
+
+	<effect>
+		<inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>shadow</object-name>
+	</effect>
+	
+	<animation>
+		<type>material</type>
+        <object-name>Tacan.1</object-name>
+        <object-name>Tacan.10</object-name>
+        <object-name>Tacan.100</object-name>
+      	<object-name>Dot</object-name>
+		<object-name>face</object-name>
+		<object-name>screws</object-name>
+		<object-name>norange</object-name>
+		<condition>
+			<less-than><property>systems/electrical/outputs/cabin-dim</property><value>0.8</value></less-than>
+		</condition>
+		<emission>
+			<red>0.6</red>
+			<green>0.4</green>
+			<blue>0.3</blue>
+			<factor-prop>systems/electrical/outputs/panel-dim</factor-prop>
+		</emission>
+	</animation>
+	
+  	<animation>
+  		<type>material</type>
+        <object-name>Tacan.1</object-name>
+        <object-name>Tacan.10</object-name>
+        <object-name>Tacan.100</object-name>
+      	<object-name>Dot</object-name>
+		<object-name>shadow</object-name>		
+		<object-name>face</object-name>
+		<object-name>screws</object-name>
+		<object-name>norange</object-name>
+		<condition>
+			<not><property>/sim/rendering/rembrandt/enabled</property></not>
+			<property>systems/electrical/outputs/cabin-dim</property>
+		</condition>
+		<emission>
+		  <red>0.8</red>
+		  <green>0.8</green>
+		  <blue>0.8</blue>
+		  <factor-prop>systems/electrical/outputs/cabin-dim</factor-prop>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>norange</object-name>
+		<condition>
+			<or>	
+				<less-than>
+					<property>VC10/ess-bus</property>
+					<value>22</value>
+				</less-than>
+				<less-than>
+					<property>instrumentation/tacan/switch-position</property>
+					<value>1</value>
+				</less-than>
+	            <not><property>instrumentation/tacan/in-range</property></not>
+			</or>
+		</condition>
+	</animation>
+
+    <animation>
+        <type>textranslate</type>
+        <object-name>Tacan.100</object-name>
+        <property>instrumentation/tacan/indicated-distance-nm</property>
+        <factor>0.01</factor>
+        <step>10</step>
+		    <bias>0.005</bias>
+        <axis>
+            <x>0</x>
+            <y>1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>textranslate</type>
+        <object-name>Tacan.10</object-name>
+        <property>instrumentation/tacan/indicated-distance-nm</property>
+        <factor>0.1</factor>
+        <step>1</step>
+		    <bias>0.005</bias>
+        <axis>
+            <x>0</x>
+            <y>1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>textranslate</type>
+        <object-name>Tacan.1</object-name>
+        <property>instrumentation/tacan/indicated-distance-nm</property>
+        <factor>1</factor>
+        <step>0.1</step>
+        <axis>
+            <x>0</x>
+            <y>1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <!-- Click on the instrument showing the distance on the screen -->    
+    <animation>
+      <type>pick</type>
+      <object-name>face</object-name>
+      <visible>true</visible>
+      <action>
+        <button>0</button>
+        <repeatable>false</repeatable>
+		  <binding>
+			  <command>nasal</command>
+			  <script>
+				  VC10.show_tacan_dme();
+      		</script>
+		  </binding>
+      </action>
+    </animation>
+
+</PropertyList>

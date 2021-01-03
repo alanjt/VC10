@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--####################################################################
+Lake of Constance Hangar
+Vickers VC10 for Flightgear
+Copyright (C) 2013 M.Kraus
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Every software has a developer, also free software. 
+As a gesture of courtesy and respect, I would be delighted 
+if you contacted me before making any changes to this software. 
+<info (at) marc-kraus.de> April, 2017
+########################################################################-->
+<PropertyList>
+
+<fx>
+
+    <engine>
+        <name>left engine</name>
+        <path>Aircraft/VC10/Sounds/mpjet.wav</path>
+        <mode>looped</mode>
+        <condition>
+            <property>engines/engine[0]/n1</property>
+        </condition>
+        <volume>
+            <property>engines/engine[0]/n1</property>
+            <offset>-0.75</offset>
+            <factor>0.0125</factor>
+            <min>0.0</min>
+            <max>5.0</max>
+        </volume>
+        <position>
+            <x>0</x>
+            <y>9.8</y>
+            <z>-3</z>
+        </position>
+        <reference-dist>400.0</reference-dist>
+        <max-dist>5000.0</max-dist>
+    </engine>
+
+    <engine>
+        <name>right engine</name>
+        <path>Aircraft/VC10/Sounds/mpjet.wav</path>
+        <mode>looped</mode>
+        <condition>
+            <property>engines/engine[2]/n1</property>
+        </condition>
+        <volume>
+            <property>engines/engine[2]/n1</property>
+            <offset>-0.75</offset>
+            <factor>0.0125</factor>
+            <min>0.0</min>
+            <max>5.0</max>
+        </volume>
+        <position>
+            <x>0</x>
+            <y>-9.8</y>
+            <z>-3</z>
+        </position>
+        <reference-dist>400.0</reference-dist>
+        <max-dist>5000.0</max-dist>
+    </engine>
+
+    <engine>
+        <name>left n1</name>
+        <path>Aircraft/VC10/Sounds/mpjet.wav</path>
+        <mode>looped</mode>
+        <property>engines/engine[0]/n1</property>
+        <pitch>
+            <property>engines/engine[0]/n1</property>
+            <offset>0.8</offset>
+            <factor>0.1</factor>
+            <min>0.0</min>
+            <max>100.0</max>
+        </pitch>
+        <volume>
+            <property>engines/engine[0]/n1</property>
+            <factor>10</factor>
+            <min>0.0</min>
+            <max>0.5</max>
+        </volume>
+        <position>
+            <x>0</x>
+            <y>9.8</y>
+            <z>-3</z>
+        </position>
+        <reference-dist>400.0</reference-dist>
+        <max-dist>5000.0</max-dist>
+    </engine>
+
+    <engine>
+        <name>right n1</name>
+        <path>Aircraft/VC10/Sounds/mpjet.wav</path>
+        <mode>looped</mode>
+        <property>engines/engine[2]/n1</property>
+        <volume>
+            <property>engines/engine[2]/n1</property>
+            <factor>10</factor>
+            <min>0.0</min>
+            <max>0.5</max>
+        </volume>
+        <pitch>
+            <property>engines/engine[2]/n1</property>
+            <offset>0.8</offset>
+            <factor>0.1</factor>
+            <min>0.0</min>
+            <max>100.0</max>
+        </pitch>
+        <position>
+            <x>0</x>
+            <y>-9.8</y>
+            <z>-3</z>
+        </position>
+        <reference-dist>400.0</reference-dist>
+        <max-dist>5000.0</max-dist>
+    </engine>
+
+    <extpowerunit>
+      <name>ExtPower_inside</name>
+      <mode>looped</mode>
+      <path>Aircraft/VC10/Sounds/external.wav</path>
+      <condition>
+      	<property>sim/multiplay/generic/int[14]</property>
+      </condition>
+      <volume>
+        <property>sim/multiplay/generic/int[14]</property>
+        <factor>1.00</factor>
+        <offset>0.00</offset>
+        <min>0.05</min>
+        <max>0.15</max>
+      </volume>
+        <position>
+            <x>0</x>
+            <y>-9.8</y>
+            <z>-3</z>
+        </position>
+        <reference-dist>400.0</reference-dist>
+        <max-dist>2000.0</max-dist>
+    </extpowerunit> 
+
+  <crashed>
+    <name>AirplaneCrashed</name>
+    <mode>looped</mode>
+    <path>Aircraft/VC10/Sounds/crash_ground.wav</path>
+     <condition>			
+     	<and>
+			<property>sim/multiplay/generic/int[19]</property>
+        	<property>sim/multiplay/generic/float[2]</property>
+		 </and>
+     </condition>
+      <volume>
+        <property>sim/multiplay/generic/float[2]</property>
+        <factor>1.00</factor>
+        <offset>0.00</offset>
+        <min>0.05</min>
+        <max>0.15</max>
+      </volume>
+        <position>
+            <x>0</x>
+            <y>-9.8</y>
+            <z>-3</z>
+        </position>
+        <reference-dist>400.0</reference-dist>
+        <max-dist>4000.0</max-dist>
+    </crashed>
+
+</fx>
+
+</PropertyList>

@@ -1,0 +1,2735 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--####################################################################
+Vickers VC10 for Flightgear
+Copyright (C) 2019 Alan Teeder
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Every software has a developer, also free software. 
+As a gesture of courtesy and respect, I would be delighted 
+if you contacted me before making any changes to this software. 
+<ajteeder (at) v-twin (dot) org (dot) uk> October 2020
+########################################################################-->
+<PropertyList>
+
+	<path>Aircraft/VC10/Models/VC10.ac</path>
+
+	<animation>
+		<type>select</type>		
+<!--		<object-name>Fuselage</object-name> -->
+		<object-name>Fin</object-name>
+		<object-name>Rudder</object-name>
+		<object-name>Engine1</object-name>
+		<object-name>Engine2</object-name>
+		<object-name>Engine3</object-name>
+		<object-name>Engine4</object-name>
+		<object-name>EnginePylon</object-name>
+		<object-name>lhngdoor</object-name>
+		<object-name>Wing</object-name>
+		<object-name>Elevator.L</object-name>
+		<object-name>Elevator.R</object-name>
+		<object-name>FlapsInner.L</object-name>
+		<object-name>FlapsInner.R</object-name>
+		<object-name>FlapsOuter.L</object-name>
+		<object-name>FlapsOuter.R</object-name>
+		<object-name>FlapsInner1.L</object-name>
+		<object-name>FlapsInner1.R</object-name>
+		<object-name>FlapsInner2.L</object-name>
+		<object-name>FlapsInner2.R</object-name>
+		<object-name>FlapsInner3.L</object-name>
+		<object-name>FlapsInner3.R</object-name>
+		<object-name>FlapsInner4.L</object-name>
+		<object-name>FlapsInner4.R</object-name>
+		<object-name>FlapTrack1</object-name>		
+		<object-name>FlapTrack2</object-name>		
+		<object-name>FlapTrack3</object-name>		
+		<object-name>FlapTrack4</object-name>		
+		<object-name>FlapTrack5</object-name>			
+		<object-name>FlapTrack6</object-name>		
+		<object-name>FlapTrackFairing1.L</object-name>		
+		<object-name>FlapTrackFairing1.R</object-name>
+		<object-name>FlapTrackFairing2.L</object-name>		
+		<object-name>FlapTrackFairing2.R</object-name>	
+		<object-name>FlapTrackFairinginner3.L</object-name>		
+		<object-name>FlapTrackFairinginer3.R</object-name>	
+		<object-name>FlapTrackFairingouter3.L</object-name>		
+		<object-name>FlapTrackFairingouter3.R</object-name>	
+		<object-name>FlapTrackFairing4.L</object-name>		
+		<object-name>FlapTrackFairing4.R</object-name>	
+		<object-name>FlapTrackFairing5.L</object-name>		
+		<object-name>FlapTrackFairing5.R</object-name>
+		<object-name>FlapTrackFairing6.L</object-name>		
+		<object-name>FlapTrackFairing6.R</object-name>			
+		<object-name>Aileron.L</object-name>
+		<object-name>Aileron.R</object-name>
+		<object-name>Spoilers.L</object-name>
+		<object-name>Spoilers.R</object-name>
+		<object-name>NGear</object-name>
+		<object-name>NGearStrut</object-name>
+		<object-name>NoseWheel</object-name>
+		<object-name>RightGear</object-name>
+		<object-name>RightGear.001</object-name>
+		<object-name>RightGearBase</object-name>
+		<object-name>RightGearCompressor</object-name>
+		<object-name>RightGearCompressor1</object-name>
+		<object-name>LeftGear</object-name>
+		<object-name>LeftGear.001</object-name>
+		<object-name>LeftGearBase</object-name>
+		<object-name>LeftGearCompressor</object-name>
+		<object-name>LeftGearCompressor1</object-name>
+		<condition>
+			<not><property>/sim/current-view/internal</property></not>
+		</condition>
+	</animation>
+
+	<sound><path>Aircraft/VC10/Sounds/mp-sound.xml</path></sound>
+
+	<!--
+	<nasal>
+	<load>
+      var livery_update = aircraft.livery_update.new("Aircraft/VC10/Models/Liveries", 10);
+    </load>
+
+    <unload>
+      livery_update.stop();
+    </unload>
+  </nasal> -->
+
+	<animation>
+		<object-name>Fuselage</object-name>
+		<!--		<object-name>Fuselage.inner</object-name>
+		<object-name>fuselage.belly</object-name>
+		<object-name>doorFL</object-name>
+		<object-name>doorRL</object-name>
+		<object-name>doorCargo</object-name>
+		<object-name>doorBelly</object-name>
+		<object-name>nose</object-name> -->
+		<object-name>Fin</object-name>
+		<object-name>Rudder</object-name>
+		<!--		<object-name>nonones</object-name>
+		<object-name>lhaftfairing</object-name>
+		<object-name>lhdoorinner</object-name>
+		<object-name>lhdoorouter</object-name>
+		<object-name>lhfwdfairing</object-name>
+		<object-name>rhaftfairing</object-name>
+		<object-name>rhdoorinner</object-name>
+		<object-name>rhdoorouter</object-name>
+		<object-name>rhfwdfairing</object-name> -->
+		<object-name>Engine1</object-name>
+		<object-name>Engine2</object-name>
+		<object-name>Engine3</object-name>
+		<object-name>Engine4</object-name>
+		<object-name>EnginePylon</object-name>
+		<object-name>lhngdoor</object-name>
+		<!--		<object-name>lhngdooraft</object-name>
+		<object-name>rhngdoor</object-name>
+		<object-name>rhngdooraft</object-name>
+		<object-name>mgdoora</object-name>
+		<object-name>mgdoorb</object-name>
+		<object-name>mgdoorc</object-name>
+		<object-name>rhmgdoora</object-name>
+		<object-name>rhmgdoorb</object-name>
+		<object-name>rhmgdoorc</object-name> -->
+		<object-name>Wing</object-name>
+		<object-name>Elevator.L</object-name>
+		<object-name>Elevator.R</object-name>
+		<!--		<object-name>rhfiletflap</object-name>
+		<object-name>lhfiletflap</object-name> -->
+		<object-name>FlapsInner.L</object-name>
+		<object-name>FlapsInner.R</object-name>
+		<object-name>FlapsOuter.L</object-name>
+		<object-name>FlapsOuter.R</object-name>
+		<object-name>FlapsInner1.L</object-name>
+		<object-name>FlapsInner1.R</object-name>
+		<object-name>FlapsInner2.L</object-name>
+		<object-name>FlapsInner2.R</object-name>
+		<object-name>FlapsInner3.L</object-name>
+		<object-name>FlapsInner3.R</object-name>
+		<object-name>FlapsInner4.L</object-name>
+		<object-name>FlapsInner4.R</object-name>
+		<object-name>FlapTrack1.L</object-name>		
+		<object-name>FlapTrack1.R</object-name>
+		<object-name>FlapTrack2.L</object-name>		
+		<object-name>FlapTrack2.R</object-name>
+		<object-name>FlapTrack3.L</object-name>		
+		<object-name>FlapTrack3.R</object-name>
+		<object-name>FlapTrack4.L</object-name>		
+		<object-name>FlapTrack4.R</object-name>
+		<object-name>FlapTrack5.L</object-name>		
+		<object-name>FlapTrack5.R</object-name>	
+		<object-name>FlapTrack6.L</object-name>		
+		<object-name>FlapTrack6.R</object-name>
+		<object-name>FlapTrackFairing1.L</object-name>		
+		<object-name>FlapTrackFairing1.R</object-name>
+		<object-name>FlapTrackFairing2.L</object-name>		
+		<object-name>FlapTrackFairing2.R</object-name>	
+		<object-name>FlapTrackFairinginner3.L</object-name>		
+		<object-name>FlapTrackFairinginer3.R</object-name>	
+		<object-name>FlapTrackFairingouter3.L</object-name>		
+		<object-name>FlapTrackFairingouter3.R</object-name>	
+		<object-name>FlapTrackFairing4.L</object-name>		
+		<object-name>FlapTrackFairing4.R</object-name>	
+		<object-name>FlapTrackFairing5.L</object-name>		
+		<object-name>FlapTrackFairing5.R</object-name>
+		<object-name>FlapTrackFairing6.L</object-name>		
+		<object-name>FlapTrackFairing6.R</object-name>		
+		<object-name>Aileron.L</object-name>
+		<object-name>Aileron.R</object-name>
+		<object-name>Spoilers.L</object-name>
+		<object-name>Spoilers.R</object-name>
+		<!--		<object-name>rhsp3</object-name>
+		<object-name>lhsp3</object-name>
+		<object-name>rhibail</object-name>
+		<object-name>lhibail</object-name>
+		<object-name>rhobail</object-name>
+		<object-name>lhobail</object-name>-->
+		<object-name>NGear</object-name>
+		<object-name>NGearStrut</object-name>
+		<object-name>NoseWheel</object-name>
+		<object-name>RightGear</object-name>
+		<object-name>RightGear.001</object-name>
+		<object-name>RightGearBase</object-name>
+		<object-name>RightGearCompressor</object-name>
+		<object-name>RightGearCompressor1</object-name>
+		<object-name>LeftGear</object-name>
+		<object-name>LeftGear.001</object-name>
+		<object-name>LeftGearBase</object-name>
+		<object-name>LeftGearCompressor</object-name>
+		<object-name>LeftGearCompressor1</object-name>
+		<property-base>sim/model/livery</property-base>
+		<texture-prop>texture</texture-prop>
+		<texture>VC10.png</texture>
+	</animation>
+
+	<animation>
+		<type>material</type>
+		<object-name>Rudder</object-name>
+		<object-name>Fin</object-name>
+		<condition>
+			<not>
+				<property>sim/rendering/rembrandt/enabled</property>
+			</not>
+		</condition>
+		<emission>
+			<red>0.35</red>
+			<green>0.35</green>
+			<blue>0.35</blue>
+			<factor-prop>sim/multiplay/generic/int[7]</factor-prop>
+		</emission>
+	</animation>
+
+	<!--	<animation>
+		<type>noshadow</type>
+		<object-name>fuselage.inner</object-name>
+		<object-name>fuselage.belly</object-name>
+		<object-name>cockpit</object-name>     
+	</animation>  -->
+
+	<!-- inside fuselage -->
+	<!--	<animation>
+		<type>material</type>
+		<object-name>fuselage.inner</object-name>
+		<object-name>fuselage.belly</object-name>
+		<emission>
+			<red>0.1</red>
+			<green>0.1</green>
+			<blue>0.1</blue>
+			<factor-prop>sim/multiplay/generic/float[0]</factor-prop>
+		</emission>
+	</animation> -->	
+
+	<!--	<animation>
+		<type>select</type>
+		<object-name>fuselage.belly</object-name>
+		<condition>
+		<or>
+	      	<property>sim/multiplay/generic/float[6]</property>
+	      	<property>sim/multiplay/generic/float[7]</property>
+	      	<property>sim/multiplay/generic/float[15]</property>
+	      	<property>sim/multiplay/generic/float[16]</property>
+	      	<property>sim/multiplay/generic/int[19]</property>
+        </or>
+		</condition>
+	</animation> -->
+
+	<!--	<animation>
+		<type>select</type>
+		<object-name>fuselage.inner</object-name>
+		<condition>
+			<or>
+				<property>sim/multiplay/generic/int[9]</property>
+				<and>
+					<not>
+						<equals>
+							<property>/sim/current-view/name</property>
+							<value type="string">Passengers View</value>
+						</equals>
+					</not>
+					<not><property>sim/multiplay/generic/int[9]</property></not>
+				</and>
+			</or>
+		</condition>
+	</animation> -->
+
+	<!-- External -->
+	<!--	<model>
+	 <name>Pushback</name>
+	 <path>Models/Airport/Pushback/Goldhofert.xml</path>
+	 <offsets>
+		<x-m>-17.5</x-m>
+		<y-m>0</y-m>
+		<z-m>-2.9</z-m>
+	 </offsets>
+	</model>
+	
+	<model>
+	 <name>ExternalPowerUnit</name>
+	 <path>Aircraft/VC10/Models/epu.xml</path>
+		<offsets>
+      <x-m>-17.5</x-m>
+      <y-m>7.0</y-m>
+      <z-m>-2.92</z-m>
+      <heading-deg> 25 </heading-deg>
+		</offsets>
+	</model>
+	
+	<animation>
+		<type>select</type>
+		<object-name>ExternalPowerUnit</object-name>
+		<condition>
+		  <property>sim/multiplay/generic/int[14]</property>
+		  <not><property>sim/multiplay/generic/int[19]</property></not>
+		</condition>
+	</animation>
+	
+  <animation>
+		<type>pick</type>
+		<object-name>ExternalPowerUnit</object-name>
+		<action>
+		  <button>0</button>
+		  <repeatable>true</repeatable>
+		  <interval-sec>0.2</interval-sec>
+		  <binding>
+				<command>property-toggle</command>
+    		<property>VC10/external-power-connected</property>
+		  </binding>
+		</action>
+  </animation> -->
+
+	<!-- Fuel Truck -->
+	<!--  <model>
+  	<name>FuelTruck</name>
+	<path>Aircraft/VC10/Models/fuel-truck.xml</path>
+	<offsets>
+	  <x-m>0.0</x-m>
+	  <y-m>0.0</y-m>
+	  <z-m>0.0</z-m>
+	</offsets>
+  </model>
+
+	<animation>
+		<type>select</type>
+		<object-name>FuelTruck</object-name>
+		<condition>
+		  <property>sim/multiplay/generic/float[13]</property>
+		  <not><property>sim/multiplay/generic/int[19]</property></not>
+		</condition>
+	</animation> 
+  
+  <animation>
+		<type>pick</type>
+		<object-name>FuelTruck</object-name>
+		<action>
+		  <button>0</button>
+		  <repeatable>true</repeatable>
+		  <interval-sec>0.2</interval-sec>
+          <binding>
+            <command>nasal</command>
+            <script><![CDATA[ 
+				setprop("VC10/ground-service/fuel-truck/transfer", 0);
+				setprop("VC10/ground-service/fuel-truck/connect", 0);
+				setprop("VC10/ground-service/fuel-truck/enable", 0);
+				setprop("VC10/ground-service/fuel-truck/clean", 0);
+				setprop("VC10/ground-service/fuel-truck/state", 0);
+            ]]></script>
+          </binding>
+		</action>
+  </animation> -->
+
+	<!-- Stairways -->
+	<!--	<model>
+		<name>frontStair</name>
+		<path>Aircraft/VC10/Models/stairs.xml</path>
+		<offsets>
+			<x-m>-15.39</x-m>
+			<y-m>-5.1</y-m>
+      <z-m>-2.92</z-m>
+			<heading-deg>-6</heading-deg>
+		</offsets>
+	</model>
+
+	<model>
+		<name>rearStair</name>
+		<path>Aircraft/VC10/Models/stairs.xml</path>
+		<offsets>
+			<x-m>16.0</x-m>
+			<y-m>-4.2</y-m>
+      <z-m>-2.92</z-m>
+			<heading-deg>10</heading-deg>
+		</offsets>
+	</model>
+	
+	<animation>
+		<type>select</type>
+		<object-name>frontStair</object-name>
+		<condition>
+		  <not><property>sim/multiplay/generic/int[19]</property></not>
+		  <or>
+      	<property>sim/multiplay/generic/float[6]</property>
+      	<property>sim/multiplay/generic/float[7]</property>
+      	<property>sim/multiplay/generic/float[12]</property>
+      	<property>sim/multiplay/generic/float[15]</property>
+      	<property>sim/multiplay/generic/float[16]</property>
+      </or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>rearStair</object-name>
+		<condition>
+		  <not><property>sim/multiplay/generic/int[19]</property></not>
+		  <or>
+      	<property>sim/multiplay/generic/float[6]</property>
+      	<property>sim/multiplay/generic/float[7]</property>
+      	<property>sim/multiplay/generic/float[12]</property>
+      </or>
+		</condition>
+	</animation>
+	
+  <animation>
+      <type>translate</type>
+      <object-name>frontStair</object-name>
+      <property>sim/multiplay/generic/float[6]</property>
+			<interpolation>
+				<entry><ind>    0.0</ind><dep>   0.0</dep></entry>
+				<entry><ind>    0.2</ind><dep>   0.0</dep></entry>
+				<entry><ind>    1.0</ind><dep>   4.55</dep></entry>
+			</interpolation>
+      <axis>
+          <x> 0.0</x>
+          <y> 1.0</y>
+          <z> 0.0</z>
+      </axis>
+  </animation>
+  
+  <animation>
+      <type>translate</type>
+      <object-name>rearStair</object-name>
+      <property>sim/multiplay/generic/float[7]</property>
+			<interpolation>
+				<entry><ind>    0.0</ind><dep>   0.0</dep></entry>
+				<entry><ind>    0.2</ind><dep>   0.0</dep></entry>
+				<entry><ind>    1.0</ind><dep>   4.0</dep></entry>
+			</interpolation>
+      <axis>
+          <x> 0.0</x>
+          <y> 1.0</y>
+          <z> 0.0</z>
+      </axis>
+  </animation>
+  
+  <animation>
+		<type>pick</type>
+		<object-name>frontStair</object-name>
+		<action>
+		  <button>0</button>
+		  <repeatable>true</repeatable>
+		  <interval-sec>0.2</interval-sec>
+		  <binding>
+		   <command>nasal</command>
+		   <script>VC10.doorsystem.pasfrontexport();</script>
+		  </binding>
+		</action>
+  </animation>
+
+  <animation>
+		<type>pick</type>
+		<object-name>rearStair</object-name>
+		<action>
+		  <button>0</button>
+		  <repeatable>true</repeatable>
+		  <interval-sec>0.2</interval-sec>
+		  <binding>
+		   <command>nasal</command>
+		   <script>VC10.doorsystem.pasrearexport();</script>
+		  </binding>
+		</action>
+  </animation> -->	
+
+	<!-- cargo equipment -->
+	<!--	<model>
+	 <name>Loader1</name>
+	 <path>Aircraft/VC10/Models/loader.xml</path>
+	 <offsets>
+		<x-m>0</x-m>
+		<y-m>-6.2</y-m>
+		<z-m>0</z-m>
+	 </offsets>
+	</model>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Loader1</object-name>
+		<condition>
+		  <and>
+		  	<not><property>sim/multiplay/generic/int[19]</property></not>
+		    <property>sim/multiplay/generic/int[9]</property>
+				<or>
+		    	<property>sim/multiplay/generic/float[6]</property>
+		    	<property>sim/multiplay/generic/float[7]</property>
+		    	<property>sim/multiplay/generic/float[12]</property>
+		    	<property>sim/multiplay/generic/float[15]</property>
+		    </or>
+		  </and>
+		</condition>
+	</animation>
+	
+  <animation>
+      <type>translate</type>
+      <object-name>Loader1</object-name>
+      <property>sim/multiplay/generic/float[15]</property>
+			<interpolation>
+				<entry><ind>    0.0</ind><dep>   0.0</dep></entry>
+				<entry><ind>    0.1</ind><dep>   0.0</dep></entry>
+				<entry><ind>    0.5</ind><dep>   6.2</dep></entry>
+				<entry><ind>    1.0</ind><dep>   6.2</dep></entry>
+			</interpolation>
+      <axis>
+          <x> 0.0</x>
+          <y> 1.0</y>
+          <z> 0.0</z>
+      </axis>
+  </animation>
+  
+  <animation>
+		<type>pick</type>
+		<object-name>Loader1</object-name>
+		<action>
+		  <button>0</button>
+		  <repeatable>true</repeatable>
+		  <interval-sec>0.2</interval-sec>
+		  <binding>
+		   <command>nasal</command>
+		   <script>VC10.doorsystem.cargoexport();</script>
+		  </binding>
+		</action>
+  </animation>
+  
+	<model>
+	 <name>Loader2</name>
+	 <path>Aircraft/VC10/Models/belly.xml</path>
+	 <offsets>
+		<x-m>0</x-m>
+		<y-m>6.2</y-m>
+		<z-m>0</z-m>
+	 </offsets>
+	</model>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Loader2</object-name>
+		<condition>
+		  <and>
+		  	<not><property>sim/multiplay/generic/int[19]</property></not>
+		    <property>sim/multiplay/generic/int[9]</property>
+				<or>
+		    	<property>sim/multiplay/generic/float[6]</property>
+		    	<property>sim/multiplay/generic/float[7]</property>
+		    	<property>sim/multiplay/generic/float[12]</property>
+		    	<property>sim/multiplay/generic/float[16]</property>
+		    </or>
+		  </and>
+		</condition>
+	</animation>
+	
+  <animation>
+      <type>translate</type>
+      <object-name>Loader2</object-name>
+      <property>sim/multiplay/generic/float[16]</property>
+			<interpolation>
+				<entry><ind>    0.0</ind><dep>   0.0</dep></entry>
+				<entry><ind>    0.2</ind><dep>   0.0</dep></entry>
+				<entry><ind>    1.0</ind><dep>  -6.2</dep></entry>
+			</interpolation>
+      <axis>
+          <x> 0.0</x>
+          <y> 1.0</y>
+          <z> 0.0</z>
+      </axis>
+  </animation>
+  
+  <animation>
+		<type>pick</type>
+		<object-name>Loader2</object-name>
+		<action>
+		  <button>0</button>
+		  <repeatable>true</repeatable>
+		  <interval-sec>0.2</interval-sec>
+		  <binding>
+		   <command>nasal</command>
+		   <script>VC10.doorsystem.bellyexport();</script>
+		  </binding>
+		</action>
+  </animation>
+  
+  	<model>
+	 <name>Loader3</name>
+	 <path>Aircraft/VC10/Models/bellyLoader.xml</path>
+	 <offsets>
+		<x-m>0</x-m>
+		<y-m>6.2</y-m>
+		<z-m>0</z-m>
+	 </offsets>
+	</model>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Loader3</object-name>
+		<condition>
+		  <and>
+		  	<not><property>sim/multiplay/generic/int[19]</property></not>
+		    <not><property>sim/multiplay/generic/int[9]</property></not>
+				<or>
+		    	<property>sim/multiplay/generic/float[6]</property>
+		    	<property>sim/multiplay/generic/float[7]</property>
+		    	<property>sim/multiplay/generic/float[12]</property>
+		    	<property>sim/multiplay/generic/float[16]</property>
+		    </or>
+		  </and>
+		</condition>
+	</animation>
+	
+  <animation>
+      <type>translate</type>
+      <object-name>Loader3</object-name>
+      <property>sim/multiplay/generic/float[16]</property>
+			<interpolation>
+				<entry><ind>    0.0</ind><dep>   0.0</dep></entry>
+				<entry><ind>    1.0</ind><dep>  -7.0</dep></entry>
+			</interpolation>
+      <axis>
+          <x> 0.0</x>
+          <y> 1.0</y>
+          <z> 0.0</z>
+      </axis>
+  </animation>
+  
+  <animation>
+		<type>pick</type>
+		<object-name>Loader3</object-name>
+		<action>
+		  <button>0</button>
+		  <repeatable>true</repeatable>
+		  <interval-sec>0.2</interval-sec>
+		  <binding>
+		   <command>nasal</command>
+		   <script>VC10.doorsystem.bellyexport();</script>
+		  </binding>
+		</action>
+  </animation> -->
+
+	<!-- if crashed -->
+	<!--	<animation>
+		<type>select</type>
+		<object-name>rhfiletflap</object-name>
+  	<object-name>rhibflap</object-name>
+  	<object-name>lhobflap</object-name>
+  	<object-name>nose</object-name>
+  	<object-name>doorFL</object-name>
+  	<object-name>doorRL</object-name>
+		<condition>
+			<not><property>sim/multiplay/generic/int[19]</property></not>
+		</condition>	
+	</animation>  -->
+
+	<!-- shadow without rembrandt -->
+	<!--	<model>
+		<name>NewShadow</name>
+		<path>Aircraft/VC10/Models/shadow.xml</path>
+	</model>
+
+	<animation>
+		<type>select</type>
+		<object-name>NewShadow</object-name>
+		<condition>
+			<and>
+				<not><property>sim/multiplay/generic/int[19]</property></not>
+				<not><property>/sim/rendering/rembrandt/enabled</property></not>
+			</and>
+		</condition>
+	</animation> -->
+
+	<!-- animate the doors and the nose -->
+	<!--	<animation>
+      <type>rotate</type>
+      <object-name>nose</object-name>
+      <property>sim/multiplay/generic/float[12]</property>
+      <factor>120</factor>
+      <center>
+          <x-m>-19.962</x-m>
+          <y-m> -0.538</y-m>
+          <z-m>  0.0</z-m>
+      </center>
+      <axis>
+          <x>0</x>
+          <y>0</y>
+          <z>1.0</z>
+      </axis>
+  </animation>
+
+  <animation>
+		<type>pick</type>
+		<object-name>nose</object-name>		
+		<action>
+		  <button>0</button>
+		  <repeatable>true</repeatable>
+		  <interval-sec>0.2</interval-sec>	
+		  <binding>
+		   <command>nasal</command>
+		   <script>VC10.doorsystem.noseexport();</script>
+		  </binding>
+		</action>
+  </animation>
+
+	<animation>
+      <type>rotate</type>
+      <object-name>doorFL</object-name>
+      <property>sim/multiplay/generic/float[6]</property>
+			<interpolation>
+				<entry><ind>    0.0</ind><dep>   0.0</dep></entry>
+				<entry><ind>    0.2</ind><dep> 178.0</dep></entry>
+				<entry><ind>    1.0</ind><dep> 178.0</dep></entry>
+			</interpolation>
+			<axis>
+				<x1-m>-16.27</x1-m>
+				<y1-m> -1.1</y1-m>
+				<z1-m>  2.27</z1-m>
+				<x2-m>-16.27</x2-m>
+				<y2-m> -1.73</y2-m>
+				<z2-m> -0.06</z2-m>
+			</axis>
+  </animation>
+
+  <animation>
+		<type>pick</type>
+		<object-name>doorFL</object-name>
+		<action>
+		  <button>0</button>
+		  <repeatable>true</repeatable>
+		  <interval-sec>0.2</interval-sec>
+		  <binding>
+		   <command>nasal</command>
+		   <script>VC10.doorsystem.pasfrontexport();</script>
+		  </binding>
+		</action>
+  </animation>
+  
+	<animation>
+      <type>rotate</type>
+      <object-name>doorRL</object-name>
+      <property>sim/multiplay/generic/float[7]</property>
+			<interpolation>
+				<entry><ind>    0.0</ind><dep>   0.0</dep></entry>
+				<entry><ind>    0.2</ind><dep> 178.0</dep></entry>
+				<entry><ind>    1.0</ind><dep> 178.0</dep></entry>
+			</interpolation>
+      <center>
+          <x-m> 15.47</x-m>
+          <y-m> -1.576</y-m>
+          <z-m>  0.0</z-m>
+      </center>
+      <axis>
+          <x>0</x>
+          <y>0</y>
+          <z>-1.0</z>
+      </axis>
+  </animation>
+
+  <animation>
+		<type>pick</type>
+		<object-name>doorRL</object-name>
+		<action>
+		  <button>0</button>
+		  <repeatable>true</repeatable>
+		  <interval-sec>0.2</interval-sec>
+		  <binding>
+		   <command>nasal</command>
+		   <script>VC10.doorsystem.pasrearexport();</script>
+		  </binding>
+		</action>
+  </animation>	
+  
+	<animation>
+      <type>rotate</type>
+      <object-name>doorCargo</object-name>
+      <property>sim/multiplay/generic/float[15]</property>
+			<interpolation>
+				<entry><ind>    0.0</ind><dep>   0.0</dep></entry>
+				<entry><ind>    0.5</ind><dep> 100.0</dep></entry>
+				<entry><ind>    1.0</ind><dep> 100.0</dep></entry>
+			</interpolation>
+      <center>
+          <x-m> 0.0</x-m>
+          <y-m>-1.07</y-m>
+          <z-m> 2.13</z-m>
+      </center>
+      <axis>
+          <x>-1</x>
+          <y> 0</y>
+          <z> 0</z>
+      </axis>
+  </animation>
+
+  <animation>
+		<type>pick</type>		
+		<object-name>doorCargo</object-name>
+		<action>
+		  <button>0</button>
+		  <repeatable>true</repeatable>
+		  <interval-sec>0.2</interval-sec>
+		  <binding>
+		   <command>nasal</command>
+		   <script>VC10.doorsystem.cargoexport();</script>
+		  </binding>
+		</action>
+  </animation>
+  
+	<animation>
+      <type>rotate</type>
+      <object-name>doorBelly</object-name>
+      <property>sim/multiplay/generic/float[16]</property>
+			<interpolation>
+				<entry><ind>    0.0</ind><dep>  0.0</dep></entry>
+				<entry><ind>    1.0</ind><dep> 60.0</dep></entry>
+			</interpolation>
+      <center>
+          <x-m> 0.0</x-m>
+          <y-m> 1.688</y-m>
+          <z-m> -0.0025</z-m>
+      </center>
+      <axis>
+          <x>-1</x>
+          <y> 0</y>
+          <z> 0</z>
+      </axis>
+  </animation>
+
+  <animation>
+		<type>pick</type>		
+		<object-name>doorBelly</object-name>
+		<action>
+		  <button>0</button>
+		  <repeatable>true</repeatable>
+		  <interval-sec>0.2</interval-sec>
+		  <binding>
+		   <command>nasal</command>
+		   <script>VC10.doorsystem.bellyexport();</script>
+		  </binding>
+		</action>
+  </animation> -->	
+
+	<!-- Emergency slide-->
+	<!--	<model>
+		<name>EmergencySlide</name>
+		<path>Aircraft/VC10/Models/Cockpit/Equipment/emer_slide/emer_slide.xml</path>
+		<offsets>
+      <x-m>0</x-m>
+      <y-m>0</y-m>
+      <z-m>0</z-m>
+		</offsets>
+	</model>
+	
+ 	<animation>
+		<type>select</type>
+		<object-name>EmergencySlide</object-name>
+		<condition>
+			<and>
+				<property>sim/multiplay/generic/int[19]</property>
+				<less-than>
+						<property>velocities/vertical-speed-fps</property>
+						<value>0.1</value>
+				</less-than>
+			</and>
+		</condition>	
+	</animation> -->
+
+	<!-- Front-->
+	<!--
+	<animation>
+				<type>select</type>
+		<object-name>NGear</object-name>
+		<object-name>NGearStrut</object-name>
+		<object-name>NoseWheel</object-name>
+		<object-name>LeftGear</object-name>
+		<object-name>LeftGear.001</object-name>
+		<object-name>LeftGearBase</object-name>
+		<object-name>LeftGearCompressor</object-name>
+		<object-name>LeftGearCompressor1</object-name>
+		<object-name>RightGear</object-name>	
+		<object-name>RightGear.001</object-name>
+		<object-name>RightGearBase</object-name>
+		<object-name>RightGearCompressor</object-name>
+		<object-name>RightGearCompressor1</object-name>
+		<condition>
+		    <greater-than>
+		      <property>gear/gear[0]/position-norm</property>
+		      <value>0.0</value>
+		    </greater-than>
+		</condition>
+	</animation>
+
+ <animation>
+		<name>Frontgear</name>
+		<object-name>NGear</object-name>
+		<object-name>NGearStrut</object-name>
+		<object-name>NoseWheel</object-name>
+ </animation>
+ 
+	<model>
+		<name>NoseGearSmoke</name>
+		<path>Aircraft/VC10/Models/Effects/tyre-smoke-nose.xml</path>
+		<offsets>
+      <x-m>-15.678</x-m>
+      <y-m>0</y-m>
+      <z-m>-2.94</z-m>
+		</offsets>
+	</model>
+
+  <animation>
+      <type>spin</type>
+      <object-name>NoseWheel</object-name>
+    <property>sim/multiplay/generic/float[2]</property>
+      <factor>10</factor>
+      <axis>
+          <x>0</x>
+          <y>-1</y>
+          <z>0</z>
+      </axis>
+      <center>
+          <x-m>-15.678</x-m>
+          <y-m>0</y-m>
+          <z-m>-2.503</z-m>
+      </center>
+  </animation>
+	
+  <animation>
+    <type>translate</type>
+		<object-name>Frontgear</object-name>
+    <property>sim/multiplay/generic/float[1]</property>
+    <interpolation>
+      <entry><ind> 0 </ind><dep> 0.0 </dep></entry>
+      <entry><ind> 1 </ind><dep> 0.4 </dep></entry>
+    </interpolation>
+    <axis>   
+      <x1-m> -15.678</x1-m>
+      <y1-m>  0.00</y1-m>
+      <z1-m> -1.00</z1-m>
+      <x2-m> -15.678</x2-m>
+      <y2-m>  0.00</y2-m>
+      <z2-m> -0.6</z2-m>
+    </axis>
+  </animation>
+
+	<animation>
+      <type>rotate</type>
+      <object-name>Frontgear</object-name>
+      <property>surface-positions/rudder-pos-norm</property>
+			<condition>
+					<greater-than>
+				 	<property>gear/gear/position-norm</property>
+				 	<value>0.9</value>
+				</greater-than>
+			</condition>
+      <factor>70</factor>
+      <center>
+          <x-m>-15.58</x-m>
+          <y-m>  0.0</y-m>
+          <z-m>-2.74</z-m>
+      </center>
+      <axis>
+          <x>0</x>
+          <y>0</y>
+          <z>-1.0</z>
+      </axis>
+  </animation>
+
+  <animation>
+		<type>rotate</type>
+		<object-name>Frontgear</object-name>
+		<property>gear/gear[0]/position-norm</property>
+		 <interpolation>
+		  <entry>
+		    <ind>0.0</ind>
+		    <dep>115.0</dep>
+		  </entry>
+		  <entry>
+		    <ind>0.25</ind>
+		    <dep>115.0</dep>
+		  </entry>
+		  <entry>
+		    <ind>0.75</ind>
+		    <dep>0.0</dep>
+		  </entry>
+		  <entry>
+		    <ind>1.0</ind>
+		    <dep>0.0</dep>
+		  </entry>
+		</interpolation>
+		<center>
+		 <x-m>-15.24</x-m>
+		 <y-m>0</y-m>
+		 <z-m>-1.30</z-m>
+		</center>
+		<axis>
+		 <x>0</x>
+		 <y>1</y>
+		 <z>0</z>
+		</axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>lhngdoor</object-name>   
+  <property>gear/gear[0]/position-norm</property>
+	<condition>
+		<not><property>sim/multiplay/generic/int[19]</property></not>
+	</condition>			
+  <interpolation>
+    <entry>
+      <ind>0.0</ind>
+      <dep>0.0</dep>
+    </entry>
+    <entry>
+      <ind>0.25</ind>
+      <dep>-90.0</dep>
+    </entry>
+    <entry>
+      <ind>0.75</ind>
+      <dep>-90.0</dep>
+    </entry>
+    <entry>
+      <ind>1.0</ind>
+      <dep>0.0</dep>
+    </entry>
+  </interpolation>   
+  <center>
+   <x-m>-17.49</x-m>
+   <y-m>-0.48</y-m>
+   <z-m>-1.28</z-m>
+  </center>
+  <axis>
+   <x>1</x>
+   <y>0.0</y>
+   <z>-0.11</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>lhngdooraft</object-name>   
+  <property>gear/gear[0]/position-norm</property>	
+  <condition>
+		<not><property>sim/multiplay/generic/int[19]</property></not>
+	</condition>	
+  <interpolation>
+    <entry>
+      <ind>0.0</ind>
+      <dep>0.0</dep>
+    </entry>
+    <entry>
+      <ind>0.25</ind>
+      <dep>-30.0</dep>
+    </entry>
+    <entry>
+      <ind>0.75</ind>
+      <dep>-90.0</dep>
+    </entry>
+    <entry>
+      <ind>1.0</ind>
+      <dep>-90.0</dep>
+    </entry>
+  </interpolation>
+  <center>
+   <x-m>-16.0</x-m>
+   <y-m>-0.30</y-m>
+   <z-m>-1.50</z-m>
+  </center>
+  <axis>
+   <x>1</x>
+   <y>0.0</y>
+   <z>-0.11</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>rhngdoor</object-name>   
+  <property>gear/gear[0]/position-norm</property>
+  <interpolation>
+    <entry>
+      <ind>0.0</ind>
+      <dep>0.0</dep>
+    </entry>
+    <entry>
+      <ind>0.25</ind>
+      <dep>90.0</dep>
+    </entry>
+    <entry>
+      <ind>0.75</ind>
+      <dep>90.0</dep>
+    </entry>
+    <entry>
+      <ind>1.0</ind>
+      <dep>0.0</dep>
+    </entry>
+  </interpolation>
+  <center>
+   <x-m>-17.49</x-m>
+   <y-m>0.50</y-m>
+   <z-m>-1.28</z-m>
+  </center>
+  <axis>
+   <x>1</x>
+   <y>0.0</y>
+   <z>-0.11</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>rhngdooraft</object-name>   
+  <property>gear/gear[0]/position-norm</property>
+  <interpolation>
+    <entry>
+      <ind>0.0</ind>
+      <dep>0.0</dep>
+    </entry>
+    <entry>
+      <ind>0.25</ind>
+      <dep>30.0</dep>
+    </entry>
+    <entry>
+      <ind>0.75</ind>
+      <dep>90.0</dep>
+    </entry>
+    <entry>
+      <ind>1.0</ind>
+      <dep>90.0</dep>
+    </entry>
+  </interpolation>
+  <center>
+   <x-m>-16.0</x-m>
+   <y-m>0.30</y-m>
+   <z-m>-1.50</z-m>
+  </center>
+  <axis>
+   <x>1</x>
+   <y>0.0</y>
+   <z>-0.11</z>
+  </axis>
+ </animation> 
+ 
+	<model>
+		<name>RightGearBase</name>
+		<path>Aircraft/VC10/Models/wheels.xml</path>
+		<offsets>
+		  <x-m> 1.82</x-m>
+		  <y-m> 2.76</y-m>
+		  <z-m>-2.30</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>LeftGearBase</name>
+		<path>Aircraft/VC10/Models/wheels.xml</path>
+		<offsets>
+		  <x-m> 1.82</x-m>
+		  <y-m>-2.76</y-m>
+		  <z-m>-2.30</z-m>
+		</offsets>
+	</model>
+
+
+	<model>
+		<name>RightGearSmoke</name>
+		<path>Aircraft/VC10/Models/Effects/tyre-smoke-right.xml</path>
+		<offsets>
+		  <x-m> 1.82</x-m>
+		  <y-m> 2.59</y-m>
+		  <z-m>-2.94</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>LeftGearSmoke</name>
+		<path>Aircraft/VC10/Models/Effects/tyre-smoke-left.xml</path>
+		<offsets>
+		  <x-m> 1.82</x-m>
+		  <y-m>-2.53</y-m>
+		  <z-m>-2.94</z-m>
+		</offsets>
+	</model>  
+  -->
+	<!--Left-->
+	<!--
+  <animation>
+    <type>translate</type>
+		<object-name>LeftGear</object-name>
+		<object-name>LeftGear.001</object-name>
+		<object-name>LeftGearBase</object-name>
+		<object-name>LeftGearSmoke</object-name>
+		<object-name>LeftGearCompressor</object-name>
+		<object-name>LeftGearCompressor1</object-name>
+  	<property>gear/gear[1]/position-norm</property>
+    <factor>-0.3</factor>
+    <axis>   
+		 <x>0</x>
+		 <y>1</y>
+		 <z>0</z>
+    </axis>
+  </animation>
+
+ <animation>
+  <type>rotate</type>   
+	<object-name>LeftGear</object-name>
+	<object-name>LeftGear.001</object-name>
+	<object-name>LeftGearBase</object-name>
+	<object-name>LeftGearCompressor</object-name>
+	<object-name>LeftGearCompressor1</object-name>
+  <property>gear/gear[1]/position-norm</property>
+  <factor>-90</factor>
+  <offset-deg>90</offset-deg>
+  <min-deg>0</min-deg>
+  <max-deg>84</max-deg>
+  <center>
+   <x-m> 0.0</x-m>
+   <y-m>-2.53</y-m>
+   <z-m>-0.70</z-m>
+  </center>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>  
+ </animation>
+	
+  <animation>
+    <type>translate</type>
+		<object-name>LeftGear</object-name>
+		<object-name>LeftGearBase</object-name>
+		<object-name>LeftGearCompressor</object-name>
+		<object-name>LeftGearCompressor1</object-name>
+    <property>gear/gear[2]/compression-norm</property>
+    <interpolation>
+      <entry><ind> 0 </ind><dep> 0.0 </dep></entry>
+      <entry><ind> 1 </ind><dep> 0.1 </dep></entry>
+    </interpolation>
+    <axis>   
+      <x1-m>  1.82</x1-m>
+			<y1-m>  2.47</y1-m>
+      <z1-m> -1.88</z1-m>
+      <x2-m>  1.82</x2-m>
+      <y2-m>  2.47</y2-m>
+      <z2-m> -0.80</z2-m>
+    </axis>
+  </animation>
+ 
+  <animation>
+  <type>rotate</type>   
+	<object-name>LeftGear.001</object-name>
+  <property>gear/gear[1]/position-norm</property>
+  <interpolation>
+    <entry><ind>0.0</ind><dep>-60.0</dep></entry>
+    <entry><ind>0.5</ind><dep>-60.0</dep></entry>
+    <entry><ind>1.0</ind><dep>0.0</dep></entry>
+  </interpolation>
+  <center>
+   <x-m> 0.0</x-m>
+   <y-m>-2.74</y-m>
+   <z-m>-1.77</z-m>
+  </center>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>  
+ </animation>
+ 
+ <animation>
+  <type>rotate</type>
+  <object-name>mgdoora</object-name>  
+  <object-name>mgdoorb</object-name>           
+  <property>gear/gear[1]/position-norm</property>
+  <interpolation>
+    <entry><ind>0.0</ind><dep>  0.0</dep></entry>
+    <entry><ind>0.2</ind><dep>-82.0</dep></entry>
+    <entry><ind>1.0</ind><dep>-82.0</dep></entry>
+  </interpolation>
+  <center>
+   <x-m> 1.48</x-m>
+   <y-m>-2.59</y-m>
+   <z-m>-1.0</z-m>
+  </center>	
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>  
+ </animation>
+ 
+  <animation>
+    <type>translate</type>
+		<object-name>mgdoora</object-name>  
+		<object-name>mgdoorb</object-name>   
+  	<property>gear/gear[1]/position-norm</property>
+    <factor>-0.7</factor>
+    <axis>   
+      <x1-m>  1.82</x1-m>
+			<y1-m>  2.47</y1-m>
+      <z1-m> -1.40</z1-m>
+      <x2-m>  1.82</x2-m>
+      <y2-m>  2.47</y2-m>
+      <z2-m> -0.92</z2-m>
+    </axis>
+  </animation>
+ 
+ <animation>
+  <type>rotate</type> 
+  <object-name>mgdoorc</object-name>            
+  <property>gear/gear[1]/position-norm</property>
+  <interpolation>
+    <entry><ind>0.0</ind><dep>  0.0</dep></entry>
+    <entry><ind>0.4</ind><dep>-82.0</dep></entry>
+    <entry><ind>1.0</ind><dep>-82.0</dep></entry>
+  </interpolation>
+  <center>
+   <x-m> 1.48</x-m>
+   <y-m>-3.20</y-m>
+   <z-m>-0.85</z-m>
+  </center>	
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>  
+ </animation>
+
+<animation>
+  <type>rotate</type>   
+  <object-name>mgdoorb</object-name>           
+  <property>gear/gear[1]/position-norm</property>
+  <interpolation>
+    <entry><ind>0.0</ind><dep>   0.0</dep></entry>
+    <entry><ind>0.5</ind><dep> -90.0</dep></entry>
+    <entry><ind>1.0</ind><dep> -90.0</dep></entry>
+  </interpolation>
+  <axis>
+		<x1-m>  0.86</x1-m>
+		<y1-m> -2.28</y1-m>
+		<z1-m> -1.11</z1-m>
+    <x2-m>  2.07</x2-m>
+    <y2-m> -2.28</y2-m>
+    <z2-m> -1.07</z2-m>
+  </axis>
+ </animation>
+-->
+
+	<!-- Right-->
+	<!--  <animation>
+    <type>translate</type>
+		<object-name>RightGear</object-name>	
+		<object-name>RightGear.001</object-name>
+		<object-name>RightGearBase</object-name>
+		<object-name>RightGearSmoke</object-name>
+		<object-name>RightGearCompressor</object-name>
+		<object-name>RightGearCompressor1</object-name>
+  	<property>gear/gear[1]/position-norm</property>
+    <factor> 0.3</factor>
+    <axis>   
+		 <x>0</x>
+		 <y>1</y>
+		 <z>0</z>
+    </axis>
+  </animation>
+  
+ <animation>
+  <type>rotate</type>   
+	<object-name>RightGear</object-name>	
+	<object-name>RightGear.001</object-name>
+	<object-name>RightGearBase</object-name>
+	<object-name>RightGearCompressor</object-name>
+	<object-name>RightGearCompressor1</object-name>
+  <property>gear/gear[2]/position-norm</property>
+  <factor>90</factor>
+  <offset-deg>-90</offset-deg>
+  <min-deg>-84</min-deg>
+  <max-deg>0</max-deg>
+  <center>
+   <x-m> 0.0</x-m>
+   <y-m> 2.53</y-m>
+   <z-m>-0.70</z-m>m>
+  </center>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>  
+ </animation>
+	
+  <animation>
+    <type>translate</type>
+		<object-name>RightGear</object-name>
+		<object-name>RightGearBase</object-name>
+		<object-name>RightGearCompressor</object-name>
+		<object-name>RightGearCompressor1</object-name>
+    <property>gear/gear[2]/compression-norm</property>
+    <interpolation>
+      <entry><ind> 0 </ind><dep> 0.0 </dep></entry>
+      <entry><ind> 1 </ind><dep> 0.1 </dep></entry>
+    </interpolation>
+    <axis>   
+      <x1-m>  1.82</x1-m>
+			<y1-m> -2.47</y1-m>
+      <z1-m> -1.88</z1-m>
+      <x2-m>  1.82</x2-m>
+      <y2-m> -2.47</y2-m>
+      <z2-m> -0.80</z2-m>
+    </axis>
+  </animation>
+  
+  <animation>
+  <type>rotate</type>   
+	<object-name>RightGear.001</object-name>
+  <property>gear/gear[2]/position-norm</property>
+  <interpolation>
+    <entry><ind>0.0</ind><dep>60.0</dep></entry>
+    <entry><ind>0.5</ind><dep>60.0</dep></entry>
+    <entry><ind>1.0</ind><dep>0.0</dep></entry>
+  </interpolation>
+  <center>
+   <x-m> 0.0</x-m>
+   <y-m> 2.74</y-m>
+   <z-m>-1.77</z-m>
+  </center>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>  
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>rhmgdoora</object-name>  
+  <object-name>rhmgdoorb</object-name>           
+  <property>gear/gear[1]/position-norm</property>
+  <interpolation>
+    <entry><ind>0.0</ind><dep>  0.0</dep></entry>
+    <entry><ind>0.2</ind><dep> 82.0</dep></entry>
+    <entry><ind>1.0</ind><dep> 82.0</dep></entry>
+  </interpolation>
+  <center>
+   <x-m> 1.48</x-m>
+   <y-m> 2.59</y-m>
+   <z-m>-1.0</z-m>
+  </center>	
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>  
+ </animation>
+ 
+  <animation>
+    <type>translate</type>
+		<object-name>rhmgdoora</object-name>  
+		<object-name>rhmgdoorb</object-name>   
+  	<property>gear/gear[1]/position-norm</property>
+    <factor>-0.7</factor>
+    <axis>   
+      <x1-m>  1.82</x1-m>
+			<y1-m> -2.47</y1-m>
+      <z1-m> -1.40</z1-m>
+      <x2-m>  1.82</x2-m>
+      <y2-m> -2.47</y2-m>
+      <z2-m> -0.92</z2-m>
+    </axis>
+  </animation>
+ 
+ <animation>
+  <type>rotate</type> 
+  <object-name>rhmgdoorc</object-name>            
+  <property>gear/gear[1]/position-norm</property>
+  <interpolation>
+    <entry><ind>0.0</ind><dep>  0.0</dep></entry>
+    <entry><ind>0.4</ind><dep> 82.0</dep></entry>
+    <entry><ind>1.0</ind><dep> 82.0</dep></entry>
+  </interpolation>
+  <center>
+   <x-m> 1.48</x-m>
+   <y-m> 3.20</y-m>
+   <z-m>-0.85</z-m>
+  </center>	
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>  
+ </animation>
+
+<animation>
+  <type>rotate</type>   
+  <object-name>rhmgdoorb</object-name>           
+  <property>gear/gear[1]/position-norm</property>
+  <interpolation>
+    <entry><ind>0.0</ind><dep>   0.0</dep></entry>
+    <entry><ind>0.5</ind><dep>  90.0</dep></entry>
+    <entry><ind>1.0</ind><dep>  90.0</dep></entry>
+  </interpolation>
+  <axis>
+		<x1-m>  0.86</x1-m>
+		<y1-m>  2.28</y1-m>
+		<z1-m> -1.11</z1-m>
+    <x2-m>  2.07</x2-m>
+    <y2-m>  2.28</y2-m>
+    <z2-m> -1.07</z2-m>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>rotate</type>
+  <object-name>rhdoorinner</object-name>
+  <object-name>rhdoorouter</object-name>      
+  <property>gear/gear[2]/position-norm</property>
+  <interpolation>
+    <entry>
+      <ind>0.0</ind>
+      <dep>0.0</dep>
+    </entry>
+    <entry>
+      <ind>0.10</ind>
+      <dep>-90.0</dep>
+    </entry>
+    <entry>
+      <ind>0.90</ind>
+      <dep>-90.0</dep>
+    </entry>
+    <entry>
+      <ind>1.0</ind>
+      <dep>0.0</dep>
+    </entry>
+  </interpolation>
+  <center>
+   <x-m>8.07</x-m>
+   <y-m>0.31</y-m>
+   <z-m>-1.71</z-m>
+  </center>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>rhdoorouter</object-name>   
+  <property>gear/gear[2]/position-norm</property>
+  <interpolation>
+    <entry>
+      <ind>0.0</ind>
+      <dep>0.0</dep>
+    </entry>
+    <entry>
+      <ind>0.10</ind>
+      <dep>110.0</dep>
+    </entry>
+    <entry>
+      <ind>0.90</ind>
+      <dep>110.0</dep>
+    </entry>
+    <entry>
+      <ind>1.0</ind>
+      <dep>0.0</dep>
+    </entry>
+  </interpolation>
+  <center>
+   <x-m>8.07</x-m>
+   <y-m>1.31</y-m>
+   <z-m>-1.72</z-m>
+  </center>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation> 
+
+ <animation>
+  <type>rotate</type>
+  <object-name>lhdoorinner</object-name>   
+  <object-name>lhdoorouter</object-name>   
+  <property>gear/gear[1]/position-norm</property>
+  <interpolation>
+    <entry>
+      <ind>0.0</ind>
+      <dep>0.0</dep>
+    </entry>
+    <entry>
+      <ind>0.15</ind>
+      <dep>90.0</dep>
+    </entry>
+    <entry>
+      <ind>0.85</ind>
+      <dep>90.0</dep>
+    </entry>
+    <entry>
+      <ind>1.0</ind>
+      <dep>0.0</dep>
+    </entry>
+  </interpolation>
+  <center>
+   <x-m>8.07</x-m>
+   <y-m>-0.31</y-m>
+   <z-m>-1.71</z-m>
+  </center>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>lhdoorouter</object-name>   
+  <property>gear/gear[1]/position-norm</property>
+  <interpolation>
+    <entry>
+      <ind>0.0</ind>
+      <dep>0.0</dep>
+    </entry>
+    <entry>
+      <ind>0.15</ind>
+      <dep>-110.0</dep>
+    </entry>
+    <entry>
+      <ind>0.85</ind>
+      <dep>-110.0</dep>
+    </entry>
+    <entry>
+      <ind>1.0</ind>
+      <dep>0.0</dep>
+    </entry>
+  </interpolation>
+  <center>
+   <x-m>8.07</x-m>
+   <y-m>-1.31</y-m>
+   <z-m>-1.72</z-m>
+  </center>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+	 <animation>
+		<type>rotate</type>
+		<object-name>LeftGearBase</object-name>		
+		<object-name>RightGearBase</object-name>
+		<property>sim/multiplay/generic/float[3]</property>
+		<interpolation>
+		    <entry><ind>0</ind><dep>5</dep></entry>
+		    <entry><ind>0.01</ind><dep>0</dep></entry>
+		</interpolation>
+		<center>
+		    <x-m>1.82</x-m>
+		    <y-m>0</y-m>
+		    <z-m>-2.30</z-m>
+		</center>
+		<axis>
+		    <x>0</x>
+		    <y>1</y>
+		    <z>0</z>
+		</axis>
+	</animation>
+
+-->
+	<!-- End Gear Effects-->
+
+	<!-- Control Surfaces -->
+
+	<animation>
+		<type>translate</type>
+		<object-name>Aileron.L</object-name>
+		<property>controls/flight/aileron</property>
+		<interpolation>    
+			<entry>
+				<ind>-1.0</ind>
+				<dep> 0.05</dep>
+			</entry>
+			<entry>
+				<ind>-0.10</ind>
+				<dep> 0.05</dep>
+			</entry>
+			<entry>
+				<ind> 0.0</ind>
+				<dep> 0.0</dep>
+			</entry>
+			<entry>
+				<ind> 0.10</ind>
+				<dep> 0.05</dep>
+			</entry>     
+			<entry>
+				<ind> 1.0</ind>
+				<dep> 0.05</dep>
+			</entry>
+		</interpolation>
+		<axis>
+			<x> 0.8</x>
+			<y> 0.2</y>
+			<z>-0.1</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>Aileron.L</object-name>
+		<property>controls/flight/aileron</property>
+		<factor>-30</factor>
+		<offset-deg>0</offset-deg>   
+		<axis>
+			<x1-m>  29.704</x1-m><y1-m> -14.234</y1-m><z1-m> -0.265</z1-m>
+			<x2-m>  32.670</x2-m><y2-m>-20.203</y2-m><z2-m>  0.099</z2-m>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>translate</type>
+		<object-name>Aileron.R</object-name>
+		<property>controls/flight/aileron</property>
+		<interpolation>    
+			<entry>
+				<ind>-1.0</ind>
+				<dep> 0.05</dep>
+			</entry>
+			<entry>
+				<ind>-0.10</ind>
+				<dep> 0.05</dep>
+			</entry>
+			<entry>
+				<ind> 0.0</ind>
+				<dep> 0.0</dep>
+			</entry>
+			<entry>
+				<ind> 0.10</ind>
+				<dep> 0.05</dep>
+			</entry>     
+			<entry>
+				<ind> 1.0</ind>
+				<dep> 0.05</dep>
+			</entry>
+		</interpolation>
+		<axis>
+			<x> 0.8</x>
+			<y>-0.2</y>
+			<z>-0.1</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>Aileron.R</object-name>
+		<property>controls/flight/aileron</property>
+		<factor>-30</factor>
+		<offset-deg>0</offset-deg>   
+		<axis>
+			<x1-m>  29.704</x1-m><y1-m>14.234</y1-m><z1-m> -0.265</z1-m>
+			<x2-m>  32.670</x2-m><y2-m>20.203</y2-m><z2-m>  0.099</z2-m>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>Tailplane</object-name>
+		<object-name>TailplaneBullet</object-name>
+		<object-name>Elevator.L</object-name>
+		<object-name>Elevator.R</object-name>
+		<property>fdm/jsbsim/fcs/pitch-trim-pos-deg</property>
+		<factor>1</factor>
+		<offset-deg>0</offset-deg> 
+		<center>
+		    <x-m>41.25</x-m>
+		    <y-m>0</y-m>
+		    <z-m>7.35</z-m>
+		</center>		
+	<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>Elevator.L</object-name>
+		<property>controls/flight/elevator</property>
+		<factor>15</factor>
+		<offset-deg>0</offset-deg>   
+		<axis>
+			<x1-m>  43.721</x1-m><y1-m>-0.833</y1-m><z1-m> 7.514</z1-m>
+			<x2-m>  47.057</x2-m><y2-m>-6.749</y2-m><z2-m>  7.518</z2-m>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>Elevator.R</object-name>
+		<property>controls/flight/elevator</property>
+		<factor>15</factor>
+		<offset-deg>0</offset-deg>   
+		<axis>
+			<x1-m>  43.721</x1-m><y1-m>0.833</y1-m><z1-m> 7.514</z1-m>
+			<x2-m>  47.057</x2-m><y2-m>6.749</y2-m><z2-m> 7.518</z2-m>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>Rudder</object-name>
+		<property>controls/flight/rudder</property>
+		<factor>-22.5</factor>
+		<offset-deg>0</offset-deg>   
+		<axis>
+			<x1-m>  37.766</x1-m><y1-m>0.00</y1-m><z1-m> 1.705</z1-m>
+			<x2-m>  41.446</x2-m><y2-m>0.00</y2-m><z2-m> 6.834</z2-m>
+		</axis>
+	</animation>
+
+	<!-- slats / also called leading edge flaps LE FLAPS -->
+	<!-- Normal operation is with the Flaps Lever and the Slats Lever interconnected
+	     , but the linkage can be opened and the levers operated independantly -->
+	<animation>
+		<type>rotate</type>
+		<object-name>Slats.R</object-name>
+		<property>surface-positions/flap-pos-norm</property>
+		<interpolation>
+			<entry>
+				<ind>0.0</ind>
+				<dep>0.0</dep>
+			</entry>
+			<entry>
+				<ind>0.10</ind>
+				<dep>-1.0</dep>
+			</entry>     
+			<entry>
+				<ind>1.0</ind>
+				<dep>-15.0</dep>
+			</entry>
+		</interpolation>
+		<axis>
+			<x1-m>  19.3</x1-m><y1-m>4.356</y1-m><z1-m>-3</z1-m>
+			<x2-m>  31.015</x2-m><y2-m>20.936</y2-m><z2-m>-1.5</z2-m>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>Slats.L</object-name>
+		<property>surface-positions/flap-pos-norm</property>
+		<interpolation>
+			<entry>
+				<ind>0.0</ind>
+				<dep>0.0</dep>
+			</entry>
+			<entry>
+				<ind>0.10</ind>
+				<dep>15.0</dep>
+			</entry>     
+			<entry>
+				<ind>1.0</ind>
+				<dep>15.0</dep>
+			</entry>
+		</interpolation>
+		<axis>
+			<x1-m> 19.3</x1-m><y1-m>-4.356</y1-m><z1-m>-3</z1-m>
+			<x2-m> 31.015</x2-m><y2-m>-20.936</y2-m><z2-m>-1.5</z2-m>
+		</axis>
+	</animation>
+
+
+	<animation>
+		<type>rotate</type>
+		<object-name>FlapsInner.L</object-name>
+		<object-name>FlapTrackFairing1.L</object-name>
+		<object-name>FlapTrackFairing2.L</object-name>
+		<object-name>FlapTrackFairing3inner.L</object-name>
+		<property>surface-positions/flap-pos-norm</property>
+		<factor>-45</factor>
+		<offset-deg>0</offset-deg>   
+		<axis>
+			<x1-m> 25.29</x1-m><y1-m>-2.073</y1-m><z1-m> -1.405</z1-m>
+			<x2-m> 25.29</x2-m><y2-m>-6.226</y2-m><z2-m> -0.974</z2-m>
+		</axis>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>FlapsInner.R</object-name>
+		<object-name>FlapTrackFairing1.R</object-name>
+		<object-name>FlapTrackFairing1.R</object-name>
+		<object-name>FlapTrackFairing2.R</object-name>
+		<object-name>FlapTrackFairing3inner.R</object-name>
+		<property>surface-positions/flap-pos-norm</property>
+		<factor>45</factor>
+		<offset-deg>0</offset-deg>   
+		<axis>
+			<x1-m> 25.29</x1-m><y1-m> 2.073</y1-m><z1-m> -1.405</z1-m>
+			<x2-m> 25.29</x2-m><y2-m> 6.226</y2-m><z2-m> -0.974</z2-m>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>FlapsOuter.L</object-name>
+		<object-name>FlapTrackFairing3outer.L</object-name>
+		<object-name>FlapTrackFairing4.L</object-name>
+		<object-name>FlapTrackFairing5.L</object-name>
+		<object-name>FlapTrackFairing6.L</object-name>
+		<property>surface-positions/flap-pos-norm</property>
+		<factor>-45</factor>
+		<offset-deg>0</offset-deg>   
+		<axis>
+			<x1-m> 25.361</x1-m><y1-m> -6.559</y1-m><z1-m>-0.974</z1-m>
+			<x2-m> 28.492</x2-m><y2-m>-13.802</y2-m><z2-m>-0.248</z2-m>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>FlapsOuter.R</object-name>
+		<object-name>FlapTrackFairing3outer.R</object-name>
+		<object-name>FlapTrackFairing4.R</object-name>
+		<object-name>FlapTrackFairing5.R</object-name>
+		<object-name>FlapTrackFairing6.R</object-name>
+		<property>surface-positions/flap-pos-norm</property>
+		<factor>45</factor>
+		<offset-deg>0</offset-deg>   
+		<axis>
+			<x1-m> 25.361</x1-m><y1-m> 6.559</y1-m><z1-m>-0.974</z1-m>
+			<x2-m> 28.492</x2-m><y2-m>13.802</y2-m><z2-m>-0.248</z2-m>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>translate</type>
+		<object-name>FlapsInner.L</object-name>
+		<object-name>FlapsInner.R</object-name>
+		<property>surface-positions/flap-pos-norm</property>
+		<interpolation>
+			<entry>
+				<ind>0.0</ind>
+				<dep>0.0</dep>
+			</entry>
+			<entry>
+				<ind>0.10</ind>
+				<dep> 0.5</dep>
+			</entry>     
+			<entry>
+				<ind>1.0</ind>
+				<dep> 0.5</dep>
+			</entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0.4</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>translate</type>
+		<object-name>FlapsOuter.L</object-name>
+		<object-name>FlapsOuter.R</object-name>
+		<property>surface-positions/flap-pos-norm</property>
+		<interpolation>
+			<entry>
+				<ind>0.0</ind>
+				<dep>0.0</dep>
+			</entry>
+			<entry>
+				<ind>0.10</ind>
+				<dep> 0.5</dep>
+			</entry>     
+			<entry>
+				<ind>1.0</ind>
+				<dep> 0.5</dep>
+			</entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0.2</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>Spoilers.L</object-name>
+		<property>surface-positions/speedbrake-pos-norm</property>
+		<factor>59</factor>
+		<offset-deg>0</offset-deg>   
+		<axis>
+			<x1-m>  4.87</x1-m>
+			<y1-m>-11.26</y1-m>
+			<z1-m>  0.22</z1-m>
+			<x2-m>  6.30</x2-m>
+			<y2-m>-14.09</y2-m>
+			<z2-m>  0.46</z2-m>
+		</axis>
+	</animation>  
+
+	<animation>
+		<type>rotate</type>
+		<object-name>Spoilers.R</object-name>
+		<property>surface-positions/speedbrake-pos-norm</property>
+		<factor>59</factor>
+		<offset-deg>0</offset-deg>   
+		<axis>
+			<x1-m>  1.98</x1-m>
+			<y1-m> -4.30</y1-m>
+			<z1-m> -0.34</z1-m>
+			<x2-m>  2.91</x2-m>
+			<y2-m> -6.93</y2-m>
+			<z2-m> -0.15</z2-m>
+		</axis>
+	</animation>
+
+	<!--cockpit -->
+	<model>
+		<name>cockpit</name>
+		<path>Aircraft/VC10/Models/Cockpit/cockpit.xml</path>
+		<offsets>
+			<x-m>0.0</x-m>
+			<y-m>0.0</y-m>
+			<z-m>0.0</z-m>
+		</offsets>
+	</model>
+
+	<!--	<model>
+		<name>registrationCockpitPanel</name>
+	  <path>Aircraft/VC10/Models/Registration/flightnumber.xml</path>
+	  <offsets>
+	      <x-m>-18.91</x-m>
+	      <y-m>-0.425</y-m>
+	      <z-m>0.952</z-m>
+	    <heading-deg>-90.0</heading-deg>
+	  </offsets>
+	  <overlay>
+	    <params>
+	      <size>0.013</size>
+	      <alignment>reversed-xz-plane</alignment>
+	    </params>
+	  </overlay>
+	</model>
+
+	<model> 
+		<name>theCabin</name>
+		<path>Aircraft/VC10/Models/cabin.xml</path>
+	</model>
+
+	<animation>
+		<type>select</type>
+		<object-name>theCabin</object-name>
+		<condition>
+			<equals>
+				<property>/sim/current-view/name</property>
+				<value type="string">Passengers View</value>
+			</equals>
+			<not><property>sim/multiplay/generic/int[9]</property></not>
+		</condition>	
+	</animation>
+
+	<model> 
+		<name>theContainerInside</name>
+		<path>Aircraft/VC10/Models/container.xml</path>
+	</model>
+
+	<animation>
+		<type>select</type>
+		<object-name>theContainerInside</object-name>
+		<condition>
+			<equals>
+				<property>/sim/current-view/name</property>
+				<value type="string">Passengers View</value>
+			</equals>
+			<property>sim/multiplay/generic/int[9]</property>
+		</condition>	
+	</animation>
+	
+    <animation>
+     <type>translate</type>
+     <object-name>cockpit</object-name>
+	 <object-name>registrationCockpitPanel</object-name>
+	 <object-name>theCabin</object-name>
+	 <object-name>theContainerInside</object-name>  
+     <property>VC10/shake-effect/shaking</property>
+     <axis>
+   		<x1-m>  0</x1-m>
+   		<y1-m>  0</y1-m>
+   		<z1-m>  0</z1-m>
+       <x2-m>  0.5</x2-m>
+       <y2-m> -0.5</y2-m>
+       <z2-m>  0.8</z2-m>
+     </axis>
+    </animation> -->
+
+	<!--Conway RCo.10 engines -->
+	<!--	<model>
+		<name>engineOne</name>
+		<path>Aircraft/VC10/Models/RCo10_1.xml</path>
+		<offsets>
+		  <x-m>  2.42</x-m>
+		  <y-m>-14.835</y-m>
+		  <z-m> -0.647</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>engineTwo</name>
+		<path>Aircraft/VC10/Models/RCo10_2.xml</path>
+		<offsets>
+		  <x-m> -1.25</x-m>
+		  <y-m>-10.077</y-m>
+		  <z-m> -1.10</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>engineThree</name>
+		<path>Aircraft/VC10/Models/RCo10_3.xml</path>
+		<offsets>
+		  <x-m> -1.25</x-m>
+		  <y-m> 10.077</y-m>
+		  <z-m> -1.10</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>engineFour</name>
+		<path>Aircraft/VC10/Models/RCo10_4.xml</path>
+		<offsets>
+		  <x-m>  2.42</x-m>
+		  <y-m> 14.835</y-m>
+		  <z-m> -0.647</z-m>
+		</offsets>
+	</model> -->
+
+
+	<!--	<model>
+		<name>ExternalLights</name>
+		<path>Aircraft/VC10/Models/Lights/VC10_Lights.xml</path>	
+		<offsets>
+			<x-m>0</x-m>
+			<y-m>0</y-m>
+			<z-m>0</z-m>
+		</offsets>
+	</model>  -->
+
+
+	<!-- Fire , #1 -->
+	<!--<model>
+  <path>Aircraft/VC10/Models/Effects/fire-in-flight.xml</path>
+		<condition>
+			<and>
+				<greater-than>
+					<property>sim/multiplay/generic/float[8]</property>
+					<value>11</value>
+				</greater-than>
+				<or>
+					<equals>
+						<property>sim/multiplay/generic/int[17]</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>sim/multiplay/generic/int[17]</property>
+						<value>3</value>
+					</equals>
+				</or>
+			</and>
+		</condition>
+  <offsets>
+		  <x-m>  2.42</x-m>
+		  <y-m>-14.835</y-m>
+		  <z-m> -0.647</z-m>
+    <pitch-deg>-35</pitch-deg>
+  </offsets>
+</model>
+<model>
+  <path>Aircraft/VC10/Models/Effects/fire-in-flight.xml</path>
+		<condition>
+			<and>
+				<greater-than>
+					<property>sim/multiplay/generic/float[8]</property>
+					<value>11</value>
+				</greater-than>
+				<or>
+					<equals>
+						<property>sim/multiplay/generic/int[17]</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>sim/multiplay/generic/int[17]</property>
+						<value>3</value>
+					</equals>
+				</or>
+			</and>
+		</condition>
+  <offsets>
+		  <x-m>  2.42</x-m>
+		  <y-m>-14.835</y-m>
+		  <z-m> -0.647</z-m>
+    <pitch-deg>145</pitch-deg>
+  </offsets>
+</model>
+
+<model>
+  <path>Aircraft/VC10/Models/Effects/fire.xml</path>
+		<condition>
+			<and>
+				<less-than-equals>
+					<property>sim/multiplay/generic/float[8]</property>
+					<value>11</value>
+				</less-than-equals>
+				<or>
+					<equals>
+						<property>sim/multiplay/generic/int[17]</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>sim/multiplay/generic/int[17]</property>
+						<value>3</value>
+					</equals>
+				</or>
+			</and>
+		</condition>
+  <offsets>
+		  <x-m>  2.42</x-m>
+		  <y-m>-14.835</y-m>
+		  <z-m> -0.647</z-m>
+    <pitch-deg>-35</pitch-deg>
+  </offsets>
+</model> -->
+
+
+	<!-- Fire, #2 -->
+	<!--<model>
+  <path>Aircraft/VC10/Models/Effects/fire-in-flight.xml</path>
+		<condition>
+			<and>
+				<greater-than>
+					<property>sim/multiplay/generic/float[8]</property>
+					<value>11</value>
+				</greater-than>
+				<or>
+					<equals>
+						<property>sim/multiplay/generic/int[17]</property>
+						<value>2</value>
+					</equals>
+					<equals>
+						<property>sim/multiplay/generic/int[17]</property>
+						<value>3</value>
+					</equals>
+				</or>
+			</and>
+		</condition>
+  <offsets>
+		  <x-m> -1.25</x-m>
+		  <y-m>-10.077</y-m>
+		  <z-m> -1.10</z-m>
+    <pitch-deg>-35</pitch-deg>
+  </offsets>
+</model>
+<model>
+  <path>Aircraft/VC10/Models/Effects/fire-in-flight.xml</path>
+		<condition>
+			<and>
+				<greater-than>
+					<property>sim/multiplay/generic/float[8]</property>
+					<value>11</value>
+				</greater-than>
+				<or>
+					<equals>
+						<property>sim/multiplay/generic/int[17]</property>
+						<value>2</value>
+					</equals>
+					<equals>
+						<property>sim/multiplay/generic/int[17]</property>
+						<value>3</value>
+					</equals>
+				</or>
+			</and>
+		</condition>
+  <offsets>
+		  <x-m> -1.25</x-m>
+		  <y-m>-10.077</y-m>
+		  <z-m> -1.10</z-m>
+    <pitch-deg>145</pitch-deg>
+  </offsets>
+</model>
+
+<model>
+  <path>Aircraft/VC10/Models/Effects/fire.xml</path>
+		<condition>
+			<and>
+				<less-than-equals>
+					<property>sim/multiplay/generic/float[8]</property>
+					<value>11</value>
+				</less-than-equals>
+				<or>
+					<equals>
+						<property>sim/multiplay/generic/int[17]</property>
+						<value>2</value>
+					</equals>
+					<equals>
+						<property>sim/multiplay/generic/int[17]</property>
+						<value>3</value>
+					</equals>
+				</or>
+			</and>
+		</condition>
+  <offsets>
+		  <x-m> -1.25</x-m>
+		  <y-m>-10.077</y-m>
+		  <z-m> -1.10</z-m>
+    <pitch-deg>-35</pitch-deg>
+  </offsets>
+</model> -->
+
+
+	<!-- Fire, #3 -->
+	<!--<model>
+  <path>Aircraft/VC10/Models/Effects/fire-in-flight.xml</path>
+		<condition>
+			<and>
+				<greater-than>
+					<property>sim/multiplay/generic/float[8]</property>
+					<value>11</value>
+				</greater-than>
+				<or>
+					<equals>
+						<property>sim/multiplay/generic/int[18]</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>sim/multiplay/generic/int[18]</property>
+						<value>3</value>
+					</equals>
+				</or>
+			</and>
+		</condition>
+  <offsets>
+		  <x-m> -1.25</x-m>
+		  <y-m> 10.077</y-m>
+		  <z-m> -1.10</z-m>
+    <pitch-deg>-35</pitch-deg>
+  </offsets>
+</model>
+<model>
+  <path>Aircraft/VC10/Models/Effects/fire-in-flight.xml</path>
+		<condition>
+			<and>
+				<greater-than>
+					<property>sim/multiplay/generic/float[8]</property>
+					<value>11</value>
+				</greater-than>
+				<or>
+					<equals>
+						<property>sim/multiplay/generic/int[18]</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>sim/multiplay/generic/int[18]</property>
+						<value>3</value>
+					</equals>
+				</or>
+			</and>
+		</condition>
+  <offsets>
+		  <x-m> -1.25</x-m>
+		  <y-m> 10.077</y-m>
+		  <z-m> -1.10</z-m>
+    <pitch-deg>145</pitch-deg>
+  </offsets>
+</model>
+
+<model>
+  <path>Aircraft/VC10/Models/Effects/fire.xml</path>
+		<condition>
+			<and>
+				<less-than-equals>
+					<property>sim/multiplay/generic/float[8]</property>
+					<value>11</value>
+				</less-than-equals>
+				<or>
+					<equals>
+						<property>sim/multiplay/generic/int[18]</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>sim/multiplay/generic/int[18]</property>
+						<value>3</value>
+					</equals>
+				</or>
+			</and>
+		</condition>
+  <offsets>
+		  <x-m> -1.25</x-m>
+		  <y-m> 10.077</y-m>
+		  <z-m> -1.10</z-m>
+    <pitch-deg>-35</pitch-deg>
+  </offsets>
+</model> -->
+
+	<!-- Fire, #4 -->
+	<!--<model>
+  <path>Aircraft/VC10/Models/Effects/fire-in-flight.xml</path>
+		<condition>
+			<and>
+				<greater-than>
+					<property>sim/multiplay/generic/float[8]</property>
+					<value>11</value>
+				</greater-than>
+				<or>
+					<equals>
+						<property>sim/multiplay/generic/int[18]</property>
+						<value>2</value>
+					</equals>
+					<equals>
+						<property>sim/multiplay/generic/int[18]</property>
+						<value>3</value>
+					</equals>
+				</or>
+			</and>
+		</condition>
+  <offsets>
+		  <x-m>  2.42</x-m>
+		  <y-m> 14.835</y-m>
+		  <z-m> -0.647</z-m>
+    <pitch-deg>-35</pitch-deg>
+  </offsets>
+</model>
+<model>
+  <path>Aircraft/VC10/Models/Effects/fire-in-flight.xml</path>
+		<condition>
+			<and>
+				<greater-than>
+					<property>sim/multiplay/generic/float[8]</property>
+					<value>11</value>
+				</greater-than>
+				<or>
+					<equals>
+						<property>sim/multiplay/generic/int[18]</property>
+						<value>2</value>
+					</equals>
+					<equals>
+						<property>sim/multiplay/generic/int[18]</property>
+						<value>3</value>
+					</equals>
+				</or>
+			</and>
+		</condition>
+  <offsets>
+		  <x-m>  2.42</x-m>
+		  <y-m> 14.835</y-m>
+		  <z-m> -0.647</z-m>
+    <pitch-deg>145</pitch-deg>
+  </offsets>
+</model>
+
+<model>
+  <path>Aircraft/VC10/Models/Effects/fire.xml</path>
+		<condition>
+			<and>
+				<less-than-equals>
+					<property>sim/multiplay/generic/float[8]</property>
+					<value>11</value>
+				</less-than-equals>					
+				<or>
+					<equals>
+						<property>sim/multiplay/generic/int[18]</property>
+						<value>2</value>
+					</equals>
+					<equals>
+						<property>sim/multiplay/generic/int[18]</property>
+						<value>3</value>
+					</equals>
+				</or>
+			</and>
+		</condition>
+  <offsets>
+		  <x-m>  2.42</x-m>
+		  <y-m> 14.835</y-m>
+		  <z-m> -0.647</z-m>
+    <pitch-deg>-35</pitch-deg>
+  </offsets>
+</model> -->
+
+	<!-- Jettison / Fuel dump, left -->
+	<!--<model>
+  <path>Aircraft/VC10/Models/Effects/fuel_dump.xml</path>
+		<condition>
+			<or>
+				<equals>
+					<property>sim/multiplay/generic/int[15]</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>sim/multiplay/generic/int[15]</property>
+					<value>3</value>
+				</equals>
+			</or>
+		</condition>
+  <offsets>
+    <x-m>1.524</x-m>
+    <y-m>-6.02</y-m>
+    <z-m>-0.369</z-m>
+    <pitch-deg>-35</pitch-deg>
+  </offsets>
+</model> -->
+
+	<!-- Jettison / Fuel dump, right -->
+	<!--<model>
+  <path>Aircraft/VC10/Models/Effects/fuel_dump.xml</path>
+		<condition>
+			<or>
+				<equals>
+					<property>sim/multiplay/generic/int[15]</property>
+					<value>2</value>
+				</equals>
+				<equals>
+					<property>sim/multiplay/generic/int[15]</property>
+					<value>3</value>
+				</equals>
+			</or>
+		</condition>
+  <offsets>
+    <x-m>1.524</x-m>
+    <y-m> 6.02</y-m>
+    <z-m>-0.369</z-m>
+    <pitch-deg>-35</pitch-deg>
+  </offsets>
+</model>  -->
+
+	<!-- Registration -->
+	<!--<model>
+	<name>registrationRudderRight</name>
+  <path>Aircraft/VC10/Models/Registration/registration.xml</path>
+  <offsets>
+    <x-m>20.39</x-m>
+    <y-m>0.18</y-m>
+    <z-m>3.5</z-m>
+    <heading-deg>-2.0</heading-deg>
+  </offsets>
+  <overlay>
+    <params>
+      <size>0.7</size>
+      <alignment>reversed-xz-plane</alignment>
+    </params>
+  </overlay>
+</model>
+
+<model>
+	<name>registrationRudderLeft</name>
+  <path>Aircraft/VC10/Models/Registration/registration.xml</path>
+  <offsets>
+    <x-m>20.39</x-m>
+    <y-m>-0.18</y-m>
+    <z-m>3.5</z-m>
+    <heading-deg>182.0</heading-deg>
+  </offsets>
+  <overlay>
+    <params>
+      <size>0.7</size>
+      <alignment>reversed-xz-plane</alignment>
+    </params>
+  </overlay>
+</model> -->
+
+	<!-- Registration (wingTop)-->
+	<!--<<model>
+	<name>registrationWingTop</name>
+  <path>Aircraft/VC10/Models/Registration/registration.xml</path>
+  <offsets>
+    <x-m>7.72</x-m>
+    <y-m>17.34</y-m>
+    <z-m>0.78</z-m>
+    <roll-deg>175</roll-deg>
+    <pitch-deg>-4.0</pitch-deg>
+    <heading-deg>-126</heading-deg>
+  </offsets>
+  <overlay>
+    <params>
+      <size>1.5</size>
+      <alignment>reversed-xy-plane</alignment>
+    </params>
+  </overlay>
+</model> -->
+
+	<!-- Registration (wingBottom) --> 
+	<!--<model>
+	<name>registrationWingBottom</name>
+  <path>Aircraft/VC10/Models/Registration/registration.xml</path>
+  <offsets>
+    <x-m>  7.72</x-m>
+    <y-m>-17.34</y-m>
+    <z-m>  0.52</z-m>
+    <roll-deg>2</roll-deg>
+    <pitch-deg>5.5</pitch-deg>
+    <heading-deg> 126</heading-deg>
+  </offsets>
+  <overlay>
+    <params>
+      <size>1.5</size>
+      <alignment>reversed-xy-plane</alignment>
+    </params>
+  </overlay>
+</model> -->
+
+	<!-- Registration fuselage -->
+	<!--<model>
+	<name>registrationFuselageRight</name>
+  <path>Aircraft/VC10/Models/Registration/registration.xml</path>
+  <offsets>
+    <x-m>-15.0</x-m>
+    <y-m>1.6</y-m>
+    <z-m> 0.0</z-m>
+    <roll-deg>-10</roll-deg>
+    <heading-deg>3.0</heading-deg>
+  </offsets>
+  <overlay>
+    <params>
+      <size>0.5</size>
+      <alignment>reversed-xz-plane</alignment>
+    </params>
+  </overlay>
+</model>
+
+<model>
+	<name>registrationFuselageLeft</name>
+  <path>Aircraft/VC10/Models/Registration/registration.xml</path>
+  <offsets>
+    <x-m>-13.5</x-m>
+    <y-m>-1.68</y-m>
+    <z-m> 0.0</z-m>
+    <roll-deg>-10</roll-deg>
+    <heading-deg>178.0</heading-deg>
+  </offsets>
+  <overlay>
+    <params>
+      <size>0.5</size>
+      <alignment>reversed-xz-plane</alignment>
+    </params>
+  </overlay>
+</model> -->
+
+	<!-- Registration fuselage upper back -->
+	<!--<model>
+	<name>registrationFuselageRightBack</name>
+  <path>Aircraft/VC10/Models/Registration/registration.xml</path>
+  <offsets>
+    <x-m>11.5</x-m>
+    <y-m>1.55</y-m>
+    <z-m>1.62</z-m>
+    <roll-deg>34</roll-deg>
+    <heading-deg>-1.0</heading-deg>
+  </offsets>
+  <overlay>
+    <params>
+      <size>0.5</size>
+      <alignment>reversed-xz-plane</alignment>
+    </params>
+  </overlay>
+</model>
+
+<model>
+	<name>registrationFuselageLeftBack</name>
+  <path>Aircraft/VC10/Models/Registration/registration.xml</path>
+  <offsets>
+    <x-m>11.5</x-m>
+    <y-m>-1.55</y-m>
+    <z-m> 1.62</z-m>
+    <roll-deg>34</roll-deg>
+    <heading-deg>181.0</heading-deg>
+  </offsets>
+  <overlay>
+    <params>
+      <size>0.5</size>
+      <alignment>reversed-xz-plane</alignment>
+    </params>
+  </overlay>
+</model>
+
+<animation>
+	<type>select</type>
+	<object-name>registrationRudderRight</object-name>
+	<object-name>registrationRudderLeft</object-name>
+	<object-name>registrationWingTop</object-name>
+	<object-name>registrationWingBottom</object-name>
+	<condition>
+		<equals>
+			<property>sim/multiplay/generic/int[16]</property>
+			<value>3</value>
+		</equals>
+	</condition>	
+</animation>
+
+<animation>
+	<type>select</type>
+	<object-name>registrationFuselageRightBack</object-name>
+	<object-name>registrationFuselageLeftBack</object-name>
+	<condition>
+		<equals>
+			<property>sim/multiplay/generic/int[16]</property>
+			<value>2</value>
+		</equals>
+	</condition>
+</animation>
+
+<animation>
+	<type>select</type>
+	<object-name>registrationFuselageRight</object-name>
+	<object-name>registrationFuselageLeft</object-name>
+	<condition>
+		<equals>
+			<property>sim/multiplay/generic/int[16]</property>
+			<value>1</value>
+		</equals>
+	</condition>
+</animation> -->
+
+</PropertyList>
+
+

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--###################################################################################
+		Lake of Constance Hangar :: M.Kraus
+		Vickers VC10 for Flightgear Septemper 2013
+		This file is licenced under the terms of the GNU General Public Licence V2 or later
+		###################################################################################
+-->
+
+<PropertyList>
+<sim>
+    <model>
+        <livery>
+            <name type="string">Belize Airways Ltd</name>
+            <texture>Liveries/BAL.png</texture>
+        </livery>
+    </model>
+    <multiplay>
+    	<generic>
+    		<int n="8">1</int>   <!-- engine type -->
+    		<int n="9">0</int>   <!-- cargo aircraft -->
+    		<int n="16">0</int>  <!-- immat position -->
+    	</generic>
+    </multiplay>
+</sim>
+</PropertyList>

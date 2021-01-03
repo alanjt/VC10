@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--####################################################################
+Lake of Constance Hangar
+Vickers VC10 for Flightgear
+Copyright (C) 2013 M.Kraus
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Every software has a developer, also free software. 
+As a gesture of courtesy and respect, I would be delighted 
+if you contacted me before making any changes to this software. 
+<info (at) marc-kraus.de> April, 2017
+########################################################################-->
+<PropertyList>
+
+	<path>ThrottlesFlapsTail.ac</path>
+
+	<animation>
+		<type>material</type>
+		<object-name>pedestal</object-name> 
+		<object-name>throttle.001</object-name>   
+		<object-name>throttle.002</object-name>   
+		<object-name>throttle.003</object-name>   
+		<object-name>throttle.004</object-name>   
+		<object-name>reverser.001</object-name>  
+		<object-name>reverser.002</object-name>  
+		<object-name>reverser.003</object-name>  
+		<object-name>reverser.004</object-name>
+		<object-name>PBrakeLever</object-name>
+		<object-name>BrkLever</object-name>
+		<object-name>FlapSBrakeSup</object-name>
+		<object-name>FlapLever</object-name>
+		<object-name>IdleSup</object-name>
+		<condition>
+			<not><property>/sim/rendering/rembrandt/enabled</property></not>
+		</condition>
+		<emission>
+			<red>0.25</red>
+			<green>0.25</green>
+			<blue>0.25</blue>
+			<factor-prop>systems/electrical/outputs/cabin-dim</factor-prop>
+		</emission>
+	</animation>
+
+	<!-- Throttle levers -->
+	<animation>
+		<type>rotate</type>
+		<object-name>throttle.001</object-name>
+		<object-name>reverser.001</object-name>
+		<condition>
+			<not><property>engines/engine[0]/reversed</property></not>
+		</condition>
+		<property>controls/engines/engine[0]/throttle</property>
+		<factor>-50</factor>
+		<center>
+			<x-m>  0.0</x-m>
+			<y-m>  0.0</y-m>
+			<z-m>  0.0</z-m>
+		</center>
+		<axis>
+			<x>0.0</x>
+			<y>1.0</y>
+			<z>0.0</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>pick</type>
+		<object-name>throttle.001</object-name>
+		<action>
+			<button>3</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/engines/engine[0]/throttle</property>
+				<step>0.05</step>
+				<min>0</min>
+				<max>1</max>
+				<wrap>false</wrap>
+			</binding>
+		</action>
+		<action>
+			<button>4</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/engines/engine[0]/throttle</property>
+				<step>-0.05</step>
+				<min>0</min>
+				<max>1</max>
+				<wrap>false</wrap>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>throttle.002</object-name>
+		<object-name>reverser.002</object-name>
+		<condition>
+			<not><property>engines/engine[1]/reversed</property></not>
+		</condition>
+		<property>controls/engines/engine[1]/throttle</property>
+		<factor>-50</factor>
+		<center>
+			<x-m>  0.0</x-m>
+			<y-m>  0.0</y-m>
+			<z-m>  0.0</z-m>
+		</center>
+		<axis>
+			<x>0.0</x>
+			<y>1.0</y>
+			<z>0.0</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>pick</type>
+		<object-name>throttle.002</object-name>
+		<action>
+			<button>3</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/engines/engine[1]/throttle</property>
+				<step>0.05</step>
+				<min>0</min>
+				<max>1</max>
+				<wrap>false</wrap>
+			</binding>
+		</action>
+		<action>
+			<button>4</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/engines/engine[1]/throttle</property>
+				<step>-0.05</step>
+				<min>0</min>
+				<max>1</max>
+				<wrap>false</wrap>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>throttle.003</object-name>
+		<object-name>reverser.003</object-name>
+		<condition>
+			<not><property>engines/engine[2]/reversed</property></not>
+		</condition>
+		<property>controls/engines/engine[2]/throttle</property>
+		<factor>-50</factor>
+		<center>
+			<x-m>  0.0</x-m>
+			<y-m>  0.0</y-m>
+			<z-m>  0.0</z-m>
+		</center>
+		<axis>
+			<x>0.0</x>
+			<y>1.0</y>
+			<z>0.0</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>pick</type>
+		<object-name>throttle.003</object-name>
+		<action>
+			<button>3</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/engines/engine[2]/throttle</property>
+				<step>0.05</step>
+				<min>0</min>
+				<max>1</max>
+				<wrap>false</wrap>
+			</binding>
+		</action>
+		<action>
+			<button>4</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/engines/engine[2]/throttle</property>
+				<step>-0.05</step>
+				<min>0</min>
+				<max>1</max>
+				<wrap>false</wrap>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>throttle.004</object-name>
+		<object-name>reverser.004</object-name>
+		<condition>
+			<not><property>engines/engine[3]/reversed</property></not>
+		</condition>
+		<property>controls/engines/engine[3]/throttle</property>
+		<factor>-50</factor>
+		<center>
+			<x-m>  0.0</x-m>
+			<y-m>  0.0</y-m>
+			<z-m>  0.0</z-m>
+		</center>
+		<axis>
+			<x>0.0</x>
+			<y>1.0</y>
+			<z>0.0</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>pick</type>
+		<object-name>throttle.004</object-name>
+		<action>
+			<button>3</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/engines/engine[3]/throttle</property>
+				<step>0.05</step>
+				<min>0</min>
+				<max>1</max>
+				<wrap>false</wrap>
+			</binding>
+		</action>
+		<action>
+			<button>4</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/engines/engine[3]/throttle</property>
+				<step>-0.05</step>
+				<min>0</min>
+				<max>1</max>
+				<wrap>false</wrap>
+			</binding>
+		</action>
+	</animation>
+
+	<!-- Thrust  Reverse levers -->
+	<animation>
+		<type>rotate</type>
+		<object-name>reverser.001</object-name>		
+		<condition>
+			<property>engines/engine[0]/reversed</property>
+		</condition>
+		<property>controls/engines/engine[0]/throttle</property>
+		<factor>140</factor>
+		<center>
+			<x-m>  0.093</x-m>
+			<y-m>  0.0</y-m>
+			<z-m>  0.066</z-m>
+		</center>
+		<axis>
+			<x>0.0</x>
+			<y>1.0</y>
+			<z>0.0</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>reverser.002</object-name>		
+		<condition>
+			<property>engines/engine[1]/reversed</property>
+		</condition>
+		<property>controls/engines/engine[1]/throttle</property>
+		<factor>140</factor>
+		<center>
+			<x-m>  0.093</x-m>
+			<y-m>  0.0</y-m>
+			<z-m>  0.066</z-m>
+		</center>
+		<axis>
+			<x>0.0</x>
+			<y>1.0</y>
+			<z>0.0</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>reverser.003</object-name>		
+		<condition>
+			<property>engines/engine[2]/reversed</property>
+		</condition>
+		<property>controls/engines/engine[2]/throttle</property>
+		<factor>140</factor>
+		<center>
+			<x-m>  0.093</x-m>
+			<y-m>  0.0</y-m>
+			<z-m>  0.066</z-m>
+		</center>
+		<axis>
+			<x>0.0</x>
+			<y>1.0</y>
+			<z>0.0</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>reverser.004</object-name>		
+		<condition>
+			<property>engines/engine[3]/reversed</property>
+		</condition>
+		<property>controls/engines/engine[3]/throttle</property>
+		<factor>140</factor>
+		<center>
+			<x-m>  0.093</x-m>
+			<y-m>  0.0</y-m>
+			<z-m>  0.066</z-m>
+		</center>
+		<axis>
+			<x>0.0</x>
+			<y>1.0</y>
+			<z>0.0</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>pick</type>
+		<object-name>reverser.001</object-name>
+		<object-name>reverser.002</object-name>
+		<object-name>reverser.003</object-name>
+		<object-name>reverser.004</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>VC10.togglereverser();</script>
+			</binding>
+		</action>
+	</animation>
+
+	<!-- speedbrake lever -->
+	<animation>
+		<type>rotate</type>
+		<object-name>BrkLever</object-name>
+		<property>controls/flight/spoilers</property>
+		<factor> 60</factor>
+		<center>
+			<x-m>  0.093</x-m>
+			<y-m>  0.0</y-m>
+			<z-m>  0.066</z-m>
+		</center>
+		<axis>
+			<x>0.0</x>
+			<y>1.0</y>
+			<z>0.0</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>pick</type>
+		<object-name>BrkLever</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>VC10.stepSpeedbrakes(1)</script>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>nasal</command>
+					<script>VC10.stepSpeedbrakes(0)</script>
+				</binding>
+			</mod-up>
+		</action>
+		<action>
+			<button>1</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>VC10.stepSpeedbrakes(-1)</script>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>nasal</command>
+					<script>VC10.stepSpeedbrakes(0)</script>
+				</binding>
+			</mod-up>
+		</action>
+	</animation>
+
+	<!-- flap lever -->
+	<animation>
+		<type>rotate</type>
+		<object-name>FlapLever</object-name>
+		<property>controls/flight/flaps</property>
+		<interpolation>
+			<entry><ind>   0</ind><dep>  0</dep></entry>
+			<entry><ind> 0.2</ind><dep>8.5</dep></entry>
+			<entry><ind> 0.4</ind><dep> 15</dep></entry>
+			<entry><ind> 0.6</ind><dep> 28</dep></entry>
+			<entry><ind>   1</ind><dep> 36</dep></entry>
+		</interpolation>
+		<center>
+			<center>
+				<x-m>  0.093</x-m>
+				<y-m>  0.0</y-m>
+				<z-m>  0.066</z-m>
+			</center>
+		</center>
+		<axis>
+			<x>0.0</x>
+			<y>1.0</y>
+			<z>0.0</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>pick</type>
+		<object-name>FlapLever</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>controls.flapsDown(1)</script>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>nasal</command>
+					<script>controls.flapsDown(0)</script>
+				</binding>
+			</mod-up>
+		</action>
+		<action>
+			<button>1</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>controls.flapsDown(-1)</script>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>nasal</command>
+					<script>controls.flapsDown(0)</script>
+				</binding>
+			</mod-up>
+		</action>
+	</animation>
+
+</PropertyList>
