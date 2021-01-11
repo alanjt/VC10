@@ -65,7 +65,8 @@ if you contacted me before making any changes to this software.
 		<!--  	 The datum origin is 8" behind the front of the radome, and level with the main cabin floor. -->
 
 		<location name="AERORP" unit="IN">  <!--  DO NOT CHANGE !! All aerodynamics data
-		has been transformed to use this reference datum point !! -->
+		has been transformed to use this reference datum point.
+        79.07 ft aft of the datum origin corresponds to 32 %SMC		!! -->
 			<x>  948.84 </x>            <!--79.07 ft -->
 			<y>  0.00 </y>
 			<z>  0.00 </z>
@@ -262,7 +263,7 @@ if you contacted me before making any changes to this software.
 
 	<propulsion>
 
-		<engine file="MK508">
+		<engine file="RCo12">
 			<location unit="IN">
 				<x>  1462.0 </x>
 				<y> -180.8 </y>
@@ -273,7 +274,7 @@ if you contacted me before making any changes to this software.
 				<roll>   0.00 </roll>
 				<yaw>   0.00 </yaw>
 			</orient>
-			<feed>5</feed>
+			<feed>2</feed>
 			<thruster file="direct">
 				<location unit="IN">
 					<x>  1462.0 </x>
@@ -288,7 +289,7 @@ if you contacted me before making any changes to this software.
 			</thruster>
 		</engine>
 
-		<engine file="MK508">
+		<engine file="RCo12">
 			<location unit="IN">
 				<x>  1462.0 </x>
 				<y>-112.2 </y>
@@ -299,7 +300,7 @@ if you contacted me before making any changes to this software.
 				<roll>   0.00 </roll>
 				<yaw>   0.00 </yaw>
 			</orient>
-			<feed>4</feed>
+			<feed>3</feed>
 			<thruster file="direct">
 				<location unit="IN">
 					<x>  1462.0 </x>
@@ -314,7 +315,7 @@ if you contacted me before making any changes to this software.
 			</thruster>
 		</engine>
 
-		<engine file="MK508">
+		<engine file="RCo12">
 			<location unit="IN">
 				<x>  1462.0 </x>
 				<y> 112.2 </y>
@@ -325,7 +326,7 @@ if you contacted me before making any changes to this software.
 				<roll>   0.00 </roll>
 				<yaw>   0.00 </yaw>
 			</orient>
-			<feed>2</feed>
+			<feed>5</feed>
 			<thruster file="direct">
 				<location unit="IN">
 					<x>  1462.0 </x>
@@ -340,7 +341,7 @@ if you contacted me before making any changes to this software.
 			</thruster>
 		</engine>
 
-		<engine file="MK508">
+		<engine file="RCo12">
 			<location unit="IN">
 				<x>  1462.0 </x>
 				<y> 180.9 </y>
@@ -351,7 +352,7 @@ if you contacted me before making any changes to this software.
 				<roll>   0.00 </roll>
 				<yaw>   0.00 </yaw>
 			</orient>
-			<feed>1</feed>
+			<feed>6</feed>
 			<thruster file="direct">
 				<location unit="IN">
 					<x>  1462.0 </x>

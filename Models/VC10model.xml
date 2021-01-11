@@ -21,6 +21,10 @@ As a gesture of courtesy and respect, I would be delighted
 if you contacted me before making any changes to this software. 
 <ajteeder (at) v-twin (dot) org (dot) uk> October 2020
 ########################################################################-->
+
+<!--   All measurements are from the fuselage datum defined by Vickers 
+    which is 8" aft of the front of the radome.	
+	The same datum has been used for aerodynamic moments in the FDM. -->
 <PropertyList>
 
 	<path>Aircraft/VC10/Models/VC10.ac</path>

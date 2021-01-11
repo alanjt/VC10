@@ -191,7 +191,7 @@ if you contacted me before making any changes to this software.
 		  <desc>open Fuel &amp; Weight Menu</desc>
 		</key>
 		<text>
-_______________ Vickers VC10-420/430 ___________________
+_______________ Vickers VC10 ___________________
 
 Startup engines:
 follow the tutorials or use Autostart
@@ -292,7 +292,12 @@ _______________________________________________________
 			<file>Aircraft/VC10/Nasal/tcas.nas</file>
 			<file>Aircraft/VC10/Nasal/registration.nas</file>
 			<file>Aircraft/VC10/Nasal/manual.nas</file>	
+			<file>Aircraft/VC10/Nasal/Reset-in-air.nas</file>
 		</VC10> 
+		
+		<dialogs>
+			<file>Aircraft/VC10/Nasal/dialogs.nas</file>
+		</dialogs>
 		
 	    <dual_control_tools>
 	     <file>Aircraft/VC10/Nasal/DualControl/dual-control-tools.nas</file>

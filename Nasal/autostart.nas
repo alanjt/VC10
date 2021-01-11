@@ -29,6 +29,10 @@ var run4 = props.globals.getNode("engines/engine[3]/running");
 var auto_procedure = props.globals.initNode("VC10/autoprocedure",0,"BOOL");
 var step = 0;
 
+##################################################################################
+
+##################################################################################
+
 # startup/shutdown functions
 var startup = func
  {
