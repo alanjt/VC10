@@ -61,7 +61,7 @@ var Reset = func{
 		setprop("VC10/generator/gen-drive[1]", 1);
 		setprop("VC10/generator/gen-drive[2]", 1);
 		setprop("VC10/generator/gen-drive[3]", 1);
-		setprop("VC10/generator/gen-drive[4]", 0);
+		setprop("VC10/generator/gen-drive[4]", 1);
 		setprop("VC10/generator/gen-bus-tie[0]", 1);
 		setprop("VC10/generator/gen-bus-tie[1]", 1);
 		setprop("VC10/generator/gen-bus-tie[2]", 1);
@@ -78,6 +78,44 @@ var Reset = func{
 		setprop("VC10/generator/gen-freq[1]", 400);
 		setprop("VC10/generator/gen-freq[2]", 400);
 		setprop("VC10/generator/gen-freq[3]", 400);
+        setprop("VC10/ess-power-switch", 5);
+		setprop("VC10/ac/ac-para-select", 6);
+		
+		setprop("VC10/hydraulic/ac-aux-pump[0]", 1);
+		setprop("VC10/hydraulic/ac-aux-pump[1]", 1);
+		setprop("VC10/hydraulic/brake-valve", 2);
+		setprop("VC10/hydraulic/hyd-fluid-shutoff[0]", 1);
+		setprop("VC10/hydraulic/hyd-fluid-shutoff[1]", 1);
+		setprop("VC10/hydraulic/hyd-fluid-pump[0]", 1);
+		setprop("VC10/hydraulic/hyd-fluid-pump[1]", 1);
+		
+		setprop("VC10/fuel/valves/valve[0]", 1);
+		VC10.valve_pos(0);
+		setprop("VC10/fuel/valves/valve[1]", 1);
+		VC10.valve_pos(1);
+		setprop("VC10/fuel/valves/valve[2]", 1);
+		VC10.valve_pos(2);
+		setprop("VC10/fuel/valves/valve[3]", 1);
+		VC10.valve_pos(3);
+		setprop("VC10/fuel/valves/valve[4]", 1);
+		VC10.valve_pos(4);
+		setprop("VC10/fuel/valves/valve[5]", 1);
+		VC10.valve_pos(5);
+		setprop("VC10/fuel/valves/valve[0]", 0);
+		VC10.valve_pos(0);
+		setprop("VC10/fuel/valves/valve[1]", 0);
+		VC10.valve_pos(1);
+		setprop("VC10/fuel/valves/valve[2]", 0);
+		VC10.valve_pos(2);
+		setprop("VC10/fuel/valves/valve[3]", 0);
+		VC10.valve_pos(3);
+		setprop("VC10/fuel/valves/valve[4]", 0);
+		VC10.valve_pos(4);
+		setprop("VC10/fuel/valves/valve[5]", 0);
+		VC10.valve_pos(5);
+
+		
+		
 		setprop("VC10/fuel/valves/boost-pump[0]", 1);
 		setprop("VC10/fuel/valves/boost-pump[1]", 1);	
 		setprop("VC10/fuel/valves/boost-pump[2]", 1);
@@ -89,11 +127,37 @@ var Reset = func{
 		setprop("VC10/fuel/valves/boost-pump[8]", 1);
 		setprop("VC10/fuel/valves/boost-pump[9]", 1);
 		setprop("VC10/fuel/valves/fuel-shutoff[0]", 1);
+		VC10.shutoff_pos(0);
 		setprop("VC10/fuel/valves/fuel-shutoff[1]", 1);
+		VC10.shutoff_pos(1);
 		setprop("VC10/fuel/valves/fuel-shutoff[2]", 1);
-		setprop("VC10/fuel/valves/fuel-shutoff[3]", 1);		
+		VC10.shutoff_pos(2);
+		setprop("VC10/fuel/valves/fuel-shutoff[3]", 1);
+        VC10.shutoff_pos(3);		
 		setprop("controls/wiper/degrees",0);
 		setprop("VC10/apu/off-start-run", 0);
+		
+		setprop("VC10/generator/hertz-converter", 1);
+		setprop("VC10/equipment/blower", 1);
+		setprop("VC10/equipment/ovbd-dump", 1);
+		setprop("VC10/air-conditioning/ram-air-switch", 1);
+		setprop("VC10/air-conditioning/compressor-start[0]", 2);
+		setprop("VC10/air-conditioning/compressor-rpm[0]", 110);
+		setprop("VC10/air-conditioning/compressor-start[1]", 2);
+		setprop("VC10/air-conditioning/compressor-rpm[1]", 95);
+		setprop("VC10/air-conditioning/compressor-start[2]", 2);
+		setprop("VC10/air-conditioning/compressor-rpm[2]", 104);
+	    setprop("VC10/air-conditioning/air-cond-unit-left-start",1);
+		setprop("VC10/air-conditioning/air-cond-unit-right-start",1);
+		setprop("VC10/air-conditioning/wing-valve[0]",1);
+		setprop("VC10/air-conditioning/wing-valve[1]",1);
+		setprop("VC10/air-conditioning/cabin-temp-selector[0]",4);
+		setprop("VC10/air-conditioning/cabin-temp-selector[1]",4);
+		setprop("VC10/emergency/oxygen-switch",2);
+		setprop("VC10/pressurization/safety-valve", 1);
+		VC10.safety_valv_pos();
+		setprop("VC10/pressurization/manual-mode-switch", 1);
+		setprop("VC10/pressurization/mode-switch", 1);
 		}
 		
 	setprop("controls/gear/brake-parking", park_brake);      ## brakes

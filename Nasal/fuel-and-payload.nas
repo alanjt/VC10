@@ -779,8 +779,9 @@ setlistener("/VC10/fuel/temperatur-selector", func(nr){
 ###############################################################################################################
 # engines feed only on the main tank. Engine 1 to main 1 etc.
 
-engine_for_tank = [ -1, 3, 2, -1, 1, 0, -1 ]; # -1 means no engine connected to that tank
-boost_pumps_for_tank = [ [-1,-1], [9,8], [7,6], [5,4], [3,2], [1,0], [-1,-1] ];
+##                  1a, 1, 2, Centre, 3, 4, 4a  VC10 Tank numbers ########
+engine_for_tank = [ -1, 0, 1,   -1  , 2, 3, -1 ]; # -1 means no engine connected to that tank 
+boost_pumps_for_tank = [ [-1,-1], [0,1], [2,3], [4,5], [6,7], [8,9], [-1,-1] ];
 
 var boost_pumps_for_tank_are_on = func (tank)
 {
