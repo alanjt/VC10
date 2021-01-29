@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+
+<!--
+  File:     RR_ConwayMk540.xml
+  Author:   AeromatiC++ v 3.3.12
+
+  See: http://wiki.flightgear.org/JSBSim_Engines#FGTurbine
+
+  Inputs:
+    name:                    RR_ConwayMk540
+    type:                    Turbine Engine
+    thrust:                  21800.0 lbf
+    bypass ratio:            0.300:1
+    overall pressure ratio:  12.0:1
+    augmented?               no
+    injected?                no
+
+  Outputs
+    tsfc:                    0.7
+    engine weight:           4198.8 lbs
+    engine length:           9.6 ft
+    engine diameter:         5.6 ft
+-->
+
+<turbine_engine name="RR_ConwayMk540">
+  <milthrust> 21800.0 </milthrust>
+  <bypassratio>     0.300 </bypassratio>
+  <tsfc>            0.716 </tsfc>
+  <bleed>           0.03</bleed>
+  <idlen1>         30.0 </idlen1>
+  <idlen2>         60.0 </idlen2>
+  <maxn1>         100.0 </maxn1>
+  <maxn2>         100.0 </maxn2>
+  <augmented>         0 </augmented>
+  <injected>          0 </injected>
+
+  <function name="IdleThrust">
+   <table>
+    <independentVar lookup="row">velocities/mach</independentVar>
+    <independentVar lookup="column">atmosphere/density-altitude</independentVar>
+    <tableData>
+         -10000     0     10000   20000   30000   40000   50000   90000
+     0.0  0.0430  0.0488  0.0528  0.0694  0.0899  0.1183  0.1467  0
+     0.2  0.0500  0.0501  0.0335  0.0544  0.0797  0.1049  0.1342  0
+     0.4  0.0040  0.0047  0.0020  0.0272  0.0595  0.0891  0.1203  0
+     0.6 -0.0804 -0.0804 -0.0560 -0.0237  0.0276  0.0718  0.1073  0
+     0.8 -0.2129 -0.2129 -0.1498 -0.1025  0.0474  0.0868  0.0900  0
+     1.0 -0.2839 -0.2839 -0.1104 -0.0469 -0.0270  0.0552  0.0800  0
+    </tableData>
+   </table>
+  </function>
+
+  <function name="MilThrust">
+   <table>
+    <independentVar lookup="row">velocities/mach</independentVar>
+    <independentVar lookup="column">atmosphere/density-altitude</independentVar>
+    <tableData>
+          -10000       0   10000   20000   30000   40000   50000   60000   90000
+      0.0  1.2600  1.0000  0.7400  0.5340  0.3720  0.2410  0.1490  0.0580  0
+      0.2  1.1633  0.9278  0.6924  0.5027  0.3527  0.2295  0.1421  0.0397  0
+      0.4  1.1348  0.9088  0.6829  0.4993  0.3523  0.2299  0.1431  0.0424  0
+      0.6  1.1576  0.9322  0.7067  0.5215  0.3705  0.2431  0.1510  0.0461  0
+      0.8  1.2248  0.9931  0.7614  0.5666  0.4060  0.2677  0.1655  0.0516  0
+      1.0  1.3238  1.0830  0.8423  0.6295  0.4593  0.3046  0.1886  0.0609  0
+      1.2  1.4262  1.1813  0.9364  0.7145  0.5234  0.3496  0.2161  0.0711  0
+      1.4  1.5205  1.2781  1.0358  0.8060  0.5990  0.4044  0.2508  0.0858  0
+    </tableData>
+   </table>
+  </function>
+
+</turbine_engine>

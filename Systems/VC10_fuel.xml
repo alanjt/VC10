@@ -1,0 +1,174 @@
+<?xml version="1.0"?>
+
+<!-- Vickers VC10 fuel -->
+
+<system name="VC10_fuel">
+<!-- Initialise JSBSim properties for switches and indicator. -->
+
+<!-- This needs to be done in the VC10.set file, otherwise JSBSim spits out loads of
+     errors everytime that the simulation is re-initialised (i.e restart in air). -->
+
+<!--	
+    <property value="1.0"> fuel/indicator/Jettison_L </property>
+	<property value="1.0"> fuel/indicator/Jettison_R </property> 
+		
+	<property value="1.0"> fuel/switch/CentreTank1_Xfer_L </property>
+	<property value="1.0"> fuel/switch/CentreTank1_Refuel_L </property>
+	<property value="1.0"> fuel/switch/CentreTank1_Refuel_R </property>
+	<property value="1.0"> fuel/switch/CentreTank1_Xfer_R </property>
+	<property value="1.0"> fuel/indicator/CentreTank1_Refuel_LR </property>
+	
+	<property value="1.0"> fuel/switch/Tank1_Xfer_Refuel </property>
+	<property value="1.0"> fuel/switch/Tank2_Xfer_Refuel </property>
+	<property value="1.0"> fuel/switch/Tank3_Xfer_Refuel </property>
+	<property value="1.0"> fuel/switch/Tank4_Xfer_Refuel </property>	
+	<property value="1.0"> fuel/indicator/Tank1_Xfer_Refuel </property>
+	<property value="1.0"> fuel/indicator/Tank2_Xfer_Refuel </property>
+	<property value="1.0"> fuel/indicator/Tank3_Xfer_Refuel </property>
+	<property value="1.0"> fuel/indicator/Tank4_Xfer_Refuel </property>
+	
+	<property value="1.0"> fuel/indicator/LP_Xfer_L </property>	
+	<property value="1.0"> fuel/indicator/Transfer_Xfeed_Valve </property>
+	<property value="1.0"> fuel/indicator/LP_Xfer_R </property>
+	<property value="1.0"> fuel/switch/Xfeed_Xfer_Valve </property>	 -->
+	
+	<property value="1.0"> fuel/switch/Tank1_1A_SlowXfer </property>
+	<property value="1.0"> fuel/switch/Tank1_1A_FastXfer </property>
+	<property value="1.0"> fuel/switch/Tank4_4A_SlowXfer </property>
+	<property value="1.0"> fuel/switch/Tank4_4A_FastXfer </property>
+<!--	<property value="1.0"> fuel/indicator/Tank1_1A_SlowXfer </property>
+	<property value="1.0"> fuel/indicator/Tank1_1A_FastXfer </property>
+	<property value="1.0"> fuel/indicator/Tank4_4A_SlowXfer </property>
+	<property value="1.0"> fuel/indicator/Tank4_4A_FastXfer </property> -->
+
+<!--	<property value="1.0"> fuel/switch/Boost_pump_1fwd </property>
+	<property value="1.0"> fuel/switch/Boost_pump_1aft </property>
+	<property value="1.0"> fuel/switch/Boost_pump_2fwd </property>
+	<property value="1.0"> fuel/switch/Boost_pump_2aft </property> 
+	<property value="1.0"> fuel/switch/Boost_pump_3fwd </property>
+	<property value="1.0"> fuel/switch/Boost_pump_3aft </property>
+	<property value="1.0"> fuel/switch/Boost_pump_4fwd </property>
+	<property value="1.0"> fuel/switch/Boost_pump_4aft </property> 
+
+	<property value="1.0"> fuel/switch/LP_cock_0 </property>
+	<property value="1.0"> fuel/switch/LP_cock_1 </property>
+	<property value="1.0"> fuel/switch/LP_cock_2 </property>
+	<property value="1.0"> fuel/switch/LP_cock_3 </property>
+	<property value="1.0"> fuel/indicator/LP_cock_0 </property>
+	<property value="1.0"> fuel/indicator/LP_cock_1 </property>
+	<property value="1.0"> fuel/indicator/LP_cock_2 </property>
+	<property value="1.0"> fuel/indicator/LP_cock_3 </property> -->
+
+	<property value="1.0"> fuel/switch/Engine_1_2_Valve </property>
+	<property value="1.0"> fuel/indicator/Engine_1_2_Valve </property>		
+	<property value="1.0"> fuel/switch/Fuel_Feed_Xfeed_Valve </property>
+	<property value="1.0"> fuel/indicator/Fuel_Feed_Xfeed_Valve </property>
+	<property value="1.0"> fuel/switch/Engine_3_4_Valve </property>
+	<property value="1.0"> fuel/indicator/Engine_3_4_Valve </property>
+	
+	<property value="1.0"> fuel/indicator/LP_warn_0 </property>
+	<property value="1.0"> fuel/indicator/LP_warn_1 </property>
+	<property value="1.0"> fuel/indicator/LP_warn_2 </property>
+	<property value="1.0"> fuel/indicator/LP_warn_3 </property> -->
+	
+	<channel name="fuel">
+		
+<!--Transfer Tank 1A to 1 -->
+		<switch name="propulsion/tank[1]/external-flow-rate/SlowXfer">
+			<default value="0"/>
+			<test logic="AND" value="0">
+			    fuel/switch/Tank1_1A_SlowXfer == 1
+				propulsion/tank[0]/contents-lbs gt 0 
+				propulsion/tank[1]/contents-lbs lt 8000.00
+			</test>
+		</switch>
+		<switch name="propulsion/tank[1]/external-flow-rate/FastXfer">
+			<default value="0"/>
+			<test logic="AND" value="0">
+			    fuel/switch/Tank1_1A_FastXfer == 1
+				propulsion/tank[0]/contents-lbs gt 0 
+				propulsion/tank[1]/contents-lbs lt 14000.00
+			</test>
+		</switch>
+		
+<!--Transfer Tank 4A to 4 -->
+		<switch name="propulsion/tank[1]/external-flow-rate/SlowXfer">
+			<default value="0"/>
+			<test logic="AND" value="0">
+			    fuel/switch/Tank4_4A_SlowXfer == 1
+				propulsion/tank[0]/contents-lbs gt 0 
+				propulsion/tank[1]/contents-lbs lt 8000.00
+			</test>
+		</switch>
+		<switch name="propulsion/tank[1]/external-flow-rate/FastXfer">
+			<default value="0"/>
+			<test logic="AND" value="0">
+			    fuel/switch/Tank4_4A_FastXfer == 1
+				propulsion/tank[6]/contents-lbs gt 0 
+				propulsion/tank[5]/contents-lbs lt 14000.00
+			</test>
+		</switch>
+
+<!-- Fuel Feed Gallery Inter-engine 1-2 -->	
+		<switch name="propulsion/tank[7]/external-flow-rate/Engine-x-feed">
+			<default value="0"/>
+			<test logic="AND" value="0">
+				fuel/switch/Engine_1_2_Valve == 1
+				propulsion/tank[7]/contents-lbs gt propulsion/tank[8]/contents-lbs
+				propulsion/tank[7]/contents-lbs gt 0
+				propulsion/tank[8]/contents-lbs lt 10
+			</test>
+		</switch>
+		<switch name="propulsion/tank[8]/external-flow-rate/Engine-x-feed">
+			<default value="0"/>
+			<test logic="AND" value="0">
+				fuel/switch/Engine_1_2_Valve == 1
+				propulsion/tank[8]/contents-lbs gt propulsion/tank[7]/contents-lbs
+				propulsion/tank[8]/contents-lbs gt 0
+				propulsion/tank[7]/contents-lbs lt 10
+			</test>
+		</switch>
+
+<!-- Fuel Feed Gallery centre crossfeed -->	
+		<switch name="propulsion/tank[8]/external-flow-rate/x-feed">
+			<default value="0"/>
+			<test logic="AND" value="0">
+				fuel/switch/Fuel_Feed_Xfeed_Valve == 1
+				propulsion/tank[8]/contents-lbs gt propulsion/tank[9]/contents-lbs
+				propulsion/tank[8]/contents-lbs gt 0
+				propulsion/tank[9]/contents-lbs lt 10
+			</test>
+		</switch>
+		<switch name="propulsion/tank[9]/external-flow-rate/x-feed">
+			<default value="0"/>
+			<test logic="AND" value="0">
+				fuel/switch/Fuel_Feed_Xfeed_Valve == 1
+				propulsion/tank[9]/contents-lbs gt propulsion/tank[8]/contents-lbs
+				propulsion/tank[9]/contents-lbs gt 0
+				propulsion/tank[8]/contents-lbs lt 10
+			</test>
+		</switch>
+		
+<!-- Fuel Feed Gallery Inter-engine 3-4 -->	
+		<switch name="propulsion/tank[9]/external-flow-rate/Engine-x-feed">
+			<default value="0"/>
+			<test logic="AND" value="0">
+				fuel/switch/Engine_3_4_Valve == 1
+				propulsion/tank[9]/contents-lbs gt propulsion/tank[10]/contents-lbs
+				propulsion/tank[9]/contents-lbs gt 0
+				propulsion/tank[10]/contents-lbs lt 10
+			</test>
+		</switch>
+		<switch name="propulsion/tank[10]/external-flow-rate/Engine-x-feed">
+			<default value="0"/>
+			<test logic="AND" value="0">
+				fuel/switch/Engine_3_4_Valve == 1
+				propulsion/tank[10]/contents-lbs gt propulsion/tank[9]/contents-lbs
+				propulsion/tank[10]/contents-lbs gt 0
+				propulsion/tank[9]/contents-lbs lt 10
+			</test>
+		</switch>		
+
+		
+	</channel>
+</system>
