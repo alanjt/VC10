@@ -38,12 +38,15 @@ if you contacted me before making any changes to this software.
 			<tag>tricycle</tag>
 			<tag>retractable-gear</tag>
 			<tag>four-engine</tag>
+			<tag>4-engines</tag>
 			<tag>jet</tag>
 			<tag>transport</tag>
 			<tag>1960s</tag>
 			<tag>1970s</tag>
 			<tag>ifr</tag>
 		</tags>
+		
+		<engines> 4 </engines>
 
 		<minimum-fg-version>2017.3.0</minimum-fg-version>
 
@@ -54,11 +57,11 @@ if you contacted me before making any changes to this software.
 			<model type="int">2</model>
 		</rating>
 
-		<systems n="0">
+<!--		<systems n="0">
 			<autopilot n="0">
 				<path>Aircraft/VC10/Systems/autopilot.xml</path>
 			</autopilot>
-		</systems>
+		</systems> -->
 
 		<instrumentation>
 			<path>Aircraft/VC10/Systems/instrumentation.xml</path>
@@ -95,15 +98,15 @@ if you contacted me before making any changes to this software.
 			<stall-horn type="bool">0</stall-horn>
 		</sound> 
 
-		<tutorials>
+<!--		<tutorials>
 			<tutorial include="Tutorials/VC10-startup-german.xml"/>
 			<tutorial include="Tutorials/VC10-startup-english.xml"/>
 			<tutorial include="Tutorials/VC10-startup-spanish.xml"/>
 			<tutorial include="Tutorials/VC10-startup-portugues.xml"/>
 			<tutorial include="Tutorials/VC10-startup-italiano.xml"/>
-		</tutorials>
+		</tutorials> -->
 
-		<checklists>
+<!--		<checklists>
 			<checklist include="Checklists/during-flight.xml"/>
 			<checklist include="Checklists/before-taxiing.xml"/>
 			<checklist include="Checklists/after-engines-startup-II.xml"/>
@@ -113,7 +116,7 @@ if you contacted me before making any changes to this software.
 			<checklist include="Checklists/before-engines-startup-II.xml"/>
 			<checklist include="Checklists/before-engines-startup-EPU.xml"/>
 			<checklist include="Checklists/before-engines-startup-APU.xml"/>
-		</checklists>
+		</checklists> -->
 
 		<view>    
 			<name>Captain View</name>
@@ -523,7 +526,7 @@ if you contacted me before making any changes to this software.
 			<max-lb type="double"> 6000.0</max-lb>
 		</weight>
 		<weight>
-			<name type="string">Luggage 2 - center</name>
+			<name type="string">Luggage 2 - centre</name>
 			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[5]"/>
 			<min-lb type="double"> 0.0</min-lb>
 			<max-lb type="double">10000.0</max-lb>
@@ -540,9 +543,8 @@ if you contacted me before making any changes to this software.
 
 	<limits>
 		<mass-and-balance>
-			<maximum-takeoff-mass-lbs>311000</maximum-takeoff-mass-lbs>
-			<maximum-takeoff-mass-lbs-jt4>333000</maximum-takeoff-mass-lbs-jt4>
-			<maximum-landing-mass-lbs>215000</maximum-landing-mass-lbs>
+			<maximum-takeoff-mass-lbs>314000</maximum-takeoff-mass-lbs>
+			<maximum-landing-mass-lbs>216000</maximum-landing-mass-lbs>
 		</mass-and-balance>
 	</limits>
 

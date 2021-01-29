@@ -346,7 +346,7 @@ var show_fuel_quantity = func(i){
 	}else if(i==2){
 		text="Main Tank 3";
 	}else if(i==3){
-		text="Center Tank";
+		text="Centre Tank";
 	}else if(i==4){
 		text="Main Tank 2";
 	}else if(i==5){
@@ -799,33 +799,34 @@ setlistener("VC10/warning/fire-button[3]", func(state){
 },0,0);
 
 # if gen-drive is set to on in flight, engines crashed
+## comment this out to allow in air reset without engines cutting out.  AJT
 setlistener("VC10/generator/gen-drive[0]", func(state){
 	var state = state.getBoolValue() or 0;
 	var a = getprop("position/altitude-agl-ft") or 0;
-	if(a > 20 and state){
-		 settimer( func { setprop("controls/engines/engine[0]/fire", 1) }, 2);
-	}
+##	if(a > 20 and state){
+##		 settimer( func { setprop("controls/engines/engine[0]/fire", 1) }, 2);
+##	}
 },0,0);
 setlistener("VC10/generator/gen-drive[1]", func(state){
 	var state = state.getBoolValue() or 0;
 	var a = getprop("position/altitude-agl-ft") or 0;
-	if(a > 20 and state){
-		 settimer( func { setprop("controls/engines/engine[1]/fire", 1) }, 2);
-	}
+##	if(a > 20 and state){
+##		 settimer( func { setprop("controls/engines/engine[1]/fire", 1) }, 2);
+##	}
 },0,0);
 setlistener("VC10/generator/gen-drive[2]", func(state){
 	var state = state.getBoolValue() or 0;
 	var a = getprop("position/altitude-agl-ft") or 0;
-	if(a > 20 and state){
-		 settimer( func { setprop("controls/engines/engine[2]/fire", 1) }, 2);
-	}
+##	if(a > 20 and state){
+##		 settimer( func { setprop("controls/engines/engine[2]/fire", 1) }, 2);
+##	}
 },0,0);
 setlistener("VC10/generator/gen-drive[3]", func(state){
 	var state = state.getBoolValue() or 0;
 	var a = getprop("position/altitude-agl-ft") or 0;
-	if(a > 20 and state){
-		 settimer( func { setprop("controls/engines/engine[3]/fire", 1) }, 2);
-	}
+##	if(a > 20 and state){
+##		 settimer( func { setprop("controls/engines/engine[3]/fire", 1) }, 2);
+##	}
 },0,0);
 
 ################# OIL System  AND WINDSHIELD EFFECT also TAT independence Loop 32sec ################
@@ -932,7 +933,10 @@ var nacelle_deicing = func {
 		if (!engineInlet and e.getIndex() < 4) {
 		  var n = e.getIndex() + 1;
 		  if(tat <= -10) iceAlertEngines = 1;
-		  if(tat <= -30) setprop("controls/engines/engine["~e.getIndex()~"]/cutoff", 1);
+		  if(tat <= -30) {
+		  print ("mk_VC10 - tat <30 set cutoff true");
+		  setprop("controls/engines/engine["~e.getIndex()~"]/cutoff", 1);
+		  }
 		}
 		
 		var temperature = deg * 110/1400; # engines have 1400 degree f max temperature
@@ -1005,7 +1009,9 @@ var nacelle_deicing = func {
 	  }
 	  
 	  if(newfuelTemp <  -8)  iceAlertFuel = 1;
-	  if(newfuelTemp < -25)  setprop("controls/engines/engine["~hnr~"]/cutoff", 1);
+	  if(newfuelTemp < -25) {
+	  		  print ("mk_VC10 - tfuelTemp < -25 set cutoff true");	  
+	  setprop("controls/engines/engine["~hnr~"]/cutoff", 1); }
 	  
 		setprop("VC10/fuel/temp["~tnr~"]", newfuelTemp);
   	if (sel == tnr) interpolate("VC10/fuel/temperature", newfuelTemp, 15);
@@ -1321,7 +1327,7 @@ setlistener("VC10/hydraulic/rudder-switch", func(state){
 	}
 },1,0);
 
-#################### If trim wheels are not on 0 and you click the center of this wheel #############
+#################### If trim wheels are not on 0 and you click the centre of this wheel #############
 var trimBackTime = 1.0;
 var applyTrimWheels = func(v, which = 0) {
     if (which == 0) { interpolate("controls/flight/elevator-trim", v, trimBackTime); }

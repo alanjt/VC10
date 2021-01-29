@@ -47,7 +47,8 @@ var Reset = func{
 	   	setprop("engines/engine[0]/running","true");
 	   	setprop("engines/engine[1]/running","true");
 	   	setprop("engines/engine[2]/running","true");
-	   	setprop("engines/engine[3]/running","true");		
+	   	setprop("engines/engine[3]/running","true");
+		  print ("reset in air - set cutoff false");		
 		setprop("controls/engines/engine[0]/cutoff", "false");
 		setprop("controls/engines/engine[1]/cutoff", "false");
 		setprop("controls/engines/engine[2]/cutoff", "false");

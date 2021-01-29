@@ -837,7 +837,7 @@ if you contacted me before making any changes to this software.
 		  </action>
 	</animation>
 	
-	<!-- Boost Pumps Center Tank -->
+	<!-- Boost Pumps Centre Tank -->
 	<animation>
 		  <type>rotate</type>
 		  <object-name>switch.003</object-name>

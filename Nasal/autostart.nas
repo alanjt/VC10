@@ -768,7 +768,7 @@ var startup = func
 				setprop("VC10/fuel/valves/fuel-shutoff[3]", 1);
 				VC10.shutoff_pos(3);
 				toggle_switch2();				
-				screen.log.write("Look down to your throttle levers on center pedestal.", 1, 1, 1);
+				screen.log.write("Look down to your throttle levers on centre pedestal.", 1, 1, 1);
 				
 				#cold weather problems start the heating system for windows-fuel-and engines
 				setprop("VC10/anti-ice/switch", 2);

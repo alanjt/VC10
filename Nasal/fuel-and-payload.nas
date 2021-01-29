@@ -48,7 +48,7 @@ var c1 = props.globals.getNode("/fdm/jsbsim/inertia/pointmass-weight-lbs[1]"); #
 var c2 = props.globals.getNode("/fdm/jsbsim/inertia/pointmass-weight-lbs[2]"); # second-class wing
 var c3 = props.globals.getNode("/fdm/jsbsim/inertia/pointmass-weight-lbs[3]"); # second-class rear
 var c4 = props.globals.getNode("/fdm/jsbsim/inertia/pointmass-weight-lbs[4]"); # lugage front
-var c5 = props.globals.getNode("/fdm/jsbsim/inertia/pointmass-weight-lbs[5]"); # lugage center
+var c5 = props.globals.getNode("/fdm/jsbsim/inertia/pointmass-weight-lbs[5]"); # lugage centre
 var c6 = props.globals.getNode("/fdm/jsbsim/inertia/pointmass-weight-lbs[6]"); # lugage rear
 
 # the tank
@@ -106,8 +106,8 @@ var dc1 = props.globals.initNode("/VC10/fuel/valves/dump-cover[1]",0,"DOUBLE");
 var drL = props.globals.initNode("/VC10/fuel/valves/dump-retract[0]",0,"DOUBLE");
 var drR = props.globals.initNode("/VC10/fuel/valves/dump-retract[1]",0,"DOUBLE");
 var dc1 = props.globals.initNode("/VC10/fuel/valves/dump-cover[1]",0,"DOUBLE");
-var dv0 = props.globals.initNode("/VC10/fuel/valves/dump-valve[0]",0,"BOOL"); #left center tank
-var dv1 = props.globals.initNode("/VC10/fuel/valves/dump-valve[1]",0,"BOOL"); #right center tank
+var dv0 = props.globals.initNode("/VC10/fuel/valves/dump-valve[0]",0,"BOOL"); #left centre tank
+var dv1 = props.globals.initNode("/VC10/fuel/valves/dump-valve[1]",0,"BOOL"); #right centre tank
 var dv2 = props.globals.initNode("/VC10/fuel/valves/dump-valve[2]",0,"BOOL"); #main tank 1
 var dv3 = props.globals.initNode("/VC10/fuel/valves/dump-valve[3]",0,"BOOL"); #main tank 2
 var dv4 = props.globals.initNode("/VC10/fuel/valves/dump-valve[4]",0,"BOOL"); #main tank 3
@@ -235,7 +235,6 @@ var weightChangeHandler = func {
 var WeightFuelDialog = func {
     var name = "WeightAndFuel";
     var title = "VICKERS VC10 Weight and Fuel Settings";
-    var jt4Engines = getprop("sim/multiplay/generic/int[8]") or 0;
     var cargo = getprop("sim/multiplay/generic/int[9]") or 0;
     # rewrite the name of payload if cargo livery/aircraft selected
     if(cargo){
@@ -251,7 +250,7 @@ var WeightFuelDialog = func {
     	setprop("/payload/weight[2]/name", "Second-class / wing");
     	setprop("/payload/weight[3]/name", "Second-class / rear");
     	setprop("/payload/weight[4]/name", "Luggage 1 - front");
-    	setprop("/payload/weight[5]/name", "Luggage 2 - center");
+    	setprop("/payload/weight[5]/name", "Luggage 2 - centre");
     	setprop("/payload/weight[6]/name", "Luggage 3 - rear");    
     }
     #
@@ -281,7 +280,9 @@ var WeightFuelDialog = func {
         grosswgt : "/fdm/jsbsim/inertia/weight-lbs",
         grosskg  : "/VC10/weight-kg",
         payload  : "/payload",
-        cg       : "/fdm/jsbsim/inertia/cg-x-in",
+            cg_x_in       : "/fdm/jsbsim/inertia/cg-x-in",
+			cg_x_pcent    : "/fdm/jsbsim/inertia/cg-x-percent",
+	        cg_z_in       : "/fdm/jsbsim/inertia/cg-z-in"
     };
 
     var contentArea = dialog[name].addChild("group");
@@ -327,25 +328,39 @@ var WeightFuelDialog = func {
     }
 
     if(massLimits != nil ) {
-        if(jt4Engines){
-		      tablerow("Max. Ramp Weight", "maximum-ramp-mass-lbs", "%.0f lbs" );
-		      tablerow("Max. Takeoff", "maximum-takeoff-mass-lbs-jt4", "%.0f lbs" );
-		      tablerow("Max. Landing", "maximum-landing-mass-lbs", "%.0f lbs" );
-		      tablerow("Max. Arrested Landing  Weight", "maximum-arrested-landing-mass-lbs", "%.0f lbs" );
-		      tablerow("Max. Zero Fuel Weight", "maximum-zero-fuel-mass-lbs", "%.0f lb" );
-        }else{
-		      tablerow("Max. Ramp Weight", "maximum-ramp-mass-lbs", "%.0f lbs" );
-		      tablerow("Max. Takeoff", "maximum-takeoff-mass-lbs", "%.0f lbs" );
-		      tablerow("Max. Landing", "maximum-landing-mass-lbs", "%.0f lbs" );
-		      tablerow("Max. Arrested Landing  Weight", "maximum-arrested-landing-mass-lbs", "%.0f lbs" );
-		      tablerow("Max. Zero Fuel Weight", "maximum-zero-fuel-mass-lbs", "%.0f lb" );    
-        }
+		tablerow("Max. Ramp Weight", "maximum-ramp-mass-lbs", "%.0f lbs" );
+		tablerow("Max. Takeoff", "maximum-takeoff-mass-lbs", "%.0f lbs" );
+		tablerow("Max. Landing", "maximum-landing-mass-lbs", "%.0f lbs" );
+		tablerow("Max. Arrested Landing  Weight", "maximum-arrested-landing-mass-lbs", "%.0f lbs" );
+		tablerow("Max. Zero Fuel Weight", "maximum-zero-fuel-mass-lbs", "%.0f lb" );    
     }
 
     #if( fdmdata.cg != nil ) { 
     #    var n = props.globals.getNode("/limits/mass-and-balance/cg/dimension");
-    #    tablerow("Center of Gravity", props.globals.getNode(fdmdata.cg), "%.1f " ~ (n == nil ? "in" : n.getValue()));
+    #    tablerow("Centre of Gravity", props.globals.getNode(fdmdata.cg), "%.1f " ~ (n == nil ? "in" : n.getValue()));
     #}
+	
+   if( fdmdata.cg_x_in != nil ) { 
+        var n = props.globals.getNode("/limits/mass-and-balance/cg/dimension");
+        tablerow("Centre of Gravity", props.globals.getNode(fdmdata.cg_x_in), "%.1f " ~ (n == nil ? "in" : n.getValue()));
+    }
+	
+    if( fdmdata.cg_x_pcent != nil ) {
+	var cg_x_percent = props.globals.getNode(fdmdata.cg_x_pcent);
+        tablerow("Centre of Gravity", cg_x_percent, "%.1f %%SMC");
+    }
+    if( fdmdata.cg_z_in != nil ) { 
+	var cg_z_in = props.globals.getNode(fdmdata.cg_z_in);
+        tablerow("Vertical Centre of Gravity", props.globals.getNode(fdmdata.cg_z_in), "%.1f  in");
+    } 	
+	
+
+	
+	
+	
+	
+	
+	
 
     dialog[name].addChild("hrule");
 
@@ -388,7 +403,7 @@ var WeightFuelDialog = func {
     kg.set("label", "kg");
     kg.set("halign", "left");
     
-    var tnames = ["Res 4", "Main 4", "Main 3", "Center", "Main 2", "Main 1", "Res 1"];
+    var tnames = ["  1A", "   1", "   2", "Centre", "   3", "   4", "  4A"];
 
     var tanks = props.globals.getNode("/consumables/fuel").getChildren("tank");
     for(var ti=0; ti<7; ti+=1) {
@@ -834,6 +849,7 @@ var engines_alive = maketimer (8.0, func {
 		  ## SHUTOFF VALVE ## 
 		  if(n2 >= 50 and !s) {
 		      trace("Engine "~e.getIndex()~" without fuel - shutoff valve closed!");
+			  print (" fuel and payload without fuel set cutoff true ");
 		      c.setBoolValue(1);
 		  }
 		  
@@ -858,6 +874,7 @@ var engines_alive = maketimer (8.0, func {
 		  ## BOOST-PUMPS ## are both closed and the crossfeed valve is closed too
 		  if(n2 >= 50 and fp == 0) {
 		      trace("Engine "~e.getIndex()~" without fuel - boost-pumps out!");
+			  print (" fuel and payload boost pumps out set cutoff true ");
 		      c.setBoolValue(1);
 		  } 
 		   		  
@@ -895,7 +912,10 @@ var engines_alive = maketimer (8.0, func {
 		  var isL = props.globals.getNode("sim/multiplay/generic/int[17]");
 		  var isR = props.globals.getNode("sim/multiplay/generic/int[18]");
 		  
+		  c.setBoolValue(0);  ## clear fire flag, so thet engines do not stop
+		  
 		  if(f.getBoolValue()){
+		  			  print (" fuel and payload Fire set cutoff true ");
 		  	c.setBoolValue(1);
 		  	w.setValue(1);
 		  	# fill the property for multiplay fire
@@ -1107,7 +1127,7 @@ var crossfeed_action = maketimer (crossfeed_action_period, func {
 			}
 		}
 		
-		# Center Tank
+		# Centre Tank
 		cfcv = crossfeed_control_valves (3);
 		if(cfcv == 1) tankgetfuel.append('3');
 		if(cfcv == 2) {
@@ -1269,7 +1289,7 @@ var dump_loop_l = maketimer(2.1, func(){
 				var tfM1Neu = (tfM1.getValue() > 4100 ) ? tfM1.getValue() - 100 : tfM1.getValue();				
 				var tfR1Neu = (tfR1.getValue() > 0 ) ? tfR1.getValue() - 100 : 0;
 				if(dv0.getBoolValue() and dvp0.getBoolValue()) 
-									interpolate("/consumables/fuel/tank[3]/level-lbs", tfCNeu, 2.1); # Center
+									interpolate("/consumables/fuel/tank[3]/level-lbs", tfCNeu, 2.1); # Centre
 				if(dv3.getBoolValue() and dvp3.getBoolValue()) 				
 	  							interpolate("/consumables/fuel/tank[4]/level-lbs", tfM2Neu, 2.1); # Main 2
 				if(dv2.getBoolValue() and dvp2.getBoolValue()) 
@@ -1289,7 +1309,7 @@ var dump_loop_l = maketimer(2.1, func(){
 	}	
 	if (dv0.getBoolValue() and tfC.getValue() <= 1750){
 		dv0.setValue(0);
-		screen.log.write("Dumping terminated - minimum reached for L Center Tank!", 1, 0, 0);
+		screen.log.write("Dumping terminated - minimum reached for L Centre Tank!", 1, 0, 0);
 	}
 	if (dv2.getBoolValue() and tfM1.getValue() <= 4150){
 		dv2.setValue(0);
@@ -1327,7 +1347,7 @@ var dump_loop_r = maketimer(2.1, func(){
 				var tfM3Neu = (tfM3.getValue() > 4100 ) ? tfM3.getValue() - 100 : tfM3.getValue();				
 				var tfR4Neu = (tfR4.getValue() > 0 ) ? tfR4.getValue() - 100 : 0;
 				if(dv1.getBoolValue() and dvp1.getBoolValue() and tfCNeu) 
-									interpolate("/consumables/fuel/tank[3]/level-lbs", tfCNeu, 2.1); # Center
+									interpolate("/consumables/fuel/tank[3]/level-lbs", tfCNeu, 2.1); # Centre
 				if(dv4.getBoolValue() and dvp4.getBoolValue()) 				
 	  							interpolate("/consumables/fuel/tank[2]/level-lbs", tfM3Neu, 2.1); # Main 3
 				if(dv5.getBoolValue() and dvp5.getBoolValue()) 
@@ -1347,7 +1367,7 @@ var dump_loop_r = maketimer(2.1, func(){
 	
 	if (dv1.getBoolValue() and tfC.getValue() <= 1750){
 		dv1.setValue(0);
-		screen.log.write("Dumping terminated - minimum reached for R Center Tank!", 1, 0, 0);
+		screen.log.write("Dumping terminated - minimum reached for R Centre Tank!", 1, 0, 0);
 	}	
 	if (dv4.getBoolValue() and tfM3.getValue() <= 4150){
 		dv4.setValue(0);

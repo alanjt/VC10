@@ -45,7 +45,7 @@ if you contacted me before making any changes to this software.
 
 	
 	<!-- Cutoff levers -->
-	<animation>
+<!--	<animation>
 		<type>rotate</type>
 		<object-name>cutoff.001</object-name>
 		<property>controls/engines/engine[0]/cutoff</property>
@@ -163,7 +163,7 @@ if you contacted me before making any changes to this software.
 		    <property>controls/engines/engine[3]/cutoff</property>
 		  </binding>
 		</action>
-	</animation>
+	</animation> -->
 	
 
 

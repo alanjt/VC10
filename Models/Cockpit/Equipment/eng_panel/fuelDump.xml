@@ -324,7 +324,7 @@ if you contacted me before making any changes to this software.
 		  </action>
 	</animation> 
 	
-	<!-- Left Center Tank valve -->
+	<!-- Left Centre Tank valve -->
 	<animation>
 		  <type>rotate</type>
 		  <object-name>switch.001</object-name>
@@ -450,7 +450,7 @@ if you contacted me before making any changes to this software.
 		  </action>
 	</animation>
 	
-	<!-- Right Center Tank valve -->
+	<!-- Right Centre Tank valve -->
 	<animation>
 		  <type>rotate</type>
 		  <object-name>switch.000</object-name>

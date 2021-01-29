@@ -42,7 +42,7 @@ if you contacted me before making any changes to this software.
 		<object-name>firewarning</object-name>
 		<object-name>panel</object-name>
 		<object-name>PanelCaptain</object-name> 
-		<object-name>PanelCenter</object-name>
+		<object-name>PanelCentre</object-name>
 		<object-name>PanelCopilot</object-name>		
 		<object-name>immat.text</object-name> 
 		<condition>

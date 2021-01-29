@@ -8,9 +8,21 @@ AERODYNAMICS
 
 	<!-- Unless stated otherwise this data has produced by Digital Datcom   -->
 	<!-- An aerodynamic reference point of 79.07 ft (32% SMC) aft of the 
-	fuselage datum has been used. This is the samedatum that is used for 
+	fuselage datum has been used. This is the same datum that is used for 
 	placing and animating objects in the top level model file (VC10model.xml and VC10.ac).
     The fuselage datum is that defined by Vickers and is 8" aft of the front of the radome.	-->
+
+	<function name="inertia/cg-x-percent">
+		<description>cg , percentage of cbar</description>
+		<quotient>
+			<difference>
+				<property>inertia/cg-x-in</property>
+<!--				<value>948.864</value>  32% -->
+				<value>872.0</value>	
+			</difference>
+			<value>2.402</value>
+		</quotient>
+	</function>
 
 	<axis name="LIFT">  <!-- ########################################################### -->
 
@@ -493,7 +505,7 @@ AERODYNAMICS
 				</table>
 			</product>
 		</function>
-		
+
 		<function name="aero/moment/Pitch_pitch_rate">
 			<description>Pitch_moment_due_to_pitch_rate</description>
 			<product>
@@ -551,7 +563,7 @@ AERODYNAMICS
 				</table>
 			</product>
 		</function>
-		
+
 		<function name="aero/moment/CMflap">
 			<description>Pitch_moment_due_to_flaps</description>
 			<product>
@@ -686,7 +698,7 @@ AERODYNAMICS
 				<property>metrics/cbarw-ft</property>
 				<table name="aero/coefficient/CM_ground_effect">
 					<independentVar lookup="row">aero/alpha-deg</independentVar>
-					<independentVar lookup="column">velocities/mach</independentVar>
+					<independentVar lookup="column">position/h-agl-ft</independentVar>
 					<tableData>
 						5.0	10.0	20.0	30.0	40.0	50.0	100
 						-10	-0.0186	-0.0129	-0.0052	-0.0022	-0.0011	-0.0006	0.0000

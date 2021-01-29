@@ -27,7 +27,7 @@
 		</emission>
 	</animation>
 
-<!-- the four lamps in the center are beeing indicator for engines off or fire -->
+<!-- the four lamps in the centre are beeing indicator for engines off or fire -->
 <animation>
   <type>material</type>
   <object-name>lampone</object-name>
