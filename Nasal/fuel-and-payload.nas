@@ -45,8 +45,8 @@ var automatic_management   = props.globals.initNode ("/VC10/fuel/automatic-manag
 var fdm = getprop("/sim/flight-model");
 var c0 = props.globals.getNode("/fdm/jsbsim/inertia/pointmass-weight-lbs[0]"); # crew
 var c1 = props.globals.getNode("/fdm/jsbsim/inertia/pointmass-weight-lbs[1]"); # first-class
-var c2 = props.globals.getNode("/fdm/jsbsim/inertia/pointmass-weight-lbs[2]"); # second-class wing
-var c3 = props.globals.getNode("/fdm/jsbsim/inertia/pointmass-weight-lbs[3]"); # second-class rear
+var c2 = props.globals.getNode("/fdm/jsbsim/inertia/pointmass-weight-lbs[2]"); # tourist-class wing
+var c3 = props.globals.getNode("/fdm/jsbsim/inertia/pointmass-weight-lbs[3]"); # tourist-class rear
 var c4 = props.globals.getNode("/fdm/jsbsim/inertia/pointmass-weight-lbs[4]"); # lugage front
 var c5 = props.globals.getNode("/fdm/jsbsim/inertia/pointmass-weight-lbs[5]"); # lugage centre
 var c6 = props.globals.getNode("/fdm/jsbsim/inertia/pointmass-weight-lbs[6]"); # lugage rear
@@ -247,8 +247,8 @@ var WeightFuelDialog = func {
     	setprop("/payload/weight[6]/name", "Cargo belly 3");
     }else{
     	setprop("/payload/weight[1]/name", "First-class");
-    	setprop("/payload/weight[2]/name", "Second-class / wing");
-    	setprop("/payload/weight[3]/name", "Second-class / rear");
+    	setprop("/payload/weight[2]/name", "Tourist-class / wing");
+    	setprop("/payload/weight[3]/name", "Tourist-class / rear");
     	setprop("/payload/weight[4]/name", "Luggage 1 - front");
     	setprop("/payload/weight[5]/name", "Luggage 2 - centre");
     	setprop("/payload/weight[6]/name", "Luggage 3 - rear");    

@@ -109,7 +109,7 @@ if you contacted me before making any changes to this software.
 				<z>  0</z>
 			</location>
 		</pointmass>
-		<pointmass name="PASSENGER SECOND CLASS">
+		<pointmass name="PASSENGER TOURIST CLASS">
 			<weight unit="LBS"> 0</weight><!-- passengers-->
 			<location name="POINTMASS" unit="IN">
 				<x>300</x>
@@ -117,7 +117,7 @@ if you contacted me before making any changes to this software.
 				<z>   0</z>
 			</location>
 		</pointmass>
-		<pointmass name="PASSENGER SECOND CLASS">
+		<pointmass name="PASSENGER TOURIST CLASS">
 			<weight unit="LBS"> 0</weight><!-- passengers-->
 			<location name="POINTMASS" unit="IN">
 				<x>400</x>
