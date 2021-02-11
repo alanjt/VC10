@@ -91,29 +91,29 @@ var Reset = func{
 		setprop("VC10/hydraulic/hyd-fluid-pump[1]", 1);
 		
 		setprop("VC10/fuel/valves/valve[0]", 1);
-		VC10.valve_pos(0);
+##		VC10.valve_pos(0);
 		setprop("VC10/fuel/valves/valve[1]", 1);
-		VC10.valve_pos(1);
+##		VC10.valve_pos(1);
 		setprop("VC10/fuel/valves/valve[2]", 1);
-		VC10.valve_pos(2);
+##		VC10.valve_pos(2);
 		setprop("VC10/fuel/valves/valve[3]", 1);
-		VC10.valve_pos(3);
+##		VC10.valve_pos(3);
 		setprop("VC10/fuel/valves/valve[4]", 1);
-		VC10.valve_pos(4);
+##		VC10.valve_pos(4);
 		setprop("VC10/fuel/valves/valve[5]", 1);
-		VC10.valve_pos(5);
+##		VC10.valve_pos(5);
 		setprop("VC10/fuel/valves/valve[0]", 0);
-		VC10.valve_pos(0);
+##		VC10.valve_pos(0);
 		setprop("VC10/fuel/valves/valve[1]", 0);
-		VC10.valve_pos(1);
+##		VC10.valve_pos(1);
 		setprop("VC10/fuel/valves/valve[2]", 0);
-		VC10.valve_pos(2);
+##		VC10.valve_pos(2);
 		setprop("VC10/fuel/valves/valve[3]", 0);
-		VC10.valve_pos(3);
+##		VC10.valve_pos(3);
 		setprop("VC10/fuel/valves/valve[4]", 0);
-		VC10.valve_pos(4);
+##		VC10.valve_pos(4);
 		setprop("VC10/fuel/valves/valve[5]", 0);
-		VC10.valve_pos(5);
+##		VC10.valve_pos(5);
 
 		
 		
@@ -128,13 +128,13 @@ var Reset = func{
 		setprop("VC10/fuel/valves/boost-pump[8]", 1);
 		setprop("VC10/fuel/valves/boost-pump[9]", 1);
 		setprop("VC10/fuel/valves/fuel-shutoff[0]", 1);
-		VC10.shutoff_pos(0);
+##		VC10.shutoff_pos(0);
 		setprop("VC10/fuel/valves/fuel-shutoff[1]", 1);
-		VC10.shutoff_pos(1);
+##		VC10.shutoff_pos(1);
 		setprop("VC10/fuel/valves/fuel-shutoff[2]", 1);
-		VC10.shutoff_pos(2);
+##		VC10.shutoff_pos(2);
 		setprop("VC10/fuel/valves/fuel-shutoff[3]", 1);
-        VC10.shutoff_pos(3);		
+##        VC10.shutoff_pos(3);		
 		setprop("controls/wiper/degrees",0);
 		setprop("VC10/apu/off-start-run", 0);
 		

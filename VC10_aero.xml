@@ -61,6 +61,35 @@ AERODYNAMICS
 			</product>
 		</function>
 
+		<function name="aero/force/LiftaileronsUp">
+			<description>Lift_due_to_aileronsUp</description>
+			<product>
+				<property>aero/qbar-psf</property>
+				<property>metrics/Sw-sqft</property>
+				<table name="aero/coefficient/CLaileronsUp">
+					<independentVar>aero/alpha-deg</independentVar>
+					<tableData>
+						-10		-0.0187
+						-8	-0.01916
+						-6	-0.01962
+						-4	-0.0199
+						-2	-0.02049
+						0	-0.02084
+						2	-0.02099
+						4	-0.02106
+						6	-0.02106
+						8	-0.0208
+						10	-0.02017
+						12	-0.01961
+						14	-0.01744
+						16	-0.01692
+						18	-0.01556
+						20	-0.01262
+					</tableData>
+				</table>
+			</product>
+		</function>
+
 		<function name="aero/force/Lift_flap">
 			<description>Lift_due_to_flaps</description>
 			<product>
@@ -288,6 +317,35 @@ AERODYNAMICS
 			</product>
 		</function>
 
+		<function name="aero/force/DragaileronsUp">
+			<description>Drag_due_to_aileronsUp</description>
+			<product>
+				<property>aero/qbar-psf</property>
+				<property>metrics/Sw-sqft</property>
+				<table name="aero/coefficient/CDaileronsUp">
+					<independentVar>aero/alpha-deg</independentVar>
+					<tableData>
+						-10	0.0007
+						-8	0.0003
+						-6	0.0000
+						-4	-0.0003
+						-2	-0.0005
+						0	-0.0007
+						2	-0.0008
+						4	-0.0009
+						6	-0.0010
+						8	-0.0011
+						10	-0.0012
+						12	-0.0012
+						14	-0.0010
+						16	-0.0010
+						18	-0.0011
+						20	-0.0008
+					</tableData>
+				</table>
+			</product>
+		</function>
+
 
 		<!--			<function name="aero/force/Drag_mach">
 				<description>Drag_due_to_mach</description>
@@ -507,6 +565,36 @@ AERODYNAMICS
 			</product>
 		</function>
 
+		<function name="aero/moment/Pitch_aileronUP">
+			<description>Pitch_moment_due_to_AileronUP</description>
+			<product>
+				<property>aero/qbar-psf</property>
+				<property>metrics/Sw-sqft</property>
+				<property>metrics/cbarw-ft</property>
+				<table  name="aero/coefficient/CMaileronUP">
+					<independentVar lookup="row">aero/alpha-deg</independentVar>
+					<tableData>
+						-10	0.0115
+						-8	0.0148
+						-6	0.0180
+						-4	0.0207
+						-2	0.0244
+						0	0.0277
+						2	0.0306
+						4	0.0334
+						6	0.0362
+						8	0.0385
+						10	0.0399
+						12	0.0418
+						14	0.0386
+						16	0.0410
+						18	0.0407
+						20	0.0364
+					</tableData>
+				</table>
+			</product>
+		</function>
+
 		<function name="aero/moment/Pitch_pitch_rate">
 			<description>Pitch_moment_due_to_pitch_rate</description>
 			<product>
@@ -598,7 +686,7 @@ AERODYNAMICS
 						-15	0.3023	0.307	0.3048	0.2922	0.2683	0.2287
 						-10	0.2061	0.2093	0.2078	0.1992	0.1829	0.1558
 						-5	0.103	0.1046	0.1039	0.0996	0.0914	0.0779
-						0	-0.0002	-0.0002	-0.0002	-0.0002	-0.0002	-0.0002
+						0	-0.000	-0.000	-0.000	-0.000	-0.000	-0.000
 						5	-0.103	-0.1046	-0.1039	-0.0996	-0.0914	-0.0779
 						10	-0.2061	-0.2093	-0.2078	-0.1992	-0.1829	-0.1558
 						15	-0.3023	-0.307	-0.3048	-0.2922	-0.2683	-0.2287
@@ -646,7 +734,7 @@ AERODYNAMICS
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/cbarw-ft</property>
-				<property>/VC10/trim/spoiler-nose-down</property>
+				<property>fcs/speedbrake-pos-norm</property>
 				<table  name="aero/coefficient/CM_inner_spoiler">
 					<independentVar>velocities/mach</independentVar>
 					<tableData>
@@ -663,7 +751,7 @@ AERODYNAMICS
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/cbarw-ft</property>
-				<property>/VC10/trim/spoiler-nose-down</property>
+				<property>fcs/speedbrake-pos-norm</property>
 				<table  name="aero/coefficient/CM_middle_spoiler">
 					<independentVar>velocities/mach</independentVar>
 					<tableData>
@@ -680,8 +768,8 @@ AERODYNAMICS
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/cbarw-ft</property>
-				<property>/VC10/trim/spoiler-nose-up</property>
-				<table  name="aero/coefficient/CM_OuterSpoiler">
+				<property>fcs/speedbrake-pos-norm</property>
+				<table  name="aero/coefficient/CM_outerSpoiler">
 					<independentVar>velocities/mach</independentVar>
 					<tableData>
 						0.0000    0.06

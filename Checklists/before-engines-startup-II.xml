@@ -466,10 +466,10 @@ if you contacted me before making any changes to this software.
 		  <property>VC10/fuel/valves/fuel-shutoff[0]</property>
 		  <value>1</value>
 		</binding>        
-		<binding>
+<!--		<binding>
             <command>nasal</command>
             <script>VC10.shutoff_pos(0);</script>
-        </binding>  
+        </binding>   -->
 	    <binding>
 	      <command>property-toggle</command>
 	      <property>sim/sound/switch1</property>
@@ -496,10 +496,10 @@ if you contacted me before making any changes to this software.
 		  <property>VC10/fuel/valves/fuel-shutoff[1]</property>
 		  <value>1</value>
 		</binding>      
-		<binding>
+<!--		<binding>
             <command>nasal</command>
             <script>VC10.shutoff_pos(1);</script>
-        </binding>   
+        </binding>   -->  
 	    <binding>
 	      <command>property-toggle</command>
 	      <property>sim/sound/switch1</property>
@@ -526,10 +526,10 @@ if you contacted me before making any changes to this software.
 		  <property>VC10/fuel/valves/fuel-shutoff[2]</property>
 		  <value>1</value>
 		</binding>      
-		<binding>
+<!--		<binding>
             <command>nasal</command>
             <script>VC10.shutoff_pos(2);</script>
-        </binding>  
+        </binding>   -->  
 	    <binding>
 	      <command>property-toggle</command>
 	      <property>sim/sound/switch1</property>
@@ -556,10 +556,10 @@ if you contacted me before making any changes to this software.
 		  <property>VC10/fuel/valves/fuel-shutoff[3]</property>
 		  <value>1</value>
 		</binding>      
-		<binding>
+<!--		<binding>
             <command>nasal</command>
             <script>VC10.shutoff_pos(3);</script>
-        </binding>  
+        </binding>   -->  
 	    <binding>
 	      <command>property-toggle</command>
 	      <property>sim/sound/switch1</property>

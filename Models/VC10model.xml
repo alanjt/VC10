@@ -2003,15 +2003,11 @@ if you contacted me before making any changes to this software.
 		<type>rotate</type>
 		<object-name>Spoilers.L</object-name>
 		<property>surface-positions/speedbrake-pos-norm</property>
-		<factor>59</factor>
+		<factor>-59</factor>
 		<offset-deg>0</offset-deg>   
 		<axis>
-			<x1-m>  4.87</x1-m>
-			<y1-m>-11.26</y1-m>
-			<z1-m>  0.22</z1-m>
-			<x2-m>  6.30</x2-m>
-			<y2-m>-14.09</y2-m>
-			<z2-m>  0.46</z2-m>
+			<x1-m>  28.6231</x1-m><y1-m>-13.8527</y1-m><z1-m> -0.0957</z1-m>
+			<x2-m>  25.5928</x2-m><y2-m>-6.7212</y2-m><z2-m> -0.6750</z2-m>
 		</axis>
 	</animation>  
 
@@ -2019,15 +2015,11 @@ if you contacted me before making any changes to this software.
 		<type>rotate</type>
 		<object-name>Spoilers.R</object-name>
 		<property>surface-positions/speedbrake-pos-norm</property>
-		<factor>59</factor>
+		<factor>-59</factor>
 		<offset-deg>0</offset-deg>   
 		<axis>
-			<x1-m>  1.98</x1-m>
-			<y1-m> -4.30</y1-m>
-			<z1-m> -0.34</z1-m>
-			<x2-m>  2.91</x2-m>
-			<y2-m> -6.93</y2-m>
-			<z2-m> -0.15</z2-m>
+ 			<x1-m>  25.5928</x1-m><y1-m>6.7212</y1-m><z1-m>-0.6750</z1-m>
+			<x2-m>  28.6231</x2-m><y2-m>13.8527</y2-m><z2-m> -0.0957</z2-m>
 		</axis>
 	</animation>
 

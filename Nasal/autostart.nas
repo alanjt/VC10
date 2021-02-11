@@ -595,84 +595,84 @@ var startup = func
 		settimer( func{
 			if(step == 7 and auto_procedure.getValue()){
 				setprop("VC10/fuel/valves/valve[0]", 1);
-				VC10.valve_pos(0);
+##				VC10.valve_pos(0);
 				toggle_switch3();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 			if(step == 7 and auto_procedure.getValue()){
 				setprop("VC10/fuel/valves/valve[1]", 1);
-				VC10.valve_pos(1);
+##				VC10.valve_pos(1);
 				toggle_switch3();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 			if(step == 7 and auto_procedure.getValue()){
 				setprop("VC10/fuel/valves/valve[2]", 1);
-				VC10.valve_pos(2);
+##				VC10.valve_pos(2);
 				toggle_switch3();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 			if(step == 7 and auto_procedure.getValue()){
 				setprop("VC10/fuel/valves/valve[3]", 1);
-				VC10.valve_pos(3);
+##				VC10.valve_pos(3);
 				toggle_switch3();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 			if(step == 7 and auto_procedure.getValue()){
 				setprop("VC10/fuel/valves/valve[4]", 1);
-				VC10.valve_pos(4);
+##				VC10.valve_pos(4);
 				toggle_switch3();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 			if(step == 7 and auto_procedure.getValue()){
 				setprop("VC10/fuel/valves/valve[5]", 1);
-				VC10.valve_pos(5);
+##				VC10.valve_pos(5);
 				toggle_switch3();
 			}
 		}, t); t += 0.8;
 		settimer( func{
 			if(step == 7 and auto_procedure.getValue()){
 				setprop("VC10/fuel/valves/valve[0]", 0);
-				VC10.valve_pos(0);
+##				VC10.valve_pos(0);
 				toggle_switch3();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 			if(step == 7 and auto_procedure.getValue()){
 				setprop("VC10/fuel/valves/valve[1]", 0);
-				VC10.valve_pos(1);
+##				VC10.valve_pos(1);
 				toggle_switch3();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 			if(step == 7 and auto_procedure.getValue()){
 				setprop("VC10/fuel/valves/valve[2]", 0);
-				VC10.valve_pos(2);
+##				VC10.valve_pos(2);
 				toggle_switch3();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 			if(step == 7 and auto_procedure.getValue()){
 				setprop("VC10/fuel/valves/valve[3]", 0);
-				VC10.valve_pos(3);
+##				VC10.valve_pos(3);
 				toggle_switch3();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 			if(step == 7 and auto_procedure.getValue()){
 				setprop("VC10/fuel/valves/valve[4]", 0);
-				VC10.valve_pos(4);
+##				VC10.valve_pos(4);
 				toggle_switch3();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 			if(step == 7 and auto_procedure.getValue()){
 				setprop("VC10/fuel/valves/valve[5]", 0);
-				VC10.valve_pos(5);
+##				VC10.valve_pos(5);
 				toggle_switch3();
 			}
 		}, t); t += 0.8;
@@ -745,28 +745,28 @@ var startup = func
 		settimer( func{
 			if(step == 7 and auto_procedure.getValue()){
 				setprop("VC10/fuel/valves/fuel-shutoff[0]", 1);
-				VC10.shutoff_pos(0);
+##				VC10.shutoff_pos(0);
 				toggle_switch2();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 			if(step == 7 and auto_procedure.getValue()){
 				setprop("VC10/fuel/valves/fuel-shutoff[1]", 1);
-				VC10.shutoff_pos(1);
+##				VC10.shutoff_pos(1);
 				toggle_switch2();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 			if(step == 7 and auto_procedure.getValue()){
 				setprop("VC10/fuel/valves/fuel-shutoff[2]", 1);
-				VC10.shutoff_pos(2);
+##				VC10.shutoff_pos(2);
 				toggle_switch2();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 			if(step == 7 and auto_procedure.getValue()){
 				setprop("VC10/fuel/valves/fuel-shutoff[3]", 1);
-				VC10.shutoff_pos(3);
+##				VC10.shutoff_pos(3);
 				toggle_switch2();				
 				screen.log.write("Look down to your throttle levers on centre pedestal.", 1, 1, 1);
 				
@@ -1655,17 +1655,17 @@ var short_startup = func
 		setprop("VC10/generator/gen-control[3]", 1);
 	
 		setprop("VC10/fuel/valves/valve[0]", 0);
-		VC10.valve_pos(0);
+##		VC10.valve_pos(0);
 		setprop("VC10/fuel/valves/valve[1]", 0);
-		VC10.valve_pos(1);
+##		VC10.valve_pos(1);
 		setprop("VC10/fuel/valves/valve[2]", 0);
-		VC10.valve_pos(2);
+##		VC10.valve_pos(2);
 		setprop("VC10/fuel/valves/valve[3]", 0);
-		VC10.valve_pos(3);
+##		VC10.valve_pos(3);
 		setprop("VC10/fuel/valves/valve[4]", 0);
-		VC10.valve_pos(4);
+##		VC10.valve_pos(4);
 		setprop("VC10/fuel/valves/valve[5]", 0);
-		VC10.valve_pos(5);
+##		VC10.valve_pos(5);
 	
 		setprop("VC10/fuel/valves/boost-pump[0]", 1);
 		setprop("VC10/fuel/valves/boost-pump[1]", 1);
@@ -1679,13 +1679,13 @@ var short_startup = func
 		setprop("VC10/fuel/valves/boost-pump[9]", 1);
 	
 		setprop("VC10/fuel/valves/fuel-shutoff[0]", 1);
-		VC10.shutoff_pos(0);
+##		VC10.shutoff_pos(0);
 		setprop("VC10/fuel/valves/fuel-shutoff[1]", 1);
-		VC10.shutoff_pos(1);
+##		VC10.shutoff_pos(1);
 		setprop("VC10/fuel/valves/fuel-shutoff[2]", 1);
-		VC10.shutoff_pos(2);
+##		VC10.shutoff_pos(2);
 		setprop("VC10/fuel/valves/fuel-shutoff[3]", 1);
-		VC10.shutoff_pos(3);
+##		VC10.shutoff_pos(3);
 	
 		setprop("controls/engines/engine[0]/throttle", 0.25);
 		setprop("controls/engines/engine[1]/throttle", 0.25);
