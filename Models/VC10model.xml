@@ -1801,7 +1801,7 @@ if you contacted me before making any changes to this software.
 		<type>rotate</type>
 		<object-name>Elevator.L</object-name>
 		<property>controls/flight/elevator</property>
-		<factor>15</factor>
+		<factor>-15</factor>
 		<offset-deg>0</offset-deg>   
 		<axis>
 			<x1-m>  43.721</x1-m><y1-m>-0.833</y1-m><z1-m> 7.514</z1-m>
