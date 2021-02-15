@@ -171,7 +171,7 @@ if you contacted me before making any changes to this software.
     <object-name>sphere</object-name>
     <property>orientation/roll-deg</property>
     <center>
-      <x-m>0.0</x-m>
+      <x-m>-0.03990</x-m>
       <y-m>0.0</y-m>
       <z-m>0.0</z-m>
     </center>
@@ -182,7 +182,7 @@ if you contacted me before making any changes to this software.
     <object-name>sphere</object-name>
     <property>orientation/pitch-deg</property>
     <center>
-      <x-m>0.0</x-m>
+      <x-m>-0.03990</x-m>
       <y-m>0.0</y-m>
       <z-m>0.0</z-m>
     </center>
@@ -193,7 +193,7 @@ if you contacted me before making any changes to this software.
     <object-name>bank-index</object-name>
     <property>orientation/roll-deg</property>
     <center>
-      <x-m>0.0</x-m>
+      <x-m>0.03990</x-m>
       <y-m>0.0</y-m>
       <z-m>0.0</z-m>
     </center>

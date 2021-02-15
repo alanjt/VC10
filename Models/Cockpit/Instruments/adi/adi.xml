@@ -150,14 +150,51 @@ if you contacted me before making any changes to this software.
 	</effect>
 	
 	<!-- the object action -->
-	
+	<animation>
+		<type>rotate</type>
+		<object-name>drum</object-name>
+<!--		<property>instrumentation/vertical-speed-indicator/indicated-speed-fpm</property>		
+		<interpolation>
+		  <entry><ind>-6000</ind><dep>-150</dep></entry>
+		  <entry><ind>-4000</ind><dep>-120</dep></entry>
+		  <entry><ind>-2000</ind><dep>-60</dep></entry>
+		  <entry><ind>-1000</ind><dep>-30</dep></entry>
+		  <entry><ind>    0</ind><dep>  0</dep></entry>
+		  <entry><ind> 1000</ind><dep> 30</dep></entry>
+		  <entry><ind> 2000</ind><dep> 60</dep></entry>
+		  <entry><ind> 4000</ind><dep> 120</dep></entry>
+		  <entry><ind> 6000</ind><dep> 150</dep></entry> 
+		</interpolation> -->
+        <property>orientation/pitch-deg</property>
+		<interpolation>
+		  <entry><ind>-60</ind><dep>-150</dep></entry>
+		  <entry><ind>-40</ind><dep>-120</dep></entry>
+		  <entry><ind>-20</ind><dep>-60</dep></entry>
+		  <entry><ind>-10</ind><dep>-30</dep></entry>
+		  <entry><ind>    0</ind><dep>  0</dep></entry>
+		  <entry><ind> 10</ind><dep> 30</dep></entry>
+		  <entry><ind> 20</ind><dep> 60</dep></entry>
+		  <entry><ind> 40</ind><dep> 120</dep></entry>
+		  <entry><ind> 60</ind><dep> 150</dep></entry> 
+		</interpolation> -->
+		<center>
+			<x-m>-0.022</x-m>
+			<y-m>0.0</y-m>
+			<z-m>0.0</z-m>
+		</center>
+		<axis>
+		  <x>0</x>
+		  <y>1</y>
+		  <z>0</z>
+		</axis>
+	</animation>	
 		
 	<animation>
 		<type>rotate</type>
 		<object-name>drum</object-name>
 		<property>orientation/roll-deg</property>
 		<center>
-			<x-m>-0.0113</x-m>
+			<x-m>-0.0241</x-m>
 			<y-m>0.0</y-m>
 			<z-m>0.0</z-m>
 		</center>
@@ -173,7 +210,7 @@ if you contacted me before making any changes to this software.
 		<object-name>bkg</object-name>
 		<property>orientation/roll-deg</property>
 		<center>
-			<x-m>0.0</x-m>
+			<x-m>-0.0</x-m>
 			<y-m>0.0</y-m>
 			<z-m>0.0</z-m>
 		</center>
@@ -197,33 +234,6 @@ if you contacted me before making any changes to this software.
 			<x>-1</x>
 			<y>0</y>
 			<z>0</z>
-		</axis>
-	</animation>
-	
-	<animation>
-		<type>rotate</type>
-		<object-name>drum</object-name>
-		<property>instrumentation/vertical-speed-indicator/indicated-speed-fpm</property>
-		<interpolation>
-		  <entry><ind>-6000</ind><dep>-150</dep></entry>
-		  <entry><ind>-4000</ind><dep>-120</dep></entry>
-		  <entry><ind>-2000</ind><dep>-60</dep></entry>
-		  <entry><ind>-1000</ind><dep>-30</dep></entry>
-		  <entry><ind>    0</ind><dep>  0</dep></entry>
-		  <entry><ind> 1000</ind><dep> 30</dep></entry>
-		  <entry><ind> 2000</ind><dep> 60</dep></entry>
-		  <entry><ind> 4000</ind><dep> 120</dep></entry>
-		  <entry><ind> 6000</ind><dep> 150</dep></entry> 
-		</interpolation>
-		<center>
-			<x-m>-0.022</x-m>
-			<y-m>0.0</y-m>
-			<z-m>0.0</z-m>
-		</center>
-		<axis>
-		  <x>0</x>
-		  <y>1</y>
-		  <z>0</z>
 		</axis>
 	</animation>
 	
