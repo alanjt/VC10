@@ -6083,7 +6083,7 @@ refs 4
 211 0.0422192 0.922124
 kids 0
 OBJECT poly
-name "switch"
+name "ALTsw"
 loc -0.216576 0.909717 0.103245
 data 6
 switch
@@ -6590,7 +6590,7 @@ refs 3
 63 0.510157 0.573577
 kids 0
 OBJECT poly
-name "switch.001"
+name "APsw"
 loc -0.216576 0.909717 0.137026
 data 10
 switch.001
@@ -8565,7 +8565,7 @@ refs 3
 185 0.396135 0.0819187
 kids 0
 OBJECT poly
-name "turn.001"
+name "PitchWheels"
 loc 0.0172452 0.00892739 0.0641642
 data 8
 turn.001
@@ -10895,7 +10895,7 @@ refs 4
 192 0.706782 0.147759
 kids 0
 OBJECT poly
-name "turn.002"
+name "ModelSelect"
 loc 0.00276088 -0.00511327 -0.00050244
 data 8
 turn.002
