@@ -53,6 +53,7 @@ var airplaneCrashed  = props.globals.initNode("VC10/crashed", 0,"BOOL");
 ################################ Reverser ####################################
 
 var togglereverser = func {
+print ("togglereverser");
 	r1 = "fdm/jsbsim/propulsion/engine";
 	r2 = "fdm/jsbsim/propulsion/engine[1]";
 	r3 = "fdm/jsbsim/propulsion/engine[2]";
@@ -73,8 +74,9 @@ var togglereverser = func {
 	val1 = getprop(rv1) or 0;
 	
 	t1 = getprop("controls/engines/engine[0]/throttle") or 0;
-
+print ("togglereverser  Val1  ", val1, " t1 ", t1);
 	if ((val1 == 0 or val1 == nil) and t1 < 0.25) {
+print ("set reverser");	
 		interpolate(rv1, 1.0, 1.4); 
 		interpolate(rv2, 1.0, 1.4);
 		interpolate(rv3, 1.0, 1.4); 
@@ -93,6 +95,7 @@ var togglereverser = func {
 		setprop(r5,"engine[3]", "true");
 	} else {
 		if (val1 == 1.0 and t1 == 0){
+print ("clear reverser");	
 		interpolate(rv1, 0.0, 1.4);
 		interpolate(rv2, 0.0, 1.4); 
 		interpolate(rv3, 0.0, 1.4);

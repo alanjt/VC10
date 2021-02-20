@@ -7,7 +7,7 @@ name "bracket"
 loc -0.737833 0.470453 0.0976149
 data 7
 bracket
-texture "autopilot.png"
+texture "autopilot707.png"
 crease 80.000000
 numvert 640
 0.733876 -0.505577 -0.21469
@@ -4710,7 +4710,7 @@ name "sockle"
 loc -0.805819 0.526922 0.17754
 data 6
 sockle
-texture "autopilot.png"
+texture "autopilot707.png"
 crease 30.000002
 numvert 86
 0.822071 -0.532916 -0.282571
@@ -5046,7 +5046,7 @@ name "sup"
 loc 0.00761827 -0.00898579 0.20056
 data 3
 sup
-texture "autopilot.png"
+texture "autopilot707.png"
 crease 30.000002
 numvert 212
 -0.00029993 -0.0531216 -0.364847
@@ -6087,7 +6087,7 @@ name "ALTsw"
 loc -0.216576 0.909717 0.103245
 data 6
 switch
-texture "autopilot.png"
+texture "autopilot707.png"
 crease 80.000000
 numvert 65
 0.229955 -0.914757 -0.236752
@@ -6594,7 +6594,7 @@ name "APsw"
 loc -0.216576 0.909717 0.137026
 data 10
 switch.001
-texture "autopilot.png"
+texture "autopilot707.png"
 crease 80.000000
 numvert 65
 0.24783 -0.915265 -0.243487
@@ -7101,7 +7101,7 @@ name "turn"
 loc 0.026222 -0.00635482 -0.013893
 data 4
 turn
-texture "autopilot.png"
+texture "autopilot707.png"
 crease 45.000000
 numvert 190
 0.000284586 0.0331564 0.0133767
@@ -8569,7 +8569,7 @@ name "PitchWheels"
 loc 0.0172452 0.00892739 0.0641642
 data 8
 turn.001
-texture "autopilot.png"
+texture "autopilot707.png"
 crease 45.000000
 numvert 256
 -0.0717211 -0.013957 -0.00294624
@@ -10899,7 +10899,7 @@ name "ModelSelect"
 loc 0.00276088 -0.00511327 -0.00050244
 data 8
 turn.002
-texture "autopilot.png"
+texture "autopilot707.png"
 crease 45.000000
 numvert 120
 0.00687735 0.0203642 0.127423

@@ -80,7 +80,7 @@
           <script>
           	var brakeR = getprop("/controls/gear/brake-right") or 0;
           	var brakeL = getprop("/controls/gear/brake-left") or 0;
-          	var stop = getprop("/controls/gear/barke-parking") or 0;
+          	var stop = getprop("/controls/gear/brake-parking") or 0;
           	if (!stop and (brakeR or brakeL)){
           		setprop("/controls/gear/brake-right", 0);
           		setprop("/controls/gear/brake-left", 0);
