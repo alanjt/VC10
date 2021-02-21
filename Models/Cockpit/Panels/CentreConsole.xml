@@ -59,8 +59,8 @@ if you contacted me before making any changes to this software.
 	
 	 <!-- Autopilot controller -->
 	 <model>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/ap/ap_controller.xml</path>
-		<name>ap_controller</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/ap/AP_controller707.xml</path>
+		<name>AP_controller</name>
 		<offsets>   
 			<x-m>0.44</x-m> <!--+ve aft -->
 			<y-m>-0.0</y-m> <!--+ve right -->
