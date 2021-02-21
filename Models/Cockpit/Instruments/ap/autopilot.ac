@@ -10895,7 +10895,7 @@ refs 4
 192 0.706782 0.147759
 kids 0
 OBJECT poly
-name "ModelSelect"
+name "ModeSelect"
 loc 0.00276088 -0.00511327 -0.00050244
 data 8
 turn.002
