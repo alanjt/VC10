@@ -65,6 +65,7 @@ if you contacted me before making any changes to this software.
 			<factor-prop>systems/electrical/outputs/panel-dim</factor-prop>
 		</emission>
 	</animation>
+	
 
 	<animation>
 		<type>noshadow</type>
