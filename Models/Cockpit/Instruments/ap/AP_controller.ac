@@ -23197,7 +23197,7 @@ refs 4
 463 0.0189446 0.621761
 kids 0
 OBJECT poly
-name "AP_1Select"
+name "AP-1Select"
 loc 0.0189054 -0.0269319 0.0558565
 texture "Autopilot.png"
 crease 45.000000
@@ -24579,7 +24579,7 @@ refs 4
 127 0.0758748 0.696741
 kids 0
 OBJECT poly
-name "Damper_2Select"
+name "Damper-2Select"
 loc 0.0189054 -0.0269319 -0.00356762
 texture "Autopilot.png"
 crease 45.000000
@@ -25270,7 +25270,7 @@ refs 4
 129 0.0838084 0.884804
 kids 0
 OBJECT poly
-name "Damper_1Select"
+name "Damper-1Select"
 loc 0.0189054 -0.0269319 0.0263245
 texture "Autopilot.png"
 crease 45.000000
@@ -26652,7 +26652,7 @@ refs 4
 129 0.125491 0.846596
 kids 0
 OBJECT poly
-name "AP_2Select"
+name "AP-2Select"
 loc 0.0189054 -0.0269319 -0.0338199
 texture "Autopilot.png"
 crease 45.000000

@@ -65,7 +65,7 @@ if you contacted me before making any changes to this software.
 			<factor-prop>systems/electrical/outputs/panel-dim</factor-prop>
 		</emission>
 	</animation>
-	
+
 
 	<animation>
 		<type>noshadow</type>
@@ -352,7 +352,7 @@ if you contacted me before making any changes to this software.
 			</binding>
 		</action>
 	</animation>
-	
+
 	<!-- Autopilot datum adjust -->
 	<animation>
 		<type>rotate</type>
@@ -371,41 +371,64 @@ if you contacted me before making any changes to this software.
 		</axis>
 	</animation>
 
-
-	<!-- Autopilot on off -->
+	<!-- NAV -->
 	<animation>
-		<type>rotate</type>
-		<object-name>APsw</object-name>
-		<property>autopilot/Bendix-PB-20/controls/active</property>
-		<factor>90</factor>
-		<center>
-			<x-m> 0.0050</x-m>
-			<y-m>-0.0892</y-m>
-			<z-m> 0.0</z-m>
-		</center>
-		<axis>
-			<x>0.0</x>
-			<y>0.0</y>
-			<z>1.0</z>
-		</axis>
+		<type>translate</type>
+		<object-name>NAV_Select</object-name>
+		<property>autopilot/Bendix-PB-20/controls/NAV-active</property>
+		<interpolation>
+			<entry><ind>1</ind><dep>0.015</dep></entry>
+			<entry><ind>0</ind><dep>0</dep></entry>
+		</interpolation>
+		<center><x-m>0</x-m><y-m>0</y-m><z-m>0</z-m></center>
+		<axis><x>-1</x><y>0</y><z>0</z></axis>
+	</animation>	
+
+	<animation>
+		<type>pick</type>
+		<visible>true</visible>
+		<object-name>NAV_Select</object-name>
+		<action>
+			<button>0</button>		
+			<binding>
+				<command>property-toggle</command>
+				<property>autopilot/Bendix-PB-20/controls/NAV-active</property>
+			</binding>
+		</action>
+	</animation>
+
+	<!-- Autopilot 1 on off -->
+	<animation>
+		<type>translate</type>
+		<object-name>AP-1Select</object-name>
+		<property>autopilot/Bendix-PB-20/controls/AP-1active</property>
+		<interpolation>
+			<entry><ind>1</ind><dep>0.015</dep></entry>
+			<entry><ind>0</ind><dep>0</dep></entry>
+		</interpolation>
+		<center><x-m>0</x-m><y-m>0</y-m><z-m>0</z-m></center>
+		<axis><x>-1</x><y>0</y><z>0</z></axis>
 	</animation>
 
 	<animation>
 		<type>pick</type>
 		<visible>true</visible>
-		<object-name>APsw</object-name>
+		<object-name>AP-1Select</object-name>
 		<action>
 			<button>0</button>
 			<binding>
 				<command>nasal</command>
 				<script>
-					var bt = getprop("/autopilot/Bendix-PB-20/controls/active") or 0;
+					var bt = getprop("/autopilot/Bendix-PB-20/controls/AP-1active") or 0;
 					var bat = getprop("VC10/ess-bus") or 0;
-					if(bt or bat &lt; 20){
-					setprop("/autopilot/Bendix-PB-20/controls/active", 0);
+					if(bt){
+					####	if(bt or bat &lt; 20){
+					setprop("/autopilot/Bendix-PB-20/controls/AP-1active", 0);
 					setprop("/autopilot/Bendix-PB-20/controls/ALT-active", 0);
+					setprop("/autopilot/Bendix-PB-20/controls/IAS-active", 0);
+					setprop("/autopilot/Bendix-PB-20/controls/MACH-active", 0);
 					}else{
-					setprop("/autopilot/Bendix-PB-20/controls/active", 1);
+					setprop("/autopilot/Bendix-PB-20/controls/AP-1active", 1);
 					}
 				</script>
 			</binding>
@@ -416,29 +439,139 @@ if you contacted me before making any changes to this software.
 		</action>
 	</animation>
 
-	<!-- Autopilot ALT on off -->
-	<!--<animation>
-  <type>rotate</type>
-  <object-name>ALT_Select</object-name>
-  <property>autopilot/Bendix-PB-20/controls/alt-active</property>
-  <factor>-60</factor>
-  <center>
-    <x-m> 0.0050</x-m>
-    <y-m>-0.0892</y-m>
-    <z-m> 0.0</z-m>
-  </center>
-  <axis>
-    <x>0.0</x>
-    <y>1.0</y>
-    <z>0.0</z>
-  </axis> -->
+	<!-- Yaw Damper 1 on off -->
+	<animation>
+		<type>translate</type>
+		<object-name>Damper-1Select</object-name>
+		<property>autopilot/Bendix-PB-20/controls/Damper-1active</property>
+		<interpolation>
+			<entry><ind>1</ind><dep>0.015</dep></entry>
+			<entry><ind>0</ind><dep>0</dep></entry>
+		</interpolation>
+		<center><x-m>0</x-m><y-m>0</y-m><z-m>0</z-m></center>
+		<axis><x>-1</x><y>0</y><z>0</z></axis>
+	</animation>
+
+	<animation>
+		<type>pick</type>
+		<visible>true</visible>
+		<object-name>Damper-1Select</object-name>
+		<action>
+			<button>0</button>
+			<binding>
+				<command>nasal</command>
+				<script>
+					var bt = getprop("/autopilot/Bendix-PB-20/controls/Damper-1active") or 0;
+					var bat = getprop("VC10/ess-bus") or 0;
+					if(bt){
+					####	if(bt or bat &lt; 20){
+					setprop("/autopilot/Bendix-PB-20/controls/Damper-1active", 0);
+					setprop("/autopilot/Bendix-PB-20/controls/ALT-active", 0);
+					setprop("/autopilot/Bendix-PB-20/controls/IAS-active", 0);
+					setprop("/autopilot/Bendix-PB-20/controls/MACH-active", 0);
+					}else{
+					setprop("/autopilot/Bendix-PB-20/controls/Damper-1active", 1);
+					}
+				</script>
+			</binding>
+			<binding>
+				<command>property-toggle</command>
+				<property>sim/sound/switch2</property>
+			</binding>
+		</action>
+	</animation>
+
+	<!-- Yaw Damper 2 on off -->
+	<animation>
+		<type>translate</type>
+		<object-name>Damper-2Select</object-name>
+		<property>autopilot/Bendix-PB-20/controls/Damper-2active</property>
+		<interpolation>
+			<entry><ind>1</ind><dep>0.015</dep></entry>
+			<entry><ind>0</ind><dep>0</dep></entry>
+		</interpolation>
+		<center><x-m>0</x-m><y-m>0</y-m><z-m>0</z-m></center>
+		<axis><x>-1</x><y>0</y><z>0</z></axis>
+	</animation>
+
+	<animation>
+		<type>pick</type>
+		<visible>true</visible>
+		<object-name>Damper-2Select</object-name>
+		<action>
+			<button>0</button>
+			<binding>
+				<command>nasal</command>
+				<script>
+					var bt = getprop("/autopilot/Bendix-PB-20/controls/Damper-2active") or 0;
+					var bat = getprop("VC10/ess-bus") or 0;
+					if(bt){
+					####	if(bt or bat &lt; 20){
+					setprop("/autopilot/Bendix-PB-20/controls/Damper-2active", 0);
+					setprop("/autopilot/Bendix-PB-20/controls/ALT-active", 0);
+					setprop("/autopilot/Bendix-PB-20/controls/IAS-active", 0);
+					setprop("/autopilot/Bendix-PB-20/controls/MACH-active", 0);
+					}else{
+					setprop("/autopilot/Bendix-PB-20/controls/Damper-2active", 1);
+					}
+				</script>
+			</binding>
+			<binding>
+				<command>property-toggle</command>
+				<property>sim/sound/switch2</property>
+			</binding>
+		</action>
+	</animation>
+
+
+	<!-- Autopilot 2 on off -->
+	<animation>
+		<type>translate</type>
+		<object-name>AP-2Select</object-name>
+		<property>autopilot/Bendix-PB-20/controls/AP-2active</property>
+		<interpolation>
+			<entry><ind>1</ind><dep>0.015</dep></entry>
+			<entry><ind>0</ind><dep>0</dep></entry>
+		</interpolation>
+		<center><x-m>0</x-m><y-m>0</y-m><z-m>0</z-m></center>
+		<axis><x>-1</x><y>0</y><z>0</z></axis>
+	</animation>
+
+	<animation>
+		<type>pick</type>
+		<visible>true</visible>
+		<object-name>AP-2Select</object-name>
+		<action>
+			<button>0</button>
+			<binding>
+				<command>nasal</command>
+				<script>
+					var bt = getprop("/autopilot/Bendix-PB-20/controls/AP-2active") or 0;
+					var bat = getprop("VC10/ess-bus") or 0;
+					if(bt){
+					####	if(bt or bat &lt; 20){
+					setprop("/autopilot/Bendix-PB-20/controls/AP-2active", 0);
+					setprop("/autopilot/Bendix-PB-20/controls/ALT-active", 0);
+					setprop("/autopilot/Bendix-PB-20/controls/IAS-active", 0);
+					setprop("/autopilot/Bendix-PB-20/controls/MACH-active", 0);
+					}else{
+					setprop("/autopilot/Bendix-PB-20/controls/AP-2active", 1);
+					}
+				</script>
+			</binding>
+			<binding>
+				<command>property-toggle</command>
+				<property>sim/sound/switch2</property>
+			</binding>
+		</action>
+	</animation>
 
 	<animation>
 		<type>translate</type>
 		<object-name>ALT_Select</object-name>
 		<property>autopilot/Bendix-PB-20/controls/ALT-active</property>
 		<interpolation>
-			<entry><ind>1</ind><dep>0.005</dep></entry>
+			<entry><ind>1</ind><dep>0.015</dep></entry>
 			<entry><ind>0</ind><dep>0</dep></entry>
 		</interpolation>
 		<center><x-m>0</x-m><y-m>0</y-m><z-m>0</z-m></center>
@@ -454,7 +587,17 @@ if you contacted me before making any changes to this software.
 			<binding>
 				<command>property-toggle</command>
 				<property>autopilot/Bendix-PB-20/controls/ALT-active</property>
-			</binding> 
+			</binding>			
+			<binding>
+				<command>property-assign</command>
+				<property>autopilot/Bendix-PB-20/controls/IAS-active</property>
+				<value>0</value>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>autopilot/Bendix-PB-20/controls/MACH-active</property>
+				<value>0</value>
+			</binding>			
 			<!--			<binding>
 				<command>nasal</command>
 				<script>
@@ -476,7 +619,7 @@ if you contacted me before making any changes to this software.
 		<object-name>IAS_Select</object-name>
 		<property>autopilot/Bendix-PB-20/controls/IAS-active</property>
 		<interpolation>
-			<entry><ind>1</ind><dep>0.005</dep></entry>
+			<entry><ind>1</ind><dep>0.015</dep></entry>
 			<entry><ind>0</ind><dep>0</dep></entry>
 		</interpolation>
 		<center><x-m>0</x-m><y-m>0</y-m><z-m>0</z-m></center>
@@ -488,11 +631,21 @@ if you contacted me before making any changes to this software.
 		<visible>true</visible>
 		<object-name>IAS_Select</object-name>
 		<action>
-			<button>0</button>      
+			<button>0</button>
+			<binding>
+				<command>property-assign</command>
+				<property>autopilot/Bendix-PB-20/controls/ALT-active</property>
+				<value>0</value>
+			</binding>			
 			<binding>
 				<command>property-toggle</command>
 				<property>autopilot/Bendix-PB-20/controls/IAS-active</property>
-			</binding> 
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>autopilot/Bendix-PB-20/controls/MACH-active</property>
+				<value>0</value>
+			</binding>
 			<!--			<binding>
 				<command>nasal</command>
 				<script>
@@ -514,7 +667,7 @@ if you contacted me before making any changes to this software.
 		<object-name>MACH_Select</object-name>
 		<property>autopilot/Bendix-PB-20/controls/MACH-active</property>
 		<interpolation>
-			<entry><ind>1</ind><dep>0.005</dep></entry>
+			<entry><ind>1</ind><dep>0.015</dep></entry>
 			<entry><ind>0</ind><dep>0</dep></entry>
 		</interpolation>
 		<center><x-m>0</x-m><y-m>0</y-m><z-m>0</z-m></center>
@@ -526,21 +679,22 @@ if you contacted me before making any changes to this software.
 		<visible>true</visible>
 		<object-name>MACH_Select</object-name>
 		<action>
-			<button>0</button>      
-			<binding>
-				<command>property-toggle</command>
-				<property>autopilot/Bendix-PB-20/controls/MACH-active</property>
-			</binding>
+			<button>0</button>
 			<binding>
 				<command>property-assign</command>
 				<property>autopilot/Bendix-PB-20/controls/ALT-active</property>
 				<value>0</value>
-			</binding>
+			</binding>			
 			<binding>
 				<command>property-assign</command>
 				<property>autopilot/Bendix-PB-20/controls/IAS-active</property>
 				<value>0</value>
-			</binding>				
+			</binding>
+			<binding>
+				<command>property-toggle</command>
+				<property>autopilot/Bendix-PB-20/controls/MACH-active</property>
+			</binding>
+
 			<!--			<binding>
 				<command>nasal</command>
 				<script>
