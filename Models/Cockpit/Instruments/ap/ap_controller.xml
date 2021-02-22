@@ -235,6 +235,16 @@ if you contacted me before making any changes to this software.
 				<property>autopilot/Bendix-PB-20/controls/ALT-active</property>
 				<value>0</value>
 			</binding>
+						<binding>
+				<command>property-assign</command>
+				<property>autopilot/Bendix-PB-20/controls/IAS-active</property>
+				<value>0</value>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>autopilot/Bendix-PB-20/controls/MACH-active</property>
+				<value>0</value>
+			</binding>
 		</action>
 		<action>
 			<name>reset</name>
@@ -272,8 +282,8 @@ if you contacted me before making any changes to this software.
 		<factor>-1</factor>  
 		<center>
 			<x-m> 0.0</x-m>
-			<y-m>-0.025640</y-m>
-			<z-m> -0.1418</z-m>
+			<y-m>-0.0066</y-m>
+			<z-m> -0.09384</z-m>
 		</center>
 		<axis>
 			<x>1.0</x>
@@ -357,8 +367,8 @@ if you contacted me before making any changes to this software.
 	<animation>
 		<type>rotate</type>
 		<object-name>Datum</object-name>		
-		<property>autopilot/Bendix-PB-20/settings/datum</property>
-		<factor>-1</factor>  
+		<property>autopilot/Bendix-PB-20/settings/datum_norm</property>
+		<factor>-100.0</factor>  
 		<center>
 			<x-m> 0.0</x-m>
 			<y-m> 0.1263</y-m>
@@ -370,6 +380,77 @@ if you contacted me before making any changes to this software.
 			<z>0.0</z>
 		</axis>
 	</animation>
+	
+<animation>
+    <type>pick</type>
+    <object-name>Datum</object-name>
+    <action>
+		<button>0</button>
+		<repeatable>true</repeatable>
+		<binding>
+			 <command>property-interpolate</command>
+			 <property>autopilot/Bendix-PB-20/settings/datum_norm</property>
+			 <value>0</value>
+			 <time>0.5</time>
+		</binding>
+    </action>
+    <action>
+        <button>3</button>
+        <repeatable>true</repeatable>
+        <binding>
+            <condition>
+                <not><property>devices/status/keyboard/shift</property></not>
+                <not><property>devices/status/keyboard/super</property></not>
+            </condition>
+            <command>property-adjust</command>
+            <property>autopilot/Bendix-PB-20/settings/datum_norm</property>
+		        <step type="double">0.005</step>
+		        <min>-1.0</min>
+		        <max>1.0</max>
+        </binding>
+        <binding>
+            <condition>
+               <or>
+                <property>devices/status/keyboard/shift</property>
+                <property>devices/status/keyboard/super</property>
+               </or>
+            </condition>
+            <command>property-adjust</command>
+            <property>autopilot/Bendix-PB-20/settings/datum_norm</property>
+		        <step type="double">0.001</step>
+		        <min>-1.0</min>
+		        <max>1.0</max>
+        </binding>
+    </action>
+    <action>
+        <button>4</button>
+        <repeatable>true</repeatable>
+        <binding>
+            <condition>
+                <not><property>devices/status/keyboard/shift</property></not>
+                <not><property>devices/status/keyboard/super</property></not>
+            </condition>
+            <command>property-adjust</command>
+            <property>autopilot/Bendix-PB-20/settings/datum_norm</property>
+		        <step type="double">-0.005</step>
+		        <min>-1.0</min>
+		        <max>1.0</max>
+        </binding>
+        <binding>
+            <condition>
+               <or>
+                <property>devices/status/keyboard/shift</property>
+                <property>devices/status/keyboard/super</property>
+               </or>
+            </condition>
+            <command>property-adjust</command>
+            <property>autopilot/Bendix-PB-20/settings/datum_norm</property>
+		        <step type="double">-.01</step>
+		        <min>-1.0</min>
+		        <max>1.0</max>
+        </binding>
+    </action>
+</animation>
 
 	<!-- NAV -->
 	<animation>
