@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+
+
+<PropertyList> 
+
+<path>TrimPanel.ac</path>
+	 <model>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/ap/AP_master_sw.xml</path>
+		<name>AP_master_sw</name>
+		<offsets>   
+			<x-m>0.0</x-m>
+			<y-m>-0.014</y-m>
+			<z-m>-0.021</z-m>
+		</offsets>
+	 </model>
+	 
+	 <model>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/RudderTrim.xml</path>
+		<name>RudderTrim</name>
+		<offsets>   
+			<x-m>0.0</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.155</z-m>
+		</offsets>
+	 </model>
+ 
+
+
+<!--***LoD***-->
+
+<animation> 
+	<type>range</type>
+	<min-m>0</min-m>
+	<max-m>5</max-m>
+</animation>
+
+</PropertyList>
