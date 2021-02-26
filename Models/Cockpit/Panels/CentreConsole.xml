@@ -61,6 +61,17 @@ if you contacted me before making any changes to this software.
 
 
 	 <model>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/ap/AT_controller.xml</path>
+		<name>AT_controller</name>
+		<offsets>   
+			<x-m>0.355</x-m>
+			<y-m>0.0</y-m>
+			<z-m>0.0</z-m>
+			<pitch-deg>-90</pitch-deg>
+		</offsets>
+	 </model>
+
+	 <model>
 		<path>Aircraft/VC10/Models/Cockpit/Instruments/ap/AP_controller.xml</path>
 		<name>AP_controller</name>
 		<offsets>   
