@@ -25,6 +25,282 @@ if you contacted me before making any changes to this software.
 <PropertyList>
 
 	<path>AT_controller.ac</path>
+<animation>
+		<type>material</type>
+		<object-name>AT_1switch_lever</object-name>
+		<object-name>AT_2switch_lever</object-name>
+		<object-name>AT_3switch_lever</object-name>
+		<object-name>AT_4switch_lever</object-name>
+		<object-name>AT_1switch_base</object-name>
+		<object-name>AT_2switch_base</object-name>
+		<object-name>AT_3switch_base</object-name>
+		<object-name>AT_4switch_base</object-name>
+		<object-name>AT_powerswitch_lever</object-name>
+		<object-name>AT_powerswitch_base</object-name>
+		<object-name>AT_engageswitch_lever</object-name>
+		<object-name>AT_engageswitch_base</object-name>
+		<condition>
+			<not><property>systems/electrical/outputs/cabin-dim</property></not>
+		</condition>
+		<emission>
+			<red>0.2</red>
+			<green>0.2</green>
+			<blue>0.2</blue>
+			<factor-prop>systems/electrical/outputs/panel-dim</factor-prop>
+		</emission>
+	</animation>	
+
+	<animation>
+		<type>pick</type>
+		<object-name>AT_1switch_lever</object-name> 
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>autopilot/Bendix-PB-20/controls/AT_1switch</property>
+			</binding>
+		</action>r
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>AT_1switch_lever</object-name> 
+		<property>autopilot/Bendix-PB-20/controls/AT_1switch</property>
+		<interpolation>
+			<entry>
+				<ind>0</ind>
+				<dep>20</dep>
+			</entry>
+			<entry>
+				<ind>1</ind>
+				<dep>-20</dep>
+			</entry>
+		</interpolation>
+		<axis><x> 0</x> <y> 1</y><z> 0</z></axis>
+		<center><x-m>0.0</x-m><y-m>0.0</y-m><z-m>0.08075</z-m></center>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>AT_2switch_lever</object-name> 
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>autopilot/Bendix-PB-20/controls/AT_2switch</property>
+			</binding>
+		</action>r
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>AT_2switch_lever</object-name> 
+		<property>autopilot/Bendix-PB-20/controls/AT_2switch</property>
+		<interpolation>
+			<entry>
+				<ind>0</ind>
+				<dep>20</dep>
+			</entry>
+			<entry>
+				<ind>1</ind>
+				<dep>-20</dep>
+			</entry>
+		</interpolation>
+		<axis><x> 0</x> <y> 1</y><z> 0</z></axis>
+		<center><x-m>0.0</x-m><y-m>0.0</y-m><z-m>0.08075</z-m></center>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>AT_3switch_lever</object-name> 
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>autopilot/Bendix-PB-20/controls/AT_3switch</property>
+			</binding>
+		</action>r
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>AT_3switch_lever</object-name> 
+		<property>autopilot/Bendix-PB-20/controls/AT_3switch</property>
+		<interpolation>
+			<entry>
+				<ind>0</ind>
+				<dep>20</dep>
+			</entry>
+			<entry>
+				<ind>1</ind>
+				<dep>-20</dep>
+			</entry>
+		</interpolation>
+		<axis><x> 0</x> <y> 1</y><z> 0</z></axis>
+		<center><x-m>0.0</x-m><y-m>0.0</y-m><z-m>0.08075</z-m></center>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>AT_4switch_lever</object-name> 
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>autopilot/Bendix-PB-20/controls/AT_4switch</property>
+			</binding>
+		</action>r
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>AT_4switch_lever</object-name> 
+		<property>autopilot/Bendix-PB-20/controls/AT_4switch</property>
+		<interpolation>
+			<entry>
+				<ind>0</ind>
+				<dep>20</dep>
+			</entry>
+			<entry>
+				<ind>1</ind>
+				<dep>-20</dep>
+			</entry>
+		</interpolation>
+		<axis><x> 0</x> <y> 1</y><z> 0</z></axis>
+		<center><x-m>0.0</x-m><y-m>0.0</y-m><z-m>0.08075</z-m></center>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>AT_powerswitch_lever</object-name> 
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>autopilot/Bendix-PB-20/controls/AT_powerswitch</property>
+			</binding>
+		</action>r
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>AT_powerswitch_lever</object-name> 
+		<property>autopilot/Bendix-PB-20/controls/AT_powerswitch</property>
+		<interpolation>
+			<entry>
+				<ind>0</ind>
+				<dep>20</dep>
+			</entry>
+			<entry>
+				<ind>1</ind>
+				<dep>-20</dep>
+			</entry>
+		</interpolation>
+		<axis><x> 0</x> <y> 1</y><z> 0</z></axis>
+		<center><x-m>0.0</x-m><y-m>0.0</y-m><z-m>0.03113</z-m></center>
+	</animation>
+	
+	<animation>
+		<type>knob</type>
+		<object-name>AT_engageswitch_lever</object-name>
+		<property>autopilot/Bendix-PB-20/controls/AT_engageswitch</property>
+		<interpolation>
+			<entry><ind>1</ind><dep>20</dep></entry>
+			<entry><ind>-1</ind><dep>-20</dep></entry>
+		</interpolation>
+		<axis><x> 0</x> <y> 0</y><z> 1</z></axis>
+		<center><x-m>0.00213</x-m><y-m>0.0</y-m><z-m>0.0</z-m></center>
+		<drag-direction>horizontal</drag-direction>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>autopilot/Bendix-PB-20/controls/AT_engageswitch</property>
+				<factor>1</factor>
+				<min>-1</min><max>1</max>                
+				<wrap>false</wrap>
+			</binding>
+			<binding>
+				<command>property-toggle</command>
+				<property>sim/sound/click</property>
+			</binding>
+		</action>
+	</animation>	
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>AT_setknots</object-name>		
+		<property>autopilot/Bendix-PB-20/settings/AT_setknots</property>
+		<factor>-1</factor>  
+		<center>
+			<x-m> 0.0</x-m><y-m> 0.0395</y-m><z-m> 0.0370</z-m>
+		</center>
+		<axis>
+			<x>1.0</x><y>0.0</y><z>0.0</z>
+		</axis>
+	</animation>
+	
+<animation>
+    <type>pick</type>
+    <object-name>AT_setknots</object-name>
+    <action>
+		<button>0</button>
+		<repeatable>true</repeatable>
+		<binding>
+			 <command>property-interpolate</command>
+			 <property>autopilot/Bendix-PB-20/settings/AT_setknots</property>
+			 <value>160</value>
+			 <time>0.5</time>
+		</binding>
+    </action>
+    <action>
+        <button>3</button>
+        <repeatable>true</repeatable>
+        <binding>
+            <command>property-adjust</command>
+            <property>autopilot/Bendix-PB-20/settings/AT_setknots</property>
+		        <step type="double">1.0</step>
+		        <min>100.0</min>
+		        <max>180.0</max>
+        </binding>
+
+    </action>
+    <action>
+        <button>4</button>
+        <repeatable>true</repeatable>
+        <binding>
+            <command>property-adjust</command>
+            <property>autopilot/Bendix-PB-20/settings/AT_setknots</property>
+		        <step type="double">-1.0</step>
+		        <min>100.0</min>
+		        <max>180.0</max>
+        </binding>
+    </action>
+</animation>
+
+	<animation>
+		<type>textranslate</type>
+		<object-name>AT_knots100</object-name>
+		<property>autopilot/Bendix-PB-20/settings/AT_setknots</property>
+		<factor>0.001</factor>
+		<step>100</step>
+		<axis><x>0</x><y>1</y><z>0</z></axis>
+	</animation>
+	<animation>
+		<type>textranslate</type>
+		<object-name>AT_knots10</object-name>
+		<property>autopilot/Bendix-PB-20/settings/AT_setknots</property>
+		<factor>0.01</factor>
+		<step>10</step>
+		<axis><x>0</x><y>1</y><z>0</z></axis>
+	</animation>
+	<animation>
+		<type>textranslate</type>
+		<object-name>AT_knots1</object-name>
+		<property>autopilot/Bendix-PB-20/settings/AT_setknots</property>
+		<factor>0.1</factor>
+		<step>1</step>
+		<axis><x>0</x><y>1</y><z>0</z></axis>
+	</animation>
 
 
 
