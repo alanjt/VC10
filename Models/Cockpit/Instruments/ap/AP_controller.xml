@@ -202,7 +202,7 @@ if you contacted me before making any changes to this software.
 				<min>-30.0</min>
 				<max>30.0</max>
 			</binding>
-			<binding>
+<!--			<binding>
 				<command>property-assign</command>
 				<property>autopilot/Bendix-PB-20/controls/ALT-active</property>
 				<value>0</value>
@@ -216,7 +216,7 @@ if you contacted me before making any changes to this software.
 				<command>property-assign</command>
 				<property>autopilot/Bendix-PB-20/controls/MACH-active</property>
 				<value>0</value>
-			</binding>
+			</binding> -->
 		</action>
 		<action>
 			<name>small decrease (scrollwheel)</name>
@@ -229,7 +229,7 @@ if you contacted me before making any changes to this software.
 				<min>-30.0</min>
 				<max>30.0</max>
 			</binding>
-			<binding>
+			<!--<binding>
 				<command>property-assign</command>
 				<property>autopilot/Bendix-PB-20/controls/ALT-active</property>
 				<value>0</value>
@@ -243,7 +243,7 @@ if you contacted me before making any changes to this software.
 				<command>property-assign</command>
 				<property>autopilot/Bendix-PB-20/controls/MACH-active</property>
 				<value>0</value>
-			</binding>
+			</binding> -->
 		</action>
 		<action>
 			<name>reset</name>
@@ -255,7 +255,7 @@ if you contacted me before making any changes to this software.
 				<value>0</value>
 				<time>1</time>
 			</binding>
-			<binding>
+			<!-- <binding>
 				<command>property-assign</command>
 				<property>autopilot/Bendix-PB-20/controls/ALT-active</property>
 				<value>0</value>
@@ -269,7 +269,7 @@ if you contacted me before making any changes to this software.
 				<command>property-assign</command>
 				<property>autopilot/Bendix-PB-20/controls/MACH-active</property>
 				<value>0</value>
-			</binding>
+			</binding> -->
 		</action>
 	</animation>
 
@@ -502,11 +502,11 @@ if you contacted me before making any changes to this software.
 					var bt = getprop("/autopilot/Bendix-PB-20/controls/AP-1active") or 0;
 					var bat = getprop("VC10/ess-bus") or 0;
 					if(bt){
-					####	if(bt or bat &lt; 20){
-					setprop("/autopilot/Bendix-PB-20/controls/AP-1active", 0);
-					setprop("/autopilot/Bendix-PB-20/controls/ALT-active", 0);
-					setprop("/autopilot/Bendix-PB-20/controls/IAS-active", 0);
-					setprop("/autopilot/Bendix-PB-20/controls/MACH-active", 0);
+					#	if(bt or bat &lt; 20){
+					###### setprop("/autopilot/Bendix-PB-20/controls/AP-1active", 0);
+					###### setprop("/autopilot/Bendix-PB-20/controls/ALT-active", 0);
+					###### setprop("/autopilot/Bendix-PB-20/controls/IAS-active", 0);
+					###### setprop("/autopilot/Bendix-PB-20/controls/MACH-active", 0);
 					}else{
 					setprop("/autopilot/Bendix-PB-20/controls/AP-1active", 1);
 					}
@@ -544,11 +544,11 @@ if you contacted me before making any changes to this software.
 					var bt = getprop("/autopilot/Bendix-PB-20/controls/Damper-1active") or 0;
 					var bat = getprop("VC10/ess-bus") or 0;
 					if(bt){
-					####	if(bt or bat &lt; 20){
-					setprop("/autopilot/Bendix-PB-20/controls/Damper-1active", 0);
-					setprop("/autopilot/Bendix-PB-20/controls/ALT-active", 0);
-					setprop("/autopilot/Bendix-PB-20/controls/IAS-active", 0);
-					setprop("/autopilot/Bendix-PB-20/controls/MACH-active", 0);
+					#	if(bt or bat &lt; 20){
+					###### setprop("/autopilot/Bendix-PB-20/controls/Damper-1active", 0);
+					###### setprop("/autopilot/Bendix-PB-20/controls/ALT-active", 0);
+					###### setprop("/autopilot/Bendix-PB-20/controls/IAS-active", 0);
+					###### setprop("/autopilot/Bendix-PB-20/controls/MACH-active", 0);
 					}else{
 					setprop("/autopilot/Bendix-PB-20/controls/Damper-1active", 1);
 					}
@@ -586,11 +586,11 @@ if you contacted me before making any changes to this software.
 					var bt = getprop("/autopilot/Bendix-PB-20/controls/Damper-2active") or 0;
 					var bat = getprop("VC10/ess-bus") or 0;
 					if(bt){
-					####	if(bt or bat &lt; 20){
-					setprop("/autopilot/Bendix-PB-20/controls/Damper-2active", 0);
-					setprop("/autopilot/Bendix-PB-20/controls/ALT-active", 0);
-					setprop("/autopilot/Bendix-PB-20/controls/IAS-active", 0);
-					setprop("/autopilot/Bendix-PB-20/controls/MACH-active", 0);
+					#	if(bt or bat &lt; 20){
+					###### setprop("/autopilot/Bendix-PB-20/controls/Damper-2active", 0);
+					###### setprop("/autopilot/Bendix-PB-20/controls/ALT-active", 0);
+					###### setprop("/autopilot/Bendix-PB-20/controls/IAS-active", 0);
+					###### setprop("/autopilot/Bendix-PB-20/controls/MACH-active", 0);
 					}else{
 					setprop("/autopilot/Bendix-PB-20/controls/Damper-2active", 1);
 					}
@@ -629,11 +629,11 @@ if you contacted me before making any changes to this software.
 					var bt = getprop("/autopilot/Bendix-PB-20/controls/AP-2active") or 0;
 					var bat = getprop("VC10/ess-bus") or 0;
 					if(bt){
-					####	if(bt or bat &lt; 20){
-					setprop("/autopilot/Bendix-PB-20/controls/AP-2active", 0);
-					setprop("/autopilot/Bendix-PB-20/controls/ALT-active", 0);
-					setprop("/autopilot/Bendix-PB-20/controls/IAS-active", 0);
-					setprop("/autopilot/Bendix-PB-20/controls/MACH-active", 0);
+					#	if(bt or bat &lt; 20){
+					###### setprop("/autopilot/Bendix-PB-20/controls/AP-2active", 0);
+					###### setprop("/autopilot/Bendix-PB-20/controls/ALT-active", 0);
+					###### setprop("/autopilot/Bendix-PB-20/controls/IAS-active", 0);
+					###### setprop("/autopilot/Bendix-PB-20/controls/MACH-active", 0);
 					}else{
 					setprop("/autopilot/Bendix-PB-20/controls/AP-2active", 1);
 					}
@@ -668,7 +668,7 @@ if you contacted me before making any changes to this software.
 				<command>property-toggle</command>
 				<property>autopilot/Bendix-PB-20/controls/ALT-active</property>
 			</binding>			
-			<binding>
+			<!-- <binding>
 				<command>property-assign</command>
 				<property>autopilot/Bendix-PB-20/controls/IAS-active</property>
 				<value>0</value>
@@ -677,7 +677,7 @@ if you contacted me before making any changes to this software.
 				<command>property-assign</command>
 				<property>autopilot/Bendix-PB-20/controls/MACH-active</property>
 				<value>0</value>
-			</binding>			
+			</binding> -->			
 			<!--			<binding>
 				<command>nasal</command>
 				<script>
@@ -712,20 +712,20 @@ if you contacted me before making any changes to this software.
 		<object-name>IAS_Select</object-name>
 		<action>
 			<button>0</button>
-			<binding>
+			<!--<binding>
 				<command>property-assign</command>
 				<property>autopilot/Bendix-PB-20/controls/ALT-active</property>
 				<value>0</value>
-			</binding>			
+			</binding> -->			
 			<binding>
 				<command>property-toggle</command>
 				<property>autopilot/Bendix-PB-20/controls/IAS-active</property>
 			</binding>
-			<binding>
+			<!-- <binding>
 				<command>property-assign</command>
 				<property>autopilot/Bendix-PB-20/controls/MACH-active</property>
 				<value>0</value>
-			</binding>
+			</binding> -->
 			<!--			<binding>
 				<command>nasal</command>
 				<script>
@@ -760,7 +760,7 @@ if you contacted me before making any changes to this software.
 		<object-name>MACH_Select</object-name>
 		<action>
 			<button>0</button>
-			<binding>
+			<!-- <binding>
 				<command>property-assign</command>
 				<property>autopilot/Bendix-PB-20/controls/ALT-active</property>
 				<value>0</value>
@@ -769,7 +769,7 @@ if you contacted me before making any changes to this software.
 				<command>property-assign</command>
 				<property>autopilot/Bendix-PB-20/controls/IAS-active</property>
 				<value>0</value>
-			</binding>
+			</binding> -->
 			<binding>
 				<command>property-toggle</command>
 				<property>autopilot/Bendix-PB-20/controls/MACH-active</property>
