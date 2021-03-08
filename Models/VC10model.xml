@@ -1839,7 +1839,7 @@ if you contacted me before making any changes to this software.
 	<animation>
 		<type>rotate</type>
 		<object-name>Slats.R</object-name>
-		<property>surface-positions/flap-pos-norm</property>
+		<property>surface-positions/slat-pos-norm</property>
 		<interpolation>
 			<entry>
 				<ind>0.0</ind>
@@ -1863,7 +1863,7 @@ if you contacted me before making any changes to this software.
 	<animation>
 		<type>rotate</type>
 		<object-name>Slats.L</object-name>
-		<property>surface-positions/flap-pos-norm</property>
+		<property>surface-positions/slat-pos-norm</property>
 		<interpolation>
 			<entry>
 				<ind>0.0</ind>

@@ -345,24 +345,24 @@ if you contacted me before making any changes to this software.
 			<z-m> 0.974</z-m>
 		</offsets>
 	</model>
-
+	
 	<model>
-		<name>altm</name>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/altm/altm.xml</path>
-		<offsets>
-			<x-m>0.0</x-m>
-			<y-m>-0.193</y-m>
-			<z-m>-0.206</z-m>
-		</offsets>
-	</model>
-
-	<model>
-		<name>adi</name>
+		<name>Standby Horizon</name>
 		<path>Aircraft/VC10/Models/Cockpit/Instruments/adi/adi.xml</path>
 		<offsets>
 			<x-m>0.0</x-m>
 			<y-m>-0.193</y-m>
 			<z-m>-0.119</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>Standby Altimeter</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/altm/altm.xml</path>
+		<offsets>
+			<x-m>0.0</x-m>
+			<y-m>-0.193</y-m>
+			<z-m>-0.206</z-m>
 		</offsets>
 	</model>
 
@@ -449,6 +449,68 @@ if you contacted me before making any changes to this software.
 			<z-m> -0.047</z-m>
 		</offsets>
 	</model>
+	
+	<model>
+		<name>SlatPos</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/surfaces/SlatPos.xml</path>
+		<offsets>
+			<x-m>0.0</x-m>
+			<y-m> -0.096</y-m>
+			<z-m> -0.114</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>FlapPos</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/surfaces/FlapPos.xml</path>
+		<offsets>
+			<x-m>0.0</x-m>
+			<y-m> -0.032</y-m>
+			<z-m> -0.114</z-m>
+		</offsets>
+	</model>	
+	
+	<model>
+		<name>FlapPos</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/surfaces/FlapPos.xml</path>
+		<offsets>
+			<x-m>0.0</x-m>
+			<y-m>0.032</y-m>
+			<z-m> -0.114</z-m>
+		</offsets>
+	</model>	
+	
+	<model>
+		<name>SlatPos</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/surfaces/SlatPos.xml</path>
+		<offsets>
+			<x-m>0.0</x-m>
+			<y-m>0.096</y-m>
+			<z-m> -0.114</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>AileronTrim</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/surfaces/TailPos.xml</path>
+		<offsets>
+			<x-m>0.0</x-m>
+			<y-m> -0.096</y-m>
+			<z-m> -0.175</z-m>
+		</offsets>
+	</model>	
+	
+	<model>
+		<name>AileronTrim</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/surfaces/AileronPos.xml</path>
+		<offsets>
+			<x-m>0.0</x-m>
+			<y-m>0.096</y-m>
+			<z-m> -0.175</z-m>
+		</offsets>
+	</model>
+
+
 
 	<model>
 		<name>extemp1</name>
@@ -647,15 +709,7 @@ if you contacted me before making any changes to this software.
 		</offsets>
 	</model>
 	
-	<model>
-		<name>trim_cp</name>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/trim/trim.xml</path>
-		<offsets>
-			<x-m>0.0</x-m>
-			<y-m>0.184</y-m>
-			<z-m>-0.40</z-m>
-		</offsets>
-	</model>
+
 
 	<!-- Copilot Panel -->
 
@@ -859,6 +913,16 @@ if you contacted me before making any changes to this software.
 			<x-m>1.524</x-m>
 			<y-m> 0.308</y-m>
 			<z-m>0.71</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>trim_cp</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/trim/trim.xml</path>
+		<offsets>
+			<x-m>0.0</x-m>
+			<y-m>0.184</y-m>
+			<z-m>-0.40</z-m>
 		</offsets>
 	</model>
 

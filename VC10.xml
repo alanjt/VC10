@@ -734,6 +734,34 @@ if you contacted me before making any changes to this software.
 				</range>
 				<output>fcs/flap-pos-norm</output>
 			</aerosurface_scale>
+			
+			<kinematic name="Slats Control">
+				<input>fcs/flap-cmd-norm</input>
+				<traverse>
+					<setting>
+						<position>  0 </position>
+						<time>      0 </time>
+					</setting>
+					<setting>
+						<position>   5 </position>
+						<time>      10 </time>
+					</setting>
+				</traverse>
+				<output>fcs/slat-pos-deg</output>
+			</kinematic>
+
+			<aerosurface_scale name="slat normalization">
+				<input>fcs/flap-pos-deg</input>
+				<domain>
+					<min>  0 </min>
+					<max>  5 </max>
+				</domain>
+				<range>
+					<min> 0 </min>
+					<max> 1 </max>
+				</range>
+				<output>fcs/slat-pos-norm</output>
+			</aerosurface_scale>
 
 			<kinematic name="Gear Control">
 				<input>gear/gear-cmd-norm</input>
