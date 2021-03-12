@@ -45,7 +45,7 @@ if you contacted me before making any changes to this software.
 			<tag>1970s</tag>
 			<tag>ifr</tag>
 		</tags>
-		
+
 		<engines> 4 </engines>
 
 		<minimum-fg-version>2017.3.0</minimum-fg-version>
@@ -57,11 +57,11 @@ if you contacted me before making any changes to this software.
 			<model type="int">2</model>
 		</rating>
 
-<!--		<systems n="0">
+		<systems n="0">
 			<autopilot n="0">
 				<path>Aircraft/VC10/Systems/autopilot.xml</path>
 			</autopilot>
-		</systems> -->
+		</systems>
 
 		<instrumentation>
 			<path>Aircraft/VC10/Systems/instrumentation.xml</path>
@@ -98,7 +98,7 @@ if you contacted me before making any changes to this software.
 			<stall-horn type="bool">0</stall-horn>
 		</sound> 
 
-<!--		<tutorials>
+		<!--		<tutorials>
 			<tutorial include="Tutorials/VC10-startup-german.xml"/>
 			<tutorial include="Tutorials/VC10-startup-english.xml"/>
 			<tutorial include="Tutorials/VC10-startup-spanish.xml"/>
@@ -106,7 +106,7 @@ if you contacted me before making any changes to this software.
 			<tutorial include="Tutorials/VC10-startup-italiano.xml"/>
 		</tutorials> -->
 
-<!--		<checklists>
+		<!--		<checklists>
 			<checklist include="Checklists/during-flight.xml"/>
 			<checklist include="Checklists/before-taxiing.xml"/>
 			<checklist include="Checklists/after-engines-startup-II.xml"/>
@@ -170,7 +170,7 @@ if you contacted me before making any changes to this software.
 				<!-- x/y/z == right/up/back -->
 				<x-offset-m archive="y">0.38</x-offset-m>
 				<y-offset-m archive="y">1.15</y-offset-m>
-<!--				<z-offset-m archive="y">3.48</z-offset-m> -->
+				<!--				<z-offset-m archive="y">3.48</z-offset-m> -->
 				<z-offset-m archive="y">2.78</z-offset-m>
 				<heading-offset-deg type="double">-90.0</heading-offset-deg>
 				<pitch-offset-deg type="double">-2.0</pitch-offset-deg>
@@ -378,10 +378,19 @@ if you contacted me before making any changes to this software.
 				<mode-selector type="int">2</mode-selector>	  <!-- 2 is manual control-->
 				<active type="bool">0</active>	  			  <!-- the AP engage switch -->	
 			</controls>	
-		</Bendix-PB-20> 
+		</Bendix-PB-20>
+
 	</autopilot>
 
 	<controls>
+		<flight>
+			<slats type="double" alias="/fdm/jsbsim/fcs/slat-cmd-norm">0.0</slats>
+			<elevator-deg type="double" alias="/fdm/jsbsim/afcs/elevator-deg">0.0</elevator-deg>
+			<aileron-deg type="double" alias="/fdm/jsbsim/afcs/aileron-deg">0.0</aileron-deg>
+			<rudder-deg type="double" alias="/fdm/jsbsim/afcs/rudder-deg">0.0</rudder-deg>
+			<yawdamper-deg type="double" alias="/fdm/jsbsim/afcs/yawdamper-deg">0.0</yawdamper-deg>
+		</flight>
+
 		<APU>
 			<off-start-run type="double">2</off-start-run>
 		</APU>
@@ -474,7 +483,7 @@ if you contacted me before making any changes to this software.
 			<text1 type="string"></text1>
 			<subtitle2 type="string"></subtitle2>
 			<text2 type="string"></text2>
-			<subtitle3 type="string">MODEL VC10 - 420/430</subtitle3>
+			<subtitle3 type="string">MODEL VC10 </subtitle3>
 			<text3 type="string">FOR FLIGHTGEAR SIMULATION ONLY</text3>
 			<subtitle4 type="string"></subtitle4>
 			<text4 type="string">Lake of Constance Hangar Vol. 1.1.5</text4>

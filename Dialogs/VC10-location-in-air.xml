@@ -348,7 +348,7 @@
 			<binding>
 				<command>nasal</command>
 				<script>
-					setprop("/sim/presets/flaps",getprop("/sim/presets/flaps_deg")/50.0);
+					setprop("/sim/presets/flaps",getprop("/sim/presets/flaps_deg")/45.0);
 				</script>
 			</binding>			
 		</combo>
