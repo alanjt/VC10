@@ -31,7 +31,7 @@ if you contacted me before making any changes to this software.
 
 	<animation>
 		<type>select</type>		
-<!--		<object-name>Fuselage</object-name> -->
+		<!--		<object-name>Fuselage</object-name> -->
 		<object-name>Fin</object-name>
 		<object-name>Rudder</object-name>
 		<object-name>Engine1</object-name>
@@ -1691,32 +1691,13 @@ if you contacted me before making any changes to this software.
 		<object-name>Aileron.L</object-name>
 		<property>controls/flight/aileron</property>
 		<interpolation>    
-			<entry>
-				<ind>-1.0</ind>
-				<dep> 0.05</dep>
-			</entry>
-			<entry>
-				<ind>-0.10</ind>
-				<dep> 0.05</dep>
-			</entry>
-			<entry>
-				<ind> 0.0</ind>
-				<dep> 0.0</dep>
-			</entry>
-			<entry>
-				<ind> 0.10</ind>
-				<dep> 0.05</dep>
-			</entry>     
-			<entry>
-				<ind> 1.0</ind>
-				<dep> 0.05</dep>
-			</entry>
+			<entry><ind>-1.0 </ind><dep> 0.05 </dep></entry>
+			<entry><ind>-0.1 </ind><dep> 0.05 </dep></entry>
+			<entry><ind> 0.0 </ind><dep> 0.00 </dep></entry>
+			<entry><ind> 0.1 </ind><dep> 0.05 </dep></entry>     
+			<entry><ind> 1.0 </ind><dep> 0.05 </dep></entry>
 		</interpolation>
-		<axis>
-			<x> 0.8</x>
-			<y> 0.2</y>
-			<z>-0.1</z>
-		</axis>
+		<axis><x> 0.8</x><y> 0.2</y><z>-0.1</z></axis>
 	</animation>
 
 	<animation>
@@ -1727,7 +1708,7 @@ if you contacted me before making any changes to this software.
 		<offset-deg>0</offset-deg>   
 		<axis>
 			<x1-m>  29.704</x1-m><y1-m> -14.234</y1-m><z1-m> -0.265</z1-m>
-			<x2-m>  32.670</x2-m><y2-m>-20.203</y2-m><z2-m>  0.099</z2-m>
+			<x2-m>  32.670</x2-m><y2-m> -20.203</y2-m><z2-m>  0.099</z2-m>
 		</axis>
 	</animation>
 
@@ -1736,32 +1717,13 @@ if you contacted me before making any changes to this software.
 		<object-name>Aileron.R</object-name>
 		<property>controls/flight/aileron</property>
 		<interpolation>    
-			<entry>
-				<ind>-1.0</ind>
-				<dep> 0.05</dep>
-			</entry>
-			<entry>
-				<ind>-0.10</ind>
-				<dep> 0.05</dep>
-			</entry>
-			<entry>
-				<ind> 0.0</ind>
-				<dep> 0.0</dep>
-			</entry>
-			<entry>
-				<ind> 0.10</ind>
-				<dep> 0.05</dep>
-			</entry>     
-			<entry>
-				<ind> 1.0</ind>
-				<dep> 0.05</dep>
-			</entry>
+			<entry><ind>-1.0 </ind><dep> 0.05 </dep></entry>
+			<entry><ind>-0.1 </ind><dep> 0.05 </dep></entry>
+			<entry><ind> 0.0 </ind><dep> 0.00 </dep></entry>
+			<entry><ind> 0.1 </ind><dep> 0.05 </dep></entry>     
+			<entry><ind> 1.0 </ind><dep> 0.05 </dep></entry>
 		</interpolation>
-		<axis>
-			<x> 0.8</x>
-			<y>-0.2</y>
-			<z>-0.1</z>
-		</axis>
+		<axis><x> 0.8</x><y>-0.2</y><z>-0.1</z></axis>
 	</animation>
 
 	<animation>
@@ -1771,11 +1733,11 @@ if you contacted me before making any changes to this software.
 		<factor>-30</factor>
 		<offset-deg>0</offset-deg>   
 		<axis>
-			<x1-m>  29.704</x1-m><y1-m>14.234</y1-m><z1-m> -0.265</z1-m>
-			<x2-m>  32.670</x2-m><y2-m>20.203</y2-m><z2-m>  0.099</z2-m>
+			<x1-m>  29.704</x1-m><y1-m> 14.234</y1-m><z1-m> -0.265</z1-m>
+			<x2-m>  32.670</x2-m><y2-m> 20.203</y2-m><z2-m>  0.099</z2-m>
 		</axis>
 	</animation>
-	
+
 	<animation>
 		<type>rotate</type>
 		<object-name>Tailplane</object-name>
@@ -1785,23 +1747,15 @@ if you contacted me before making any changes to this software.
 		<property>fdm/jsbsim/fcs/pitch-trim-pos-deg</property>
 		<factor>1</factor>
 		<offset-deg>0</offset-deg> 
-		<center>
-		    <x-m>41.25</x-m>
-		    <y-m>0</y-m>
-		    <z-m>7.35</z-m>
-		</center>		
-	<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
+		<center><x-m>41.25</x-m><y-m>0</y-m><z-m>7.35</z-m></center>		
+		<axis><x>0</x><y>1</y><z>0</z></axis>
 	</animation>
 
 	<animation>
 		<type>rotate</type>
 		<object-name>Elevator.L</object-name>
-		<property>controls/flight/elevator</property>
-		<factor>-15</factor>
+		<property>fdm/jsbsim/fcs/elevator-pos-deg</property>
+		<factor>-1</factor>
 		<offset-deg>0</offset-deg>   
 		<axis>
 			<x1-m>  43.721</x1-m><y1-m>-0.833</y1-m><z1-m> 7.514</z1-m>
@@ -1812,8 +1766,8 @@ if you contacted me before making any changes to this software.
 	<animation>
 		<type>rotate</type>
 		<object-name>Elevator.R</object-name>
-		<property>controls/flight/elevator</property>
-		<factor>15</factor>
+		<property>fdm/jsbsim/fcs/elevator-pos-deg</property>
+		<factor>1</factor>
 		<offset-deg>0</offset-deg>   
 		<axis>
 			<x1-m>  43.721</x1-m><y1-m>0.833</y1-m><z1-m> 7.514</z1-m>
@@ -1824,8 +1778,8 @@ if you contacted me before making any changes to this software.
 	<animation>
 		<type>rotate</type>
 		<object-name>Rudder</object-name>
-		<property>controls/flight/rudder</property>
-		<factor>-22.5</factor>
+		<property>fdm/jsbsim/fcs/rudder-pos-deg</property>
+		<factor>-1</factor>
 		<offset-deg>0</offset-deg>   
 		<axis>
 			<x1-m>  37.766</x1-m><y1-m>0.00</y1-m><z1-m> 1.705</z1-m>
@@ -1946,7 +1900,7 @@ if you contacted me before making any changes to this software.
 			<x2-m> 28.492</x2-m><y2-m>13.802</y2-m><z2-m>-0.248</z2-m>
 		</axis>
 	</animation>
-	
+
 	<animation>
 		<type>translate</type>
 		<object-name>FlapsInner.L</object-name>
@@ -2018,7 +1972,7 @@ if you contacted me before making any changes to this software.
 		<factor>-59</factor>
 		<offset-deg>0</offset-deg>   
 		<axis>
- 			<x1-m>  25.5928</x1-m><y1-m>6.7212</y1-m><z1-m>-0.6750</z1-m>
+			<x1-m>  25.5928</x1-m><y1-m>6.7212</y1-m><z1-m>-0.6750</z1-m>
 			<x2-m>  28.6231</x2-m><y2-m>13.8527</y2-m><z2-m> -0.0957</z2-m>
 		</axis>
 	</animation>

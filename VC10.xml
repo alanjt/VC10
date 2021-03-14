@@ -568,102 +568,78 @@ if you contacted me before making any changes to this software.
 
 			<summer name="Elevator cmd Sum">
 				<input>fcs/elevator-cmd-norm</input>
-				<clipto>
-					<min>-1</min>
-					<max>1</max>
-				</clipto>
+				<clipto><min>-1</min><max>1</max></clipto>
 				<output>fcs/elevator-sum-norm</output>
 			</summer>
 
 			<aerosurface_scale name="Elevator Control">
 				<input>fcs/elevator-sum-norm</input>
 				<zero_centered> true </zero_centered>
-				<domain>
-					<min>-1.0</min>
-					<max>1.0</max> 
-				</domain> 
-				<range>
-					<min>-1</min>
-					<max>1</max>
-				</range>
+				<domain><min>-1.0</min><max>1.0</max> </domain> 
+				<range><min>-1</min><max>1</max></range>
 				<output>fcs/elevator-pos-norm</output>
 			</aerosurface_scale>
 
 			<aerosurface_scale name="">
 				<input>fcs/elevator-sum-norm</input>
 				<zero_centered> true </zero_centered>
-				<domain>
-					<min>-1.0</min>
-					<max>1.0</max> 
-				</domain> 
-				<range>
-					<min>-15</min>
-					<max>15</max>
-				</range>
+				<domain><min>-1.0</min><max>1.0</max></domain> 
+				<range><min>-17.683</min><max>26.55</max></range>
 				<output>fcs/elevator-pos-deg</output>
 			</aerosurface_scale> 
 
 			<aerosurface_scale name="Pitch Trim pos deg">
 				<input>fcs/pitch-trim-cmd-norm</input>
 				<zero_centered> false </zero_centered>
-				<domain>
-					<min>-1.0</min>
-					<max>1.0</max> 
-				</domain> 
-				<range>
-					<min>-14</min>
-					<max>3</max>
-				</range>
+				<domain><min>-1.0</min><max>1.0</max> </domain> 
+				<range><min>-14</min><max>3</max></range>
 				<output>fcs/pitch-trim-pos-deg</output>
 			</aerosurface_scale>
 
 		</channel>
 
 		<channel name="Roll">
-
-			<summer name="Roll Trim Sum">
+		
+			<pure_gain name ="aileron cmd deg">
 				<input>fcs/aileron-cmd-norm</input>
+				<gain> 23.25 </gain>
+				<output> fcs/aileron-cmd-deg </output>
+			</pure_gain>
+
+			<pure_gain name ="aileron trim deg">
 				<input>fcs/roll-trim-cmd-norm</input>
+				<gain> 23.25 </gain>
+				<output> fcs/aileron-trim-cmd-deg </output>
+			</pure_gain>
+
+			<summer name="Aileron Pos Deg">
+				<input>fcs/aileron-cmd-deg</input>
+				<input>fcs/aileron-trim-cmd-deg</input>
+				<input>afcs/aileron-deg</input>
 				<clipto>
-					<min>-1</min>
-					<max>1</max>
+					<min>-23.25</min>
+					<max> 23.25</max>
 				</clipto>
+				<output> fcs/aileron-pos-deg </output>
 			</summer>
+			
+			<pure_gain name ="aileron pos rad">
+				<input>fcs/aileron-pos-deg</input>
+				<gain> 0.0174533 </gain>
+				<output> fcs/aileron-pos-rad </output>
+			</pure_gain>
 
-			<aerosurface_scale name="Left Aileron Control">
-				<input>fcs/roll-trim-sum</input>
-				<gain>0.005</gain>
-				<range>
-					<min>-20</min>
-					<max>20</max>
-				</range>
-				<output>fcs/left-aileron-pos-rad</output>
-			</aerosurface_scale>
-			<aerosurface_scale name="Left Aileron Position Normalizer">
-				<input>fcs/roll-trim-sum</input>
+			<aerosurface_scale name="Aileron Position Normalizer">
+				<input>fcs/aileron-pos-deg </input>
+				<domain>
+				    <min> -23.25 </min>
+					<max>  23.25 </max>
+				</domain>
 				<range>
 					<min>-1</min>
 					<max>1</max>
 				</range>
-				<output>fcs/left-aileron-pos-norm</output>
-			</aerosurface_scale>
-
-			<aerosurface_scale name="Right Aileron Control">
-				<input>fcs/roll-trim-sum</input>
-				<gain>0.005</gain>
-				<range>
-					<min>-20</min>
-					<max>20</max>
-				</range>
-				<output>fcs/right-aileron-pos-rad</output>
-			</aerosurface_scale>
-			<aerosurface_scale name="Right Aileron Position Normalizer">
-				<input>fcs/roll-trim-sum</input>
-				<range>
-					<min>-1</min>
-					<max>1</max>
-				</range>
-				<output>fcs/right-aileron-pos-norm</output>
+				<output>fcs/aileron-pos-norm</output>
 			</aerosurface_scale>
 
 		</channel>

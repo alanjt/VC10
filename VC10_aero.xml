@@ -84,7 +84,7 @@ AERODYNAMICS
 			</product>
 		</function>
 
-		<function name="aero/force/LiftaileronsUp">
+<!--		<function name="aero/force/LiftaileronsUp">
 			<description>Lift_due_to_aileronsUp</description>
 			<product>
 				<property>aero/qbar-psf</property>
@@ -111,7 +111,7 @@ AERODYNAMICS
 					</tableData>
 				</table>
 			</product>
-		</function>
+		</function> -->
 
 		<function name="aero/force/Lift_flap">
 			<description>Lift_due_to_flaps</description>
@@ -363,7 +363,7 @@ AERODYNAMICS
 			</product>
 		</function>
 
-		<function name="aero/force/DragaileronsUp">
+<!--		<function name="aero/force/DragaileronsUp">
 			<description>Drag_due_to_aileronsUp</description>
 			<product>
 				<property>aero/qbar-psf</property>
@@ -390,7 +390,7 @@ AERODYNAMICS
 					</tableData>
 				</table>
 			</product>
-		</function>
+		</function> -->
 
 
 		<!--			<function name="aero/force/Drag_mach">
@@ -629,7 +629,7 @@ AERODYNAMICS
 			</product>
 		</function>
 
-		<function name="aero/moment/Pitch_aileronUP">
+<!--		<function name="aero/moment/Pitch_aileronUP">
 			<description>Pitch_moment_due_to_AileronUP</description>
 			<product>
 				<property>aero/qbar-psf</property>
@@ -657,7 +657,7 @@ AERODYNAMICS
 					</tableData>
 				</table>
 			</product>
-		</function>
+		</function> -->
 
 		<function name="aero/moment/Pitch_pitch_rate">
 			<description>Pitch_moment_due_to_pitch_rate</description>
@@ -1060,7 +1060,7 @@ AERODYNAMICS
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/bw-ft</property>
-				<property>fcs/left-aileron-pos-rad</property>
+				<property>fcs/aileron-pos-rad</property>
 				<table  name ="aero/coefficient/ClAileron">
 					<independentVar lookup="row">velocities/mach</independentVar>
 					<tableData>
@@ -1210,7 +1210,7 @@ AERODYNAMICS
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/bw-ft</property>
-				<property>fcs/left-aileron-pos-rad</property>
+				<property>fcs/aileron-pos-rad</property>
 				<value>0</value>
 			</product>
 		</function>
