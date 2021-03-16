@@ -117,16 +117,7 @@ if you contacted me before making any changes to this software.
 	</model>
 
 
-	<model>
-		<name>marker_beacon</name>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/lamps/marker_beacon.xml</path>
-		<offsets>
-			<!--    <x-m>-18.921</x-m> -->
-			<x-m>1.519</x-m>
-			<y-m>-0.21</y-m>
-			<z-m>0.885</z-m>
-		</offsets>
-	</model>
+
 
 <!--	<model>
 		<name>pneumatic_brake</name>
@@ -255,6 +246,16 @@ if you contacted me before making any changes to this software.
 		<offsets>
 			<x-m>-0.0</x-m>
 			<y-m>-0.382</y-m>
+			<z-m>-0.281</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>marker_beacon</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/lamps/marker_beacon.xml</path>
+		<offsets>
+			<x-m>0.0</x-m>
+			<y-m>-0.325</y-m>
 			<z-m>-0.281</z-m>
 		</offsets>
 	</model>
@@ -830,8 +831,18 @@ if you contacted me before making any changes to this software.
 		<path>Aircraft/VC10/Models/Cockpit/Instruments/vs/vsi.xml</path>
 		<offsets>
 			<x-m>-0.0</x-m>
-			<y-m>0.63</y-m>
+			<y-m>0.608</y-m>
 			<z-m>-0.266</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>marker_beacon</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/lamps/marker_beacon.xml</path>
+		<offsets>
+			<x-m>0.0</x-m>
+			<y-m>0.661</y-m>
+			<z-m>-0.290</z-m>
 		</offsets>
 	</model>
 
@@ -840,7 +851,7 @@ if you contacted me before making any changes to this software.
 		<path>Aircraft/VC10/Models/Cockpit/Instruments/clock/clock.xml</path>
 		<offsets>
 			<x-m>-0.0</x-m>
-			<y-m>0.70</y-m>
+			<y-m>0.711</y-m>
 			<z-m>-0.291</z-m>
 		</offsets>
 	</model>
@@ -866,18 +877,6 @@ if you contacted me before making any changes to this software.
 			<x-m>1.473</x-m>
 			<y-m> 0.335</y-m>
 			<z-m>0.878</z-m>
-		</offsets>
-	</model>
-
-
-	<model>
-		<name>marker_beacon_cp</name>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/lamps/marker_beacon.xml</path>
-		<offsets>
-			<!--    <x-m>-18.921</x-m> -->
-			<x-m>1.519</x-m>
-			<y-m> 0.61</y-m>
-			<z-m>0.885</z-m>
 		</offsets>
 	</model>
 
