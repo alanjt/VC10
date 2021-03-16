@@ -257,7 +257,7 @@ derived from a yaw rate gyro, passed through a washout filter having a time cons
 					<equals>
 						<property>autopilot/Bendix-PB-20/controls/Damper-Stbyactive</property>
 						<value>1</value>
-					</equals
+					</equals>
 					<equals>
 						<property>autopilot/Bendix-PB-20/controls/Damper-1active</property>
 						<value>1</value>
