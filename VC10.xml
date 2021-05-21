@@ -84,9 +84,12 @@ if you contacted me before making any changes to this software.
 	</metrics>
 
 	<mass_balance>
-		<ixx unit="SLUG*FT2">   2322405 </ixx>
+<!--		<ixx unit="SLUG*FT2">   2322405 </ixx>
 		<iyy unit="SLUG*FT2">   2886669 </iyy>
-		<izz unit="SLUG*FT2">   5260000 </izz>
+		<izz unit="SLUG*FT2">   5260000 </izz>  -->
+		<ixx unit="SLUG*FT2">   1131000 </ixx>
+		<iyy unit="SLUG*FT2">   6092000 </iyy>
+		<izz unit="SLUG*FT2">   6547000 </izz>
 		<emptywt unit="LBS" >    137526 </emptywt>
 		<location name="CG" unit="IN">
 			<x>  940.0 </x>

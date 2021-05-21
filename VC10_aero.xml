@@ -139,7 +139,7 @@ AERODYNAMICS
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
 				<property>aero/ci2vel</property>
-				<table  name="aero/coefficient/CLq">
+				<table  name="aero/derivative/CLq">
 					<independentVar lookup="row">velocities/mach</independentVar>
 					<tableData>
 						0.1	8.4130
@@ -162,7 +162,7 @@ AERODYNAMICS
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
 				<property>aero/ci2vel</property>
-				<table name="aero/coefficient/CLad">
+				<table name="aero/derivative/CLad">
 					<independentVar lookup="row">aero/alpha-deg</independentVar>
 					<independentVar lookup="column">velocities/mach</independentVar>
 					<tableData>
@@ -667,7 +667,7 @@ AERODYNAMICS
 				<property>metrics/cbarw-ft</property>
 				<property>aero/ci2vel</property>
 				<property>velocities/q-aero-rad_sec</property>
-				<table  name="aero/coefficient/CMq">
+				<table  name="aero/derivative/CMq">
 					<independentVar lookup="row">velocities/mach</independentVar>
 					<tableData>
 						0.1	-16.6900
@@ -689,7 +689,7 @@ AERODYNAMICS
 				<property>metrics/cbarw-ft</property>
 				<property>aero/ci2vel</property>
 				<property>aero/alphadot-rad_sec</property>
-				<table name="aero/coefficient/CMad">
+				<table name="aero/derivative/CMad">
 					<independentVar lookup="row">aero/alpha-deg</independentVar>
 					<independentVar lookup="column">velocities/mach</independentVar>
 					<tableData>
@@ -799,7 +799,7 @@ AERODYNAMICS
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/cbarw-ft</property>
 				<property>fcs/speedbrake-pos-norm</property>
-				<table  name="aero/coefficient/CM_inner_spoiler">
+				<table  name="aero/derivative/CM_inner_spoiler">
 					<independentVar>velocities/mach</independentVar>
 					<tableData>
 						0.0000    -0.06
@@ -816,7 +816,7 @@ AERODYNAMICS
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/cbarw-ft</property>
 				<property>fcs/speedbrake-pos-norm</property>
-				<table  name="aero/coefficient/CM_middle_spoiler">
+				<table  name="aero/derivative/CM_middle_spoiler">
 					<independentVar>velocities/mach</independentVar>
 					<tableData>
 						0.0000    -0.06
@@ -833,7 +833,7 @@ AERODYNAMICS
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/cbarw-ft</property>
 				<property>fcs/speedbrake-pos-norm</property>
-				<table  name="aero/coefficient/CM_outerSpoiler">
+				<table  name="aero/derivative/CM_outerSpoiler">
 					<independentVar>velocities/mach</independentVar>
 					<tableData>
 						0.0000    0.06
@@ -883,7 +883,7 @@ AERODYNAMICS
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
 				<property>aero/beta-rad</property>
-				<table name ="aero/coefficient/Cyb">
+				<table name ="aero/derivative/Cyb">
 					<independentVar lookup="row">velocities/mach</independentVar>
 					<tableData>
 						0.1	-0.5535
@@ -904,7 +904,7 @@ AERODYNAMICS
 				<property>metrics/Sw-sqft</property>
 				<property>aero/bi2vel</property>
 				<property>velocities/p-aero-rad_sec</property>
-				<table name ="aero/coefficient/Cyp">
+				<table name ="aero/derivative/Cyp">
 					<independentVar lookup="row">aero/alpha-deg</independentVar>
 					<independentVar lookup="column">velocities/mach</independentVar>
 					<tableData>
@@ -954,7 +954,7 @@ AERODYNAMICS
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/bw-ft</property>
 				<property>aero/beta-rad</property>
-				<table name ="aero/coefficient/Clb">
+				<table name ="aero/derivative/Clb">
 					<independentVar lookup="row">aero/alpha-deg</independentVar>
 					<independentVar lookup="column">velocities/mach</independentVar>
 					<tableData>
@@ -990,7 +990,7 @@ AERODYNAMICS
 				<property>metrics/bw-ft</property>
 				<property>aero/bi2vel</property>
 				<property>velocities/p-aero-rad_sec</property>
-				<table name ="aero/coefficient/Clp">
+				<table name ="aero/derivative/Clp">
 					<independentVar lookup="row">aero/alpha-deg</independentVar>
 					<independentVar lookup="column">velocities/mach</independentVar>
 					<tableData>
@@ -1026,7 +1026,7 @@ AERODYNAMICS
 				<property>metrics/bw-ft</property>
 				<property>aero/bi2vel</property>
 				<property>velocities/r-aero-rad_sec</property>
-				<table name ="aero/coefficient/Clr">
+				<table name ="aero/derivative/Clr">
 					<independentVar lookup="row">aero/alpha-deg</independentVar>
 					<independentVar lookup="column">velocities/mach</independentVar>
 					<tableData>
@@ -1061,7 +1061,7 @@ AERODYNAMICS
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/bw-ft</property>
 				<property>fcs/aileron-pos-rad</property>
-				<table  name ="aero/coefficient/ClAileron">
+				<table  name ="aero/derivative/ClAileron">
 					<independentVar lookup="row">velocities/mach</independentVar>
 					<tableData>
 						0.0    0.100
@@ -1092,7 +1092,7 @@ AERODYNAMICS
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/bw-ft</property>
 				<property>aero/beta-rad</property>
-				<table  name="aero/coefficient/CNb">
+				<table  name="aero/derivative/CNb">
 					<independentVar lookup="row">aero/alpha-deg</independentVar>
 					<independentVar lookup="column">velocities/mach</independentVar>
 					<tableData>
@@ -1128,7 +1128,7 @@ AERODYNAMICS
 				<property>metrics/bw-ft</property>
 				<property>aero/bi2vel</property>
 				<property>velocities/p-aero-rad_sec</property>
-				<table  name="aero/coefficient/CNp">
+				<table  name="aero/derivative/CNp">
 					<independentVar lookup="row">aero/alpha-deg</independentVar>
 					<independentVar lookup="column">velocities/mach</independentVar>
 					<tableData>
@@ -1164,7 +1164,7 @@ AERODYNAMICS
 				<property>metrics/bw-ft</property>
 				<property>aero/bi2vel</property>
 				<property>velocities/p-aero-rad_sec</property>
-				<table  name="aero/coefficient/CNr">
+				<table  name="aero/derivative/CNr">
 					<independentVar lookup="row">aero/alpha-deg</independentVar>
 					<independentVar lookup="column">velocities/mach</independentVar>
 					<tableData>
