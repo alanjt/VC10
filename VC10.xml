@@ -87,6 +87,7 @@ if you contacted me before making any changes to this software.
 <!--		<ixx unit="SLUG*FT2">   2322405 </ixx>
 		<iyy unit="SLUG*FT2">   2886669 </iyy>
 		<izz unit="SLUG*FT2">   5260000 </izz>  -->
+<!-- Note. These inertias are for the empty aircraft -->
 		<ixx unit="SLUG*FT2">   1131000 </ixx>
 		<iyy unit="SLUG*FT2">   6092000 </iyy>
 		<izz unit="SLUG*FT2">   6547000 </izz>
