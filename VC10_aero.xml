@@ -416,8 +416,8 @@ AERODYNAMICS
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
 				<table  name="aero/coefficient/CD_Flaps">
-					<independentVar lookup="row">fcs/flap-pos-deg</independentVar>
-					<independentVar lookup="column">velocities/mach</independentVar>
+					<independentVar lookup="row">aero/alpha-deg</independentVar>
+					<independentVar lookup="column">fcs/flap-pos-deg</independentVar>
 					<tableData>
 						0	20	35	45
 						-10	0.0000	-0.0163	-0.0142	-0.0128
