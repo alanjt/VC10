@@ -57,8 +57,44 @@ var listenerApRouteManagerInitFunc = func {
 	setprop("autopilot/internal/elevator-position", 0.0);
 
 	setprop("autopilot/internal/yaw-damper", 0);
+	
 }
 setlistener("sim/signals/fdm-initialized", listenerApRouteManagerInitFunc);
+var listenerApRouteManagerInitFunc = func {
+	# initialise PB-20 control panel.
+<property>autopilot/Bendix-PB-20/controls/mode-selector</property>
+	Line 207: 				<property>autopilot/Bendix-PB-20/controls/ALT-active</property>
+	Line 212: 				<property>autopilot/Bendix-PB-20/controls/IAS-active</property>
+	Line 217: 				<property>autopilot/Bendix-PB-20/controls/MACH-active</property>
+	Line 458: 		<property>autopilot/Bendix-PB-20/controls/NAV-active</property>
+	setprop("autopilot/Bendix-PB-20/controls/mode-selector", 0);
+	setprop("autopilot/Bendix-PB-20/controls/ALT-active", 0);
+	setprop("autopilot/Bendix-PB-20/controls/IAS-active", 0);
+	setprop("autopilot/Bendix-PB-20/controls/MACH-active", 0);
+	setprop("autopilot/Bendix-PB-20/controls/NAV-active", 0);
+	setprop("autopilot/Bendix-PB-20/controls/mode-selector", 0);
+	
+	setprop("autopilot/Bendix-PB-20/controls/AP-1active", 0);
+	setprop("autopilot/Bendix-PB-20/controls/AP-2active", 0);
+	
+	setprop("autopilot/Bendix-PB-20/controls/AP_MasterL_switch", 0);
+	setprop("autopilot/Bendix-PB-20/controls/AP_MasterR_switch", 0);
+	setprop("autopilot/Bendix-PB-20/controls/AP_MasterNuisance_bar", 0);
+	
+	setprop("autopilot/Bendix-PB-20/controls/AT_1switch", 0);
+	setprop("autopilot/Bendix-PB-20/controls/AT_2switch", 0);
+	setprop("autopilot/Bendix-PB-20/controls/AT_3switch", 0);
+	setprop("autopilot/Bendix-PB-20/controls/AT_4switch", 0);
+	
+	setprop("autopilot/Bendix-PB-20/controls/AT_powerswitch", 0);
+	setprop("autopilot/Bendix-PB-20/controls/AT_engageswitch", 0);
+
+	setprop("autopilot/Bendix-PB-20/controls/Damper-1active", 0);
+	setprop("autopilot/Bendix-PB-20/controls/Damper-2active", 0);
+	setprop("autopilot/Bendix-PB-20/controls/Damper-Stbyactive", 1);
+	
+}
+setlistener("sim/signals/fdm-initialized", listenerBendix-PB-20InitFunc);
 
 var getTotalLbs = func {
 	return( getprop("consumables/fuel/tank[0]/level-lbs") +
