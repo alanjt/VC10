@@ -293,6 +293,7 @@ _______________________________________________________
 			<file>Aircraft/VC10/Nasal/registration.nas</file>
 			<file>Aircraft/VC10/Nasal/manual.nas</file>	
 			<file>Aircraft/VC10/Nasal/Reset-in-air.nas</file>
+			<file>Aircraft/VC10/Nasal/controls.nas</file>
 		</VC10> 
 		
 		<dialogs>

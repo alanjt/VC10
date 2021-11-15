@@ -7,7 +7,7 @@
 ##                                                                          ##
 ##############################################################################
 
-
+print ("autopilot-Bendix-PB-20.nas");
 ### Bendix PB 20 ###
 # Knobs:
 # /autopilot/Bendix-PB-20/controls/active : true/false
@@ -18,15 +18,32 @@
 
 # init
 var listenerApPB20InitFunc = func {
-	# do initializations of new properties
+	
+	setprop("autopilot/Bendix-PB-20/controls/mode-selector", 0);
+	setprop("autopilot/Bendix-PB-20/controls/ALT-active", 0);
+	setprop("autopilot/Bendix-PB-20/controls/IAS-active", 0);
+	setprop("autopilot/Bendix-PB-20/controls/MACH-active", 0);
+	setprop("autopilot/Bendix-PB-20/controls/NAV-active", 0);
+	setprop("autopilot/Bendix-PB-20/controls/mode-selector", 0);
+	
+	setprop("autopilot/Bendix-PB-20/controls/AP-1active", 0);
+	setprop("autopilot/Bendix-PB-20/controls/AP-2active", 0);
+	
+	setprop("autopilot/Bendix-PB-20/controls/AP_MasterL_switch", 0);
+	setprop("autopilot/Bendix-PB-20/controls/AP_MasterR_switch", 0);
+	setprop("autopilot/Bendix-PB-20/controls/AP_MasterNuisance_bar", 0);
+	
+	setprop("autopilot/Bendix-PB-20/controls/AT_1switch", 0);
+	setprop("autopilot/Bendix-PB-20/controls/AT_2switch", 0);
+	setprop("autopilot/Bendix-PB-20/controls/AT_3switch", 0);
+	setprop("autopilot/Bendix-PB-20/controls/AT_4switch", 0);
+	
+	setprop("autopilot/Bendix-PB-20/controls/AT_powerswitch", 0);
+	setprop("autopilot/Bendix-PB-20/controls/AT_engageswitch", 0);
 
-
-setprop("autopilot/Bendix-PB-20/controls/active", 0);
-	setprop("autopilot/Bendix-PB-20/controls/alt-active", 0);
-	setprop("autopilot/Bendix-PB-20/controls/mode-selector", 2);
-	setprop("autopilot/Bendix-PB-20/settings/roll-knob-deg", 0);
-	setprop("autopilot/Bendix-PB-20/settings/pitch-wheel-deg", 0);
-	setprop("autopilot/Bendix-PB-20/mutex", "");
+	setprop("autopilot/Bendix-PB-20/controls/Damper-1active", 0);
+	setprop("autopilot/Bendix-PB-20/controls/Damper-2active", 0);
+	setprop("autopilot/Bendix-PB-20/controls/Damper-Stbyactive", 1);
 }
 setlistener("sim/signals/fdm-initialized", listenerApPB20InitFunc);
 

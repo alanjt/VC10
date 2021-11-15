@@ -62,11 +62,7 @@ var listenerApRouteManagerInitFunc = func {
 setlistener("sim/signals/fdm-initialized", listenerApRouteManagerInitFunc);
 var listenerApRouteManagerInitFunc = func {
 	# initialise PB-20 control panel.
-<property>autopilot/Bendix-PB-20/controls/mode-selector</property>
-	Line 207: 				<property>autopilot/Bendix-PB-20/controls/ALT-active</property>
-	Line 212: 				<property>autopilot/Bendix-PB-20/controls/IAS-active</property>
-	Line 217: 				<property>autopilot/Bendix-PB-20/controls/MACH-active</property>
-	Line 458: 		<property>autopilot/Bendix-PB-20/controls/NAV-active</property>
+
 	setprop("autopilot/Bendix-PB-20/controls/mode-selector", 0);
 	setprop("autopilot/Bendix-PB-20/controls/ALT-active", 0);
 	setprop("autopilot/Bendix-PB-20/controls/IAS-active", 0);
@@ -94,7 +90,10 @@ var listenerApRouteManagerInitFunc = func {
 	setprop("autopilot/Bendix-PB-20/controls/Damper-Stbyactive", 1);
 	
 }
-setlistener("sim/signals/fdm-initialized", listenerBendix-PB-20InitFunc);
+###setlistener("sim/signals/fdm-initialized", listenerBendix-PB-20InitFunc);
+###setlistener("sim/signals/fdm-initialized", listenerApRouteManagerInitFunc);
+
+
 
 var getTotalLbs = func {
 	return( getprop("consumables/fuel/tank[0]/level-lbs") +

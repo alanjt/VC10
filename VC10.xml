@@ -584,7 +584,7 @@ if you contacted me before making any changes to this software.
 				<output>fcs/elevator-pos-norm</output>
 			</aerosurface_scale>
 
-			<aerosurface_scale name="">
+			<aerosurface_scale name="Elevator Pos Deg">
 				<input>fcs/elevator-sum-norm</input>
 				<zero_centered> true </zero_centered>
 				<domain><min>-1.0</min><max>1.0</max></domain> 
@@ -603,8 +603,8 @@ if you contacted me before making any changes to this software.
 		</channel>
 
 		<channel name="Roll">
-		
-			<pure_gain name ="aileron cmd deg">
+<!-- positive is right aileron TE down -->		
+			<pure_gain name ="aileron cmd deg"> 
 				<input>fcs/aileron-cmd-norm</input>
 				<gain> 23.25 </gain>
 				<output> fcs/aileron-cmd-deg </output>
@@ -645,8 +645,53 @@ if you contacted me before making any changes to this software.
 				</range>
 				<output>fcs/aileron-pos-norm</output>
 			</aerosurface_scale>
-
+			
+			
+<!-- Set left and right aileron positions separately. This will be needed when aileron upset is simulated -->
+			
+<!-- right aileron -->			
+<!-- positive is TE down -->				
+			<pure_gain name ="right aileron pos deg">
+				<input>fcs/aileron-pos-deg</input>
+				<gain> 1.0 </gain>
+				<output> fcs/aileron-right-deg </output>
+			</pure_gain>
+			
+<!-- left  aileron -->			
+<!-- positive is TE down -->			
+			<pure_gain name ="left aileron pos deg">
+				<input>fcs/aileron-pos-deg</input>
+				<gain> -1.0 </gain>
+				<output> fcs/aileron-left-deg </output>
+			</pure_gain>
 		</channel>
+		
+		<channel name="AirbrakeSpoilers">
+		
+<!-- right spoiler -->			
+<!-- positive is TE up -->				
+			<pure_gain name ="right spoiler pos deg">
+				<input>fcs/aileron-pos-deg</input>
+				<gain> 2.1505 </gain>
+				<output> fcs/spoiler-right-deg </output>
+			<clipto>
+				<min>0</min>
+				<max>50</max>
+			</clipto>
+			</pure_gain>
+<!-- left  spoiler -->			
+<!-- positive is TE up -->			
+			<pure_gain name ="left spoiler pos deg">
+				<input>fcs/aileron-pos-deg</input>
+				<gain> -2.1505 </gain>
+				<output> fcs/spoiler-left-deg </output>
+			<clipto>
+				<min>0</min>
+				<max>50</max>
+			</clipto>
+			</pure_gain>
+		</channel>
+		
 
 		<channel name="Yaw">
 
@@ -693,7 +738,7 @@ if you contacted me before making any changes to this software.
 				<output>fcs/rudder-pos-norm</output>
 			</aerosurface_scale>
 		</channel>
-
+		
 		<channel name="Aeromechanical">
 
 			<kinematic name="Flaps Control">
@@ -841,7 +886,7 @@ if you contacted me before making any changes to this software.
         AERODYNAMICS
      **********************************************************************
 -->
-	<aerodynamics file="VC10_aero.xml"/>
+	<aerodynamics file="VC10_aeroOpenVSP.xml"/>
 	<!-- **********************************************************************
         AERODYNAMICS
      **********************************************************************
