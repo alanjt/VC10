@@ -3617,7 +3617,7 @@ refs 3
 732 0.053568 0.369289
 kids 0
 OBJECT poly
-name "BrkLever"
+name "SpeedBrkLever"
 loc 16.0151 9.47435 -0.004422
 texture "pedestal.png"
 crease 45.000000

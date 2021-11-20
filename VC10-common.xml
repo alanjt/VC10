@@ -286,11 +286,21 @@ if you contacted me before making any changes to this software.
 		<flight-recorder include="Systems/flightrecorder.xml"/>
 
 		<flaps>
-			<setting>0.0</setting>
+			<setting>0.0</setting>  		<!--  0 deg -->
 			<setting>0.4444444444</setting>	<!--  20 deg -->
 			<setting>0.7777777778</setting>	<!--  35 deg -->
 			<setting>1.0</setting>	        <!--  45 deg -->
 		</flaps>
+		
+		<speedbrake>
+			<setting>0.0</setting>  <!--  0 deg -->
+			<setting>0.2</setting>	<!--  10 deg -->
+			<setting>0.4</setting>	<!--  20 deg -->
+			<setting>0.6</setting>	<!--  30 deg -->
+			<setting>0.8</setting>	<!--  40 deg -->
+			<setting>1.0</setting>	<!--  50 deg -->
+		</speedbrake>
+
 
 		<aircraft-data>
 			<path>instrumentation/operating-time/total</path>

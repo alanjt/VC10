@@ -38,7 +38,7 @@ if you contacted me before making any changes to this software.
 		<object-name>reverser.003</object-name>  
 		<object-name>reverser.004</object-name>
 		<object-name>PBrakeLever</object-name>
-		<object-name>BrkLever</object-name>
+		<object-name>SpeedBrkLever</object-name>
 		<object-name>FlapSBrakeSup</object-name>
 		<object-name>FlapLever</object-name>
 		<object-name>IdleSup</object-name>
@@ -352,68 +352,12 @@ if you contacted me before making any changes to this software.
 	</animation>
 
 	<!-- speedbrake lever -->
-	<animation>
+		<animation>
 		<type>rotate</type>
-		<object-name>BrkLever</object-name>
-		<property>controls/flight/spoilers</property>
-		<factor> 60</factor>
-		<center>
-			<x-m>  0.093</x-m>
-			<y-m>  0.0</y-m>
-			<z-m>  0.066</z-m>
-		</center>
-		<axis>
-			<x>0.0</x>
-			<y>1.0</y>
-			<z>0.0</z>
-		</axis>
-	</animation>
-
-	<animation>
-		<type>pick</type>
-		<object-name>BrkLever</object-name>
-		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>nasal</command>
-				<script>VC10.stepSpeedbrakes(1)</script>
-			</binding>
-			<mod-up>
-				<binding>
-					<command>nasal</command>
-					<script>VC10.stepSpeedbrakes(0)</script>
-				</binding>
-			</mod-up>
-		</action>
-		<action>
-			<button>1</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>nasal</command>
-				<script>VC10.stepSpeedbrakes(-1)</script>
-			</binding>
-			<mod-up>
-				<binding>
-					<command>nasal</command>
-					<script>VC10.stepSpeedbrakes(0)</script>
-				</binding>
-			</mod-up>
-		</action>
-	</animation>
-
-	<!-- flap lever -->
-	<animation>
-		<type>rotate</type>
-		<object-name>FlapLever</object-name>
-		<property>controls/flight/flaps</property>
-		<interpolation>
-			<entry><ind>   0</ind><dep>  0</dep></entry>
-			<entry><ind> 0.2</ind><dep>8.5</dep></entry>
-			<entry><ind> 0.4</ind><dep> 15</dep></entry>
-			<entry><ind> 0.6</ind><dep> 28</dep></entry>
-			<entry><ind>   1</ind><dep> 36</dep></entry>
-		</interpolation>
+		<object-name>SpeedBrkLever</object-name>
+<!--	<property>controls/flight/spoilers</property> -->
+		<property>controls/flight/speedbrake</property>
+		<factor>50</factor>
 		<center>
 			<center>
 				<x-m>  0.093</x-m>
@@ -427,38 +371,76 @@ if you contacted me before making any changes to this software.
 			<z>0.0</z>
 		</axis>
 	</animation>
-
+	
 	<animation>
-		<type>pick</type>
-		<object-name>FlapLever</object-name>
-		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
+		<type>slider</type>
+		<object-name>SpeedBrkLever</object-name>
+		<property>controls/flight/speedbrake</property>
+		<drag-direction>vertical</drag-direction>
+		<increase>
 			<binding>
 				<command>nasal</command>
-				<script>controls.flapsDown(1)</script>
+				<script>controls.stepProps("/controls/flight/speedbrake", "/sim/speedbrake", -1);</script>
+				<min>0</min>
+				<max>1</max>                
+				<wrap>false</wrap>
 			</binding>
-			<mod-up>
-				<binding>
-					<command>nasal</command>
-					<script>controls.flapsDown(0)</script>
-				</binding>
-			</mod-up>
-		</action>
-		<action>
-			<button>1</button>
-			<repeatable>false</repeatable>
+		</increase>
+		<decrease>
 			<binding>
 				<command>nasal</command>
-				<script>controls.flapsDown(-1)</script>
+				<script>controls.stepProps("/controls/flight/speedbrake", "/sim/speedbrake", 1);</script>
+				<min>0</min>
+				<max>1</max>                
+				<wrap>false</wrap>
 			</binding>
-			<mod-up>
-				<binding>
-					<command>nasal</command>
-					<script>controls.flapsDown(0)</script>
-				</binding>
-			</mod-up>
-		</action>
+		</decrease>
 	</animation>
+
+	<!-- flap lever -->
+	<animation>
+		<type>rotate</type>
+		<object-name>FlapLever</object-name>
+		<property>controls/flight/flaps</property>
+		<factor>50</factor>
+		<center>
+			<center>
+				<x-m>  0.093</x-m>
+				<y-m>  0.0</y-m>
+				<z-m>  0.066</z-m>
+			</center>
+		</center>
+		<axis>
+			<x>0.0</x>
+			<y>1.0</y>
+			<z>0.0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>slider</type>
+		<object-name>FlapLever</object-name>
+		<property>controls/flight/flaps</property>
+		<drag-direction>vertical</drag-direction>
+		<increase>
+			<binding>
+				<command>nasal</command>
+				<script>controls.stepProps("/controls/flight/flaps", "/sim/flaps", -1);</script>
+				<min>0</min>
+				<max>1</max>                
+				<wrap>false</wrap>
+			</binding>
+		</increase>
+		<decrease>
+			<binding>
+				<command>nasal</command>
+				<script>controls.stepProps("/controls/flight/flaps", "/sim/flaps", 1);</script>
+				<min>0</min>
+				<max>1</max>                
+				<wrap>false</wrap>
+			</binding>
+		</decrease>
+	</animation>
+
 
 </PropertyList>

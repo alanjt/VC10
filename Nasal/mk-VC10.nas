@@ -468,14 +468,14 @@ var operating_time_counter = maketimer (60.0, func {
 operating_time_counter.start();
 
 ####################################### speedbrake helper #######################################
-var stepSpeedbrakes = func(step) {
-    # Hard-coded speedbrakes movement in 4 equal steps:
-    var val = 0.25 * step + getprop("controls/flight/spoilers");
-    setprop("controls/flight/spoilers", val > 1 ? 1 : val < 0 ? 0 : val);
+var stepSpeedbrake = func(step) {
+    # Hard-coded speedbrake movement in 5 equal steps:
+    var val = 0.2 * step + getprop("controls/flight/speedbrake");
+    setprop("controls/flight/speedbrake", val > 1 ? 1 : val < 0 ? 0 : val);
 }
 var fullSpeedbrakes = func {
-    var val = getprop("controls/flight/spoilers");
-    setprop("controls/flight/spoilers", val > 0 ? 0 : 1);
+    var val = getprop("controls/flight/speedbrake");
+    setprop("controls/flight/speedbrake", val > 0 ? 0 : 1);
 }
 
 ################# compass controllers and the magnetic compass up or down #####################################

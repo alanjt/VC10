@@ -647,7 +647,7 @@ if you contacted me before making any changes to this software.
 			</aerosurface_scale>
 			
 			
-<!-- Set left and right aileron positions separately. This will be needed when aileron upset is simulated -->
+<!-- Set left and right aileron positions separately <sim>-->
 			
 <!-- right aileron -->			
 <!-- positive is TE down -->				
@@ -666,32 +666,76 @@ if you contacted me before making any changes to this software.
 			</pure_gain>
 		</channel>
 		
-		<channel name="AirbrakeSpoilers">
+		<channel name="SpeedbrakeSpoilers">
+
+		<kinematic name="Speedbrake Control">
+			<input>fcs/speedbrake-cmd-norm</input>
+				<traverse>
+					<setting>
+						<position> 0 </position><time> 0 </time>
+					</setting>
+					<setting>
+						<position>10 </position><time>0.5 </time>
+					</setting>
+					<setting>
+						<position>20 </position><time>0.5 </time>
+					</setting>
+					<setting>
+						<position>30 </position><time>0.5 </time>
+					</setting>
+					<setting>
+						<position>40 </position><time>0.5 </time>
+					</setting>
+					<setting>
+						<position>50 </position><time>0.5 </time>
+					</setting>
+				</traverse>
+			<output>fcs/speedbrake-pos-deg</output>
+		</kinematic>
 		
 <!-- right spoiler -->			
-<!-- positive is TE up -->				
-			<pure_gain name ="right spoiler pos deg">
+<!-- positive is TE up -->	
+
+			<pure_gain name ="right spoiler cmd deg">
 				<input>fcs/aileron-pos-deg</input>
 				<gain> 2.1505 </gain>
-				<output> fcs/spoiler-right-deg </output>
-			<clipto>
-				<min>0</min>
-				<max>50</max>
-			</clipto>
+				<output> fcs/spoiler-right-cmd-deg </output>
 			</pure_gain>
+			
+			<summer name="right spoiler pos deg">
+				<input>fcs/spoiler-right-cmd-deg</input>
+				<input>fcs/speedbrake-pos-deg</input>
+				<clipto><min>0</min><max>50</max></clipto>
+				<output>fcs/spoiler-right-pos-deg </output>
+			</summer>
+			
 <!-- left  spoiler -->			
-<!-- positive is TE up -->			
+<!-- positive is TE up -->
+			
 			<pure_gain name ="left spoiler pos deg">
 				<input>fcs/aileron-pos-deg</input>
 				<gain> -2.1505 </gain>
-				<output> fcs/spoiler-left-deg </output>
-			<clipto>
-				<min>0</min>
-				<max>50</max>
-			</clipto>
+				<output> fcs/spoiler-left-cmd-deg </output>
 			</pure_gain>
-		</channel>
-		
+
+			<summer name="left spoiler pos deg">
+				<input>fcs/spoiler-left-cmd-deg</input>
+				<input>fcs/speedbrake-pos-deg</input>
+				<clipto><min>0</min><max>50</max></clipto>
+				<output>fcs/spoiler-left-pos-deg </output>
+			</summer>
+<!-- speedbrakes -->			
+			<summer name="speedbrake sum">
+				<input>fcs/spoiler-right-pos-deg</input>
+				<input>fcs/spoiler-left-pos-deg</input>
+				<output>fcs/speedbrake-pos-sum-deg </output>
+			</summer>
+			<pure_gain name ="speedbrake norm">
+				<input>fcs/speedbrake-pos-sum-deg</input>
+				<gain> 0.01 </gain>
+				<output> fcs/speedbrake-pos-sum-norm </output>
+			</pure_gain>
+		</channel>			
 
 		<channel name="Yaw">
 
@@ -850,36 +894,7 @@ if you contacted me before making any changes to this software.
 
 		</channel>
 
-		<channel name="Speedbrake">
 
-			<kinematic name="Spoiler Control">
-				<input>fcs/spoiler-cmd-norm</input>
-				<traverse>
-					<setting>
-						<position>0</position>
-						<time>0</time>
-					</setting>  
-					<setting>
-						<position>0.25</position>
-						<time>1.0</time>
-					</setting>
-					<setting>
-						<position>0.5</position>
-						<time>1.0</time>
-					</setting> 
-					<setting>
-						<position>0.75</position>
-						<time>1.0</time>
-					</setting>
-					<setting>
-						<position>1</position>
-						<time>1.0</time>
-					</setting>
-				</traverse>
-				<output>fcs/speedbrake-pos-norm</output>
-			</kinematic>
-
-		</channel>
 	</flight_control>
 
 	<!-- **********************************************************************

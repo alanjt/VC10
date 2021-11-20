@@ -573,7 +573,7 @@ AERODYNAMICS
 			</product>
 		</function>
 
-		<!--			<function name="aero/force/Drag_sspeedbrake">
+		<!--			<function name="aero/force/Drag_speedbrake">
 				<description>Drag_due_to_speedbrakes</description>
 				<product>
 					<property>aero/qbar-psf</property>

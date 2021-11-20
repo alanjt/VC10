@@ -1956,7 +1956,7 @@ if you contacted me before making any changes to this software.
 	<animation>
 		<type>rotate</type>
 		<object-name>Spoilers.L</object-name>
-		<property>/fdm/jsbsim/fcs/spoiler-left-deg</property>
+		<property>/fdm/jsbsim/fcs/spoiler-left-pos-deg</property>
 		<factor>-1</factor>
 		<offset-deg>0</offset-deg>   
 		<axis>
@@ -1968,7 +1968,7 @@ if you contacted me before making any changes to this software.
 	<animation>
 		<type>rotate</type>
 		<object-name>Spoilers.R</object-name>
-		<property>/fdm/jsbsim/fcs/spoiler-right-deg</property>
+		<property>/fdm/jsbsim/fcs/spoiler-right-pos-deg</property>
 		<factor>-1</factor>
 		<offset-deg>0</offset-deg>   
 		<axis>

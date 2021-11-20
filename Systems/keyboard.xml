@@ -130,10 +130,10 @@ if you contacted me before making any changes to this software.
 </key>
 <key n="2">
   <name>Ctrl + b</name>
-  <desc>Speedbrakes/Spoiler full</desc>  
+  <desc>Speedbrakesfull</desc>  
   <binding>
 		  <command>nasal</command>
-		  <script>VC10.fullSpeedbrakes();</script>
+		  <script>VC10.fullSpeedbrake();</script>
   </binding>
 </key>
 

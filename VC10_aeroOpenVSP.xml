@@ -205,6 +205,25 @@ AERODYNAMICS
 				</table>
 			</product>
 		</function>
+		
+		<function name="aero/force/Lift_speedbrakes">
+		<!-- from CP1199 -->
+			<description>
+				Lift due to speedbrakes
+			</description>
+			<product>
+				<property>aero/qbar-psf</property>
+				<property>metrics/Sw-sqft</property>
+				<property>fcs/speedbrake-pos-sum-norm</property>
+				<sum name="aero/coefficient/CL_speedbrakes">
+					<value> -0.3 </value>
+					<product>
+						<value> -0.014 </value>
+						<property>aero/alpha-deg</property>
+					</product>
+				</sum>
+			</product>
+		</function>
 
 		<function name="aero/force/Lift_ground_effect">
 			<description>Lift_due_ground_effect</description>
@@ -359,6 +378,26 @@ AERODYNAMICS
 						16	-0.00934	-0.00705	-0.00102	0.0082		0	0.02715
 				</tableData>
 				</table>
+			</product>
+		</function>
+		
+		<function name="aero/force/Drag_speedbrakes">
+		<!-- from CP1199 -->
+			<description>
+				Drag due to speedbrakes
+			</description>
+			<product>
+				<property>aero/qbar-psf</property>
+				<property>metrics/Sw-sqft</property>
+				<property>fcs/speedbrake-pos-sum-norm</property>
+				<sum name="aero/coefficient/CD_speedbrakes">
+					<value> 0.0268 </value>
+					<product>
+						<value> 0.0165 </value>
+						<property>aero/coefficient/CL_alpha</property>
+						<property>aero/coefficient/CL_alpha</property>
+					</product>
+				</sum>
 			</product>
 		</function>
 
@@ -541,7 +580,7 @@ AERODYNAMICS
 			<description>
 				Pitch Moment due to Tail Trim Deflection
 				Positive surface deflection is trailing edge down
-</description>
+			</description>
 			<product>
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
@@ -561,54 +600,23 @@ AERODYNAMICS
 			</product>
 		</function>
 
-		<function name="aero/moment/Pitch_inboard_spoiler">
-			<description>Pitch_moment_due_to_inboard_spoiler</description>
+		<function name="aero/force/Pitch_speedbrakes">
+		<!-- from CP1199 -->
+			<description>
+				Pitch moment due to speedbrakes
+			</description>
 			<product>
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/cbarw-ft</property>
-				<property>fcs/speedbrake-pos-norm</property>
-				<table name="aero/derivative/CM_inner_spoiler">
-					<independentVar>velocities/mach</independentVar>
-					<tableData>
-						0.0000    -0.06
-						0.6000    -0.02 
-					</tableData>
-				</table>
-			</product>
-		</function>
-
-		<function name="aero/moment/Pitch_middle_spoiler">
-			<description>Pitch_moment_due_to_middle_spoiler</description>
-			<product>
-				<property>aero/qbar-psf</property>
-				<property>metrics/Sw-sqft</property>
-				<property>metrics/cbarw-ft</property>
-				<property>fcs/speedbrake-pos-norm</property>
-				<table name="aero/derivative/CM_middle_spoiler">
-					<independentVar>velocities/mach</independentVar>
-					<tableData>
-						0.0000    -0.06
-						0.6000    -0.02 
-					</tableData>
-				</table>
-			</product>
-		</function>
-
-		<function name="aero/moment/Pitch_outboard_spoiler">
-			<description>Pitch_moment_due_to_outboard_spoiler</description>
-			<product>
-				<property>aero/qbar-psf</property>
-				<property>metrics/Sw-sqft</property>
-				<property>metrics/cbarw-ft</property>
-				<property>fcs/speedbrake-pos-norm</property>
-				<table name="aero/derivative/CM_outerSpoiler">
-					<independentVar>velocities/mach</independentVar>
-					<tableData>
-						0.0000    -0.06
-						0.6000    -0.02
-					</tableData>
-				</table>
+				<property>fcs/speedbrake-pos-sum-norm</property>
+				<sum name="aero/coefficient/CM_speedbrakes">
+					<value> -0.0256 </value>
+					<product>
+						<value> 0.0246 </value>
+						<property>aero/coefficient/CL_alpha</property>
+					</product>
+				</sum>
 			</product>
 		</function>
 
@@ -916,7 +924,7 @@ AERODYNAMICS
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/bw-ft</property>
-				<property>fcs/spoiler-right-deg</property>
+				<property>fcs/spoiler-right-pos-deg</property>
 				<value> 0.00084</value>
 			</product>
 		</function>
@@ -927,7 +935,7 @@ AERODYNAMICS
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/bw-ft</property>
-				<property>fcs/spoiler-left-deg</property>
+				<property>fcs/spoiler-left-pos-deg</property>
 				<value> -0.00084</value>
 			</product>
 		</function>
@@ -1096,7 +1104,7 @@ AERODYNAMICS
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/bw-ft</property>
-				<property>fcs/spoiler-right-deg</property>
+				<property>fcs/spoiler-right-pos-deg</property>
 				<value> 0.00008</value>
 			</product>
 		</function>
@@ -1107,7 +1115,7 @@ AERODYNAMICS
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/bw-ft</property>
-				<property>fcs/spoiler-left-deg</property>
+				<property>fcs/spoiler-left-pos-deg</property>
 				<value> -0.00008</value>  
 			</product>
 		</function>

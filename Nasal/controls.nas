@@ -17,8 +17,25 @@ controls.rudderTrim = func(direction){
 ##	setprop("sim/model/TSR2/controls/flight/rudder-trim", direction);
 	controls.slewProp("controls/flight/rudder-trim", direction * 0.1);
 } # end 
-
-
-
-
+# ========================= Airbrakes  =====================================
+controls.stepSpoilers = func(step) {
+    if(props.globals.getNode("/sim/spoilers") != nil) {
+        stepProps("/controls/flight/spoilers", "/sim/spoilers", step);
+        return;
+    }
+    # Hard-coded spoilers movement in 5 equal steps:
+    var val = 0.20 * step + getprop("/controls/flight/spoilers");
+    setprop("/controls/flight/spoilers", val > 1 ? 1 : val < 0 ? 0 : val);
+}
+# ========================= Flaps  =====================================
+controls.flapsDown = func(step) {
+    if(step == 0) return;
+    if(props.globals.getNode("/sim/flaps") != nil) {
+        stepProps("/controls/flight/flaps", "/sim/flaps", step);
+        return;
+    }
+    # Hard-coded flaps movement in 4 equal steps:
+    var val = 0.25 * step + getprop("/controls/flight/flaps");
+    setprop("/controls/flight/flaps", val > 1 ? 1 : val < 0 ? 0 : val);
+}
 
