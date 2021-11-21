@@ -112,7 +112,8 @@ if you contacted me before making any changes to this software.
 		<object-name>plane.out</object-name>
 		<property>fdm/jsbsim/fcs/aileron-pos-norm</property>
 		<factor> -50 </factor>
-		<center><x-m> 0.000 </x-m><y-m>-0.462 </y-m><z-m> 0.875 </z-m></center>
+<!--		<center><x-m> 0.000 </x-m><y-m>-0.462 </y-m><z-m> 0.875 </z-m></center> -->
+		<center><x-m> 0.000 </x-m><y-m>-0.492 </y-m><z-m> 0.775 </z-m></center>
 		<axis><x> 1 </x><y> 0 </y><z> 0 </z></axis>
 	</animation>
 
@@ -126,9 +127,9 @@ if you contacted me before making any changes to this software.
 		<object-name>plane.up.001</object-name>
 		<object-name>plane.down.001</object-name>
 		<object-name>plane.out.001</object-name>
-		<property>surface-positions/left-aileron-pos-norm</property>
+		<property>fdm/jsbsim/fcs/aileron-pos-norm</property>
 		<factor> -50 </factor>
-		<center><x-m> 0.000 </x-m><y-m> 0.447 </y-m><z-m> 0.875 </z-m></center>
+		<center><x-m> 0.000 </x-m><y-m> 0.477 </y-m><z-m> 0.775 </z-m></center>
 		<axis><x> 1 </x><y> 0 </y><z> 0 </z></axis>
 	</animation>
 

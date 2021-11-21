@@ -635,9 +635,17 @@ if you contacted me before making any changes to this software.
 		</offsets>
 	</model>
 
-	<animation>
+<!--	<animation>
 		<type>select</type>
 		<object-name>pilots</object-name>	
+		<condition>
+			<not><property>/sim/current-view/internal</property></not>
+			<not><property>sim/multiplay/generic/int[19]</property></not>
+		</condition>
+	</animation> -->
+	<animation>
+		<type>select</type>
+		<object-name>Captain</object-name>	
 		<condition>
 			<not><property>/sim/current-view/internal</property></not>
 			<not><property>sim/multiplay/generic/int[19]</property></not>
