@@ -197,6 +197,8 @@ var Generator = {
 };
 
 var battery = Battery.new("VC10/battery-switch","/VC10/battery",24.6,30,34,1.0,7.0);
+
+###                            num,switch,gen_output,                                      rpm_source,           rpm_threshold,volts,amps
 var generator1 = Generator.new(0,"VC10/generator/gen-drive[0]","/engines/engine[0]/amp-v","/engines/engine[0]/n1",20.0,28.0,60.0);
 var generator2 = Generator.new(1,"VC10/generator/gen-drive[1]","/engines/engine[1]/amp-v","/engines/engine[1]/n1",20.0,28.0,60.0);
 var generator3 = Generator.new(2,"VC10/generator/gen-drive[2]","/engines/engine[2]/amp-v","/engines/engine[2]/n1",20.0,28.0,60.0);

@@ -750,6 +750,43 @@ setlistener("/fdm/jsbsim/inertia/weight-lbs", func(wlbs){
   setprop("/VC10/weight-kg", wlbs);
 },1,0);
 
+#################### CROSSFEED VALVES IN ENGINEER PANEL and FUEL DUMP valves #################################
+var valve_pos = func(nr){ 
+	if(getprop("/VC10/ess-bus") > 24){
+		setprop("/VC10/fuel/valves/valve-pos["~nr~"]", 0);
+		settimer( func { setprop("/VC10/fuel/valves/valve-pos["~nr~"]", 1) }, 1.8 );	
+	}else{
+		screen.log.write("No electrical power!", 1, 0, 0);
+	}
+}
+var shutoff_pos = func(nr) {
+	setprop("/VC10/fuel/valves/fuel-shutoff-pos["~nr~"]", 0);
+	settimer( func { setprop("/VC10/fuel/valves/fuel-shutoff-pos["~nr~"]", 1) }, 1.8 );
+}
+var dump_pos = func(nr) {
+	setprop("/VC10/fuel/valves/dump-valve-pos["~nr~"]", 0);
+	settimer( func { setprop("/VC10/fuel/valves/dump-valve-pos["~nr~"]", 1) }, 1.8 );
+}
+var dump_cover = func(nr) {
+	var state = getprop("/VC10/fuel/valves/dump-cover["~nr~"]") or 0;
+	if(!state){
+		interpolate("/VC10/fuel/valves/dump-cover["~nr~"]", 1, 0.4);
+	}else{
+		interpolate("/VC10/fuel/valves/dump-cover["~nr~"]", 0, 0.4);
+		setprop("/VC10/fuel/valves/dump-retract[0]", 0);
+		setprop("/VC10/fuel/valves/dump-retract[1]", 0);
+	}
+}
+
+setlistener("/VC10/fuel/temperatur-selector", func(nr){
+  # 0 = Main Tank 1, 1 = Engine 1, 2 = Engine 2 ...
+  var nr = nr.getValue() or 0;
+  temp = getprop("/VC10/fuel/temp["~nr~"]") or 0;
+  setprop("/VC10/fuel/temperature", 0);
+	interpolate("/VC10/fuel/temperature", temp, 1.2);
+},1,0); 
+######### Loop for fuel temperature you will find in the mk-VC10.nas in the nacelle_deicing() ###########
+
 
 ########################################### LOOP ENGINES ######################################################
 ###############################################################################################################

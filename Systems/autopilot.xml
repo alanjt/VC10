@@ -290,7 +290,7 @@ derived from a yaw rate gyro, passed through a washout filter having a time cons
 		<input>
 			<property>/autopilot/settings/heading-bug-deg</property>
 			<offset>
-				<property>VC10/hsi/indicated-heading-deg</property>
+				<property>VC10/CDI/indicated-heading-deg</property>
 				<scale>-1.0</scale>
 			</offset>
 		</input>

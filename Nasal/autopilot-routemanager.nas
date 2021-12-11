@@ -265,7 +265,7 @@ var listenerApHeadingFunc = func {
 
 
 		#print("");
-		#print ("indicated-heading-deg=", getprop("VC10/hsi/indicated-heading-deg"));
+		#print ("indicated-heading-deg=", getprop("VC10/CDI/indicated-heading-deg"));
 		#print ("heading-bug-error-deg=", getprop("autopilot/internal/heading-bug-error-deg")); 
 		#print ("true-heading-error-deg=", getprop("autopilot/internal/true-heading-error-deg")); 
 		#print ("target-roll-deg      =", getprop("autopilot/internal/target-roll-deg")); 

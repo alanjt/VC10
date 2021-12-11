@@ -7,6 +7,7 @@ OBJECT poly
 name "box"
 loc 1.56829 1.0044 0.167942
 crease 45.000000
+hidden
 numvert 16
 -0.0231248 0.00301766 -0.287582
 0.0231249 0.00301766 -0.287582
@@ -118,6 +119,7 @@ name "exit"
 data 9
 exit.mesh
 crease 40.000000
+hidden
 numvert 8
 5.25783 1.79008 -0.1321
 5.25783 1.79471 0.07001
@@ -169,6 +171,7 @@ name "exitON"
 data 11
 exitON.mesh
 crease 40.000000
+hidden
 numvert 8
 5.25708 1.7888 -0.13339
 5.25708 1.79349 0.07135
@@ -221,6 +224,7 @@ loc 0 -0.0111 0
 data 15
 immat.text.mesh
 crease 40.000000
+hidden
 numvert 4
 1.51585 0.94164 0.44824
 1.51585 0.96088 0.44824
@@ -4262,6 +4266,7 @@ name "panelE"
 data 11
 panelE.mesh
 crease 40.000000
+hidden
 numvert 104
 4.27563 0.75488 -1.14634
 3.46617 0.75488 -1.14634
@@ -4961,6 +4966,7 @@ name "PedalL"
 data 11
 PedalL.mesh
 crease 40.000000
+hidden
 numvert 344
 1.34766 0.50249 0.65381
 1.34766 0.50249 0.53659
@@ -6509,6 +6515,7 @@ name "PedalR"
 data 11
 PedalR.mesh
 crease 40.000000
+hidden
 numvert 344
 1.34766 0.50249 0.37167
 1.34766 0.50249 0.25444
@@ -10040,6 +10047,7 @@ OBJECT poly
 name "box"
 loc 0.00532937 -0.0273014 0
 crease 45.000000
+hidden
 numvert 8
 1.48178 1.01257 -0.192318
 1.54462 1.01257 -0.192318
@@ -10097,6 +10105,7 @@ OBJECT poly
 name "box"
 loc 1.56829 1.0044 0.0724202
 crease 45.000000
+hidden
 numvert 16
 -0.0231248 -0.0152018 -0.0965377
 0.0231249 -0.0152018 -0.0965377

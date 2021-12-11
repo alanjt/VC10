@@ -175,7 +175,7 @@ var h_course = func {
 var h_course_two = func {
 	var press_course_two = getprop("instrumentation/nav[1]/radials/selected-deg");
 	if(  press_course_two == nil ) press_course_two = 0.0;
-	help_win.write(sprintf("Selected course on copilot HSI is: %.0f ", press_course_two) );
+	help_win.write(sprintf("Selected course on copilot CDIis: %.0f ", press_course_two) );
 }
 
 var h_tas = func {
@@ -485,7 +485,7 @@ props.globals.initNode("instrumentation/compass-control[1]/justify",0,"BOOL");
 
 setlistener( "instrumentation/compass-control[0]/mag", func(state){ 
 	var value = state.getValue();
-	var nIndicatedHeading = props.globals.initNode("VC10/hsi[0]/indicated-heading-deg",0.0,"DOUBLE");
+	var nIndicatedHeading = props.globals.initNode("VC10/CDI[0]/indicated-heading-deg",0.0,"DOUBLE");
 	nIndicatedHeading.unalias();
 	if(value){
 		nIndicatedHeading.alias("instrumentation/magnetic-compass/indicated-heading-deg");
@@ -496,7 +496,7 @@ setlistener( "instrumentation/compass-control[0]/mag", func(state){
 
 setlistener( "instrumentation/compass-control[1]/mag", func(state){ 
 	var value = state.getValue();
-	var nIndicatedHeading = props.globals.initNode("VC10/hsi[1]/indicated-heading-deg",0.0,"DOUBLE");
+	var nIndicatedHeading = props.globals.initNode("VC10/CDI[1]/indicated-heading-deg",0.0,"DOUBLE");
 	nIndicatedHeading.unalias();
 	if(value){
 		nIndicatedHeading.alias("instrumentation/magnetic-compass/indicated-heading-deg");

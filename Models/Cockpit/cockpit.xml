@@ -506,6 +506,7 @@ if you contacted me before making any changes to this software.
 			<x-m>1.524</x-m>
 			<y-m>0</y-m>
 			<z-m>0.992</z-m>
+			<pitch-deg>-10.0</pitch-deg>
 		</offsets>
 	</model>
 

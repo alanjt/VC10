@@ -150,8 +150,8 @@ if you contacted me before making any changes to this software.
 	</model>
 
 	<model>
-		<name>hsi</name>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/hsi/hsi.xml</path>
+		<name>CDI</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/CDI/CDI.xml</path>
 		<offsets>
 			<x-m>-0.0</x-m>
 			<y-m>-0.481</y-m>
@@ -797,8 +797,8 @@ if you contacted me before making any changes to this software.
 	</model>
 
 	<model>
-		<name>hsi_cp</name>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/hsi/hsi-copilot.xml</path>
+		<name>CDI_cp</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/CDI/CDI-copilot.xml</path>
 		<offsets>
 			<x-m>-0.0</x-m>
 			<y-m>0.480</y-m>
