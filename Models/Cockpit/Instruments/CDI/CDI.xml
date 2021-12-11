@@ -115,8 +115,8 @@
 		<type>rotate</type>
 		<object-name>CDI-ring</object-name>
 		<object-name>hdg-arrow</object-name>
-		<object-name>DialCentre</object-name>
-<!--		<object-name>CrsNum.off</object-name>
+<!--		<object-name>DialCentre</object-name>
+		<object-name>CrsNum.off</object-name>
 		<object-name>CrsNum.1</object-name>
 		<object-name>CrsNum.2</object-name>
 		<object-name>CrsNum.3</object-name> -->
