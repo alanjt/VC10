@@ -115,11 +115,6 @@
 		<type>rotate</type>
 		<object-name>CDI-ring</object-name>
 		<object-name>hdg-arrow</object-name>
-<!--		<object-name>DialCentre</object-name>
-		<object-name>CrsNum.off</object-name>
-		<object-name>CrsNum.1</object-name>
-		<object-name>CrsNum.2</object-name>
-		<object-name>CrsNum.3</object-name> -->
 		<object-name>To</object-name>
 		<object-name>From</object-name>
 		<object-name>noNav</object-name>
@@ -164,11 +159,6 @@
 	 
   <animation>
 		<type>rotate</type>
-<!--		<object-name>DialCentre</object-name>
-		<object-name>CrsNum.off</object-name>
-		<object-name>CrsNum.1</object-name>
-		<object-name>CrsNum.2</object-name>
-		<object-name>CrsNum.3</object-name> -->
 		<object-name>To</object-name>
 		<object-name>From</object-name>
 		<object-name>noNav</object-name>
@@ -286,15 +276,35 @@
     <animation>
         <type>translate</type>
         <object-name>VorLocDeviationBar</object-name>
-        <property>instrumentation/nav[0]/heading-needle-deflection</property>
+        <property>instrumentation/nav[0]/heading-needle-deflection-deg</property>
+        <interpolation>
+        <entry><ind>-0.7</ind><dep>-0.025</dep></entry>
+        <entry><ind>0.7</ind><dep>0.025</dep></entry>
+    </interpolation>
+        <axis>
+            <x>0.0</x>
+            <y>1.0</y>
+            <z>0.0</z>
+        </axis>
+        <center>
+            <x-m>0.0</x-m>
+            <y-m>0.0</y-m>
+            <z-m>-0.006</z-m>
+        </center>
+    </animation>
+	
+    <animation>
+        <type>translate</type>
+        <object-name>GS_DeviationBar</object-name>
+        <property>instrumentation/nav[0]/gs-needle-deflection</property>
         <interpolation>
         <entry><ind>-10.0</ind><dep>-0.0152</dep></entry>
         <entry><ind>10.0</ind><dep>0.0152</dep></entry>
     </interpolation>
         <axis>
             <x>0.0</x>
-            <y>1.0</y>
-            <z>0.0</z>
+            <y>0.0</y>
+            <z>1.0</z>
         </axis>
         <center>
             <x-m>0.0</x-m>

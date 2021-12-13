@@ -126,9 +126,10 @@ if you contacted me before making any changes to this software.
 					<enabled archive="y" type="bool">false</enabled>
 				</limits>
 				<!-- x/y/z == right/up/back -->
+				<!-- 95% man optimal position is 0.71m behind instrument panel -->
 				<x-offset-m archive="y">-0.546</x-offset-m>
 				<y-offset-m archive="y">1.15</y-offset-m>
-				<z-offset-m archive="y">2.266</z-offset-m>
+				<z-offset-m archive="y">2.234</z-offset-m> <!-- 1.524+0.71 -->
 				<pitch-offset-deg archive="y">-16.0</pitch-offset-deg>
 				<default-field-of-view-deg type="double">72</default-field-of-view-deg>
 			</config>

@@ -583,7 +583,7 @@ if you contacted me before making any changes to this software.
 		</offsets>
 	</model>
 
-	<model>
+<!--	<model>
 		<name>seats</name>
 		<path>Aircraft/VC10/Models/Cockpit/Equipment/seats/seats.xml</path>
 		<offsets>
@@ -591,7 +591,7 @@ if you contacted me before making any changes to this software.
 			<y-m>0.0</y-m>
 			<z-m>0.0</z-m>
 		</offsets>
-	</model>
+	</model> -->
 
 	<model>
 		<name>yokes</name>
