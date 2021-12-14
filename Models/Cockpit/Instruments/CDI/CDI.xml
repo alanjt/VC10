@@ -276,10 +276,10 @@
     <animation>
         <type>translate</type>
         <object-name>VorLocDeviationBar</object-name>
-        <property>instrumentation/nav[0]/heading-needle-deflection-deg</property>
+        <property>instrumentation/nav[0]/heading-needle-deflection</property>
         <interpolation>
-        <entry><ind>-0.7</ind><dep>-0.025</dep></entry>
-        <entry><ind>0.7</ind><dep>0.025</dep></entry>
+        <entry><ind>-10.0</ind><dep>-0.025</dep></entry>
+        <entry><ind>10.0</ind><dep>0.025</dep></entry>
     </interpolation>
         <axis>
             <x>0.0</x>
@@ -296,10 +296,10 @@
     <animation>
         <type>translate</type>
         <object-name>GS_DeviationBar</object-name>
-        <property>instrumentation/nav[0]/gs-needle-deflection</property>
+        <property>instrumentation/nav[0]/gs-needle-deflection-deg</property>
         <interpolation>
-        <entry><ind>-10.0</ind><dep>-0.0152</dep></entry>
-        <entry><ind>10.0</ind><dep>0.0152</dep></entry>
+        <entry><ind>-0.7</ind><dep>-0.025</dep></entry>
+        <entry><ind>0.7</ind><dep>0.025</dep></entry>
     </interpolation>
         <axis>
             <x>0.0</x>
