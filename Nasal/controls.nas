@@ -20,7 +20,7 @@ controls.rudderTrim = func(direction){
 # ========================= Airbrakes  =====================================
 controls.stepSpoilers = func(step) {
     if(props.globals.getNode("/sim/spoilers") != nil) {
-        stepProps("/controls/flight/spoilers", "/sim/spoilers", step);
+        controls.stepProps("/controls/flight/spoilers", "/sim/spoilers", step);
         return;
     }
     # Hard-coded spoilers movement in 5 equal steps:
@@ -31,7 +31,7 @@ controls.stepSpoilers = func(step) {
 controls.flapsDown = func(step) {
     if(step == 0) return;
     if(props.globals.getNode("/sim/flaps") != nil) {
-        stepProps("/controls/flight/flaps", "/sim/flaps", step);
+        controls.stepProps("/controls/flight/flaps", "/sim/flaps", step);
         return;
     }
     # Hard-coded flaps movement in 4 equal steps:

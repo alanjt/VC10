@@ -27,10 +27,10 @@ if you contacted me before making any changes to this software.
 <!-- specific ADF -->
 <adf n="0">
 	<mode type="string">adf</mode>
-	<power-btn type="bool">false</power-btn>
-	<serviceable type="bool">false</serviceable>
-	<ident-audible type="bool">false</ident-audible>
-	<volume-norm type="double">0.0</volume-norm>
+	<power-btn type="bool">true</power-btn>
+	<serviceable type="bool">true</serviceable>
+	<ident-audible type="bool">true</ident-audible>
+	<volume-norm type="double">0.5</volume-norm>
 	<frequencies>
 		<selected-khz type="int">490</selected-khz>
 		 <!--  NDB "DVI" (Donaueschingen)  -->
@@ -40,10 +40,10 @@ if you contacted me before making any changes to this software.
 </adf>
 <adf n="1">
 	<mode type="string">adf</mode>
-	<power-btn type="bool">false</power-btn>
-	<serviceable type="bool">false</serviceable>
-	<ident-audible type="bool">false</ident-audible>
-	<volume-norm type="double">0.0</volume-norm>
+	<power-btn type="bool">true</power-btn>
+	<serviceable type="bool">true</serviceable>
+	<ident-audible type="bool">true</ident-audible>
+	<volume-norm type="double">0.5</volume-norm>
 	<frequencies>
 		<selected-khz type="int">442</selected-khz>
 		 <!--  EDNY near the lake of constance  -->
@@ -68,17 +68,17 @@ if you contacted me before making any changes to this software.
 
 <marker-beacon>
 	<test type="int">0</test>
-	<power-btn type="bool">false</power-btn>
-	<serviceable type="bool">false</serviceable>
+	<power-btn type="bool">true</power-btn>
+	<serviceable type="bool">true</serviceable>
 	<audio-btn type="bool">true</audio-btn>
 	<volume type="double">0.5</volume>
 </marker-beacon>
 <nav n="0">
-	<power-btn type="bool">false</power-btn>
-	<serviceable type="bool">false</serviceable>
+	<power-btn type="bool">true</power-btn>
+	<serviceable type="bool">true</serviceable>
 	<audio-btn type="bool">true</audio-btn>
 	<ident type="bool">false</ident>
-	<volume type="double">0.0</volume>
+	<volume type="double">0.5</volume>
 	<frequencies>
 	<display-sel-khz type="int">0</display-sel-khz>
 	<display-sel-mhz type="int">0</display-sel-mhz>
@@ -94,8 +94,8 @@ if you contacted me before making any changes to this software.
 	</radials>
 </nav>
 <nav n="1">
-	<power-btn type="bool">false</power-btn>
-	<serviceable type="bool">false</serviceable>
+	<power-btn type="bool">true</power-btn>
+	<serviceable type="bool">true</serviceable>
 	<audio-btn type="bool">true</audio-btn>
 	<ident type="bool">false</ident>
 	<volume type="double">0.0</volume>
@@ -115,8 +115,8 @@ if you contacted me before making any changes to this software.
 </nav>
 <dme n="0">
 	<mode type="string">dme</mode>
-	<power-btn type="bool">false</power-btn>
-	<serviceable type="bool">false</serviceable>
+	<power-btn type="bool">true</power-btn>
+	<serviceable type="bool">true</serviceable>
 	<ident type="bool">false</ident>
 	<volume type="double">0.0</volume>
 	<frequencies>
@@ -133,8 +133,8 @@ if you contacted me before making any changes to this software.
 </dme>
 <dme n="1">
 	<mode type="string">dme</mode>
-	<power-btn type="bool">false</power-btn>
-	<serviceable type="bool">false</serviceable>
+	<power-btn type="bool">true</power-btn>
+	<serviceable type="bool">true</serviceable>
 	<ident type="bool">false</ident>
 	<volume type="double">0.0</volume>
 	<frequencies>
@@ -150,8 +150,8 @@ if you contacted me before making any changes to this software.
 	<left-dot type="bool">false</left-dot>
 </dme>
 <comm n="0">
-	<power-btn type="bool">false</power-btn>
-	<serviceable type="bool">false</serviceable>
+	<power-btn type="bool">true</power-btn>
+	<serviceable type="bool">true</serviceable>
 	<volume type="double">0.6</volume>
 	<frequencies>
 	<display-sel-khz type="int">0</display-sel-khz>
@@ -163,8 +163,8 @@ if you contacted me before making any changes to this software.
 	</frequencies>
 </comm>
 <comm n="1">
-	<power-btn type="bool">false</power-btn>
-	<serviceable type="bool">false</serviceable>
+	<power-btn type="bool">true</power-btn>
+	<serviceable type="bool">true</serviceable>
 	<volume type="double">0.6</volume>
 	<frequencies>
 	<display-sel-khz type="int">0</display-sel-khz>
