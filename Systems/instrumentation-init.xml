@@ -31,12 +31,10 @@ if you contacted me before making any changes to this software.
 	<serviceable type="bool">true</serviceable>
 	<ident-audible type="bool">true</ident-audible>
 	<volume-norm type="double">0.5</volume-norm>
-	<frequencies>
-		<selected-khz type="int">490</selected-khz>
-		 <!--  NDB "DVI" (Donaueschingen)  -->
-		<standby-khz type="int">401</standby-khz>
-		 <!--  EDTM ancient military airbase  -->
-	</frequencies>
+<!--	<frequencies>
+		<selected-khz type="int">490</selected-khz> -->
+		 <!--  NDB "DVI" (Donaueschingen)  -->>
+<!--	</frequencies> -->
 </adf>
 <adf n="1">
 	<mode type="string">adf</mode>
@@ -44,22 +42,20 @@ if you contacted me before making any changes to this software.
 	<serviceable type="bool">true</serviceable>
 	<ident-audible type="bool">true</ident-audible>
 	<volume-norm type="double">0.5</volume-norm>
-	<frequencies>
-		<selected-khz type="int">442</selected-khz>
+<!--	<frequencies>
+		<selected-khz type="int">442</selected-khz> -->
 		 <!--  EDNY near the lake of constance  -->
-		<standby-khz type="int">473</standby-khz>
-		 <!--  EDSN ancient military airbase  -->
-	</frequencies>
+<!--	</frequencies>-->
 </adf>
 
 <rmi>	
 	<face-offset type="double">0.0</face-offset>
-	<rmi-needle n="0">
+<!--	<rmi-needle n="0">
 		<switch type="bool">0</switch>
 	</rmi-needle>
 	<rmi-needle n="1">
 		<switch type="bool">1</switch>
-	</rmi-needle>
+	</rmi-needle> -->
 </rmi>
 
 <deviation-indicator>
@@ -84,10 +80,6 @@ if you contacted me before making any changes to this software.
 	<display-sel-mhz type="int">0</display-sel-mhz>
 	<selected-mhz-fmt type="string">114.30</selected-mhz-fmt>
 	<selected-mhz type="double">114.30</selected-mhz>
-	<display-sby-khz type="int">0</display-sby-khz>
-	<display-sby-mhz type="int">0</display-sby-mhz>
-	<standby-mhz-fmt type="string">109.60</standby-mhz-fmt>
-	<standby-mhz type="double">109.6</standby-mhz>
 	</frequencies>
 	<radials>
 	<selected-deg>0</selected-deg>
@@ -104,10 +96,6 @@ if you contacted me before making any changes to this software.
 	<display-sel-mhz type="int">0</display-sel-mhz>
 	<selected-mhz-fmt type="string">110.05</selected-mhz-fmt>
 	<selected-mhz type="double">110.05</selected-mhz>
-	<display-sby-khz type="int">0</display-sby-khz>
-	<display-sby-mhz type="int">0</display-sby-mhz>
-	<standby-mhz-fmt type="string">116.10</standby-mhz-fmt>
-	<standby-mhz type="double">116.10</standby-mhz>
 	</frequencies>
 	<radials>
 	<selected-deg>0</selected-deg>
@@ -157,9 +145,6 @@ if you contacted me before making any changes to this software.
 	<display-sel-khz type="int">0</display-sel-khz>
 	<display-sel-mhz type="int">0</display-sel-mhz>
 	<selected-mhz-fmt type="string">127.32</selected-mhz-fmt>
-	<display-sby-khz type="int">0</display-sby-khz>
-	<display-sby-mhz type="int">0</display-sby-mhz>
-	<standby-mhz-fmt type="string">118.10</standby-mhz-fmt>
 	</frequencies>
 </comm>
 <comm n="1">
@@ -170,9 +155,6 @@ if you contacted me before making any changes to this software.
 	<display-sel-khz type="int">0</display-sel-khz>
 	<display-sel-mhz type="int">0</display-sel-mhz>
 	<selected-mhz-fmt type="string">122.75</selected-mhz-fmt>
-	<display-sby-khz type="int">0</display-sby-khz>
-	<display-sby-mhz type="int">0</display-sby-mhz>
-	<standby-mhz-fmt type="string">122.75</standby-mhz-fmt>
 	</frequencies>
 </comm>
 

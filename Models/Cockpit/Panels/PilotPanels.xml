@@ -141,7 +141,7 @@ if you contacted me before making any changes to this software.
 
 	<model>
 		<name>VORrmi</name>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/rmi/rmi.xml</path>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/rmi/rmi_vor.xml</path>
 		<offsets>
 			<x-m>-0.0</x-m>
 			<y-m>-0.585</y-m>
@@ -242,7 +242,7 @@ if you contacted me before making any changes to this software.
 
 	<model>
 		<name>ADF_rmi</name>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/rmi/rmi.xml</path>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/rmi/rmi_adf.xml</path>
 		<offsets>
 			<x-m>-0.0</x-m>
 			<y-m>-0.382</y-m>
@@ -788,7 +788,7 @@ if you contacted me before making any changes to this software.
 
 	<model>
 		<name>VORrmi_cp</name>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/rmi/rmi.xml</path>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/rmi/rmi_vor.xml</path>
 		<offsets>
 			<x-m>-0.0</x-m>
 			<y-m>0.379</y-m>
@@ -808,7 +808,7 @@ if you contacted me before making any changes to this software.
 
 	<model>
 		<name>ADF_rmi_cp</name>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/rmi/rmi.xml</path>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/rmi/rmi_adf.xml</path>
 		<offsets>
 			<x-m>-0.0</x-m>
 			<y-m>0.293</y-m>
@@ -880,16 +880,15 @@ if you contacted me before making any changes to this software.
 		</offsets>
 	</model>
 
-	<model>
+<!--	<model>
 		<name>rmi_cp</name>
 		<path>Aircraft/VC10/Models/Cockpit/Instruments/rmi/rmi.xml</path>
 		<offsets>
-			<!--    <x-m>-18.919</x-m> -->
 			<x-m>1.521</x-m>
 			<y-m> 0.305</y-m>
 			<z-m>0.797</z-m>
 		</offsets>
-	</model>
+	</model> -->
 
 	<model>
 		<name>dme_cp</name>
