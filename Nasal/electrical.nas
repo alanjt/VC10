@@ -281,6 +281,9 @@ var init_switches = func{
     append(EssDCbus_output,props.globals.initNode("systems/electrical/outputs/marker-beacon",0,"DOUBLE"));
     append(EssDCbus_load,1);
     append(EssDCbus_service, props.globals.initNode("instrumentation/marker-beacon/serviceable",0,"BOOL"));
+    append(EssDCbus_service, props.globals.initNode("instrumentation/marker-beacon/inner",0,"BOOL"));
+    append(EssDCbus_service, props.globals.initNode("instrumentation/marker-beacon/middle",0,"BOOL"));
+    append(EssDCbus_service, props.globals.initNode("instrumentation/marker-beacon/outer",0,"BOOL"));
 }
 
 var load = 0.0;
