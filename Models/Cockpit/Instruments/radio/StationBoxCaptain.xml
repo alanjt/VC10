@@ -80,6 +80,103 @@ if you contacted me before making any changes to this software.
 		</emission>
 	</animation>
 
+<!-- ADF1 -->
+<!--	<animation>
+  <emission>
+   <red>1.0</red>
+   <green>1.0</green>
+   <blue>1.0</blue>
+   <factor-prop>controls/lighting/panel-norm</factor-prop>
+  </emission>
+		<object-name>ADF1Rangebutton</object-name>
+		<condition>
+			<greater-than>
+				<property>VC10/ess-bus</property>
+				<value>20</value>
+			</greater-than>
+			<or>
+				<property>instrumentation/adf[0]/in-range</property>
+				<property>controls/test/warn-knob</property>
+			</or>
+		</condition>
+	</animation>	-->
+	<animation>
+		<type>knob</type>
+		<object-name>ADF1Rangebutton</object-name>
+		<property>instrumentation/adf[0]/volume-norm</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>270</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>0.0</x-m><y-m>-0.0539</y-m><z-m>0.0524</z-m>
+		</center>
+		<axis>
+			<x>1.0</x><y>0.0</y><z>0.0</z>
+		</axis>
+		<drag-direction>horizontal</drag-direction>
+		<action>
+			<button>0</button>
+			<binding>
+				<command>property-adjust</command>
+				<property>instrumentation/adf[0]/volume-norm</property>
+				<factor>0.05</factor>
+				<min>0</min><max>1</max>
+				<wrap>false</wrap>
+			</binding>
+			<binding>
+				<condition>
+					<property>instrumentation/adf[0]/volume-norm</property>
+				</condition>
+				<command>property-assign</command>
+				<property>instrumentation/adf[0]/ident-audible</property>
+				<value>1</value>
+			</binding>
+			<binding>
+				<condition>
+					<not><property>instrumentation/adf[0]/volume-norm</property></not>
+				</condition>
+				<command>property-assign</command>
+				<property>instrumentation/adf[0]/ident-audible</property>
+				<value>0</value>
+			</binding>
+		</action>
+		<shift-action>
+				<binding>
+				<command>property-toggle</command>
+				<property>instrumentation/adf[0]/power-btn</property>
+			</binding>
+			<binding>
+				<command>property-toggle</command>
+				<property>sim/sound/switch1</property>
+			</binding>
+		</shift-action>
+		<hovered>
+			<binding>
+				<command>set-tooltip</command>
+				<label>ADF1 Volume: %2.2f</label>
+				<tooltip-id>ADF1vol</tooltip-id>
+				<property>instrumentation/adf[0]/volume-norm</property>
+			</binding>
+		</hovered>
+	</animation>
+
+	<animation>
+		<type>translate</type>
+		<object-name>ADF1Rangebutton</object-name>
+		<property>instrumentation/adf[0]/power-btn</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>-0.005</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1.0</x>
+			<y>0.0</y>
+			<z>0.0</z>
+		</axis>
+	</animation>
+
+<!-- Marker Beacons -->
 	<animation>
 		<type>knob</type>
 		<object-name>MKRbutton</object-name>
@@ -105,6 +202,16 @@ if you contacted me before making any changes to this software.
 				<wrap>false</wrap>
 			</binding>
 		</action>
+		<shift-action>
+				<binding>
+				<command>property-toggle</command>
+				<property>instrumentation/marker-beacon/power-btn</property>
+			</binding>
+			<binding>
+				<command>property-toggle</command>
+				<property>sim/sound/switch1</property>
+			</binding>
+		</shift-action>
 		<hovered>
 			<binding>
 				<command>set-tooltip</command>
@@ -113,24 +220,6 @@ if you contacted me before making any changes to this software.
 				<property>instrumentation/marker-beacon/volume</property>
 			</binding>
 		</hovered>
-	</animation>
-
-	<animation>
-		<type>pick</type>
-		<object-name>TACANbutton</object-name>
-		<action>
-		    <name>MKR button</name>
-			<button>2</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-toggle</command>
-				<property>instrumentation/marker-beacon/power-btn</property>
-			</binding>
-			<binding>
-				<command>property-toggle</command>
-				<property>sim/sound/switch1</property>
-			</binding>
-		</action>
 	</animation>
 
 	<animation>

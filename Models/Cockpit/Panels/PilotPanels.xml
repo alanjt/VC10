@@ -173,40 +173,25 @@ if you contacted me before making any changes to this software.
 	<model>
 		<name>clock</name>
 		<path>Aircraft/VC10/Models/Cockpit/Instruments/clock/clock.xml</path>
-		<condition>
-			<and>
-				<equals>
-					<property>sim/aircraft</property>
-					<value type="string">VC10</value>
-				</equals>
-				<not>
-					<equals>
-						<property>sim/model/livery/file</property>
-						<value type="string">USA</value>
-					</equals>
-				</not>
-				<not>
-					<equals>
-						<property>sim/model/livery/file</property>
-						<value type="string">FAE</value>
-					</equals>
-				</not>
-				<not>
-					<equals>
-						<property>sim/model/livery/file</property>
-						<value type="string">CR</value>
-					</equals>
-				</not>
-			</and>
-		</condition>
 		<offsets>
 			<x-m>-0.0</x-m>
-			<y-m>-0.657</y-m>
+<!--			<y-m>-0.657</y-m> -->
+			<y-m>-0.67</y-m>
+			<z-m>-0.281</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>dme</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/dme/dme.xml</path>
+		<offsets>
+			<x-m> 0.0</x-m>
+			<y-m>-0.585</y-m>
 			<z-m>-0.281</z-m>
 		</offsets>
 	</model>
 
-	<model>
+<!--	<model>
 		<name>tacan_dme</name>
 		<path>Aircraft/VC10/Models/Cockpit/Instruments/tacan/dme/dme.xml</path>
 		<condition>
@@ -238,7 +223,7 @@ if you contacted me before making any changes to this software.
 			<y-m>-0.379</y-m>
 			<z-m>-0.281</z-m>
 		</offsets>
-	</model>
+	</model> -->
 
 	<model>
 		<name>ADF_rmi</name>
@@ -278,17 +263,6 @@ if you contacted me before making any changes to this software.
 			<x-m>-0.0</x-m>
 			<y-m>-0.480</y-m>
 			<z-m>-0.296</z-m>
-		</offsets>
-	</model>
-
-	<model>
-		<name>dme</name>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/dme/dme.xml</path>
-		<offsets>
-			<!--    <x-m>-18.916</x-m> -->
-			<x-m>1.524</x-m>
-			<y-m>-0.33</y-m>
-			<z-m>0.71</z-m>
 		</offsets>
 	</model>
 
@@ -812,6 +786,16 @@ if you contacted me before making any changes to this software.
 		<offsets>
 			<x-m>-0.0</x-m>
 			<y-m>0.293</y-m>
+			<z-m>-0.281</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>dme_cp</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/dme/dme.xml</path>
+		<offsets>
+			<x-m> 0.0</x-m>
+			<y-m>0.379</y-m>
 			<z-m>-0.281</z-m>
 		</offsets>
 	</model>

@@ -1,0 +1,385 @@
+<?xml version="1.0"?>
+<PropertyList>
+<!-- 
+Marconi VHF Communication/Navigation Controller. Type 6414.
+Used with Marconi AD260 Communications System, AD260 Navigation System 
+and DME Interrogator Type AD70. 
+The AD70 is the RCA AVQ 70 built under licence. 
+-->
+	<path>NAV_COMcontroller.ac</path>
+
+	<animation>
+		<type>material</type>
+  		<object-name>Panel</object-name>
+		<condition>
+			<not><property>/sim/rendering/rembrandt/enabled</property></not>
+			<property>systems/electrical/outputs/cabin-dim</property>
+		</condition>
+		<emission>
+		  <red>0.3</red>
+		  <green>0.3</green>
+		  <blue>0.3</blue>
+		  <factor-prop>systems/electrical/outputs/cabin-dim</factor-prop>
+		</emission>
+	</animation>
+
+	<animation>
+		<type>material</type>
+			<object-name>COMknobInner</object-name>
+			<object-name>COMknobOuter</object-name>
+			<object-name>NAVknobInner</object-name>
+			<object-name>NAVknobOuter</object-name>
+			<object-name>DMEsw</object-name>
+			<object-name>COMsw</object-name>
+			<object-name>COMsw_base</object-name>
+			<object-name>NAVsw</object-name>
+			<object-name>NAVsw_base</object-name>
+			<object-name>SCS_sw</object-name>
+		<condition>
+			<less-than><property>systems/electrical/outputs/cabin-dim</property><value>0.6</value></less-than>
+		</condition>
+		<emission>
+			<red>0.3</red>
+			<green>0.3</green>
+			<blue>0.3</blue>
+			<factor-prop>systems/electrical/outputs/panel-dim</factor-prop>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+			<object-name>COMknobInner</object-name>
+			<object-name>COMknobOuter</object-name>
+			<object-name>NAVknobInner</object-name>
+			<object-name>NAVknobOuter</object-name>
+			<object-name>DMEsw</object-name>
+			<object-name>COMsw</object-name>
+			<object-name>COMsw_base</object-name>
+			<object-name>NAVsw</object-name>
+			<object-name>NAVsw_base</object-name>
+			<object-name>SCS_sw</object-name>
+		<condition>
+			<not><property>/sim/rendering/rembrandt/enabled</property></not>
+			<property>systems/electrical/outputs/cabin-dim</property>
+		</condition>
+		<emission>
+		  <red>0.6</red>
+		  <green>0.6</green>
+		  <blue>0.6</blue>
+		  <factor-prop>systems/electrical/outputs/cabin-dim</factor-prop>
+		</emission>
+	</animation>
+
+	<!--  COM Freq Knobs -->
+
+	<animation>
+		<type>knob</type>
+		<object-name>COMknobInner</object-name>
+		<center><x-m>0</x-m><y-m>0.0216</y-m><z-m>0.0323</z-m></center>
+		<axis><x>-1</x><y>0</y><z>0</z></axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>instrumentation/comm[0]/frequencies/selected-mhz</property>
+				<factor>1.0</factor>
+				<min>108.00</min>
+				<max>135.000</max>
+				<wrap>false</wrap>
+			</binding>
+		</action>
+		<hovered>
+			<binding>
+				<command>set-tooltip</command>
+				<label>Adjust COM Mhz: %.2f</label>
+				<tooltip-id>comfreq-outer</tooltip-id>
+				<property>instrumentation/comm[0]/frequencies/selected-mhz</property>
+			</binding>
+		</hovered>
+	</animation>
+
+	<animation>
+		<type>knob</type>
+		<object-name>COMknobOuter</object-name>
+		<center><x-m>0</x-m><y-m>0.0216</y-m><z-m>0.0323</z-m></center>
+		<axis><x>-1</x><y>0</y><z>0</z></axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>instrumentation/comm[0]/frequencies/selected-mhz</property>
+				<factor>0.050</factor>
+				<min>108.00</min>
+				<max>135.000</max>
+				<wrap>false</wrap>
+			</binding>
+		</action>
+		<hovered>
+			<binding>
+				<command>set-tooltip</command>
+				<label>Adjust COM Khz: %.2f</label>
+				<tooltip-id>comfreq-inner</tooltip-id>
+				<property>instrumentation/comm[0]/frequencies/selected-mhz</property>
+			</binding>
+		</hovered>
+	</animation>
+
+	<!--  NAV Freq Knobs -->
+
+	<animation>
+		<type>knob</type>
+		<object-name>NAVknobInner</object-name>
+		<center><x-m>0</x-m><y-m>-0.0216</y-m><z-m>0.0323</z-m></center>
+		<axis><x>-1</x><y>0</y><z>0</z></axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>instrumentation/nav[0]/frequencies/selected-mhz</property>
+				<factor>1.0</factor>
+				<min>108.00</min>
+				<max>135.000</max>
+				<wrap>false</wrap>
+			</binding>
+		</action>
+		<hovered>
+			<binding>
+				<command>set-tooltip</command>
+				<label>Adjust NAV Mhz: %.2f</label>
+				<tooltip-id>navfreq-inner</tooltip-id>
+				<property>instrumentation/nav[0]/frequencies/selected-mhz</property>
+			</binding>
+		</hovered>
+	</animation>
+
+	<animation>
+		<type>knob</type>
+		<object-name>NAVknobOuter</object-name>
+		<center><x-m>0</x-m><y-m>-0.0216</y-m><z-m>0.0323</z-m></center>
+		<axis><x>-1</x><y>0</y><z>0</z></axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>instrumentation/nav[0]/frequencies/selected-mhz</property>
+				<factor>0.050</factor>
+				<min>108.00</min>
+				<max>135.000</max>
+				<wrap>false</wrap>
+			</binding>
+		</action>
+		<hovered>
+			<binding>
+				<command>set-tooltip</command>
+				<label>Adjust NAV Khz: %.2f</label>
+				<tooltip-id>navfreq-outer</tooltip-id>
+				<property>instrumentation/nav[0]/frequencies/selected-mhz</property>
+			</binding>
+		</hovered>
+	</animation>
+	
+	<!--  COM frequncy drum indicators -->
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>COMdigit1</object-name>
+		<property>instrumentation/comm[0]/frequencies/selected-mhz</property>
+		<factor>0.001</factor>
+		<step>100</step>
+		<bias>0.005</bias>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>textranslate</type>
+		<object-name>COMdigit2</object-name>
+		<property>instrumentation/comm[0]/frequencies/selected-mhz</property>
+		<factor>0.01</factor>
+		<step>10</step>
+		<bias>0.005</bias>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>textranslate</type>
+		<object-name>COMdigit3</object-name>
+		<property>instrumentation/comm[0]/frequencies/selected-mhz</property>
+		<factor>0.1</factor>
+		<step>1.0</step>
+		<bias>0.005</bias>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>textranslate</type>
+		<object-name>COMdigit4</object-name>
+		<property>instrumentation/comm[0]/frequencies/selected-mhz</property>
+		<factor>1.0</factor>
+		<step>0.1</step>
+		<bias>0.005</bias>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>textranslate</type>
+		<object-name>COMdigit5</object-name>
+		<property>instrumentation/comm[0]/frequencies/selected-mhz</property>
+		<factor>10.0</factor>
+		<step>0.01</step>
+		<bias>0.005</bias>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+	<!--  NAV frequncy drum indicators -->
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>NAVdigit1</object-name>
+		<property>instrumentation/nav[0]/frequencies/selected-mhz</property>
+		<factor>0.001</factor>
+		<step>100</step>
+		<bias>0.005</bias>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>textranslate</type>
+		<object-name>NAVdigit2</object-name>
+		<property>instrumentation/nav[0]/frequencies/selected-mhz</property>
+		<factor>0.01</factor>
+		<step>10</step>
+		<bias>0.005</bias>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>textranslate</type>
+		<object-name>NAVdigit3</object-name>
+		<property>instrumentation/nav[0]/frequencies/selected-mhz</property>
+		<factor>0.1</factor>
+		<step>1.0</step>
+		<bias>0.005</bias>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>textranslate</type>
+		<object-name>NAVdigit4</object-name>
+		<property>instrumentation/nav[0]/frequencies/selected-mhz</property>
+		<factor>1.0</factor>
+		<step>0.1</step>
+		<bias>0.005</bias>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>textranslate</type>
+		<object-name>NAVdigit5</object-name>
+		<property>instrumentation/nav[0]/frequencies/selected-mhz</property>
+		<factor>10.0</factor>
+		<step>0.01</step>
+		<bias>0.005</bias>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+		<animation>
+		<type>pick</type>
+			<object-name>NAVsw</object-name>
+			<object-name>NAVsw_base</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>instrumentation/nav[0]/power-btn</property>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+			<object-name>NAVsw</object-name>
+			<property>instrumentation/nav[0]/power-btn</property>
+		<interpolation>
+			<entry>
+				<ind>0</ind>
+				<dep>20</dep>
+			</entry>
+			<entry>
+				<ind>1</ind>
+				<dep>-20</dep>
+			</entry>
+		</interpolation>
+		<axis><x> 0</x> <y> 1</y><z> 0</z></axis>
+		<center><x-m>0.0</x-m><y-m>0.0</y-m><z-m>-0.027</z-m></center>
+	</animation>
+	
+		<animation>
+		<type>pick</type>
+			<object-name>COMsw</object-name>
+			<object-name>COMsw_base</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>instrumentation/comm[0]/power-btn</property>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+			<object-name>COMsw</object-name>
+			<property>instrumentation/comm[0]/power-btn</property>
+		<interpolation>
+			<entry>
+				<ind>0</ind>
+				<dep>20</dep>
+			</entry>
+			<entry>
+				<ind>1</ind>
+				<dep>-20</dep>
+			</entry>
+		</interpolation>
+		<axis><x> 0</x> <y> 1</y><z> 0</z></axis>
+		<center><x-m>0.0</x-m><y-m>0.0</y-m><z-m>-0.027</z-m></center>
+	</animation>
+
+</PropertyList>
+
+

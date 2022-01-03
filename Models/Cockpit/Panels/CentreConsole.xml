@@ -127,7 +127,7 @@ if you contacted me before making any changes to this software.
 	 </model>  -->
 
 	<model>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/radio/nav1.xml</path>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/radio/NAV_COMcontroller.xml</path>
 		<offsets>
 			<x-m>0.53</x-m> <!--+ve aft -->
 			<y-m>-0.15</y-m> <!--+ve right -->
@@ -137,7 +137,7 @@ if you contacted me before making any changes to this software.
 	</model>
 
 	<model>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/radio/nav2.xml</path>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/radio/NAV_COMcontroller.xml</path>
 		<offsets>
 			<x-m>0.53</x-m>
 			<y-m>0.15</y-m>
@@ -147,26 +147,7 @@ if you contacted me before making any changes to this software.
 	</model>
 
 	<model>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/radio/comm1.xml</path>
-		<offsets>
-			<x-m>0.58</x-m>
-			<y-m>-0.15</y-m>
-			<z-m>0.0</z-m>
-			<pitch-deg>-90</pitch-deg>
-		</offsets>
-	</model>
-	<model>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/radio/comm2.xml</path>
-		<offsets>
-			<x-m>0.58</x-m>
-			<y-m>0.15</y-m>
-			<z-m>0.0</z-m>
-			<pitch-deg>-90</pitch-deg>
-		</offsets>
-	</model>
-
-	<model>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/radio/adf1.xml</path>		
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/radio/ADFcontroller.xml</path>		
 		<offsets>
 			<x-m>0.63</x-m>
 			<y-m>-0.15</y-m>
@@ -176,7 +157,7 @@ if you contacted me before making any changes to this software.
 	</model>
 
 	<model>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/radio/adf2.xml</path>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/radio/ADFcontroller.xml</path>
 		<offsets>
 			<x-m>0.63</x-m>
 			<y-m>0.15</y-m>

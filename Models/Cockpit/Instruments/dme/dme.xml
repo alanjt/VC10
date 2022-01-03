@@ -99,7 +99,7 @@ if you contacted me before making any changes to this software.
 		</emission>
 	</animation>
 
-	<animation>
+<!--	<animation>
 		<type>material</type>
 		<object-name>switch</object-name>
 		<object-name>sockle</object-name>
@@ -233,7 +233,7 @@ if you contacted me before making any changes to this software.
           <property>sim/sound/switch2</property>
         </binding>
 		  </action>
-	</animation>
+	</animation> -->
 
 	<animation>
 		<type>select</type>
