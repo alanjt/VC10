@@ -281,7 +281,7 @@ _______________________________________________________
 			<file>Aircraft/VC10/Nasal/mk-agl-radar.nas</file>
 			<file>Aircraft/VC10/Nasal/mk-frw.nas</file>
 			<file>Aircraft/VC10/Nasal/mk-stopwatch.nas</file>
-			<file>Aircraft/VC10/Nasal/mk-rmi.nas</file>
+<!--			<file>Aircraft/VC10/Nasal/mk-rmi.nas</file> -->
 			<file>Aircraft/VC10/Nasal/mk-wiper.nas</file>
 			<file>Aircraft/VC10/Nasal/mk-ci-tacan.nas</file>   
 			<file>Aircraft/VC10/Nasal/doors.nas</file>
