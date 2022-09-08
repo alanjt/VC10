@@ -773,10 +773,10 @@ refs 3
 2 0.780418217182 0.215240240097
 kids 0
 OBJECT poly
-name "needle"
+name "Needle"
 loc 0.000122 0.000064 0.000029
 data 6
-needle
+Needle
 texture "airCompressor.png"
 texrep 1 1
 crease 30.000001

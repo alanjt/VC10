@@ -771,10 +771,10 @@ refs 3
 2 0.81284 0.188064
 kids 0
 OBJECT poly
-name "needle"
+name "Needle"
 loc -4.05129e-005 -4.11393e-005 -0.000859287
 data 6
-needle
+Needle
 texture "TailPos.png"
 crease 30.000002
 numvert 9

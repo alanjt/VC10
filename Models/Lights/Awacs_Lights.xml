@@ -227,7 +227,7 @@ if you contacted me before making any changes to this software.
 	<object-name>CabinWindows</object-name>
 	<condition>
 		<equals>
-			<property>VC10/ess-bus</property>
+			<property>VC10/electric/ess-bus</property>
 			<value>-99</value>
 		</equals>
 	</condition>

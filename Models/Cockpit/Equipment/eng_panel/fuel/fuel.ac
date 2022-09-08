@@ -115,10 +115,10 @@ refs 3
 2 0.824637889862 0.176879227161
 kids 0
 OBJECT poly
-name "needle"
+name "Needle"
 loc 0.000124 0 0.000029
 data 6
-needle
+Needle
 texture "fuelface1.png"
 texrep 1 1
 crease 30.000001
@@ -162,10 +162,10 @@ refs 4
 8 0.001539787278 0.43013715744
 kids 0
 OBJECT poly
-name "needle.001"
+name "Needle.001"
 loc -0.000067 -0.00711 0.000726
 data 10
-needle.001
+Needle.001
 texture "fuelface1.png"
 texrep 1 1
 crease 30.000001

@@ -868,10 +868,10 @@ refs 4
 3 0.01536585018 0.962974190712
 kids 0
 OBJECT poly
-name "needle"
+name "Needle"
 loc 0.000072 -0.000086 0.000029
 data 6
-needle
+Needle
 texture "cabinClimb.png"
 texrep 1 1
 crease 30.000001

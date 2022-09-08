@@ -1,11 +1,8 @@
 <?xml version="1.0"?>
-
 <!-- **********************************************************************
 AERODYNAMICS
 ***************************************************************************-->
-
 <aerodynamics>
-
 	<!-- References
 		1. Digital Datcom
 		2. OpenVSP
@@ -18,179 +15,83 @@ AERODYNAMICS
 	-->
 	<!-- An aerodynamic reference point of 79.07 ft (948.9") aft of the manufacturer´s fuselage datum has been used.
     This equates to 32% SMC. Roll, pitch and yaw moments are calculated about the aerodynamic reference point. -->
-
 	<!-- The fuselage datum is that defined by Vickers and is 8" aft of the front of the radome.
     and is used for placing and animating objects in the top level model files.
 	(VC10model.xml and VC10.ac).	-->
-	
 	<!-- Reference 5 was used as the basis for the Digital Datcom and OpenVSP aero analysis, and for the 3d model VC10.ac. 	-->
-
 	<function name="inertia/cg-x-percent">
 		<description>cg, percentage of cbar</description>
 		<quotient>
 			<difference>
 				<property>inertia/cg-x-in</property>
-				<value>872.0</value><!-- SMC LE is 872 inches aft of fuselage datum-->
+				<value>872.0</value>
+				<!-- SMC LE is 872 inches aft of fuselage datum-->
 			</difference>
-			<value>2.402</value><!-- SMC is 240.2 inches, divide by 100 to get % -->
+			<value>2.402</value>
+			<!-- SMC is 240.2 inches, divide by 100 to get % -->
 		</quotient>
 	</function>
-
-	<axis name="LIFT"><!-- ########################################################### -->
-
+	<axis name="LIFT">
+		<!-- ########################################################### -->
 		<function name="aero/force/Lift_alpha">
 			<description>Lift_due_to_alpha</description>
 			<product>
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
 				<table name="aero/coefficient/CL_alpha">
-					<!-- OpenVSP using Peakey wing section -->
-					<independentVar lookup="row">aero/alpha-deg</independentVar>
-					<tableData>
-					-10  -0.45797
-                    -8   -0.30181
-                    -6   -0.14254
-                    -4    0.0186
-                    -2    0.18032
-                    0     0.34136
-                    2     0.50028
-                    4     0.65618
-                    6     0.80776
-                    8     0.95386
-                    10    1.09369
-                    12    1.2263
-                    14    1.35006
-                    16    1.46519
-					</tableData>
-					<!--					<independentVar lookup="row">aero/alpha-deg</independentVar>
-					<independentVar lookup="column">velocities/mach</independentVar> -->
 					<!-- Datcom using Peakey wing section -->
-					<!--					<tableData>
+					<independentVar lookup="row">aero/alpha-deg</independentVar>
+					<independentVar lookup="column">velocities/mach</independentVar>
+					<tableData>
 						0.1	0.2	0.3	0.4	0.5	0.6
-                     -10	-0.624	-0.627	-0.630	-0.636	-0.647	-0.663
-                      -8	-0.432	-0.434	-0.437	-0.443	-0.451	-0.462
-                      -6	-0.241	-0.242	-0.245	-0.248	-0.253	-0.260												
-                      -4	-0.053	-0.053	-0.053	-0.054	-0.055	-0.056
-                      -2	0.136	0.137	0.138	0.140	0.144	0.148
-                       0	0.327	0.329	0.331	0.336	0.342	0.352
-                       2	0.520	0.523	0.525	0.531	0.540	0.553
-                       4	0.715	0.718	0.719	0.725	0.735	0.752
-                       6	0.912	0.916	0.915	0.921	0.931	0.951
-                       8	1.110	1.115	1.107	1.105	1.109	1.123
-                       10	1.273	1.276	1.256	1.246	1.243	1.254
-                       12	1.396	1.398	1.366	1.347	1.337	1.342
-                       14	1.478	1.479	1.434	1.403	1.383	1.391
-                       16	1.515	1.514	1.478	1.463	1.463	1.467
-                       18	1.569	1.572	1.507	1.467	1.450	1.463
-                       20	1.499	1.499	1.434	1.424	1.433	1.470
-                       22	1.401	1.410	1.388	1.397	1.436	1.497
-                       24	1.324	1.343	1.366	1.402	1.454	1.525
+					-10	-0.622	-0.626	-0.629	-0.635	-0.646	-0.661
+					-8	-0.430	-0.433	-0.436	-0.441	-0.449	-0.461
+					-6	-0.239	-0.241	-0.243	-0.246	-0.251	-0.258
+					-4	-0.051	-0.051	-0.051	-0.052	-0.053	-0.054
+					-2	0.138	0.139	0.140	0.143	0.146	0.151
+					0	0.330	0.332	0.334	0.338	0.345	0.354
+					2	0.523	0.526	0.528	0.533	0.542	0.556
+					4	0.717	0.721	0.722	0.728	0.738	0.755
+					6	0.915	0.919	0.918	0.924	0.934	0.954
+					8	1.113	1.118	1.110	1.107	1.111	1.126
+					10	1.275	1.279	1.259	1.248	1.245	1.256
+					12	1.398	1.400	1.368	1.349	1.339	1.344
+					14	1.480	1.480	1.435	1.405	1.384	1.394
+					16	1.517	1.515	1.480	1.465	1.465	1.468
+					18	1.571	1.574	1.507	1.467	1.451	1.464
+					20	1.498	1.499	1.435	1.425	1.435	1.472
+					22	1.401	1.410	1.389	1.398	1.438	1.498
+					24	1.325	1.344	1.367	1.404	1.455	1.527
 					</tableData>
-					-->
-					<!-- using wing section NACA 65 410 -->
-					<!--					<tableData>
-						0.1	0.2	0.3	0.4	0.5	0.6
-						-10	-0.355	-0.366	-0.369	-0.373	-0.379	-0.388
-						-8	-0.174	-0.184	-0.186	-0.188	-0.191	-0.196
-						-6	0.003	-0.006	-0.006	-0.005	-0.005	-0.005
-						-4	0.185	0.177	0.178	0.180	0.184	0.189
-						-2	0.374	0.366	0.368	0.371	0.377	0.385
-						0	0.567	0.560	0.561	0.565	0.572	0.584
-						2	0.765	0.758	0.758	0.762	0.770	0.783
-						4	0.966	0.959	0.958	0.961	0.968	0.982
-						6	1.172	1.165	1.162	1.163	1.165	1.169
-						8	1.378	1.372	1.352	1.335	1.322	1.317
-						10	1.538	1.533	1.499	1.469	1.443	1.428
-						12	1.663	1.660	1.612	1.568	1.527	1.499
-						14	1.751	1.749	1.684	1.623	1.573	1.564
-						16	1.797	1.796	1.717	1.671	1.638	1.591
-						18	1.821	1.822	1.760	1.650	1.569	1.550
-						20	1.768	1.771	1.623	1.520	1.498	1.525
-						22	1.529	1.542	1.457	1.430	1.450	1.523
-						24	1.335	1.358	1.326	1.363	1.429	1.524
-					</tableData> -->
-					<!-- using wing section NACA 65 210 -->
-					<!--					<tableData>
-						0.1	0.2	0.3	0.4	0.5	0.6
-						-10	-0.517	-0.519	-0.523	-0.528	-0.537	-0.550
-						-8	-0.332	-0.334	-0.337	-0.341	-0.347	-0.356
-						-6	-0.151	-0.152	-0.154	-0.156	-0.159	-0.163
-						-4	0.026	0.026	0.027	0.028	0.029	0.030
-						-2	0.208	0.209	0.211	0.214	0.218	0.225
-						0	0.396	0.398	0.400	0.404	0.411	0.421
-						2	0.587	0.590	0.592	0.596	0.604	0.617
-						4	0.782	0.786	0.786	0.790	0.798	0.813
-						6	0.981	0.986	0.984	0.987	0.994	1.009
-						8	1.184	1.190	1.185	1.174	1.167	1.168
-						10	1.366	1.370	1.345	1.321	1.301	1.292
-						12	1.508	1.510	1.470	1.433	1.399	1.377
-						14	1.612	1.613	1.557	1.504	1.452	1.439
-						16	1.677	1.676	1.601	1.551	1.527	1.500
-						18	1.706	1.708	1.652	1.583	1.512	1.490
-						20	1.738	1.729	1.592	1.494	1.474	1.493
-						22	1.574	1.567	1.468	1.437	1.451	1.515
-						24	1.403	1.411	1.375	1.399	1.453	1.537
-					</tableData> -->
 				</table>
 			</product>
 		</function>
-
-		<!--		<function name="aero/force/LiftaileronsUp">
-			<description>Lift_due_to_aileronsUp</description>
-			<product>
-				<property>aero/qbar-psf</property>
-				<property>metrics/Sw-sqft</property>
-				<table name="aero/coefficient/CLaileronsUp">
-					<independentVar>aero/alpha-deg</independentVar>
-					<tableData>
-						-10		-0.0187
-						-8	-0.01916
-						-6	-0.01962
-						-4	-0.0199
-						-2	-0.02049
-						0	-0.02084
-						2	-0.02099
-						4	-0.02106
-						6	-0.02106
-						8	-0.0208
-						10	-0.02017
-						12	-0.01961
-						14	-0.01744
-						16	-0.01692
-						18	-0.01556
-						20	-0.01262
-					</tableData>
-				</table>
-			</product>
-		</function> -->
-
 		<function name="aero/force/Lift_flap">
 			<description>Lift_due_to_flaps</description>
 			<product>
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
-				<table name="aero/coefficient/CLflap">
+				<table name="aero/coefficient/CL_Flap">
 					<independentVar>fcs/flap-pos-deg</independentVar>
-					<!-- from  CP 1199 -->
+					<!-- from  CP 1199
 					<tableData>
 						0	0
 						45	1.05
-</tableData>
-					<!--  Datcom values
+					</tableData> -->
+					<!--  Datcom values -->
 					<tableData>
 						0	0
-						20	0.474
-						35	0.727
-						45	0.776
-					</tableData> -->
+						20	0.483
+						35	0.7241
+						45	0.791
+					</tableData>
 				</table>
 			</product>
 		</function>
-
 		<function name="aero/force/Lift_q">
 			<description>
 				Lift due to pitch rate
-</description>
+			</description>
 			<product>
 				<property>velocities/q-aero-rad_sec</property>
 				<property>aero/qbar-psf</property>
@@ -199,158 +100,120 @@ AERODYNAMICS
 				<table name="aero/derivative/CLq">
 					<independentVar lookup="row">velocities/mach</independentVar>
 					<tableData>
-						0.1	8.4130
-						0.2	8.4580
-						0.3	8.5230
-						0.4	8.6240
-						0.5	8.7900
-						0.6	8.9690
-</tableData>
+						0.1	8.5640
+						0.2	8.6080
+						0.3	8.6710
+						0.4	8.7270
+						0.5	8.9410
+						0.6	9.1220
+					</tableData>
 				</table>
 			</product>
 		</function>
-
 		<function name="aero/force/Lift_alphadot">
 			<description>
 				Lift due to AOA rate
-</description>
+			</description>
 			<product>
 				<property>aero/alphadot-rad_sec</property>
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
 				<property>aero/ci2vel</property>
 				<table name="aero/derivative/CLad">
-					<independentVar lookup="row">aero/alpha-deg</independentVar>
-					<independentVar lookup="column">velocities/mach</independentVar>
+					<!--Datcom -->
+					<independentVar lookup="row">velocities/mach</independentVar>
 					<tableData>
-						0.1	0.2	0.3	0.4	0.5	0.6
-						-10	1.7570	1.7690	1.7780	1.7960	1.8340	1.8710
-						-8	1.7620	1.7750	1.7860	1.8080	1.8500	1.8920
-						-6	1.7860	1.7990	1.8150	1.8410	1.8890	1.9370
-						-4	1.8380	1.8520	1.8660	1.8910	1.9380	1.9850
-						-2	1.8990	1.9130	1.9230	1.9440	1.9860	2.0280
-						0	1.9760	1.9900	1.9930	2.0080	2.0420	2.0750
-						2	2.0560	2.0690	2.0650	2.0700	2.0940	2.1160
-						4	2.1120	2.1230	2.1130	2.1030	2.1100	2.1130
-						6	2.1400	2.1490	2.1200	2.0690	2.0280	1.9840
-						8	2.0720	2.0740	1.9880	1.8790	1.7720	1.6640
-						10	1.8100	1.8020	1.6420	1.5230	1.4100	1.3150
-						12	1.4600	1.4510	1.3010	1.1970	1.1150	1.0850
-						14	1.1870	1.1820	1.0720	0.9896	0.9645	0.9777
-						16	0.9816	0.9708	0.8534	0.7834	0.8225	0.8343
-						18	0.6909	0.6605	0.4636	0.3208	0.3025	0.6150
-						20	-0.1990	-0.1964	-0.1346	0.0191	0.0866	0.6447
-						22	-0.9005	-0.8312	-0.6360	-0.0505	0.7807	1.1450
-						24	-0.9108	-0.8229	-0.8277	-0.1674	1.2720	1.5200
-</tableData>
+						0.1	1.373
+						0.2	1.378
+						0.3	1.379
+						0.4	1.371
+						0.5	1.401
+						0.6	1.408
+					</tableData>
 				</table>
 			</product>
 		</function>
-
-
-		<!--			<function name="aero/force/Lift_speedbrake">
-				<description>Delta_Lift_due_to_speedbrake</description>
-				<product>
-					<property>aero/qbar-psf</property>
-					<property>metrics/Sw-sqft</property>
-					<property>fcs/speedbrake-pos-norm</property>
-					<value>-0.2</value>
-				</product>
-			</function> -->
-
-		<!-- the LE slat -->
-		<!--			<function name="aero/force/Lift_slats">
-				<description>Lift_due_to_leading_edge_flaps</description>
-				<product>
-					<property>aero/qbar-psf</property>
-					<property>metrics/Sw-sqft</property>
-					<property>fcs/wing-fold-pos-norm</property>
-					<value>0.1</value>
-				</product>
-			</function>  -->
-
 		<function name="aero/force/Lift_elevator">
 			<description>
 				Lift due to Elevator Deflection
 				Positive surface deflection is trailing edge down
-</description>
+			</description>
 			<product>
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
-				<table name="aero/coefficient/CLDe">
+				<table name="aero/coefficient/CL_Elevator">
 					<independentVar lookup="row">fcs/elevator-pos-deg</independentVar>
 					<independentVar lookup="column">velocities/mach</independentVar>
 					<tableData>
-						0.1	0.2	0.3	0.4	0.5	0.6
-						-20	-0.126	-0.126	-0.124	-0.121	-0.116	-0.108
-						-15	-0.113	-0.114	-0.112	-0.109	-0.104	-0.097
-						-10	-0.077	-0.078	-0.076	-0.074	-0.071	-0.066
-						-5	-0.039	-0.039	-0.038	-0.037	-0.036	-0.033
-						0	0	0	0	0	0	0
-						5	0.039	0.039	0.038	0.037	0.036	0.033
-						10	0.077	0.078	0.076	0.074	0.071	0.066
-						15	0.113	0.114	0.112	0.109	0.104	0.097
-						20	0.126	0.126	0.124	0.121	0.116	0.108
-</tableData>
+						0.0	0.2	0.3	0.4	0.5	0.6
+					-30	-0.137	-0.137	-0.135	-0.131	-0.126	-0.117
+					-25	-0.125	-0.126	-0.124	-0.12	-0.115	-0.107
+					-20	-0.12	-0.12	-0.118	-0.115	-0.11	-0.103
+					-10	-0.073	-0.073	-0.072	-0.07	-0.067	-0.063
+					0		0		0		0		0		0		0
+					5	0.037	0.037	0.036	0.035	0.034	0.031
+					10	0.073	0.073	0.072	0.07	0.067	0.063
+					15	0.107	0.107	0.106	0.103	0.098	0.092
+					20	0.12	0.12	0.118	0.115	0.11	0.103
+					</tableData>
 				</table>
 			</product>
 		</function>
-
 		<function name="aero/force/Lift_TailTrim">
 			<description>
 				Lift due to Tail Trim Deflection
 				Positive surface deflection is trailing edge down
-</description>
+			</description>
 			<product>
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
 				<table name="aero/coefficient/CL_tailplane">
 					<independentVar lookup="row">aero/alpha-deg</independentVar>
 					<independentVar lookup="column">fcs/pitch-trim-pos-deg</independentVar>
-<!--      OpenVSP -->
 					<tableData>
-							-14		-10		-6		-3		0	3					
-							-10	-0.13467	-0.09693	-0.06556	-0.03392	0	0.03923
-							-8	-0.14173	-0.10204	-0.06783	-0.03492	0	0.03824
-							-6	-0.14811	-0.10681	-0.06984	-0.03579	0	0.03763
-							-4	-0.15356	-0.11072	-0.07152	-0.03647	0	0.03751
-							-2	-0.15867	-0.11421	-0.07291	-0.03701	0	0.03776
-							0	-0.16294	-0.11719	-0.07399	-0.03744	0	0.03814
-							2	-0.16618	-0.1193		-0.07457	-0.03749	0	0.03913
-							4	-0.1688		-0.12099	-0.075		-0.03765	0	0.04029
-							6	-0.17081	-0.12224	-0.07513	-0.03757	0	0.04135
-							8	-0.17178	-0.1227		-0.07465	-0.03732	0	0.0433
-							10	-0.17226	-0.12249	-0.07404	-0.03685	0	0.04508
-							12	-0.1722		-0.12232	-0.07355	-0.03653	0	0.04668
-							14	-0.17085	-0.12096	-0.07188	-0.03556	0	0.04908
-							16	-0.17033	-0.1193		-0.07073	-0.03482	0	0.05093
+								-14		-10		-6		-3		0	3					
+							-10	-0.102	-0.093	-0.063	-0.035	0	0.034
+							-8	-0.117	-0.1	-0.067	-0.035	0	0.034
+							-6	-0.131	-0.106	-0.069	-0.035	0	0.034
+							-4	-0.14	-0.11	-0.069	-0.034	0	0.033
+							-2	-0.148	-0.113	-0.069	-0.034	0	0.032
+							0	-0.152	-0.113	-0.067	-0.033	0	0.032
+							2	-0.155	-0.112	-0.066	-0.032	0	0.032
+							4	-0.155	-0.11	-0.064	-0.031	0	0.033
+							6	-0.155	-0.108	-0.064	-0.032	0	0.034
+							8	-0.152	-0.107	-0.064	-0.032	0	0.034
+							10	-0.149	-0.106	-0.064	-0.033	0	0.033
+							12	-0.145	-0.103	-0.062	-0.031	0	0.033
+							14	-0.143	-0.103	-0.062	-0.031	0	0.032
+							16	-0.142	-0.102	-0.061	-0.03	0	0.028
+							18	-0.139	-0.099	-0.058	-0.028	0	0.024
+							20	-0.134	-0.093	-0.053	-0.023	0	0.021
+							22	-0.129	-0.086	-0.046	-0.019	0	0.017
+							24	-0.121	-0.077	-0.038	-0.014	0	0.012
 					</tableData>
-<!--      Datcom -->
-<!--					<tableData>
-							-14		-10		-6		-3		0	3
-						-10	-0.105	-0.094	-0.064	-0.035	0	0.033
-						-8	-0.119	-0.1	-0.067	-0.035	0	0.034
-						-6	-0.13	-0.105	-0.068	-0.034	0	0.034
-						-4	-0.138	-0.109	-0.069	-0.034	0	0.033
-						-2	-0.145	-0.111	-0.068	-0.033	0	0.032
-						0	-0.149	-0.112	-0.067	-0.033	0	0.031
-						2	-0.151	-0.112	-0.065	-0.032	0	0.032
-						4	-0.152	-0.11	-0.064	-0.031	0	0.032
-						6	-0.153	-0.109	-0.063	-0.031	0	0.032
-						8	-0.151	-0.106	-0.062	-0.03	0	0.032
-						10	-0.148	-0.104	-0.06	-0.03	0	0.032
-						12	-0.144	-0.102	-0.06	-0.03	0	0.032
-						14	-0.142	-0.101	-0.06	-0.03	0	0.032
-						16	-0.139	-0.099	-0.059	-0.029	0	0.032
-						18	-0.137	-0.098	-0.059	-0.029	0	0.029
-						20	-0.135	-0.097	-0.057	-0.027	0	0.025
-						22	-0.131	-0.09	-0.05	-0.021	0	0.02
-						24	-0.122	-0.078	-0.039	-0.015	0	0.013
-					</tableData>    -->
 				</table>
 			</product>
 		</function>
-
+		<function name="aero/force/Lift_speedbrakes">
+			<!-- from CP1199 -->
+			<description>
+				Lift due to speedbrakes
+			</description>
+			<product>
+				<property>aero/qbar-psf</property>
+				<property>metrics/Sw-sqft</property>
+				<product name="aero/coefficient/CL_speedbrakes">
+					<property>fcs/speedbrake-pos-sum-norm</property>
+					<sum>
+						<value>-0.3</value>
+						<product>
+							<value>-0.014</value>
+							<property>aero/alpha-deg</property>
+						</product>
+					</sum>
+				</product>
+			</product>
+		</function>
 		<function name="aero/force/Lift_ground_effect">
 			<description>Lift_due_ground_effect</description>
 			<product>
@@ -378,185 +241,82 @@ AERODYNAMICS
 				</table>
 			</product>
 		</function>
-
 	</axis>
-
-	<axis name="DRAG"><!-- ########################################################### -->
-
+	<axis name="DRAG">
+		<!-- ########################################################### -->
 		<function name="aero/force/Drag_alpha">
 			<description>Drag_due_to_alpha</description>
 			<product>
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
 				<table name="aero/coefficient/CD_alpha">
-					<!-- OpenVSP using Peakey wing section -->
-					<independentVar lookup="row">aero/alpha-deg</independentVar>
-					<tableData>
-					-10  0.03565
-					-8   0.02877
-					-6   0.02462
-					-4   0.02326
-					-2   0.02471
-					0    0.02899
-					2    0.03609
-					4    0.04603
-                    6    0.05874
-					8    0.07414
-					10   0.09227
-					12   0.11283
-					14   0.13603
-					16   0.16167
-					</tableData>
-					<!--
-					<independentVar lookup="row">aero/alpha-deg</independentVar>
-					<independentVar lookup="column">velocities/mach</independentVar> -->
 					<!-- using Peakey wing section -->
-					<!-- <tableData>
-						0.1	0.2	0.3	0.4	0.5	0.6
-						-10	0.1260	0.1250	0.1240	0.1240	0.1240	0.1250
-						-8	0.0760	0.0750	0.0750	0.0740	0.0750	0.0750
-						-6	0.0360	0.0350	0.0350	0.0350	0.0350	0.0350
-						-4	0.0190	0.0180	0.0180	0.0180	0.0180	0.0180
-						-2	0.0140	0.0130	0.0130	0.0120	0.0120	0.0120
-						0	0.0120	0.0120	0.0110	0.0110	0.0110	0.0110
-						2	0.0130	0.0130	0.0120	0.0120	0.0120	0.0120
-						4	0.0190	0.0180	0.0180	0.0180	0.0180	0.0180
-						6	0.0350	0.0340	0.0340	0.0340	0.0340	0.0340
-						8	0.0750	0.0740	0.0740	0.0740	0.0740	0.0740
-						10	0.1250	0.1240	0.1230	0.1230	0.1230	0.1240
-						12	0.1900	0.1890	0.1890	0.1890	0.1890	0.1890
-						14	0.2370	0.2360	0.2350	0.2350	0.2360	0.2360
-						16	0.3040	0.3020	0.3020	0.3020	0.3020	0.3020
-						18	0.3520	0.3500	0.3500	0.3500	0.3500	0.3500
-					</tableData> -->
-					<!-- using wing section NACA 65 410 -->
-					<!--					<tableData>
-						0.1	0.2	0.3	0.4	0.5	0.6
-						-10	0.0220	0.0210	0.0210	0.0210	0.0210	0.0210
-						-8	0.0160	0.0160	0.0150	0.0150	0.0150	0.0150
-						-6	0.0150	0.0140	0.0130	0.0130	0.0130	0.0130
-						-4	0.0160	0.0150	0.0150	0.0150	0.0150	0.0150
-						-2	0.0220	0.0210	0.0200	0.0210	0.0210	0.0210
-						0	0.0320	0.0300	0.0300	0.0300	0.0310	0.0310
-						2	0.0460	0.0440	0.0440	0.0440	0.0440	0.0450
-						4	0.0640	0.0630	0.0620	0.0620	0.0620	0.0630
-						6	0.0870	0.0860	0.0850	0.0840	0.0840	0.0840
-						8	0.1150	0.1140	0.1100	0.1060	0.1040	0.1020
-						10	0.1390	0.1370	0.1310	0.1260	0.1220	0.1190
-						12	0.1620	0.1600	0.1510	0.1440	0.1370	0.1320
-						14	0.1820	0.1800	0.1680	0.1580	0.1500	0.1490
-						16	0.1980	0.1960	0.1820	0.1750	0.1700	0.1610
-						18	0.2130	0.2120	0.2010	0.1820	0.1680	0.1670
-						20	0.2180	0.2160	0.1900	0.1770	0.1770	0.1810
-						22	0.1990	0.1980	0.1890	0.1870	0.1900	0.1990
-						24	0.2020	0.2010	0.1980	0.2020	0.2100	0.2210
-					</tableData> -->
-					<!-- using wing section NACA 65 210 -->
-					<!--					<tableData>
-						0.1	0.2	0.3	0.4	0.5	0.6
-						-10	0.0310	0.0290	0.0290	0.0290	0.0290	0.0300
-						-8	0.0220	0.0210	0.0200	0.0200	0.0200	0.0210
-						-6	0.0170	0.0160	0.0150	0.0150	0.0150	0.0150
-						-4	0.0150	0.0140	0.0140	0.0140	0.0140	0.0140
-						-2	0.0170	0.0160	0.0160	0.0160	0.0160	0.0160
-						0	0.0230	0.0220	0.0220	0.0220	0.0220	0.0230
-						2	0.0330	0.0320	0.0320	0.0320	0.0330	0.0330
-						4	0.0470	0.0460	0.0460	0.0460	0.0470	0.0480
-						6	0.0660	0.0650	0.0650	0.0650	0.0650	0.0660
-						8	0.0890	0.0890	0.0880	0.0860	0.0840	0.0830
-						10	0.1140	0.1130	0.1090	0.1050	0.1010	0.0990
-						12	0.1360	0.1360	0.1290	0.1230	0.1170	0.1130
-						14	0.1570	0.1560	0.1460	0.1380	0.1290	0.1270
-						16	0.1750	0.1730	0.1600	0.1530	0.1500	0.1450
-						18	0.1900	0.1890	0.1800	0.1690	0.1570	0.1540
-						20	0.2110	0.2070	0.1830	0.1700	0.1690	0.1720
-						22	0.2000	0.1970	0.1860	0.1840	0.1850	0.1940
-						24	0.2040	0.2030	0.1990	0.2020	0.2090	0.2190
-					</tableData> -->
+					<independentVar lookup="row">aero/alpha-deg</independentVar>
+					<independentVar lookup="column">velocities/mach</independentVar>
+					<tableData>
+						0.1	0.2	0.3	0.4	0.5	0.6					
+					-10	0.1260	0.1250	0.1240	0.1240	0.1240	0.1250
+					-8	0.0760	0.0750	0.0750	0.0750	0.0750	0.0750
+					-6	0.0360	0.0350	0.0350	0.0350	0.0350	0.0350
+					-4	0.0190	0.0180	0.0180	0.0180	0.0180	0.0180
+					-2	0.0140	0.0130	0.0130	0.0120	0.0120	0.0120
+					0	0.0120	0.0120	0.0110	0.0110	0.0110	0.0110
+					2	0.0130	0.0130	0.0120	0.0120	0.0120	0.0120
+					4	0.0190	0.0180	0.0180	0.0180	0.0180	0.0180
+					6	0.0350	0.0350	0.0340	0.0340	0.0340	0.0340
+					8	0.0750	0.0740	0.0740	0.0740	0.0740	0.0740
+					10	0.1250	0.1240	0.1230	0.1230	0.1230	0.1240
+					12	0.1900	0.1890	0.1890	0.1890	0.1890	0.1890
+					14	0.2370	0.2360	0.2360	0.2360	0.2360	0.2360
+					16	0.3040	0.3020	0.3020	0.3020	0.3020	0.3030
+					18	0.3520	0.3500	0.3500	0.3500	0.3500	0.3500
+					</tableData>
 				</table>
 			</product>
 		</function>
-
-		<!--		<function name="aero/force/DragaileronsUp">
-			<description>Drag_due_to_aileronsUp</description>
-			<product>
-				<property>aero/qbar-psf</property>
-				<property>metrics/Sw-sqft</property>
-				<table name="aero/coefficient/CDaileronsUp">
-					<independentVar>aero/alpha-deg</independentVar>
-					<tableData>
-						-10	0.0007
-						-8	0.0003
-						-6	0.0000
-						-4	-0.0003
-						-2	-0.0005
-						0	-0.0007
-						2	-0.0008
-						4	-0.0009
-						6	-0.0010
-						8	-0.0011
-						10	-0.0012
-						12	-0.0012
-						14	-0.0010
-						16	-0.0010
-						18	-0.0011
-						20	-0.0008
-					</tableData>
-				</table>
-			</product>
-		</function> -->
-
-
-		<!--			<function name="aero/force/Drag_mach">
-				<description>Drag_due_to_mach</description>
-				<product>
-					<property>aero/qbar-psf</property>
-					<property>metrics/Sw-sqft</property>
-					<table  name="aero/coefficient/CDMach">
-						<independentVar lookup="row">velocities/mach</independentVar>
-						<tableData>
-							0.00      0.000
-							0.79      0.000
-							1.10      0.023
-							1.80      0.015
-						</tableData>
-					</table>
-				</product>
-			</function> -->
-
 		<function name="aero/force/Drag_flap">
 			<description>Drag_due_to_flaps</description>
 			<product>
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
-				<table name="aero/coefficient/CD_Flaps">
-					<independentVar lookup="row">aero/alpha-deg</independentVar>
-					<independentVar lookup="column">fcs/flap-pos-deg</independentVar>
-					<tableData>
+				<sum>
+					<table name="aero/coefficient/CD0_Flaps">
+						<independentVar>aero/alpha-deg</independentVar>
+						<tableData>
+						0	0
+						20	0.01566
+						35	0.0517
+						45	0.07822
+						</tableData>
+					</table>
+					<table name="aero/coefficient/CDI_Flaps">
+						<independentVar lookup="row">aero/alpha-deg</independentVar>
+						<independentVar lookup="column">fcs/flap-pos-deg</independentVar>
+						<tableData>
 						      0	      20	  35	  45
-						-10	0.0000 -0.0201 -0.0199 -0.0189
-						-8	0.0000 -0.0131 -0.0092 -0.0074
-						-6	0.0000 -0.0061	0.0016	0.0041
-						-4	0.0000	0.0009	0.0124	0.0156
-						-2	0.0000	0.0080	0.0231	0.0271
-						0	0.0000	0.0149	0.0339	0.0386
-						2	0.0000	0.0220	0.0446	0.0501
-						4	0.0000	0.0290	0.0554	0.0616
-						6	0.0000	0.0360	0.0661	0.0731
-						8	0.0000	0.0430	0.0769	0.0846
-						10	0.0000	0.0500	0.0876	0.0961
-						12	0.0000	0.0570	0.0984	0.1080
-						14	0.0000	0.0640	0.1090	0.1190
-						16	0.0000	0.0710	0.1200	0.1310
-						18	0.0000	0.0780	0.1310	0.1420
-						20	0.0000	0.0850	0.1410	0.1540
-						22	0.0000	0.0920	0.1520	0.1650
-						24	0.0000	0.0990	0.1630	0.1770
-					</tableData>
-				</table>
+						-10	0.0000	-0.0163	-0.0142	-0.0128
+						-8	0.0000	-0.0093	-0.0034	-0.0013
+						-6	0.0000	-0.0023	0.0073	0.0102
+						-4	0.0000	0.0047	0.0181	0.0217
+						-2	0.0000	0.0117	0.0288	0.0332
+						0	0.0000	0.0187	0.0396	0.0447
+						2	0.0000	0.0257	0.0503	0.0562
+						4	0.0000	0.0327	0.0611	0.0677
+						6	0.0000	0.0397	0.0718	0.0792
+						8	0.0000	0.0467	0.0826	0.0908
+						10	0.0000	0.0537	0.0933	0.1020
+						12	0.0000	0.0607	0.1040	0.1140
+						14	0.0000	0.0677	0.1150	0.1250
+						16	0.0000	0.0747	0.1260	0.1370
+						18	0.0000	0.0817	0.1360	0.1480
+						20	0.0000	0.0887	0.1470	0.1600
+						22	0.0000	0.0957	0.1580	0.1710
+						24	0.0000	0.1030	0.1690	0.1830
+						</tableData>
+					</table>
+				</sum>
 			</product>
 		</function>
-
 		<function name="aero/force/Drag_gear">
 			<description>Drag_due_to_gear</description>
 			<product>
@@ -566,37 +326,7 @@ AERODYNAMICS
 				<value>0.011</value>
 			</product>
 		</function>
-
-		<!--			<function name="aero/force/Drag_sspeedbrake">
-				<description>Drag_due_to_speedbrakes</description>
-				<product>
-					<property>aero/qbar-psf</property>
-					<property>metrics/Sw-sqft</property>
-					<property>fcs/speedbrake-pos-norm</property>
-					<value>0.05</value>
-				</product>
-			</function> -->
-
-
-		<!--			<function name="aero/force/Drag_sideslip">
-				<description>Drag_due_to_sideslip</description>
-				<product>
-					<property>aero/qbar-psf</property>
-					<property>metrics/Sw-sqft</property>
-					<table  name="aero/coefficient/CDbeta">
-						<independentVar lookup="row">aero/beta-rad</independentVar>
-						<tableData>
-							-1.57       1.230
-							-0.26       0.050
-							0.00       0.000
-							0.26       0.050
-							1.57       1.230
-						</tableData>
-					</table>
-				</product>
-			</function> -->
-
-		<function name="aero/force/Drag_Elevator">
+		<!--		<function name="aero/force/Drag_Elevator">
 			<description>Drag_due_to_Elevator_Deflection</description>
 			<product>
 				<property>aero/qbar-psf</property>
@@ -605,82 +335,78 @@ AERODYNAMICS
 					<independentVar lookup="row">aero/alpha-deg</independentVar>
 					<independentVar lookup="column">fcs/elevator-pos-deg</independentVar>
 					<tableData>
-						-20	-15	-10	-5	0	5	10	15	20
-						-10	1.53E-02	1.32E-02	7.82E-03	3.26E-03	-5.20E-06	-1.95E-03	-2.59E-03	-2.01E-03	-1.55E-03
-						-8	1.38E-02	1.18E-02	6.87E-03	2.78E-03	-4.25E-06	-1.47E-03	-1.64E-03	-6.18E-04	-1.31E-05
-						-6	1.23E-02	1.05E-02	5.93E-03	2.31E-03	-3.31E-06	-1.00E-03	-6.92E-04	7.66E-04	1.52E-03
-						-4	1.07E-02	9.09E-03	4.99E-03	1.84E-03	-2.37E-06	-5.34E-04	2.40E-04	2.13E-03	3.03E-03
-						-2	9.27E-03	7.76E-03	4.08E-03	1.39E-03	-1.46E-06	-7.92E-05	1.15E-03	3.46E-03	4.51E-03
-						0	7.82E-03	6.45E-03	3.19E-03	9.42E-04	-5.72E-07	3.67E-04	2.04E-03	4.77E-03	5.96E-03
-						2	6.43E-03	5.20E-03	2.33E-03	5.12E-04	2.87E-07	7.96E-04	2.90E-03	6.03E-03	7.35E-03
-						4	5.07E-03	3.97E-03	1.49E-03	9.28E-05	1.13E-06	1.22E-03	3.74E-03	7.26E-03	8.71E-03
-						6	3.73E-03	2.76E-03	6.72E-04	-3.18E-04	1.95E-06	1.63E-03	4.56E-03	8.46E-03	1.00E-02
-						8	2.40E-03	1.56E-03	-1.48E-04	-7.28E-04	2.77E-06	2.04E-03	5.38E-03	9.66E-03	1.14E-02
-						10	9.97E-04	2.93E-04	-1.02E-03	-1.16E-03	3.64E-06	2.47E-03	6.25E-03	1.09E-02	1.28E-02
-						12	-6.16E-04	-1.16E-03	-2.01E-03	-1.66E-03	4.63E-06	2.97E-03	7.24E-03	1.24E-02	1.44E-02
-						14	-2.40E-03	-2.77E-03	-3.11E-03	-2.21E-03	5.73E-06	3.52E-03	8.34E-03	1.40E-02	1.62E-02
-						16	-4.31E-03	-4.49E-03	-4.28E-03	-2.80E-03	6.90E-06	4.11E-03	9.52E-03	1.57E-02	1.81E-02
-						18	-6.31E-03	-6.30E-03	-5.52E-03	-3.41E-03	8.14E-06	4.72E-03	1.08E-02	1.75E-02	2.01E-02
-						20	-8.53E-03	-8.31E-03	-6.89E-03	-4.10E-03	9.51E-06	5.41E-03	1.21E-02	1.95E-02	2.23E-02
-						22	-1.15E-02	-1.10E-02	-8.72E-03	-5.01E-03	1.13E-05	6.32E-03	1.39E-02	2.22E-02	2.53E-02
-						24	-1.45E-02	-1.37E-02	-1.05E-02	-5.93E-03	1.32E-05	7.24E-03	1.58E-02	2.49E-02	2.83E-02
-</tableData>
+						-30			-25			-20			-15			-10			-5			0	5			10			15		20
+					-10	0.01888		0.01549		0.01181		0.0081		0.0047		0.00191		0	-0.00088	-0.00068	0.00051	0.00246
+					-8	0.01733		0.01404		0.01052		0.00705		0.00394		0.00151		0	-0.00045	0.00017		0.00175	0.00405
+					-6	0.01566		0.0125		0.00916		0.00594		0.00315		0.00109		0	-0.00003	0.00101		0.00298	0.00562
+					-4	0.01389		0.01088		0.00774		0.00479		0.00233		0.00067		0	0.00041		0.00187		0.00422	0.00719
+					-2	0.01198		0.00915		0.00624		0.00358		0.00149		0.00023		0	0.00085		0.00273		0.00546	0.00874
+					0	0.00996		0.00731		0.00465		0.00233		0.00061		-0.00021	0	0.0013		0.0036		0.00671	0.0103
+					2	0.0078		0.00536		0.00299		0.00101		-0.0003		-0.00068	0	0.00176		0.00448		0.00796	0.01186
+					4	0.00552		0.00332		0.00126		-0.00036	-0.00123	-0.00116	0	0.00222		0.00536		0.00918	0.01339
+					6	0.0031		0.00117		-0.00056	-0.00177	-0.00221	-0.00164	0	0.00268		0.00625		0.0104	0.0149
+					8	0.00058		-0.00107	-0.00244	-0.00325	-0.00321	-0.00214	0	0.00315		0.00715		0.01163	0.01639
+					10	-0.00203	-0.00338	-0.0044		-0.00474	-0.0042		-0.00264	0	0.00361		0.00802		0.01281	0.01787
+					12	-0.00485	-0.00588	-0.00646	-0.00632	-0.00526	-0.00316	0	0.0041		0.00892		0.01409	0.01937
+					14	-0.00782	-0.00845	-0.00858	-0.00794	-0.00634	-0.00369	0	0.0046		0.00984		0.0153	0.02081
+					16	-0.01092	-0.01114	-0.01079	-0.00962	-0.00745	-0.00423	0	0.00508		0.01074		0.01644	0.02218
+					</tableData>
 				</table>
 			</product>
-		</function>
-
+		</function> -->
 		<function name="aero/force/Drag_TailTrim">
 			<description>
 				Drag due to Tail Trim Deflection
 				Positive surface deflection is trailing edge down
-</description>
+			</description>
 			<product>
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
 				<table name="aero/coefficient/CD_tailplane">
 					<independentVar lookup="row">aero/alpha-deg</independentVar>
 					<independentVar lookup="column">fcs/pitch-trim-pos-deg</independentVar>
-<!--      OpenVSP -->
-					<tableData>					
-						-14		-10		-6		-3		0		3
-						-10	0.03242		0.02063		0.01113		0.00497		0	-0.00378
-						-8	0.02891		0.01806		0.00949		0.00414		0	-0.00289
-						-6	0.02526		0.01533		0.00774		0.00325		0	-0.00197
-						-4	0.02134		0.01248		0.00593		0.00232		0	-0.00103
-						-2	0.01724		0.00949		0.00405		0.00136		0	-0.00004
-						0	0.01299		0.00637		0.0021		0.00038		0	0.00097
-						2	0.00859		0.00314		0.00011		-0.00063	0	0.00204
-						4	0.00398		-0.00026	-0.00198	-0.00169	0	0.00314
-						6	-0.00089	-0.00376	-0.00415	-0.0028		0	0.00427
-						8	-0.00584	-0.00735	-0.00639	-0.00388	0	0.00548
-						10	-0.01113	-0.01128	-0.00876	-0.00513	0	0.00674
-						12	-0.01678	-0.01536	-0.01121	-0.00643	0	0.00812
-						14	-0.02247	-0.01938	-0.01376	-0.0076		0	0.00963
-						16	-0.02897	-0.02433	-0.01685	-0.00944	0	0.01127
-				</tableData>
-<!-- Datcom -->
-<!--					<tableData>
+					<tableData>
 							-14		-10		-6		-3		0		3
-						-10	0.022	0.019	0.012	0.006	0	-0.005
-						-8	0.023	0.018	0.011	0.005	0	-0.003
-						-6	0.022	0.017	0.01	0.004	0	-0.002
-						-4	0.021	0.015	0.008	0.003	0	-0.001
-						-2	0.018	0.011	0.005	0.001	0	-0.001
-						0	0.015	0.009	0.003	0.001	0	0.001
-						2	0.012	0.005	0.001	0.000	0	0.002
-						4	0.007	0.001	-0.001	-0.002	0	0.002
-						6	0.003	-0.002	-0.003	-0.002	0	0.004
-						8	-0.003	-0.005	-0.005	-0.003	0	0.005
-						10	-0.008	-0.009	-0.008	-0.005	0	0.006
-						12	-0.012	-0.012	-0.009	-0.006	0	0.007
-						14	-0.017	-0.016	-0.012	-0.007	0	0.008
-						16	-0.023	-0.02	-0.014	-0.008	0	0.008
-						18	-0.027	-0.023	-0.016	-0.009	0	0.008
-					</tableData>  -->
+						-10	0.019	0.017	0.011	0.006	0	-0.004
+						-8	0.019	0.015	0.009	0.004	0	-0.004
+						-6	0.019	0.014	0.008	0.003	0	-0.002
+						-4	0.018	0.013	0.007	0.003	0	-0.001
+						-2	0.015	0.01	0.004	0.001	0	-0.001
+						0	0.013	0.008	0.003	0.001	0	0.001
+						2	0.009	0.004	0.001	0		0	0.002
+						4	0.005	0.001	-0.002	-0.002	0	0.002
+						6	0.001	-0.002	-0.003	-0.002	0	0.004
+						8	-0.004	-0.006	-0.005	-0.003	0	0.004
+						10	-0.008	-0.008	-0.007	-0.004	0	0.006
+						12	-0.013	-0.012	-0.009	-0.006	0	0.006
+						14	-0.017	-0.015	-0.011	-0.006	0	0.008
+						16	-0.022	-0.019	-0.013	-0.008	0	0.007
+						18	-0.026	-0.022	-0.015	-0.008	0	0.007
+					</tableData>
 				</table>
 			</product>
 		</function>
-
+		<function name="aero/force/Drag_speedbrakes">
+			<!-- from CP1199 -->
+			<description>
+				Drag due to speedbrakes
+			</description>
+			<product>
+				<property>aero/qbar-psf</property>
+				<property>metrics/Sw-sqft</property>
+				<product name="aero/coefficient/CD_speedbrakes">
+					<property>fcs/speedbrake-pos-sum-norm</property>
+					<sum>
+						<value>0.0268</value>
+						<product>
+							<value>0.0165</value>
+							<property>aero/coefficient/CL_alpha</property>
+							<property>aero/coefficient/CL_alpha</property>
+						</product>
+					</sum>
+				</product>
+			</product>
+		</function>
 		<function name="aero/force/Drag_ground_effect">
 			<description>Drag_due_ground_effect</description>
 			<product>
@@ -704,15 +430,13 @@ AERODYNAMICS
 						12	-0.0610	-0.0480	-0.0300	-0.0200	-0.0140	-0.0090	0.0000
 						14	-0.0690	-0.0550	-0.0340	-0.0220	-0.0150	-0.0100	0.0000
 						16	-0.0770	-0.0610	-0.0380	-0.0250	-0.0170	-0.0120	0.0000
-</tableData>
+					</tableData>
 				</table>
 			</product>
 		</function>
-
 	</axis>
-
-	<axis name="PITCH"><!-- ########################################################### -->
-
+	<axis name="PITCH">
+		<!-- ########################################################### -->
 		<function name="aero/moment/Pitch_alpha">
 			<description>Pitch_moment_due_to_alpha</description>
 			<product>
@@ -720,110 +444,30 @@ AERODYNAMICS
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/cbarw-ft</property>
 				<table name="aero/coefficient/CM_Alpha">
-					<!-- OpenVSP using Peakey wing section -->
-					<independentVar lookup="row">aero/alpha-deg</independentVar>
-					<tableData>
-					-10	0.22917
-					-8	0.18871
-					-6	0.14664
-					-4	0.10344
-					-2	0.05947
-					0	0.01521
-					2	-0.02828
-					4	-0.07159
-					6	-0.11392
-					8	-0.15445
-					10	-0.19444
-					12	-0.23272
-					14	-0.26846
-					16	-0.30312
-					</tableData>
-<!--					<independentVar lookup="row">aero/alpha-deg</independentVar>
-					<independentVar lookup="column">velocities/mach</independentVar>  -->
 					<!-- using Peakey wing section  -->
-<!--					<tableData>
+					<independentVar lookup="row">aero/alpha-deg</independentVar>
+					<independentVar lookup="column">velocities/mach</independentVar>-->
+					<tableData>
 						0.1	0.2	0.3	0.4	0.5	0.6
-						-10	0.2958	0.2959	0.2977	0.3010	0.3067	0.3135
-						-8	0.2494	0.2497	0.2513	0.2542	0.2589	0.2647
-						-6	0.2004	0.2008	0.2021	0.2044	0.2081	0.2126
-						-4	0.1500	0.1503	0.1513	0.1529	0.1554	0.1584
-						-2	0.1012	0.1013	0.1019	0.1027	0.1039	0.1054
-						0	0.0535	0.0533	0.0534	0.0534	0.0533	0.0532
-						2	0.0066	0.0061	0.0057	0.0048	0.0036	0.0017
-						4	-0.0399	-0.0407	-0.0416	-0.0433	-0.0457	-0.0492
-						6	-0.0852	-0.0863	-0.0877	-0.0900	-0.0936	-0.0986
-						8	-0.1272	-0.1287	-0.1302	-0.1328	-0.1371	-0.1430
-						10	-0.1631	-0.1647	-0.1660	-0.1689	-0.1738	-0.1807
-						12	-0.1942	-0.1960	-0.1972	-0.2002	-0.2056	-0.2131
-						14	-0.2217	-0.2239	-0.2251	-0.2276	-0.2333	-0.2416
-						</tableData> -->
-					<!-- using wing section NACA 65 410 -->
-					<!--<tableData>
-						0.1	0.2	0.3	0.4	0.5	0.6
-						-10	0.1435	0.1428	0.1440	0.1449	0.1464	0.1476
-						-8	0.1020	0.1013	0.1022	0.1027	0.1033	0.1036
-						-6	0.0602	0.0594	0.0600	0.0599	0.0597	0.0589
-						-4	0.0185	0.0175	0.0177	0.0170	0.0158	0.0138
-						-2	-0.0215	-0.0228	-0.0230	-0.0244	-0.0266	-0.0298
-						0	-0.0594	-0.0608	-0.0617	-0.0639	-0.0671	-0.0718
-						2	-0.0961	-0.0978	-0.0993	-0.1023	-0.1067	-0.1128
-						4	-0.1325	-0.1347	-0.1368	-0.1407	-0.1463	-0.1540
-						6	-0.1661	-0.1685	-0.1717	-0.1769	-0.1842	-0.1937
-						8	-0.1970	-0.1998	-0.2042	-0.2108	-0.2200	-0.2320
-						10	-0.2247	-0.2275	-0.2344	-0.2438	-0.2557	-0.2691
-						12	-0.2557	-0.2588	-0.2668	-0.2775	-0.2912	-0.3059
-					</tableData> -->
-					<!-- using wing section NACA 65 210 -->
-					<!--					 <tableData>
-						0.1	0.2	0.3	0.4	0.5	0.6
-						-10	0.2650	0.2648	0.2661	0.2681	0.2715	0.2751
-						-8	0.2233	0.2234	0.2246	0.2263	0.2292	0.2323
-						-6	0.1794	0.1796	0.1808	0.1823	0.1846	0.1872
-						-4	0.1352	0.1355	0.1365	0.1376	0.1394	0.1414
-						-2	0.0924	0.0927	0.0935	0.0942	0.0953	0.0966
-						0	0.0510	0.0513	0.0517	0.0521	0.0526	0.0531
-						2	0.0125	0.0126	0.0127	0.0124	0.0120	0.0116
-						4	-0.0245	-0.0245	-0.0250	-0.0259	-0.0272	-0.0287
-						6	-0.0579	-0.0581	-0.0591	-0.0611	-0.0636	-0.0665
-						8	-0.0879	-0.0883	-0.0904	-0.0935	-0.0974	-0.1020
-						10	-0.1154	-0.1160	-0.1192	-0.1246	-0.1313	-0.1389
-						12	-0.1433	-0.1444	-0.1506	-0.1576	-0.1663	-0.1752
-						14	-0.1725	-0.1739	-0.1815	-0.1902	-0.2004	-0.2113
-					</tableData> -->
+					-10	0.2996	0.2997	0.3015	0.3051	0.3107	0.3176
+					-8	0.2527	0.2530	0.2547	0.2577	0.2624	0.2683
+					-6	0.2031	0.2035	0.2049	0.2073	0.2110	0.2155
+					-4	0.1522	0.1525	0.1535	0.1552	0.1576	0.1608
+					-2	0.1027	0.1029	0.1034	0.1042	0.1055	0.1070
+					0	0.0543	0.0542	0.0542	0.0542	0.0542	0.0541
+					2	0.0068	0.0063	0.0058	0.0050	0.0037	0.0019
+					4	-0.0404	-0.0412	-0.0421	-0.0438	-0.0462	-0.0497
+					6	-0.0863	-0.0875	-0.0888	-0.0913	-0.0949	-0.0999
+					8	-0.1290	-0.1305	-0.1320	-0.1347	-0.1390	-0.1450
+					10	-0.1655	-0.1672	-0.1685	-0.1715	-0.1764	-0.1833
+					12	-0.1973	-0.1991	-0.2003	-0.2035	-0.2089	-0.2164
+					14	-0.2253	-0.2271	-0.2283	-0.2315	-0.2372	-0.2456
+					16	-0.2533	-0.2551	-0.2563	-0.2595	-0.2655	-0.2748
+					18	-0.2813	-0.2831	-0.2843	-0.2875	-0.2938	-0.3040
+					</tableData>
 				</table>
 			</product>
 		</function>
-
-		<!--		<function name="aero/moment/Pitch_aileronUP">
-			<description>Pitch_moment_due_to_AileronUP</description>
-			<product>
-				<property>aero/qbar-psf</property>
-				<property>metrics/Sw-sqft</property>
-				<property>metrics/cbarw-ft</property>
-				<table  name="aero/coefficient/CMaileronUP">
-					<independentVar lookup="row">aero/alpha-deg</independentVar>
-					<tableData>
-						-10	0.0115
-						-8	0.0148
-						-6	0.0180
-						-4	0.0207
-						-2	0.0244
-						0	0.0277
-						2	0.0306
-						4	0.0334
-						6	0.0362
-						8	0.0385
-						10	0.0399
-						12	0.0418
-						14	0.0386
-						16	0.0410
-						18	0.0407
-						20	0.0364
-					</tableData>
-				</table>
-			</product>
-		</function> -->
-
 		<function name="aero/moment/Pitch_pitch_rate">
 			<description>Pitch_moment_due_to_pitch_rate</description>
 			<product>
@@ -835,17 +479,16 @@ AERODYNAMICS
 				<table name="aero/derivative/CMq">
 					<independentVar lookup="row">velocities/mach</independentVar>
 					<tableData>
-						0.1	-16.6900
-						0.2	-16.7400
-						0.3	-16.8200
-						0.4	-16.9300
-						0.5	-17.1600
-						0.6	-17.3100
-</tableData>
+					0.1	-17.0600
+					0.2	-17.1000
+					0.3	-17.1900
+					0.4	-17.1400
+					0.5	-17.5400
+					0.6	-17.7000
+					</tableData>
 				</table>
 			</product>
 		</function>
-
 		<function name="aero/moment/Pitch_alpha_rate">
 			<description>Pitch_moment_due_to_alpha_rate</description>
 			<product>
@@ -854,58 +497,43 @@ AERODYNAMICS
 				<property>metrics/cbarw-ft</property>
 				<property>aero/ci2vel</property>
 				<property>aero/alphadot-rad_sec</property>
-				<table name="aero/derivative/CMad">
-					<independentVar lookup="row">aero/alpha-deg</independentVar>
-					<independentVar lookup="column">velocities/mach</independentVar>
+				<table name="aero/derivative/CMadot">
+					<independentVar lookup="row">velocities/mach</independentVar>
 					<tableData>
-						0.1	0.2	0.3	0.4	0.5	0.6
-						-10	-5.4340	-5.4710	-5.4960	-5.5530	-5.6690	-5.7840
-						-8	-5.4480	-5.4880	-5.5220	-5.5900	-5.7200	-5.8490
-						-6	-5.5220	-5.5640	-5.6110	-5.6920	-5.8400	-5.9890
-						-4	-5.6850	-5.7280	-5.7700	-5.8470	-5.9910	-6.1350
-						-2	-5.8730	-5.9140	-5.9450	-6.0100	-6.1400	-6.2700
-						0	-6.1130	-6.1520	-6.1630	-6.2060	-6.3120	-6.4140
-						2	-6.3600	-6.3970	-6.3830	-6.3980	-6.4740	-6.5400
-						4	-6.5310	-6.5660	-6.5330	-6.5020	-6.5230	-6.5330
-						6	-6.6180	-6.6450	-6.5540	-6.3960	-6.2690	-6.1320
-						8	-6.4080	-6.4130	-6.1470	-5.8080	-5.4760	-5.1420
-						10	-5.5990	-5.5740	-5.0770	-4.7080	-4.3580	-4.0640
-						12	-4.5140	-4.4880	-4.0210	-3.7010	-3.4460	-3.3530
-						14	-3.6710	-3.6550	-3.3150	-3.0590	-2.9820	-3.0220
-						16	-3.0360	-3.0020	-2.6380	-2.4220	-2.5420	-2.5790
-						18	-2.1370	-2.0420	-1.4330	-0.9918	-0.9352	-1.9010
-						20	0.6153	0.6072	0.4161	-0.0590	-0.2677	-1.9930
-						22	2.7850	2.5700	1.9660	0.1562	-2.4130	-3.5380
-						24	2.8170	2.5450	2.5590	0.5175	-3.9320	-4.7000
-</tableData>
+						<!--Datcom -->
+						0.1	-4.250
+						0.2	-4.261
+						0.3	-4.268
+						0.4	-4.239
+						0.5	-4.336
+						0.6	-4.357	
+					</tableData>
 				</table>
 			</product>
 		</function>
-
 		<function name="aero/moment/Pitch_flap">
 			<description>Pitch_moment_due_to_flaps</description>
 			<product>
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/cbarw-ft</property>
-				<table name="aero/coefficient/CMflap">
+				<table name="aero/coefficient/CM_Flap">
 					<independentVar>fcs/flap-pos-deg</independentVar>
-					<!-- from CP 1199 -->
+					<!-- from CP 1199
 					<tableData>
 						0	0
 						45	-0.3
-</tableData>
-					<!-- Datcom -->
-					<!--					<tableData>
-						0	0
-						20	-0.2141
-						35	-0.337
-						45	-0.3697
 					</tableData> -->
+					<!-- Datcom -->
+					<tableData>
+						0	0
+						20	-0.2226
+						35	-0.3504
+						45	-0.3844
+					</tableData>
 				</table>
 			</product>
 		</function>
-
 		<function name="aero/moment/Pitch_elevator">
 			<description>Pitch_moment_due_to_elevator</description>
 			<product>
@@ -913,29 +541,28 @@ AERODYNAMICS
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/cbarw-ft</property>
 				<table name="aero/coefficient/CM_Elevator">
-					<independentVar lookup="row">fcs/elevator-pos-deg</independentVar>
 					<independentVar lookup="column">velocities/mach</independentVar>
+					<independentVar lookup="row">fcs/elevator-pos-deg</independentVar>
 					<tableData>
-						0.1	0.2	0.3	0.4	0.5	0.6
-						-20	0.3359	0.341	0.3385	0.3246	0.2982	0.2545
-						-15	0.3023	0.307	0.3048	0.2922	0.2683	0.2287
-						-10	0.2061	0.2093	0.2078	0.1992	0.1829	0.1558
-						-5	0.103	0.1046	0.1039	0.0996	0.0914	0.0779
-						0	-0.000	-0.000	-0.000	-0.000	-0.000	-0.000
-						5	-0.103	-0.1046	-0.1039	-0.0996	-0.0914	-0.0779
-						10	-0.2061	-0.2093	-0.2078	-0.1992	-0.1829	-0.1558
-						15	-0.3023	-0.307	-0.3048	-0.2922	-0.2683	-0.2287
-						20	-0.3368	-0.3421	-0.3396	-0.3257	-0.2992	-0.2553
-</tableData>
+						0.0	0.2	0.3	0.4	0.5	0.6
+					-30	0.3753	0.3763	0.3729	0.3614	0.3414	0.3105
+					-25	0.3448	0.3473	0.3441	0.3336	0.3153	0.287
+					-20	0.3273	0.3296	0.3266	0.3166	0.2991	0.272
+					-10	0.1989	0.2003	0.1985	0.1924	0.1817	0.1652
+					0	-0.0002	-0.0002	-0.0002	-0.0002	-0.0002	-0.0002
+					5	-0.0996	-0.1003	-0.0994	-0.0964	-0.091	-0.0828
+					10	-0.1989	-0.2003	-0.1985	-0.1924	-0.1817	-0.1652
+					15	-0.2908	-0.2928	-0.2901	-0.2811	-0.2655	-0.2413
+					20	-0.3273	-0.3296	-0.3266	-0.3166	-0.2991	-0.272
+					</tableData>
 				</table>
 			</product>
 		</function>
-
 		<function name="aero/moment/Pitch_tailtrim">
 			<description>
 				Pitch Moment due to Tail Trim Deflection
 				Positive surface deflection is trailing edge down
-</description>
+			</description>
 			<product>
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
@@ -943,96 +570,45 @@ AERODYNAMICS
 				<table name="aero/coefficient/CM_tailplane">
 					<independentVar lookup="row">aero/alpha-deg</independentVar>
 					<independentVar lookup="column">fcs/pitch-trim-pos-deg</independentVar>
-<!--      OpenVSP -->
-					<tableData>					
-						-14		-10		-6		-3		0		3
-						-10	0.3726	0.26952	0.18075	0.09364	0	-0.10756
-						-8	0.39776	0.28764	0.18978	0.09778	0	-0.10689
-						-6	0.42149	0.3051	0.19855	0.10176	0	-0.10695
-						-4	0.44347	0.32065	0.20613	0.1051	0	-0.10801
-						-2	0.46401	0.33515	0.21305	0.10817	0	-0.10998
-						0	0.48221	0.34789	0.21888	0.11065	0	-0.11216
-						2	0.49759	0.3582	0.22309	0.11201	0	-0.116
-						4	0.51079	0.36715	0.22673	0.11367	0	-0.12014
-						6	0.52191	0.37422	0.22901	0.11429	0	-0.12414
-						8	0.52949	0.37848	0.22937	0.11399	0	-0.13056
-						10	0.53548	0.381	0.22959	0.11426	0	-0.13661
-						12	0.53903	0.38255	0.22956	0.11362	0	-0.14219
-						14	0.53988	0.38164	0.2268	0.11213	0	-0.14888
-						16	0.5412	0.37899	0.22423	0.11056	0	-0.15511
-				</tableData>
-<!-- Datcom -->
-<!--					<tableData>
+					<tableData>
 							-14		-10		-6		-3		0		3
-						-10	0.3349	0.2983	0.2006	0.1083	0	-0.1032
-						-8	0.3845	0.3226	0.2116	0.1091	0	-0.1034
-						-6	0.4249	0.3395	0.2171	0.1084	0	-0.1024
-						-4	0.4534	0.3521	0.2179	0.1065	0	-0.0995
-						-2	0.4738	0.3585	0.2136	0.1038	0	-0.097
-						0	0.4875	0.3579	0.2087	0.1011	0	-0.0958
-						2	0.4933	0.3522	0.2036	0.0984	0	-0.0971
-						4	0.4941	0.3458	0.1997	0.0974	0	-0.1
-						6	0.4924	0.3414	0.1988	0.0993	0	-0.1026
-						8	0.4843	0.3374	0.1987	0.1004	0	-0.1038
-						10	0.4744	0.333	0.1984	0.1006	0	-0.1037
-						12	0.4661	0.3297	0.1986	0.0994	0	-0.1024
-						14	0.4611	0.3293	0.1981	0.0983	0	-0.0994
-					</tableData> -->
+						-10	0.3209	0.2902	0.1973	0.107	0	-0.1031
+						-8	0.3717	0.3162	0.2093	0.1085	0	-0.1037
+						-6	0.4149	0.335	0.2161	0.1083	0	-0.103
+						-4	0.4463	0.3495	0.2179	0.1067	0	-0.1005
+						-2	0.4695	0.3578	0.2143	0.1045	0	-0.0982
+						0	0.4858	0.3589	0.2101	0.1021	0	-0.0971
+						2	0.4937	0.3544	0.2056	0.0997	0	-0.0984
+						4	0.4964	0.3487	0.202	0.0987	0	-0.1014
+						6	0.4962	0.345	0.2014	0.1006	0	-0.1038
+						8	0.4888	0.3415	0.2013	0.1017	0	-0.1049
+						10	0.4793	0.3373	0.2008	0.1016	0	-0.1047
+						12	0.4712	0.3339	0.2008	0.1003	0	-0.1031
+					</tableData>
 				</table>
 			</product>
 		</function>
-
-		<function name="aero/moment/Pitch_inboard_spoiler">
-			<description>Pitch_moment_due_to_inboard_spoiler</description>
+		<function name="aero/force/Pitch_speedbrakes">
+			<!-- from CP1199 -->
+			<description>
+				Pitch moment due to speedbrakes
+			</description>
 			<product>
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/cbarw-ft</property>
-				<property>fcs/speedbrake-pos-norm</property>
-				<table name="aero/derivative/CM_inner_spoiler">
-					<independentVar>velocities/mach</independentVar>
-					<tableData>
-						0.0000    -0.06
-						0.6000    -0.02 
-</tableData>
-				</table>
+				<product name="aero/coefficient/CM_speedbrakes">
+					<property>fcs/speedbrake-pos-sum-norm</property>
+					<sum>
+						<value>-0.0256</value>
+						<product>
+							<value>0.0246</value>
+							<property>aero/coefficient/CL_alpha</property>
+						</product>
+					</sum>
+				</product>
 			</product>
 		</function>
-
-		<function name="aero/moment/Pitch_middle_spoiler">
-			<description>Pitch_moment_due_to_middle_spoiler</description>
-			<product>
-				<property>aero/qbar-psf</property>
-				<property>metrics/Sw-sqft</property>
-				<property>metrics/cbarw-ft</property>
-				<property>fcs/speedbrake-pos-norm</property>
-				<table name="aero/derivative/CM_middle_spoiler">
-					<independentVar>velocities/mach</independentVar>
-					<tableData>
-						0.0000    -0.06
-						0.6000    -0.02 
-</tableData>
-				</table>
-			</product>
-		</function>
-
-		<function name="aero/moment/Pitch_outboard_spoiler">
-			<description>Pitch_moment_due_to_outboard_spoiler</description>
-			<product>
-				<property>aero/qbar-psf</property>
-				<property>metrics/Sw-sqft</property>
-				<property>metrics/cbarw-ft</property>
-				<property>fcs/speedbrake-pos-norm</property>
-				<table name="aero/derivative/CM_outerSpoiler">
-					<independentVar>velocities/mach</independentVar>
-					<tableData>
-						0.0000    -0.06
-						0.6000    -0.02
-</tableData>
-				</table>
-			</product>
-		</function>
-
 		<function name="aero/moment/Pitch_ground_effect">
 			<description>Pitch Moment_due_ground_effect</description>
 			<product>
@@ -1057,16 +633,14 @@ AERODYNAMICS
 						12	0.0061	0.0046	0.0025	0.0010	0.0003	0.0001	0.0000
 						14	0.0034	0.0027	0.0015	0.0006	0.0002	0.0000	0.0000
 						16	0.0008	0.0009	0.0006	0.0002	0.0000	-0.0001	0.0000
-</tableData>
+					</tableData>
 				</table>
 			</product>
 		</function>
-
 	</axis>
-
-
-	<axis name="SIDE"><!-- ########################################################### -->
-
+	
+	<axis name="SIDE">
+		<!-- ########################################################### -->
 		<function name="aero/force/Side_sideslip">
 			<description>Side_force_due_to_beta</description>
 			<product>
@@ -1074,21 +648,37 @@ AERODYNAMICS
 				<property>metrics/Sw-sqft</property>
 				<property>aero/beta-rad</property>
 				<table name="aero/derivative/Cyb">
+					<!--<independentVar lookup="row">aero/alpha-deg</independentVar>
+					<tableData>
+						-10	-0.3194
+						-8	-0.3095
+						-6	-0.3005
+						-4	-0.2993
+						-2	-0.2837
+						0	-0.2726
+						2	-0.2663
+						4	-0.2600
+						6	-0.2530
+						8	-0.2484
+						10	-0.2484
+						12	-0.2424
+						14	-0.2419
+						16	-0.2340
+					</tableData> -->
 					<independentVar lookup="row">velocities/mach</independentVar>
 					<tableData>
-						0.1	-0.5535
-						0.2	-0.5553
-						0.3	-0.5584
-						0.4	-0.5630
-						0.5	-0.5691
-						0.6	-0.5772
-</tableData>
+						0.1	-0.5538
+						0.2	-0.5557
+						0.3	-0.5588
+						0.4	-0.5633
+						0.5	-0.5695
+						0.6	-0.5775
+					</tableData>
 				</table>
 			</product>
 		</function>
-
 		<function name="aero/force/Side_rollrate">
-			<description>Side_force_due_to_Roll Rate (per radian)</description>
+			<description>Side_force_due_to_Roll Rate</description>
 			<product>
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
@@ -1096,48 +686,75 @@ AERODYNAMICS
 				<property>velocities/p-aero-rad_sec</property>
 				<table name="aero/derivative/Cyp">
 					<independentVar lookup="row">aero/alpha-deg</independentVar>
-					<independentVar lookup="column">velocities/mach</independentVar>
 					<tableData>
-						0.1	0.2	0.3	0.4	0.5	0.6
-						-10	-0.1678	-0.1685	-0.1697	-0.1715	-0.1740	-0.1772
-						-8	-0.1308	-0.1315	-0.1326	-0.1343	-0.1366	-0.1393
-						-6	-0.0942	-0.0947	-0.0956	-0.0970	-0.0989	-0.1010
-						-4	-0.0576	-0.0580	-0.0586	-0.0596	-0.0610	-0.0625
-						-2	-0.0196	-0.0198	-0.0203	-0.0211	-0.0221	-0.0230
-						0	0.0195	0.0194	0.0189	0.0182	0.0174	0.0169
-						2	0.0593	0.0593	0.0587	0.0580	0.0573	0.0571
-						4	0.0996	0.0997	0.0989	0.0981	0.0974	0.0972
-						6	0.1401	0.1402	0.1391	0.1388	0.1388	0.1395
-						8	0.1823	0.1827	0.1826	0.1802	0.1777	0.1761
-						10	0.2231	0.2231	0.2196	0.2151	0.2105	0.2069
-						12	0.2571	0.2570	0.2505	0.2440	0.2375	0.2291
-						14	0.2853	0.2850	0.2764	0.2642	0.2482	0.2431
-						16	0.3070	0.3058	0.2871	0.2777	0.2757	0.2670
-						18	0.3141	0.3158	0.3240	0.3332	0.3021	0.2709
-						20	0.6229	0.6937	0.3235	0.5009	0.2858	0.2612
-						22	0.1994	0.1933	0.1356	0.3020	0.2612	0.2621
-						24	0.1900	0.1852	0.1160	0.2881	0.2545	0.2647
-</tableData>
+						-10	-0.3758
+						-8	-0.3049
+						-6	-0.2338
+						-4	-0.1623
+						-2	-0.0903
+						0	-0.0195
+						2	0.0515
+						4	0.1222
+						6	0.1925
+						8	0.2624
+						10	0.3317
+						12	0.4012
+						14	0.4698
+						16	0.5372
+					</tableData>
 				</table>
 			</product>
 		</function>
-
-		<function name="aero/force/Side_rudder">
-			<description>Side force due to rudder (DATCOM does not calculate)</description>
+		<!-- CYr is often ignored - it is the side force equivalent to Czq
+		<function name="aero/force/Side_yawrate">
+			<description>Side_force_due_to_Yaw Rate (per radian)</description>
 			<product>
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
-				<property>fcs/rudder-pos-rad</property>
-				<value>-0.1</value>
+				<property>aero/bi2vel</property>
+				<property>velocities/r-aero-rad_sec</property>
+				<table name="aero/derivative/Cyr">
+					<independentVar lookup="row">aero/alpha-deg</independentVar>
+					<tableData>
+						-10	0.2712
+						0	0.2200
+						16	0.2000
+					</tableData>
+				</table>
 			</product>
 		</function>
-
+-->
+		<!--		<function name="aero/force/Side_spoiler">
+			<description>Side_force_due_to_spoiler</description>
+			<product>
+				<property>aero/qbar-psf</property>
+				<property>metrics/Sw-sqft</property>
+				<property>metrics/bw-ft</property>
+				<property>fcs/spoiler-pos-deg</property>
+				<value> -0.024</value>
+			</product>
+		</function -->
+		<function name="aero/force/Side_rudder">
+			<description>Side force due to rudder</description>
+			<product>
+				<property>aero/qbar-psf</property>
+				<property>metrics/Sw-sqft</property>
+				<table name="aero/moment/CyRudder">
+					<independentVar lookup="column">fcs/rudder-pos-deg</independentVar>
+					<independentVar lookup="row">aero/alpha-deg</independentVar>
+					<tableData>
+							-30			-20			-10			0	10		20		30
+						-10	-0.08188	-0.06041	-0.03205	0	0.03205	0.06041	0.08188
+						0	-0.06058	-0.04505	-0.02395	0	0.02395	0.04505	0.06058
+						16	-0.03255	-0.02396	-0.01267	0	0.01267	0.02396	0.03255
+					</tableData>
+				</table>
+			</product>
+		</function>
 	</axis>
-
-
-	<axis name="ROLL"><!-- ########################################################### -->
-
-		<function name="aero/momment/Roll_beta">
+	<axis name="ROLL">
+		<!-- ########################################################### -->
+		<function name="aero/moment/Roll_beta">
 			<description>Roll_moment_due_to_beta (per radian)</description>
 			<product>
 				<property>aero/qbar-psf</property>
@@ -1145,33 +762,49 @@ AERODYNAMICS
 				<property>metrics/bw-ft</property>
 				<property>aero/beta-rad</property>
 				<table name="aero/derivative/Clb">
-					<independentVar lookup="row">aero/alpha-deg</independentVar>
-					<independentVar lookup="column">velocities/mach</independentVar>
+					<!--<independentVar lookup="row">aero/alpha-deg</independentVar>
 					<tableData>
-						0.1	0.2	0.3	0.4	0.5	0.6
-						-10	-0.0072	-0.0079	-0.0081	-0.0078	-0.0068	-0.0049
-						-8	-0.0360	-0.0305	-0.0309	-0.0310	-0.0308	-0.0302
-						-6	-0.0516	-0.0524	-0.0532	-0.0539	-0.0546	-0.0554
-						-4	-0.0730	-0.0739	-0.0751	-0.0764	-0.0781	-0.0805
-						-2	-0.0949	-0.0960	-0.0974	-0.0993	-0.1020	-0.1059
-						0	-0.1175	-0.1186	-0.1203	-0.1226	-0.1261	-0.1313
-						2	-0.1405	-0.1417	-0.1435	-0.1461	-0.1502	-0.1566
-						4	-0.1639	-0.1651	-0.1669	-0.1697	-0.1743	-0.1816
-						6	-0.1876	-0.1890	-0.1907	-0.1935	-0.1984	-0.2063
-						8	-0.2116	-0.2129	-0.2143	-0.2155	-0.2187	-0.2252
-						10	-0.2321	-0.2331	-0.2318	-0.2313	-0.2328	-0.2380
-						12	-0.2369	-0.2465	-0.2359	-0.2340	-0.2336	-0.2370
-						14	-0.2435	-0.2542	-0.2404	-0.2362	-0.2335	-0.2380
-						16	-0.2444	-0.2561	-0.2385	-0.2346	-0.2355	-0.2382
-						18	-0.2399	-0.2527	-0.2366	-0.2302	-0.2245	-0.2276
-						20	-0.2349	-0.2475	-0.2196	-0.2091	-0.2099	-0.2185
-						22	-0.2044	-0.2182	-0.1942	-0.1925	-0.1980	-0.2128
-						24	-0.1742	-0.1910	-0.1738	-0.1792	-0.1901	-0.2071
-</tableData>
+						-10	-0.0410
+						-8	-0.0625
+						-6	-0.0839
+						-4	-0.1053
+						-2	-0.1252
+						0	-0.1502
+						2	-0.1609
+						4	-0.1945
+						6	-0.2255
+						8	-0.2196
+						10	-0.2651
+						12	-0.2795
+						14	-0.3004
+						16	-0.3170
+					</tableData> -->
+					<independentVar lookup="column">velocities/mach</independentVar>
+					<independentVar lookup="row">aero/alpha-deg</independentVar>
+					<tableData>
+							0.1	0.2	0.3	0.4	0.5	0.6
+						-10	0.0067	0.0062	0.0061	0.0068	0.0082	0.0110
+						-8	-0.0227	-0.0170	-0.0172	-0.0170	-0.0163	-0.0149
+						-6	-0.0393	-0.0400	-0.0405	-0.0408	-0.0410	-0.0410
+						-4	-0.0618	-0.0626	-0.0635	-0.0645	-0.0657	-0.0673
+						-2	-0.0843	-0.0853	-0.0865	-0.0881	-0.0904	-0.0935
+						0	-0.1071	-0.1081	-0.1096	-0.1118	-0.1149	-0.1196
+						2	-0.1299	-0.1310	-0.1327	-0.1353	-0.1392	-0.1452
+						4	-0.1528	-0.1539	-0.1557	-0.1586	-0.1631	-0.1702
+						6	-0.1757	-0.1769	-0.1786	-0.1816	-0.1867	-0.1947
+						8	-0.1985	-0.1996	-0.2005	-0.2026	-0.2070	-0.2150
+						10	-0.2161	-0.2169	-0.2161	-0.2174	-0.2211	-0.2289
+						12	-0.2182	-0.2276	-0.2183	-0.2186	-0.2215	-0.2285
+						14	-0.2222	-0.2326	-0.2204	-0.2192	-0.2205	-0.2282
+						16	-0.2196	-0.2311	-0.2189	-0.2198	-0.2240	-0.2307
+						18	-0.2191	-0.2321	-0.2148	-0.2123	-0.2141	-0.2219
+						20	-0.2019	-0.2156	-0.1973	-0.1987	-0.2035	-0.2143
+						22	-0.1815	-0.1974	-0.1832	-0.1869	-0.1958	-0.2096
+						24	-0.1646	-0.1827	-0.1730	-0.1800	-0.1900	-0.2050
+					</tableData>
 				</table>
 			</product>
 		</function>
-
 		<function name="aero/moment/Roll_rollrate">
 			<description>Roll_moment_due_to_roll_rate</description>
 			<product>
@@ -1181,33 +814,49 @@ AERODYNAMICS
 				<property>aero/bi2vel</property>
 				<property>velocities/p-aero-rad_sec</property>
 				<table name="aero/derivative/Clp">
-					<independentVar lookup="row">aero/alpha-deg</independentVar>
+					<!--<independentVar lookup="row">aero/alpha-deg</independentVar>
+					<tableData>
+						-10	-0.4172
+						-8	-0.4173
+						-6	-0.4173
+						-4	-0.4176
+						-2	-0.4168
+						0	-0.4163
+						2	-0.4164
+						4	-0.4159
+						6	-0.4153
+						8	-0.4145
+						10	-0.4139
+						12	-0.4131
+						14	-0.4120
+						16	-0.4106
+					</tableData> -->
 					<independentVar lookup="column">velocities/mach</independentVar>
+					<independentVar lookup="row">aero/alpha-deg</independentVar>
 					<tableData>
 						0.1	0.2	0.3	0.4	0.5	0.6
-						-10	-0.4349	-0.4369	-0.4375	-0.4405	-0.4455	-0.4512
-						-8	-0.4176	-0.4199	-0.4224	-0.4275	-0.4348	-0.4429
-						-6	-0.4055	-0.4077	-0.4118	-0.4184	-0.4276	-0.4374
-						-4	-0.4107	-0.4129	-0.4164	-0.4223	-0.4307	-0.4397
-						-2	-0.4286	-0.4306	-0.4320	-0.4357	-0.4414	-0.4475
-						0	-0.4453	-0.4470	-0.4463	-0.4477	-0.4508	-0.4540
-						2	-0.4599	-0.4613	-0.4585	-0.4577	-0.4583	-0.4589
-						4	-0.4721	-0.4734	-0.4686	-0.4656	-0.4637	-0.4619
-						6	-0.4819	-0.4830	-0.4764	-0.4534	-0.4282	-0.4046
-						8	-0.4525	-0.4503	-0.4141	-0.3773	-0.3389	-0.3034
-						10	-0.3632	-0.3593	-0.3088	-0.2751	-0.2419	-0.2119
-						12	-0.2663	-0.2640	-0.2243	-0.1845	-0.1429	-0.1438
-						14	-0.1774	-0.1741	-0.1270	-0.1134	-0.1356	-0.1305
-						16	-0.0885	-0.0904	-0.0961	-0.0731	-0.0389	-0.0319
-						18	-0.0613	-0.0487	0.0478	0.1156	0.1022	0.0252
-						20	0.2091	0.2143	0.2934	0.1892	0.0761	-0.0415
-						22	0.4450	0.4160	0.2683	0.0988	0.0127	-0.0639
-						24	0.3089	0.2558	0.1426	0.0776	-0.0668	-0.0726
-</tableData>
+						-10	-0.4511	-0.4528	-0.4515	-0.4506	-0.4526	-0.4592
+						-8	-0.4422	-0.4442	-0.4450	-0.4459	-0.4495	-0.4577
+						-6	-0.4331	-0.4355	-0.4383	-0.4411	-0.4465	-0.4565
+						-4	-0.4306	-0.4330	-0.4364	-0.4397	-0.4456	-0.4559
+						-2	-0.4383	-0.4404	-0.4422	-0.4439	-0.4482	-0.4568
+						0	-0.4476	-0.4493	-0.4488	-0.4485	-0.4507	-0.4572
+						2	-0.4547	-0.4561	-0.4535	-0.4511	-0.4513	-0.4560
+						4	-0.4595	-0.4607	-0.4559	-0.4517	-0.4501	-0.4530
+						6	-0.4621	-0.4629	-0.4491	-0.4326	-0.4193	-0.4125
+						8	-0.4065	-0.4045	-0.3766	-0.3528	-0.3329	-0.3205
+						10	-0.3034	-0.2998	-0.2680	-0.2463	-0.2283	-0.2175
+						12	-0.2088	-0.2061	-0.1736	-0.1473	-0.1250	-0.1290
+						14	-0.1063	-0.1029	-0.1028	-0.1162	-0.1368	-0.1376
+						16	-0.0947	-0.1002	-0.0668	-0.0507	-0.0555	-0.0668
+						18	0.0549	0.0526	0.0887	0.0765	0.0587	0.0045
+						20	0.1863	0.2083	0.1561	0.0863	0.0045	-0.0598
+						22	0.2182	0.1541	0.0666	0.0145	-0.0332	-0.0787
+						24	0.1523	0.1095	0.0249	-0.0707	-0.0730	-0.0870
+					</tableData>
 				</table>
 			</product>
 		</function>
-
 		<function name="aero/moment/Roll_yawrate">
 			<description>Roll_moment_due_to_yaw_rate</description>
 			<product>
@@ -1217,64 +866,180 @@ AERODYNAMICS
 				<property>aero/bi2vel</property>
 				<property>velocities/r-aero-rad_sec</property>
 				<table name="aero/derivative/Clr">
-					<independentVar lookup="row">aero/alpha-deg</independentVar>
+					<!--<independentVar lookup="row">aero/alpha-deg</independentVar>
+					<tableData>
+						-10	0.0190
+						-8	0.0393
+						-6	0.0608
+						-4	0.0633
+						-2	0.1050
+						0	0.1269
+						2	0.1482
+						4	0.1702
+						6	0.1909
+						8	0.2138
+						10	0.2311
+						12	0.2576
+						14	0.2765
+						16	0.3009
+					</tableData> -->
 					<independentVar lookup="column">velocities/mach</independentVar>
+					<independentVar lookup="row">aero/alpha-deg</independentVar>
 					<tableData>
 						0.1	0.2	0.3	0.4	0.5	0.6
-						-10	0.0069	0.0061	0.0044	0.0018	-0.0019	-0.0080
-						-8	0.0317	0.0314	0.0307	0.0297	0.0281	0.0252
-						-6	0.0568	0.0570	0.0573	0.0578	0.0584	0.0589
-						-4	0.0832	0.0839	0.0851	0.0869	0.0895	0.0931
-						-2	0.1115	0.1126	0.1145	0.1175	0.1218	0.1283
-						0	0.1400	0.1418	0.1442	0.1482	0.1543	0.1635
-						2	0.1688	0.1710	0.1739	0.1790	0.1867	0.1985
-						4	0.1975	0.2002	0.2037	0.2096	0.2187	0.2331
-						6	0.2261	0.2293	0.2331	0.2418	0.2545	0.2730
-						8	0.2597	0.2638	0.2718	0.2796	0.2911	0.3088
-						10	0.2981	0.3023	0.3078	0.3137	0.3232	0.3391
-						12	0.3323	0.3362	0.3379	0.3428	0.3516	0.3586
-						14	0.3621	0.3661	0.3668	0.3620	0.3514	0.3640
-						16	0.3874	0.3897	0.3716	0.3722	0.3874	0.3954
-						18	0.3898	0.3973	0.4196	0.4285	0.4104	0.3939
-						20	0.4852	0.4866	0.4772	0.4172	0.3838	0.3635
-						22	0.5211	0.5103	0.4321	0.3663	0.3453	0.3495
-						24	0.4267	0.4082	0.3548	0.3411	0.3042	0.3404
-</tableData>
+						-10	-0.0160	-0.0173	-0.0196	-0.0236	-0.0291	-0.0368
+						-8	0.0107	0.0100	0.0086	0.0062	0.0028	-0.0018
+						-6	0.0375	0.0373	0.0370	0.0362	0.0352	0.0338
+						-4	0.0645	0.0649	0.0655	0.0663	0.0676	0.0696
+						-2	0.0925	0.0934	0.0948	0.0971	0.1005	0.1055
+						0	0.1208	0.1223	0.1244	0.1280	0.1334	0.1414
+						2	0.1492	0.1512	0.1539	0.1587	0.1660	0.1768
+						4	0.1774	0.1798	0.1831	0.1890	0.1981	0.2116
+						6	0.2053	0.2081	0.2127	0.2207	0.2324	0.2492
+						8	0.2405	0.2442	0.2496	0.2575	0.2694	0.2871
+						10	0.2761	0.2799	0.2838	0.2909	0.3023	0.3199
+						12	0.3071	0.3106	0.3131	0.3198	0.3308	0.3446
+						14	0.3362	0.3398	0.3319	0.3266	0.3249	0.3413
+						16	0.3347	0.3353	0.3409	0.3498	0.3596	0.3710
+						18	0.3877	0.3907	0.3872	0.3772	0.3750	0.3757
+						20	0.4022	0.4124	0.3815	0.3623	0.3463	0.3483
+						22	0.3891	0.3683	0.3337	0.3217	0.3238	0.3372
+						24	0.3418	0.3300	0.3046	0.2794	0.3018	0.3298
+					</tableData>
 				</table>
 			</product>
 		</function>
-
+		
 		<function name="aero/moment/Roll_aileron">
 			<description>Roll_moment_due_to_aileron</description>
 			<product>
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/bw-ft</property>
-				<property>fcs/aileron-pos-rad</property>
-				<table name="aero/derivative/ClAileron">
-					<independentVar lookup="row">velocities/mach</independentVar>
+				<table name="aero/coefficient/Cl_Aileron">
+					<independentVar>fcs/aileron-pos-deg</independentVar>
 					<tableData>
-						0.0    0.100
-						2.0    0.033
-</tableData>
+						-25	-0.03389
+						-20	-0.03302
+						-15	-0.02801
+						-10	-0.01909
+						-5	-0.00955
+						0	0.00000
+						5	0.00955
+						10	0.01909
+						15	0.02801
+						20	0.03302
+						25	0.03389
+					</tableData>
 				</table>
 			</product>
 		</function>
-
-		<function name="aero/moment/Roll_rudder">
-			<description>Roll_moment_due_to_rudder (DATCOM does not calculate)</description>
+		<!-- fcs/aileron-right-deg, fcs/aileron-left-deg -->
+		<!--<function name="aero/moment/Roll_right_aileron">
+			<description>Roll_moment_due_to_right_aileron</description>
 			<product>
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/bw-ft</property>
-				<property>fcs/rudder-pos-rad</property>
-				<value>0.008</value>
+				<table name="aero/coefficient/ClRightAileron">
+					<independentVar lookup="column">fcs/aileron-right-deg</independentVar>
+					<independentVar lookup="row">aero/alpha-deg</independentVar>
+					<tableData>
+						-25			-20			-10			0		10			20			25
+					-10	-0.03044	-0.02539	-0.01342	0.0		0.01322		0.0249		0.0297
+					-8	-0.03029	-0.02528	-0.01339	0.0		0.01329		0.02508		0.02998
+					-6	-0.03007	-0.02515	-0.01332	0.0		0.01334		0.02524		0.03021
+					-4	-0.02983	-0.02495	-0.01325	0.0		0.01337		0.02539		0.03042
+					-2	-0.02947	-0.02465	-0.01316	0.0		0.01339		0.02549		0.0306
+					0	-0.02904	-0.02436	-0.01306	0.0		0.01338		0.02557		0.03072
+					2	-0.02862	-0.02406	-0.01295	0.0		0.01335		0.02559		0.03078
+					4	-0.02819	-0.02371	-0.01282	0.0		0.01329		0.02554		0.03077
+					6	-0.0277		-0.02336	-0.01267	0.0		0.01322		0.02548		0.03073
+					8	-0.02722	-0.02297	-0.01251	0.0		0.01313		0.02537		0.03063
+					10	-0.02669	-0.02258	-0.01232	0.0		0.01301		0.0252		0.03046
+					12	-0.02614	-0.02213	-0.01214	0.0		0.01287		0.02501		0.03026
+					14	-0.02553	-0.02165	-0.01192	0.0		0.01271		0.02477		0.03001
+					16	-0.02493	-0.02115	-0.01172	0.0		0.01249		0.02448		0.02971
+					</tableData>
+				</table>
 			</product>
 		</function>
-
+		<function name="aero/moment/Roll_left_aileron">
+			<description>Roll_moment_due_to_left_aileron</description>
+			<product>
+				<property>aero/qbar-psf</property>
+				<property>metrics/Sw-sqft</property>
+				<property>metrics/bw-ft</property>
+				<table name="aero/coefficient/ClLeftAileron">
+					<independentVar lookup="column">fcs/aileron-left-deg</independentVar>
+					<independentVar lookup="row">aero/alpha-deg</independentVar>
+					<tableData>
+						-25		-20		-10		0		10			20			25
+					-10	0.03044	0.02539	0.01342	0.0		-0.01322	-0.0249		-0.0297
+					-8	0.03029	0.02528	0.01339	0.0		-0.01329	-0.02508	-0.02998
+					-6	0.03007	0.02515	0.01332	0.0		-0.01334	-0.02524	-0.03021
+					-4	0.02983	0.02495	0.01325	0.0		-0.01337	-0.02539	-0.03042
+					-2	0.02947	0.02465	0.01316	0.0		-0.01339	-0.02549	-0.0306
+					0	0.02904	0.02436	0.01306	0.0		-0.01338	-0.02557	-0.03072
+					2	0.02862	0.02406	0.01295	0.0		-0.01335	-0.02559	-0.03078
+					4	0.02819	0.02371	0.01282	0.0		-0.01329	-0.02554	-0.03077
+					6	0.0277	0.02336	0.01267	0.0		-0.01322	-0.02548	-0.03073
+					8	0.02722	0.02297	0.01251	0.0		-0.01313	-0.02537	-0.03063
+					10	0.02669	0.02258	0.01232	0.0		-0.01301	-0.0252		-0.03046
+					12	0.02614	0.02213	0.01214	0.0		-0.01287	-0.02501	-0.03026
+					14	0.02553	0.02165	0.01192	0.0		-0.01271	-0.02477	-0.03001
+					16	0.02493	0.02115	0.01172	0.0		-0.01249	-0.02448	-0.02971
+					</tableData>
+				</table>
+			</product>
+		</function>  -->
+		<!--Roll moment  due to spoiler from CP1199 - Roll Moment Coef. Cl at 50º spoiler = -0.042 -->
+		<function name="aero/moment/Roll_right_spoiler">
+			<description>Roll_moment_due_to_right_spoiler</description>
+			<product>
+				<property>aero/qbar-psf</property>
+				<property>metrics/Sw-sqft</property>
+				<property>metrics/bw-ft</property>
+				<product name="aero/coefficient/Cl_SpoilerRight">
+					<property>fcs/spoiler-right-pos-deg</property>
+					<value>0.00084</value>
+				</product>
+			</product>
+		</function>
+		<function name="aero/moment/Roll_left_spoiler">
+			<description>Roll_moment_due_to_left_spoiler</description>
+			<product>
+				<property>aero/qbar-psf</property>
+				<property>metrics/Sw-sqft</property>
+				<property>metrics/bw-ft</property>
+				<product name="aero/coefficient/Cl_SpoilerLeft">
+					<property>fcs/spoiler-left-pos-deg</property>
+					<value>-0.00084</value>
+				</product>
+			</product>
+		</function>
+		<function name="aero/moment/Roll_rudder">
+			<description>Roll_moment_due_to_rudder</description>
+			<product>
+				<property>aero/qbar-psf</property>
+				<property>metrics/Sw-sqft</property>
+				<property>metrics/bw-ft</property>
+				<table name="aero/coefficient/Cl_Rudder">
+					<independentVar lookup="column">fcs/rudder-pos-deg</independentVar>
+					<independentVar lookup="row">aero/alpha-deg</independentVar>
+					<tableData>
+								-30			-20			-10			0	10		20		30
+						-10		-0.0112		-0.00852	-0.0045		0	0.0045	0.00852	0.0112
+						0		-0.0075		-0.00557	-0.00308	0	0.00308	0.00557	0.0075
+						16		-0.00381	-0.00252	-0.0013		0	0.0013	0.00252	0.00381
+					</tableData>
+				</table>
+			</product>
+		</function>
 	</axis>
-	<axis name="YAW"><!-- ########################################################### -->
-
+	
+	<axis name="YAW">
+		<!-- ########################################################### -->
 		<function name="aero/moment/Yaw_sideslip">
 			<description>Yaw_moment_due_to_beta</description>
 			<product>
@@ -1283,33 +1048,42 @@ AERODYNAMICS
 				<property>metrics/bw-ft</property>
 				<property>aero/beta-rad</property>
 				<table name="aero/derivative/CNb">
-					<independentVar lookup="row">aero/alpha-deg</independentVar>
-					<independentVar lookup="column">velocities/mach</independentVar>
+					<!--<independentVar lookup="row">aero/alpha-deg</independentVar>
 					<tableData>
-						0.1	0.2	0.3	0.4	0.5	0.6
-						-10	0.0472	0.0414	0.0385	0.0372	0.0367	0.0371
-						-8	0.0498	0.0440	0.0412	0.0399	0.0397	0.0403
-						-6	0.0509	0.0451	0.0423	0.0411	0.0409	0.0417
-						-4	0.0504	0.0446	0.0419	0.0407	0.0405	0.0414
-						-2	0.0486	0.0427	0.0400	0.0387	0.0386	0.0394
-						0	0.0452	0.0394	0.0366	0.0352	0.0350	0.0357
-						2	0.0403	0.0344	0.0316	0.0302	0.0298	0.0303
-						4	0.0339	0.0279	0.0250	0.0235	0.0229	0.0231
-						6	0.0257	0.0197	0.0167	0.0151	0.0143	0.0142
-						8	0.0159	0.0098	0.0068	0.0053	0.0046	0.0044
-						10	0.0050	-0.0011	-0.0038	-0.0050	-0.0055	-0.0057
-						12	-0.0061	-0.0123	-0.0144	-0.0153	-0.0154	-0.0155
-						14	-0.0169	-0.0230	-0.0245	-0.0247	-0.0242	-0.0247
-						16	-0.0266	-0.0327	-0.0332	-0.0334	-0.0339	-0.0340
-						18	-0.0349	-0.0411	-0.0421	-0.0413	-0.0396	-0.0400
-						20	-0.0430	-0.0486	-0.0456	-0.0430	-0.0435	-0.0460
-						22	-0.0406	-0.0462	-0.0445	-0.0451	-0.0475	-0.0529
-						24	-0.0363	-0.0426	-0.0440	-0.0476	-0.0527	-0.0596
-</tableData>
+						-10		0.0467
+						-5		0.0282
+						0		0.0094
+						5		0.0034
+						10		-0.0066
+						15		-0.0234
+						20		-0.0307
+					</tableData> -->
+					<independentVar lookup="column">velocities/mach</independentVar>
+					<independentVar lookup="row">aero/alpha-deg</independentVar>
+					<tableData>
+							0.1	0.2	0.3	0.4	0.5	0.6
+						-10	0.0448	0.0390	0.0362	0.0347	0.0342	0.0345
+						-8	0.0481	0.0423	0.0394	0.0381	0.0378	0.0383
+						-6	0.0497	0.0439	0.0411	0.0398	0.0396	0.0403
+						-4	0.0498	0.0440	0.0412	0.0400	0.0398	0.0406
+						-2	0.0483	0.0425	0.0397	0.0385	0.0383	0.0391
+						0	0.0453	0.0395	0.0367	0.0354	0.0351	0.0358
+						2	0.0408	0.0349	0.0321	0.0307	0.0303	0.0308
+						4	0.0348	0.0288	0.0259	0.0244	0.0238	0.0240
+						6	0.0271	0.0211	0.0181	0.0165	0.0157	0.0156
+						8	0.0179	0.0118	0.0089	0.0072	0.0064	0.0060
+						10	0.0079	0.0018	-0.0009	-0.0024	-0.0033	-0.0040
+						12	-0.0020	-0.0081	-0.0105	-0.0119	-0.0127	-0.0135
+						14	-0.0114	-0.0175	-0.0194	-0.0203	-0.0209	-0.0221
+						16	-0.0194	-0.0254	-0.0275	-0.0290	-0.0304	-0.0317
+						18	-0.0281	-0.0343	-0.0349	-0.0353	-0.0361	-0.0380
+						20	-0.0309	-0.0369	-0.0374	-0.0391	-0.0411	-0.0443
+						22	-0.0313	-0.0377	-0.0400	-0.0427	-0.0465	-0.0515
+						24	-0.0319	-0.0388	-0.0435	-0.0478	-0.0525	-0.0585
+					</tableData>
 				</table>
 			</product>
 		</function>
-
 		<function name="aero/moment/Yaw_rollrate">
 			<description>Yaw_moment_due_to_roll_rate</description>
 			<product>
@@ -1320,32 +1094,43 @@ AERODYNAMICS
 				<property>velocities/p-aero-rad_sec</property>
 				<table name="aero/derivative/CNp">
 					<independentVar lookup="row">aero/alpha-deg</independentVar>
-					<independentVar lookup="column">velocities/mach</independentVar>
 					<tableData>
-						0.1	0.2	0.3	0.4	0.5	0.6
-						-10	0.1059	0.1063	0.1065	0.1071	0.1080	0.1092
-						-8	0.0748	0.0751	0.0756	0.0764	0.0775	0.0788
-						-6	0.0458	0.0460	0.0465	0.0472	0.0482	0.0493
-						-4	0.0191	0.0192	0.0195	0.0198	0.0204	0.0209
-						-2	-0.0077	-0.0077	-0.0077	-0.0076	-0.0075	-0.0075
-						0	-0.0359	-0.0360	-0.0360	-0.0361	-0.0362	-0.0365
-						2	-0.0653	-0.0654	-0.0654	-0.0654	-0.0656	-0.0658
-						4	-0.0956	-0.0958	-0.0955	-0.0953	-0.0953	-0.0954
-						6	-0.1267	-0.1269	-0.1262	-0.1250	-0.1238	-0.1228
-						8	-0.1560	-0.1561	-0.1530	-0.1486	-0.1438	-0.1394
-						10	-0.1760	-0.1756	-0.1675	-0.1607	-0.1538	-0.1476
-						12	-0.1854	-0.1849	-0.1749	-0.1645	-0.1533	-0.1489
-						14	-0.1862	-0.1854	-0.1705	-0.1610	-0.1577	-0.1535
-						16	-0.1762	-0.1760	-0.1681	-0.1566	-0.1453	-0.1380
-						18	-0.1705	-0.1670	-0.1355	-0.1065	-0.0981	-0.1160
-						20	-0.0756	-0.0647	-0.1217	-0.0305	-0.0935	-0.1328
-						22	0.0081	-0.0013	-0.0425	-0.0725	-0.1071	-0.1402
-						24	0.0052	-0.0143	-0.0521	-0.0681	-0.1378	-0.1444
+						<!--					-10	0.1562
+						-8	0.1209
+						-6	0.0849
+						-4	0.0500
+						-2	0.0138
+						0	-0.0220
+						2	-0.0568
+						4	-0.0921
+						6	-0.1265
+						8	-0.1613
+						10	-0.1952
+						12	-0.2301
+						14	-0.2639
+						16	-0.2972 -->
+						-10	0.1170
+						-8	0.0864
+						-6	0.0564
+						-4	0.0274
+						-2 -0.0013
+						0  -0.0304
+						2	-0.0598
+						4	-0.0895
+						6	-0.1189
+						8	-0.1425
+						10	-0.1532
+						12	-0.1555
+						14	-0.1509
+						16	-0.1469
+						18	-0.1057
+						20	-0.0588
+						22	-0.0827
+						24	-0.0926
 					</tableData>
 				</table>
 			</product>
 		</function>
-
 		<function name="aero/moment/Yaw_yawrate">
 			<description>Yaw_moment_due_to_yaw_rate</description>
 			<product>
@@ -1356,56 +1141,179 @@ AERODYNAMICS
 				<property>velocities/r-aero-rad_sec</property>
 				<table name="aero/derivative/CNr">
 					<independentVar lookup="row">aero/alpha-deg</independentVar>
-					<independentVar lookup="column">velocities/mach</independentVar>
 					<tableData>
-						0.1	0.2	0.3	0.4	0.5	0.6
-						-10	-0.0816	-0.0815	-0.0815	-0.0818	-0.0821	-0.0824
-						-8	-0.0824	-0.0823	-0.0826	-0.0832	-0.0839	-0.0849
-						-6	-0.0830	-0.0830	-0.0834	-0.0842	-0.0852	-0.0866
-						-4	-0.0834	-0.0834	-0.0839	-0.0847	-0.0859	-0.0876
-						-2	-0.0835	-0.0835	-0.0840	-0.0848	-0.0860	-0.0877
-						0	-0.0831	-0.0831	-0.0836	-0.0843	-0.0854	-0.0869
-						2	-0.0824	-0.0823	-0.0826	-0.0832	-0.0841	-0.0852
-						4	-0.0812	-0.0811	-0.0813	-0.0816	-0.0821	-0.0827
-						6	-0.0798	-0.0795	-0.0795	-0.0794	-0.0793	-0.0791
-						8	-0.0777	-0.0773	-0.0767	-0.0760	-0.0751	-0.0739
-						10	-0.0740	-0.0733	-0.0720	-0.0708	-0.0692	-0.0672
-						12	-0.0684	-0.0675	-0.0658	-0.0638	-0.0614	-0.0594
-						14	-0.0608	-0.0597	-0.0571	-0.0557	-0.0554	-0.0525
-						16	-0.0507	-0.0497	-0.0499	-0.0474	-0.0430	-0.0395
-						18	-0.0425	-0.0403	-0.0316	-0.0248	-0.0250	-0.0288
-						20	-0.0012	0.0031	-0.0268	0.0007	-0.0203	-0.0285
-						22	0.0243	0.0210	-0.0012	-0.0126	-0.0225	-0.0252
-						24	0.0170	0.0104	-0.0076	-0.0096	-0.0313	-0.0208
+						<!--   -10	-0.1111
+						0	-0.0779
+						16	-0.0600 -->
+						-10	-0.0795
+						-8	-0.0810
+						-6	-0.0821
+						-4	-0.0828
+						-2	-0.0831
+						0	-0.0828
+						2	-0.0821
+						4	-0.0809
+						6	-0.0791
+						8	-0.0763
+						10	-0.0715
+						12	-0.0650
+						14	-0.0576
+						16	-0.0501
 					</tableData>
 				</table>
 			</product>
 		</function>
-
-
-		<function name="aero/moment/Yaw_rudder">
-			<description>Yaw_moment_due_to_rudder (DATCOM does not calculate)</description>
-			<product>
-				<property>aero/qbar-psf</property>
-				<property>metrics/Sw-sqft</property>
-				<property>metrics/bw-ft</property>
-				<property>fcs/rudder-pos-rad</property>
-				<value>-0.04</value>
-			</product>
-		</function>
-
 		<function name="aero/moment/Yaw_aileron">
 			<description>Yaw_moment_due_to_aileron</description>
 			<product>
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/bw-ft</property>
-				<property>fcs/aileron-pos-rad</property>
-				<value>0</value>
+				<table name="aero/coefficient/Cn_Aileron">
+					<independentVar lookup="column">fcs/aileron-pos-deg</independentVar>
+					<independentVar lookup="row">aero/alpha-deg</independentVar>
+					<tableData>
+						<!--	-25			-20			-10			0		10			20			25
+					-10	0.00622		0.00505		0.00250		0.0	-0.00208	-0.00365	-0.00420
+					-8	0.00547		0.00443		0.00217		0.0	-0.00181	-0.00312	-0.00358	
+					-6	0.00473		0.00383		0.00185		0.0	-0.00153	-0.00256	-0.00292	
+					-4	0.00406		0.00327		0.00153		0.0	-0.00124	-0.00203	-0.00227
+					-2	0.00327		0.00260		0.00122		0.0	-0.00094	-0.00145	-0.00159
+					0	0.00255		0.00201		0.00091		0.0	-0.00063	-0.00088	-0.00089
+					2	0.00185		0.00144		0.00061		0.0	-0.00032	-0.00028	-0.00017
+					4	0.00118		0.00088		0.00032		0.0	0.00000		0.00032		0.00056
+					6	0.00052		0.00033		0.00003		0.0	0.00031		0.00092		0.00127
+					8	-0.00011	-0.00020	-0.00025	0.0	0.00063		0.00151		0.00201
+					10	-0.00075	-0.00074	-0.00052	0.0	0.00095		0.00216		0.00279
+					12	-0.00135	-0.00124	-0.00081	0.0	0.00129		0.00280		0.00355
+					14	-0.00192	-0.00171	-0.00105	0.0	0.00162		0.00343		0.00430
+					16	-0.00242	-0.00214	-0.00126	0.0	0.00194		0.00403		0.00505 -->
+							-25			-20			-15			-10			-5			0		5			10			15			20			25
+					-10	0.00213		0.00200		0.00170		0.00116		0.00058		0.00000		-0.00058	-0.00116	-0.00170	-0.00200	-0.00213
+					-8	0.00135		0.00127		0.00108		0.00073		0.00037		0.00000		-0.00037	-0.00073	-0.00108	-0.00127	-0.00135
+					-6	0.00058		0.00054		0.00046		0.00031		0.00016		0.00000		-0.00016	-0.00031	-0.00046	-0.00054	-0.00058
+					-4	-0.00018	-0.00017	-0.00015	-0.00010	-0.00005	0.00000		0.00005		0.00010		0.00015		0.00017		0.00018
+					-2	-0.00095	-0.00090	-0.00076	-0.00052	-0.00026	0.00000		0.00026		0.00052		0.00076		0.00090		0.00095
+					0	-0.00173	-0.00163	-0.00138	-0.00094	-0.00047	0.00000		0.00047		0.00094		0.00138		0.00163		0.00173
+					2	-0.00251	-0.00236	-0.00200	-0.00137	-0.00068	0.00000		0.00068		0.00137		0.00200		0.00236		0.00251
+					4	-0.00329	-0.00309	-0.00262	-0.00179	-0.00089	0.00000		0.00089		0.00179		0.00262		0.00309		0.00329
+					6	-0.00406	-0.00381	-0.00323	-0.00220	-0.00110	0.00000		0.00110		0.00220		0.00323		0.00381		0.00406
+					8	-0.00478	-0.00449	-0.00381	-0.00260	-0.00130	0.00000		0.00130		0.00260		0.00381		0.00449		0.00478
+					10	-0.00526	-0.00494	-0.00419	-0.00286	-0.00143	0.00000		0.00143		0.00286		0.00419		0.00494		0.00526
+					12	-0.00557	-0.00523	-0.00443	-0.00302	-0.00151	0.00000		0.00151		0.00302		0.00443		0.00523		0.00557
+					14	-0.00567	-0.00533	-0.00452	-0.00308	-0.00154	0.00000		0.00154		0.00308		0.00452		0.00533		0.00567
+					16	-0.00571	-0.00536	-0.00455	-0.00310	-0.00155	0.00000		0.00155		0.00310		0.00455		0.00536		0.00571
+					18	-0.00565	-0.00531	-0.00450	-0.00307	-0.00153	0.00000		0.00153		0.00307		0.00450		0.00531		0.00565
+					20	-0.00507	-0.00476	-0.00404	-0.00275	-0.00138	0.00000		0.00138		0.00275		0.00404		0.00476		0.00507
+					22	-0.00475	-0.00447	-0.00379	-0.00258	-0.00129	0.00000		0.00129		0.00258		0.00379		0.00447		0.00475
+					24	-0.00452	-0.00425	-0.00360	-0.00245	-0.00123	0.00000		0.00123		0.00245		0.00360		0.00425		0.00452
+					</tableData>
+				</table>
+			</product>
+		</function>
+		<!--<function name="aero/moment/Yaw_right_aileron">
+			<description>Yaw_moment_due_to_right_aileron</description>
+			<product>
+				<property>aero/qbar-psf</property>
+				<property>metrics/Sw-sqft</property>
+				<property>metrics/bw-ft</property>
+				<table name="aero/moment/CnRightAileron">
+					<independentVar lookup="column">fcs/aileron-right-deg</independentVar>
+					<independentVar lookup="row">aero/alpha-deg</independentVar>
+					<tableData>
+						-25			-20			-10			0		10			20			25
+					-10	0.00622		0.00505		0.00250		0.0	-0.00208	-0.00365	-0.00420
+					-8	0.00547		0.00443		0.00217		0.0	-0.00181	-0.00312	-0.00358	
+					-6	0.00473		0.00383		0.00185		0.0	-0.00153	-0.00256	-0.00292	
+					-4	0.00406		0.00327		0.00153		0.0	-0.00124	-0.00203	-0.00227
+					-2	0.00327		0.00260		0.00122		0.0	-0.00094	-0.00145	-0.00159
+					0	0.00255		0.00201		0.00091		0.0	-0.00063	-0.00088	-0.00089
+					2	0.00185		0.00144		0.00061		0.0	-0.00032	-0.00028	-0.00017
+					4	0.00118		0.00088		0.00032		0.0	0.00000		0.00032		0.00056
+					6	0.00052		0.00033		0.00003		0.0	0.00031		0.00092		0.00127
+					8	-0.00011	-0.00020	-0.00025	0.0	0.00063		0.00151		0.00201
+					10	-0.00075	-0.00074	-0.00052	0.0	0.00095		0.00216		0.00279
+					12	-0.00135	-0.00124	-0.00081	0.0	0.00129		0.00280		0.00355
+					14	-0.00192	-0.00171	-0.00105	0.0	0.00162		0.00343		0.00430
+					16	-0.00242	-0.00214	-0.00126	0.0	0.00194		0.00403		0.00505
+					</tableData>
+				</table>
+			</product>
+		</function>
+		<function name="aero/moment/Yaw_left_aileron">
+			<description>Yaw_moment_due_to_left_aileron</description>
+			<product>
+				<property>aero/qbar-psf</property>
+				<property>metrics/Sw-sqft</property>
+				<property>metrics/bw-ft</property>
+				<table name="aero/moment/CnLeftAileron">
+					<independentVar lookup="column">fcs/aileron-left-deg</independentVar>
+					<independentVar lookup="row">aero/alpha-deg</independentVar>
+					<tableData>
+						-25			-20			-10			0	10			20			25				
+					-10	-0.00622	-0.00505	-0.00250	0.0		0.00208		0.00365		0.00420
+					-8	-0.00547	-0.00443	-0.00217	0.0		0.00181		0.00312		0.00358
+					-6	-0.00473	-0.00383	-0.00185	0.0		0.00153		0.00256		0.00292
+					-4	-0.00406	-0.00327	-0.00153	0.0		0.00124		0.00203		0.00227
+					-2	-0.00327	-0.00260	-0.00122	0.0		0.00094		0.00145		0.00159
+					0	-0.00255	-0.00201	-0.00091	0.0		0.00063		0.00088		0.00089
+					2	-0.00185	-0.00144	-0.00061	0.0		0.00032		0.00028		0.00017
+					4	-0.00118	-0.00088	-0.00032	0.0		0.00000		-0.00032	-0.00056
+					6	-0.00052	-0.00033	-0.00003	0.0		-0.00031	-0.00092	-0.00127
+					8	0.00011		0.00020		0.00025		-0.0	-0.00063	-0.00151	-0.00201
+					10	0.00075		0.00074		0.00052		-0.0	-0.00095	-0.00216	-0.00279
+					12	0.00135		0.00124		0.00081		-0.		-0.00129	-0.00280	-0.00355
+					14	0.00192		0.00171		0.00105		-0.0	-0.00162	-0.00343	-0.00430
+					16	0.00242		0.00214		0.00126		-0.0	-0.00194	-0.00403	-0.00505
+					</tableData>
+				</table>
+			</product>
+		</function> -->
+		<!--Yaw due to spoiler from CP1199 
+     Cn at 50º spoiler = -0.004 -->
+		<function name="aero/moment/Yaw_right_spoiler">
+			<description>Yaw_moment_due_to_right_spoiler</description>
+			<product>
+				<property>aero/qbar-psf</property>
+				<property>metrics/Sw-sqft</property>
+				<property>metrics/bw-ft</property>
+				<product name="aero/coefficient/Cn_SpoilerRight">
+					<property>fcs/spoiler-right-pos-deg</property>
+					<value>0.00008</value>
+				</product>
 			</product>
 		</function>
 
+		<function name="aero/moment/Yaw_left_spoiler">
+			<description>Yaw_moment_due_to_left_spoiler</description>
+			<product>
+				<property>aero/qbar-psf</property>
+				<property>metrics/Sw-sqft</property>
+				<property>metrics/bw-ft</property>
+				<product name="aero/coefficient/Cn_SpoilerLeft">
+					<property>fcs/spoiler-left-pos-deg</property>
+					<value>-0.00008</value>
+				</product>
+			</product>
+		</function>
+		<function name="aero/moment/Yaw_rudder">
+			<description>Yaw_moment_due_to_rudder</description>
+			<product>
+				<property>aero/qbar-psf</property>
+				<property>metrics/Sw-sqft</property>
+				<property>metrics/bw-ft</property>
+				<table name="aero/coefficient/Cn_Rudder">
+					<independentVar lookup="column">fcs/rudder-pos-deg</independentVar>
+					<independentVar lookup="row">aero/alpha-deg</independentVar>
+					<tableData>
+						-30		-20		-10		0	10			20			30
+					-10	0.0301	0.02281	0.01201	0	-0.01201	-0.02281	-0.0301
+					0	0.02112	0.01542	0.0085	0	-0.0085		-0.01542	-0.02112
+					16	0.01132	0.00768	0.004	0	-0.004		-0.00768	-0.01132
+					</tableData>
+				</table>
+			</product>
+		</function>
 	</axis>
-
 </aerodynamics>
 

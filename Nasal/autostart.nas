@@ -46,19 +46,19 @@ var startup = func
 		setprop("controls/engines/engine[1]/cutoff", 1);
 		setprop("controls/engines/engine[2]/cutoff", 1);
 		setprop("controls/engines/engine[3]/cutoff", 1);
-	 	setprop("VC10/generator/gen-bus-tie[0]", 0);
-		setprop("VC10/generator/gen-bus-tie[1]", 0);
-		setprop("VC10/generator/gen-bus-tie[2]", 0);
-		setprop("VC10/generator/gen-bus-tie[3]", 0);
-	 	toggle_switch2();
+	 	setprop("VC10/electric/ac/generator/gen-bus-tie[0]", 0);
+		setprop("VC10/electric/ac/generator/gen-bus-tie[1]", 0);
+		setprop("VC10/electric/ac/generator/gen-bus-tie[2]", 0);
+		setprop("VC10/electric/ac/generator/gen-bus-tie[3]", 0);
+	 	click_switch2();
 	 	
 	 	t += 1.0;
 	 	
 		# External Power Unit / see green lights
 	 	settimer( func{
 	 	  if(step == 1 and auto_procedure.getValue()){
-		 		setprop("VC10/external-power-connected", 1);
-				toggle_switch3();
+		 		setprop("VC10/electric/external-power-connected", 1);
+				click_switch3();
 				step = 2;
 			}else{
 				step = 0;
@@ -69,8 +69,8 @@ var startup = func
 	 	# Battery
 	 	settimer( func{
 			if(step == 2 and auto_procedure.getValue()){
-				setprop("VC10/batt-cover", 1);
-				toggle_switch3();
+				setprop("VC10/electric/dc/batt-cover", 1);
+				click_switch3();
 				step = 3;
 			}else{
 				step = 0;
@@ -81,8 +81,8 @@ var startup = func
 		t += 0.5;
 	 	settimer( func{
 			if(step == 3 and auto_procedure.getValue()){
-		 		setprop("VC10/battery-switch", 1);
-				toggle_switch3();
+		 		setprop("VC10/electric/dc/battery-switch", 1);
+				click_switch3();
 				step = 4;
 			}else{
 				step = 0;
@@ -91,10 +91,10 @@ var startup = func
 		}, t); t += 0.5;
 	 	settimer( func{
 			if(step == 4 and auto_procedure.getValue()){
-				setprop("VC10/batt-cover", 0);
+				setprop("VC10/electric/dc/batt-cover", 0);
 				setprop("VC10/apu/off-start-run", 0);
-				setprop("VC10/generator/gen-drive[4]", 0);
-				toggle_switch3();
+				setprop("VC10/electric/ac/generator/gen-drive[4]", 0);
+				click_switch3();
 				step = 4;
 			}else{
 				step = 0;
@@ -105,114 +105,114 @@ var startup = func
 		# Volt-Loads-Selector
 	 	settimer( func{
 		 	if(step == 4 and auto_procedure.getValue()) {
-		 		setprop("VC10/load-volt-selector", 1);
-				toggle_switch3();
+		 		setprop("VC10/electric/load-volt-selector", 1);
+				click_switch3();
 			}
 		}, t); t += 0.2;
 	 	settimer( func{
 		 	if(step == 4 and auto_procedure.getValue()) {
-		 		setprop("VC10/load-volt-selector", 2);
-				toggle_switch3();
+		 		setprop("VC10/electric/load-volt-selector", 2);
+				click_switch3();
 			}
 		}, t); t += 0.2;
 	 	settimer( func{
 		 	if(step == 4 and auto_procedure.getValue()) {
-		 		setprop("VC10/load-volt-selector", 3);
-				toggle_switch3();
+		 		setprop("VC10/electric/load-volt-selector", 3);
+				click_switch3();
 			}
 		}, t); t += 0.2;
 	 	settimer( func{
 		 	if(step == 4 and auto_procedure.getValue()) {
-		 		setprop("VC10/load-volt-selector", 4);
-				toggle_switch3();
+		 		setprop("VC10/electric/load-volt-selector", 4);
+				click_switch3();
 			}
 		}, t); t += 0.2;
 	 	settimer( func{
 		 	if(step == 4 and auto_procedure.getValue()) {
-		 		setprop("VC10/load-volt-selector", 5);
-				toggle_switch3();
+		 		setprop("VC10/electric/load-volt-selector", 5);
+				click_switch3();
 			}
 		}, t); t += 0.2;
 	 	settimer( func{
 		 	if(step == 4 and auto_procedure.getValue()){ 
-		 		setprop("VC10/load-volt-selector", 0);
-				toggle_switch3();
+		 		setprop("VC10/electric/load-volt-selector", 0);
+				click_switch3();
 			}
 		}, t); t += 0.2;
 	 	settimer( func{
 		 	if(step == 4 and auto_procedure.getValue()) {
-		 		setprop("VC10/load-volt-selector", 1);
-				toggle_switch3();
+		 		setprop("VC10/electric/load-volt-selector", 1);
+				click_switch3();
 			}
 		}, t); t += 0.5;
 	
 		# Essential-Power-Selector
 	 	settimer( func{
 		 	if(step == 4 and auto_procedure.getValue()) {
-		 		setprop("VC10/ess-power-switch", 1);
-				toggle_switch3();
+		 		setprop("VC10/electric/ess-power-switch", 1);
+				click_switch3();
 			}
 		}, t); t += 0.2;
 	 	settimer( func{
 		 	if(step == 4 and auto_procedure.getValue()) {
-		 		setprop("VC10/ess-power-switch", 2);
-				toggle_switch3();
+		 		setprop("VC10/electric/ess-power-switch", 2);
+				click_switch3();
 			}
 		}, t); t += 0.2;
 	 	settimer( func{
 		 	if(step == 4 and auto_procedure.getValue()) {
-		 		setprop("VC10/ess-power-switch", 3);
-				toggle_switch3();
+		 		setprop("VC10/electric/ess-power-switch", 3);
+				click_switch3();
 			}
 		}, t); t += 0.2;
 	 	settimer( func{
 		 	if(step == 4 and auto_procedure.getValue()) {
-		 		setprop("VC10/ess-power-switch", 4);
-				toggle_switch3();
+		 		setprop("VC10/electric/ess-power-switch", 4);
+				click_switch3();
 			}
 		}, t); t += 0.2;
 	 	settimer( func{
 		 	if(step == 4 and auto_procedure.getValue()) {
-		 		setprop("VC10/ess-power-switch", 5);
-				toggle_switch3();
+		 		setprop("VC10/electric/ess-power-switch", 5);
+				click_switch3();
 			}
 		}, t); t += 0.5;
 
 		# AC-Paralleling-Selector
 	 	settimer( func{
 		 	if(step == 4 and auto_procedure.getValue()) {
-		 		setprop("VC10/ac/ac-para-select", 1);
-				toggle_switch3();
+		 		setprop("VC10/electric/ac/ac-para-select", 1);
+				click_switch3();
 			}
 		}, t); t += 0.2;
 	 	settimer( func{
 		 	if(step == 4 and auto_procedure.getValue()) {
-		 		setprop("VC10/ac/ac-para-select", 2);
-				toggle_switch3();
+		 		setprop("VC10/electric/ac/ac-para-select", 2);
+				click_switch3();
 			}
 		}, t); t += 0.2;
 	 	settimer( func{
 		 	if(step == 4 and auto_procedure.getValue()) {
-		 		setprop("VC10/ac/ac-para-select", 3);
-				toggle_switch3();
+		 		setprop("VC10/electric/ac/ac-para-select", 3);
+				click_switch3();
 			}
 		}, t); t += 0.2;
 	 	settimer( func{
 		 	if(step == 4 and auto_procedure.getValue()) {
-		 		setprop("VC10/ac/ac-para-select", 4);
-				toggle_switch3();
+		 		setprop("VC10/electric/ac/ac-para-select", 4);
+				click_switch3();
 			}
 		}, t); t += 0.2;
 	 	settimer( func{
 		 	if(step == 4 and auto_procedure.getValue()) {
-		 		setprop("VC10/ac/ac-para-select", 5);
-				toggle_switch3();
+		 		setprop("VC10/electric/ac/ac-para-select", 5);
+				click_switch3();
 			}
 		}, t); t += 0.2;
 	 	settimer( func{
 		 	if(step == 4 and auto_procedure.getValue()) {
-		 		setprop("VC10/ac/ac-para-select", 6);
-				toggle_switch3();
+		 		setprop("VC10/electric/ac/ac-para-select", 6);
+				click_switch3();
 			}
 		}, t); t += 0.5;
 		
@@ -220,7 +220,7 @@ var startup = func
 		settimer( func{
 			if(step == 4 and auto_procedure.getValue()){
 				setprop("VC10/hydraulic/ac-aux-pump[0]", 1);
-				toggle_switch3();
+				click_switch3();
 			}else{
 				step = 0;
 				screen.log.write(" Auxilliary 1 Pump INOP - startup interrupted ", 1, 0, 0);
@@ -230,7 +230,7 @@ var startup = func
 		settimer( func{
 			if(step == 4 and auto_procedure.getValue()){
 				setprop("VC10/hydraulic/ac-aux-pump[1]", 1);
-				toggle_switch3();
+				click_switch3();
 			}else{
 				step = 0;
 				screen.log.write(" Auxilliary 2 Pump INOP - startup interrupted ", 1, 0, 0);
@@ -240,7 +240,7 @@ var startup = func
 		settimer( func{
 			if(step == 4 and auto_procedure.getValue()){
 				setprop("VC10/hydraulic/brake-valve", 2);
-				toggle_switch3();
+				click_switch3();
 			}else{
 				step = 0;
 				screen.log.write(" Auxilliary Connect Valve INOP - startup interrupted ", 1, 0, 0);
@@ -250,7 +250,7 @@ var startup = func
 		settimer( func{
 			if(step == 4 and auto_procedure.getValue()){
 				setprop("VC10/hydraulic/hyd-fluid-shutoff-cover[0]", 1);
-				toggle_switch3();
+				click_switch3();
 			}else{
 				step = 0;
 				screen.log.write(" Hydraulic Shutoff Cover INOP - startup interrupted ", 1, 0, 0);
@@ -260,7 +260,7 @@ var startup = func
 		settimer( func{
 			if(step == 4 and auto_procedure.getValue()){
 				setprop("VC10/hydraulic/hyd-fluid-shutoff-cover[1]", 1);
-				toggle_switch3();
+				click_switch3();
 			}else{
 				step = 0;
 				screen.log.write(" Hydraulic Shutoff Cover INOP - startup interrupted ", 1, 0, 0);
@@ -270,7 +270,7 @@ var startup = func
 		settimer( func{
 			if(step == 4 and auto_procedure.getValue()){
 				setprop("VC10/hydraulic/hyd-fluid-shutoff[0]", 1);
-				toggle_switch3();
+				click_switch3();
 			}else{
 				step = 0;
 				screen.log.write(" Hydraulic Shutoff INOP - startup interrupted ", 1, 0, 0);
@@ -280,7 +280,7 @@ var startup = func
 		settimer( func{
 			if(step == 4 and auto_procedure.getValue()){
 				setprop("VC10/hydraulic/hyd-fluid-shutoff[1]", 1);
-				toggle_switch3();
+				click_switch3();
 			}else{
 				step = 0;
 				screen.log.write(" Hydraulic Shutoff INOP - startup interrupted ", 1, 0, 0);
@@ -290,7 +290,7 @@ var startup = func
 		settimer( func{
 			if(step == 4 and auto_procedure.getValue()){
 				setprop("VC10/hydraulic/hyd-fluid-shutoff-cover[0]", 0);
-				toggle_switch3();
+				click_switch3();
 			}else{
 				step = 0;
 				screen.log.write(" Hydraulic Shutoff Cover INOP - startup interrupted ", 1, 0, 0);
@@ -300,7 +300,7 @@ var startup = func
 		settimer( func{
 			if(step == 4 and auto_procedure.getValue()){
 				setprop("VC10/hydraulic/hyd-fluid-shutoff-cover[1]", 0);
-				toggle_switch3();
+				click_switch3();
 			}else{
 				step = 0;
 				screen.log.write(" Hydraulic Shutoff Cover INOP - startup interrupted ", 1, 0, 0);
@@ -310,7 +310,7 @@ var startup = func
 		settimer( func{
 			if(step == 4 and auto_procedure.getValue()){
 				setprop("VC10/hydraulic/hyd-fluid-pump[0]", 1);
-				toggle_switch3();
+				click_switch3();
 			}else{
 				step = 0;
 				screen.log.write(" Hydraulic Pump for Engine 2 INOP - startup interrupted ", 1, 0, 0);
@@ -321,7 +321,7 @@ var startup = func
 			if(step == 4 and auto_procedure.getValue()){
 				setprop("VC10/hydraulic/hyd-fluid-pump[1]", 1);
 				step = 5;
-				toggle_switch3();
+				click_switch3();
 			}else{
 				step = 0;
 				screen.log.write(" Hydraulic Pump for Engine 3 INOP - startup interrupted ", 1, 0, 0);
@@ -331,74 +331,74 @@ var startup = func
 		# Gen Drive
 		settimer( func{
 		 	if(step == 5 and auto_procedure.getValue()) {
-				setprop("VC10/generator/gen-drive-cover[0]", 1);
-				toggle_switch3();
+				setprop("VC10/electric/ac/generator/gen-drive-cover[0]", 1);
+				click_switch3();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 		 	if(step == 5 and auto_procedure.getValue()) {
-				setprop("VC10/generator/gen-drive-cover[1]", 1);
-				toggle_switch3();
+				setprop("VC10/electric/ac/generator/gen-drive-cover[1]", 1);
+				click_switch3();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 		 	if(step == 5 and auto_procedure.getValue()) {
-				setprop("VC10/generator/gen-drive-cover[2]", 1);
-				toggle_switch3();
+				setprop("VC10/electric/ac/generator/gen-drive-cover[2]", 1);
+				click_switch3();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 		 	if(step == 5 and auto_procedure.getValue()) {
-				setprop("VC10/generator/gen-drive-cover[3]", 1);
-				toggle_switch3();
+				setprop("VC10/electric/ac/generator/gen-drive-cover[3]", 1);
+				click_switch3();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 		 	if(step == 5 and auto_procedure.getValue()) {
-				setprop("VC10/generator/gen-drive[3]", 1);
-				toggle_switch2();
+				setprop("VC10/electric/ac/generator/gen-drive[3]", 1);
+				click_switch2();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 		 	if(step == 5 and auto_procedure.getValue()) {
-				setprop("VC10/generator/gen-drive[2]", 1);
-				toggle_switch2();
+				setprop("VC10/electric/ac/generator/gen-drive[2]", 1);
+				click_switch2();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 		 	if(step == 5 and auto_procedure.getValue()) {
-				setprop("VC10/generator/gen-drive[1]", 1);
-				toggle_switch2();
+				setprop("VC10/electric/ac/generator/gen-drive[1]", 1);
+				click_switch2();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 		 	if(step == 5 and auto_procedure.getValue()) {
-				setprop("VC10/generator/gen-drive[0]", 1);
-				toggle_switch2();
+				setprop("VC10/electric/ac/generator/gen-drive[0]", 1);
+				click_switch2();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 		 	if(step == 5 and auto_procedure.getValue()) {
-				setprop("VC10/generator/gen-drive-cover[0]", 0);
-				toggle_switch3();
+				setprop("VC10/electric/ac/generator/gen-drive-cover[0]", 0);
+				click_switch3();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 		 	if(step == 5 and auto_procedure.getValue()) {
-				setprop("VC10/generator/gen-drive-cover[1]", 0);
-				toggle_switch3();
+				setprop("VC10/electric/ac/generator/gen-drive-cover[1]", 0);
+				click_switch3();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 		 	if(step == 5 and auto_procedure.getValue()) {
-				setprop("VC10/generator/gen-drive-cover[2]", 0);
-				toggle_switch3();
+				setprop("VC10/electric/ac/generator/gen-drive-cover[2]", 0);
+				click_switch3();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 		 	if(step == 5 and auto_procedure.getValue()) {
-				setprop("VC10/generator/gen-drive-cover[3]", 0);
-				toggle_switch3();
+				setprop("VC10/electric/ac/generator/gen-drive-cover[3]", 0);
+				click_switch3();
 				step = 6;
 			}
 		}, t); t += 0.8;
@@ -406,8 +406,8 @@ var startup = func
 		# external power to Power Bus Tie (sync bus)
 		settimer( func{
 		 	if(step == 6 and auto_procedure.getValue()) {
-				setprop("VC10/ground-connect", 1);
-				toggle_switch2();
+				setprop("VC10/electric/ground-connect", 1);
+				click_switch2();
 				screen.log.write("External Power Unit connected!", 1, 1, 1);
 			}else{
 				step = 0;
@@ -418,74 +418,74 @@ var startup = func
 		# Gen Control
 		settimer( func{
 		 	if(step == 6 and auto_procedure.getValue()) {
-				setprop("VC10/generator/gen-control-cover[0]", 1);
-				toggle_switch3();
+				setprop("VC10/electric/ac/generator/gen-control-cover[0]", 1);
+				click_switch3();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 		 	if(step == 6 and auto_procedure.getValue()) {
-				setprop("VC10/generator/gen-control-cover[1]", 1);
-				toggle_switch3();
+				setprop("VC10/electric/ac/generator/gen-control-cover[1]", 1);
+				click_switch3();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 		 	if(step == 6 and auto_procedure.getValue()) {
-				setprop("VC10/generator/gen-control-cover[2]", 1);
-				toggle_switch3();
+				setprop("VC10/electric/ac/generator/gen-control-cover[2]", 1);
+				click_switch3();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 		 	if(step == 6 and auto_procedure.getValue()) {
-				setprop("VC10/generator/gen-control-cover[3]", 1);
-				toggle_switch3();
+				setprop("VC10/electric/ac/generator/gen-control-cover[3]", 1);
+				click_switch3();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 		 	if(step == 6 and auto_procedure.getValue()) {
-				setprop("VC10/generator/gen-control[3]", 1);
-				toggle_switch2();
+				setprop("VC10/electric/ac/generator/gen-control[3]", 1);
+				click_switch2();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 		 	if(step == 6 and auto_procedure.getValue()) {
-				setprop("VC10/generator/gen-control[2]", 1);
-				toggle_switch2();
+				setprop("VC10/electric/ac/generator/gen-control[2]", 1);
+				click_switch2();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 		 	if(step == 6 and auto_procedure.getValue()) {
-				setprop("VC10/generator/gen-control[1]", 1);
-				toggle_switch2();
+				setprop("VC10/electric/ac/generator/gen-control[1]", 1);
+				click_switch2();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 		 	if(step == 6 and auto_procedure.getValue()) {
-				setprop("VC10/generator/gen-control[0]", 1);
-				toggle_switch2();
+				setprop("VC10/electric/ac/generator/gen-control[0]", 1);
+				click_switch2();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 		 	if(step == 6 and auto_procedure.getValue()) {
-				setprop("VC10/generator/gen-control-cover[0]", 0);
-				toggle_switch3();
+				setprop("VC10/electric/ac/generator/gen-control-cover[0]", 0);
+				click_switch3();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 		 	if(step == 6 and auto_procedure.getValue()) {
-				setprop("VC10/generator/gen-control-cover[1]", 0);
-				toggle_switch3();
+				setprop("VC10/electric/ac/generator/gen-control-cover[1]", 0);
+				click_switch3();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 		 	if(step == 6 and auto_procedure.getValue()) {
-				setprop("VC10/generator/gen-control-cover[2]", 0);
-				toggle_switch3();
+				setprop("VC10/electric/ac/generator/gen-control-cover[2]", 0);
+				click_switch3();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 		 	if(step == 6 and auto_procedure.getValue()) {
-				setprop("VC10/generator/gen-control-cover[3]", 0);
-				toggle_switch3();
+				setprop("VC10/electric/ac/generator/gen-control-cover[3]", 0);
+				click_switch3();
 			}
 		}, t); t += 0.2;
 		
@@ -493,100 +493,100 @@ var startup = func
 		# Gen bus-tie
 		settimer( func{
 		 	if(step == 6 and auto_procedure.getValue()) {
-				setprop("VC10/generator/gen-bus-tie-cover[0]", 1);
-				toggle_switch3();
+				setprop("VC10/electric/ac/generator/gen-bus-tie-cover[0]", 1);
+				click_switch3();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 		 	if(step == 6 and auto_procedure.getValue()) {
-				setprop("VC10/generator/gen-bus-tie-cover[1]", 1);
-				toggle_switch3();
+				setprop("VC10/electric/ac/generator/gen-bus-tie-cover[1]", 1);
+				click_switch3();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 		 	if(step == 6 and auto_procedure.getValue()) {
-				setprop("VC10/generator/gen-bus-tie-cover[2]", 1);
-				toggle_switch3();
+				setprop("VC10/electric/ac/generator/gen-bus-tie-cover[2]", 1);
+				click_switch3();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 		 	if(step == 6 and auto_procedure.getValue()) {
-				setprop("VC10/generator/gen-bus-tie-cover[3]", 1);
-				toggle_switch3();
+				setprop("VC10/electric/ac/generator/gen-bus-tie-cover[3]", 1);
+				click_switch3();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 		 	if(step == 6 and auto_procedure.getValue()) {
-				setprop("VC10/generator/gen-bus-tie[3]", 1);
-				toggle_switch2();
+				setprop("VC10/electric/ac/generator/gen-bus-tie[3]", 1);
+				click_switch2();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 		 	if(step == 6 and auto_procedure.getValue()) {
-				setprop("VC10/generator/gen-bus-tie[2]", 1);
-				toggle_switch2();
+				setprop("VC10/electric/ac/generator/gen-bus-tie[2]", 1);
+				click_switch2();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 		 	if(step == 6 and auto_procedure.getValue()) {
-				setprop("VC10/generator/gen-bus-tie[1]", 1);
-				toggle_switch2();
+				setprop("VC10/electric/ac/generator/gen-bus-tie[1]", 1);
+				click_switch2();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 		 	if(step == 6 and auto_procedure.getValue()) {
-				setprop("VC10/generator/gen-bus-tie[0]", 1);
-				toggle_switch2();
+				setprop("VC10/electric/ac/generator/gen-bus-tie[0]", 1);
+				click_switch2();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 		 	if(step == 6 and auto_procedure.getValue()) {
-				setprop("VC10/generator/gen-bus-tie-cover[0]", 0);
-				toggle_switch3();
+				setprop("VC10/electric/ac/generator/gen-bus-tie-cover[0]", 0);
+				click_switch3();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 		 	if(step == 6 and auto_procedure.getValue()) {
-				setprop("VC10/generator/gen-bus-tie-cover[1]", 0);
-				toggle_switch3();
+				setprop("VC10/electric/ac/generator/gen-bus-tie-cover[1]", 0);
+				click_switch3();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 		 	if(step == 6 and auto_procedure.getValue()) {
-				setprop("VC10/generator/gen-bus-tie-cover[2]", 0);
-				toggle_switch3();
+				setprop("VC10/electric/ac/generator/gen-bus-tie-cover[2]", 0);
+				click_switch3();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 		 	if(step == 6 and auto_procedure.getValue()) {
-				setprop("VC10/generator/gen-bus-tie-cover[3]", 0);
-				toggle_switch3();
+				setprop("VC10/electric/ac/generator/gen-bus-tie-cover[3]", 0);
+				click_switch3();
 			}
 		}, t); t += 0.2;
 	
 		# Gen - Breaker, so engines generator ar ready for start the engine
 		settimer( func{
 			if(step == 6 and auto_procedure.getValue()){
-				setprop("VC10/generator/gen-breaker[3]", 1);
-				toggle_switch2();
+				setprop("VC10/electric/ac/generator/gen-breaker[3]", 1);
+				click_switch2();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 			if(step == 6 and auto_procedure.getValue()){
-				setprop("VC10/generator/gen-breaker[2]", 1);
-				toggle_switch2();
+				setprop("VC10/electric/ac/generator/gen-breaker[2]", 1);
+				click_switch2();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 			if(step == 6 and auto_procedure.getValue()){
-				setprop("VC10/generator/gen-breaker[1]", 1);
-				toggle_switch2();
+				setprop("VC10/electric/ac/generator/gen-breaker[1]", 1);
+				click_switch2();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 			if(step == 6 and auto_procedure.getValue()){
-				setprop("VC10/generator/gen-breaker[0]", 1);
-				toggle_switch2();				
+				setprop("VC10/electric/ac/generator/gen-breaker[0]", 1);
+				click_switch2();				
 				step = 7;
 			}
 		}, t); t += 1.2;
@@ -596,178 +596,178 @@ var startup = func
 			if(step == 7 and auto_procedure.getValue()){
 				setprop("VC10/fuel/valves/valve[0]", 1);
 				VC10.valve_pos(0);
-				toggle_switch3();
+				click_switch3();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 			if(step == 7 and auto_procedure.getValue()){
 				setprop("VC10/fuel/valves/valve[1]", 1);
 				VC10.valve_pos(1);
-				toggle_switch3();
+				click_switch3();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 			if(step == 7 and auto_procedure.getValue()){
 				setprop("VC10/fuel/valves/valve[2]", 1);
 				VC10.valve_pos(2);
-				toggle_switch3();
+				click_switch3();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 			if(step == 7 and auto_procedure.getValue()){
 				setprop("VC10/fuel/valves/valve[3]", 1);
 				VC10.valve_pos(3);
-				toggle_switch3();
+				click_switch3();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 			if(step == 7 and auto_procedure.getValue()){
 				setprop("VC10/fuel/valves/valve[4]", 1);
 				VC10.valve_pos(4);
-				toggle_switch3();
+				click_switch3();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 			if(step == 7 and auto_procedure.getValue()){
 				setprop("VC10/fuel/valves/valve[5]", 1);
 				VC10.valve_pos(5);
-				toggle_switch3();
+				click_switch3();
 			}
 		}, t); t += 0.8;
 		settimer( func{
 			if(step == 7 and auto_procedure.getValue()){
 				setprop("VC10/fuel/valves/valve[0]", 0);
 				VC10.valve_pos(0);
-				toggle_switch3();
+				click_switch3();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 			if(step == 7 and auto_procedure.getValue()){
 				setprop("VC10/fuel/valves/valve[1]", 0);
 				VC10.valve_pos(1);
-				toggle_switch3();
+				click_switch3();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 			if(step == 7 and auto_procedure.getValue()){
 				setprop("VC10/fuel/valves/valve[2]", 0);
 				VC10.valve_pos(2);
-				toggle_switch3();
+				click_switch3();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 			if(step == 7 and auto_procedure.getValue()){
 				setprop("VC10/fuel/valves/valve[3]", 0);
 				VC10.valve_pos(3);
-				toggle_switch3();
+				click_switch3();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 			if(step == 7 and auto_procedure.getValue()){
 				setprop("VC10/fuel/valves/valve[4]", 0);
 				VC10.valve_pos(4);
-				toggle_switch3();
+				click_switch3();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 			if(step == 7 and auto_procedure.getValue()){
 				setprop("VC10/fuel/valves/valve[5]", 0);
 				VC10.valve_pos(5);
-				toggle_switch3();
+				click_switch3();
 			}
 		}, t); t += 0.8;
 		
 		# the fuel boost-pumps
 				settimer( func{
 			if(step == 7 and auto_procedure.getValue()){
-				setprop("VC10/fuel/valves/boost-pump[0]", 1);
-				toggle_switch2();
+				setprop("VC10/fuel/switches/boost-pump[0]", 1);
+				click_switch2();
 
 				screen.log.write("Boost pumps controll!", 1, 1, 1);
 			}
 		}, t); t += 0.2;
 		settimer( func{
 			if(step == 7 and auto_procedure.getValue()){
-				setprop("VC10/fuel/valves/boost-pump[1]", 1);
-				toggle_switch2();
+				setprop("VC10/fuel/switches/boost-pump[1]", 1);
+				click_switch2();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 			if(step == 7 and auto_procedure.getValue()){
-				setprop("VC10/fuel/valves/boost-pump[2]", 1);
-				toggle_switch2();
+				setprop("VC10/fuel/switches/boost-pump[2]", 1);
+				click_switch2();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 			if(step == 7 and auto_procedure.getValue()){
-				setprop("VC10/fuel/valves/boost-pump[3]", 1);
-				toggle_switch2();
+				setprop("VC10/fuel/switches/boost-pump[3]", 1);
+				click_switch2();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 			if(step == 7 and auto_procedure.getValue()){
-				setprop("VC10/fuel/valves/boost-pump[4]", 1);
-				toggle_switch2();
+				setprop("VC10/fuel/switches/boost-pump[4]", 1);
+				click_switch2();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 			if(step == 7 and auto_procedure.getValue()){
-				setprop("VC10/fuel/valves/boost-pump[5]", 1);
-				toggle_switch2();
+				setprop("VC10/fuel/switches/boost-pump[5]", 1);
+				click_switch2();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 			if(step == 7 and auto_procedure.getValue()){
-				setprop("VC10/fuel/valves/boost-pump[6]", 1);
-				toggle_switch2();
+				setprop("VC10/fuel/switches/boost-pump[6]", 1);
+				click_switch2();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 			if(step == 7 and auto_procedure.getValue()){
-				setprop("VC10/fuel/valves/boost-pump[7]", 1);
-				toggle_switch2();
+				setprop("VC10/fuel/switches/boost-pump[7]", 1);
+				click_switch2();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 			if(step == 7 and auto_procedure.getValue()){
-				setprop("VC10/fuel/valves/boost-pump[8]", 1);
-				toggle_switch2();
+				setprop("VC10/fuel/switches/boost-pump[8]", 1);
+				click_switch2();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 			if(step == 7 and auto_procedure.getValue()){
-				setprop("VC10/fuel/valves/boost-pump[9]", 1);
-				toggle_switch2();
+				setprop("VC10/fuel/switches/boost-pump[9]", 1);
+				click_switch2();
 			}
 		}, t); t += 0.5;
 		
 		# the fuel shutoff-valves
 		settimer( func{
 			if(step == 7 and auto_procedure.getValue()){
-				setprop("VC10/fuel/valves/fuel-shutoff[0]", 1);
+				setprop("VC10/fuel/valves/LPCock[0]", 1);
 				VC10.shutoff_pos(0);
-				toggle_switch2();
+				click_switch2();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 			if(step == 7 and auto_procedure.getValue()){
-				setprop("VC10/fuel/valves/fuel-shutoff[1]", 1);
+				setprop("VC10/fuel/valves/LPCock[1]", 1);
 				VC10.shutoff_pos(1);
-				toggle_switch2();
+				click_switch2();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 			if(step == 7 and auto_procedure.getValue()){
-				setprop("VC10/fuel/valves/fuel-shutoff[2]", 1);
+				setprop("VC10/fuel/valves/LPCock[2]", 1);
 				VC10.shutoff_pos(2);
-				toggle_switch2();
+				click_switch2();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 			if(step == 7 and auto_procedure.getValue()){
-				setprop("VC10/fuel/valves/fuel-shutoff[3]", 1);
+				setprop("VC10/fuel/valves/LPCock[3]", 1);
 				VC10.shutoff_pos(3);
-				toggle_switch2();				
+				click_switch2();				
 				screen.log.write("Look down to your throttle levers on centre pedestal.", 1, 1, 1);
 				
 				#cold weather problems start the heating system for windows-fuel-and engines
@@ -801,25 +801,25 @@ var startup = func
 		settimer( func{
 			if(step == 8 and auto_procedure.getValue()){
 				setprop("controls/engines/engine[0]/cutoff", 1);
-				toggle_switch2();
+				click_switch2();
 			}
 		}, t); t += 0.5;
 		settimer( func{
 			if(step == 8 and auto_procedure.getValue()){
 				setprop("controls/engines/engine[1]/cutoff", 1);
-				toggle_switch2();
+				click_switch2();
 			}
 		}, t); t += 0.5;
 		settimer( func{
 			if(step == 8 and auto_procedure.getValue()){
 				setprop("controls/engines/engine[2]/cutoff", 1);
-				toggle_switch2();
+				click_switch2();
 			}
 		}, t); t += 0.5;	
 		settimer( func{
 			if(step == 8 and auto_procedure.getValue()){
 				setprop("controls/engines/engine[3]/cutoff", 1);
-				toggle_switch2();
+				click_switch2();
 				screen.log.write("We continue at the overhead panel.", 1, 1, 1);
 				step = 9;
 			}
@@ -829,7 +829,7 @@ var startup = func
 		settimer( func{
 			if(step == 9 and auto_procedure.getValue()){
 				setprop("VC10/start/startercover[2]", 1);
-				toggle_switch3();
+				click_switch3();
 
 				screen.log.write("Engine 3!", 1, 1, 1);
 			}
@@ -837,7 +837,7 @@ var startup = func
 		settimer( func{
 			if(step == 9 and auto_procedure.getValue()){
 			setprop("controls/engines/engine[2]/starter", 1);
-			toggle_switch2();
+			click_switch2();
 			}else{
 				screen.log.write("WARNING: startup interrupted before ENGINE 3 ", 1, 0, 0);
 			}
@@ -850,7 +850,7 @@ var startup = func
 		settimer( func{
 			if(step == 9 and auto_procedure.getValue()){
 				setprop("VC10/start/startercover[2]", 0);
-				toggle_switch3();
+				click_switch3();
 				step = 10;
 			}
 		}, t); t += 0.5; # 30 sec per engine
@@ -858,7 +858,7 @@ var startup = func
 		settimer( func{	  
 			if(step == 10 and auto_procedure.getValue()){
 				setprop("VC10/start/startercover[3]", 1);
-				toggle_switch3();
+				click_switch3();
 
 				screen.log.write("Engine 4!", 1, 1, 1);
 			}
@@ -866,7 +866,7 @@ var startup = func
 		settimer( func{
 			if(step == 10 and auto_procedure.getValue() and run3.getBoolValue()){
 				setprop("controls/engines/engine[3]/starter", 1);
-				toggle_switch2();
+				click_switch2();
 			}else{
 				screen.log.write("WARNING: startup interrupted at ENGINE 4 ", 1, 0, 0);
 			}
@@ -879,7 +879,7 @@ var startup = func
 		settimer( func{
 			if(step == 10 and auto_procedure.getValue()){
 				setprop("VC10/start/startercover[3]", 0);
-				toggle_switch3();
+				click_switch3();
 				step = 11;
 			}
 		}, t); t += 0.5; # 30 sec per engine 	
@@ -887,7 +887,7 @@ var startup = func
 		settimer( func{	  
 			if(step == 11 and auto_procedure.getValue()){
 				setprop("VC10/start/startercover[1]", 1);
-				toggle_switch3();
+				click_switch3();
 
 				screen.log.write("Engine 2!", 1, 1, 1);
 			}
@@ -895,7 +895,7 @@ var startup = func
 		settimer( func{
 			if(step == 11 and auto_procedure.getValue() and run3.getBoolValue() and run4.getBoolValue()){
 				setprop("controls/engines/engine[1]/starter", 1);
-				toggle_switch2();
+				click_switch2();
 			}else{
 				screen.log.write("WARNING: startup interrupted at ENGINE 2 ", 1, 0, 0);
 			}
@@ -908,7 +908,7 @@ var startup = func
 		settimer( func{
 			if(step == 11 and auto_procedure.getValue()){
 				setprop("VC10/start/startercover[1]", 0);
-				toggle_switch3();
+				click_switch3();
 				step = 12;
 			}
 		}, t); t += 0.5; # 30 sec per engine 
@@ -916,7 +916,7 @@ var startup = func
 		settimer( func{	  
 			if(step == 12 and auto_procedure.getValue()){
 				setprop("VC10/start/startercover[0]", 1);
-				toggle_switch3();
+				click_switch3();
 
 				screen.log.write("Engine 1!", 1, 1, 1);
 			}
@@ -924,7 +924,7 @@ var startup = func
 		settimer( func{
 			if(step == 12 and auto_procedure.getValue() and run2.getBoolValue() and run3.getBoolValue() and run4.getBoolValue()){
 				setprop("controls/engines/engine[0]/starter", 1);
-				toggle_switch2();
+				click_switch2();
 			}else{
 				screen.log.write("WARNING: startup interrupted at ENGINE 1 ", 1, 0, 0);
 			}
@@ -937,7 +937,7 @@ var startup = func
 		settimer( func{
 			if(step == 12 and auto_procedure.getValue()){
 				setprop("VC10/start/startercover[0]", 0);
-				toggle_switch3();
+				click_switch3();
 				screen.log.write("Synchronisation of the engines now - have a look to the engineer panel", 1, 1, 1);
 				step = 13;
 			}
@@ -946,41 +946,41 @@ var startup = func
 		# synchronized the generator one and select this engine as ess-pwr
 	 	settimer( func{		
 			if(step == 13 and auto_procedure.getValue()){
-		 		setprop("VC10/ac/ac-para-select", 1);
-				toggle_switch3();
+		 		setprop("VC10/electric/ac/ac-para-select", 1);
+				click_switch3();
 			}
 		}, t); t += 1.5;
 
 	 	settimer( func{
 	 		if(step == 13 and auto_procedure.getValue()){
-				interpolate("VC10/generator/gen-freq[0]",400, 1.0);
+				interpolate("VC10/electric/ac/generator/gen-freq[0]",400, 1.0);
 			}	
 		}, t); t += 1.0;
 	
 	 	settimer( func{		
 			if(step == 13 and auto_procedure.getValue()){
-		 		setprop("VC10/ac/ac-para-select", 2);
-				toggle_switch3();
+		 		setprop("VC10/electric/ac/ac-para-select", 2);
+				click_switch3();
 			}
 		}, t); t += 1.5;
 
 	 	settimer( func{
 	 		if(step == 13 and auto_procedure.getValue()){
-				interpolate("VC10/generator/gen-freq[1]",400, 1.0);
+				interpolate("VC10/electric/ac/generator/gen-freq[1]",400, 1.0);
 			}	
 		}, t); t += 1.0;
 	
 	 	settimer( func{		
 			if(step == 13 and auto_procedure.getValue()){
-		 		setprop("VC10/ac/ac-para-select", 3);
-				toggle_switch3();
+		 		setprop("VC10/electric/ac/ac-para-select", 3);
+				click_switch3();
 			}
 		}, t); t += 1.5;
 	
 	 	settimer( func{		
 			if(step == 13 and auto_procedure.getValue()){
-		 		setprop("VC10/ac/ac-para-select", 4);
-				toggle_switch3();
+		 		setprop("VC10/electric/ac/ac-para-select", 4);
+				click_switch3();
 				
 				screen.log.write("Generators setup.", 1, 1, 1);
 			}
@@ -988,49 +988,49 @@ var startup = func
 
 	 	settimer( func{
 	 		if(step == 13 and auto_procedure.getValue()){
-				interpolate("VC10/generator/gen-freq[2]",400, 1.0);
+				interpolate("VC10/electric/ac/generator/gen-freq[2]",400, 1.0);
 			}	
 		}, t); t +=  1.0;
 	
 	 	settimer( func{		
 			if(step == 13 and auto_procedure.getValue()){
-		 		setprop("VC10/ac/ac-para-select", 5);
-				toggle_switch3();
+		 		setprop("VC10/electric/ac/ac-para-select", 5);
+				click_switch3();
 			}
 		}, t); t += 1.5;
 
 	 	settimer( func{
 	 		if(step == 13 and auto_procedure.getValue()){
-				interpolate("VC10/generator/gen-freq[3]",400, 1.0);
+				interpolate("VC10/electric/ac/generator/gen-freq[3]",400, 1.0);
 			}	
 		}, t); t += 1.0;
 		
 	 	settimer( func{
 		 	if(step == 13 and auto_procedure.getValue()) {
-		 		setprop("VC10/ac/ac-para-select", 6);
-				toggle_switch3();
+		 		setprop("VC10/electric/ac/ac-para-select", 6);
+				click_switch3();
 			}
 		}, t); t += 0.2;
 		
 	 	settimer( func{
 		 	if(step == 13 and auto_procedure.getValue()) {
-		 		setprop("VC10/ac/ac-para-select", 0);
-				toggle_switch3();
+		 		setprop("VC10/electric/ac/ac-para-select", 0);
+				click_switch3();
 			}
 		}, t); t += 0.2;
 		
 	 	settimer( func{
 		 	if(step == 13 and auto_procedure.getValue()) {
-		 		setprop("VC10/ac/ac-para-select", 1);
-				toggle_switch3();
+		 		setprop("VC10/electric/ac/ac-para-select", 1);
+				click_switch3();
 			}
 		}, t); t += 0.5;
 		
 		# switch generators to the sync bus now
 	 	settimer( func{
 	 		if(step == 13 and auto_procedure.getValue()){
-		 		setprop("VC10/generator/gen-bus-tie-cover[0]", 1);
-				toggle_switch3();
+		 		setprop("VC10/electric/ac/generator/gen-bus-tie-cover[0]", 1);
+				click_switch3();
 				
 				
 				screen.log.write("Generator BUS setup.", 1, 1, 1);
@@ -1038,106 +1038,106 @@ var startup = func
 		}, t); t += 0.5;
 		settimer( func{
 	 		if(step == 13 and auto_procedure.getValue()){
-				setprop("VC10/generator/gen-bus-tie[0]", 1);
-				toggle_switch2();
+				setprop("VC10/electric/ac/generator/gen-bus-tie[0]", 1);
+				click_switch2();
 			}
 		}, t); t += 0.5;
 		settimer( func{
 	 		if(step == 13 and auto_procedure.getValue()){
-				setprop("VC10/generator/gen-bus-tie-cover[0]", 0);
-				toggle_switch3();
+				setprop("VC10/electric/ac/generator/gen-bus-tie-cover[0]", 0);
+				click_switch3();
 			}	
 		}, t); t += 0.5;
 	
 	 	settimer( func{
 	 		if(step == 13 and auto_procedure.getValue()){
-		 		setprop("VC10/generator/gen-bus-tie-cover[1]", 1);
-				toggle_switch3();
+		 		setprop("VC10/electric/ac/generator/gen-bus-tie-cover[1]", 1);
+				click_switch3();
 			}
 		}, t); t += 0.5;
 		settimer( func{
 	 		if(step == 13 and auto_procedure.getValue()){
-				setprop("VC10/generator/gen-bus-tie[1]", 1);
-				toggle_switch2();
+				setprop("VC10/electric/ac/generator/gen-bus-tie[1]", 1);
+				click_switch2();
 			}
 		}, t); t += 0.5;
 		settimer( func{
 	 		if(step == 13 and auto_procedure.getValue()){
-				setprop("VC10/generator/gen-bus-tie-cover[1]", 0);
-				toggle_switch3();
+				setprop("VC10/electric/ac/generator/gen-bus-tie-cover[1]", 0);
+				click_switch3();
 			}	
 		}, t); t += 0.5;
 	
 	 	settimer( func{
 	 		if(step == 13 and auto_procedure.getValue()){
-		 		setprop("VC10/generator/gen-bus-tie-cover[2]", 1);
-				toggle_switch3();
+		 		setprop("VC10/electric/ac/generator/gen-bus-tie-cover[2]", 1);
+				click_switch3();
 			}
 		}, t); t += 0.5;
 		settimer( func{
 	 		if(step == 13 and auto_procedure.getValue()){
-				setprop("VC10/generator/gen-bus-tie[2]", 1);
-				toggle_switch2();
+				setprop("VC10/electric/ac/generator/gen-bus-tie[2]", 1);
+				click_switch2();
 			}
 		}, t); t += 0.5;
 		settimer( func{
 	 		if(step == 13 and auto_procedure.getValue()){
-				setprop("VC10/generator/gen-bus-tie-cover[2]", 0);
-				toggle_switch3();
+				setprop("VC10/electric/ac/generator/gen-bus-tie-cover[2]", 0);
+				click_switch3();
 			}	
 		}, t); t += 0.5;
 	
 	 	settimer( func{
 	 		if(step == 13 and auto_procedure.getValue()){
-		 		setprop("VC10/generator/gen-bus-tie-cover[3]", 1);
-				toggle_switch3();
+		 		setprop("VC10/electric/ac/generator/gen-bus-tie-cover[3]", 1);
+				click_switch3();
 			}
 		}, t); t += 0.5;
 		settimer( func{
 	 		if(step == 13 and auto_procedure.getValue()){
-				setprop("VC10/generator/gen-bus-tie[3]", 1);
-				toggle_switch2();
+				setprop("VC10/electric/ac/generator/gen-bus-tie[3]", 1);
+				click_switch2();
 			}
 		}, t); t += 0.5;
 		settimer( func{
 	 		if(step == 13 and auto_procedure.getValue()){
-				setprop("VC10/generator/gen-bus-tie-cover[3]", 0);
-				toggle_switch3();
+				setprop("VC10/electric/ac/generator/gen-bus-tie-cover[3]", 0);
+				click_switch3();
 			}	
 		}, t); t += 1.0;
 	
 		# Essential-Power-Selector
 	 	settimer( func{
 	 		if(step == 13 and auto_procedure.getValue()){
-		 		setprop("VC10/ess-power-switch", 4);
-				toggle_switch3();
+		 		setprop("VC10/electric/ess-power-switch", 4);
+				click_switch3();
 			}
 		}, t); t += 0.2;
 	 	settimer( func{
 	 		if(step == 13 and auto_procedure.getValue()){
-		 		setprop("VC10/ess-power-switch", 3);
-				toggle_switch3();
+		 		setprop("VC10/electric/ess-power-switch", 3);
+				click_switch3();
 			}
 		}, t); t += 0.2;
 	 	settimer( func{
 	 		if(step == 13 and auto_procedure.getValue()){
-		 		setprop("VC10/ess-power-switch", 2);
-				toggle_switch3();
+		 		setprop("VC10/electric/ess-power-switch", 2);
+				click_switch3();
 			}
 		}, t); t += 0.2;
 	 	settimer( func{
 	 		if(step == 13 and auto_procedure.getValue()){
-		 		setprop("VC10/ess-power-switch", 1);
+		 		setprop("VC10/electric/ess-power-switch", 1);
 				step = 14;
-				toggle_switch3();
+				click_switch3();
 			}
 		}, t); t += 0.5;		
 
 		# external power disconnected Power Bus Tie (sync bus)
 		settimer( func{ 		
 			if(step == 14 and auto_procedure.getValue()){
-				setprop("VC10/ground-connect", 0);
-				toggle_switch2();
+				setprop("VC10/electric/ground-connect", 0);
+				click_switch2();
 				
 				screen.log.write("External Power Unit disconnected! Continue the startup procedure.", 1, 1, 1);
 			}
@@ -1146,29 +1146,29 @@ var startup = func
 		# plug out
 	 	settimer( func{ 		
 			if(step == 14 and auto_procedure.getValue()){
-		 		setprop("VC10/external-power-connected", 0);
+		 		setprop("VC10/electric/external-power-connected", 0);
 				setprop("VC10/hydraulic/brake-valve", 0);
-				toggle_switch3();
+				click_switch3();
 			}
 		}, t); t += 1.5;
 		
 		# equipment cooling
 	 	settimer( func{ 		
 			if(step == 14 and auto_procedure.getValue()){
-		 		setprop("VC10/generator/hertz-converter", 1);
-				toggle_switch2();
+		 		setprop("VC10/electric/ac/generator/hertz-converter", 1);
+				click_switch2();
 			}
 		}, t); t += 0.2;		
 	 	settimer( func{ 		
 			if(step == 14 and auto_procedure.getValue()){
 		 		setprop("VC10/equipment/blower", 1);
-				toggle_switch2();
+				click_switch2();
 			}
 		}, t); t += 0.2;
 	 	settimer( func{ 		
 			if(step == 14 and auto_procedure.getValue()){
 		 		setprop("VC10/equipment/ovbd-dump", 1);
-				toggle_switch2();
+				click_switch2();
 			}
 		}, t); t += 0.5;
 	
@@ -1176,7 +1176,7 @@ var startup = func
 	  settimer( func{ 		
 			if(step == 14 and auto_procedure.getValue()){
 		 		setprop("VC10/air-conditioning/ram-air-switch", 1);
-				toggle_switch2();
+				click_switch2();
 				
 				screen.log.write("Compressors startup.", 1, 1, 1);
 			}
@@ -1185,56 +1185,56 @@ var startup = func
 			if(step == 14 and auto_procedure.getValue()){
 				setprop("VC10/air-conditioning/compressor-start[0]", 2);
 				setprop("VC10/air-conditioning/compressor-rpm[0]", 110);
-				toggle_switch2();
+				click_switch2();
 			}
 		}, t); t += 0.5;	
 	  settimer( func{ 		
 			if(step == 14 and auto_procedure.getValue()){
 				setprop("VC10/air-conditioning/compressor-start[1]", 2);
 				setprop("VC10/air-conditioning/compressor-rpm[1]", 95);
-				toggle_switch2();
+				click_switch2();
 			}
 		}, t); t += 0.5;		
 	  settimer( func{ 		
 			if(step == 14 and auto_procedure.getValue()){
 				setprop("VC10/air-conditioning/compressor-start[2]", 2);
 				setprop("VC10/air-conditioning/compressor-rpm[2]", 104);
-				toggle_switch2();
+				click_switch2();
 			}
 		}, t); t += 0.5;
 
 	  settimer( func{ 		
 			if(step == 14 and auto_procedure.getValue()){
 				setprop("VC10/air-conditioning/air-cond-unit-left-start",1);
-				toggle_switch2();
+				click_switch2();
 			}
 		}, t); t += 0.5;		
 
 	  settimer( func{ 		
 			if(step == 14 and auto_procedure.getValue()){
 				setprop("VC10/air-conditioning/air-cond-unit-right-start",1);
-				toggle_switch2();
+				click_switch2();
 			}
 		}, t); t += 0.5;			
 
 	  settimer( func{ 		
 			if(step == 14 and auto_procedure.getValue()){
 				setprop("VC10/air-conditioning/wing-valve[0]",1);
-				toggle_switch2();
+				click_switch2();
 			}
 		}, t); t += 0.5;			
 
 	  settimer( func{ 		
 			if(step == 14 and auto_procedure.getValue()){
 				setprop("VC10/air-conditioning/wing-valve[1]",1);
-				toggle_switch2();
+				click_switch2();
 			}
 		}, t); t += 0.5;			
 
 	  settimer( func{ 		
 			if(step == 14 and auto_procedure.getValue()){
 				setprop("VC10/air-conditioning/cabin-temp-selector[0]",4);
-				toggle_switch2();
+				click_switch2();
 			}
 		}, t); t += 0.5;			
 
@@ -1242,7 +1242,7 @@ var startup = func
 			if(step == 14 and auto_procedure.getValue()){
 				setprop("VC10/air-conditioning/cabin-temp-selector[1]",4);
 				setprop("VC10/emergency/oxygen-switch",2);
-				toggle_switch2();
+				click_switch2();
 			}
 		}, t); t += 0.5;			
 
@@ -1250,20 +1250,20 @@ var startup = func
 	 	settimer( func{ 		
 			if(step == 14 and auto_procedure.getValue()){
 		 		setprop("VC10/pressurization/safety-valve-cover", 1);
-				toggle_switch3();
+				click_switch3();
 			}
 		}, t); t += 0.2;
 	 	settimer( func{ 		
 			if(step == 14 and auto_procedure.getValue()){
 		 		setprop("VC10/pressurization/safety-valve", 1);
 				VC10.safety_valv_pos();
-				toggle_switch2();
+				click_switch2();
 			}
 		}, t); t += 0.2;
 	 	settimer( func{ 		
 			if(step == 14 and auto_procedure.getValue()){
 		 		setprop("VC10/pressurization/safety-valve-cover", 0);
-				toggle_switch3();
+				click_switch3();
 			}
 		}, t); t += 0.5;	
 				
@@ -1271,13 +1271,13 @@ var startup = func
 	 	settimer( func{ 		
 			if(step == 14 and auto_procedure.getValue()){
 		 		setprop("VC10/pressurization/manual-mode-switch", 1);
-				toggle_switch3();
+				click_switch3();
 			}
 		}, t); t += 0.2;	
 	 	settimer( func{ 		
 			if(step == 14 and auto_procedure.getValue()){
 		 		setprop("VC10/pressurization/mode-switch", 1);
-				toggle_switch3();
+				click_switch3();
 				
 				#for pilots without knowledge of the compass control system the the compass controler here
 				setprop("instrumentation/compass-control/mag/", 0);
@@ -1294,45 +1294,45 @@ var startup = func
 		 	settimer( func{
 		 		screen.log.write("Switch lighting in the overhead panel.", 1, 1, 1);
 				setprop("controls/lighting/beacon", 1);
-				toggle_switch2();
+				click_switch2();
 			}, t); t += 0.5;
 		 	settimer( func{
 				setprop("controls/lighting/landing-light[0]", 1);
-				toggle_switch2();
+				click_switch2();
 			}, t); t += 0.5;
 		 	settimer( func{
 				setprop("controls/lighting/landing-light[1]", 1);
-				toggle_switch2();
+				click_switch2();
 			}, t); t += 0.5;
 		 	settimer( func{
 				setprop("controls/lighting/landing-light[2]", 1);
-				toggle_switch2();
+				click_switch2();
 			}, t); t += 0.5;
 		 	settimer( func{
 				setprop("controls/lighting/nav-lights", 1);
-				toggle_switch2();
+				click_switch2();
 			}, t); t += 0.5;
 		 	settimer( func{
 				setprop("controls/lighting/cabin-lights", 1);
-				toggle_switch2();
+				click_switch2();
 			}, t); t += 0.5;
 		 	settimer( func{
 				interpolate("controls/lighting/cabin-dim", 0.8,0.5);
-				toggle_switch2();
+				click_switch2();
 			}, t); t += 0.5;
 		 	settimer( func{
 				setprop("controls/lighting/strobe", 1);
-				toggle_switch2();
+				click_switch2();
 			}, t); t += 0.5;
 
 		 }else{
 			 	settimer( func{
 					setprop("controls/lighting/beacon", 1);
-					toggle_switch2();
+					click_switch2();
 				}, t); t += 0.5;
 			 	settimer( func{
 					setprop("controls/lighting/nav-lights", 1);
-					toggle_switch2();
+					click_switch2();
 				}, t); t += 0.5;  
 		 }    
 			# switch on the FlightRallyeMode
@@ -1355,27 +1355,27 @@ var startup = func
 var shutdown = func
  {
 	 	if(!auto_procedure.getValue()){
-			setprop("VC10/generator/gen-drive[0]", 0);
-			setprop("VC10/generator/gen-drive[1]", 0);
-			setprop("VC10/generator/gen-drive[2]", 0);
-			setprop("VC10/generator/gen-drive[3]", 0);
-			setprop("VC10/generator/gen-drive[4]", 0);
-		 	setprop("VC10/generator/gen-bus-tie[0]", 0);
-			setprop("VC10/generator/gen-bus-tie[1]", 0);
-			setprop("VC10/generator/gen-bus-tie[2]", 0);
-			setprop("VC10/generator/gen-bus-tie[3]", 0);				
-			setprop("VC10/generator/gen-breaker[0]", 0);			
-			setprop("VC10/generator/gen-breaker[1]", 0);			
-			setprop("VC10/generator/gen-breaker[2]", 0);			
-			setprop("VC10/generator/gen-breaker[3]", 0);
-		 	setprop("VC10/generator/gen-control[0]", 0);
-			setprop("VC10/generator/gen-control[1]", 0);
-			setprop("VC10/generator/gen-control[2]", 0);
-			setprop("VC10/generator/gen-control[3]", 0);
-		 	setprop("VC10/generator/gen-freq[0]", 0);
-			setprop("VC10/generator/gen-freq[1]", 0);
-			setprop("VC10/generator/gen-freq[2]", 0);
-			setprop("VC10/generator/gen-freq[3]", 0);
+			setprop("VC10/electric/ac/generator/gen-drive[0]", 0);
+			setprop("VC10/electric/ac/generator/gen-drive[1]", 0);
+			setprop("VC10/electric/ac/generator/gen-drive[2]", 0);
+			setprop("VC10/electric/ac/generator/gen-drive[3]", 0);
+			setprop("VC10/electric/ac/generator/gen-drive[4]", 0);
+		 	setprop("VC10/electric/ac/generator/gen-bus-tie[0]", 0);
+			setprop("VC10/electric/ac/generator/gen-bus-tie[1]", 0);
+			setprop("VC10/electric/ac/generator/gen-bus-tie[2]", 0);
+			setprop("VC10/electric/ac/generator/gen-bus-tie[3]", 0);				
+			setprop("VC10/electric/ac/generator/gen-breaker[0]", 0);			
+			setprop("VC10/electric/ac/generator/gen-breaker[1]", 0);			
+			setprop("VC10/electric/ac/generator/gen-breaker[2]", 0);			
+			setprop("VC10/electric/ac/generator/gen-breaker[3]", 0);
+		 	setprop("VC10/electric/ac/generator/gen-control[0]", 0);
+			setprop("VC10/electric/ac/generator/gen-control[1]", 0);
+			setprop("VC10/electric/ac/generator/gen-control[2]", 0);
+			setprop("VC10/electric/ac/generator/gen-control[3]", 0);
+		 	setprop("VC10/electric/ac/generator/gen-freq[0]", 0);
+			setprop("VC10/electric/ac/generator/gen-freq[1]", 0);
+			setprop("VC10/electric/ac/generator/gen-freq[2]", 0);
+			setprop("VC10/electric/ac/generator/gen-freq[3]", 0);
 			setprop("controls/engines/engine[0]/cutoff", 1);
 			setprop("controls/engines/engine[1]/cutoff", 1);
 			setprop("controls/engines/engine[2]/cutoff", 1);
@@ -1409,17 +1409,17 @@ setlistener("sim/model/start-idling", func(idle)
 #######################################
 var starter = func(nr)
  {
- 	var s_bat = getprop("VC10/battery-switch") or 0;
-	var s_ext_con = getprop("VC10/external-power-connected") or 0;
-	var s_ess_pwr = getprop("VC10/ess-power-switch") or 0;
-	var s_ess_bus = getprop("VC10/ess-bus") or 0;
-	var s_ground_c = getprop("VC10/ground-connect") or 0;
-	var s_par_sel = getprop("VC10/ac/ac-para-select") or 0;
+ 	var s_bat = getprop("VC10/electric/dc/battery-switch") or 0;
+	var s_ext_con = getprop("VC10/electric/external-power-connected") or 0;
+	var s_ess_pwr = getprop("VC10/electric/ess-power-switch") or 0;
+	var s_ess_bus = getprop("VC10/electric/ess-bus") or 0;
+	var s_ground_c = getprop("VC10/electric/ground-connect") or 0;
+	var s_par_sel = getprop("VC10/electric/ac/ac-para-select") or 0;
 	var s_apu_start = getprop("VC10/apu/off-start-run") or 0;
-	var s_apu_gen = getprop("VC10/generator/gen-drive[4]") or 0;			
-	var s_bus_tie = getprop("VC10/generator/gen-bus-tie["~nr~"]") or 0;
-	var s_gen_bre = getprop("VC10/generator/gen-breaker["~nr~"]") or 0;
-	var s_bus_con = getprop("VC10/generator/gen-control["~nr~"]") or 0;
+	var s_apu_gen = getprop("VC10/electric/ac/generator/gen-drive[4]") or 0;			
+	var s_bus_tie = getprop("VC10/electric/ac/generator/gen-bus-tie["~nr~"]") or 0;
+	var s_gen_bre = getprop("VC10/electric/ac/generator/gen-breaker["~nr~"]") or 0;
+	var s_bus_con = getprop("VC10/electric/ac/generator/gen-control["~nr~"]") or 0;
 	
 	if(s_bat and s_ess_bus > 20 and s_gen_bre and s_bus_tie and s_bus_con and
 			((s_ext_con and s_ess_pwr == 5 and s_ground_c == 1) or
@@ -1434,7 +1434,7 @@ var starter = func(nr)
 			setprop("controls/engines/engine["~nr~"]/cutoff", 1);
 			setprop("controls/engines/engine["~nr~"]/starter", 1);
 			setprop("controls/engines/engine["~nr~"]/started", 1);
-			setprop("VC10/generator/gen-freq["~nr~"]", VC10.my_rand(384,418));
+			setprop("VC10/electric/ac/generator/gen-freq["~nr~"]", VC10.my_rand(384,418));
 			
 			if(auto_procedure.getValue()){
 				settimer(func
@@ -1454,7 +1454,7 @@ var starter = func(nr)
 	
 	}else{
 		setprop("controls/engines/engine["~nr~"]/starter", 0);
-		setprop("VC10/generator/gen-freq["~nr~"]",0);
+		setprop("VC10/electric/ac/generator/gen-freq["~nr~"]",0);
 	}
 		
 };
@@ -1462,16 +1462,16 @@ var starter = func(nr)
 setlistener("VC10/start/startercover[2]", func(open)
  {
  	var open = open.getBoolValue();
- 	var s_bat = getprop("VC10/battery-switch") or 0;
-	var s_ext_con = getprop("VC10/external-power-connected") or 0;
-	var s_ess_pwr = getprop("VC10/ess-power-switch") or 0;
-	var s_ess_bus = getprop("VC10/ess-bus") or 0;
-	var s_ground_c = getprop("VC10/ground-connect") or 0;
-	var s_par_sel = getprop("VC10/ac/ac-para-select") or 0;
+ 	var s_bat = getprop("VC10/electric/dc/battery-switch") or 0;
+	var s_ext_con = getprop("VC10/electric/external-power-connected") or 0;
+	var s_ess_pwr = getprop("VC10/electric/ess-power-switch") or 0;
+	var s_ess_bus = getprop("VC10/electric/ess-bus") or 0;
+	var s_ground_c = getprop("VC10/electric/ground-connect") or 0;
+	var s_par_sel = getprop("VC10/electric/ac/ac-para-select") or 0;
 	var s_apu_start = getprop("VC10/apu/off-start-run") or 0;
-	var s_apu_gen = getprop("VC10/generator/gen-drive[4]") or 0;			
-	var s_bus_tie = getprop("VC10/generator/gen-bus-tie[2]") or 0;
-	var s_gen_bre = getprop("VC10/generator/gen-breaker[2]") or 0;
+	var s_apu_gen = getprop("VC10/electric/ac/generator/gen-drive[4]") or 0;			
+	var s_bus_tie = getprop("VC10/electric/ac/generator/gen-bus-tie[2]") or 0;
+	var s_gen_bre = getprop("VC10/electric/ac/generator/gen-breaker[2]") or 0;
 	
 	if(open and s_bat and s_ess_bus > 20 and s_gen_bre and s_bus_tie and 
 			((s_ext_con and s_ess_pwr == 5 and s_ground_c == 1) or
@@ -1521,10 +1521,10 @@ setlistener("engines/engine[0]/running", func
 	 setprop("controls/engines/engine[3]/msg", 0);
 	 setprop("controls/engines/msg", 0);
 	 if(getprop("controls/engines/engine[0]/started")){  # started control engines stop after running
-    	 	setprop("VC10/generator/gen-drive[0]", 0);
-    	 	setprop("VC10/generator/gen-bus-tie[0]", 0);
-				setprop("VC10/generator/gen-breaker[0]", 0);
-				setprop("VC10/generator/gen-control[0]", 0);	 
+    	 	setprop("VC10/electric/ac/generator/gen-drive[0]", 0);
+    	 	setprop("VC10/electric/ac/generator/gen-bus-tie[0]", 0);
+				setprop("VC10/electric/ac/generator/gen-breaker[0]", 0);
+				setprop("VC10/electric/ac/generator/gen-control[0]", 0);	 
 	 };
 	}
  }, 0, 0);
@@ -1540,10 +1540,10 @@ setlistener("engines/engine[1]/running", func
 	 setprop("controls/engines/engine[3]/msg", 0);
 	 setprop("controls/engines/msg", 0);
 	 if(getprop("controls/engines/engine[1]/started")){  # started control engines stop after running
-    	 	setprop("VC10/generator/gen-drive[1]", 0);
-    	 	setprop("VC10/generator/gen-bus-tie[1]", 0);
-				setprop("VC10/generator/gen-breaker[1]", 0);
-				setprop("VC10/generator/gen-control[1]", 0);	 
+    	 	setprop("VC10/electric/ac/generator/gen-drive[1]", 0);
+    	 	setprop("VC10/electric/ac/generator/gen-bus-tie[1]", 0);
+				setprop("VC10/electric/ac/generator/gen-breaker[1]", 0);
+				setprop("VC10/electric/ac/generator/gen-control[1]", 0);	 
 	 };
 	}
  }, 0, 0);
@@ -1559,10 +1559,10 @@ setlistener("engines/engine[2]/running", func
 	 setprop("controls/engines/engine[3]/msg", 0);
 	 setprop("controls/engines/msg", 0);
 	 if(getprop("controls/engines/engine[2]/started")){  # started control engines stop after running
-    	 	setprop("VC10/generator/gen-drive[2]", 0);
-    	 	setprop("VC10/generator/gen-bus-tie[2]", 0);
-				setprop("VC10/generator/gen-breaker[2]", 0);
-				setprop("VC10/generator/gen-control[2]", 0);	 
+    	 	setprop("VC10/electric/ac/generator/gen-drive[2]", 0);
+    	 	setprop("VC10/electric/ac/generator/gen-bus-tie[2]", 0);
+				setprop("VC10/electric/ac/generator/gen-breaker[2]", 0);
+				setprop("VC10/electric/ac/generator/gen-control[2]", 0);	 
 	 };
 	}
  }, 0, 0); 
@@ -1578,16 +1578,16 @@ setlistener("engines/engine[3]/running", func
 	 setprop("controls/engines/engine[3]/msg", 0);
 	 setprop("controls/engines/msg", 0);
 	 if(getprop("controls/engines/engine[3]/started")){  # started control engines stop after running
-    	 	setprop("VC10/generator/gen-drive[3]", 0);
-    	 	setprop("VC10/generator/gen-bus-tie[3]", 0);
-				setprop("VC10/generator/gen-breaker[3]", 0);
-				setprop("VC10/generator/gen-control[3]", 0);	 
+    	 	setprop("VC10/electric/ac/generator/gen-drive[3]", 0);
+    	 	setprop("VC10/electric/ac/generator/gen-bus-tie[3]", 0);
+				setprop("VC10/electric/ac/generator/gen-breaker[3]", 0);
+				setprop("VC10/electric/ac/generator/gen-control[3]", 0);	 
 	 };
 	}
  }, 0, 0);
  
 
-var toggle_switch2 = func{
+var click_switch2 = func{
 
 	if(getprop("sim/sound/switch2") == 1){
   	 setprop("sim/sound/switch2", 0); 
@@ -1597,7 +1597,7 @@ var toggle_switch2 = func{
 
 }
 
-var toggle_switch3 = func{
+var click_switch3 = func{
 
 	if(getprop("sim/sound/switch3") == 1){
   	 setprop("sim/sound/switch3", 0); 
@@ -1612,13 +1612,13 @@ var toggle_switch3 = func{
 
 var short_startup = func
  {
- 	setprop("VC10/battery-switch", 1);		
- 	setprop("VC10/external-power-connected", 0);
-	setprop("VC10/ground-connect", 0);
-	setprop("VC10/ess-power-switch", 0);
-	setprop("VC10/ac/ac-para-select", 0);
+ 	setprop("VC10/electric/dc/battery-switch", 1);		
+ 	setprop("VC10/electric/external-power-connected", 0);
+	setprop("VC10/electric/ground-connect", 0);
+	setprop("VC10/electric/ess-power-switch", 0);
+	setprop("VC10/electric/ac/ac-para-select", 0);
  	setprop("VC10/apu/starter", 1);
-	setprop("VC10/load-volt-selector", 1);
+	setprop("VC10/electric/load-volt-selector", 1);
 	setprop("instrumentation/transponder/inputs/knob-mode", 4);
 	
    settimer(func
@@ -1637,22 +1637,22 @@ var short_startup = func
 		setprop("VC10/hydraulic/hyd-fluid-pump[0]", 1);
 		setprop("VC10/hydraulic/hyd-fluid-pump[1]", 1);
 	
-		setprop("VC10/generator/gen-drive[0]", 1);
-		setprop("VC10/generator/gen-drive[1]", 1);
-		setprop("VC10/generator/gen-drive[2]", 1);
-		setprop("VC10/generator/gen-drive[3]", 1);
-	 	setprop("VC10/generator/gen-bus-tie[0]", 1);
-		setprop("VC10/generator/gen-bus-tie[1]", 1);
-		setprop("VC10/generator/gen-bus-tie[2]", 1);
-		setprop("VC10/generator/gen-bus-tie[3]", 1);
-		setprop("VC10/generator/gen-breaker[0]", 1);
-		setprop("VC10/generator/gen-breaker[1]", 1);
-		setprop("VC10/generator/gen-breaker[2]", 1);
-		setprop("VC10/generator/gen-breaker[3]", 1);
-		setprop("VC10/generator/gen-control[0]", 1);
-		setprop("VC10/generator/gen-control[1]", 1);
-		setprop("VC10/generator/gen-control[2]", 1);
-		setprop("VC10/generator/gen-control[3]", 1);
+		setprop("VC10/electric/ac/generator/gen-drive[0]", 1);
+		setprop("VC10/electric/ac/generator/gen-drive[1]", 1);
+		setprop("VC10/electric/ac/generator/gen-drive[2]", 1);
+		setprop("VC10/electric/ac/generator/gen-drive[3]", 1);
+	 	setprop("VC10/electric/ac/generator/gen-bus-tie[0]", 1);
+		setprop("VC10/electric/ac/generator/gen-bus-tie[1]", 1);
+		setprop("VC10/electric/ac/generator/gen-bus-tie[2]", 1);
+		setprop("VC10/electric/ac/generator/gen-bus-tie[3]", 1);
+		setprop("VC10/electric/ac/generator/gen-breaker[0]", 1);
+		setprop("VC10/electric/ac/generator/gen-breaker[1]", 1);
+		setprop("VC10/electric/ac/generator/gen-breaker[2]", 1);
+		setprop("VC10/electric/ac/generator/gen-breaker[3]", 1);
+		setprop("VC10/electric/ac/generator/gen-control[0]", 1);
+		setprop("VC10/electric/ac/generator/gen-control[1]", 1);
+		setprop("VC10/electric/ac/generator/gen-control[2]", 1);
+		setprop("VC10/electric/ac/generator/gen-control[3]", 1);
 	
 		setprop("VC10/fuel/valves/valve[0]", 0);
 		VC10.valve_pos(0);
@@ -1667,24 +1667,24 @@ var short_startup = func
 		setprop("VC10/fuel/valves/valve[5]", 0);
 		VC10.valve_pos(5);
 	
-		setprop("VC10/fuel/valves/boost-pump[0]", 1);
-		setprop("VC10/fuel/valves/boost-pump[1]", 1);
-		setprop("VC10/fuel/valves/boost-pump[2]", 1);
-		setprop("VC10/fuel/valves/boost-pump[3]", 1);
-		setprop("VC10/fuel/valves/boost-pump[4]", 1);
-		setprop("VC10/fuel/valves/boost-pump[5]", 1);
-		setprop("VC10/fuel/valves/boost-pump[6]", 1);
-		setprop("VC10/fuel/valves/boost-pump[7]", 1);
-		setprop("VC10/fuel/valves/boost-pump[8]", 1);
-		setprop("VC10/fuel/valves/boost-pump[9]", 1);
+		setprop("VC10/fuel/switches/boost-pump[0]", 1);
+		setprop("VC10/fuel/switches/boost-pump[1]", 1);
+		setprop("VC10/fuel/switches/boost-pump[2]", 1);
+		setprop("VC10/fuel/switches/boost-pump[3]", 1);
+		setprop("VC10/fuel/switches/boost-pump[4]", 1);
+		setprop("VC10/fuel/switches/boost-pump[5]", 1);
+		setprop("VC10/fuel/switches/boost-pump[6]", 1);
+		setprop("VC10/fuel/switches/boost-pump[7]", 1);
+		setprop("VC10/fuel/switches/boost-pump[8]", 1);
+		setprop("VC10/fuel/switches/boost-pump[9]", 1);
 	
-		setprop("VC10/fuel/valves/fuel-shutoff[0]", 1);
+		setprop("VC10/fuel/valves/LPCock[0]", 1);
 		VC10.shutoff_pos(0);
-		setprop("VC10/fuel/valves/fuel-shutoff[1]", 1);
+		setprop("VC10/fuel/valves/LPCock[1]", 1);
 		VC10.shutoff_pos(1);
-		setprop("VC10/fuel/valves/fuel-shutoff[2]", 1);
+		setprop("VC10/fuel/valves/LPCock[2]", 1);
 		VC10.shutoff_pos(2);
-		setprop("VC10/fuel/valves/fuel-shutoff[3]", 1);
+		setprop("VC10/fuel/valves/LPCock[3]", 1);
 		VC10.shutoff_pos(3);
 	
 		setprop("controls/engines/engine[0]/throttle", 0.25);
@@ -1719,20 +1719,20 @@ var short_startup = func
 		setprop("VC10/air-conditioning/compressor-rpm[0]",100);
 		setprop("VC10/air-conditioning/compressor-rpm[1]",105);
 		setprop("VC10/air-conditioning/compressor-rpm[2]",108);
-		setprop("VC10/generator/gen-freq[0]", 400);
-		setprop("VC10/generator/gen-freq[1]", 400);
-		setprop("VC10/generator/gen-freq[2]", 400);
-		setprop("VC10/generator/gen-freq[3]", 400);
-		setprop("VC10/generator/gen-bus-tie[0]", 1);
-		setprop("VC10/generator/gen-bus-tie[1]", 1);
-		setprop("VC10/generator/gen-bus-tie[2]", 1);
-		setprop("VC10/generator/gen-bus-tie[3]", 1);
-		setprop("VC10/ess-power-switch", 1);
-		setprop("VC10/ac/ac-para-select", 1);
-		setprop("VC10/generator/gen-drive[4]", 0);
+		setprop("VC10/electric/ac/generator/gen-freq[0]", 400);
+		setprop("VC10/electric/ac/generator/gen-freq[1]", 400);
+		setprop("VC10/electric/ac/generator/gen-freq[2]", 400);
+		setprop("VC10/electric/ac/generator/gen-freq[3]", 400);
+		setprop("VC10/electric/ac/generator/gen-bus-tie[0]", 1);
+		setprop("VC10/electric/ac/generator/gen-bus-tie[1]", 1);
+		setprop("VC10/electric/ac/generator/gen-bus-tie[2]", 1);
+		setprop("VC10/electric/ac/generator/gen-bus-tie[3]", 1);
+		setprop("VC10/electric/ess-power-switch", 1);
+		setprop("VC10/electric/ac/ac-para-select", 1);
+		setprop("VC10/electric/ac/generator/gen-drive[4]", 0);
 		setprop("VC10/apu/starter", 0);
 		setprop("VC10/hydraulic/quantity", 3050);
-		setprop("VC10/generator/hertz-converter", 1);
+		setprop("VC10/electric/ac/generator/hertz-converter", 1);
 		setprop("VC10/equipment/blower", 1);
 		setprop("VC10/equipment/ovbd-dump", 1);
 		setprop("VC10/pressurization/safety-valve", 1);

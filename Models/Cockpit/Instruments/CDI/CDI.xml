@@ -104,7 +104,7 @@
 		<object-name>CrsNum.off</object-name>
 		<condition>
 			<less-than>
-				<property>VC10/ess-bus</property>
+				<property>VC10/electric/ess-bus</property>
 				<value>12</value>
 			</less-than>
 		</condition>
@@ -122,7 +122,7 @@
 		<object-name>VorLocDeviationBar</object-name>
 		<object-name>VOR_LOC_dots</object-name>
 	<!--<property>VC10/CDI/indicated-heading-deg</property> -->
-		<property>instrumentation/heading-indicator-fg/indicated-heading-deg</property>
+		<property>instrumentation/heading-indicator-fg[0]/indicated-heading-deg</property>
 		<factor>-1</factor>
 		<axis>
 			<x>-1</x>
@@ -280,6 +280,7 @@
         <property>instrumentation/nav[0]/heading-needle-deflection</property>
         <interpolation>
         <entry><ind>-10.0</ind><dep>-0.025</dep></entry>
+		<entry><ind>0.0</ind><dep>0.0</dep></entry>
         <entry><ind>10.0</ind><dep>0.025</dep></entry>
     </interpolation>
         <axis>
@@ -287,19 +288,20 @@
             <y>1.0</y>
             <z>0.0</z>
         </axis>
-        <center>
-            <x-m>0.0</x-m>
+ <!--        <center>
+           <x-m>0.0</x-m>
             <y-m>0.0</y-m>
             <z-m>-0.006</z-m>
-        </center>
+        </center> -->
     </animation>
 	
     <animation>
         <type>translate</type>
         <object-name>GS_DeviationBar</object-name>
-        <property>instrumentation/nav[0]/gs-needle-deflection-deg</property>
+        <property>instrumentation/nav[0]/gs-needle-deflection-norm</property>
         <interpolation>
         <entry><ind>-0.7</ind><dep>-0.025</dep></entry>
+		<entry><ind>0.0</ind><dep>0.0</dep></entry>
         <entry><ind>0.7</ind><dep>0.025</dep></entry>
     </interpolation>
         <axis>
@@ -307,11 +309,11 @@
             <y>0.0</y>
             <z>1.0</z>
         </axis>
-        <center>
+<!--        <center>
             <x-m>0.0</x-m>
             <y-m>0.0</y-m>
             <z-m>-0.006</z-m>
-        </center>
+        </center> -->
     </animation>
 
 		<animation>

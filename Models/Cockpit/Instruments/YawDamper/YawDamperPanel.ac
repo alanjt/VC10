@@ -662,10 +662,10 @@ refs 4
 73 0.777035 0.703851
 kids 0
 OBJECT poly
-name "needle-2"
+name "Needle-2"
 loc 0.00545619 -0.113317 -0.0449316
 data 6
-needle
+Needle
 texture "YawDamper.png"
 crease 30.000002
 numvert 4
@@ -683,10 +683,10 @@ refs 4
 1 0.563138 0.735963
 kids 0
 OBJECT poly
-name "needle-1"
+name "Needle-1"
 loc 0.00545619 -0.0743486 -0.0451638
 data 6
-needle
+Needle
 texture "YawDamper.png"
 crease 30.000002
 numvert 4
@@ -2020,10 +2020,10 @@ refs 4
 73 0.777035 0.703851
 kids 0
 OBJECT poly
-name "needle-0"
+name "Needle-0"
 loc 0.00545619 -0.0364144 -0.0453112
 data 6
-needle
+Needle
 texture "YawDamper.png"
 crease 30.000002
 numvert 4

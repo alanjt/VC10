@@ -23,8 +23,8 @@ if you contacted me before making any changes to this software.
 ########################################################################-->
 <?xml-stylesheet type="text/xsl" href="http://jsbsim.sourceforge.net/JSBSim.xsl"?>
 <fdm_config name="VC10" version="2.0" release="ALPHA"
-		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
 
 	<fileheader>
 		<author>Alan Teeder</author>
@@ -53,104 +53,104 @@ if you contacted me before making any changes to this software.
  -->
 
 	<metrics>
-		<wingarea  unit="FT2"> 2851.0 </wingarea>
-		<wingspan  unit="FT" >140.167 </wingspan>
-		<wing_incidence>         4.00 </wing_incidence>
-		<chord     unit="FT" >  20.017 </chord>
-		<htailarea unit="FT2">  638.00 </htailarea>
-		<htailarm  unit="FT" >   68.82 </htailarm>
-		<vtailarea unit="FT2">  476.00 </vtailarea>
-		<vtailarm  unit="FT" >   68.82 </vtailarm>
+		<wingarea unit="FT2">2851.0</wingarea>
+		<wingspan unit="FT">140.167</wingspan>
+		<wing_incidence unit="DEG">4.00</wing_incidence>
+		<chord unit="FT">20.017</chord>
+		<htailarea unit="FT2">638.00</htailarea>
+		<htailarm unit="FT">68.82</htailarm>
+		<vtailarea unit="FT2">476.00</vtailarea>
+		<vtailarm unit="FT">68.82</vtailarm>
 
 		<!--  	 The datum origin is 8" behind the front of the radome, and level with the main cabin floor. -->
 
-		<location name="AERORP" unit="IN">  <!--  DO NOT CHANGE !! All aerodynamics data
+		<location name="AERORP" unit="IN"><!--  DO NOT CHANGE !! All aerodynamics data
 		has been transformed to use this reference datum point.
         79.07 ft aft of the datum origin corresponds to 32 %SMC		!! -->
-			<x>  948.84 </x>            <!--79.07 ft -->
-			<y>  0.00 </y>
-			<z>  0.00 </z>
+			<x>948.84</x><!--79.07 ft -->
+			<y>0.00</y>
+			<z>0.00</z>
 		</location>
 		<location name="EYEPOINT" unit="IN">
-			<x>  74.8 </x>            <!--1.9 m -->    
-			<y>  0.00 </y>
-			<z>  47.2 </z>            <!--1.2 m -->    
+			<x>74.8</x><!--1.9 m -->
+			<y>0.00</y>
+			<z>47.2</z><!--1.2 m -->
 		</location>
 		<location name="VRP" unit="IN">
-			<x>  0.00</x>
-			<y>  0.00</y>
-			<z>  0.00</z>
+			<x>0.00</x>
+			<y>0.00</y>
+			<z>0.00</z>
 		</location>
 	</metrics>
 
 	<mass_balance>
-<!--		<ixx unit="SLUG*FT2">   2322405 </ixx>
+		<!--		<ixx unit="SLUG*FT2">   2322405 </ixx>
 		<iyy unit="SLUG*FT2">   2886669 </iyy>
 		<izz unit="SLUG*FT2">   5260000 </izz>  -->
-<!-- Note. These inertias are for the empty aircraft -->
-		<ixx unit="SLUG*FT2">   1131000 </ixx>
-		<iyy unit="SLUG*FT2">   6092000 </iyy>
-		<izz unit="SLUG*FT2">   6547000 </izz>
-		<emptywt unit="LBS" >    137526 </emptywt>
+		<!-- Note. These inertias are for the empty aircraft -->
+		<ixx unit="SLUG*FT2">1131000</ixx>
+		<iyy unit="SLUG*FT2">6092000</iyy>
+		<izz unit="SLUG*FT2">6547000</izz>
+		<emptywt unit="LBS">137526</emptywt>
 		<location name="CG" unit="IN">
-			<x>  940.0 </x>
-			<y>  0.0 </y>
-			<z>-45.20 </z>
+			<x>940.0</x>
+			<y>0.0</y>
+			<z>-45.20</z>
 		</location>
 		<pointmass name="CREW">
 			<weight unit="LBS">540</weight>
 			<location name="POINTMASS" unit="IN">
 				<x>100</x>
-				<y>   0</y>
-				<z>   0</z>
+				<y>0</y>
+				<z>0</z>
 			</location>
 		</pointmass>
 		<pointmass name="PASSENGER FIRST CLASS">
-			<weight unit="LBS"> 0</weight><!-- passengers-->
+			<weight unit="LBS">0</weight><!-- passengers-->
 			<location name="POINTMASS" unit="IN">
-				<x>200</x>
-				<y>  0</y>
-				<z>  0</z>
+				<x>378</x>
+				<y>0</y>
+				<z>0</z>
 			</location>
 		</pointmass>
 		<pointmass name="PASSENGER TOURIST CLASS">
-			<weight unit="LBS"> 0</weight><!-- passengers-->
+			<weight unit="LBS">0</weight><!-- passengers-->
 			<location name="POINTMASS" unit="IN">
-				<x>300</x>
-				<y>   0</y>
-				<z>   0</z>
+				<x>828</x>
+				<y>0</y>
+				<z>0</z>
 			</location>
 		</pointmass>
 		<pointmass name="PASSENGER TOURIST CLASS">
-			<weight unit="LBS"> 0</weight><!-- passengers-->
+			<weight unit="LBS">0</weight><!-- passengers-->
 			<location name="POINTMASS" unit="IN">
-				<x>400</x>
-				<y>   0</y>
-				<z>   0</z>
+				<x>988</x>
+				<y>0</y>
+				<z>0</z>
 			</location>
 		</pointmass>
 		<pointmass name="LUGGAGE 1">
-			<weight unit="LBS">  0</weight><!-- cargo or more passengers -->
+			<weight unit="LBS">0</weight><!-- cargo or more passengers -->
 			<location name="POINTMASS" unit="IN">
-				<x>200</x>
-				<y>   0</y>
-				<z>   0</z>
+				<x>378</x>
+				<y>0</y>
+				<z>0</z>
 			</location>
 		</pointmass>
 		<pointmass name="LUGGAGE 2">
-			<weight unit="LBS">  0</weight><!-- cargo or more passengers -->
+			<weight unit="LBS">0</weight><!-- cargo or more passengers -->
 			<location name="POINTMASS" unit="IN">
-				<x>300</x>
-				<y>   0</y>
-				<z>   0</z>
+				<x>828</x>
+				<y>0</y>
+				<z>0</z>
 			</location>
 		</pointmass>
 		<pointmass name="LUGGAGE 3">
-			<weight unit="LBS">  0</weight><!-- cargo or more passengers -->
+			<weight unit="LBS">0</weight><!-- cargo or more passengers -->
 			<location name="POINTMASS" unit="IN">
-				<x>400</x>
-				<y>  0</y>
-				<z>  0</z>
+				<x>988</x>
+				<y>0</y>
+				<z>0</z>
 			</location>
 		</pointmass>
 	</mass_balance>
@@ -159,41 +159,41 @@ if you contacted me before making any changes to this software.
 
 		<contact type="BOGEY" name="NOSE">
 			<location unit="IN">
-				<x> 218.44 </x>
-				<y>   0.00 </y>
-				<z> -123.00 </z>
+				<x>218.44</x>
+				<y>0.00</y>
+				<z>-123.00</z>
 			</location>
-			<static_friction>  0.55 </static_friction>
-			<dynamic_friction> 0.50 </dynamic_friction>
-			<rolling_friction> 0.02 </rolling_friction>
-			<spring_coeff unit="LBS/FT"> 90000 </spring_coeff>
-			<damping_coeff unit="LBS/FT/SEC"> 6000 </damping_coeff>
+			<static_friction>0.55</static_friction>
+			<dynamic_friction>0.50</dynamic_friction>
+			<rolling_friction>0.02</rolling_friction>
+			<spring_coeff unit="LBS/FT">90000</spring_coeff>
+			<damping_coeff unit="LBS/FT/SEC">6000</damping_coeff>
 			<damping_coeff_rebound unit="LBS/FT/SEC">12000</damping_coeff_rebound>
 			<relaxation_velocity>
 				<rolling unit="FT/SEC">0.6</rolling>
 				<side unit="FT/SEC">0.6</side>
 			</relaxation_velocity>
 			<force_lag_filter>
-				<rolling> 120.0 </rolling>
-				<side>120.0 </side>
+				<rolling>120.0</rolling>
+				<side>120.0</side>
 			</force_lag_filter>
-			<wheel_slip_filter> 120.0 </wheel_slip_filter>
-			<max_steer unit="DEG"> 60 </max_steer>
-			<brake_group> NONE </brake_group>
+			<wheel_slip_filter>120.0</wheel_slip_filter>
+			<max_steer unit="DEG">60</max_steer>
+			<brake_group>NONE</brake_group>
 			<retractable>1</retractable>
 		</contact>
 
 		<contact type="BOGEY" name="LEFT_MAIN">
 			<location unit="IN">
-				<x>  1008.0 </x>
-				<y> -128.5 </y>
-				<z> -138.6 </z>
+				<x>1008.0</x>
+				<y>-128.5</y>
+				<z>-138.6</z>
 			</location>
-			<static_friction>  0.35 </static_friction>
-			<dynamic_friction> 0.70 </dynamic_friction>
-			<rolling_friction> 0.02 </rolling_friction>
-			<spring_coeff unit="LBS/FT">     230000.00 </spring_coeff>
-			<damping_coeff unit="LBS/FT/SEC">140000.00 </damping_coeff>
+			<static_friction>0.35</static_friction>
+			<dynamic_friction>0.70</dynamic_friction>
+			<rolling_friction>0.02</rolling_friction>
+			<spring_coeff unit="LBS/FT">230000.00</spring_coeff>
+			<damping_coeff unit="LBS/FT/SEC">140000.00</damping_coeff>
 			<max_steer unit="DEG">0</max_steer>
 			<brake_group>LEFT</brake_group>
 			<retractable>1</retractable>
@@ -201,15 +201,15 @@ if you contacted me before making any changes to this software.
 
 		<contact type="BOGEY" name="RIGHT_MAIN">
 			<location unit="IN">
-				<x>  1008.0 </x>
-				<y>  128.5 </y>
-				<z> -138.6 </z>
+				<x>1008.0</x>
+				<y>128.5</y>
+				<z>-138.6</z>
 			</location>
-			<static_friction>  0.35 </static_friction>
-			<dynamic_friction> 0.70 </dynamic_friction>
-			<rolling_friction> 0.02 </rolling_friction>
-			<spring_coeff unit="LBS/FT">     230000.00 </spring_coeff>
-			<damping_coeff unit="LBS/FT/SEC">140000.00 </damping_coeff>
+			<static_friction>0.35</static_friction>
+			<dynamic_friction>0.70</dynamic_friction>
+			<rolling_friction>0.02</rolling_friction>
+			<spring_coeff unit="LBS/FT">230000.00</spring_coeff>
+			<damping_coeff unit="LBS/FT/SEC">140000.00</damping_coeff>
 			<max_steer unit="DEG">0</max_steer>
 			<brake_group>RIGHT</brake_group>
 			<retractable>1</retractable>
@@ -217,50 +217,50 @@ if you contacted me before making any changes to this software.
 
 		<contact type="STRUCTURE" name="NOSE_CRASHED">
 			<location unit="IN">
-				<x> -8.0 </x>
-				<y>   0.00 </y>
-				<z> -11.8 </z>
+				<x>-8.0</x>
+				<y>0.00</y>
+				<z>-11.8</z>
 			</location>
-			<static_friction>  0.55 </static_friction>
-			<dynamic_friction> 0.50 </dynamic_friction>
-			<spring_coeff unit="LBS/FT">      360600.00 </spring_coeff>
-			<damping_coeff unit="LBS/FT/SEC"> 80000.00 </damping_coeff>
+			<static_friction>0.55</static_friction>
+			<dynamic_friction>0.50</dynamic_friction>
+			<spring_coeff unit="LBS/FT">360600.00</spring_coeff>
+			<damping_coeff unit="LBS/FT/SEC">80000.00</damping_coeff>
 		</contact>
 
 		<contact type="STRUCTURE" name="Rear Fuselage">
 			<location unit="IN">
-				<x> 1604.0 </x>
-				<y>   0.00 </y>
-				<z> 26.4 </z>
+				<x>1604.0</x>
+				<y>0.00</y>
+				<z>26.4</z>
 			</location>
-			<static_friction>  0.55 </static_friction>
-			<dynamic_friction> 0.50 </dynamic_friction>
-			<spring_coeff unit="LBS/FT">      360600.00 </spring_coeff>
-			<damping_coeff unit="LBS/FT/SEC"> 80000.00 </damping_coeff>
+			<static_friction>0.55</static_friction>
+			<dynamic_friction>0.50</dynamic_friction>
+			<spring_coeff unit="LBS/FT">360600.00</spring_coeff>
+			<damping_coeff unit="LBS/FT/SEC">80000.00</damping_coeff>
 		</contact>
 
 		<contact type="STRUCTURE" name="LEFT_WING">
 			<location unit="IN">
-				<x> 1352.8 </x>
-				<y> -877.0 </y>
-				<z> 160.0 </z>
+				<x>1352.8</x>
+				<y>-877.0</y>
+				<z>160.0</z>
 			</location>
-			<static_friction>  0.55 </static_friction>
-			<dynamic_friction> 0.50 </dynamic_friction>
-			<spring_coeff unit="LBS/FT">      360600.00 </spring_coeff>
-			<damping_coeff unit="LBS/FT/SEC"> 80000.00 </damping_coeff>
+			<static_friction>0.55</static_friction>
+			<dynamic_friction>0.50</dynamic_friction>
+			<spring_coeff unit="LBS/FT">360600.00</spring_coeff>
+			<damping_coeff unit="LBS/FT/SEC">80000.00</damping_coeff>
 		</contact>
 
 		<contact type="STRUCTURE" name="RIGHT_WING">
 			<location unit="IN">
-				<x> 1352.8 </x>
-				<y> 877.0 </y>
-				<z> 160.0 </z>
+				<x>1352.8</x>
+				<y>877.0</y>
+				<z>160.0</z>
 			</location>
-			<static_friction>  0.55 </static_friction>
-			<dynamic_friction> 0.50 </dynamic_friction>
-			<spring_coeff unit="LBS/FT">      360600.00 </spring_coeff>
-			<damping_coeff unit="LBS/FT/SEC"> 80000.00 </damping_coeff>
+			<static_friction>0.55</static_friction>
+			<dynamic_friction>0.50</dynamic_friction>
+			<spring_coeff unit="LBS/FT">360600.00</spring_coeff>
+			<damping_coeff unit="LBS/FT/SEC">80000.00</damping_coeff>
 		</contact>
 
 	</ground_reactions>
@@ -268,181 +268,179 @@ if you contacted me before making any changes to this software.
 	<propulsion>
 
 		<engine file="RCo12">
-			<location unit="IN">
-				<x>  1462.0 </x>
-				<y> -180.8 </y>
-				<z> 15.0 </z>
+			<!--	<location unit="IN">
+				<x>1462.0</x>
+				<y>-180.8</y>
+				<z>15.0</z>
 			</location>
 			<orient unit="DEG">
-				<pitch> 3.0 </pitch>
-				<roll>   0.00 </roll>
-				<yaw>   0.00 </yaw>
-			</orient>
+				<pitch>3.0</pitch>
+				<roll>0.00</roll>
+				<yaw>0.00</yaw>
+			</orient> -->
 			<!--			<feed>11</feed> -->
 			<feed>1</feed>
 			<thruster file="direct">
 				<location unit="IN">
-					<x>  1462.0 </x>
-					<y> -180.8 </y>
-					<z> 15.0 </z>
+					<x>1462.0</x>
+					<y>-180.8</y>
+					<z>15.0</z>
 				</location>
 				<orient unit="DEG">
-					<pitch> 3.0 </pitch>>
-					<roll>   0.00 </roll>
-					<yaw>   0.00 </yaw>
+					<pitch>3.0</pitch>>
+					<roll>0.00</roll>
+					<yaw>0.00</yaw>
 				</orient>
 			</thruster>
 		</engine>
 
 		<engine file="RCo12">
-			<location unit="IN">
-				<x>  1462.0 </x>
-				<y>-112.2 </y>
-				<z> 15.0 </z>
+			<!--<location unit="IN">
+				<x>1462.0</x>
+				<y>-112.2</y>
+				<z>15.0</z>
 			</location>
 			<orient unit="DEG">
-				<pitch> 3.0 </pitch>
-				<roll>   0.00 </roll>
-				<yaw>   0.00 </yaw>
-			</orient>
+				<pitch>3.0</pitch>
+				<roll>0.00</roll>
+				<yaw>0.00</yaw>
+			</orient> -->
 			<!--			<feed>12</feed> -->
 			<feed>2</feed>
 			<thruster file="direct">
 				<location unit="IN">
-					<x>  1462.0 </x>
-					<y>-112.22 </y>
-					<z> 15.0 </z>
+					<x>1462.0</x>
+					<y>-112.22</y>
+					<z>15.0</z>
 				</location>
 				<orient unit="DEG">
-					<pitch> 3.0 </pitch>
-					<roll>   0.00 </roll>
-					<yaw>   0.00 </yaw>
+					<pitch>3.0</pitch>
+					<roll>0.00</roll>
+					<yaw>0.00</yaw>
 				</orient>
 			</thruster>
 		</engine>
 
 		<engine file="RCo12">
-			<location unit="IN">
-				<x>  1462.0 </x>
-				<y> 112.2 </y>
-				<z> 15.0 </z>
+			<!--		<x>1462.0</x>
+				<y>112.2</y>
+				<z>15.0</z>
 			</location>
 			<orient unit="DEG">
-				<pitch> 3.0 </pitch>>
-				<roll>   0.00 </roll>
-				<yaw>   0.00 </yaw>
-			</orient>
+				<pitch>3.0</pitch>>
+				<roll>0.00</roll>
+				<yaw>0.00</yaw>
+			</orient> -->
 			<!--			<feed>13</feed>  -->
 			<feed>4</feed>
 			<thruster file="direct">
 				<location unit="IN">
-					<x>  1462.0 </x>
-					<y> 112.2 </y>
-					<z> 15.0 </z>
+					<x>1462.0</x>
+					<y>112.2</y>
+					<z>15.0</z>
 				</location>
 				<orient unit="DEG">
-					<pitch> 3.0 </pitch>>
-					<roll>   0.00 </roll>
-					<yaw>   0.00 </yaw>
+					<pitch>3.0</pitch>>
+					<roll>0.00</roll>
+					<yaw>0.00</yaw>
 				</orient>
 			</thruster>
 		</engine>
 
 		<engine file="RCo12">
-			<location unit="IN">
-				<x>  1462.0 </x>
-				<y> 180.9 </y>
-				<z> 15.0 </z>
+			<!--		<x>1462.0</x>
+				<y>180.9</y>
+				<z>15.0</z>
 			</location>
 			<orient unit="DEG">
-				<pitch> 3.0 </pitch>>
-				<roll>   0.00 </roll>
-				<yaw>   0.00 </yaw>
-			</orient>
+				<pitch>3.0</pitch>>
+				<roll>0.00</roll>
+				<yaw>0.00</yaw>
+			</orient> -->
 			<!--			<feed>14</feed>  -->
 			<feed>5</feed>
 			<thruster file="direct">
 				<location unit="IN">
-					<x>  1462.0 </x>
-					<y> 180.9 </y>
-					<z> 15.0 </z>
+					<x>1462.0</x>
+					<y>180.9</y>
+					<z>15.0</z>
 				</location>
 				<orient unit="DEG">
-					<pitch> 3.0 </pitch>>
-					<roll>   0.00 </roll>
-					<yaw>   0.00 </yaw>
+					<pitch>3.0</pitch>>
+					<roll>0.00</roll>
+					<yaw>0.00</yaw>
 				</orient>
 			</thruster>
 		</engine>
 		<!-- Tank 1A -->
 		<tank type="FUEL" number="0">
 			<location unit="IN">
-				<x>   1110.2 </x>
-				<y> -669.7 </y>
-				<z>  -7.09 </z>
+				<x>1110.2</x>
+				<y>-669.7</y>
+				<z>-7.09</z>
 			</location>
-			<capacity unit="LBS"> 11440.00 </capacity>
-			<contents unit="LBS">  700.00 </contents>
+			<capacity unit="LBS">11440.00</capacity>
+			<contents unit="LBS">1400.00</contents>
 		</tank>
 		<!-- Tank 1  -->
 		<tank type="FUEL" number="1">
 			<location unit="IN">
-				<x>  984.25 </x>
-				<y> -370.08 </y>
-				<z>  -18.90 </z>
+				<x>984.25</x>
+				<y>-370.08</y>
+				<z>-18.90</z>
 			</location>
-			<capacity unit="LBS"> 15240.00 </capacity>
-			<contents unit="LBS">  7000.00 </contents>
-		</tank>  
+			<capacity unit="LBS">15240.00</capacity>
+			<contents unit="LBS">7500.00</contents>
+		</tank>
 		<!-- Tank 2  -->
 		<tank type="FUEL" number="2">
 			<location unit="IN">
-				<x>  881.89 </x>
-				<y> -165.35 </y>
-				<z>  -29.53 </z>
+				<x>881.89</x>
+				<y>-165.35</y>
+				<z>-29.53</z>
 			</location>
-			<capacity unit="LBS">  27040.00 </capacity>
-			<contents unit="LBS">  15000.00 </contents>
+			<capacity unit="LBS">27040.00</capacity>
+			<contents unit="LBS">12500.00</contents>
 		</tank>
 		<!-- Centre Tank -->
 		<tank type="FUEL" number="3">
 			<location unit="IN">
-				<x>   881.89 </x>
-				<y>   0.0 </y>
-				<z> -29.53 </z>
+				<x>881.89</x>
+				<y>0.0</y>
+				<z>-29.53</z>
 			</location>
-			<capacity unit="LBS"> 36520.00 </capacity>
-			<contents unit="LBS"> 10000.00 </contents>
+			<capacity unit="LBS">36520.00</capacity>
+			<contents unit="LBS">32000.00</contents>
 		</tank>
 		<!-- Tank 3  -->
 		<tank type="FUEL" number="4">
 			<location unit="IN">
-				<x>  881.89 </x>
-				<y>  165.35 </y>
-				<z>  -29.53 </z>
+				<x>881.89</x>
+				<y>165.35</y>
+				<z>-29.53</z>
 			</location>
-			<capacity unit="LBS">  27040.00 </capacity>
-			<contents unit="LBS">  15000.00 </contents>
+			<capacity unit="LBS">27040.00</capacity>
+			<contents unit="LBS">12500.00</contents>
 		</tank>
 		<!-- Tank 4  -->
 		<tank type="FUEL" number="5">
 			<location unit="IN">
-				<x>  984.25 </x>
-				<y>  370.08 </y>
-				<z>  -18.90 </z>
+				<x>984.25</x>
+				<y>370.08</y>
+				<z>-18.90</z>
 			</location>
-			<capacity unit="LBS"> 15240.00 </capacity>
-			<contents unit="LBS">  7000.00 </contents>
-		</tank>		
+			<capacity unit="LBS">15240.00</capacity>
+			<contents unit="LBS">7500.00</contents>
+		</tank>
 		<!-- Tank 4A  -->
 		<tank type="FUEL" number="6">
 			<location unit="IN">
-				<x>   1110.2 </x>
-				<y>  669.7 </y>
-				<z>  -7.09 </z>
+				<x>1110.2</x>
+				<y>669.7</y>
+				<z>-7.09</z>
 			</location>
-			<capacity unit="LBS"> 11440.00 </capacity>
-			<contents unit="LBS">  700.00 </contents>
+			<capacity unit="LBS">11440.00</capacity>
+			<contents unit="LBS">1400.00</contents>
 		</tank>
 		<!-- Fuel Feed Gallery
      Engines are supplied from a Fuel Feed Gallery which is split into 4 sections, one per engine.
@@ -453,42 +451,42 @@ if you contacted me before making any changes to this software.
 		<!-- Engine 1 Fuel Gallery -->
 		<tank type="FUEL" number="7">
 			<location unit="IN">
-				<x>  984.25 </x>
-				<y>  -370.08 </y>
-				<z>  -18.90 </z>
+				<x>984.25</x>
+				<y>-370.08</y>
+				<z>-18.90</z>
 			</location>
-			<capacity unit="LBS"> 10.0 </capacity>
-			<contents unit="LBS"> 10.0 </contents>
+			<capacity unit="LBS">10.0</capacity>
+			<contents unit="LBS">10.0</contents>
 		</tank>
 		<!-- Engine 2 Fuel Gallery -->
 		<tank type="FUEL" number="8">
 			<location unit="IN">
-				<x>  881.89 </x>
-				<y> -165.35 </y>
-				<z>  -29.53 </z>
+				<x>881.89</x>
+				<y>-165.35</y>
+				<z>-29.53</z>
 			</location>
-			<capacity unit="LBS"> 10.0 </capacity>
-			<contents unit="LBS"> 10.0 </contents>
+			<capacity unit="LBS">10.0</capacity>
+			<contents unit="LBS">10.0</contents>
 		</tank>
 		<!-- Engine 3 Fuel Gallery -->
 		<tank type="FUEL" number="9">
 			<location unit="IN">
-				<x>  881.89 </x>
-				<y>  165.35 </y>
-				<z>  -29.53 </z>
+				<x>881.89</x>
+				<y>165.35</y>
+				<z>-29.53</z>
 			</location>
-			<capacity unit="LBS"> 10.0 </capacity>
-			<contents unit="LBS"> 10.0 </contents>
+			<capacity unit="LBS">10.0</capacity>
+			<contents unit="LBS">10.0</contents>
 		</tank>
 		<!-- Engine 4 Fuel Gallery -->
 		<tank type="FUEL" number="10">
 			<location unit="IN">
-				<x>  984.25 </x>
-				<y>  370.08 </y>
-				<z>  -18.90 </z>
+				<x>984.25</x>
+				<y>370.08</y>
+				<z>-18.90</z>
 			</location>
-			<capacity unit="LBS"> 10.0 </capacity>
-			<contents unit="LBS"> 10.0 </contents>
+			<capacity unit="LBS">10.0</capacity>
+			<contents unit="LBS">10.0</contents>
 		</tank>
 
 		<!-- Individual Low Pressure Cocks connect each Engine Fuel Supply Pipe to the related section of the Fuel Feed Galery.-->
@@ -496,44 +494,44 @@ if you contacted me before making any changes to this software.
 		<!-- Engine 1 Fuel Supply Pipe-->
 		<tank type="FUEL" number="11">
 			<location unit="IN">
-				<x>  984.25 </x>
-				<y>  -370.08 </y>
-				<z>  -18.90 </z>
+				<x>984.25</x>
+				<y>-370.08</y>
+				<z>-18.90</z>
 			</location>
-			<capacity unit="LBS"> 10.0 </capacity>
-			<contents unit="LBS"> 10.0 </contents>
+			<capacity unit="LBS">10.0</capacity>
+			<contents unit="LBS">10.0</contents>
 		</tank>
 		<!-- Engine 2 Fuel Supply Pipe -->
 		<tank type="FUEL" number="12">
 			<location unit="IN">
-				<x>  984.25 </x>
-				<y>  -370.08 </y>
-				<z>  -18.90 </z>
+				<x>984.25</x>
+				<y>-370.08</y>
+				<z>-18.90</z>
 			</location>
-			<capacity unit="LBS"> 10.0 </capacity>
-			<contents unit="LBS"> 10.0 </contents>
+			<capacity unit="LBS">10.0</capacity>
+			<contents unit="LBS">10.0</contents>
 		</tank>
 
 		<!-- Engine 3 Fuel Supply Pipe -->
 		<tank type="FUEL" number="13">
 			<location unit="IN">
-				<x>  984.25 </x>
-				<y>  -370.08 </y>
-				<z>  -18.90 </z>
+				<x>984.25</x>
+				<y>-370.08</y>
+				<z>-18.90</z>
 			</location>
-			<capacity unit="LBS"> 10.0 </capacity>
-			<contents unit="LBS"> 10.0 </contents>
+			<capacity unit="LBS">10.0</capacity>
+			<contents unit="LBS">10.0</contents>
 		</tank>
 
 		<!-- Engine 4 Fuel Supply Pipe-->
 		<tank type="FUEL" number="14">
 			<location unit="IN">
-				<x>  984.25 </x>
-				<y>  -370.08 </y>
-				<z>  -18.90 </z>
+				<x>984.25</x>
+				<y>-370.08</y>
+				<z>-18.90</z>
 			</location>
-			<capacity unit="LBS"> 10.0 </capacity>
-			<contents unit="LBS"> 10.0 </contents>
+			<capacity unit="LBS">10.0</capacity>
+			<contents unit="LBS">10.0</contents>
 		</tank>
 
 		<!-- Fuel Refuel/Defuel and Jetison Gallery
@@ -545,25 +543,25 @@ if you contacted me before making any changes to this software.
 		<!-- Port Fuel Supply Gallery -->
 		<tank type="FUEL" number="15">
 			<location unit="IN">
-				<x>  881.89 </x>
-				<y> -165.35 </y>
-				<z>  -29.53 </z>
+				<x>881.89</x>
+				<y>-165.35</y>
+				<z>-29.53</z>
 			</location>
-			<capacity unit="LBS"> 10.0 </capacity>
-			<contents unit="LBS"> 10.0 </contents>
+			<capacity unit="LBS">10.0</capacity>
+			<contents unit="LBS">10.0</contents>
 		</tank>
 		<!-- Stbd Fuel Supply Gallery -->
 		<tank type="FUEL" number="16">
 			<location unit="IN">
-				<x>  881.89 </x>
-				<y>  165.35 </y>
-				<z>  -29.53 </z>
+				<x>881.89</x>
+				<y>165.35</y>
+				<z>-29.53</z>
 			</location>
-			<capacity unit="LBS"> 10.0 </capacity>
-			<contents unit="LBS"> 10.0 </contents>
+			<capacity unit="LBS">10.0</capacity>
+			<contents unit="LBS">10.0</contents>
 		</tank>
 
-	</propulsion> 
+	</propulsion>
 
 	<system file="pushback"/>
 
@@ -578,24 +576,24 @@ if you contacted me before making any changes to this software.
 
 			<aerosurface_scale name="Elevator Control">
 				<input>fcs/elevator-sum-norm</input>
-				<zero_centered> true </zero_centered>
-				<domain><min>-1.0</min><max>1.0</max> </domain> 
+				<zero_centered>true</zero_centered>
+				<domain><min>-1.0</min><max>1.0</max></domain>
 				<range><min>-1</min><max>1</max></range>
 				<output>fcs/elevator-pos-norm</output>
 			</aerosurface_scale>
 
 			<aerosurface_scale name="Elevator Pos Deg">
 				<input>fcs/elevator-sum-norm</input>
-				<zero_centered> true </zero_centered>
-				<domain><min>-1.0</min><max>1.0</max></domain> 
+				<zero_centered>true</zero_centered>
+				<domain><min>-1.0</min><max>1.0</max></domain>
 				<range><min>-17.683</min><max>26.55</max></range>
 				<output>fcs/elevator-pos-deg</output>
-			</aerosurface_scale> 
+			</aerosurface_scale>
 
 			<aerosurface_scale name="Pitch Trim pos deg">
 				<input>fcs/pitch-trim-cmd-norm</input>
-				<zero_centered> false </zero_centered>
-				<domain><min>-1.0</min><max>1.0</max> </domain> 
+				<zero_centered>false</zero_centered>
+				<domain><min>-1.0</min><max>1.0</max></domain>
 				<range><min>-14</min><max>3</max></range>
 				<output>fcs/pitch-trim-pos-deg</output>
 			</aerosurface_scale>
@@ -603,17 +601,17 @@ if you contacted me before making any changes to this software.
 		</channel>
 
 		<channel name="Roll">
-<!-- positive is right aileron TE down -->		
-			<pure_gain name ="aileron cmd deg"> 
+			<!-- positive is left aileron TE down -->
+			<pure_gain name="aileron cmd deg">
 				<input>fcs/aileron-cmd-norm</input>
-				<gain> 23.25 </gain>
-				<output> fcs/aileron-cmd-deg </output>
+				<gain>23.25</gain>
+				<output>fcs/aileron-cmd-deg</output>
 			</pure_gain>
 
-			<pure_gain name ="aileron trim deg">
+			<pure_gain name="aileron trim deg">
 				<input>fcs/roll-trim-cmd-norm</input>
-				<gain> 23.25 </gain>
-				<output> fcs/aileron-trim-cmd-deg </output>
+				<gain>23.25</gain>
+				<output>fcs/aileron-trim-cmd-deg</output>
 			</pure_gain>
 
 			<summer name="Aileron Pos Deg">
@@ -622,22 +620,22 @@ if you contacted me before making any changes to this software.
 				<input>afcs/aileron-deg</input>
 				<clipto>
 					<min>-23.25</min>
-					<max> 23.25</max>
+					<max>23.25</max>
 				</clipto>
-				<output> fcs/aileron-pos-deg </output>
+				<output>fcs/aileron-pos-deg</output>
 			</summer>
 			
-			<pure_gain name ="aileron pos rad">
+			<pure_gain name="aileron pos rad">
 				<input>fcs/aileron-pos-deg</input>
-				<gain> 0.0174533 </gain>
-				<output> fcs/aileron-pos-rad </output>
+				<gain>0.0174533</gain>
+				<output>fcs/aileron-pos-rad</output>
 			</pure_gain>
 
 			<aerosurface_scale name="Aileron Position Normalizer">
-				<input>fcs/aileron-pos-deg </input>
+				<input>fcs/aileron-pos-deg</input>
 				<domain>
-				    <min> -23.25 </min>
-					<max>  23.25 </max>
+					<min>-23.25</min>
+					<max>23.25</max>
 				</domain>
 				<range>
 					<min>-1</min>
@@ -647,108 +645,108 @@ if you contacted me before making any changes to this software.
 			</aerosurface_scale>
 			
 			
-<!-- Set left and right aileron positions separately <sim>-->
+			<!-- Set left and right aileron positions separately -->
 			
-<!-- right aileron -->			
-<!-- positive is TE down -->				
-			<pure_gain name ="right aileron pos deg">
+			<!-- right aileron -->
+			<!-- positive is TE down -->
+			<pure_gain name="right aileron pos deg">
 				<input>fcs/aileron-pos-deg</input>
-				<gain> 1.0 </gain>
-				<output> fcs/aileron-right-deg </output>
+				<gain>-1.0</gain>
+				<output>fcs/aileron-right-deg</output>
 			</pure_gain>
 			
-<!-- left  aileron -->			
-<!-- positive is TE down -->			
-			<pure_gain name ="left aileron pos deg">
+			<!-- left  aileron -->
+			<!-- positive is TE down -->
+			<pure_gain name="left aileron pos deg">
 				<input>fcs/aileron-pos-deg</input>
-				<gain> -1.0 </gain>
-				<output> fcs/aileron-left-deg </output>
+				<gain>1.0</gain>
+				<output>fcs/aileron-left-deg</output>
 			</pure_gain>
 		</channel>
 		
 		<channel name="SpeedbrakeSpoilers">
 
-		<kinematic name="Speedbrake Control">
-			<input>fcs/speedbrake-cmd-norm</input>
+			<kinematic name="Speedbrake Control">
+				<input>fcs/speedbrake-cmd-norm</input>
 				<traverse>
 					<setting>
-						<position> 0 </position><time> 0 </time>
+						<position>0</position><time>0</time>
 					</setting>
 					<setting>
-						<position>10 </position><time>0.5 </time>
+						<position>10</position><time>0.5</time>
 					</setting>
 					<setting>
-						<position>20 </position><time>0.5 </time>
+						<position>20</position><time>0.5</time>
 					</setting>
 					<setting>
-						<position>30 </position><time>0.5 </time>
+						<position>30</position><time>0.5</time>
 					</setting>
 					<setting>
-						<position>40 </position><time>0.5 </time>
+						<position>40</position><time>0.5</time>
 					</setting>
 					<setting>
-						<position>50 </position><time>0.5 </time>
+						<position>50</position><time>0.5</time>
 					</setting>
 				</traverse>
-			<output>fcs/speedbrake-pos-deg</output>
-		</kinematic>
+				<output>fcs/speedbrake-pos-deg</output>
+			</kinematic>
 		
-<!-- right spoiler -->			
-<!-- positive is TE up -->	
+			<!-- right spoiler -->
+			<!-- positive is TE up -->
 
-			<pure_gain name ="right spoiler cmd deg">
+			<pure_gain name="right spoiler cmd deg">
 				<input>fcs/aileron-pos-deg</input>
-				<gain> 2.1505 </gain>
-				<output> fcs/spoiler-right-cmd-deg </output>
+				<gain>2.1505</gain>
+				<output>fcs/spoiler-right-cmd-deg</output>
 			</pure_gain>
 			
 			<summer name="right spoiler pos deg">
 				<input>fcs/spoiler-right-cmd-deg</input>
 				<input>fcs/speedbrake-pos-deg</input>
 				<clipto><min>0</min><max>50</max></clipto>
-				<output>fcs/spoiler-right-pos-deg </output>
+				<output>fcs/spoiler-right-pos-deg</output>
 			</summer>
 			
-<!-- left  spoiler -->			
-<!-- positive is TE up -->
+			<!-- left  spoiler -->
+			<!-- positive is TE up -->
 			
-			<pure_gain name ="left spoiler pos deg">
+			<pure_gain name="left spoiler pos deg">
 				<input>fcs/aileron-pos-deg</input>
-				<gain> -2.1505 </gain>
-				<output> fcs/spoiler-left-cmd-deg </output>
+				<gain>-2.1505</gain>
+				<output>fcs/spoiler-left-cmd-deg</output>
 			</pure_gain>
 
 			<summer name="left spoiler pos deg">
 				<input>fcs/spoiler-left-cmd-deg</input>
 				<input>fcs/speedbrake-pos-deg</input>
 				<clipto><min>0</min><max>50</max></clipto>
-				<output>fcs/spoiler-left-pos-deg </output>
+				<output>fcs/spoiler-left-pos-deg</output>
 			</summer>
-<!-- speedbrakes -->			
+			<!-- speedbrakes -->
 			<summer name="speedbrake sum">
 				<input>fcs/spoiler-right-pos-deg</input>
 				<input>fcs/spoiler-left-pos-deg</input>
-				<output>fcs/speedbrake-pos-sum-deg </output>
+				<output>fcs/speedbrake-pos-sum-deg</output>
 			</summer>
-			<pure_gain name ="speedbrake norm">
+			<pure_gain name="speedbrake norm">
 				<input>fcs/speedbrake-pos-sum-deg</input>
-				<gain> 0.01 </gain>
-				<output> fcs/speedbrake-pos-sum-norm </output>
+				<gain>0.01</gain>
+				<output>fcs/speedbrake-pos-sum-norm</output>
 			</pure_gain>
-		</channel>			
+		</channel>
 
 		<channel name="Yaw">
 
-			<pure_gain name ="rudder cmd deg">
+			<pure_gain name="rudder cmd deg">
 				<input>fcs/rudder-cmd-norm</input>
-				<gain> 30.0 </gain>
-				<output> fcs/rudder-cmd-deg </output>
+				<gain>30.0</gain>
+				<output>fcs/rudder-cmd-deg</output>
 			</pure_gain>
 
-			<pure_gain name ="rudder trim deg">
+			<pure_gain name="rudder trim deg">
 				<input>fcs/yaw-trim-cmd-norm</input>
-				<gain> 30.0 </gain>
-				<output> fcs/rudder-trim-cmd-deg </output>
+				<gain>30.0</gain>
+				<output>fcs/rudder-trim-cmd-deg</output>
 			</pure_gain>
 
 			<summer name="Rudder Pos Deg">
@@ -760,20 +758,20 @@ if you contacted me before making any changes to this software.
 					<min>-30</min>
 					<max>30</max>
 				</clipto>
-				<output> fcs/rudder-pos-deg </output>
+				<output>fcs/rudder-pos-deg</output>
 			</summer>
 			
-			<pure_gain name ="rudder pos rad">
+			<pure_gain name="rudder pos rad">
 				<input>fcs/rudder-pos-deg</input>
-				<gain> 0.0174533 </gain>
-				<output> fcs/rudder-pos-rad </output>
+				<gain>0.0174533</gain>
+				<output>fcs/rudder-pos-rad</output>
 			</pure_gain>
 
 			<aerosurface_scale name="Rudder Position Normalizer">
-				<input>fcs/rudder-pos-deg </input>
+				<input>fcs/rudder-pos-deg</input>
 				<domain>
-				    <min> -30.0 </min>
-					<max>  30.0 </max>
+					<min>-30.0</min>
+					<max>30.0</max>
 				</domain>
 				<range>
 					<min>-1</min>
@@ -789,20 +787,20 @@ if you contacted me before making any changes to this software.
 				<input>fcs/flap-cmd-norm</input>
 				<traverse>
 					<setting>
-						<position>  0 </position>
-						<time>      0 </time>
+						<position>0</position>
+						<time>0</time>
 					</setting>
 					<setting>
-						<position>  20 </position>
-						<time>      3 </time>
+						<position>20</position>
+						<time>3</time>
 					</setting>
 					<setting>
-						<position>  35 </position>
-						<time>      3 </time>
+						<position>35</position>
+						<time>3</time>
 					</setting>
 					<setting>
-						<position> 45 </position>
-						<time>      3 </time>
+						<position>45</position>
+						<time>3</time>
 					</setting>
 				</traverse>
 				<output>fcs/flap-pos-deg</output>
@@ -811,12 +809,12 @@ if you contacted me before making any changes to this software.
 			<aerosurface_scale name="flap normalization">
 				<input>fcs/flap-pos-deg</input>
 				<domain>
-					<min>  0 </min>
-					<max> 45 </max>
+					<min>0</min>
+					<max>45</max>
 				</domain>
 				<range>
-					<min> 0 </min>
-					<max> 1 </max>
+					<min>0</min>
+					<max>1</max>
 				</range>
 				<output>fcs/flap-pos-norm</output>
 			</aerosurface_scale>
@@ -825,26 +823,26 @@ if you contacted me before making any changes to this software.
 				<input>fcs/flap-cmd-norm</input>
 				<traverse>
 					<setting>
-						<position>  0 </position>
-						<time>      0 </time>
+						<position>0</position>
+						<time>0</time>
 					</setting>
 					<setting>
-						<position>   5 </position>
-						<time>      10 </time>
+						<position>5</position>
+						<time>10</time>
 					</setting>
 				</traverse>
 				<output>fcs/slat-pos-deg</output>
 			</kinematic>
 
-			<aerosurface_scale name="slat normalization">
+			<aerosurface_scale name="slat normalisation">
 				<input>fcs/flap-pos-deg</input>
 				<domain>
-					<min>  0 </min>
-					<max>  5 </max>
+					<min>0</min>
+					<max>5</max>
 				</domain>
 				<range>
-					<min> 0 </min>
-					<max> 1 </max>
+					<min>0</min>
+					<max>1</max>
 				</range>
 				<output>fcs/slat-pos-norm</output>
 			</aerosurface_scale>
@@ -862,7 +860,7 @@ if you contacted me before making any changes to this software.
 					</setting>
 				</traverse>
 				<output>gear/gear-pos-norm</output>
-			</kinematic>       
+			</kinematic>
 
 			<switch name="Leading Edge Flaps">
 				<default value="0"/>
@@ -901,9 +899,11 @@ if you contacted me before making any changes to this software.
         AERODYNAMICS
      **********************************************************************
 -->
-	<aerodynamics file="VC10_aeroOpenVSP.xml"/>
+	<!--	<aerodynamics file="VC10_aeroOpenVSP.xml"/> -->
+		<aerodynamics file="VC10_aeroDatcom.xml"/>
+	<!--<aerodynamics file="VC10_aeromatic.xml"/> --> 
 	<!-- **********************************************************************
-        AERODYNAMICS
+        FUEL
      **********************************************************************
 -->
 	<system file="VC10_fuel.xml"/>
@@ -911,9 +911,9 @@ if you contacted me before making any changes to this software.
 	<external_reactions>
 		<force name="pushback" frame="BODY">
 			<location unit="IN">
-				<x>  -139 </x>
-				<y>    0.0 </y>
-				<z>  -71.0 </z>
+				<x>-139</x>
+				<y>0.0</y>
+				<z>-71.0</z>
 			</location>
 			<direction>
 				<x>1</x>
@@ -922,24 +922,92 @@ if you contacted me before making any changes to this software.
 			</direction>
 		</force>
 	</external_reactions>
-
+	
+	<system name="V-speeds">
+		<function name="Vm0-vs-alt">
+			<table name="velocities/Vspeeds/Vm0-kts">
+				<independentVar lookup="row">position/h-sl-ft</independentVar>
+				<tableData>
+					0	336.9
+				20000	316.5
+				31000	329.6					<!-- above altitude 31000ft Vm0 is limited by Mm0 -->
+				34839	300.4
+				38700	275.3
+				43000	250.2
+				50000	250.0
+				</tableData>
+			</table>
+		</function>
+		
+		<function name="V2-vs-Weight">
+			<table name="velocities/Vspeeds/V2-kts">
+				<independentVar lookup="row">inertia/weight-lbs</independentVar>
+				<tableData>
+					180779.1	132
+					189597.6	134
+					220462.3	141
+					242508.5	146
+					264554.8	150
+					286601.0	155
+					291010.2	156
+					295419.5	158
+					313997.8	163
+				</tableData>
+			</table>
+		</function>
+		
+		<function name="VR-vs-Weight">
+			<table name="velocities/Vspeeds/VR-kts">
+				<independentVar lookup="row">inertia/weight-lbs</independentVar>
+				<tableData>
+					189597.6	122
+					220462.3	129
+					242508.5	134
+					264554.8	140
+					286601.0	146
+					291010.2	148
+					295419.5	149
+					313997.8	155
+				</tableData>
+			</table>
+		</function>
+		
+		<function name="VAT-vs-Weight">
+			<table name="velocities/Vspeeds/VAT-kts">
+				<independentVar lookup="row">inertia/weight-lbs</independentVar>
+				<tableData>
+					158732.9	113
+					180779.1	120
+					189597.6	123
+					220462.3	133
+					242508.5	141
+					264554.8	149
+					286601.0	157
+					291010.2	158
+					295419.5	160
+					313997.8	167
+				</tableData>
+			</table>
+		</function>
+	</system>
+	
 	<system name="crash-detect">
 		<channel name="impact-ground">
 			<switch name="impact">
 				<test logic="AND" value="1">
 					velocities/mach gt 0.2
 					position/h-agl-ft lt 6.0 
-					position/h-agl-ft gt 0.1   <!-- between EHAM and England there is h-agl-ft to 0 -->
+					position/h-agl-ft gt 0.1					<!-- between EHAM and England there is h-agl-ft to 0 -->
 					simulation/sim-time-sec gt 1.0
 				</test>
 				<test logic="AND" value="1">
 					position/h-agl-ft lt 5.0
-					position/h-agl-ft gt 0.1   <!-- between EHAM and England there is h-agl-ft to 0 -->
+					position/h-agl-ft gt 0.1					<!-- between EHAM and England there is h-agl-ft to 0 -->
 					simulation/sim-time-sec gt 1.0
 				</test>
 				<test logic="AND" value="1">
 					position/h-agl-ft lt 5.95
-					position/h-agl-ft gt 0.1   <!-- between EHAM and England there is h-agl-ft to 0 -->
+					position/h-agl-ft gt 0.1					<!-- between EHAM and England there is h-agl-ft to 0 -->
 					/VC10/over-water != 0
 					simulation/sim-time-sec gt 1.0
 				</test>

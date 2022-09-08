@@ -115,10 +115,10 @@ refs 3
 2 0.771889925003 0.22572183609
 kids 0
 OBJECT poly
-name "needle"
+name "Needle"
 loc -0.000267 -0 0
 data 6
-needle
+Needle
 texture "epr.png"
 texrep 1 1
 crease 30.000001

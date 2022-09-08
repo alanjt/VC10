@@ -50,12 +50,12 @@ if you contacted me before making any changes to this software.
 
 <rmi>	
 	<face-offset type="double">0.0</face-offset>
-<!--	<rmi-needle n="0">
+<!--	<rmi-Needle n="0">
 		<switch type="bool">0</switch>
-	</rmi-needle>
-	<rmi-needle n="1">
+	</rmi-Needle>
+	<rmi-Needle n="1">
 		<switch type="bool">1</switch>
-	</rmi-needle> -->
+	</rmi-Needle> -->
 </rmi>
 
 <deviation-indicator>

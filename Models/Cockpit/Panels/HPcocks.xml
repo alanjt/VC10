@@ -25,7 +25,7 @@ if you contacted me before making any changes to this software.
 <PropertyList>
  <path>HPcocks.ac</path>
  
-	<animation>
+<!--	<animation>
 		<type>material</type>
 		<object-name>pedestal</object-name>  
 		<object-name>cutoff.001</object-name>  
@@ -41,7 +41,7 @@ if you contacted me before making any changes to this software.
 		  <blue>0.25</blue>
 		  <factor-prop>systems/electrical/outputs/cabin-dim</factor-prop>
 		</emission>
-	</animation>
+	</animation> -->
 
 	
 	<!-- Cutoff levers -->

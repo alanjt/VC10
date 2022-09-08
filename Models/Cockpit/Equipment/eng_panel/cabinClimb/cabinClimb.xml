@@ -42,7 +42,7 @@ if you contacted me before making any changes to this software.
 	<animation>
 		<type>material</type>
 		<object-name>face</object-name>
-		<object-name>needle</object-name>	
+		<object-name>Needle</object-name>	
 		<object-name>rateAngle</object-name>
 		<object-name>manualAngle</object-name>	
 		<condition>
@@ -59,7 +59,7 @@ if you contacted me before making any changes to this software.
 	<animation>
 		<type>material</type>
 		<object-name>face</object-name>
-		<object-name>needle</object-name>
+		<object-name>Needle</object-name>
 		<object-name>rateAngle</object-name>
 		<object-name>manualAngle</object-name>
 		<condition>
@@ -76,7 +76,7 @@ if you contacted me before making any changes to this software.
 
 	<animation>
 		<type>rotate</type>
-		<object-name>needle</object-name>
+		<object-name>Needle</object-name>
 		<property>VC10/pressurization/climb-rate</property>
 		<min>-1880.0</min>
 		<max>1880.0</max>

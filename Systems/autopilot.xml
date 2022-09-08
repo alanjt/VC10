@@ -269,11 +269,12 @@ derived from a yaw rate gyro, passed through a washout filter having a time cons
 				</or>
 			</condition>
 		</enable>
-		<filter-time>3.0</filter-time>
+		<filter-time>2.0</filter-time>
 		<input>
 			<expression>
 				<product>
 					<property>/fdm/jsbsim/velocities/r-aero-rad_sec</property>
+	<!--					<value> 100.0 </value> -->
 					<value> 100.0 </value>
 				</product>
 			</expression>

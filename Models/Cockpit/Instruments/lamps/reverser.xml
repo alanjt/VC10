@@ -96,7 +96,7 @@
   <object-name>LampAmberON.004</object-name>
   <condition>
 		<greater-than>
-			<property>VC10/ess-bus</property>
+			<property>VC10/electric/ess-bus</property>
 			<value>20</value>
 		</greater-than>
     <or>
@@ -112,7 +112,7 @@
   <object-name>LampAmberON.005</object-name>
   <condition>
 		<greater-than>
-			<property>VC10/ess-bus</property>
+			<property>VC10/electric/ess-bus</property>
 			<value>20</value>
 		</greater-than>
     <or>
@@ -128,7 +128,7 @@
   <object-name>LampAmberON.006</object-name>
   <condition>
 		<greater-than>
-			<property>VC10/ess-bus</property>
+			<property>VC10/electric/ess-bus</property>
 			<value>20</value>
 		</greater-than>
     <or>
@@ -144,7 +144,7 @@
   <object-name>LampAmberON.007</object-name>
   <condition>
 		<greater-than>
-			<property>VC10/ess-bus</property>
+			<property>VC10/electric/ess-bus</property>
 			<value>20</value>
 		</greater-than>
     <or>

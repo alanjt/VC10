@@ -46,7 +46,7 @@
   <object-name>lampone</object-name>
   <condition>
 		<greater-than>
-			<property>VC10/ess-bus</property>
+			<property>VC10/electric/ess-bus</property>
 			<value>20</value>
 		</greater-than>
     <or>
@@ -61,7 +61,7 @@
   <object-name>lamptwo</object-name>
   <condition>
 		<greater-than>
-			<property>VC10/ess-bus</property>
+			<property>VC10/electric/ess-bus</property>
 			<value>20</value>
 		</greater-than>
     <or>
@@ -76,7 +76,7 @@
   <object-name>lampthree</object-name>
   <condition>
 		<greater-than>
-			<property>VC10/ess-bus</property>
+			<property>VC10/electric/ess-bus</property>
 			<value>20</value>
 		</greater-than>
     <or>
@@ -91,7 +91,7 @@
   <object-name>lampfour</object-name>
   <condition>
 		<greater-than>
-			<property>VC10/ess-bus</property>
+			<property>VC10/electric/ess-bus</property>
 			<value>20</value>
 		</greater-than>
     <or>

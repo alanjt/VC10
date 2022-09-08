@@ -30,8 +30,8 @@ if you contacted me before making any changes to this software.
 		<type>material</type>
 		<object-name>face</object-name>
 		<object-name>heading</object-name>
-		<object-name>needle1</object-name>
-		<object-name>needle2</object-name>
+		<object-name>Needle1</object-name>
+		<object-name>Needle2</object-name>
 		<object-name>ring</object-name>
 		<condition>
 			<less-than><property>systems/electrical/outputs/cabin-dim</property><value>0.8</value></less-than>
@@ -45,8 +45,8 @@ if you contacted me before making any changes to this software.
 	</animation>
 	
 	<animation>
-			<object-name>needle1</object-name>
-			<object-name>needle2</object-name>
+			<object-name>Needle1</object-name>
+			<object-name>Needle2</object-name>
 			<object-name>ring</object-name>
 			<object-name>shadow</object-name>
 		<condition>
@@ -76,8 +76,8 @@ if you contacted me before making any changes to this software.
 	<animation>
 		<type>rotate</type>
 		<object-name>CompassCard</object-name>
-		<object-name>needle1</object-name>
-		<object-name>needle2</object-name>
+		<object-name>Needle1</object-name>
+		<object-name>Needle2</object-name>
 		<property>instrumentation/heading-indicator-fg[1]/indicated-heading-deg</property>
 		<factor>-1</factor>
 		<axis>
@@ -90,7 +90,7 @@ if you contacted me before making any changes to this software.
 	<!-- Needle 1 -->
 	<animation>
 		<type>rotate</type>
-		<object-name>needle1</object-name>
+		<object-name>Needle1</object-name>
 		<property>instrumentation/nav[0]/heading-deg</property>
 		<axis>
 		  <x>-1</x>
@@ -102,7 +102,7 @@ if you contacted me before making any changes to this software.
 	<!-- Needle 2 -->
 	<animation>
 		<type>rotate</type>
-		<object-name>needle2</object-name>
+		<object-name>Needle2</object-name>
 		<property>instrumentation/nav[1]/heading-deg</property>
 		<axis>
 		  <x>-1</x>

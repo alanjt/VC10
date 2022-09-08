@@ -40,51 +40,51 @@ if you contacted me before making any changes to this software.
 			<value>0.0</value>
 		</set>
 		<set>
-			<property>VC10/generator/gen-bus-tie[0]</property>
+			<property>VC10/electric/ac/generator/gen-bus-tie[0]</property>
 			<value>0</value>
 		</set>
 		<set>
-			<property>VC10/generator/gen-breaker[0]</property>
+			<property>VC10/electric/ac/generator/gen-breaker[0]</property>
 			<value>0</value>
 		</set>
 		<set>
-			<property>VC10/generator/gen-control[0]</property>
+			<property>VC10/electric/ac/generator/gen-control[0]</property>
 			<value>0</value>
 		</set>
 		<set>
-			<property>VC10/generator/gen-drive[0]</property>
+			<property>VC10/electric/ac/generator/gen-drive[0]</property>
 			<value>0</value>
 		</set>
 		<set>
-			<property>VC10/generator/gen-bus-tie[1]</property>
+			<property>VC10/electric/ac/generator/gen-bus-tie[1]</property>
 			<value>0</value>
 		</set>
 		<set>
-			<property>VC10/generator/gen-breaker[1]</property>
+			<property>VC10/electric/ac/generator/gen-breaker[1]</property>
 			<value>0</value>
 		</set>
 		<set>
-			<property>VC10/generator/gen-control[1]</property>
+			<property>VC10/electric/ac/generator/gen-control[1]</property>
 			<value>0</value>
 		</set>
 		<set>
-			<property>VC10/generator/gen-drive[1]</property>
+			<property>VC10/electric/ac/generator/gen-drive[1]</property>
 			<value>0</value>
 		</set>
 		<set>
-			<property>VC10/generator/gen-bus-tie[2]</property>
+			<property>VC10/electric/ac/generator/gen-bus-tie[2]</property>
 			<value>0</value>
 		</set>
 		<set>
-			<property>VC10/generator/gen-breaker[2]</property>
+			<property>VC10/electric/ac/generator/gen-breaker[2]</property>
 			<value>0</value>
 		</set>
 		<set>
-			<property>VC10/generator/gen-control[2]</property>
+			<property>VC10/electric/ac/generator/gen-control[2]</property>
 			<value>0</value>
 		</set>
 		<set>
-			<property>VC10/generator/gen-drive[2]</property>
+			<property>VC10/electric/ac/generator/gen-drive[2]</property>
 			<value>0</value>
 		</set>
 		<set>
@@ -92,19 +92,19 @@ if you contacted me before making any changes to this software.
 			<value>0</value>
 		</set>
 		<set>
-			<property>VC10/generator/gen-bus-tie[3]</property>
+			<property>VC10/electric/ac/generator/gen-bus-tie[3]</property>
 			<value>0</value>
 		</set>
 		<set>
-			<property>VC10/generator/gen-breaker[3]</property>
+			<property>VC10/electric/ac/generator/gen-breaker[3]</property>
 			<value>0</value>
 		</set>
 		<set>
-			<property>VC10/generator/gen-control[3]</property>
+			<property>VC10/electric/ac/generator/gen-control[3]</property>
 			<value>0</value>
 		</set>
 		<set>
-			<property>VC10/generator/gen-drive[3]</property>
+			<property>VC10/electric/ac/generator/gen-drive[3]</property>
 			<value>0</value>
 		</set>
 		<set>
@@ -148,67 +148,67 @@ if you contacted me before making any changes to this software.
 			<value>0</value>
 		</set>
 		<set>
-			<property>VC10/fuel/valves/boost-pump[0]</property>
+			<property>VC10/fuel/switches/boost-pump[0]</property>
 			<value>0</value>
 		</set>
 		<set>
-			<property>VC10/fuel/valves/boost-pump[1]</property>
+			<property>VC10/fuel/switches/boost-pump[1]</property>
 			<value>0</value>
 		</set>
 		<set>
-			<property>VC10/fuel/valves/boost-pump[3]</property>
+			<property>VC10/fuel/switches/boost-pump[3]</property>
 			<value>0</value>
 		</set>
 		<set>
-			<property>VC10/fuel/valves/boost-pump[4]</property>
+			<property>VC10/fuel/switches/boost-pump[4]</property>
 			<value>0</value>
 		</set>
 		<set>
-			<property>VC10/fuel/valves/boost-pump[5]</property>
+			<property>VC10/fuel/switches/boost-pump[5]</property>
 			<value>0</value>
 		</set>
 		<set>
-			<property>VC10/fuel/valves/boost-pump[6]</property>
+			<property>VC10/fuel/switches/boost-pump[6]</property>
 			<value>0</value>
 		</set>
 		<set>
-			<property>VC10/fuel/valves/boost-pump[7]</property>
+			<property>VC10/fuel/switches/boost-pump[7]</property>
 			<value>0</value>
 		</set>
 		<set>
-			<property>VC10/fuel/valves/boost-pump[8]</property>
+			<property>VC10/fuel/switches/boost-pump[8]</property>
 			<value>0</value>
 		</set>
 		<set>
-			<property>VC10/fuel/valves/boost-pump[9]</property>
+			<property>VC10/fuel/switches/boost-pump[9]</property>
 			<value>0</value>
 		</set>
 		<set>
-			<property>VC10/fuel/valves/fuel-shutoff[0]</property>
+			<property>VC10/fuel/valves/LPCock[0]</property>
 			<value>0</value>
 		</set>
 		<set>
-			<property>VC10/fuel/valves/fuel-shutoff[1]</property>
+			<property>VC10/fuel/valves/LPCock[1]</property>
 			<value>0</value>
 		</set>
 		<set>
-			<property>VC10/fuel/valves/fuel-shutoff[2]</property>
+			<property>VC10/fuel/valves/LPCock[2]</property>
 			<value>0</value>
 		</set>
 		<set>
-			<property>VC10/fuel/valves/fuel-shutoff[3]</property>
+			<property>VC10/fuel/valves/LPCock[3]</property>
 			<value>0</value>
 		</set>
 		<set>
-			<property>VC10/load-volt-selector</property>
+			<property>VC10/electric/load-volt-selector</property>
 			<value>0</value>
 		</set>
 		<set>
-			<property>VC10/external-power-connected</property>
+			<property>VC10/electric/external-power-connected</property>
 			<value>0</value>
 		</set>
 		<set>
-			<property>VC10/battery-switch</property>
+			<property>VC10/electric/dc/battery-switch</property>
 			<value>0</value>
 		</set>		
 		<set>
@@ -261,7 +261,7 @@ if you contacted me before making any changes to this software.
 	<step>
 		<message>
 			Connect to External Power Unit.
-			In main menu VC10/External Power Unit
+			In main menu VC10/electric/external Power Unit
 		</message>
 		<view>
 				<heading-offset-deg>240.8</heading-offset-deg>
@@ -283,7 +283,7 @@ if you contacted me before making any changes to this software.
 
 		<exit>
 			<condition>
-				<property>VC10/external-power-connected</property>
+				<property>VC10/electric/external-power-connected</property>
 			</condition>
 		</exit>
 	</step>
@@ -304,7 +304,7 @@ if you contacted me before making any changes to this software.
 		</view>
 		<exit>
 			<condition>
-				<property>VC10/external-power-connected</property>
+				<property>VC10/electric/external-power-connected</property>
 			</condition>
 		</exit>
 	</step>
@@ -333,12 +333,12 @@ if you contacted me before making any changes to this software.
 		<error>
 			<message>Open the cover and switch on the battery.</message>
 			<condition>
-				<not><property>VC10/battery-switch</property></not>
+				<not><property>VC10/electric/dc/battery-switch</property></not>
 			</condition>
 		</error>
 		<exit>
 			<condition>
-				<property>VC10/battery-switch</property>
+				<property>VC10/electric/dc/battery-switch</property>
 			</condition>
 		</exit>
 	</step>
@@ -368,11 +368,11 @@ if you contacted me before making any changes to this software.
 			<condition>
 				<or>
 					<less-than>
-						<property>VC10/load-volt-selector</property>
+						<property>VC10/electric/load-volt-selector</property>
 						<value>1</value>
 					</less-than>
 					<greater-than>
-						<property>VC10/load-volt-selector</property>
+						<property>VC10/electric/load-volt-selector</property>
 						<value>1</value>
 					</greater-than>
 				</or>
@@ -381,7 +381,7 @@ if you contacted me before making any changes to this software.
 		<exit>
 			<condition>
 				<equals>
-					<property>VC10/load-volt-selector</property>
+					<property>VC10/electric/load-volt-selector</property>
 					<value>1</value>
 				</equals>
 			</condition>
@@ -413,11 +413,11 @@ if you contacted me before making any changes to this software.
 			<condition>
 				<or>
 					<less-than>
-						<property>VC10/ess-power-switch</property>
+						<property>VC10/electric/ess-power-switch</property>
 						<value>5</value>
 					</less-than>
 					<greater-than>
-						<property>VC10/ess-power-switch</property>
+						<property>VC10/electric/ess-power-switch</property>
 						<value>5</value>
 					</greater-than>
 				</or>
@@ -426,7 +426,7 @@ if you contacted me before making any changes to this software.
 		<exit>
 			<condition>
 				<equals>
-					<property>VC10/ess-power-switch</property>
+					<property>VC10/electric/ess-power-switch</property>
 					<value>5</value>
 				</equals>
 			</condition>
@@ -459,11 +459,11 @@ if you contacted me before making any changes to this software.
 			<condition>
 				<or>
 					<less-than>
-						<property>VC10/ac/ac-para-select</property>
+						<property>VC10/electric/ac/ac-para-select</property>
 						<value>6</value>
 					</less-than>
 					<greater-than>
-						<property>VC10/ac/ac-para-select</property>
+						<property>VC10/electric/ac/ac-para-select</property>
 						<value>6</value>
 					</greater-than>
 				</or>
@@ -472,7 +472,7 @@ if you contacted me before making any changes to this software.
 		<exit>
 			<condition>
 				<equals>
-					<property>VC10/ac/ac-para-select</property>
+					<property>VC10/electric/ac/ac-para-select</property>
 					<value>6</value>
 				</equals>
 			</condition>
@@ -685,12 +685,12 @@ if you contacted me before making any changes to this software.
 				Switch to ON.
 			</message>
 			<condition>
-				<not><property>VC10/ground-connect</property></not>
+				<not><property>VC10/electric/ground-connect</property></not>
 			</condition>
 		</error>
 		<exit>
 			<condition>
-				<property>VC10/ground-connect</property>
+				<property>VC10/electric/ground-connect</property>
 			</condition>
 		</exit>
 	</step>
@@ -723,22 +723,22 @@ if you contacted me before making any changes to this software.
 				Reconnect in flight is impossible.
 			</message>
 			<condition>
-				<not><property>VC10/generator/gen-drive[0]</property></not>
-				<not><property>VC10/generator/gen-drive[1]</property></not>
-				<not><property>VC10/generator/gen-drive[2]</property></not>
-				<not><property>VC10/generator/gen-drive[3]</property></not>
-				<property>VC10/generator/gen-drive-cover[0]</property>
-				<property>VC10/generator/gen-drive-cover[1]</property>
-				<property>VC10/generator/gen-drive-cover[2]</property>
-				<property>VC10/generator/gen-drive-cover[3]</property>
+				<not><property>VC10/electric/ac/generator/gen-drive[0]</property></not>
+				<not><property>VC10/electric/ac/generator/gen-drive[1]</property></not>
+				<not><property>VC10/electric/ac/generator/gen-drive[2]</property></not>
+				<not><property>VC10/electric/ac/generator/gen-drive[3]</property></not>
+				<property>VC10/electric/ac/generator/gen-drive-cover[0]</property>
+				<property>VC10/electric/ac/generator/gen-drive-cover[1]</property>
+				<property>VC10/electric/ac/generator/gen-drive-cover[2]</property>
+				<property>VC10/electric/ac/generator/gen-drive-cover[3]</property>
 			</condition>
 		</error>		
 		<exit>
 			<condition>
-				<property>VC10/generator/gen-drive[0]</property>
-				<property>VC10/generator/gen-drive[1]</property>
-				<property>VC10/generator/gen-drive[2]</property>
-				<property>VC10/generator/gen-drive[3]</property>
+				<property>VC10/electric/ac/generator/gen-drive[0]</property>
+				<property>VC10/electric/ac/generator/gen-drive[1]</property>
+				<property>VC10/electric/ac/generator/gen-drive[2]</property>
+				<property>VC10/electric/ac/generator/gen-drive[3]</property>
 			</condition>
 		</exit>
 	</step>
@@ -770,22 +770,22 @@ if you contacted me before making any changes to this software.
 				Switch on all the buses and close the covers!
 			</message>
 			<condition>
-				<not><property>VC10/generator/gen-bus-tie[0]</property></not>
-				<not><property>VC10/generator/gen-bus-tie[1]</property></not>
-				<not><property>VC10/generator/gen-bus-tie[2]</property></not>
-				<not><property>VC10/generator/gen-bus-tie[3]</property></not>
-				<property>VC10/generator/gen-bus-tie-cover[0]</property>
-				<property>VC10/generator/gen-bus-tie-cover[1]</property>
-				<property>VC10/generator/gen-bus-tie-cover[2]</property>
-				<property>VC10/generator/gen-bus-tie-cover[3]</property>
+				<not><property>VC10/electric/ac/generator/gen-bus-tie[0]</property></not>
+				<not><property>VC10/electric/ac/generator/gen-bus-tie[1]</property></not>
+				<not><property>VC10/electric/ac/generator/gen-bus-tie[2]</property></not>
+				<not><property>VC10/electric/ac/generator/gen-bus-tie[3]</property></not>
+				<property>VC10/electric/ac/generator/gen-bus-tie-cover[0]</property>
+				<property>VC10/electric/ac/generator/gen-bus-tie-cover[1]</property>
+				<property>VC10/electric/ac/generator/gen-bus-tie-cover[2]</property>
+				<property>VC10/electric/ac/generator/gen-bus-tie-cover[3]</property>
 			</condition>
 		</error>
 		<exit>
 			<condition>
-				<property>VC10/generator/gen-bus-tie[0]</property>
-				<property>VC10/generator/gen-bus-tie[1]</property>
-				<property>VC10/generator/gen-bus-tie[2]</property>
-				<property>VC10/generator/gen-bus-tie[3]</property>
+				<property>VC10/electric/ac/generator/gen-bus-tie[0]</property>
+				<property>VC10/electric/ac/generator/gen-bus-tie[1]</property>
+				<property>VC10/electric/ac/generator/gen-bus-tie[2]</property>
+				<property>VC10/electric/ac/generator/gen-bus-tie[3]</property>
 			</condition>
 		</exit>
 	</step>	
@@ -817,22 +817,22 @@ if you contacted me before making any changes to this software.
 				Switch on all controllers and close the covers!
 			</message>
 			<condition>
-				<not><property>VC10/generator/gen-control[0]</property></not>
-				<not><property>VC10/generator/gen-control[1]</property></not>
-				<not><property>VC10/generator/gen-control[2]</property></not>
-				<not><property>VC10/generator/gen-control[3]</property></not>
-				<property>VC10/generator/gen-control-cover[0]</property>
-				<property>VC10/generator/gen-control-cover[1]</property>
-				<property>VC10/generator/gen-control-cover[2]</property>
-				<property>VC10/generator/gen-control-cover[3]</property>
+				<not><property>VC10/electric/ac/generator/gen-control[0]</property></not>
+				<not><property>VC10/electric/ac/generator/gen-control[1]</property></not>
+				<not><property>VC10/electric/ac/generator/gen-control[2]</property></not>
+				<not><property>VC10/electric/ac/generator/gen-control[3]</property></not>
+				<property>VC10/electric/ac/generator/gen-control-cover[0]</property>
+				<property>VC10/electric/ac/generator/gen-control-cover[1]</property>
+				<property>VC10/electric/ac/generator/gen-control-cover[2]</property>
+				<property>VC10/electric/ac/generator/gen-control-cover[3]</property>
 			</condition>
 		</error>	
 		<exit>
 			<condition>
-				<property>VC10/generator/gen-control[0]</property>
-				<property>VC10/generator/gen-control[1]</property>
-				<property>VC10/generator/gen-control[2]</property>
-				<property>VC10/generator/gen-control[3]</property>
+				<property>VC10/electric/ac/generator/gen-control[0]</property>
+				<property>VC10/electric/ac/generator/gen-control[1]</property>
+				<property>VC10/electric/ac/generator/gen-control[2]</property>
+				<property>VC10/electric/ac/generator/gen-control[3]</property>
 			</condition>
 		</exit>
 	</step>
@@ -863,18 +863,18 @@ if you contacted me before making any changes to this software.
 				Close all circuits GEN-BREAKER, now!
 			</message>
 			<condition>
-				<not><property>VC10/generator/gen-breaker[0]</property></not>
-				<not><property>VC10/generator/gen-breaker[1]</property></not>
-				<not><property>VC10/generator/gen-breaker[2]</property></not>
-				<not><property>VC10/generator/gen-breaker[3]</property></not>
+				<not><property>VC10/electric/ac/generator/gen-breaker[0]</property></not>
+				<not><property>VC10/electric/ac/generator/gen-breaker[1]</property></not>
+				<not><property>VC10/electric/ac/generator/gen-breaker[2]</property></not>
+				<not><property>VC10/electric/ac/generator/gen-breaker[3]</property></not>
 			</condition>
 		</error>
 		<exit>
 			<condition>
-				<property>VC10/generator/gen-breaker[0]</property>
-				<property>VC10/generator/gen-breaker[1]</property>
-				<property>VC10/generator/gen-breaker[2]</property>
-				<property>VC10/generator/gen-breaker[3]</property>
+				<property>VC10/electric/ac/generator/gen-breaker[0]</property>
+				<property>VC10/electric/ac/generator/gen-breaker[1]</property>
+				<property>VC10/electric/ac/generator/gen-breaker[2]</property>
+				<property>VC10/electric/ac/generator/gen-breaker[3]</property>
 			</condition>
 		</exit>
 	</step>
@@ -952,30 +952,30 @@ if you contacted me before making any changes to this software.
 				Set every Boost-pump to on!
 			</message>
 			<condition>
-				<not><property>VC10/fuel/valves/boost-pump[0]</property></not>
-				<not><property>VC10/fuel/valves/boost-pump[1]</property></not>
-				<not><property>VC10/fuel/valves/boost-pump[2]</property></not>
-				<not><property>VC10/fuel/valves/boost-pump[3]</property></not>
-				<not><property>VC10/fuel/valves/boost-pump[4]</property></not>
-				<not><property>VC10/fuel/valves/boost-pump[5]</property></not>
-				<not><property>VC10/fuel/valves/boost-pump[6]</property></not>
-				<not><property>VC10/fuel/valves/boost-pump[7]</property></not>
-				<not><property>VC10/fuel/valves/boost-pump[8]</property></not>
-				<not><property>VC10/fuel/valves/boost-pump[9]</property></not>
+				<not><property>VC10/fuel/switches/boost-pump[0]</property></not>
+				<not><property>VC10/fuel/switches/boost-pump[1]</property></not>
+				<not><property>VC10/fuel/switches/boost-pump[2]</property></not>
+				<not><property>VC10/fuel/switches/boost-pump[3]</property></not>
+				<not><property>VC10/fuel/switches/boost-pump[4]</property></not>
+				<not><property>VC10/fuel/switches/boost-pump[5]</property></not>
+				<not><property>VC10/fuel/switches/boost-pump[6]</property></not>
+				<not><property>VC10/fuel/switches/boost-pump[7]</property></not>
+				<not><property>VC10/fuel/switches/boost-pump[8]</property></not>
+				<not><property>VC10/fuel/switches/boost-pump[9]</property></not>
 			</condition>
 		</error>
 		<exit>
 			<condition>
-				<property>VC10/fuel/valves/boost-pump[0]</property>
-				<property>VC10/fuel/valves/boost-pump[1]</property>
-				<property>VC10/fuel/valves/boost-pump[2]</property>
-				<property>VC10/fuel/valves/boost-pump[3]</property>
-				<property>VC10/fuel/valves/boost-pump[4]</property>
-				<property>VC10/fuel/valves/boost-pump[5]</property>
-				<property>VC10/fuel/valves/boost-pump[6]</property>
-				<property>VC10/fuel/valves/boost-pump[7]</property>
-				<property>VC10/fuel/valves/boost-pump[8]</property>
-				<property>VC10/fuel/valves/boost-pump[9]</property>
+				<property>VC10/fuel/switches/boost-pump[0]</property>
+				<property>VC10/fuel/switches/boost-pump[1]</property>
+				<property>VC10/fuel/switches/boost-pump[2]</property>
+				<property>VC10/fuel/switches/boost-pump[3]</property>
+				<property>VC10/fuel/switches/boost-pump[4]</property>
+				<property>VC10/fuel/switches/boost-pump[5]</property>
+				<property>VC10/fuel/switches/boost-pump[6]</property>
+				<property>VC10/fuel/switches/boost-pump[7]</property>
+				<property>VC10/fuel/switches/boost-pump[8]</property>
+				<property>VC10/fuel/switches/boost-pump[9]</property>
 			</condition>
 		</exit>
 	</step>
@@ -1006,18 +1006,18 @@ if you contacted me before making any changes to this software.
 				ALL engine SHUTOFF-Valves must be set to on.
 			</message>
 			<condition>
-				<not><property>VC10/fuel/valves/fuel-shutoff[0]</property></not>
-				<not><property>VC10/fuel/valves/fuel-shutoff[1]</property></not>
-				<not><property>VC10/fuel/valves/fuel-shutoff[2]</property></not>
-				<not><property>VC10/fuel/valves/fuel-shutoff[3]</property></not>
+				<not><property>VC10/fuel/valves/LPCock[0]</property></not>
+				<not><property>VC10/fuel/valves/LPCock[1]</property></not>
+				<not><property>VC10/fuel/valves/LPCock[2]</property></not>
+				<not><property>VC10/fuel/valves/LPCock[3]</property></not>
 			</condition>
 		</error>
 		<exit>
 			<condition>
-				<property>VC10/fuel/valves/fuel-shutoff[0]</property>
-				<property>VC10/fuel/valves/fuel-shutoff[1]</property>
-				<property>VC10/fuel/valves/fuel-shutoff[2]</property>
-				<property>VC10/fuel/valves/fuel-shutoff[3]</property>
+				<property>VC10/fuel/valves/LPCock[0]</property>
+				<property>VC10/fuel/valves/LPCock[1]</property>
+				<property>VC10/fuel/valves/LPCock[2]</property>
+				<property>VC10/fuel/valves/LPCock[3]</property>
 			</condition>
 		</exit>
 	</step>
@@ -1616,11 +1616,11 @@ if you contacted me before making any changes to this software.
 			<condition>
 				<or>
 					<less-than>
-						<property>VC10/ac/ac-para-select</property>
+						<property>VC10/electric/ac/ac-para-select</property>
 						<value>1</value>
 					</less-than>
 					<greater-than>
-						<property>VC10/ac/ac-para-select</property>
+						<property>VC10/electric/ac/ac-para-select</property>
 						<value>1</value>
 					</greater-than>
 				</or>
@@ -1629,7 +1629,7 @@ if you contacted me before making any changes to this software.
 		<exit>
 			<condition>
 				<equals>
-					<property>VC10/ac/ac-para-select</property>
+					<property>VC10/electric/ac/ac-para-select</property>
 					<value>1</value>
 				</equals>
 			</condition>
@@ -1683,11 +1683,11 @@ if you contacted me before making any changes to this software.
 			<condition>
 				<or>
 					<less-than>
-						<property>VC10/generator/gen-freq[0]</property>
+						<property>VC10/electric/ac/generator/gen-freq[0]</property>
 						<value>400</value>
 					</less-than>
 					<greater-than>
-						<property>VC10/generator/gen-freq[0]</property>
+						<property>VC10/electric/ac/generator/gen-freq[0]</property>
 						<value>400</value>
 					</greater-than>
 				</or>
@@ -1696,7 +1696,7 @@ if you contacted me before making any changes to this software.
 		<exit>
 			<condition>
 				<equals>
-					<property>VC10/generator/gen-freq[0]</property>
+					<property>VC10/electric/ac/generator/gen-freq[0]</property>
 					<value>400</value>
 				</equals>
 			</condition>
@@ -1729,11 +1729,11 @@ if you contacted me before making any changes to this software.
 			<condition>
 				<or>
 					<less-than>
-						<property>VC10/ac/ac-para-select</property>
+						<property>VC10/electric/ac/ac-para-select</property>
 						<value>2</value>
 					</less-than>
 					<greater-than>
-						<property>VC10/ac/ac-para-select</property>
+						<property>VC10/electric/ac/ac-para-select</property>
 						<value>2</value>
 					</greater-than>
 				</or>
@@ -1742,7 +1742,7 @@ if you contacted me before making any changes to this software.
 		<exit>
 			<condition>
 				<equals>
-					<property>VC10/ac/ac-para-select</property>
+					<property>VC10/electric/ac/ac-para-select</property>
 					<value>2</value>
 				</equals>
 			</condition>
@@ -1774,11 +1774,11 @@ if you contacted me before making any changes to this software.
 			<condition>
 				<or>
 					<less-than>
-						<property>VC10/generator/gen-freq[1]</property>
+						<property>VC10/electric/ac/generator/gen-freq[1]</property>
 						<value>400</value>
 					</less-than>
 					<greater-than>
-						<property>VC10/generator/gen-freq[1]</property>
+						<property>VC10/electric/ac/generator/gen-freq[1]</property>
 						<value>400</value>
 					</greater-than>
 				</or>
@@ -1787,7 +1787,7 @@ if you contacted me before making any changes to this software.
 		<exit>
 			<condition>
 				<equals>
-					<property>VC10/generator/gen-freq[1]</property>
+					<property>VC10/electric/ac/generator/gen-freq[1]</property>
 					<value>400</value>
 				</equals>
 			</condition>
@@ -1820,11 +1820,11 @@ if you contacted me before making any changes to this software.
 			<condition>
 				<or>
 					<less-than>
-						<property>VC10/ac/ac-para-select</property>
+						<property>VC10/electric/ac/ac-para-select</property>
 						<value>4</value>
 					</less-than>
 					<greater-than>
-						<property>VC10/ac/ac-para-select</property>
+						<property>VC10/electric/ac/ac-para-select</property>
 						<value>4</value>
 					</greater-than>
 				</or>
@@ -1833,7 +1833,7 @@ if you contacted me before making any changes to this software.
 		<exit>
 			<condition>
 				<equals>
-					<property>VC10/ac/ac-para-select</property>
+					<property>VC10/electric/ac/ac-para-select</property>
 					<value>4</value>
 				</equals>
 			</condition>
@@ -1865,11 +1865,11 @@ if you contacted me before making any changes to this software.
 			<condition>
 				<or>
 					<less-than>
-						<property>VC10/generator/gen-freq[2]</property>
+						<property>VC10/electric/ac/generator/gen-freq[2]</property>
 						<value>400</value>
 					</less-than>
 					<greater-than>
-						<property>VC10/generator/gen-freq[2]</property>
+						<property>VC10/electric/ac/generator/gen-freq[2]</property>
 						<value>400</value>
 					</greater-than>
 				</or>
@@ -1878,7 +1878,7 @@ if you contacted me before making any changes to this software.
 		<exit>
 			<condition>
 				<equals>
-					<property>VC10/generator/gen-freq[2]</property>
+					<property>VC10/electric/ac/generator/gen-freq[2]</property>
 					<value>400</value>
 				</equals>
 			</condition>
@@ -1911,11 +1911,11 @@ if you contacted me before making any changes to this software.
 			<condition>
 				<or>
 					<less-than>
-						<property>VC10/ac/ac-para-select</property>
+						<property>VC10/electric/ac/ac-para-select</property>
 						<value>5</value>
 					</less-than>
 					<greater-than>
-						<property>VC10/ac/ac-para-select</property>
+						<property>VC10/electric/ac/ac-para-select</property>
 						<value>5</value>
 					</greater-than>
 				</or>
@@ -1924,7 +1924,7 @@ if you contacted me before making any changes to this software.
 		<exit>
 			<condition>
 				<equals>
-					<property>VC10/ac/ac-para-select</property>
+					<property>VC10/electric/ac/ac-para-select</property>
 					<value>5</value>
 				</equals>
 			</condition>
@@ -1956,11 +1956,11 @@ if you contacted me before making any changes to this software.
 			<condition>
 				<or>
 					<less-than>
-						<property>VC10/generator/gen-freq[3]</property>
+						<property>VC10/electric/ac/generator/gen-freq[3]</property>
 						<value>400</value>
 					</less-than>
 					<greater-than>
-						<property>VC10/generator/gen-freq[3]</property>
+						<property>VC10/electric/ac/generator/gen-freq[3]</property>
 						<value>400</value>
 					</greater-than>
 				</or>
@@ -1969,7 +1969,7 @@ if you contacted me before making any changes to this software.
 		<exit>
 			<condition>
 				<equals>
-					<property>VC10/generator/gen-freq[3]</property>
+					<property>VC10/electric/ac/generator/gen-freq[3]</property>
 					<value>400</value>
 				</equals>
 			</condition>
@@ -2002,11 +2002,11 @@ if you contacted me before making any changes to this software.
 			<condition>
 				<or>
 					<less-than>
-						<property>VC10/ac/ac-para-select</property>
+						<property>VC10/electric/ac/ac-para-select</property>
 						<value>1</value>
 					</less-than>
 					<greater-than>
-						<property>VC10/ac/ac-para-select</property>
+						<property>VC10/electric/ac/ac-para-select</property>
 						<value>1</value>
 					</greater-than>
 				</or>
@@ -2015,7 +2015,7 @@ if you contacted me before making any changes to this software.
 		<exit>
 			<condition>
 				<equals>
-					<property>VC10/ac/ac-para-select</property>
+					<property>VC10/electric/ac/ac-para-select</property>
 					<value>1</value>
 				</equals>
 			</condition>
@@ -2047,18 +2047,18 @@ if you contacted me before making any changes to this software.
 				close all busses!
 			</message>
 			<condition>
-				<not><property>VC10/generator/gen-bus-tie[0]</property></not>
-				<not><property>VC10/generator/gen-bus-tie[1]</property></not>
-				<not><property>VC10/generator/gen-bus-tie[2]</property></not>
-				<not><property>VC10/generator/gen-bus-tie[3]</property></not>
+				<not><property>VC10/electric/ac/generator/gen-bus-tie[0]</property></not>
+				<not><property>VC10/electric/ac/generator/gen-bus-tie[1]</property></not>
+				<not><property>VC10/electric/ac/generator/gen-bus-tie[2]</property></not>
+				<not><property>VC10/electric/ac/generator/gen-bus-tie[3]</property></not>
 			</condition>
 		</error>
 		<exit>
 			<condition>
-				<property>VC10/generator/gen-bus-tie[0]</property>
-				<property>VC10/generator/gen-bus-tie[1]</property>
-				<property>VC10/generator/gen-bus-tie[2]</property>
-				<property>VC10/generator/gen-bus-tie[3]</property>
+				<property>VC10/electric/ac/generator/gen-bus-tie[0]</property>
+				<property>VC10/electric/ac/generator/gen-bus-tie[1]</property>
+				<property>VC10/electric/ac/generator/gen-bus-tie[2]</property>
+				<property>VC10/electric/ac/generator/gen-bus-tie[3]</property>
 			</condition>
 		</exit>
 	</step>
@@ -2089,11 +2089,11 @@ if you contacted me before making any changes to this software.
 			<condition>
 				<or>
 					<less-than>
-						<property>VC10/ess-power-switch</property>
+						<property>VC10/electric/ess-power-switch</property>
 						<value>1</value>
 					</less-than>
 					<greater-than>
-						<property>VC10/ess-power-switch</property>
+						<property>VC10/electric/ess-power-switch</property>
 						<value>1</value>
 					</greater-than>
 				</or>
@@ -2102,7 +2102,7 @@ if you contacted me before making any changes to this software.
 		<exit>
 			<condition>
 				<equals>
-					<property>VC10/ess-power-switch</property>
+					<property>VC10/electric/ess-power-switch</property>
 					<value>1</value>
 				</equals>
 			</condition>
@@ -2134,12 +2134,12 @@ if you contacted me before making any changes to this software.
 				switch to OFF.
 			</message>
 			<condition>
-				<property>VC10/ground-connect</property>
+				<property>VC10/electric/ground-connect</property>
 			</condition>
 		</error>
 		<exit>
 			<condition>
-				<not><property>VC10/ground-connect</property></not>
+				<not><property>VC10/electric/ground-connect</property></not>
 			</condition>
 		</exit>
 	</step>
@@ -2168,7 +2168,7 @@ if you contacted me before making any changes to this software.
 
 		<exit>
 			<condition>
-				<not><property>VC10/external-power-connected</property></not>
+				<not><property>VC10/electric/external-power-connected</property></not>
 			</condition>
 		</exit>
 	</step>
@@ -2189,7 +2189,7 @@ if you contacted me before making any changes to this software.
 		</view>
 		<exit>
 			<condition>
-				<not><property>VC10/external-power-connected</property></not>
+				<not><property>VC10/electric/external-power-connected</property></not>
 			</condition>
 		</exit>
 	</step>
@@ -2220,12 +2220,12 @@ if you contacted me before making any changes to this software.
 				Switch to ON.
 			</message>
 			<condition>
-				<not><property>VC10/generator/hertz-converter</property></not>
+				<not><property>VC10/electric/ac/generator/hertz-converter</property></not>
 			</condition>
 		</error>
 		<exit>
 			<condition>
-				<property>VC10/generator/hertz-converter</property>
+				<property>VC10/electric/ac/generator/hertz-converter</property>
 			</condition>
 		</exit>
 	</step>

@@ -773,10 +773,10 @@ refs 3
 2 0.785678505898 0.209979861975
 kids 0
 OBJECT poly
-name "needle"
+name "Needle"
 loc 0 0 -0
 data 6
-needle
+Needle
 texture "amplitudeface.png"
 texrep 1 1
 crease 30.000001

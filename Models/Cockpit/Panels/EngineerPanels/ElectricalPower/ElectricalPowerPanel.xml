@@ -1,0 +1,845 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--####################################################################
+Lake of Constance Hangar
+Vickers VC10 for Flightgear
+Copyright (C) 2013 M.Kraus
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Every software has a developer, also free software. 
+As a gesture of courtesy and respect, I would be delighted 
+if you contacted me before making any changes to this software. 
+<info (at) marc-kraus.de> April, 2017
+########################################################################-->
+<PropertyList>
+	<path>ElectricalPowerPanel.ac</path>
+	
+	<model>
+		<name>Generator 1 Disconnect Guard</name>
+		<path>GenDriveGuard1.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.0363</y-m>
+			<z-m>0.6820</z-m>
+		</offsets>
+	</model>
+	<model>
+		<name>Generator 2 Disconnect Guard</name>
+		<path>GenDriveGuard2.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.1180</y-m>
+			<z-m>0.6820</z-m>
+		</offsets>
+	</model>
+	<model>
+		<name>Generator 3 Disconnect Guard</name>
+		<path>GenDriveGuard3.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.2029</y-m>
+			<z-m>0.6820</z-m>
+		</offsets>
+	</model>
+	<model>
+		<name>Generator 4 Disconnect Guard</name>
+		<path>GenDriveGuard4.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.2872</y-m>
+			<z-m>0.6820</z-m>
+		</offsets>
+	</model>	
+	<model>
+		<name>Generator 1 Disconnect Switch</name>
+		<path>GenDriveSw1.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.0363</y-m>
+			<z-m>0.6578</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Generator 2 Disconnect Switch</name>
+		<path>GenDriveSw2.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.1180</y-m>
+			<z-m>0.6578</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Generator 3 Disconnect Switch</name>
+		<path>GenDriveSw3.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.2029</y-m>
+			<z-m>0.6578</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Generator 4 Disconnect Switch</name>
+		<path>GenDriveSw4.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.2872</y-m>
+			<z-m>0.6578</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>Generator 1 CSD Temperature</name>
+		<path>GenDrive-temp1.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.0723</y-m>
+			<z-m>0.6068</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Generator 2 CSD Temperature</name>
+		<path>GenDrive-temp2.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.1525</y-m>
+			<z-m>0.6068</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Generator 3 CSD Temperature</name>
+		<path>GenDrive-temp3.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.2345</y-m>
+			<z-m>0.6068</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>Generator 4 CSD Temperature</name>
+		<path>GenDrive-temp4.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.3162</y-m>
+			<z-m>0.6068</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Generator 1 CSD Low Oil Pressure</name>
+		<path>CSDOilWarnLamp1.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.0330</y-m>
+			<z-m>0.5981</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Generator 2 CSD Low Oil Pressure</name>
+		<path>CSDOilWarnLamp2.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.1147</y-m>
+			<z-m>0.5981</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Generator 3 CSD Low Oil Pressure</name>
+		<path>CSDOilWarnLamp3.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.1964</y-m>
+			<z-m>0.5981</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Generator 4 CSD Low Oil Pressure</name>
+		<path>CSDOilWarnLamp4.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.2777</y-m>
+			<z-m>0.5981</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>Generator 1 KW KVAR</name>
+		<path>ElecKW_KVAR1.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.0723</y-m>
+			<z-m>0.5379</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Generator 2 KW KVAR</name>
+		<path>ElecKW_KVAR2.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.1525</y-m>
+			<z-m>0.5379</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Generator 3 KW KVAR</name>
+		<path>ElecKW_KVAR3.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.2345</y-m>
+			<z-m>0.5379</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>Generator 4 KW KVAR</name>
+		<path>ElecKW_KVAR4.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.3162</y-m>
+			<z-m>0.5379</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>GCR 1 Switch</name>
+		<path>GCRSw1.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.0330</y-m>
+			<z-m>0.5312</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>GCR 2 Switch</name>
+		<path>GCRSw2.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.1147</y-m>
+			<z-m>0.5312</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>GCR 3 Switch</name>
+		<path>GCRSw3.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.1964</y-m>
+			<z-m>0.5312</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>GCR 4 Switch</name>
+		<path>GCRSw4.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.2777</y-m>
+			<z-m>0.5312</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>Generator1 Fail Lamp</name>
+		<path>GeneratorFailLamp1.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.0330</y-m>
+			<z-m>0.4900</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>Generator2 Fail Lamp</name>
+		<path>GeneratorFailLamp2.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.1147</y-m>
+			<z-m>0.4900</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>Generator3 Fail Lamp</name>
+		<path>GeneratorFailLamp3.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.1962</y-m>
+			<z-m>0.4900</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>Generator4 Fail Lamp</name>
+		<path>GeneratorFailLamp4.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.2777</y-m>
+			<z-m>0.4900</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>GCB-Indicator1</name>
+		<path>GCB-Indicator1.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.0723</y-m>
+			<z-m>0.4900</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>GCB-Indicator2</name>
+		<path>GCB-Indicator2.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.1525</y-m>
+			<z-m>0.4900</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>GCB-Indicator3</name>
+		<path>GCB-Indicator3.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.2345</y-m>
+			<z-m>0.4900</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>GCB-Indicator4</name>
+		<path>GCB-Indicator4.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.3162</y-m>
+			<z-m>0.4900</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Generator 1 Control Switch</name>
+		<path>GeneratorControlSw1.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.0494</y-m>
+			<z-m>0.4538</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Generator 2 Control Switch</name>
+		<path>GeneratorControlSw2.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.1306</y-m>
+			<z-m>0.4538</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Generator 3 Control Switch</name>
+		<path>GeneratorControlSw3.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.2117</y-m>
+			<z-m>0.4538</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Generator 4 Control Switch</name>
+		<path>GeneratorControlSw4.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.2927</y-m>
+			<z-m>0.4538</z-m>
+		</offsets>
+	</model>
+	<model>
+		<name>Generator 1 Frequency Adjust</name>
+		<path>GenFreqAdjust1.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.0494</y-m>
+			<z-m>0.4050</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Generator 2 Frequency Adjust</name>
+		<path>GenFreqAdjust2.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.1306</y-m>
+			<z-m>0.4050</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Generator 3 Frequency Adjust</name>
+		<path>GenFreqAdjust3.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.2117</y-m>
+			<z-m>0.4050</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Generator 4 Frequency Adjust</name>
+		<path>GenFreqAdjust4.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.2927</y-m>
+			<z-m>0.4050</z-m>
+		</offsets>
+	</model>
+		
+	<model>
+		<name>ELRAT online lamp</name>
+		<path>ELRATlamp.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.2475</y-m>
+			<z-m>0.4152</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>AUX busbarIndicator</name>
+		<path>AUXbusbarInd.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.2590</y-m>
+			<z-m>0.3784</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Bus Tie Breaker 1 Indicator</name>
+		<path>BusTieBreaker1Ind.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.0723</y-m>
+			<z-m>0.3103</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>Bus Tie Breaker 2 Indicator</name>
+		<path>BusTieBreaker2Ind.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.1525</y-m>
+			<z-m>0.3590</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>Bus Tie Breaker 3 Indicator</name>
+		<path>BusTieBreaker3Ind.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.2345</y-m>
+			<z-m>0.3103</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>Bus Tie Breaker 4 Indicator</name>
+		<path>BusTieBreaker4Ind.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.3162</y-m>
+			<z-m>0.3590</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>Split System BreakerIndicator</name>
+		<path>SplitSystemInd.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.1962</y-m>
+			<z-m>0.3213</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>Split System Breaker Switch</name>
+		<path>SplitSystemSw.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.1681</y-m>
+			<z-m>0.3213</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>Ground Power Breaker Indicator</name>
+		<path>GroundPowerInd.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.1543</y-m>
+			<z-m>0.2722</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>Ground Power Breaker Switch</name>
+		<path>GroundPowerSw.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.1319</y-m>
+			<z-m>0.2722</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>Ground Power Lamp</name>
+		<path>GroundPowerLamp.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.1882</y-m>
+			<z-m>0.2479</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>KW-KVAR switch</name>
+		<path>KW-KVARsw.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.2337</y-m>
+			<z-m>0.2663</z-m>
+			<roll-deg>225.0</roll-deg>
+		</offsets>
+	</model>
+
+	<model>
+		<name>Frequency/Volts Selector switch</name>
+		<path>FreqVoltSelsw.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.2337</y-m>
+			<z-m>0.2119</z-m>
+			<roll-deg>150.0</roll-deg>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>CSD Oil/Gen Stator Temp Selector switch</name>
+		<path>CSD_GenTempSelsw.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.0563</y-m>
+			<z-m>0.2091</z-m>
+			<roll-deg>225.0</roll-deg>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>AC Cycles</name>
+		<path>ElecCycles.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.3076</y-m>
+			<z-m>0.3033</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>AC-Volts</name>
+		<path>AC-Volts.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.3076</y-m>
+			<z-m>0.2287</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>TRU 1 PowerIndicator</name>
+		<path>TRU1-PowerInd.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.1000</y-m>
+			<z-m>0.1657</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>TRU 1 Sw</name>
+		<path>TRU1-Sw.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.0760</y-m>
+			<z-m>0.1592</z-m>
+		</offsets>
+	</model>
+		
+	<model>
+		<name>TRU 2 PowerIndicator</name>
+		<path>StbyTRU-PowerInd.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.2070</y-m>
+			<z-m>0.1657</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>TRU 2 Sw</name>
+		<path>TRU2-Sw.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.3062</y-m>
+			<z-m>0.1592</z-m>
+		</offsets>
+	</model>
+			
+	<model>
+		<name>TRU 2 PowerIndicator</name>
+		<path>TRU2-PowerInd.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.3278</y-m>
+			<z-m>0.1657</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>BAT1-Amps</name>
+		<path>BAT1-Amps.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.1496</y-m>
+			<z-m>0.1578</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>BAT2-Amps</name>
+		<path>BAT2-Amps.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.2583</y-m>
+			<z-m>0.1578</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>TRU1 Amps</name>
+		<path>TRU1-Amps.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.0986</y-m>
+			<z-m>0.1262</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Standby TRU Amps</name>
+		<path>StbyTRU-Amps.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.2068</y-m>
+			<z-m>0.1262</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>TRU2 Amps</name>
+		<path>TRU2-Amps.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.3282</y-m>
+			<z-m>0.1262</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>DC-Volts</name>
+		<path>DC-Volts.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.0557</y-m>
+			<z-m>0.1059</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>BAT1 Switch</name>
+		<path>BAT1-Sw.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.1391</y-m>
+			<z-m>0.1150</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>BAT1 Indicator</name>
+		<path>BAT1-Ind.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.1741</y-m>
+			<z-m>0.1150</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>BAT2 Switch</name>
+		<path>BAT2-Sw.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.2464</y-m>
+			<z-m>0.1150</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>BAT2 Indicator</name>
+		<path>BAT2-Ind.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.2830</y-m>
+			<z-m>0.1150</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>Non Essential Bus 1 Indicator</name>
+		<path>NonEssBus1Ind.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.1159</y-m>
+			<z-m>0.0827</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>Main DC 1 Fail</name>
+		<path>DC1_FailLamp.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.1396</y-m>
+			<z-m>0.0827</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Stbdy TRU Bus1 Indicator</name>
+		<path>StbyTRUBus1Ind.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.1860</y-m>
+			<z-m>0.0827</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>Stbdy TRU Bus2 Indicator</name>
+		<path>StbyTRUBus2Ind.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.2324</y-m>
+			<z-m>0.0827</z-m>
+		</offsets>
+	</model>
+	<model>
+		<name>Main DC 2 Fail</name>
+		<path>DC2_FailLamp.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.2880</y-m>
+			<z-m>0.0827</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Non Essential Bus 2 Indicator</name>
+		<path>NonEssBus2Ind.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.3132</y-m>
+			<z-m>0.0827</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>DC Voltmeter Selector switch</name>
+		<path>DC-VoltSelsw.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.0773</y-m>
+			<z-m>0.0413</z-m>
+			<roll-deg>180.0</roll-deg>
+		</offsets>
+	</model>
+		
+	<model>
+		<name>Standby TRU Selector switch</name>
+		<path>StbyTRUselsw.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.2079</y-m>
+			<z-m>0.0310</z-m>
+			<roll-deg>0.0</roll-deg>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>GalleyLoad 3 Sw</name>
+		<path>Galley3Sw.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.2764</y-m>
+			<z-m>0.0413</z-m>
+		</offsets>
+	</model>
+	<model>
+		<name>GalleyLoad 2 Sw</name>
+		<path>Galley2Sw.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.2904</y-m>
+			<z-m>0.0413</z-m>
+		</offsets>
+	</model>
+	<model>
+		<name>GalleyLoad 1 Sw</name>
+		<path>Galley1Sw.xml</path>
+		<offsets>
+			<x-m>-0.00</x-m>
+			<y-m>0.3051</y-m>
+			<z-m>0.0413</z-m>
+		</offsets>
+	</model>	
+
+</PropertyList>

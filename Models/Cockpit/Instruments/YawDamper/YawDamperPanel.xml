@@ -11,9 +11,9 @@
 	<path>YawDamperPanel.ac</path>
 	<animation>
 		<type>material</type>
-		<object-name>needle-0</object-name>
-		<object-name>needle-1</object-name>
-		<object-name>needle-2</object-name>
+		<object-name>Needle-0</object-name>
+		<object-name>Needle-1</object-name>
+		<object-name>Needle-2</object-name>
 		<condition>
 			<less-than><property>systems/electrical/outputs/cabin-dim</property><value>0.8</value></less-than>
 		</condition>
@@ -27,9 +27,9 @@
 
 	<animation>
 		<type>material</type>
-		<object-name>needle-0</object-name>
-		<object-name>needle-1</object-name>
-		<object-name>needle-2</object-name>
+		<object-name>Needle-0</object-name>
+		<object-name>Needle-1</object-name>
+		<object-name>Needle-2</object-name>
 		<condition>
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
 			<property>systems/electrical/outputs/cabin-dim</property>
@@ -54,9 +54,9 @@
 
 	<animation>
 		<type>translate</type>
-		<object-name>needle-0</object-name>
-		<object-name>needle-1</object-name>
-		<object-name>needle-2</object-name>
+		<object-name>Needle-0</object-name>
+		<object-name>Needle-1</object-name>
+		<object-name>Needle-2</object-name>
 		<property>fdm/jsbsim/afcs/yawdamper-deg</property>
 		<interpolation>
 			<entry><ind>-30.0</ind><dep> -0.006</dep></entry>

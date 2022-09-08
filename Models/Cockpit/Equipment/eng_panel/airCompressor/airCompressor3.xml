@@ -42,7 +42,7 @@ if you contacted me before making any changes to this software.
 	<animation>
 		<type>material</type>
 		<object-name>face</object-name>
-		<object-name>needle</object-name>		
+		<object-name>Needle</object-name>		
 		<condition>
 			<less-than><property>systems/electrical/outputs/cabin-dim</property><value>0.8</value></less-than>
 		</condition>
@@ -57,7 +57,7 @@ if you contacted me before making any changes to this software.
 	<animation>
 		<type>material</type>
 		<object-name>face</object-name>
-		<object-name>needle</object-name>
+		<object-name>Needle</object-name>
 		<condition>
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
 			<property>systems/electrical/outputs/engineer-dim</property>
@@ -72,7 +72,7 @@ if you contacted me before making any changes to this software.
 
 	<animation>
 		<type>rotate</type>
-		<object-name>needle</object-name>		
+		<object-name>Needle</object-name>		
 		<property>VC10/air-conditioning/compressor-rpm[2]</property>
 		<interpolation>
 		  <entry><ind>    0.0</ind><dep>   0.0</dep></entry>

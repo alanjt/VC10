@@ -4026,10 +4026,10 @@ refs 4
 220 0.869598 0.0160865
 kids 0
 OBJECT poly
-name "needle"
+name "Needle"
 loc -0.0430506 0.033941 -4.5e-005
 data 6
-needle
+Needle
 texture "hsi.png"
 crease 45.000000
 numvert 13

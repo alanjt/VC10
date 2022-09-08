@@ -361,7 +361,7 @@ setlistener("autopilot/locks/altitude", listenerApGSHasChangedFunc);
 var listenerApGSClambFunc = func {
 	if (getprop("autopilot/locks/altitude") == "gs1-hold" and getprop("/autopilot/internal/gs-in-range") == 1) {
 		setprop("autopilot/internal/target-kp-for-gs-hold", kpForGSHold * 0.05);
-		#print ("-> listenerApGSClambFunc -> triggert: gs-in-range=", getprop("autopilot/internal/gs-in-range"));
+		#print ("-> listenerApGSClambFunc -> triggers: gs-in-range=", getprop("autopilot/internal/gs-in-range"));
 		interpolate("autopilot/internal/target-kp-for-gs-hold", kpForGSHold, 6);
 	}
 }

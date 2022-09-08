@@ -55,7 +55,7 @@ if you contacted me before making any changes to this software.
 	<animation>
 		<type>material</type>
 		<object-name>face</object-name>
-		<object-name>needle</object-name>
+		<object-name>Needle</object-name>
 		<condition>
 			<less-than><property>systems/electrical/outputs/cabin-dim</property><value>0.8</value></less-than>
 		</condition>
@@ -70,7 +70,7 @@ if you contacted me before making any changes to this software.
 	<animation>
 		<type>material</type>
 		<object-name>face</object-name>
-		<object-name>needle</object-name>
+		<object-name>Needle</object-name>
 		<condition>
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
 			<property>systems/electrical/outputs/engineer-dim</property>
@@ -111,12 +111,12 @@ if you contacted me before making any changes to this software.
 		<object-name>LampAmberON</object-name>
 		<condition>			
 			<greater-than>
-				<property>VC10/ess-bus</property>
+				<property>VC10/electric/ess-bus</property>
 				<value>20</value>
 			</greater-than>
 		  <or>
 		  	<less-than>
-		    	<property>VC10/generator/gen-bus-tie[2]</property>
+		    	<property>VC10/electric/ac/generator/gen-bus-tie[2]</property>
 		    	<value>1</value>
 		    </less-than>
 		    <property>controls/test/warn-knob</property>
@@ -129,12 +129,12 @@ if you contacted me before making any changes to this software.
 		<condition>
 		  <or>
 				<less-than>
-					<property>VC10/ess-bus</property>
+					<property>VC10/electric/ess-bus</property>
 					<value>20</value>
 				</less-than>
 				<and>
 				  <greater-than>
-				  	<property>VC10/generator/gen-bus-tie[2]</property>
+				  	<property>VC10/electric/ac/generator/gen-bus-tie[2]</property>
 				  	<value>0</value>
 				  </greater-than>
 				  <not><property>controls/test/warn-knob</property></not>
@@ -146,7 +146,7 @@ if you contacted me before making any changes to this software.
   <animation>
     <type>rotate</type>
     <object-name>cover</object-name>
-    <property>VC10/generator/gen-bus-tie-cover[2]</property>
+    <property>VC10/electric/ac/generator/gen-bus-tie-cover[2]</property>
     <interpolation> 
             <entry>
                 <ind>0</ind>
@@ -177,7 +177,7 @@ if you contacted me before making any changes to this software.
 		    <repeatable>false</repeatable>
 		    <binding>
 		        <command>property-toggle</command>
-		        <property>VC10/generator/gen-bus-tie-cover[2]</property>
+		        <property>VC10/electric/ac/generator/gen-bus-tie-cover[2]</property>
 		    </binding>
 		    <binding>
 		      <command>property-toggle</command>
@@ -189,7 +189,7 @@ if you contacted me before making any changes to this software.
 	<animation>
 		  <type>rotate</type>
 		  <object-name>switch</object-name>
-		  <property>VC10/generator/gen-bus-tie[2]</property>
+		  <property>VC10/electric/ac/generator/gen-bus-tie[2]</property>
       <factor>-40</factor>
 		  <axis>
 		   <x>1</x>
@@ -213,11 +213,11 @@ if you contacted me before making any changes to this software.
         <binding>
             <command>nasal</command>
             <script>
-            	var bt = getprop("VC10/generator/gen-bus-tie[2]") or 0;
+            	var bt = getprop("VC10/electric/ac/generator/gen-bus-tie[2]") or 0;
             	if(bt > 0){
-            		setprop("VC10/generator/gen-bus-tie[2]", 0);
+            		setprop("VC10/electric/ac/generator/gen-bus-tie[2]", 0);
             	}else{
-            		setprop("VC10/generator/gen-bus-tie[2]", 2);
+            		setprop("VC10/electric/ac/generator/gen-bus-tie[2]", 2);
             	}
             </script>
         </binding>
@@ -225,11 +225,11 @@ if you contacted me before making any changes to this software.
           <binding>
             <command>nasal</command>
             <script>
-            	var bt = getprop("VC10/generator/gen-bus-tie[2]") or 0;
+            	var bt = getprop("VC10/electric/ac/generator/gen-bus-tie[2]") or 0;
             	if(bt == 2){
-            		setprop("VC10/generator/gen-bus-tie[2]", 1);
+            		setprop("VC10/electric/ac/generator/gen-bus-tie[2]", 1);
             	}else{
-            		setprop("VC10/generator/gen-bus-tie[2]", 0);
+            		setprop("VC10/electric/ac/generator/gen-bus-tie[2]", 0);
             	}
             </script>
           </binding>
@@ -247,12 +247,12 @@ if you contacted me before making any changes to this software.
 		<object-name>LampAmberON.001</object-name>
 		<condition>		
 			<greater-than>
-				<property>VC10/ess-bus</property>
+				<property>VC10/electric/ess-bus</property>
 				<value>20</value>
 			</greater-than>
 		  <or>
 		  	<less-than>
-		    	<property>VC10/generator/gen-breaker[2]</property>
+		    	<property>VC10/electric/ac/generator/gen-breaker[2]</property>
 		    	<value>1</value>
 		    </less-than>
 		    <property>controls/test/warn-knob</property>
@@ -265,12 +265,12 @@ if you contacted me before making any changes to this software.
 		<condition>		  
 			<or>
 				<less-than>
-					<property>VC10/ess-bus</property>
+					<property>VC10/electric/ess-bus</property>
 					<value>20</value>
 				</less-than>
 				<and>
 				  <greater-than>
-				  	<property>VC10/generator/gen-breaker[2]</property>
+				  	<property>VC10/electric/ac/generator/gen-breaker[2]</property>
 				  	<value>0</value>
 				  </greater-than>
 				  <not><property>controls/test/warn-knob</property></not>
@@ -282,7 +282,7 @@ if you contacted me before making any changes to this software.
 	<animation>
 		  <type>rotate</type>
 		  <object-name>switch.002</object-name>
-		  <property>VC10/generator/gen-breaker[2]</property>
+		  <property>VC10/electric/ac/generator/gen-breaker[2]</property>
       <factor>-40</factor>
 		  <axis>
 		   <x>1</x>
@@ -306,11 +306,11 @@ if you contacted me before making any changes to this software.
         <binding>
             <command>nasal</command>
             <script>
-            	var gb = getprop("VC10/generator/gen-breaker[2]") or 0;
+            	var gb = getprop("VC10/electric/ac/generator/gen-breaker[2]") or 0;
             	if(gb > 0){
-            		setprop("VC10/generator/gen-breaker[2]", 0);
+            		setprop("VC10/electric/ac/generator/gen-breaker[2]", 0);
             	}else{
-            		setprop("VC10/generator/gen-breaker[2]", 2);
+            		setprop("VC10/electric/ac/generator/gen-breaker[2]", 2);
             	}
             </script>
         </binding>
@@ -318,11 +318,11 @@ if you contacted me before making any changes to this software.
           <binding>
             <command>nasal</command>
             <script>
-            	var gb = getprop("VC10/generator/gen-breaker[2]") or 0;
+            	var gb = getprop("VC10/electric/ac/generator/gen-breaker[2]") or 0;
             	if(gb == 2){
-            		setprop("VC10/generator/gen-breaker[2]", 1);
+            		setprop("VC10/electric/ac/generator/gen-breaker[2]", 1);
             	}else{
-            		setprop("VC10/generator/gen-breaker[2]", 0);
+            		setprop("VC10/electric/ac/generator/gen-breaker[2]", 0);
             	}
             </script>
           </binding>
@@ -340,12 +340,12 @@ if you contacted me before making any changes to this software.
 		<object-name>LampAmberON.002</object-name>
 		<condition>
 			<greater-than>
-				<property>VC10/ess-bus</property>
+				<property>VC10/electric/ess-bus</property>
 				<value>20</value>
 			</greater-than>
 		  <or>
 		  	<less-than>
-		    	<property>VC10/generator/gen-control[2]</property>
+		    	<property>VC10/electric/ac/generator/gen-control[2]</property>
 		    	<value>1</value>
 		    </less-than>
 		    <property>controls/test/warn-knob</property>
@@ -358,12 +358,12 @@ if you contacted me before making any changes to this software.
 		<condition>
 			<or>
 				<less-than>
-					<property>VC10/ess-bus</property>
+					<property>VC10/electric/ess-bus</property>
 					<value>20</value>
 				</less-than>
 				<and>
 				  <greater-than>
-				  	<property>VC10/generator/gen-control[2]</property>
+				  	<property>VC10/electric/ac/generator/gen-control[2]</property>
 				  	<value>0</value>
 				  </greater-than>
 				  <not><property>controls/test/warn-knob</property></not>
@@ -375,7 +375,7 @@ if you contacted me before making any changes to this software.
   <animation>
     <type>rotate</type>
     <object-name>cover.001</object-name>
-    <property>VC10/generator/gen-control-cover[2]</property>
+    <property>VC10/electric/ac/generator/gen-control-cover[2]</property>
     <interpolation> 
             <entry>
                 <ind>0</ind>
@@ -406,7 +406,7 @@ if you contacted me before making any changes to this software.
 		    <repeatable>false</repeatable>
 		    <binding>
 		        <command>property-toggle</command>
-		        <property>VC10/generator/gen-control-cover[2]</property>
+		        <property>VC10/electric/ac/generator/gen-control-cover[2]</property>
 		    </binding>
 		    <binding>
 		      <command>property-toggle</command>
@@ -418,7 +418,7 @@ if you contacted me before making any changes to this software.
 	<animation>
 		  <type>rotate</type>
 		  <object-name>switch.001</object-name>
-		  <property>VC10/generator/gen-control[2]</property>
+		  <property>VC10/electric/ac/generator/gen-control[2]</property>
       <factor>-40</factor>
 		  <axis>
 		   <x>1</x>
@@ -442,11 +442,11 @@ if you contacted me before making any changes to this software.
         <binding>
             <command>nasal</command>
             <script>
-            	var gc = getprop("VC10/generator/gen-control[2]") or 0;
+            	var gc = getprop("VC10/electric/ac/generator/gen-control[2]") or 0;
             	if(gc > 0){
-            		setprop("VC10/generator/gen-control[2]", 0);
+            		setprop("VC10/electric/ac/generator/gen-control[2]", 0);
             	}else{
-            		setprop("VC10/generator/gen-control[2]", 2);
+            		setprop("VC10/electric/ac/generator/gen-control[2]", 2);
             		VC10.ac_sync();
             	}
             </script>
@@ -455,12 +455,12 @@ if you contacted me before making any changes to this software.
           <binding>
             <command>nasal</command>
             <script>
-            	var gc = getprop("VC10/generator/gen-control[2]") or 0;
+            	var gc = getprop("VC10/electric/ac/generator/gen-control[2]") or 0;
             	if(gc == 2){
-            		setprop("VC10/generator/gen-control[2]", 1);
+            		setprop("VC10/electric/ac/generator/gen-control[2]", 1);
             		VC10.ac_sync();
             	}else{
-            		setprop("VC10/generator/gen-control[2]", 0);
+            		setprop("VC10/electric/ac/generator/gen-control[2]", 0);
             	}
             </script>
           </binding>
@@ -475,7 +475,7 @@ if you contacted me before making any changes to this software.
 	<!-- generator load in kw/kvars -->
 	<animation>
 		<type>rotate</type>
-		<object-name>needle</object-name>
+		<object-name>Needle</object-name>
 		<property>engines/engine[2]/kw</property>
 		<interpolation>
 		  <entry><ind> -0.1</ind><dep>  0.0</dep></entry>
@@ -498,7 +498,7 @@ if you contacted me before making any changes to this software.
 	<animation>
 		  <type>rotate</type>
 		  <object-name>freqKnob</object-name>
-		  <property>VC10/generator/gen-freq[2]</property>
+		  <property>VC10/electric/ac/generator/gen-freq[2]</property>
 			<interpolation>
 				<entry><ind>  380</ind><dep> 0.0</dep></entry>
 				<entry><ind>  420</ind><dep> 180</dep></entry>
@@ -525,7 +525,7 @@ if you contacted me before making any changes to this software.
 		    <repeatable>false</repeatable>
 		    <binding>
 		      <command>property-assign</command>
-		      <property>VC10/generator/gen-freq[2]</property>
+		      <property>VC10/electric/ac/generator/gen-freq[2]</property>
 		      <value>380</value>
 		    </binding>          
 		    <binding>
@@ -543,7 +543,7 @@ if you contacted me before making any changes to this software.
 		    <repeatable>true</repeatable>
 		    <binding>
 		      <command>property-adjust</command>
-		      <property>VC10/generator/gen-freq[2]</property>
+		      <property>VC10/electric/ac/generator/gen-freq[2]</property>
 		      <step>0.5</step>
 		      <min>380</min>
 		      <max>420</max>
@@ -564,7 +564,7 @@ if you contacted me before making any changes to this software.
 		    <repeatable>true</repeatable>
 		    <binding>
 		      <command>property-adjust</command>
-		      <property>VC10/generator/gen-freq[2]</property>
+		      <property>VC10/electric/ac/generator/gen-freq[2]</property>
 		      <step>-0.5</step>
 		      <min>380</min>
 		      <max>420</max>

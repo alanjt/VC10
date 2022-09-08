@@ -965,7 +965,7 @@ if you contacted me before making any changes to this software.
 		<condition>
 			<and>
 				<greater-than>
-					<property>VC10/ess-bus</property>
+					<property>VC10/electric/ess-bus</property>
 					<value>20</value>
 				</greater-than>
 				<or>
@@ -999,7 +999,7 @@ if you contacted me before making any changes to this software.
       <condition>
         <and>
 					<greater-than>
-						<property>VC10/ess-bus</property>
+						<property>VC10/electric/ess-bus</property>
 						<value>20</value>
 					</greater-than>
 					<or>
@@ -1034,7 +1034,7 @@ if you contacted me before making any changes to this software.
       <condition>
       	<and>
 					<greater-than>
-						<property>VC10/ess-bus</property>
+						<property>VC10/electric/ess-bus</property>
 						<value>20</value>
 					</greater-than>
 		    	<or>
@@ -1058,7 +1058,7 @@ if you contacted me before making any changes to this software.
       <condition>
         <and>
 					<greater-than>
-						<property>VC10/ess-bus</property>
+						<property>VC10/electric/ess-bus</property>
 						<value>20</value>
 					</greater-than>
 				  <property>instrumentation/aglradar/power-btn</property>
@@ -1077,7 +1077,7 @@ if you contacted me before making any changes to this software.
       <condition>
         <and>
 					<greater-than>
-						<property>VC10/ess-bus</property>
+						<property>VC10/electric/ess-bus</property>
 						<value>20</value>
 					</greater-than>
 				<property>VC10/warning/ice</property>
@@ -1096,7 +1096,7 @@ if you contacted me before making any changes to this software.
       <condition>
         <and>
 					<greater-than>
-						<property>VC10/ess-bus</property>
+						<property>VC10/electric/ess-bus</property>
 						<value>20</value>
 					</greater-than>
 				 	<property>VC10/call/no-smoking</property>
@@ -1114,7 +1114,7 @@ if you contacted me before making any changes to this software.
       <condition>
         <and>
 					<greater-than>
-						<property>VC10/ess-bus</property>
+						<property>VC10/electric/ess-bus</property>
 						<value>20</value>
 					</greater-than>
 				  <property>VC10/call/seat-belts</property>
@@ -1132,7 +1132,7 @@ if you contacted me before making any changes to this software.
       <condition>
         <and>
 					<greater-than>
-						<property>VC10/ess-bus</property>
+						<property>VC10/electric/ess-bus</property>
 						<value>20</value>
 					</greater-than>
 					<property>VC10/call/crew-call</property>
@@ -1150,7 +1150,7 @@ if you contacted me before making any changes to this software.
       <condition>
         <and>
 					<greater-than>
-						<property>VC10/ess-bus</property>
+						<property>VC10/electric/ess-bus</property>
 						<value>20</value>
 					</greater-than>
 					<property>VC10/call/cabin-attend</property>
@@ -1168,7 +1168,7 @@ if you contacted me before making any changes to this software.
       <condition>
         <and>
 					<greater-than>
-						<property>VC10/ess-bus</property>
+						<property>VC10/electric/ess-bus</property>
 						<value>20</value>
 					</greater-than>
 					<property>VC10/call/pers-accom</property>
@@ -1623,7 +1623,7 @@ if you contacted me before making any changes to this software.
 					<value>0.01</value>
 				</greater-than>
 			</or>
-		    <property>VC10/external-power-connected</property>
+		    <property>VC10/electric/external-power-connected</property>
 		 </and>
       </condition>
       <volume>
@@ -1648,7 +1648,7 @@ if you contacted me before making any changes to this software.
 					<value type="string">Passengers View</value>
 				</equals>
 			</or>
-		    <property>VC10/external-power-connected</property>
+		    <property>VC10/electric/external-power-connected</property>
 		 </and>
       </condition>
       <volume>

@@ -16,14 +16,15 @@
 			<object-name>hdg-arrow</object-name>
 			<object-name>arrow</object-name>
 			<object-name>CDI-ring</object-name>
-			<object-name>VorLocDeviationBar</object-name>       
+			<object-name>VorLocDeviationBar</object-name>
+			<object-name>VOR_LOC_dots</object-name>			
 			<object-name>CrsNum.1</object-name>
-		  <object-name>CrsNum.2</object-name>
-		  <object-name>CrsNum.3</object-name>
-		  <object-name>CrsNum.off</object-name>
-		  <object-name>From</object-name>
-		  <object-name>To</object-name>
-		  <object-name>noNav</object-name>
+			<object-name>CrsNum.2</object-name>
+			<object-name>CrsNum.3</object-name>
+			<object-name>CrsNum.off</object-name>
+			<object-name>From</object-name>
+			<object-name>To</object-name>
+			<object-name>noNav</object-name>
 		<condition>
 			<less-than><property>systems/electrical/outputs/cabin-dim</property><value>0.8</value></less-than>
 		</condition>
@@ -42,15 +43,16 @@
 			<object-name>hdg-arrow</object-name>
 			<object-name>arrow</object-name>
 			<object-name>CDI-ring</object-name>
-			<object-name>VorLocDeviationBar</object-name>       
+			<object-name>VorLocDeviationBar</object-name>
+			<object-name>VOR_LOC_dots</object-name>			
 			<object-name>CrsNum.1</object-name>
-		  <object-name>CrsNum.2</object-name>
-		  <object-name>CrsNum.3</object-name>
-		  <object-name>CrsNum.off</object-name>
-		  <object-name>From</object-name>
-		  <object-name>To</object-name>
-		  <object-name>noNav</object-name>
-			<object-name>shadow</object-name>
+		    <object-name>CrsNum.2</object-name>
+			<object-name>CrsNum.3</object-name>
+			<object-name>CrsNum.off</object-name>
+			<object-name>From</object-name>
+			<object-name>To</object-name>
+			<object-name>noNav</object-name>
+<!--			<object-name>shadow</object-name> -->
 		<condition>
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
 			<property>systems/electrical/outputs/cabin-dim</property>
@@ -102,7 +104,7 @@
 		<object-name>CrsNum.off</object-name>
 		<condition>
 			<less-than>
-				<property>VC10/ess-bus</property>
+				<property>VC10/electric/ess-bus</property>
 				<value>12</value>
 			</less-than>
 		</condition>
@@ -112,17 +114,14 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>CDI-ring</object-name>
+		<object-name>CompassCard</object-name>
 		<object-name>hdg-arrow</object-name>
-		<object-name>DialCentre</object-name>
-		<object-name>CrsNum.off</object-name>
-		<object-name>CrsNum.1</object-name>
-		<object-name>CrsNum.2</object-name>
-		<object-name>CrsNum.3</object-name>
 		<object-name>To</object-name>
 		<object-name>From</object-name>
 		<object-name>noNav</object-name>
 		<object-name>VorLocDeviationBar</object-name>
-		<!--<property>VC10/CDI[1]/indicated-heading-deg</property> -->
+		<object-name>VOR_LOC_dots</object-name>
+	<!--<property>VC10/CDI/indicated-heading-deg</property> -->
 		<property>instrumentation/heading-indicator-fg[1]/indicated-heading-deg</property>
 		<factor>-1</factor>
 		<axis>
@@ -161,15 +160,11 @@
 	 
   <animation>
 		<type>rotate</type>
-		<object-name>DialCentre</object-name>
-		<object-name>CrsNum.off</object-name>
-		<object-name>CrsNum.1</object-name>
-		<object-name>CrsNum.2</object-name>
-		<object-name>CrsNum.3</object-name>
 		<object-name>To</object-name>
 		<object-name>From</object-name>
 		<object-name>noNav</object-name>
 		<object-name>VorLocDeviationBar</object-name>
+		<object-name>VOR_LOC_dots</object-name>
 		<property>instrumentation/nav[1]/radials/selected-deg</property>
 		<axis>
 			<x>-1.0</x>
@@ -178,140 +173,69 @@
 		</axis>
   </animation>
 
-
-  <animation>
-    <type>pick</type>
-    <object-name>hdg_knob</object-name>
-    <object-name>CDI-ring</object-name>
-    <object-name>DialCentre</object-name>
-    <visible>true</visible>
-      <action>
-          <name>hdg dec</name>
-          <button>0</button>
-          <repeatable>true</repeatable>
-          <binding>
-              <condition>
-              	<not><property>devices/status/keyboard/shift</property></not>
-              	<not><property>devices/status/keyboard/super</property></not>
-              </condition>
-              <command>property-adjust</command>
-              <property>autopilot/settings/heading-bug-deg</property>
-              <step>1</step>
-              <min>0</min>
-              <max>360</max>
-              <wrap>true</wrap>
-          </binding>
-          <binding>
-              <condition>
-  		     <or>
-  		      <property>devices/status/keyboard/shift</property>
-  		      <property>devices/status/keyboard/super</property>
-  		     </or>
-              </condition>
-              <command>property-adjust</command>
-              <property>autopilot/settings/heading-bug-deg</property>
-              <step>10</step>
-              <min>0</min>
-              <max>360</max>
-              <wrap>true</wrap>
-          </binding>
-      </action>
-      <action>
-          <name>hdg inc</name>
-          <button>1</button>
-          <repeatable>true</repeatable>
-          <binding>
-              <condition>
-              	<not><property>devices/status/keyboard/shift</property></not>
-              	<not><property>devices/status/keyboard/super</property></not>
-              </condition>
-              <command>property-adjust</command>
-              <property>autopilot/settings/heading-bug-deg</property>
-              <step>-1</step>
-              <min>0</min>
-              <max>360</max>
-              <wrap>true</wrap>
-          </binding>
-          <binding>
-              <condition>
-  		     <or>
-  		      <property>devices/status/keyboard/shift</property>
-  		      <property>devices/status/keyboard/super</property>
-  		     </or>
-              </condition>
-              <command>property-adjust</command>
-              <property>autopilot/settings/heading-bug-deg</property>
-              <step>-10</step>
-              <min>0</min>
-              <max>360</max>
-              <wrap>true</wrap>
-          </binding>        
-      </action>
-      <action>
-          <name>hdg dec</name>
-          <button>3</button>
-          <repeatable>true</repeatable>
-          <binding>
-              <condition>
-              	<not><property>devices/status/keyboard/shift</property></not>
-              	<not><property>devices/status/keyboard/super</property></not>
-              </condition>
-              <command>property-adjust</command>
-              <property>autopilot/settings/heading-bug-deg</property>
-              <step>1</step>
-              <min>0</min>
-              <max>360</max>
-              <wrap>true</wrap>
-          </binding>
-          <binding>
-              <condition>
-  		     <or>
-  		      <property>devices/status/keyboard/shift</property>
-  		      <property>devices/status/keyboard/super</property>
-  		     </or>
-              </condition>
-              <command>property-adjust</command>
-              <property>autopilot/settings/heading-bug-deg</property>
-              <step>10</step>
-              <min>0</min>
-              <max>360</max>
-              <wrap>true</wrap>
-          </binding>
-      </action>
-      <action>
-          <name>hdg inc</name>
-          <button>4</button>
-          <repeatable>true</repeatable>
-          <binding>
-              <condition>
-              	<not><property>devices/status/keyboard/shift</property></not>
-              	<not><property>devices/status/keyboard/super</property></not>
-              </condition>
-              <command>property-adjust</command>
-              <property>autopilot/settings/heading-bug-deg</property>
-              <step>-1</step>
-              <min>0</min>
-              <max>360</max>
-              <wrap>true</wrap>
-          </binding>
-          <binding>
-              <condition>
-  		     <or>
-  		      <property>devices/status/keyboard/shift</property>
-  		      <property>devices/status/keyboard/super</property>
-  		     </or>
-              </condition>
-              <command>property-adjust</command>
-              <property>autopilot/settings/heading-bug-deg</property>
-              <step>-10</step>
-              <min>0</min>
-              <max>360</max>
-              <wrap>true</wrap>
-          </binding>
-      </action>
-  	</animation>
+	<animation>
+		<type>knob</type>
+		<object-name>hdg_knob</object-name>
+		<property>autopilot/settings/heading-bug-deg</property>
+		<center>
+			<x-m>0.0</x-m><y-m>0.03968</y-m><z-m>-0.03968</z-m>
+		</center>
+		<axis>
+			<x>-1</x><y>0</y><z>0</z>
+		</axis>
+		<drag-direction>horizontal</drag-direction>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>autopilot/settings/heading-bug-deg</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>360</max> 
+				<wrap>1</wrap>
+			</binding>
+		</action>
+		<hovered>
+			<binding>
+				<command>set-tooltip</command>
+				<label>Heading: %3d</label>
+				<tooltip-id>Heading</tooltip-id>
+				<property>autopilot/settings/heading-bug-deg</property>
+			</binding>
+		</hovered>
+	</animation>
 	
-
+	<animation>
+		<type>knob</type>
+		<object-name>course_knob</object-name>
+		<property>instrumentation/nav[1]/radials/selected-deg</property>
+		<center>
+			<x-m>0.0</x-m><y-m>-0.03968</y-m><z-m>-0.03968</z-m>
+		</center>
+		<axis>
+			<x>-1</x><y>0</y><z>0</z>
+		</axis>
+		<drag-direction>horizontal</drag-direction>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>instrumentation/nav[1]/radials/selected-deg</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>360</max> 
+				<wrap>1</wrap>
+			</binding>
+		</action>
+		<hovered>
+			<binding>
+				<command>set-tooltip</command>
+				<label>Course: %3d</label>
+				<tooltip-id>Course</tooltip-id>
+				<property>instrumentation/nav[1]/radials/selected-deg</property>
+			</binding>
+		</hovered>
+	</animation>
+		
+ 
 <!-- action for nav -->
 
     <animation>
@@ -355,19 +279,41 @@
         <object-name>VorLocDeviationBar</object-name>
         <property>instrumentation/nav[1]/heading-needle-deflection</property>
         <interpolation>
-        <entry><ind>-10.0</ind><dep>-0.0152</dep></entry>
-        <entry><ind>10.0</ind><dep>0.0152</dep></entry>
+        <entry><ind>-10.0</ind><dep>-0.025</dep></entry>
+		<entry><ind>0.0</ind><dep>0.0</dep></entry>
+        <entry><ind>10.0</ind><dep>0.025</dep></entry>
     </interpolation>
         <axis>
             <x>0.0</x>
             <y>1.0</y>
             <z>0.0</z>
         </axis>
-        <center>
+ <!--        <center>
+           <x-m>0.0</x-m>
+            <y-m>0.0</y-m>
+            <z-m>-0.006</z-m>
+        </center> -->
+    </animation>
+	
+    <animation>
+        <type>translate</type>
+        <object-name>GS_DeviationBar</object-name>
+        <property>instrumentation/nav[1]/gs-needle-deflection-norm</property>
+        <interpolation>
+        <entry><ind>-0.7</ind><dep>-0.025</dep></entry>
+		<entry><ind>0.0</ind><dep>0.0</dep></entry>
+        <entry><ind>0.7</ind><dep>0.025</dep></entry>
+    </interpolation>
+        <axis>
+            <x>0.0</x>
+            <y>0.0</y>
+            <z>1.0</z>
+        </axis>
+<!--        <center>
             <x-m>0.0</x-m>
             <y-m>0.0</y-m>
             <z-m>-0.006</z-m>
-        </center>
+        </center> -->
     </animation>
 
 		<animation>
@@ -411,24 +357,7 @@
 				    <z>0</z>
 				</axis>
 		</animation>
-		
-    <animation>
-      <type>rotate</type>
-      <object-name>course_knob</object-name>
-      <property>instrumentation/nav[1]/radials/selected-deg</property>
-        <factor>-10</factor>
-      <center>
-      <x-m> 0.0</x-m>
-      <y-m>-0.0389</y-m>
-      <z-m>-0.0397</z-m>
-      </center>
-      <axis>
-        <x> 1 </x>
-        <y> 0 </y>
-        <z> 0 </z>
-      </axis>
-    </animation>
- 
+
 
   <animation>
     <type>range</type>

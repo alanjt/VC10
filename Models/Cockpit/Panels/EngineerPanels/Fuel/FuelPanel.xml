@@ -1,0 +1,781 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--####################################################################
+Lake of Constance Hangar
+Vickers VC10 for Flightgear
+Copyright (C) 2013 M.Kraus
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Every software has a developer, also free software. 
+As a gesture of courtesy and respect, I would be delighted 
+if you contacted me before making any changes to this software. 
+<info (at) marc-kraus.de> April, 2017
+
+########################################################################-->
+<PropertyList>
+	<path>FuelPanel.ac</path>
+	
+	<model>
+		<name>FuelJettisonMaster1</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/FuelJettisonMaster1.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.0722</y-m>
+		  <z-m> 0.6824</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>FuelJettisonMaster2</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/FuelJettisonMaster2.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.4031</y-m>
+		  <z-m> 0.6824</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>TankCentreContents</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/TankCentreContents.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.2375</y-m>
+		  <z-m> 0.6663</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>TankCentreTest</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/TankCentreTest.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.1891</y-m>
+		  <z-m> 0.6231</z-m>
+		</offsets>
+	</model>
+			
+	<model>
+		<name>Tank1aContents</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/Tank1aContents.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.0881</y-m>
+		  <z-m> 0.6021</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Tank1aContentsTest</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/Tank1aTest.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.0387</y-m>
+		  <z-m> 0.5624</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Tank4aContents</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/Tank4aContents.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.3940</y-m>
+		  <z-m> 0.6021</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Tank4aTest</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/Tank4aTest.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.3500</y-m>
+		  <z-m> 0.5624</z-m>
+		</offsets>
+	</model>
+		
+	<model>
+		<name>CentreTankLeftTXPumpSw</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/CentreTankLeftTXPumpSw.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.1893</y-m>
+		  <z-m> 0.5837</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>LeftAltTXswitch</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/LeftAltTXswitch.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.1438</y-m>
+		  <z-m> 0.5552</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>LeftAltTXind</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/LeftAltTXind.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.1698</y-m>
+		  <z-m> 0.5552</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>RightAltTXswitch</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/RightAltTXswitch.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.2951</y-m>
+		  <z-m> 0.5552</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>RightAltTXind</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/RightAltTXind.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.3220</y-m>
+		  <z-m> 0.5552</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>CentreTankRightTXPumpSw</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/CentreTankRightTXPumpSw.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.2455</y-m>
+		  <z-m> 0.5837</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>CrossfeedValveIndicator</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/CrossFeedValveInd.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.2236</y-m>
+		  <z-m> 0.5462</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>CrossfeedValveSw</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/CrossfeedValveswitch.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.2233</y-m>
+		  <z-m> 0.4971</z-m>
+		</offsets>
+	</model>
+
+	
+	<model>
+		<name>CrossfeedLPIndicator</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/CrossFeedLPInd.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.2536</y-m>
+		  <z-m> 0.5462</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>Tank1AtoTank1TxIndicator</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/Tank1AtoTank1TXind.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.0634</y-m>
+		  <z-m> 0.5197</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>Tank1AtoTank1TxSw</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/Tank1AtoTank1TXswitch.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.0387</y-m>
+		  <z-m> 0.5197</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>Tank4AtoTank4TxSw</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/Tank4AtoTank4TXswitch.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.3921</y-m>
+		  <z-m> 0.5197</z-m>
+		</offsets>
+	</model>	
+	
+	<model>
+		<name>Tank4AtoTank4TxIndicator</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/Tank4AtoTank4TXind.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.4255</y-m>
+		  <z-m> 0.5197</z-m>
+		</offsets>
+	</model>	
+
+	<model>
+		<name>Tank1TxSw</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/Tank1TXswitch.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.0902</y-m>
+		  <z-m> 0.5033</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Tank1TxIndicator</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/Tank1TXind.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.1156</y-m>
+		  <z-m> 0.5033</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Tank2TxSw</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/Tank2TXswitch.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.1620</y-m>
+		  <z-m> 0.5033</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Tank2TxIndicator</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/Tank2TXind.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.1881</y-m>
+		  <z-m> 0.5033</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>Tank3TxSw</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/Tank3TXswitch.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.2615</y-m>
+		  <z-m> 0.5033</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Tank3TxIndicator</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/Tank3TXind.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.2904</y-m>
+		  <z-m> 0.5033</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Tank4TxSw</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/Tank4TXswitch.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.3419</y-m>
+		  <z-m> 0.5033</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Tank4TxIndicator</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/Tank4TXind.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.3680</y-m>
+		  <z-m> 0.5033</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>Tank1Contents</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/Tank1Contents.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.0854</y-m>
+		  <z-m> 0.4275</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Tank1Test</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/Tank1Test.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.0391</y-m>
+		  <z-m> 0.3840</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Tank2Contents</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/Tank2Contents.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.1877</y-m>
+		  <z-m> 0.4275</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Tank2Test</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/Tank2Test.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.1406</y-m>
+		  <z-m> 0.3840</z-m>
+		</offsets>
+	</model>
+		
+	<model>
+		<name>Tank3Contents</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/Tank3Contents.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.2898</y-m>
+		  <z-m> 0.4275</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Tank3Test</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/Tank3Test.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.2491</y-m>
+		  <z-m> 0.3840</z-m>
+		</offsets>
+	</model>
+			
+	<model>
+		<name>Tank4Contents</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/Tank4Contents.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.3918</y-m>
+		  <z-m> 0.4275</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Tank4Test</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/Tank4Test.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.3441</y-m>
+		  <z-m> 0.3840</z-m>
+		</offsets>
+	</model>
+			
+	<model>
+		<name>Boost switch 1 fwd</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/BoostSw1Fwd.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.0632</y-m>
+		  <z-m> 0.3448</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Boost switch 1 aft</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/BoostSw1Aft.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.0918</y-m>
+		  <z-m> 0.3448</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Boost switch 2 fwd</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/BoostSw2Fwd.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.1627</y-m>
+		  <z-m> 0.3448</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Boost switch 2 aft</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/BoostSw2Aft.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.1942</y-m>
+		  <z-m> 0.3448</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Boost switch 3 fwd</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/BoostSw3Fwd.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.2643</y-m>
+		  <z-m> 0.3448</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Boost switch 3 aft</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/BoostSw3Aft.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.2953</y-m>
+		  <z-m> 0.3448</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Boost switch 4 fwd</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/BoostSw4Fwd.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.3667</y-m>
+		  <z-m> 0.3448</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Boost switch 4 aft</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/BoostSw4Aft.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.3297</y-m>
+		  <z-m> 0.3448</z-m>
+		</offsets>
+	</model>
+	
+
+	<model>
+		<name>InterEngineLeftIndicator</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/InterEngineLeftInd.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.1270</y-m>
+		  <z-m> 0.3196</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>InterEngineXfeedIndicator</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/InterEngineXfeedInd.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.2298</y-m>
+		  <z-m> 0.3196</z-m>
+		</offsets>
+	</model>
+		
+	<model>
+		<name>InterEngineRightIndicator</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/InterEngineRightInd.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.3309</y-m>
+		  <z-m> 0.3196</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>LPCockIndicator1</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/LPCockInd1.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.0868</y-m>
+		  <z-m> 0.3014</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>LPCockIndicator2</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/LPCockInd2.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.1890</y-m>
+		  <z-m> 0.3014</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>LPCockIndicator3</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/LPCockInd3.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.2907</y-m>
+		  <z-m> 0.3014</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>LPCockIndicator4</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/LPCockInd4.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.3918</y-m>
+		  <z-m> 0.3014</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>LPCockSw1</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/LPCockSw1.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.0576</y-m>
+		  <z-m> 0.2992</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>LPCockSw2</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/LPCockSw2.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.1612</y-m>
+		  <z-m> 0.2992</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>LPCockSw3</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/LPCockSw3.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.2634</y-m>
+		  <z-m> 0.2992</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>LPCockSW4</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/LPCockSw4.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.3643</y-m>
+		  <z-m> 0.2992</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>InterEngineLeftSwitch</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/InterEngineLeftSw.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.1246</y-m>
+		  <z-m> 0.2783</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>InterEngineXfeedSwitch</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/InterEngineXfeedSw.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.2298</y-m>
+		  <z-m> 0.2783</z-m>
+		</offsets>
+	</model>
+		
+	<model>
+		<name>InterEngineRightSwitch</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/InterEngineRightSw.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.3284</y-m>
+		  <z-m> 0.2783</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Engine1FuelLP</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/Engine1LP.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.0884</y-m>
+		  <z-m> 0.2736</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Engine1Fuel2P</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/Engine2LP.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.1910</y-m>
+		  <z-m> 0.2736</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Engine1Fue3LP</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/Engine3LP.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.2924</y-m>
+		  <z-m> 0.2736</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Engine1Fue4LP</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/Engine4LP.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.3940</y-m>
+		  <z-m> 0.2736</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>FuelTemp1</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/FuelTemp1.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.0884</y-m>
+		  <z-m> 0.2232</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>FuelTemp2</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/FuelTemp2.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.1910</y-m>
+		  <z-m> 0.2232</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>FuelTemp3</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/FuelTemp3.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.2924</y-m>
+		  <z-m> 0.2232</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>FuelTemp4</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/FuelTemp4.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.3940</y-m>
+		  <z-m> 0.2232</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>FuelFlow1</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/FuelFlow1.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.0884</y-m>
+		  <z-m> 0.1391</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>FuelFlow2</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/FuelFlow2.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.1910</y-m>
+		  <z-m> 0.1391</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>FuelFlow3</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/FuelFlow3.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.2924</y-m>
+		  <z-m> 0.1391</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>FuelFlow4</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/FuelFlow4.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.3940</y-m>
+		  <z-m> 0.1391</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>FuelPress1</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/FuelPress1.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.0923</y-m>
+		  <z-m> 0.0535</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>FuelPress2</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/FuelPress2.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.1659</y-m>
+		  <z-m> 0.0535</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>FuelPress3</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/FuelPress3.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.3207</y-m>
+		  <z-m> 0.0535</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>FuelPress4</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/FuelPress4.xml</path>
+		<offsets>
+		  <x-m>0</x-m>
+		  <y-m> 0.3938</y-m>
+		  <z-m> 0.0535</z-m>
+		</offsets>
+	</model>
+	
+</PropertyList>

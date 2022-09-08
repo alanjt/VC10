@@ -120,7 +120,7 @@ if you contacted me before making any changes to this software.
 		<object-name>LampWhiteON</object-name>
 		<condition>
 			<greater-than>
-				<property>VC10/ess-bus</property>
+				<property>VC10/electric/ess-bus</property>
 				<value>20</value>
 			</greater-than>
 			<or>
@@ -268,7 +268,7 @@ if you contacted me before making any changes to this software.
 		<object-name>LampWhiteON.001</object-name>
 		<condition>
 			<greater-than>
-				<property>VC10/ess-bus</property>
+				<property>VC10/electric/ess-bus</property>
 				<value>20</value>
 			</greater-than>
 			<or>
@@ -416,7 +416,7 @@ if you contacted me before making any changes to this software.
 		<object-name>LampWhiteON.002</object-name>
 		<condition>
 			<greater-than>
-				<property>VC10/ess-bus</property>
+				<property>VC10/electric/ess-bus</property>
 				<value>20</value>
 			</greater-than>
 			<or>
@@ -621,7 +621,7 @@ if you contacted me before making any changes to this software.
 		<object-name>LampWhiteON.003</object-name>
 		<condition>
 			<greater-than>
-				<property>VC10/ess-bus</property>
+				<property>VC10/electric/ess-bus</property>
 				<value>20</value>
 			</greater-than>
 			<or>
@@ -826,7 +826,7 @@ if you contacted me before making any changes to this software.
 		<object-name>LampWhiteON.004</object-name>
 		<condition>
 			<greater-than>
-				<property>VC10/ess-bus</property>
+				<property>VC10/electric/ess-bus</property>
 				<value>20</value>
 			</greater-than>
 			<or>
@@ -1047,7 +1047,7 @@ if you contacted me before making any changes to this software.
 		<object-name>LampWhiteON.005</object-name>
 		<condition>
 			<greater-than>
-				<property>VC10/ess-bus</property>
+				<property>VC10/electric/ess-bus</property>
 				<value>20</value>
 			</greater-than>
 			<or>
@@ -1268,7 +1268,7 @@ if you contacted me before making any changes to this software.
 		<object-name>LampWhiteON.006</object-name>
 		<condition>
 			<greater-than>
-				<property>VC10/ess-bus</property>
+				<property>VC10/electric/ess-bus</property>
 				<value>20</value>
 			</greater-than>
 			<or>
@@ -1473,7 +1473,7 @@ if you contacted me before making any changes to this software.
 		<object-name>LampWhiteON.007</object-name>
 		<condition>
 			<greater-than>
-				<property>VC10/ess-bus</property>
+				<property>VC10/electric/ess-bus</property>
 				<value>20</value>
 			</greater-than>
 			<or>
@@ -1678,7 +1678,7 @@ if you contacted me before making any changes to this software.
         <object-name>LampWhiteON.008</object-name>
         <condition>
                 <greater-than>
-                        <property>VC10/ess-bus</property>
+                        <property>VC10/electric/ess-bus</property>
                         <value>20</value>
                 </greater-than>
                 <or>

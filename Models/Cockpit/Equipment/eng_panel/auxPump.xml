@@ -79,7 +79,7 @@ if you contacted me before making any changes to this software.
 		<object-name>LampAmberON</object-name>
 		<condition>		
 			<greater-than>
-				<property>VC10/ess-bus</property>
+				<property>VC10/electric/ess-bus</property>
 				<value>20</value>
 			</greater-than>
 		  <or>
@@ -98,7 +98,7 @@ if you contacted me before making any changes to this software.
 		<object-name>LampAmberON.001</object-name>
 		<condition>		
 			<greater-than>
-				<property>VC10/ess-bus</property>
+				<property>VC10/electric/ess-bus</property>
 				<value>20</value>
 			</greater-than>
 		  <or>
@@ -117,7 +117,7 @@ if you contacted me before making any changes to this software.
 		<object-name>LampAmberON.002</object-name>
 		<condition>		
 			<greater-than>
-				<property>VC10/ess-bus</property>
+				<property>VC10/electric/ess-bus</property>
 				<value>20</value>
 			</greater-than>
 		  <or>
@@ -137,7 +137,7 @@ if you contacted me before making any changes to this software.
 		<object-name>LampAmberON.003</object-name>
 		<condition>		
 			<greater-than>
-				<property>VC10/ess-bus</property>
+				<property>VC10/electric/ess-bus</property>
 				<value>20</value>
 			</greater-than>
 		  <or>
@@ -310,7 +310,7 @@ if you contacted me before making any changes to this software.
             		var acaux1 = getprop("VC10/hydraulic/ac-aux-pump[0]") or 0;
             		var acaux2 = getprop("VC10/hydraulic/ac-aux-pump[1]") or 0;
             		
-            		if((getprop("VC10/ess-bus") != nil and getprop("VC10/ess-bus") &lt; 20.0) or !acaux1 or !acaux2){
+            		if((getprop("VC10/electric/ess-bus") != nil and getprop("VC10/electric/ess-bus") &lt; 20.0) or !acaux1 or !acaux2){
             			settimer(func{
             				setprop("VC10/hydraulic/brake-valve", 0);
 									}, 0.5);
@@ -349,7 +349,7 @@ if you contacted me before making any changes to this software.
             		var acaux1 = getprop("VC10/hydraulic/ac-aux-pump[0]") or 0;
             		var acaux2 = getprop("VC10/hydraulic/ac-aux-pump[1]") or 0;
             		
-            		if((getprop("VC10/ess-bus") != nil and getprop("VC10/ess-bus") &lt; 20.0) or !acaux1 or !acaux2){
+            		if((getprop("VC10/electric/ess-bus") != nil and getprop("VC10/electric/ess-bus") &lt; 20.0) or !acaux1 or !acaux2){
             			settimer(func{
             				setprop("VC10/hydraulic/brake-valve", 0);
 									}, 0.5);

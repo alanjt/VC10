@@ -72,7 +72,7 @@
 		<object-name>bg</object-name>
 		<condition>
 			<greater-than>
-				<property>VC10/ess-bus</property>
+				<property>VC10/electric/ess-bus</property>
 				<value>20</value>
 			</greater-than>
 			<property>instrumentation/mptcas/on</property>
@@ -85,7 +85,7 @@
 		<condition>
 			<or>
 				<less-than>
-					<property>VC10/ess-bus</property>
+					<property>VC10/electric/ess-bus</property>
 					<value>20</value>
 				</less-than>
 				<not><property>instrumentation/mptcas/on</property></not>
@@ -354,7 +354,7 @@
 	<object-name>multis</object-name>
 	<condition>
 		<greater-than>
-			<property>VC10/ess-bus</property>
+			<property>VC10/electric/ess-bus</property>
 			<value>20</value>
 		</greater-than>
 	</condition>

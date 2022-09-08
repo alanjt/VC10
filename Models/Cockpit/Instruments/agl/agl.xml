@@ -142,7 +142,7 @@ if you contacted me before making any changes to this software.
 		<object-name>lampOn</object-name>
 		<condition>	
 			<greater-than>
-				<property>VC10/ess-bus</property>
+				<property>VC10/electric/ess-bus</property>
 				<value>20</value>
 			</greater-than>
 		  <or>
@@ -161,7 +161,7 @@ if you contacted me before making any changes to this software.
 		<condition>
 			<or>
 				<less-than>
-					<property>VC10/ess-bus</property>
+					<property>VC10/electric/ess-bus</property>
 					<value>22</value>
 				</less-than>
 		   	<not><property>instrumentation/aglradar/power-btn</property></not>
@@ -175,7 +175,7 @@ if you contacted me before making any changes to this software.
 		<condition>
 			<or>
 				<less-than>
-					<property>VC10/ess-bus</property>
+					<property>VC10/electric/ess-bus</property>
 					<value>22</value>
 				</less-than>
 		   	<not><property>instrumentation/aglradar/power-btn</property></not>
@@ -189,7 +189,7 @@ if you contacted me before making any changes to this software.
 		<condition>
 			<and>
 				<greater-than>
-					<property>VC10/ess-bus</property>
+					<property>VC10/electric/ess-bus</property>
 					<value>22</value>
 				</greater-than>
 		   	<property>instrumentation/aglradar/power-btn</property>			
@@ -207,7 +207,7 @@ if you contacted me before making any changes to this software.
 		<condition>
 			<or>
 				<less-than>
-					<property>VC10/ess-bus</property>
+					<property>VC10/electric/ess-bus</property>
 					<value>22</value>
 				</less-than>
 		   	<not><property>instrumentation/aglradar/power-btn</property></not>				
@@ -221,7 +221,7 @@ if you contacted me before making any changes to this software.
       <condition>
 				<or>
 					<greater-than>
-						<property>VC10/ess-bus</property>
+						<property>VC10/electric/ess-bus</property>
 						<value>22</value>
 					</greater-than>
 				 	<property>instrumentation/aglradar/power-btn</property>
@@ -247,7 +247,7 @@ if you contacted me before making any changes to this software.
       <condition>
 				<and>
 					<greater-than>
-						<property>VC10/ess-bus</property>
+						<property>VC10/electric/ess-bus</property>
 						<value>22</value>
 					</greater-than>
 				 	<property>instrumentation/aglradar/power-btn</property>			

@@ -5237,10 +5237,10 @@ refs 4
 31 0.890662431717 0.050895147026
 kids 0
 OBJECT poly
-name "needle"
+name "Needle"
 loc -0.027768 0.082828 0.001863
 data 6
-needle
+Needle
 texture "dc_load.png"
 texrep 1 1
 crease 30.000001
@@ -5279,10 +5279,10 @@ refs 3
 3 0.245054066181 0.000382689759
 kids 0
 OBJECT poly
-name "needle.001"
+name "Needle.001"
 loc 0.025225 0.082828 0.001863
 data 10
-needle.001
+Needle.001
 texture "dc_load.png"
 texrep 1 1
 crease 30.000001

@@ -774,7 +774,7 @@ refs 3
 8 1 0.5
 kids 0
 OBJECT poly
-name "disk-S-G"
+name "disk-P-G"
 loc 0.00107142 0.00376397 0.0200285
 crease 61.000000
 numvert 9
@@ -838,7 +838,7 @@ refs 3
 8 0.5 0.5
 kids 0
 OBJECT poly
-name "disk-P-G"
+name "disk-S-G"
 loc 0.00107142 0.00376397 0.0200285
 crease 61.000000
 numvert 9

@@ -47,7 +47,7 @@ if you contacted me before making any changes to this software.
 	<animation>
 		<type>material</type>
 		<object-name>face</object-name>
-		<object-name>needle</object-name>
+		<object-name>Needle</object-name>
 		<condition>	
 			<less-than><property>systems/electrical/outputs/cabin-dim</property><value>0.8</value></less-than>
 		</condition>
@@ -62,7 +62,7 @@ if you contacted me before making any changes to this software.
 	<animation>
 		<type>material</type>
 		<object-name>face</object-name>
-		<object-name>needle</object-name>
+		<object-name>Needle</object-name>
 		<condition>		
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
 			<property>systems/electrical/outputs/engineer-dim</property>
@@ -96,11 +96,11 @@ if you contacted me before making any changes to this software.
 		<object-name>LampAmberON</object-name>
 		<condition>		
 			<greater-than>
-				<property>VC10/ess-bus</property>
+				<property>VC10/electric/ess-bus</property>
 				<value>20</value>
 			</greater-than>
 		  <or>
-		  	<not><property>VC10/generator/gen-drive[2]</property></not>
+		  	<not><property>VC10/electric/ac/generator/gen-drive[2]</property></not>
 		  	<less-than>
 		    	<property>engines/engine[2]/oil-pressure-psi</property>
 		    	<value>37</value>
@@ -113,10 +113,10 @@ if you contacted me before making any changes to this software.
 	<!-- oil temp -->
 	<animation>
 		<type>rotate</type>
-		<object-name>needle</object-name>
+		<object-name>Needle</object-name>
 		<condition>		
 			<greater-than>
-				<property>VC10/ess-bus</property>
+				<property>VC10/electric/ess-bus</property>
 				<value>20</value>
 			</greater-than>
 		</condition>
@@ -142,7 +142,7 @@ if you contacted me before making any changes to this software.
   <animation>
     <type>rotate</type>
     <object-name>cover</object-name>
-    <property>VC10/generator/gen-drive-cover[2]</property>
+    <property>VC10/electric/ac/generator/gen-drive-cover[2]</property>
     <interpolation> 
             <entry>
                 <ind>0</ind>
@@ -173,7 +173,7 @@ if you contacted me before making any changes to this software.
 		    <repeatable>false</repeatable>
 		    <binding>
 		        <command>property-toggle</command>
-		        <property>VC10/generator/gen-drive-cover[2]</property>
+		        <property>VC10/electric/ac/generator/gen-drive-cover[2]</property>
 		    </binding>
 		    <binding>
 		      <command>property-toggle</command>
@@ -185,7 +185,7 @@ if you contacted me before making any changes to this software.
 	<animation>
 		  <type>rotate</type>
 		  <object-name>switch</object-name>
-		  <property>VC10/generator/gen-drive[2]</property>
+		  <property>VC10/electric/ac/generator/gen-drive[2]</property>
       <factor>-60</factor>
 		  <axis>
 		   <x>1</x>
@@ -208,7 +208,7 @@ if you contacted me before making any changes to this software.
 		    <repeatable>false</repeatable>
 		    <binding>
 		        <command>property-toggle</command>
-		        <property>VC10/generator/gen-drive[2]</property>
+		        <property>VC10/electric/ac/generator/gen-drive[2]</property>
 		    </binding>          
 		    <binding>
           <command>nasal</command>

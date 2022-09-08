@@ -62,13 +62,13 @@ if you contacted me before making any changes to this software.
 		<object-name>LampAmberON</object-name>
 		<condition>		
 			<greater-than>
-				<property>VC10/ess-bus</property>
+				<property>VC10/electric/ess-bus</property>
 				<value>20</value>
 			</greater-than>
 		  <or>
 		    <and>
-				  <property>VC10/ess-source-failure</property>
-				  <property>VC10/battery-switch</property>
+				  <property>VC10/electric/ess-source-failure</property>
+				  <property>VC10/electric/dc/battery-switch</property>
 		    </and>
 		    <property>controls/test/warn-knob</property>
 		  </or>
@@ -79,7 +79,7 @@ if you contacted me before making any changes to this software.
 	<animation>
 		<type>rotate</type>
 		<object-name>turn</object-name>
-		<property>VC10/ess-power-switch</property>
+		<property>VC10/electric/ess-power-switch</property>
 		<interpolation>
 		  <entry><ind> 0</ind><dep> 180</dep></entry>
 		  <entry><ind> 5</ind><dep> 135</dep></entry>
@@ -108,7 +108,7 @@ if you contacted me before making any changes to this software.
 		  <repeatable>true</repeatable>
 		  <binding>
 		    <command>property-adjust</command>
-				<property>VC10/ess-power-switch</property>
+				<property>VC10/electric/ess-power-switch</property>
 		    <step>1</step>
 		    <min>0</min>
 		    <max>6</max>
@@ -128,7 +128,7 @@ if you contacted me before making any changes to this software.
 		  <repeatable>true</repeatable>
 		  <binding>
 		    <command>property-adjust</command>
-				<property>VC10/ess-power-switch</property>
+				<property>VC10/electric/ess-power-switch</property>
 		    <step>-1</step>
 		    <min>0</min>
 		    <max>6</max>

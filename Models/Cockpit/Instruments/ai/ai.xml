@@ -135,7 +135,7 @@ if you contacted me before making any changes to this software.
   <animation>
     <type>rotate</type>
     <object-name>off-flag</object-name>
-    <property>VC10/ess-bus</property>
+    <property>VC10/electric/ess-bus</property>
 		<interpolation>
 		  <entry>
 		    <ind>0.0</ind>
@@ -243,7 +243,7 @@ if you contacted me before making any changes to this software.
 	<animation>
 		<type>rotate</type>
 		<object-name>ZR.Alt</object-name>
-		<property>instrumentation/nav[0]/gs-needle-deflection</property>
+		<property>instrumentation/nav[0]/gs-Needle-deflection</property>
 		<interpolation>
 		  <entry><ind>-400</ind><dep>-30</dep></entry>
 		  <entry><ind> -10</ind><dep>-30</dep></entry>
@@ -287,7 +287,7 @@ if you contacted me before making any changes to this software.
 	<animation>
 		<type>rotate</type>
 		<object-name>ZR.Azi</object-name>
-		<property>instrumentation/nav[0]/heading-needle-deflection</property>
+		<property>instrumentation/nav[0]/heading-Needle-deflection</property>
 		<interpolation>
 		  <entry><ind>-10</ind><dep>-30</dep></entry>
 		  <entry><ind>  0</ind><dep>  0</dep></entry>
