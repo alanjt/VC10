@@ -173,7 +173,7 @@ var main = {
     setlistener("ai/models/model-added", func {
       settimer(func { me.activate(); }, 2);
     });
-    print("Copilot dual control ... initialized");
+    print("Copilot dual control ... initialised");
     settimer(func { me.activate(); }, 5);
   },
   reset : func {

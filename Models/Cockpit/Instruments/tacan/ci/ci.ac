@@ -1001,7 +1001,7 @@ refs 3
 48 0.265683 0.970566
 kids 0
 OBJECT poly
-name "needle"
+name "Needle"
 loc 0.0016758 -0.0016948 0.0000530
 numvert 34
 0.0008187 -0.0265032 -0.0010151

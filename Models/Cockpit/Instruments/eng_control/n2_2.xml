@@ -29,8 +29,8 @@ if you contacted me before making any changes to this software.
 	<animation>
 		<type>material</type>
 		<object-name>face</object-name>
-		<object-name>needle</object-name>
-		<object-name>needle.001</object-name>
+		<object-name>Needle</object-name>
+		<object-name>Needle.001</object-name>
 		<condition>
 			<less-than><property>systems/electrical/outputs/cabin-dim</property><value>0.8</value></less-than>
 		</condition>
@@ -45,8 +45,8 @@ if you contacted me before making any changes to this software.
 	<animation>
 		<type>material</type>
 		<object-name>face</object-name>
-		<object-name>needle</object-name>
-		<object-name>needle.001</object-name>
+		<object-name>Needle</object-name>
+		<object-name>Needle.001</object-name>
 		<object-name>shadow</object-name>
 		<condition>
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
@@ -72,7 +72,7 @@ if you contacted me before making any changes to this software.
 
 	<animation>
 		<type>rotate</type>
-		<object-name>needle</object-name>
+		<object-name>Needle</object-name>
 		<property>engines/engine[1]/n2</property>
 		<interpolation>
 		  <entry><ind>  0.0</ind><dep>    0.0</dep></entry>
@@ -87,7 +87,7 @@ if you contacted me before making any changes to this software.
 
 	<animation> 
 		<type>rotate</type>
-		<object-name>needle.001</object-name>
+		<object-name>Needle.001</object-name>
 		<property>engines/engine[1]/n2</property>
     <factor>36.0</factor>
 		<center>   

@@ -221,7 +221,7 @@ if you contacted me before making any changes to this software.
 			</binding>
 			<binding>
 				<command>property-toggle</command>
-				<property>sim/sound/click</property>
+				<property>sim/sound/switch2</property>
 			</binding>
 		</action>
 	</animation>	

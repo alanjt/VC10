@@ -18,9 +18,9 @@
     <object-name>btnMode</object-name>
     <object-name>activeMode</object-name>
     <object-name>face</object-name>
-    <object-name>needle1</object-name>
-    <object-name>needle2</object-name>
-    <object-name>needle3</object-name>
+    <object-name>Needle1</object-name>
+    <object-name>Needle2</object-name>
+    <object-name>Needle3</object-name>
     <object-name>vitre</object-name>
   </animation>
 
@@ -48,12 +48,12 @@
     <object-name>btnMode</object-name>
     <object-name>activeMode</object-name>
     <object-name>face</object-name>
-    <object-name>needle1</object-name>
-    <object-name>needle2</object-name>
-    <object-name>needle3</object-name>
+    <object-name>Needle1</object-name>
+    <object-name>Needle2</object-name>
+    <object-name>Needle3</object-name>
     <object-name>vitre</object-name>
 		<condition>
-			<property>VC10/ess-bus</property>
+			<property>VC10/electric/ess-bus</property>
 		</condition>
 		<property>instrumentation/slip-skid-ball/indicated-slip-skid</property>
     <interpolation>
@@ -84,12 +84,12 @@
     <object-name>btnMode</object-name>
     <object-name>activeMode</object-name>
     <object-name>face</object-name>
-    <object-name>needle1</object-name>
-    <object-name>needle2</object-name>
-    <object-name>needle3</object-name>
+    <object-name>Needle1</object-name>
+    <object-name>Needle2</object-name>
+    <object-name>Needle3</object-name>
     <object-name>vitre</object-name>
 		<condition>
-			<not><property>VC10/ess-bus</property></not>
+			<not><property>VC10/electric/ess-bus</property></not>
 		</condition>
 		<property>instrumentation/slip-skid-ball/indicated-slip-skid</property>
     <interpolation>
@@ -120,9 +120,9 @@
     <object-name>btnMode</object-name>
     <object-name>activeMode</object-name>
     <object-name>face</object-name>
-    <object-name>needle1</object-name>
-    <object-name>needle2</object-name>
-    <object-name>needle3</object-name>
+    <object-name>Needle1</object-name>
+    <object-name>Needle2</object-name>
+    <object-name>Needle3</object-name>
     <object-name>vitre</object-name>
     <property>orientation/pitch-deg</property>
     <interpolation>
@@ -148,9 +148,9 @@
 		  <object-name>face</object-name>
 		  <object-name>fond</object-name>
 		  <object-name>activeMode</object-name>
-		  <object-name>needle1</object-name>
-		  <object-name>needle2</object-name>
-		  <object-name>needle3</object-name>
+		  <object-name>Needle1</object-name>
+		  <object-name>Needle2</object-name>
+		  <object-name>Needle3</object-name>
 		<condition>
 			<less-than><property>systems/electrical/outputs/cabin-dim</property><value>0.6</value></less-than>
 		</condition>
@@ -167,9 +167,9 @@
 		  <object-name>face</object-name>
 		  <object-name>fond</object-name>
 		  <object-name>activeMode</object-name>
-		  <object-name>needle1</object-name>
-		  <object-name>needle2</object-name>
-		  <object-name>needle3</object-name>
+		  <object-name>Needle1</object-name>
+		  <object-name>Needle2</object-name>
+		  <object-name>Needle3</object-name>
 		<condition>
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
 			<property>systems/electrical/outputs/cabin-dim</property>
@@ -221,7 +221,7 @@
 
   <animation> 
     <type>rotate</type>
-    <object-name>needle1</object-name>
+    <object-name>Needle1</object-name>
     <property>instrumentation/frw/flight-time/minutes</property>
     <interpolation>
       <entry><ind> 0</ind><dep> 0 </dep></entry>
@@ -241,7 +241,7 @@
     
   <animation> 
     <type>rotate</type>
-    <object-name>needle2</object-name>
+    <object-name>Needle2</object-name>
     <property>instrumentation/frw/flight-time/hours</property>
     <interpolation>
       <entry><ind> 0</ind><dep> 0 </dep></entry>
@@ -261,7 +261,7 @@
     
   <animation> 
     <type>rotate</type>
-    <object-name>needle3</object-name>
+    <object-name>Needle3</object-name>
     <property>instrumentation/frw/flight-time/seconds</property>
     <interpolation>
       <entry><ind> 0</ind><dep> 0 </dep></entry>

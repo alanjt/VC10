@@ -75,7 +75,7 @@ if you contacted me before making any changes to this software.
 		<object-name>LampAmberON</object-name>
 		<condition>		
 			<greater-than>
-				<property>VC10/ess-bus</property>
+				<property>VC10/electric/ess-bus</property>
 				<value>20</value>
 			</greater-than>
 		  <or>
@@ -101,7 +101,7 @@ if you contacted me before making any changes to this software.
 		<object-name>LampAmberON.001</object-name>
 		<condition>		
 			<greater-than>
-				<property>VC10/ess-bus</property>
+				<property>VC10/electric/ess-bus</property>
 				<value>20</value>
 			</greater-than>
 		  <or>

@@ -605,7 +605,7 @@ var eng_vib = func {
 	var evib2 = getprop("engines/engine[1]/n2") or 0;
 	var evib3 = getprop("engines/engine[2]/n2") or 0;
 	var evib4 = getprop("engines/engine[3]/n2") or 0;
-	var dc = getprop("VC10/ess-bus") or 0;
+	var dc = getprop("VC10/electric/ess-bus") or 0;
 	var vibte = getprop("VC10/vibrations/vib-test") or 0;	
 	var state = getprop("VC10/vibrations/vib-sel") or 0;
 	
@@ -614,7 +614,7 @@ var eng_vib = func {
 	var a3 = 0;
 	var a4 = 0;
 	
-	#print("eng_vib läuft");
+	#print("eng_vib running");
 
 	if(state == 1 and !vibte) {
 		if(evib1 > 10 and dc > 20) a1 = my_mini_rand(0.46, 0.54);
@@ -673,7 +673,7 @@ var pump1 = props.globals.getNode("VC10/hydraulic/hyd-fluid-pump[0]", 1);
 var pump2 = props.globals.getNode("VC10/hydraulic/hyd-fluid-pump[1]", 1);
 var acAux1 = props.globals.getNode("VC10/hydraulic/ac-aux-pump[0]", 1);
 var acAux2 = props.globals.getNode("VC10/hydraulic/ac-aux-pump[1]", 1);
-var eb = props.globals.getNode("VC10/ess-bus", 1);
+var eb = props.globals.getNode("VC10/electric/ess-bus", 1);
 
 setlistener("VC10/hydraulic/hyd-fluid-shutoff[0]", func{
 	if(shut1.getBoolValue() and eb.getValue() > 23){
@@ -803,28 +803,28 @@ setlistener("VC10/warning/fire-button[3]", func(state){
 
 # if gen-drive is set to on in flight, engines crashed
 ## comment this out to allow in air reset without engines cutting out.  AJT
-setlistener("VC10/generator/gen-drive[0]", func(state){
+setlistener("VC10/electric/ac/generator/gen-drive[0]", func(state){
 	var state = state.getBoolValue() or 0;
 	var a = getprop("position/altitude-agl-ft") or 0;
 ##	if(a > 20 and state){
 ##		 settimer( func { setprop("controls/engines/engine[0]/fire", 1) }, 2);
 ##	}
 },0,0);
-setlistener("VC10/generator/gen-drive[1]", func(state){
+setlistener("VC10/electric/ac/generator/gen-drive[1]", func(state){
 	var state = state.getBoolValue() or 0;
 	var a = getprop("position/altitude-agl-ft") or 0;
 ##	if(a > 20 and state){
 ##		 settimer( func { setprop("controls/engines/engine[1]/fire", 1) }, 2);
 ##	}
 },0,0);
-setlistener("VC10/generator/gen-drive[2]", func(state){
+setlistener("VC10/electric/ac/generator/gen-drive[2]", func(state){
 	var state = state.getBoolValue() or 0;
 	var a = getprop("position/altitude-agl-ft") or 0;
 ##	if(a > 20 and state){
 ##		 settimer( func { setprop("controls/engines/engine[2]/fire", 1) }, 2);
 ##	}
 },0,0);
-setlistener("VC10/generator/gen-drive[3]", func(state){
+setlistener("VC10/electric/ac/generator/gen-drive[3]", func(state){
 	var state = state.getBoolValue() or 0;
 	var a = getprop("position/altitude-agl-ft") or 0;
 ##	if(a > 20 and state){
@@ -962,7 +962,7 @@ var nacelle_deicing = func {
 		
 	}
 	
-	# and turn the needles in the wing anti ice instruments (overhead panel)
+	# and turn the Needles in the wing anti ice instruments (overhead panel)
 	interpolate("VC10/anti-ice/temp-out-l", wingTempOutL, 15);
 	interpolate("VC10/anti-ice/temp-in-l", wingTempInL, 15);
 	interpolate("VC10/anti-ice/temp-out-r", wingTempOutR, 15);
@@ -1121,7 +1121,7 @@ var calc_pressurization	= func{
 			max = (agl < 100) ? alt - 200 : max;
 			
 			interpolate("VC10/pressurization/cabin-max", max, t);  # the white scale is set automatically
-			interpolate("VC10/pressurization/cabin-altitude", calt, t); # the alt needles 
+			interpolate("VC10/pressurization/cabin-altitude", calt, t); # the alt Needles 
 			interpolate("VC10/pressurization/climb-rate", rate, t); # the climb rate
 			#print("calc_pressurization is running in auto mode");
 		}else{
@@ -1133,7 +1133,7 @@ var calc_pressurization	= func{
 				mcs = 0;
 			}	
 			
-			interpolate("VC10/pressurization/cabin-altitude", calt, t); # the alt needles as result of white scale and manual control 
+			interpolate("VC10/pressurization/cabin-altitude", calt, t); # the alt Needles as result of white scale and manual control 
 			interpolate("VC10/pressurization/climb-rate", mcs, t);		# the climb rate as result of manual control
 			#print("calc_pressurization is working on manual mode");
 		}
@@ -1145,7 +1145,7 @@ var calc_pressurization	= func{
 		interpolate("VC10/pressurization/cabin-altitude", alt, t);
 		interpolate("VC10/pressurization/climb-rate", vs, t);
 		var ra = getprop("position/altitude-agl-ft") or 0;
-		if(ra > 2000) screen.log.write(sprintf("ATTENTION! No pressurization!"), 1.0, 0.0, 0.0);
+		if(ra > 2000) screen.log.write(sprintf("ATTENTION! No pressurisation!"), 1.0, 0.0, 0.0);
 	}
 	
 	# cabin differential pressure
@@ -1156,7 +1156,7 @@ var calc_pressurization	= func{
 	interpolate("VC10/pressurization/cabin-differential-pressure", psi, t);
 	
 	if(calt > 8000){
-		 screen.log.write(sprintf("ATTENTION! Increase cabin pressure expressly!"), 1.0, 0.0, 0.0);
+		 screen.log.write(sprintf("ATTENTION! Increase cabin pressure imediately!"), 1.0, 0.0, 0.0);
 	}else{
 		if(svp) setprop("VC10/pressurization/alt-cutout-horn", 0); # reset if it was pushed during depressurization
 	}
@@ -1182,7 +1182,7 @@ var air_compressor = func(nr){
   	var engNr = nr + 1;
   	var engRun = getprop("engines/engine["~engNr~"]/n2") or 0;
   	var ram = getprop("VC10/air-conditioning/ram-air-switch") or 0;
-  	var pwr = getprop("VC10/ess-bus") or 0;
+  	var pwr = getprop("VC10/electric/ess-bus") or 0;
 
   	if(ram and pwr and engRun > 25){
 			if(bt > 0){
@@ -1234,7 +1234,7 @@ var trim_loop = func{
 	var et = getprop("controls/flight/elevator-trim") or 0;
 	var ap = getprop("autopilot/Bendix-PB-20/controls/active") or 0;
 	var diff = abs(lastTrimValue.getValue() - et);
-	#print("Differenz: "~diff);
+	#print("Difference: "~diff);
 	if(ap and diff > 0.002){
 			if(diff < 0.05 ){
 				interpolate("VC10/trim/elevator-trim-turn", et, 2); 
@@ -1368,6 +1368,8 @@ setlistener("controls/gear/gear-down", func
   }
  });
  
+## Refuel probes
+#######
 # only for Tanker but don't worry if its no Tanker aircraft
 var toggleProbeLeft = func(){
 		var hose = getprop("VC10/refuelling/probe-left") or 0;

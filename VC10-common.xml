@@ -46,7 +46,7 @@ if you contacted me before making any changes to this software.
 			<tag>ifr</tag>
 		</tags>
 
-		<engines> 4 </engines>
+		<engines>4</engines>
 
 		<minimum-fg-version>2017.3.0</minimum-fg-version>
 
@@ -94,9 +94,9 @@ if you contacted me before making any changes to this software.
 
 		<sound>
 			<path>Aircraft/VC10/Sounds/VC10-sound.xml</path>
-			<switch type = "bool">0</switch>
+			<switch type="bool">0</switch>
 			<stall-horn type="bool">0</stall-horn>
-		</sound> 
+		</sound>
 
 		<!--		<tutorials>
 			<tutorial include="Tutorials/VC10-startup-german.xml"/>
@@ -118,7 +118,7 @@ if you contacted me before making any changes to this software.
 			<checklist include="Checklists/before-engines-startup-APU.xml"/>
 		</checklists> -->
 
-		<view>    
+		<view>
 			<name>Captain View</name>
 			<internal archive="y">true</internal>
 			<config>
@@ -129,7 +129,7 @@ if you contacted me before making any changes to this software.
 				<!-- 95% man optimal position is 0.71m behind instrument panel -->
 				<x-offset-m archive="y">-0.546</x-offset-m>
 				<y-offset-m archive="y">1.15</y-offset-m>
-				<z-offset-m archive="y">2.234</z-offset-m> <!-- 1.524+0.71 -->
+				<z-offset-m archive="y">2.234</z-offset-m><!-- 1.524+0.71 -->
 				<pitch-offset-deg archive="y">-16.0</pitch-offset-deg>
 				<default-field-of-view-deg type="double">72</default-field-of-view-deg>
 			</config>
@@ -139,7 +139,7 @@ if you contacted me before making any changes to this software.
 			<config>
 				<!-- big plane, so extend chase view offset a bit -->
 				<!--    <z-offset-m type="double"  archive="y">-30.0</z-offset-m> -->
-				<z-offset-m type="double"  archive="y">-60.0</z-offset-m>
+				<z-offset-m type="double" archive="y">-60.0</z-offset-m>
 			</config>
 		</view>
 
@@ -190,7 +190,7 @@ if you contacted me before making any changes to this software.
 				<front-right-direction-deg type="double">315</front-right-direction-deg>
 				<dynamic-view type="bool">true</dynamic-view>
 			</config>
-		</view> 
+		</view>
 		<view n="103">
 			<name>Officer View</name>
 			<enabled type="bool">true</enabled>
@@ -204,7 +204,7 @@ if you contacted me before making any changes to this software.
 				<y-offset-m archive="y">1.15</y-offset-m>
 				<z-offset-m archive="y">4.06</z-offset-m>
 
-				<heading-offset-deg type="double"> 0.0</heading-offset-deg>
+				<heading-offset-deg type="double">0.0</heading-offset-deg>
 				<pitch-offset-deg type="double">-5.0</pitch-offset-deg>
 				<ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
 				<default-field-of-view-deg type="double">70.0</default-field-of-view-deg>
@@ -226,7 +226,7 @@ if you contacted me before making any changes to this software.
 				<x-offset-m archive="y">-1.09</x-offset-m>
 				<y-offset-m archive="y">1.15</y-offset-m>
 				<z-offset-m archive="y">3.55</z-offset-m>
-				<heading-offset-deg type="double"> 0.0</heading-offset-deg>
+				<heading-offset-deg type="double">0.0</heading-offset-deg>
 				<pitch-offset-deg type="double">-75.0</pitch-offset-deg>
 				<ground-level-nearplane-m type="double">0.5</ground-level-nearplane-m>
 				<default-field-of-view-deg type="double">70.0</default-field-of-view-deg>
@@ -239,67 +239,67 @@ if you contacted me before making any changes to this software.
 
 		<chase-distance-m>-45</chase-distance-m>
 
-		<multiplay>  
+		<multiplay>
 			<generic>
-				<int n="0" alias="/controls/lighting/landing-light"/> 									<!-- landing light nose wheel -->
-				<int n="1" alias="/controls/lighting/landing-light[1]"/> 								<!-- landing light left and right -->
-				<int n="2" alias="/controls/lighting/landing-light[2]"/> 								<!-- landing light tail -->
-				<int n="3" alias="/controls/lighting/nav-lights"/> 										<!-- wings green and red -->
-				<int n="4" alias="/controls/lighting/beacon-state/state"/>								<!-- beacon -->
-				<int n="5" alias="/controls/lighting/strobe-state/state"/>								<!-- Strobe -->
-				<int n="6" alias="/controls/special/tyresmoke"/>										<!-- tyresmoke -->
-				<int n="7" alias="/controls/lighting/logo-lights"/> 									<!-- logo-light -->
-				<int n="8" type="int">0</int>															<!-- select engines type -->
-				<int n="9" type="int">0</int>															<!-- cargo aircraft -->
-				<int n="10" alias="/VC10/refuelling/probe-right"/>										<!-- refuel probe -->
-				<int n="11" alias="/VC10/refuelling/probe-left"/>										<!-- refuel probe -->
-				<int n="12"  type="int">0</int>															<!-- communication between tanker and receiving aircraft -->
-				<int n="13" alias="/instrumentation/mptcas/on"/>  										<!-- show AWACS radar turning -->
-				<int n="14" alias="/VC10/external-power-connected"/>									<!-- External Power-VW Kombi -->
-				<int n="15" type="int">0</int> <!-- jettison fuel 1 = left, 2 = right, 3 = both -->
-				<int n="16" type="int">0</int> <!-- 0 no immat, 1 immat on the rudder, 2 on fuselage down, 3 fuselage upper back -->
-				<int n="17" type="int">0</int> <!-- fire 1 = eng 1, 2 = eng 2, 3 = both -->
-				<int n="18" type="int">0</int> <!-- fire 1 = eng 3, 2 = eng 4, 3 = both -->
+				<int n="0" alias="/controls/lighting/landing-light"/><!-- landing light nose wheel -->
+				<int n="1" alias="/controls/lighting/landing-light[1]"/><!-- landing light left and right -->
+				<int n="2" alias="/controls/lighting/landing-light[2]"/><!-- landing light tail -->
+				<int n="3" alias="/controls/lighting/nav-lights"/><!-- wings green and red -->
+				<int n="4" alias="/controls/lighting/beacon-state/state"/><!-- beacon -->
+				<int n="5" alias="/controls/lighting/strobe-state/state"/><!-- Strobe -->
+				<int n="6" alias="/controls/special/tyresmoke"/><!-- tyresmoke -->
+				<int n="7" alias="/controls/lighting/logo-lights"/><!-- logo-light -->
+				<int n="8" type="int">0</int><!-- select engines type -->
+				<int n="9" type="int">0</int><!-- cargo aircraft -->
+				<int n="10" alias="/VC10/refuelling/probe-right"/><!-- refuel probe -->
+				<int n="11" alias="/VC10/refuelling/probe-left"/><!-- refuel probe -->
+				<int n="12" type="int">0</int><!-- communication between tanker and receiving aircraft -->
+				<int n="13" alias="/instrumentation/mptcas/on"/><!-- show AWACS radar turning -->
+				<int n="14" alias="/VC10/electric/external-power-connected"/><!-- External Power-VW Kombi -->
+				<int n="15" type="int">0</int><!-- jettison fuel 1 = left, 2 = right, 3 = both -->
+				<int n="16" type="int">0</int><!-- 0 no immat, 1 immat on the rudder, 2 on fuselage down, 3 fuselage upper back -->
+				<int n="17" type="int">0</int><!-- fire 1 = eng 1, 2 = eng 2, 3 = both -->
+				<int n="18" type="int">0</int><!-- fire 1 = eng 3, 2 = eng 4, 3 = both -->
 				<int n="19" alias="/VC10/crashed"/>
-				<float n="0" alias="/systems/electrical/outputs/cabin-dim"/> 							<!-- cabin light dimmer -->
-				<float n="1" alias="/gear/gear[0]/compression-norm"/> 									<!-- multiplayer see the wheels turning -->
-				<float n="2" alias="/gear/gear[0]/rollspeed-ms"/> 										<!-- multiplayer see the hanging backwheels -->
+				<float n="0" alias="/systems/electrical/outputs/cabin-dim"/><!-- cabin light dimmer -->
+				<float n="1" alias="/gear/gear[0]/compression-norm"/><!-- multiplayer see the wheels turning -->
+				<float n="2" alias="/gear/gear[0]/rollspeed-ms"/><!-- multiplayer see the hanging backwheels -->
 				<float n="3" alias="/gear/gear[1]/compression-norm"/>
-				<float n="4" alias="/instrumentation/doors/pilotwin/position-norm"/>					<!-- Cockpit - left -->
-				<float n="5" alias="/instrumentation/doors/copilotwin/position-norm"/>					<!-- Cockpit - right -->
-				<float n="6" alias="/instrumentation/doors/pasfront/position-norm"/>					<!-- Passenger - front -->
-				<float n="7" alias="/instrumentation/doors/pasrear/position-norm"/>						<!-- Passenger - back -->
-				<float n="8" alias="/position/altitude-agl-ft"/>    <!-- for the kind of fire or lights -->
+				<float n="4" alias="/instrumentation/doors/pilotwin/position-norm"/><!-- Cockpit - left -->
+				<float n="5" alias="/instrumentation/doors/copilotwin/position-norm"/><!-- Cockpit - right -->
+				<float n="6" alias="/instrumentation/doors/pasfront/position-norm"/><!-- Passenger - front -->
+				<float n="7" alias="/instrumentation/doors/pasrear/position-norm"/><!-- Passenger - back -->
+				<float n="8" alias="/position/altitude-agl-ft"/><!-- for the kind of fire or lights -->
 				<float n="9" alias="/controls/special/wiper-deg"/>
-				<float n="10" alias="/VC10/anti-ice/window-alpha-fo"/> <!-- the icing on the windshield -->
-				<float n="11" alias="/VC10/anti-ice/window-alpha-capt"/> <!-- the icing on the windshield -->
-				<float n="12" alias="/instrumentation/doors/nose/position-norm"/>						<!-- Nose -->
-				<float n="13" alias="/VC10/ground-service/fuel-truck/state"/>							<!-- fuel-truck -->
-				<float n="14" alias="/engines/engine/reverser-pos-norm"/>								<!-- multiplayer see the cowl flaps -->
-				<float n="15" alias="/instrumentation/doors/cargo/position-norm"/>						<!-- Cargo door -->
-				<float n="16" alias="/instrumentation/doors/belly/position-norm"/>						<!-- Belly door -->
-				<float n="17" alias="/orientation/pitch-deg"/>       									<!-- for the shadow without rembrandt -->
-				<float n="18" alias="/instrumentation/doors/refuel-boom/position-norm"/>      			<!-- in the TT the refuel boom -->
+				<float n="10" alias="/VC10/anti-ice/window-alpha-fo"/><!-- the icing on the windshield -->
+				<float n="11" alias="/VC10/anti-ice/window-alpha-capt"/><!-- the icing on the windshield -->
+				<float n="12" alias="/instrumentation/doors/nose/position-norm"/><!-- Nose -->
+				<float n="13" alias="/VC10/ground-service/fuel-truck/state"/><!-- fuel-truck -->
+				<float n="14" alias="/engines/engine/reverser-pos-norm"/><!-- multiplayer see the cowl flaps -->
+				<float n="15" alias="/instrumentation/doors/cargo/position-norm"/><!-- Cargo door -->
+				<float n="16" alias="/instrumentation/doors/belly/position-norm"/><!-- Belly door -->
+				<float n="17" alias="/orientation/pitch-deg"/><!-- for the shadow without rembrandt -->
+				<float n="18" alias="/instrumentation/doors/refuel-boom/position-norm"/><!-- in the TT the refuel boom -->
 				<!-- <string n="0" alias="/sim/multiplay/callsign"/>									will be init in the registration.nas DO NOT USE string[0] for other properties -->
 			</generic>
 		</multiplay>
 
-		<flight-recorder include="Systems/flightrecorder.xml"/>
+		<flight-recorder include="Aircraft/VC10/Systems/flightrecorder.xml"/>
 
 		<flaps>
-			<setting>0.0</setting>  		<!--  0 deg -->
-			<setting>0.4444444444</setting>	<!--  20 deg -->
-			<setting>0.7777777778</setting>	<!--  35 deg -->
-			<setting>1.0</setting>	        <!--  45 deg -->
+			<setting>0.0</setting><!--  0 deg -->
+			<setting>0.4444444444</setting><!--  20 deg -->
+			<setting>0.7777777778</setting><!--  35 deg -->
+			<setting>1.0</setting><!--  45 deg -->
 		</flaps>
 		
 		<speedbrake>
-			<setting>0.0</setting>  <!--  0 deg -->
-			<setting>0.2</setting>	<!--  10 deg -->
-			<setting>0.4</setting>	<!--  20 deg -->
-			<setting>0.6</setting>	<!--  30 deg -->
-			<setting>0.8</setting>	<!--  40 deg -->
-			<setting>1.0</setting>	<!--  50 deg -->
+			<setting>0.0</setting><!--  0 deg -->
+			<setting>0.2</setting><!--  10 deg -->
+			<setting>0.4</setting><!--  20 deg -->
+			<setting>0.6</setting><!--  30 deg -->
+			<setting>0.8</setting><!--  40 deg -->
+			<setting>1.0</setting><!--  50 deg -->
 		</speedbrake>
 
 
@@ -355,7 +355,7 @@ if you contacted me before making any changes to this software.
 	</engines>
 
 	<input>
-		<keyboard include="Systems/keyboard.xml"/>
+		<keyboard include="Aircraft/VC10/Systems/keyboard.xml"/>
 	</input>
 
 	<autopilot>
@@ -375,7 +375,7 @@ if you contacted me before making any changes to this software.
 			<appr type="bool">0</appr>
 			<gps type="bool">0</gps>
 			<selected-nav type="bool">1</selected-nav>
-		</switches> 
+		</switches>
 		<constant>
 			<flare-base type="double">0.2</flare-base>
 			<derate-lowalt type="double">0.77</derate-lowalt>
@@ -383,12 +383,12 @@ if you contacted me before making any changes to this software.
 			<descent-profile-high-rate type="double">-0.00096774</descent-profile-high-rate>
 			<descent-profile-low-base type="double">0.13</descent-profile-low-base>
 			<descent-profile-low-rate type="double">-0.00029032</descent-profile-low-rate>
-		</constant> 
+		</constant>
 		<Bendix-PB-20>
 			<controls>
-				<mode-selector type="int">2</mode-selector>	  <!-- 2 is manual control-->
-				<active type="bool">0</active>	  			  <!-- the AP engage switch -->	
-			</controls>	
+				<mode-selector type="int">2</mode-selector><!-- 2 is manual control-->
+				<active type="bool">0</active><!-- the AP engage switch -->
+			</controls>
 		</Bendix-PB-20>
 
 	</autopilot>
@@ -484,21 +484,21 @@ if you contacted me before making any changes to this software.
 			<spoiler-nose-up type="double">0.0</spoiler-nose-up>
 		</trim>
 		<ap-loop type="bool">0</ap-loop>
-		<compass-pos type="double">1.0</compass-pos> <!-- compass is closed -->
+		<compass-pos type="double">1.0</compass-pos><!-- compass is closed -->
 		<over-water type="bool">0</over-water>
 		<manual>
 			<board type="double">0.0</board>
 			<page type="int">0</page>
 			<title type="string">VICKERS</title>
 			<subtitle1 type="string">OPERATION MANUAL</subtitle1>
-			<text1 type="string"></text1>
-			<subtitle2 type="string"></subtitle2>
-			<text2 type="string"></text2>
-			<subtitle3 type="string">MODEL VC10 </subtitle3>
+			<text1 type="string"/>
+			<subtitle2 type="string"/>
+			<text2 type="string"/>
+			<subtitle3 type="string">MODEL VC10</subtitle3>
 			<text3 type="string">FOR FLIGHTGEAR SIMULATION ONLY</text3>
-			<subtitle4 type="string"></subtitle4>
+			<subtitle4 type="string"/>
 			<text4 type="string">Lake of Constance Hangar Vol. 1.1.5</text4>
-			<content include="Models/Cockpit/Manual/manual.xml"/>
+			<content include="Aircraft/VC10/Models/Cockpit/Manual/manual.xml"/>
 		</manual>
 		<ground-service>
 			<fuel-truck>
@@ -518,14 +518,14 @@ if you contacted me before making any changes to this software.
 		<weight>
 			<name type="string">Crew</name>
 			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[0]"/>
-			<min-lb type="double"> 540.0</min-lb>
+			<min-lb type="double">540.0</min-lb>
 			<max-lb type="double">1810.0</max-lb>
 		</weight>
 		<weight>
 			<name type="string">First-class</name>
 			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[1]"/>
-			<min-lb type="double"> 0.0</min-lb>
-			<max-lb type="double"> 6000.0</max-lb>
+			<min-lb type="double">0.0</min-lb>
+			<max-lb type="double">6000.0</max-lb>
 		</weight>
 		<weight>
 			<name type="string">Tourist-class / wing</name>
@@ -542,24 +542,24 @@ if you contacted me before making any changes to this software.
 		<weight>
 			<name type="string">Luggage 1 - front</name>
 			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[4]"/>
-			<min-lb type="double"> 0.0</min-lb>
-			<max-lb type="double"> 6000.0</max-lb>
+			<min-lb type="double">0.0</min-lb>
+			<max-lb type="double">6000.0</max-lb>
 		</weight>
 		<weight>
 			<name type="string">Luggage 2 - centre</name>
 			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[5]"/>
-			<min-lb type="double"> 0.0</min-lb>
+			<min-lb type="double">0.0</min-lb>
 			<max-lb type="double">10000.0</max-lb>
 		</weight>
 		<weight>
 			<name type="string">Luggage 3 - rear</name>
 			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[6]"/>
-			<min-lb type="double">  0.0</min-lb>
-			<max-lb type="double"> 10000.0</max-lb>
+			<min-lb type="double">0.0</min-lb>
+			<max-lb type="double">10000.0</max-lb>
 		</weight>
 	</payload>
 
-	<instrumentation include="Systems/instrumentation-init.xml"/>	
+	<instrumentation include="Aircraft/VC10/Systems/instrumentation-init.xml"/>
 
 	<limits>
 		<mass-and-balance>
@@ -585,6 +585,6 @@ if you contacted me before making any changes to this software.
 				<rudder-deg type="double">0.0</rudder-deg>
 				<yawdamper-deg type="double">0.0</yawdamper-deg>
 			</afcs>
-		</jsbsim>	
+		</jsbsim>
 	</fdm>
 </PropertyList>

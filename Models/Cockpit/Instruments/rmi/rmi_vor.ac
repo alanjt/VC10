@@ -531,10 +531,10 @@ refs 4
 19 0.429575 0.424442
 kids 0
 OBJECT poly
-name "needle1"
+name "Needle1"
 loc 0.001668 0 3.5e-005
 data 7
-needle1
+Needle1
 crease 45.000000
 numvert 9
 0 -0.024134 -0.000542
@@ -577,10 +577,10 @@ refs 4
 8 0.472624 0.746614
 kids 0
 OBJECT poly
-name "needle2"
+name "Needle2"
 loc 0.001464 0 0
 data 7
-needle2
+Needle2
 crease 45.000000
 numvert 12
 0 -0.018229 -0.002114

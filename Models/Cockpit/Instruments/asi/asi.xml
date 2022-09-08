@@ -29,8 +29,8 @@ if you contacted me before making any changes to this software.
 	<animation>
 		<type>material</type>
 		<object-name>ASI.Face</object-name>
-		<object-name>ASI.Needle</object-name>
-		<object-name>IAS.Needle</object-name>
+		<object-name>Needle</object-name>
+		<object-name>Wasp.Needle</object-name>
 		<condition>
 			<less-than><property>systems/electrical/outputs/cabin-dim</property><value>0.8</value></less-than>
 		</condition>
@@ -45,8 +45,8 @@ if you contacted me before making any changes to this software.
 	<animation>
 		<type>material</type>
 		<object-name>ASI.Face</object-name>
-		<object-name>ASI.Needle</object-name>
-		<object-name>IAS.Needle</object-name>
+		<object-name>Needle</object-name>
+		<object-name>Wasp.Needle</object-name>
 		<object-name>shadow</object-name>
 		<condition>
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
@@ -72,24 +72,14 @@ if you contacted me before making any changes to this software.
 
 <animation>
   <type>rotate</type>
-  <object-name>ASI.Needle</object-name>
+  <object-name>Needle</object-name>
   <property>instrumentation/airspeed-indicator/indicated-speed-kt</property>
   <interpolation>
     <entry><ind>  0</ind><dep>    0</dep></entry>
-    <entry><ind> 50</ind><dep> 30.0</dep></entry>
-    <entry><ind>100</ind><dep> 60.0</dep></entry>
-    <entry><ind>120</ind><dep> 90.0</dep></entry>
-    <entry><ind>140</ind><dep>120.0</dep></entry>
-    <entry><ind>160</ind><dep>150.0</dep></entry>
-    <entry><ind>170</ind><dep>165.0</dep></entry>
-    <entry><ind>180</ind><dep>180.0</dep></entry>
-    <entry><ind>190</ind><dep>195.0</dep></entry>
-    <entry><ind>200</ind><dep>210.0</dep></entry>
-    <entry><ind>250</ind><dep>240.0</dep></entry>
-    <entry><ind>300</ind><dep>270.0</dep></entry>
-    <entry><ind>350</ind><dep>300.0</dep></entry>
-    <entry><ind>400</ind><dep>330.0</dep></entry>    
-    <entry><ind>600</ind><dep>358.0</dep></entry>
+    <entry><ind> 60</ind><dep> 20.0</dep></entry>
+    <entry><ind>200</ind><dep>270.0</dep></entry>    
+    <entry><ind>430</ind><dep>540.0</dep></entry>
+    <entry><ind>600</ind><dep>810.0</dep></entry>
   </interpolation>
   <axis>
     <x>-1</x>
@@ -100,24 +90,86 @@ if you contacted me before making any changes to this software.
 
 <animation>
   <type>rotate</type>
-  <object-name>IAS.Needle</object-name>
-  <property>autopilot/settings/target-speed-kt</property>
+  <object-name>Bug1</object-name>
+  <property>fdm/jsbsim/velocities/Vspeeds/V1-kts</property>
   <interpolation>
     <entry><ind>  0</ind><dep>    0</dep></entry>
-    <entry><ind> 50</ind><dep> 30.0</dep></entry>
-    <entry><ind>100</ind><dep> 60.0</dep></entry>
-    <entry><ind>120</ind><dep> 90.0</dep></entry>
-    <entry><ind>140</ind><dep>120.0</dep></entry>
-    <entry><ind>160</ind><dep>150.0</dep></entry>
-    <entry><ind>170</ind><dep>165.0</dep></entry>
-    <entry><ind>180</ind><dep>180.0</dep></entry>
-    <entry><ind>190</ind><dep>195.0</dep></entry>
-    <entry><ind>200</ind><dep>210.0</dep></entry>
-    <entry><ind>250</ind><dep>240.0</dep></entry>
-    <entry><ind>300</ind><dep>270.0</dep></entry>
-    <entry><ind>350</ind><dep>300.0</dep></entry>
-    <entry><ind>400</ind><dep>330.0</dep></entry>    
-    <entry><ind>600</ind><dep>358.0</dep></entry>
+    <entry><ind> 60</ind><dep> 20.0</dep></entry>
+    <entry><ind>200</ind><dep>270.0</dep></entry>    
+    <entry><ind>430</ind><dep>540.0</dep></entry>
+    <entry><ind>600</ind><dep>810.0</dep></entry>
+  </interpolation>
+  <axis>
+    <x>-1</x>
+    <y>0</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+<animation>
+  <type>rotate</type>
+  <object-name>Bug2</object-name>
+  <property>fdm/jsbsim/velocities/Vspeeds/V2-kts</property>
+  <interpolation>
+    <entry><ind>  0</ind><dep>    0</dep></entry>
+    <entry><ind> 60</ind><dep> 20.0</dep></entry>
+    <entry><ind>200</ind><dep>270.0</dep></entry>    
+    <entry><ind>430</ind><dep>540.0</dep></entry>
+    <entry><ind>600</ind><dep>810.0</dep></entry>
+  </interpolation>
+  <axis>
+    <x>-1</x>
+    <y>0</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+<animation>
+  <type>rotate</type>
+  <object-name>Bug3</object-name>
+  <property>fdm/jsbsim/velocities/Vspeeds/VR-kts</property>
+  <interpolation>
+    <entry><ind>  0</ind><dep>    0</dep></entry>
+    <entry><ind> 60</ind><dep> 20.0</dep></entry>
+    <entry><ind>200</ind><dep>270.0</dep></entry>    
+    <entry><ind>430</ind><dep>540.0</dep></entry>
+    <entry><ind>600</ind><dep>810.0</dep></entry>
+  </interpolation>
+  <axis>
+    <x>-1</x>
+    <y>0</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+<animation>
+  <type>rotate</type>
+  <object-name>Bug4</object-name>
+  <property>fdm/jsbsim/velocities/Vspeeds/VAT-kts</property>
+  <interpolation>
+    <entry><ind>  0</ind><dep>    0</dep></entry>
+    <entry><ind> 60</ind><dep> 20.0</dep></entry>
+    <entry><ind>200</ind><dep>270.0</dep></entry>    
+    <entry><ind>430</ind><dep>540.0</dep></entry>
+    <entry><ind>600</ind><dep>810.0</dep></entry>
+  </interpolation>
+  <axis>
+    <x>-1</x>
+    <y>0</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+<animation>
+  <type>rotate</type>
+  <object-name>WaspNeedle</object-name>
+  <property>fdm/jsbsim/velocities/Vspeeds/Vm0-kts</property>
+  <interpolation>
+    <entry><ind>  0</ind><dep>    0</dep></entry>
+    <entry><ind> 60</ind><dep> 20.0</dep></entry>
+    <entry><ind>200</ind><dep>270.0</dep></entry>    
+    <entry><ind>430</ind><dep>540.0</dep></entry>
+    <entry><ind>600</ind><dep>810.0</dep></entry>
   </interpolation>
   <axis>
     <x>-1</x>

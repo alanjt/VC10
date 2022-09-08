@@ -80,7 +80,7 @@ if you contacted me before making any changes to this software.
 		<condition>
 			<or>	
 				<less-than>
-					<property>VC10/ess-bus</property>
+					<property>VC10/electric/ess-bus</property>
 					<value>22</value>
 				</less-than>
 				<less-than>

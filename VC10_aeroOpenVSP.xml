@@ -129,7 +129,8 @@ AERODYNAMICS
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
 				<property>aero/ci2vel</property>
-				<table name="aero/derivative/CLad">  <!--Datcom -->
+				<table name="aero/derivative/CLad">
+				<!--Datcom -->
 					<independentVar lookup="row">aero/alpha-deg</independentVar>
 					<tableData>
 					-10		1.805
@@ -194,7 +195,7 @@ AERODYNAMICS
 				<table name="aero/coefficient/CL_tailplane">
 					<independentVar lookup="row">aero/alpha-deg</independentVar>
 					<independentVar lookup="column">fcs/pitch-trim-pos-deg</independentVar>
-			<!--      OpenVSP -->
+					<!--      OpenVSP -->
 					<tableData>
 								-14			-10			-6			-3			0	3					
 							-10	-0.15286	-0.12552	-0.07052	-0.03207	0	0.0409
@@ -207,21 +208,22 @@ AERODYNAMICS
 		</function>
 		
 		<function name="aero/force/Lift_speedbrakes">
-		<!-- from CP1199 -->
+			<!-- from CP1199 -->
 			<description>
 				Lift due to speedbrakes
 			</description>
-			<product>
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
-				<property>fcs/speedbrake-pos-sum-norm</property>
-				<sum name="aero/coefficient/CL_speedbrakes">
-					<value> -0.3 </value>
-					<product>
-						<value> -0.014 </value>
-						<property>aero/alpha-deg</property>
-					</product>
-				</sum>
+				<product name="aero/coefficient/CL_speedbrakes">
+					<property>fcs/speedbrake-pos-sum-norm</property>
+					<sum>
+						<value>-0.3</value>
+						<product>
+							<value>-0.014</value>
+							<property>aero/alpha-deg</property>
+						</product>
+					</sum>
+				</product>
 			</product>
 		</function>
 
@@ -328,7 +330,6 @@ AERODYNAMICS
 			</product>
 		</function>
 
-
 		<function name="aero/force/Drag_Elevator">
 			<description>Drag_due_to_Elevator_Deflection</description>
 			<product>
@@ -369,35 +370,36 @@ AERODYNAMICS
 				<table name="aero/coefficient/CD_tailplane">
 					<independentVar lookup="row">aero/alpha-deg</independentVar>
 					<independentVar lookup="column">fcs/pitch-trim-pos-deg</independentVar>
-<!--      OpenVSP -->
-					<tableData>					
+					<!--      OpenVSP -->
+					<tableData>
 						-14		-10		-6		-3		0		3
 						-10	0.06721		0.05532		0.02604		0.03238		0	0.01051
 						0	0.02476		0.01468		0.00327		0.00319		0	0.00141
 						10	-0.00114	-0.00415	-0.00329	0.00023		0	0.01326
 						16	-0.00934	-0.00705	-0.00102	0.0082		0	0.02715
-				</tableData>
+					</tableData>
 				</table>
 			</product>
 		</function>
 		
 		<function name="aero/force/Drag_speedbrakes">
-		<!-- from CP1199 -->
+			<!-- from CP1199 -->
 			<description>
 				Drag due to speedbrakes
 			</description>
-			<product>
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
-				<property>fcs/speedbrake-pos-sum-norm</property>
-				<sum name="aero/coefficient/CD_speedbrakes">
-					<value> 0.0268 </value>
-					<product>
-						<value> 0.0165 </value>
-						<property>aero/coefficient/CL_alpha</property>
-						<property>aero/coefficient/CL_alpha</property>
-					</product>
-				</sum>
+				<product name="aero/coefficient/CD_speedbrakes">
+					<property>fcs/speedbrake-pos-sum-norm</property>
+					<sum>
+						<value>0.0268</value>
+						<product>
+							<value>0.0165</value>
+							<property>aero/coefficient/CL_alpha</property>
+							<property>aero/coefficient/CL_alpha</property>
+						</product>
+					</sum>
+				</product>
 			</product>
 		</function>
 
@@ -442,7 +444,6 @@ AERODYNAMICS
 				<table name="aero/coefficient/CM_Alpha">
 					<!-- OpenVSP using Peakey wing section -->
 					<independentVar lookup="row">aero/alpha-deg</independentVar>
-					<tableData>
 					-10	0.23942
 					-8	0.19559
 					-6	0.15096
@@ -502,7 +503,7 @@ AERODYNAMICS
 				<property>aero/alphadot-rad_sec</property>
 				<table name="aero/derivative/CMadot">
 					<independentVar lookup="row">aero/alpha-deg</independentVar>
-					<tableData> <!--Datcom -->
+					<tableData><!--Datcom -->
 					-10		-5.584
 					-8		-5.604
 					-6		-5.688
@@ -534,7 +535,7 @@ AERODYNAMICS
 					<tableData>
 						0	0
 						45	-0.3
-</tableData>
+					</tableData>
 					<!-- Datcom -->
 					<!--					<tableData>
 						0	0
@@ -588,35 +589,37 @@ AERODYNAMICS
 				<table name="aero/coefficient/CM_tailplane">
 					<independentVar lookup="row">aero/alpha-deg</independentVar>
 					<independentVar lookup="column">fcs/pitch-trim-pos-deg</independentVar>
-<!--      OpenVSP -->
-					<tableData>					
+					<!--      OpenVSP -->
+					<tableData>
 							-14		-10		-6		-3		0		3
 						-10	0.52088	0.42824	0.23212	0.14004	0	-0.09258
 						0	0.53896	0.40456	0.23057	0.11774	0	-0.1125
 						10	0.55401	0.39812	0.23627	0.11939	0	-0.10043
 						16	0.56142	0.40218	0.24224	0.13037	0	-0.08273
-				</tableData>
+					</tableData>
 				</table>
 			</product>
 		</function>
 
 		<function name="aero/force/Pitch_speedbrakes">
-		<!-- from CP1199 -->
+			<!-- from CP1199 -->
 			<description>
 				Pitch moment due to speedbrakes
 			</description>
-			<product>
+				<product>
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/cbarw-ft</property>
-				<property>fcs/speedbrake-pos-sum-norm</property>
-				<sum name="aero/coefficient/CM_speedbrakes">
-					<value> -0.0256 </value>
-					<product>
-						<value> 0.0246 </value>
-						<property>aero/coefficient/CL_alpha</property>
-					</product>
-				</sum>
+				<product name="aero/coefficient/CM_speedbrakes">
+					<property>fcs/speedbrake-pos-sum-norm</property>
+					<sum>
+						<value>-0.0256</value>
+						<product>
+							<value>0.0246</value>
+							<property>aero/coefficient/CL_alpha</property>
+						</product>
+					</sum>
+				</product>
 			</product>
 		</function>
 
@@ -711,7 +714,7 @@ AERODYNAMICS
 			</product>
 		</function>
 
-<!-- CYr is often ignored - it is the side force equivalent to Czq
+		<!-- CYr is often ignored - it is the side force equivalent to Czq
 		<function name="aero/force/Side_yawrate">
 			<description>Side_force_due_to_Yaw Rate (per radian)</description>
 			<product>
@@ -729,8 +732,8 @@ AERODYNAMICS
 				</table>
 			</product>
 		</function>
--->	
-<!--		<function name="aero/force/Side_spoiler">
+-->
+		<!--		<function name="aero/force/Side_spoiler">
 			<description>Side_force_due_to_spoiler</description>
 			<product>
 				<property>aero/qbar-psf</property>
@@ -853,7 +856,7 @@ AERODYNAMICS
 			</product>
 		</function>
 		
-<!-- fcs/aileron-right-deg, fcs/aileron-left-deg -->
+		<!-- fcs/aileron-right-deg, fcs/aileron-left-deg -->
 
 		<function name="aero/moment/Roll_right_aileron">
 			<description>Roll_moment_due_to_right_aileron</description>
@@ -891,6 +894,7 @@ AERODYNAMICS
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/bw-ft</property>
+											
 				<table name="aero/moment/ClLeftAileron">
 					<independentVar lookup="column">fcs/aileron-left-deg</independentVar>
 					<independentVar lookup="row">aero/alpha-deg</independentVar>
@@ -915,7 +919,7 @@ AERODYNAMICS
 			</product>
 		</function>
 
-<!--Roll moment  due to spoiler from CP1199 
+		<!--Roll moment  due to spoiler from CP1199 
     Cl at 50º spoiler = -0.042 -->
  
 		<function name="aero/moment/Roll_right_spoiler">
@@ -925,7 +929,7 @@ AERODYNAMICS
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/bw-ft</property>
 				<property>fcs/spoiler-right-pos-deg</property>
-				<value> 0.00084</value>
+				<value>0.00084</value>
 			</product>
 		</function>
 		
@@ -936,12 +940,12 @@ AERODYNAMICS
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/bw-ft</property>
 				<property>fcs/spoiler-left-pos-deg</property>
-				<value> -0.00084</value>
+				<value>-0.00084</value>
 			</product>
 		</function>
 
 		<function name="aero/moment/Roll_rudder">
-			<description>Roll_moment_due_to_rudder </description>
+			<description>Roll_moment_due_to_rudder</description>
 			<product>
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
@@ -1095,8 +1099,8 @@ AERODYNAMICS
 			</product>
 		</function>
 
-<!--Yaw due to spoiler from CP1199 
-     Cn at 50º spoiler = -0.004 -->	
+		<!--Yaw due to spoiler from CP1199 
+     Cn at 50º spoiler = -0.004 -->
  
 		<function name="aero/moment/Yaw_right_spoiler">
 			<description>Yaw_moment_due_to_right_spoiler</description>
@@ -1105,7 +1109,7 @@ AERODYNAMICS
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/bw-ft</property>
 				<property>fcs/spoiler-right-pos-deg</property>
-				<value> 0.00008</value>
+				<value>0.00008</value>
 			</product>
 		</function>
  
@@ -1116,7 +1120,7 @@ AERODYNAMICS
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/bw-ft</property>
 				<property>fcs/spoiler-left-pos-deg</property>
-				<value> -0.00008</value>  
+				<value>-0.00008</value>
 			</product>
 		</function>
 		
@@ -1138,8 +1142,6 @@ AERODYNAMICS
 				</table>
 			</product>
 		</function>
-	
-
 
 	</axis>
 

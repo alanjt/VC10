@@ -40,13 +40,13 @@ if you contacted me before making any changes to this software.
 	  </marker>
       <condition>
         <equals>
-          <property>VC10/battery-switch</property>
+          <property>VC10/electric/dc/battery-switch</property>
           <value>1</value>
         </equals>
       </condition>
       <binding>
         <command>property-assign</command>
-        <property>VC10/battery-switch</property>
+        <property>VC10/electric/dc/battery-switch</property>
         <value>1</value>
       </binding>        
 	  <binding>
@@ -92,13 +92,13 @@ if you contacted me before making any changes to this software.
 	  </marker>
       <condition>
         <equals>
-          <property>VC10/load-volt-selector</property>
+          <property>VC10/electric/load-volt-selector</property>
           <value>5</value>
         </equals>
       </condition>
       <binding>
         <command>property-assign</command>
-        <property>VC10/load-volt-selector</property>
+        <property>VC10/electric/load-volt-selector</property>
         <value>5</value>
       </binding>        
 	  <binding>
@@ -227,13 +227,13 @@ if you contacted me before making any changes to this software.
 		</marker>
 		<condition>
 		  <equals>
-		    <property>VC10/external-power-connected</property>
+		    <property>VC10/electric/external-power-connected</property>
 		    <value>1</value>
 		  </equals>
 		</condition>
 		<binding>
 		  <command>property-assign</command>
-		  <property>VC10/external-power-connected</property>
+		  <property>VC10/electric/external-power-connected</property>
 		  <value>1</value>
 		</binding>
 	</item> 
@@ -249,13 +249,13 @@ if you contacted me before making any changes to this software.
 		</marker>
 		<condition>
 		  <equals>
-		    <property>VC10/ess-power-switch</property>
+		    <property>VC10/electric/ess-power-switch</property>
 		    <value>5</value>
 		  </equals>
 		</condition>
 		<binding>
 		  <command>property-assign</command>
-		  <property>VC10/ess-power-switch</property>
+		  <property>VC10/electric/ess-power-switch</property>
 		  <value>5</value>
 		</binding>    
 	    <binding>
@@ -275,13 +275,13 @@ if you contacted me before making any changes to this software.
 		</marker>
 		<condition>
 		  <equals>
-		    <property>VC10/ac/ac-para-select</property>
+		    <property>VC10/electric/ac/ac-para-select</property>
 		    <value>6</value>
 		  </equals>
 		</condition>
 		<binding>
 		  <command>property-assign</command>
-		  <property>VC10/ac/ac-para-select</property>
+		  <property>VC10/electric/ac/ac-para-select</property>
 		  <value>6</value>
 		</binding>  
 	    <binding>
@@ -301,13 +301,13 @@ if you contacted me before making any changes to this software.
 		</marker>
 		<condition>
 		  <equals>
-		    <property>VC10/ground-connect</property>
+		    <property>VC10/electric/ground-connect</property>
 		    <value>1</value>
 		  </equals>
 		</condition>
 		<binding>
 		  <command>property-assign</command>
-		  <property>VC10/ground-connect</property>
+		  <property>VC10/electric/ground-connect</property>
 		  <value>1</value>
 		</binding>  
 	    <binding>

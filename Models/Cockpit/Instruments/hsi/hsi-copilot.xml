@@ -16,7 +16,7 @@
 			<object-name>hdg-arrow</object-name>
 			<object-name>arrow</object-name>
 			<object-name>hsi-ring</object-name>
-			<object-name>needle</object-name>       
+			<object-name>Needle</object-name>       
 			<object-name>CrsNum.1</object-name>
 		  <object-name>CrsNum.2</object-name>
 		  <object-name>CrsNum.3</object-name>
@@ -42,7 +42,7 @@
 			<object-name>hdg-arrow</object-name>
 			<object-name>arrow</object-name>
 			<object-name>hsi-ring</object-name>
-			<object-name>needle</object-name>       
+			<object-name>Needle</object-name>       
 			<object-name>CrsNum.1</object-name>
 		  <object-name>CrsNum.2</object-name>
 		  <object-name>CrsNum.3</object-name>
@@ -114,7 +114,7 @@
 		<object-name>CrsNum.off</object-name>
 		<condition>
 			<less-than>
-				<property>VC10/ess-bus</property>
+				<property>VC10/electric/ess-bus</property>
 				<value>12</value>
 			</less-than>
 		</condition>
@@ -133,7 +133,7 @@
 		<object-name>To</object-name>
 		<object-name>From</object-name>
 		<object-name>noNav</object-name>
-		<object-name>needle</object-name>
+		<object-name>Needle</object-name>
 		<property>VC10/hsi[1]/indicated-heading-deg</property>
 		<!--><property>instrumentation/heading-indicator/indicated-heading-deg</property>-->
 		<factor>-1</factor>
@@ -181,7 +181,7 @@
 		<object-name>To</object-name>
 		<object-name>From</object-name>
 		<object-name>noNav</object-name>
-		<object-name>needle</object-name>
+		<object-name>Needle</object-name>
 		<property>instrumentation/nav[1]/radials/selected-deg</property>
 		<axis>
 			<x>-1.0</x>
@@ -365,8 +365,8 @@
     
     <animation>
         <type>translate</type>
-        <object-name>needle</object-name>
-        <property>instrumentation/nav[1]/heading-needle-deflection</property>
+        <object-name>Needle</object-name>
+        <property>instrumentation/nav[1]/heading-Needle-deflection</property>
         <interpolation>
         <entry><ind>-10.0</ind><dep>-0.0152</dep></entry>
         <entry><ind>10.0</ind><dep>0.0152</dep></entry>

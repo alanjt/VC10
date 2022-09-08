@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--####################################################################
+Lake of Constance Hangar
+Vickers VC10 for Flightgear
+Copyright (C) 2013 M.Kraus
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Every software has a developer, also free software. 
+As a gesture of courtesy and respect, I would be delighted 
+if you contacted me before making any changes to this software. 
+<info (at) marc-kraus.de> April, 2017
+########################################################################-->
+<PropertyList>
+
+	<path>Aircraft/VC10/Models/Cockpit/SwitchesLamps/ToggleSwitch.ac</path>
+	
+	<animation>
+		<type>knob</type>
+		<object-name>switch_lever</object-name>
+		<property>VC10/electric/ac/generator/gen4-control-sw</property>
+		<interpolation>
+			<entry><ind>1</ind><dep>40</dep></entry>
+			<entry><ind>-1</ind><dep>-40</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>0.0</x-m><y-m>0.0</y-m><z-m>0.0</z-m>
+		</center>
+		<axis>
+			<y>-1</y>
+		</axis>
+		<drag-direction>vertical</drag-direction>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>VC10/electric/ac/generator/gen4-control-sw</property>
+				<factor>1</factor>
+				<min>-1</min><max>1</max>                
+				<wrap>false</wrap>
+			</binding>
+			<binding>
+				<command>property-toggle</command>
+				<property>sim/sound/switch2</property>
+			</binding>
+		</action>
+<!-- Release action, spring loaded to 0 -->
+      <release>
+            <binding>
+                <command>property-adjust</command>
+                <property>VC10/electric/ac/generator/gen4-control-sw</property>
+                <step>0</step>
+                <min>0</min>
+                <max>0</max>
+            </binding>
+        </release>
+	</animation>
+</PropertyList>

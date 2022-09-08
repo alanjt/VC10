@@ -39,13 +39,13 @@ if you contacted me before making any changes to this software.
 		</marker>
 		<condition>
 		  <equals>
-		    <property>VC10/generator/gen-freq[0]</property>
+		    <property>VC10/electric/ac/generator/gen-freq[0]</property>
 		    <value>400</value>
 		  </equals>
 		</condition>		
 		<binding>
 		  <command>property-assign</command>
-		  <property>VC10/generator/gen-freq[0]</property>
+		  <property>VC10/electric/ac/generator/gen-freq[0]</property>
 		  <value>400</value>
 		</binding>   
 	    <binding>
@@ -65,13 +65,13 @@ if you contacted me before making any changes to this software.
 		</marker>
 		<condition>
 		  <equals>
-		    <property>VC10/generator/gen-bus-tie[0]</property>
+		    <property>VC10/electric/ac/generator/gen-bus-tie[0]</property>
 		    <value>1</value>
 		  </equals>
 		</condition>		
 		<binding>
 		  <command>property-assign</command>
-		  <property>VC10/generator/gen-bus-tie[0]</property>
+		  <property>VC10/electric/ac/generator/gen-bus-tie[0]</property>
 		  <value>1</value>
 		</binding>   
 	    <binding>
@@ -91,13 +91,13 @@ if you contacted me before making any changes to this software.
 		</marker>
 		<condition>
 		  <equals>
-		    <property>VC10/generator/gen-freq[1]</property>
+		    <property>VC10/electric/ac/generator/gen-freq[1]</property>
 		    <value>400</value>
 		  </equals>
 		</condition>		
 		<binding>
 		  <command>property-assign</command>
-		  <property>VC10/generator/gen-freq[1]</property>
+		  <property>VC10/electric/ac/generator/gen-freq[1]</property>
 		  <value>400</value>
 		</binding>   
 	    <binding>
@@ -117,13 +117,13 @@ if you contacted me before making any changes to this software.
 		</marker>
 		<condition>
 		  <equals>
-		    <property>VC10/generator/gen-bus-tie[1]</property>
+		    <property>VC10/electric/ac/generator/gen-bus-tie[1]</property>
 		    <value>1</value>
 		  </equals>
 		</condition>		
 		<binding>
 		  <command>property-assign</command>
-		  <property>VC10/generator/gen-bus-tie[1]</property>
+		  <property>VC10/electric/ac/generator/gen-bus-tie[1]</property>
 		  <value>1</value>
 		</binding>   
 	    <binding>
@@ -143,13 +143,13 @@ if you contacted me before making any changes to this software.
 		</marker>
 		<condition>
 		  <equals>
-		    <property>VC10/generator/gen-freq[2]</property>
+		    <property>VC10/electric/ac/generator/gen-freq[2]</property>
 		    <value>400</value>
 		  </equals>
 		</condition>		
 		<binding>
 		  <command>property-assign</command>
-		  <property>VC10/generator/gen-freq[2]</property>
+		  <property>VC10/electric/ac/generator/gen-freq[2]</property>
 		  <value>400</value>
 		</binding>   
 	    <binding>
@@ -169,13 +169,13 @@ if you contacted me before making any changes to this software.
 		</marker>
 		<condition>
 		  <equals>
-		    <property>VC10/generator/gen-bus-tie[2]</property>
+		    <property>VC10/electric/ac/generator/gen-bus-tie[2]</property>
 		    <value>1</value>
 		  </equals>
 		</condition>		
 		<binding>
 		  <command>property-assign</command>
-		  <property>VC10/generator/gen-bus-tie[2]</property>
+		  <property>VC10/electric/ac/generator/gen-bus-tie[2]</property>
 		  <value>1</value>
 		</binding>   
 	    <binding>
@@ -195,13 +195,13 @@ if you contacted me before making any changes to this software.
 		</marker>
 		<condition>
 		  <equals>
-		    <property>VC10/generator/gen-freq[3]</property>
+		    <property>VC10/electric/ac/generator/gen-freq[3]</property>
 		    <value>400</value>
 		  </equals>
 		</condition>		
 		<binding>
 		  <command>property-assign</command>
-		  <property>VC10/generator/gen-freq[3]</property>
+		  <property>VC10/electric/ac/generator/gen-freq[3]</property>
 		  <value>400</value>
 		</binding>   
 	    <binding>
@@ -221,13 +221,13 @@ if you contacted me before making any changes to this software.
 		</marker>
 		<condition>
 		  <equals>
-		    <property>VC10/generator/gen-bus-tie[3]</property>
+		    <property>VC10/electric/ac/generator/gen-bus-tie[3]</property>
 		    <value>1</value>
 		  </equals>
 		</condition>		
 		<binding>
 		  <command>property-assign</command>
-		  <property>VC10/generator/gen-bus-tie[3]</property>
+		  <property>VC10/electric/ac/generator/gen-bus-tie[3]</property>
 		  <value>1</value>
 		</binding>   
 	    <binding>
@@ -247,13 +247,13 @@ if you contacted me before making any changes to this software.
 		</marker>
 		<condition>
 		  <equals>
-		    <property>VC10/ac/ac-para-select</property>
+		    <property>VC10/electric/ac/ac-para-select</property>
 		    <value>1</value>
 		  </equals>
 		</condition>
 		<binding>
 		  <command>property-assign</command>
-		  <property>VC10/ac/ac-para-select</property>
+		  <property>VC10/electric/ac/ac-para-select</property>
 		  <value>1</value>
 		</binding>  
 	    <binding>
@@ -273,13 +273,13 @@ if you contacted me before making any changes to this software.
 		</marker>
 		<condition>
 		  <equals>
-		    <property>VC10/ess-power-switch</property>
+		    <property>VC10/electric/ess-power-switch</property>
 		    <value>1</value>
 		  </equals>
 		</condition>		
 		<binding>
 		  <command>property-assign</command>
-		  <property>VC10/ess-power-switch</property>
+		  <property>VC10/electric/ess-power-switch</property>
 		  <value>1</value>
 		</binding>   
 	    <binding>
@@ -299,13 +299,13 @@ if you contacted me before making any changes to this software.
 		</marker>
 		<condition>
 		  <equals>
-		    <property>VC10/ground-connect</property>
+		    <property>VC10/electric/ground-connect</property>
 		    <value>0</value>
 		  </equals>
 		</condition>
 		<binding>
 		  <command>property-assign</command>
-		  <property>VC10/ground-connect</property>
+		  <property>VC10/electric/ground-connect</property>
 		  <value>0</value>
 		</binding>  
 	    <binding>
@@ -325,13 +325,13 @@ if you contacted me before making any changes to this software.
 	  </marker>
       <condition>
         <equals>
-          <property>VC10/load-volt-selector</property>
+          <property>VC10/electric/load-volt-selector</property>
           <value>1</value>
         </equals>
       </condition>
       <binding>
         <command>property-assign</command>
-        <property>VC10/load-volt-selector</property>
+        <property>VC10/electric/load-volt-selector</property>
         <value>1</value>
       </binding>        
 	  <binding>

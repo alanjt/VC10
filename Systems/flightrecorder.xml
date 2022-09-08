@@ -32,7 +32,7 @@ if you contacted me before making any changes to this software.
     <config n="0">
         <name type="string">VC10 Flight Recorder</name>
         <!-- include generic stuff -->
-        <signals include="/Aircraft/Generic/flightrecorder/components/position.xml" />
+        <!--<signals include="/Aircraft/Generic/flightrecorder/components/position.xml" />
         <signals include="/Aircraft/Generic/flightrecorder/components/controls.xml" />
         <signals include="/Aircraft/Generic/flightrecorder/components/surfaces.xml"/>
         <signals include="/Aircraft/Generic/flightrecorder/components/engine-jet.xml">
@@ -42,6 +42,19 @@ if you contacted me before making any changes to this software.
             <count type="int">3</count>
         </signals>
         <signals include="/Aircraft/Generic/flightrecorder/components/tanks.xml">
+            <count type="int">7</count>
+        </signals> -->
+		
+        <signals include="Aircraft/Generic/flightrecorder/components/position.xml" />
+        <signals include="Aircraft/Generic/flightrecorder/components/controls.xml" />
+        <signals include="Aircraft/Generic/flightrecorder/components/surfaces.xml"/>
+        <signals include="Aircraft/Generic/flightrecorder/components/engine-jet.xml">
+            <count type="int">4</count>
+        </signals>
+        <signals include="Aircraft/Generic/flightrecorder/components/gear-retractable.xml">
+            <count type="int">3</count>
+        </signals>
+        <signals include="Aircraft/Generic/flightrecorder/components/tanks.xml">
             <count type="int">7</count>
         </signals>
 
@@ -60,31 +73,31 @@ if you contacted me before making any changes to this software.
                     <type>bool</type><property type="string">/controls/engines/engine[%i]/fire</property>
                 </signal>
                 <signal>
-                    <type>double</type><property type="string">VC10/generator/gen-breaker[%i]</property>
+                    <type>double</type><property type="string">VC10/electric/ac/generator/gen-breaker[%i]</property>
                 </signal>
                 <signal>
-                    <type>bool</type><property type="string">VC10/generator/gen-bus-tie-cover[%i]</property>
+                    <type>bool</type><property type="string">VC10/electric/ac/generator/gen-bus-tie-cover[%i]</property>
                 </signal>
                 <signal>
-                    <type>double</type><property type="string">VC10/generator/gen-bus-tie[%i]</property>
+                    <type>double</type><property type="string">VC10/electric/ac/generator/gen-bus-tie[%i]</property>
                 </signal>
                 <signal>
-                    <type>double</type><property type="string">VC10/generator/gen-control[%i]</property>
+                    <type>double</type><property type="string">VC10/electric/ac/generator/gen-control[%i]</property>
                 </signal>
                 <signal>
-                    <type>bool</type><property type="string">VC10/generator/gen-control-cover[%i]</property>
+                    <type>bool</type><property type="string">VC10/electric/ac/generator/gen-control-cover[%i]</property>
                 </signal>
                 <signal>
-                    <type>bool</type><property type="string">VC10/generator/gen-drive[%i]</property>
+                    <type>bool</type><property type="string">VC10/electric/ac/generator/gen-drive[%i]</property>
                 </signal>
                 <signal>
-                    <type>bool</type><property type="string">VC10/generator/gen-drive-cover[%i]</property>
+                    <type>bool</type><property type="string">VC10/electric/ac/generator/gen-drive-cover[%i]</property>
                 </signal>
                 <signal>
-                    <type>double</type><property type="string">VC10/generator/gen-freq[%i]</property>
+                    <type>double</type><property type="string">VC10/electric/ac/generator/gen-freq[%i]</property>
                 </signal>
                 <signal>
-                    <type>double</type><property type="string">VC10/generator/gen-load[%i]</property>
+                    <type>double</type><property type="string">VC10/electric/ac/generator/gen-load[%i]</property>
                 </signal>
                 <signal>
                     <type>bool</type><property type="string">VC10/start/startercover[%i]</property>
@@ -100,40 +113,40 @@ if you contacted me before making any changes to this software.
                 <type>double</type><property type="string">VC10/apu/off-start-run</property>
             </signal>
             <signal>
-                <type>double</type><property type="string">VC10/ac/ac-para-select</property>
+                <type>double</type><property type="string">VC10/electric/ac/ac-para-select</property>
             </signal>
             <signal>
-                <type>bool</type><property type="string">VC10/ac/sync1</property>
+                <type>bool</type><property type="string">VC10/electric/ac/acsync1</property>
             </signal>
             <signal>
-                <type>bool</type><property type="string">VC10/ac/sync2</property>
+                <type>bool</type><property type="string">VC10/electric/ac/acsync2</property>
             </signal>
             <signal>
-                <type>double</type><property type="string">VC10/ac-sel-para-freq</property>
+                <type>double</type><property type="string">VC10/electric/ac/ac-sel-para-freq</property>
             </signal>
             <signal>
-                <type>double</type><property type="string">VC10/ac-sel-para-volts</property>
+                <type>double</type><property type="string">VC10/electric/ac/ac-sel-para-volts</property>
             </signal>
             <signal>
-                <type>bool</type><property type="string">VC10/batt-cover</property>
+                <type>bool</type><property type="string">VC10/electric/dc/batt-cover</property>
             </signal>
             <signal>
-                <type>double</type><property type="string">VC10/battery</property>
+                <type>double</type><property type="string">VC10/electric/dc/battery</property>
             </signal>
             <signal>
-                <type>bool</type><property type="string">VC10/battery-switch</property>
+                <type>bool</type><property type="string">VC10/electric/dc/battery-switch</property>
             </signal>
             <signal>
-                <type>double</type><property type="string">VC10/volt-dc</property>
+                <type>double</type><property type="string">VC10/electric/dc/volt-dc</property>
             </signal>
             <signal>
-                <type>double</type><property type="string">VC10/volt-load</property>
+                <type>double</type><property type="string">VC10/electric/dc/volt-load</property>
             </signal>
             <signal>
-                <type>bool</type><property type="string">VC10/external-power-connected</property>
+                <type>bool</type><property type="string">VC10/electric/external-power-connected</property>
             </signal>
             <signal>
-                <type>double</type><property type="string">VC10/ground-connect</property>
+                <type>double</type><property type="string">VC10/electric/ground-connect</property>
             </signal>
             <signal>
                 <type>double</type><property type="string">VC10/shake-effect/shaking</property>

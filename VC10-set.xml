@@ -26,7 +26,7 @@ As a gesture of courtesy and respect, I would be delighted
 if you contacted me before making any changes to this software. 
 <ajteeder (at) v-twin.org.uk> October, 2020
 ########################################################################-->
-<PropertyList include="VC10-common.xml">
+<PropertyList include="Aircraft/VC10/VC10-common.xml">
  <sim n="0">
   <description>Vickers VC10</description>
 	<startup>
@@ -107,7 +107,7 @@ if you contacted me before making any changes to this software.
 					<label>External Power Unit</label>
 					<binding>
 						<command>property-toggle</command>
-		    		<property>VC10/external-power-connected</property>
+		    		<property>VC10/electric/external-power-connected</property>
 					</binding>
 				</item>				
 				<item>
@@ -225,11 +225,11 @@ max. landing weight	/ 50 deg FLAPS + LE FLAPS / 130 - 150 kts
 
 touchdown 120 kts | max. 130 kts
 
-_____________________ STABILIZER TRIM  _______________________
+_____________________ Tail TRIM  _______________________
 
-On both yokes there are white switches for the electrical stabilizer system.
-If you reached cruise altitude, you can trim the aircraft pitch independend 
-the mechanical elevator trim system. Its also independed to the autopilot system.
+An all moving tailplane (horisontal stabiliser) is used for pitch trim.
+This is operated by a lever on the centre console.
+When the autopilot will also slowly move the tailplane if there is a continuous elevator deflection.
 
 _______________________________________________________
 
@@ -314,5 +314,41 @@ _______________________________________________________
     <dual-control>
       <active type="bool">0</active>
     </dual-control>
+	
+<!-- **********************************************************************
+        JSBsim interface
+     ********************************************************************** -->    
 
+		<!-- Set up aliased properties for jsbsim use-->
+	<fuel>
+		<switches>
+			<Tank1_1A_SlowXfer alias="/fdm/jsbsim/fuel/switches/Tank1_1A_SlowXfer" /> 			
+			<Tank1_1A_FastXfer alias="/fdm/jsbsim/fuel/switches/Tank1_1A_FastXfer" />
+			<Tank1_4A_SlowXfer alias="/fdm/jsbsim/fuel/switches/Tank1_4A_SlowXfer" /> 			
+			<Tank1_4A_FastXfer alias="/fdm/jsbsim/fuel/switches/Tank1_4A_FastXfer" /> 			
+		</switches>
+	</fuel>
+	
+	<velocities>
+		<Vspeeds>
+			<Vm0-kts alias="/fdm/jsbsim/velocities/Vspeeds/Vm0-kts" /> 
+		</Vspeeds>
+	</velocities>
+
+		<!-- Initialise aliased properties for jsbsim use-->	
+	<fdm>
+		<jsbsim>
+			<fuel>
+				<switches>
+					<Tank1_1A_SlowXfer type="double">1.0</Tank1_1A_SlowXfer>
+					<Tank1_1A_FastXfer type="double">1.0</Tank1_1A_FastXfer>				
+					<Tank1_4A_SlowXfer type="double">1.0</Tank1_4A_SlowXfer>
+					<Tank1_4A_FastXfer type="double">1.0</Tank1_4A_FastXfer>
+				</switches>
+			</fuel>
+		</jsbsim>
+	</fdm>
+	
+<!-- ********************************************************************** -->
+	
 </PropertyList>

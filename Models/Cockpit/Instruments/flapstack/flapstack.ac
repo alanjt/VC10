@@ -1458,10 +1458,10 @@ refs 3
 7 0.499988436699 0.955271303654
 kids 0
 OBJECT poly
-name "Flap.needle"
+name "Flap.Needle"
 loc 0.006278 -0.026196 -0.102137
 data 11
-Flap.needle
+Flap.Needle
 texture "falps.png"
 texrep 1 1
 crease 30.000001
@@ -1505,10 +1505,10 @@ refs 4
 8 0.001539787278 0.43013715744
 kids 0
 OBJECT poly
-name "Flap.needle.001"
+name "Flap.Needle.001"
 loc 0.006278 0.02232 -0.102137
 data 15
-Flap.needle.001
+Flap.Needle.001
 texture "falps.png"
 texrep 1 1
 crease 30.000001
@@ -4793,10 +4793,10 @@ refs 3
 65 0.165930494666 0.190563350916
 kids 0
 OBJECT poly
-name "Slats.needle"
+name "Slats.Needle"
 loc 0.005997 -0.026196 -0.102137
 data 12
-Slats.needle
+Slats.Needle
 texture "falps.png"
 texrep 1 1
 crease 30.000001
@@ -4840,10 +4840,10 @@ refs 4
 8 0.001539787278 0.43013715744
 kids 0
 OBJECT poly
-name "Slats.needle.001"
+name "Slats.Needle.001"
 loc 0.005997 0.02232 -0.102137
 data 16
-Slats.needle.001
+Slats.Needle.001
 texture "falps.png"
 texrep 1 1
 crease 30.000001

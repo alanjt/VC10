@@ -97,7 +97,7 @@
   <object-name>LampGreenON</object-name>
   <condition>
 		<greater-than>
-			<property>VC10/ess-bus</property>
+			<property>VC10/electric/ess-bus</property>
 			<value>20</value>
 		</greater-than>
     <or>

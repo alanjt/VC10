@@ -13,7 +13,7 @@
 	<animation>
 		<type>material</type>
 		<object-name>face</object-name>
-		<object-name>needle</object-name>
+		<object-name>Needle</object-name>
 		<condition>
 			<less-than><property>systems/electrical/outputs/cabin-dim</property><value>0.8</value></less-than>
 		</condition>
@@ -28,7 +28,7 @@
 	<animation>
 		<type>material</type>
 		<object-name>face</object-name>
-		<object-name>needle</object-name>
+		<object-name>Needle</object-name>
 		<object-name>shadow</object-name>
 		<condition>
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
@@ -54,7 +54,7 @@
 
 <animation>
   <type>rotate</type>
-  <object-name>needle</object-name>
+  <object-name>Needle</object-name>
   <property>engines/engine[2]/epr</property>
   <interpolation>
     <entry><ind>0.0</ind><dep>   0.0</dep></entry>

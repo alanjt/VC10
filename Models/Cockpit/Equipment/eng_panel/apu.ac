@@ -4794,10 +4794,10 @@ refs 4
 31 0.890662431717 0.050895147026
 kids 0
 OBJECT poly
-name "needle"
+name "Needle"
 loc 0.380529 -0.149345 0.004794
 data 6
-needle
+Needle
 texture "apu.png"
 texrep 1 1
 crease 30.000001
@@ -4836,10 +4836,10 @@ refs 3
 3 0.245054066181 0.000382689759
 kids 0
 OBJECT poly
-name "needle.001"
+name "Needle.001"
 loc 0.424581 -0.101131 0.00351
 data 10
-needle.001
+Needle.001
 texrep 1 1
 crease 30.000001
 numvert 9
@@ -4882,10 +4882,10 @@ refs 4
 8 0.001539787278 0.43013715744
 kids 0
 OBJECT poly
-name "needle.002"
+name "Needle.002"
 loc 0.42736 -0.112309 0.003343
 data 10
-needle.002
+Needle.002
 texture "apu.png"
 texrep 1 1
 crease 30.000001
@@ -4956,10 +4956,10 @@ refs 4
 14 0.275635778904 0.04417399317
 kids 0
 OBJECT poly
-name "needle.003"
+name "Needle.003"
 loc 0.429695 -0.160302 0.003164
 data 10
-needle.003
+Needle.003
 texture "apu.png"
 texrep 1 1
 crease 30.000001

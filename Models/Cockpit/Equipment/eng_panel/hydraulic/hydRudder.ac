@@ -773,10 +773,10 @@ refs 3
 2 0.775551557541 0.220106929541
 kids 0
 OBJECT poly
-name "needle"
+name "Needle"
 loc 0.000118 0.000037 0.000029
 data 6
-needle
+Needle
 texture "hydruderface.png"
 texrep 1 1
 crease 30.000001

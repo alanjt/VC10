@@ -102,7 +102,7 @@ if you contacted me before making any changes to this software.
 		<object-name>LampAmberON</object-name>
 		<condition>		
 			<greater-than>
-				<property>VC10/ess-bus</property>
+				<property>VC10/electric/ess-bus</property>
 				<value>20</value>
 			</greater-than>
 		  <or>
@@ -118,7 +118,7 @@ if you contacted me before making any changes to this software.
 		<object-name>LampAmberON.001</object-name>
 		<condition>		
 			<greater-than>
-				<property>VC10/ess-bus</property>
+				<property>VC10/electric/ess-bus</property>
 				<value>20</value>
 			</greater-than>
 		  <or>
@@ -134,7 +134,7 @@ if you contacted me before making any changes to this software.
 		<object-name>LampAmberON.002</object-name>
 		<condition>		
 			<greater-than>
-				<property>VC10/ess-bus</property>
+				<property>VC10/electric/ess-bus</property>
 				<value>20</value>
 			</greater-than>
 		  <or>
@@ -150,7 +150,7 @@ if you contacted me before making any changes to this software.
 		<object-name>LampAmberON.003</object-name>
 		<condition>		
 			<greater-than>
-				<property>VC10/ess-bus</property>
+				<property>VC10/electric/ess-bus</property>
 				<value>20</value>
 			</greater-than>
 		  <or>
@@ -166,7 +166,7 @@ if you contacted me before making any changes to this software.
 		<object-name>LampAmberON.004</object-name>
 		<condition>		
 			<greater-than>
-				<property>VC10/ess-bus</property>
+				<property>VC10/electric/ess-bus</property>
 				<value>20</value>
 			</greater-than>
 		  <or>
@@ -186,7 +186,7 @@ if you contacted me before making any changes to this software.
 		<object-name>LampAmberON.009</object-name>
 		<condition>		
 			<greater-than>
-				<property>VC10/ess-bus</property>
+				<property>VC10/electric/ess-bus</property>
 				<value>20</value>
 			</greater-than>
 		  <or>
@@ -217,7 +217,7 @@ if you contacted me before making any changes to this software.
 		<object-name>LampAmberON.010</object-name>
 		<condition>		
 			<greater-than>
-				<property>VC10/ess-bus</property>
+				<property>VC10/electric/ess-bus</property>
 				<value>20</value>
 			</greater-than>
 		   <or>		
@@ -240,7 +240,7 @@ if you contacted me before making any changes to this software.
 		<object-name>LampAmberON.011</object-name>
 		<condition>		
 			<greater-than>
-				<property>VC10/ess-bus</property>
+				<property>VC10/electric/ess-bus</property>
 				<value>20</value>
 			</greater-than>
 		   <or>		
@@ -277,7 +277,7 @@ if you contacted me before making any changes to this software.
 		<object-name>LampAmberON.012</object-name>
 		<condition>		
 			<greater-than>
-				<property>VC10/ess-bus</property>
+				<property>VC10/electric/ess-bus</property>
 				<value>20</value>
 			</greater-than>
 			<equals>
@@ -297,7 +297,7 @@ if you contacted me before making any changes to this software.
 		<object-name>LampAmberON.013</object-name>
 		<condition>		
 			<greater-than>
-				<property>VC10/ess-bus</property>
+				<property>VC10/electric/ess-bus</property>
 				<value>20</value>
 			</greater-than>
 			<equals>
@@ -317,7 +317,7 @@ if you contacted me before making any changes to this software.
 		<object-name>LampAmberON.014</object-name>
 		<condition>		
 			<greater-than>
-				<property>VC10/ess-bus</property>
+				<property>VC10/electric/ess-bus</property>
 				<value>20</value>
 			</greater-than>
 			<equals>

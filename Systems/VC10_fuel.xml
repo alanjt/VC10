@@ -31,11 +31,11 @@
 	<property value="1.0"> fuel/indicator/Transfer_Xfeed_Valve </property>
 	<property value="1.0"> fuel/indicator/LP_Xfer_R </property>
 	<property value="1.0"> fuel/switch/Xfeed_Xfer_Valve </property>	 -->
-	
+<!--	
 	<property value="1.0"> fuel/switch/Tank1_1A_SlowXfer </property>
 	<property value="1.0"> fuel/switch/Tank1_1A_FastXfer </property>
 	<property value="1.0"> fuel/switch/Tank4_4A_SlowXfer </property>
-	<property value="1.0"> fuel/switch/Tank4_4A_FastXfer </property>
+	<property value="1.0"> fuel/switch/Tank4_4A_FastXfer </property>-->
 <!--	<property value="1.0"> fuel/indicator/Tank1_1A_SlowXfer </property>
 	<property value="1.0"> fuel/indicator/Tank1_1A_FastXfer </property>
 	<property value="1.0"> fuel/indicator/Tank4_4A_SlowXfer </property>
@@ -74,7 +74,7 @@
 	<channel name="fuel">
 		
 <!--Transfer Tank 1A to 1 -->
-		<switch name="propulsion/tank[1]/external-flow-rate/SlowXfer">
+<!--		<switch name="propulsion/tank[1]/external-flow-rate/SlowXfer">
 			<default value="0"/>
 			<test logic="AND" value="0">
 			    fuel/switch/Tank1_1A_SlowXfer == 1
@@ -89,10 +89,10 @@
 				propulsion/tank[0]/contents-lbs gt 0 
 				propulsion/tank[1]/contents-lbs lt 14000.00
 			</test>
-		</switch>
+		</switch>-->
 		
 <!--Transfer Tank 4A to 4 -->
-		<switch name="propulsion/tank[1]/external-flow-rate/SlowXfer">
+<!--		<switch name="propulsion/tank[1]/external-flow-rate/SlowXfer">
 			<default value="0"/>
 			<test logic="AND" value="0">
 			    fuel/switch/Tank4_4A_SlowXfer == 1
@@ -107,7 +107,7 @@
 				propulsion/tank[6]/contents-lbs gt 0 
 				propulsion/tank[5]/contents-lbs lt 14000.00
 			</test>
-		</switch>
+		</switch>-->
 
 <!-- Fuel Feed Gallery Inter-engine 1-2 -->	
 		<switch name="propulsion/tank[7]/external-flow-rate/Engine-x-feed">

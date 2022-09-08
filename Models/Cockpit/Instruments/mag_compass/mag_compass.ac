@@ -1901,10 +1901,10 @@ refs 4
 201 0.407765448093 0.157186537981
 kids 0
 OBJECT poly
-name "needle"
+name "Needle"
 loc 0.000395 0 0.000611
 data 6
-needle
+Needle
 texture "bezel.png"
 texrep 1 1
 crease 30.000001

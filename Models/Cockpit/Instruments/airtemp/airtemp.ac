@@ -128,10 +128,10 @@ refs 3
 15 0.876589179039 0.660765767097
 kids 0
 OBJECT poly
-name "Airtemp.needle"
+name "Airtemp.Needle"
 loc -0.002243 0 -0
 data 14
-Airtemp.needle
+Airtemp.Needle
 texture "airtemp.png"
 texrep 1 1
 crease 30.000001

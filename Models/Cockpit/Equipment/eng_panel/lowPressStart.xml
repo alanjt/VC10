@@ -78,7 +78,7 @@ if you contacted me before making any changes to this software.
 		<object-name>LampAmberON</object-name>
 		<condition>		
 			<greater-than>
-				<property>VC10/ess-bus</property>
+				<property>VC10/electric/ess-bus</property>
 				<value>20</value>
 			</greater-than>
 		  <or>
@@ -93,7 +93,7 @@ if you contacted me before making any changes to this software.
 		<object-name>LampAmberON.001</object-name>
 		<condition>		
 			<greater-than>
-				<property>VC10/ess-bus</property>
+				<property>VC10/electric/ess-bus</property>
 				<value>20</value>
 			</greater-than>
 		  <or>
@@ -292,7 +292,7 @@ if you contacted me before making any changes to this software.
 	<animation>
 		  <type>rotate</type>
 		  <object-name>switch.005</object-name>
-		  <property>VC10/generator/hertz-converter</property>
+		  <property>VC10/electric/ac/generator/hertz-converter</property>
       <factor>-60</factor>
 		  <axis>
 		   <x>1</x>
@@ -315,7 +315,7 @@ if you contacted me before making any changes to this software.
 		    <repeatable>false</repeatable>
 		    <binding>
 		        <command>property-toggle</command>
-		 			  <property>VC10/generator/hertz-converter</property>
+		 			  <property>VC10/electric/ac/generator/hertz-converter</property>
 		    </binding>          
 		    <binding>
 		      <command>property-toggle</command>

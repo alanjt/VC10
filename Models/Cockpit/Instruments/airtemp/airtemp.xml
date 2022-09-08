@@ -29,7 +29,7 @@ if you contacted me before making any changes to this software.
 	<animation>
 		<type>material</type>
 		<object-name>Airtemp.face</object-name>
-		<object-name>Airtemp.needle</object-name>
+		<object-name>Airtemp.Needle</object-name>
 		<condition>
 			<less-than><property>systems/electrical/outputs/cabin-dim</property><value>0.8</value></less-than>
 		</condition>
@@ -44,7 +44,7 @@ if you contacted me before making any changes to this software.
 	<animation>
 		<type>material</type>
 			<object-name>Airtemp.face</object-name>
-			<object-name>Airtemp.needle</object-name>
+			<object-name>Airtemp.Needle</object-name>
 			<object-name>shadow</object-name>
 		<condition>
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
@@ -61,7 +61,7 @@ if you contacted me before making any changes to this software.
 	<animation>
 		<type>material</type>
 		<object-name>Airtemp.face</object-name>
-		<object-name>Airtemp.needle</object-name>
+		<object-name>Airtemp.Needle</object-name>
 		<emission>
 		  <red>0.8</red>
 		  <green>0.4</green>
@@ -82,7 +82,7 @@ if you contacted me before making any changes to this software.
 
 	<animation>
 		<type>rotate</type>
-		<object-name>Airtemp.needle</object-name>
+		<object-name>Airtemp.Needle</object-name>
 		<property>environment/temperature-degc</property>
 		<interpolation>
 			<entry><ind>-250</ind><dep>-169.48</dep></entry>

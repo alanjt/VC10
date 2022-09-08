@@ -75,7 +75,7 @@ if you contacted me before making any changes to this software.
 		<object-name>LampGreenON</object-name>
 		<condition>		
 		  <or>
-		    <property>VC10/external-power-connected</property>
+		    <property>VC10/electric/external-power-connected</property>
 		    <property>controls/test/warn-knob</property>
 		  </or>
 		</condition>
@@ -86,16 +86,16 @@ if you contacted me before making any changes to this software.
 		<object-name>LampBlueON</object-name>
 		<condition>	
 			<greater-than>
-				<property>VC10/ess-bus</property>
+				<property>VC10/electric/ess-bus</property>
 				<value>20</value>
 			</greater-than>
 		  <or>
 		    <and>
-		    	<property>VC10/external-power-connected</property>
-		    	<property>controls/electric/battery-switch</property>		    
-				  <property>VC10/ground-connect</property>	
+		    	<property>VC10/electric/external-power-connected</property>
+		    	<property>VC10/electric/dc/battery-switch</property>		    
+				  <property>VC10/electric/ground-connect</property>	
 				  <equals>	    
-		    		<property>VC10/ess-power-switch</property>
+		    		<property>VC10/electric/ess-power-switch</property>
 		    		<value>5</value>
 		    	</equals>
 				</and>
@@ -104,9 +104,9 @@ if you contacted me before making any changes to this software.
 		    		<property>VC10/apu/off-start-run</property>
 		    		<value>2</value>
 		    	</equals>
-		    	<property>VC10/generator/gen-drive[4]</property>	
+		    	<property>VC10/electric/ac/generator/gen-drive[4]</property>	
 				  <equals>	    
-		    		<property>VC10/ess-power-switch</property>
+		    		<property>VC10/electric/ess-power-switch</property>
 		    		<value>0</value>
 		    	</equals>
 				</and>
@@ -119,7 +119,7 @@ if you contacted me before making any changes to this software.
 	<animation>
 		  <type>rotate</type>
 		  <object-name>switch</object-name>
-		  <property>VC10/ground-connect</property>
+		  <property>VC10/electric/ground-connect</property>
       <factor>-60</factor>
 		  <axis>
 		   <x>1</x>
@@ -141,19 +141,19 @@ if you contacted me before making any changes to this software.
 		    <repeatable>false</repeatable>
 		    <binding>
 		        <command>property-toggle</command>
-		  			<property>VC10/ground-connect</property>
+		  			<property>VC10/electric/ground-connect</property>
 		    </binding>
         <binding>
             <command>nasal</command>
             <script>	
-							var exco = getprop("VC10/external-power-connected") or 0;
-							var elbat = getprop("/controls/electric/battery-switch") or 0;
-							var epow = getprop("VC10/ess-power-switch") or 0;
+							var exco = getprop("VC10/electric/external-power-connected") or 0;
+							var elbat = getprop("/VC10/electric/dc/battery-switch") or 0;
+							var epow = getprop("VC10/electric/ess-power-switch") or 0;
 							var ofstaru = getprop("VC10/apu/off-start-run") or 0;
-							var g4d = getprop("VC10/generator/gen-drive[4]") or 0;
+							var g4d = getprop("VC10/electric/ac/generator/gen-drive[4]") or 0;
 
 							if(!elbat or !exco or epow != 5){
-								settimer(func{ setprop("VC10/ground-connect", 0);}, 0.2);
+								settimer(func{ setprop("VC10/electric/ground-connect", 0);}, 0.2);
 							}
 						</script>
         </binding>

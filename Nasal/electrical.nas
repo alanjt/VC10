@@ -23,11 +23,21 @@
 #################################################################################
 var count = 0;
 var wait = 0;
-var PowermeterKnob = props.globals.initNode("VC10/generator/powermeter-knob",0,"BOOL");
-var EssDCbus = props.globals.initNode("VC10/ess-bus",0,"DOUBLE");
-var EssFreq = props.globals.initNode("VC10/ess-freq",400,"DOUBLE"); #400Hz is standard
-var EssPwr= props.globals.initNode("VC10/ess-power-switch",0,"DOUBLE");
-var EssSourceFailure = props.globals.initNode("VC10/ess-source-failure",0,"BOOL");
+
+props.globals.initNode("VC10/electric/ac/generator/gen-drive-sw[0]",1,"BOOL");
+props.globals.initNode("VC10/electric/ac/generator/gen-drive-sw[1]",1,"BOOL");
+props.globals.initNode("VC10/electric/ac/generator/gen-drive-sw[2]",1,"BOOL");
+props.globals.initNode("VC10/electric/ac/generator/gen-drive-sw[3]",1,"BOOL");
+props.globals.initNode("VC10/electric/ac/generator/gen1-control-sw",0,"INT");
+props.globals.initNode("VC10/electric/ac/generator/gen2-control-sw",0,"INT");
+props.globals.initNode("VC10/electric/ac/generator/gen3-control-sw",0,"INT");
+props.globals.initNode("VC10/electric/ac/generator/gen4-control-sw",0,"INT");
+
+var PowermeterKnob = props.globals.initNode("VC10/electric/ac/generator/powermeter-knob",0,"BOOL");
+var EssDCbus = props.globals.initNode("VC10/electric/ess-bus",0,"DOUBLE");
+var EssFreq = props.globals.initNode("VC10/electric/ess-freq",400,"DOUBLE"); #400Hz is standard
+var EssPwr= props.globals.initNode("VC10/electric/ess-power-switch",0,"DOUBLE");
+var EssSourceFailure = props.globals.initNode("VC10/electric/ess-source-failure",0,"BOOL");
 var CabinDim = props.globals.initNode("systems/electrical/outputs/cabin-dim",0,"DOUBLE");
 var PanelDim = props.globals.initNode("systems/electrical/outputs/panel-dim",0,"DOUBLE");
 var OverheadDim = props.globals.initNode("systems/electrical/outputs/overhead-dim",0,"DOUBLE");
@@ -41,7 +51,8 @@ var LightBeacon = props.globals.initNode("controls/lighting/switches/beacon",0,"
 var LightStrobe = props.globals.initNode("controls/lighting/switches/strobe",0,"BOOL");
 var LightLogo = props.globals.initNode("controls/lighting/switches/logo-lights",0,"BOOL");
 
-var ExternalConnected = props.globals.initNode("VC10/external-power-connected",0,"BOOL");
+
+var ExternalConnected = props.globals.initNode("VC10/electric/external-power-connected",0,"BOOL");
 
 var EssDCbus_volts = 0.0;
 var EssDCbus_input=[];
@@ -49,11 +60,12 @@ var EssDCbus_output=[];
 var EssDCbus_load=[];
 var EssDCbus_service=[];
 
-var ACSelector = props.globals.initNode("VC10/ac/ac-para-select",0,"DOUBLE");
-var syncLight1 = props.globals.initNode("VC10/ac/sync1",1,"BOOL");
-var syncLight2 = props.globals.initNode("VC10/ac/sync2",1,"BOOL");
-var ACSelFreq = props.globals.initNode("VC10/ac-sel-para-freq",0,"DOUBLE");
-var ACSelVolts = props.globals.initNode("VC10/ac-sel-para-volts",0,"DOUBLE");
+var ACSelector = props.globals.initNode("VC10/electric/ac/ac-para-select",0,"DOUBLE");
+var syncLight1 = props.globals.initNode("VC10/electric/ac/acsync1",1,"BOOL");
+var syncLight2 = props.globals.initNode("VC10/electric/ac/acsync2",1,"BOOL");
+var ACSelFreq = props.globals.initNode("VC10/electric/ac/ac-sel-para-freq",0,"DOUBLE");
+var ACSelVolts = props.globals.initNode("VC10/electric/ac/ac-sel-para-volts",0,"DOUBLE");
+
 
 var strobe_switch = props.globals.getNode("controls/lighting/strobe", 1);
 aircraft.light.new("controls/lighting/strobe-state", [0.05, 1.30], strobe_switch);
@@ -146,9 +158,9 @@ var Generator = {
         m = { parents : [Generator] };
         m.gen_drive_switch = props.globals.getNode(switch,1);
         m.gen_drive_switch.setBoolValue(0);
-        m.meter = props.globals.getNode("VC10/generator/gen-load["~num~"]",1);
+        m.meter = props.globals.getNode("VC10/electric/ac/generator/gen-load["~num~"]",1);
         m.meter.setDoubleValue(0);
-        m.gen_bus_tie = props.globals.getNode("VC10/generator/gen-bus-tie["~num~"]",1);
+        m.gen_bus_tie = props.globals.getNode("VC10/electric/ac/generator/gen-bus-tie["~num~"]",1);
         m.gen_bus_tie.setDoubleValue(0);        
         m.gen_output = props.globals.getNode(gen_output,1);
         m.gen_output.setDoubleValue(0);
@@ -157,11 +169,11 @@ var Generator = {
         m.ideal_volts = vlt;
         m.ideal_amps = amp;
         m.condition = my_rand(0.01,0.6);
-        m.frequency = props.globals.getNode("VC10/generator/gen-freq["~num~"]",1);
+        m.frequency = props.globals.getNode("VC10/electric/ac/generator/gen-freq["~num~"]",1);
         m.frequency.setDoubleValue(my_rand(386,418));
-        m.gen_control = props.globals.getNode("VC10/generator/gen-control["~num~"]",1);
+        m.gen_control = props.globals.getNode("VC10/electric/ac/generator/gen-control["~num~"]",1);
         m.gen_control.setDoubleValue(0);
-        m.gen_breaker = props.globals.getNode("VC10/generator/gen-breaker["~num~"]",1);
+        m.gen_breaker = props.globals.getNode("VC10/electric/ac/generator/gen-breaker["~num~"]",1);
         m.gen_breaker.setDoubleValue(0);
         m.gen_index = num;
         return m;
@@ -196,14 +208,14 @@ var Generator = {
 
 };
 
-var battery = Battery.new("VC10/battery-switch","/VC10/battery",24.6,30,34,1.0,7.0);
+var battery = Battery.new("VC10/electric/dc/battery-switch","/VC10/electric/dc/battery",24.6,30,34,1.0,7.0);
 
 ###                            num,switch,gen_output,                                      rpm_source,           rpm_threshold,volts,amps
-var generator1 = Generator.new(0,"VC10/generator/gen-drive[0]","/engines/engine[0]/amp-v","/engines/engine[0]/n1",20.0,28.0,60.0);
-var generator2 = Generator.new(1,"VC10/generator/gen-drive[1]","/engines/engine[1]/amp-v","/engines/engine[1]/n1",20.0,28.0,60.0);
-var generator3 = Generator.new(2,"VC10/generator/gen-drive[2]","/engines/engine[2]/amp-v","/engines/engine[2]/n1",20.0,28.0,60.0);
-var generator4 = Generator.new(3,"VC10/generator/gen-drive[3]","/engines/engine[3]/amp-v","/engines/engine[3]/n1",20.0,28.0,60.0);
-var generator5 = Generator.new(4,"VC10/generator/gen-drive[4]","/engines/APU/amp-v","/engines/APU/rpm",80.0,26.0,60.0);
+var generator1 = Generator.new(0,"VC10/electric/ac/generator/gen-drive[0]","/engines/engine[0]/amp-v","/engines/engine[0]/n1",20.0,28.0,60.0);
+var generator2 = Generator.new(1,"VC10/electric/ac/generator/gen-drive[1]","/engines/engine[1]/amp-v","/engines/engine[1]/n1",20.0,28.0,60.0);
+var generator3 = Generator.new(2,"VC10/electric/ac/generator/gen-drive[2]","/engines/engine[2]/amp-v","/engines/engine[2]/n1",20.0,28.0,60.0);
+var generator4 = Generator.new(3,"VC10/electric/ac/generator/gen-drive[3]","/engines/engine[3]/amp-v","/engines/engine[3]/n1",20.0,28.0,60.0);
+var generator5 = Generator.new(4,"VC10/electric/ac/generator/gen-drive[4]","/engines/APU/amp-v","/engines/APU/rpm",80.0,26.0,60.0);
 
 #####################################
 
@@ -321,7 +333,7 @@ var update_virtual_bus = func {
 					  if(essdcbus_volts > battery.actual_volts.getValue()){
 					  	battery.actual_volts.setDoubleValue(battery.actual_volts.getValue() + 0.0005);
 					  }		  
-					  if(!getprop("VC10/ground-connect")){
+					  if(!getprop("VC10/electric/ground-connect")){
 							if(!generator1.get_output_volts()){
 								generator1.gen_bus_tie.setValue(0);		
 							}
@@ -369,7 +381,7 @@ var update_virtual_bus = func {
 					  	battery.actual_volts.setDoubleValue(battery.actual_volts.getValue() + 0.0005);
 					  }
 				}else{
-						settimer(func{ setprop("VC10/ground-connect", 0);}, 0.2);
+						settimer(func{ setprop("VC10/electric/ground-connect", 0);}, 0.2);
 					  power_source = "APU";
 					  essdcbus_volts = generator5.get_output_volts();
 						if(generator5.get_output_volts() and EssPwr.getValue() == 0){
@@ -442,26 +454,26 @@ var update_virtual_bus = func {
 		  
 		  if (essdcbus_volts < 20 and count == 60){ 
 		  		# most switches fall back if ess-buss is low
-					setprop("VC10/generator/gen-drive[0]",0);
-					setprop("VC10/generator/gen-drive[1]",0);
-					setprop("VC10/generator/gen-drive[2]",0);
-					setprop("VC10/generator/gen-drive[3]",0);
-					setprop("VC10/generator/gen-drive[4]",0); #APU
+					setprop("VC10/electric/ac/generator/gen-drive[0]",0);
+					setprop("VC10/electric/ac/generator/gen-drive[1]",0);
+					setprop("VC10/electric/ac/generator/gen-drive[2]",0);
+					setprop("VC10/electric/ac/generator/gen-drive[3]",0);
+					setprop("VC10/electric/ac/generator/gen-drive[4]",0); #APU
 					setprop("VC10/apu/off-start-run",0);
 					setprop("VC10/apu/apu-bleed-valve",0);
-					setprop("VC10/ground-connect",0);
-					setprop("VC10/generator/gen-bus-tie[0]",0);
-					setprop("VC10/generator/gen-bus-tie[1]",0);
-					setprop("VC10/generator/gen-bus-tie[2]",0);
-					setprop("VC10/generator/gen-bus-tie[3]",0);
-					setprop("VC10/generator/gen-breaker[0]",0);
-					setprop("VC10/generator/gen-breaker[1]",0);
-					setprop("VC10/generator/gen-breaker[2]",0);
-					setprop("VC10/generator/gen-breaker[3]",0);
-					setprop("VC10/generator/gen-control[0]",0);
-					setprop("VC10/generator/gen-control[1]",0);
-					setprop("VC10/generator/gen-control[2]",0);
-					setprop("VC10/generator/gen-control[3]",0);
+					setprop("VC10/electric/ground-connect",0);
+					setprop("VC10/electric/ac/generator/gen-bus-tie[0]",0);
+					setprop("VC10/electric/ac/generator/gen-bus-tie[1]",0);
+					setprop("VC10/electric/ac/generator/gen-bus-tie[2]",0);
+					setprop("VC10/electric/ac/generator/gen-bus-tie[3]",0);
+					setprop("VC10/electric/ac/generator/gen-breaker[0]",0);
+					setprop("VC10/electric/ac/generator/gen-breaker[1]",0);
+					setprop("VC10/electric/ac/generator/gen-breaker[2]",0);
+					setprop("VC10/electric/ac/generator/gen-breaker[3]",0);
+					setprop("VC10/electric/ac/generator/gen-control[0]",0);
+					setprop("VC10/electric/ac/generator/gen-control[1]",0);
+					setprop("VC10/electric/ac/generator/gen-control[2]",0);
+					setprop("VC10/electric/ac/generator/gen-control[3]",0);
 					ACSelFreq.setValue(0);
 					ACSelVolts.setValue(0);
 					count = 0;
@@ -662,9 +674,9 @@ var ac_sync = func{
 						sync_lamp(EssFreq.getValue(),generator4.frequency.getValue());
 				# External Power		
 				}elsif(ACSelector.getValue() == 6 and EssPwr.getValue() == 5 ){
-				  var extGCcon = getprop("VC10/external-power-connected") or 0;
+				  var extGCcon = getprop("VC10/electric/external-power-connected") or 0;
 				  if(extGCcon and ACSelVolts.getValue() != 27.5){
-						interpolate("VC10/ac-sel-para-freq", EssFreq.getValue(), 1.2);
+						interpolate("VC10/electric/ac/ac-sel-para-freq", EssFreq.getValue(), 1.2);
 						ACSelVolts.setValue(27.5);
 					}
 					sync_lamp(EssFreq.getValue(),EssFreq.getValue());
@@ -677,9 +689,9 @@ var ac_sync = func{
 };
 
 # the control
-setlistener("VC10/ac/ac-para-select", func{
-	var bat = getprop("VC10/battery-switch") or 0;
-	var src_ext = getprop("VC10/ess-power-switch") or 0;
+setlistener("VC10/electric/ac/ac-para-select", func{
+	var bat = getprop("VC10/electric/dc/battery-switch") or 0;
+	var src_ext = getprop("VC10/electric/ess-power-switch") or 0;
 
 	if(bat and src_ext == 0){
 		ACSelFreq.setValue(0);
@@ -692,7 +704,7 @@ setlistener("VC10/ac/ac-para-select", func{
 },1,0);
 
 # knob is on the AC Paralleling instrument
-setlistener("VC10/generator/residual-volts-knob", func(state){
+setlistener("VC10/electric/ac/generator/residual-volts-knob", func(state){
 	if(state.getBoolValue()){
 		ACSelVolts.setValue(ACSelVolts.getValue()*1.3);
 	}else{
@@ -703,48 +715,48 @@ setlistener("VC10/generator/residual-volts-knob", func(state){
 ################################## Volt and load Selector ######################################
 
 var vlLoop = func{
-	var esstr = getprop("VC10/ess-bus") or 0;
+	var esstr = getprop("VC10/electric/ess-bus") or 0;
 	var tr2 = getprop("engines/engine[1]/amp-v") or 0;
 	var tr3 = getprop("engines/engine[2]/amp-v") or 0;
 	var tr4 = getprop("engines/engine[3]/amp-v") or 0;
-	var bat_load = getprop("VC10/battery") or 0;
-	var bat = getprop("VC10/battery-switch") or 0;	
-	var select = getprop("VC10/load-volt-selector") or 0;
+	var bat_load = getprop("VC10/electric/dc/battery") or 0;
+	var bat = getprop("VC10/electric/dc/battery-switch") or 0;	
+	var select = getprop("VC10/electric/load-volt-selector") or 0;
 	
 	if (bat and select == 1){
-			interpolate("VC10/volt-dc", esstr, 1.8);
+			interpolate("VC10/electric/dc/volt-dc", esstr, 1.8);
 			esstr = esstr*100/25; # load in percent
-			interpolate("VC10/volt-load", esstr, 1.8);
+			interpolate("VC10/electric/dc/volt-load", esstr, 1.8);
 			settimer(vlLoop ,1.8);
 	}elsif (bat and select == 2){
-			interpolate("VC10/volt-dc", tr2, 1.8);
+			interpolate("VC10/electric/dc/volt-dc", tr2, 1.8);
 			tr2 = tr2*100/25; # load in percent
-			interpolate("VC10/volt-load", tr2, 1.8);
+			interpolate("VC10/electric/dc/volt-load", tr2, 1.8);
 			settimer(vlLoop ,1.8);
 	}elsif (bat and select == 3){
-			interpolate("VC10/volt-dc", tr3, 1.8);
+			interpolate("VC10/electric/dc/volt-dc", tr3, 1.8);
 			tr3 = tr3*100/25; # load in percent
-			interpolate("VC10/volt-load", tr3, 1.8);
+			interpolate("VC10/electric/dc/volt-load", tr3, 1.8);
 			settimer(vlLoop ,1.8);
 	}elsif (bat and select == 4){
-			interpolate("VC10/volt-dc", tr4, 1.8);
+			interpolate("VC10/electric/dc/volt-dc", tr4, 1.8);
 			tr4 = tr4*100/25; # load in percent
-			interpolate("VC10/volt-load", tr4, 1.8);
+			interpolate("VC10/electric/dc/volt-load", tr4, 1.8);
 			settimer(vlLoop ,1.8);
 	}elsif (bat and select == 5){
-			interpolate("VC10/volt-dc", bat_load, 1.8);
+			interpolate("VC10/electric/dc/volt-dc", bat_load, 1.8);
 			bat_load = bat_load*100/25; # load in percent
-			interpolate("VC10/volt-load", bat_load, 1.8);
+			interpolate("VC10/electric/dc/volt-load", bat_load, 1.8);
 			settimer(vlLoop ,1.8);
 	}else{
-			interpolate("VC10/volt-load", 0, 1.8);
-			interpolate("VC10/volt-dc", 0, 1.2);
+			interpolate("VC10/electric/dc/volt-load", 0, 1.8);
+			interpolate("VC10/electric/dc/volt-dc", 0, 1.2);
 	}
 
 };
 
 # the control
-setlistener("VC10/load-volt-selector", func{
+setlistener("VC10/electric/load-volt-selector", func{
 		vlLoop();
 		settimer(ac_sync,0);
 },1,0);
@@ -802,10 +814,10 @@ var gen_kw = func{
 
 
 ################ the ground connect switch fall back ###################
-setlistener("VC10/external-power-connected", func(state){
+setlistener("VC10/electric/external-power-connected", func(state){
   var state = state.getBoolValue();
   if(state)	setprop("VC10/ground-service/enabled", 1); #iluminate the lights of VW Bus
-	var src_ext = getprop("VC10/ess-power-switch") or 0;
+	var src_ext = getprop("VC10/electric/ess-power-switch") or 0;
 	# if external power connected when apu is operating, apu shutdown
 	setprop("VC10/apu/off-start-run", 0);
 	generator5.gen_drive_switch.setValue(0);
@@ -818,7 +830,7 @@ setlistener("VC10/external-power-connected", func(state){
 		settimer(ac_sync,0);
 	}
 
- 	setprop("VC10/ground-connect", 0);
+ 	setprop("VC10/electric/ground-connect", 0);
  	
 	if(getprop("sim/sound/switch2") == 1){
   	 setprop("sim/sound/switch2", 0); 
@@ -832,16 +844,16 @@ setlistener("VC10/external-power-connected", func(state){
 ################################# APU loop function #####################################
 # the APU helper for smooth view on Amperemeter
 var apu_gen_switch = func {
-		var bt = props.globals.getNode("VC10/generator/gen-drive[4]", 1);
+		var bt = props.globals.getNode("VC10/electric/ac/generator/gen-drive[4]", 1);
   	if(bt.getBoolValue()){
-  		interpolate("engines/APU/amp-needle",0,2);
+  		interpolate("engines/APU/amp-Needle",0,2);
   		bt.setBoolValue(0);
   		settimer(ac_sync,0);
   	}else{
   	  bt.setBoolValue(1);
   		settimer(func{  		
   			var amps = getprop("engines/APU/amp-v") or 0;
-  			interpolate("engines/APU/amp-needle",amps,2);
+  			interpolate("engines/APU/amp-Needle",amps,2);
   			settimer(ac_sync,0); 
   		},0.8);
   	}
@@ -859,7 +871,7 @@ var apuLoop = func{
 	}
 
 	var setting = getprop("VC10/apu/off-start-run") or 0;
-	var generator = getprop("VC10/generator/gen-drive[4]") or 0;
+	var generator = getprop("VC10/electric/ac/generator/gen-drive[4]") or 0;
 
  	# rpm and running
  	if (setting != 0){
@@ -935,12 +947,12 @@ setlistener("VC10/apu/starter", func (state){
   	if(state == 1){
   		setprop("VC10/apu/off-start-run", 1);
   		# fall back, if external power source is connected or ess-bus to low
-  		var ext_con = getprop("VC10/external-power-connected") or 0;
+  		var ext_con = getprop("VC10/electric/external-power-connected") or 0;
   		
   		if(ext_con){
   			settimer(func{
 					setprop("VC10/apu/off-start-run", 0);
-  				setprop("VC10/generator/gen-drive[4]", 0);
+  				setprop("VC10/electric/ac/generator/gen-drive[4]", 0);
 				}, 0.5);  		
 			}else{
   			VC10.apuLoop();
@@ -949,7 +961,7 @@ setlistener("VC10/apu/starter", func (state){
   	}else{
   		
   		setprop("VC10/apu/off-start-run", 0);
-  		setprop("VC10/generator/gen-drive[4]", 0);
+  		setprop("VC10/electric/ac/generator/gen-drive[4]", 0);
   	}
   	
 		if(getprop("sim/sound/switch2") == 1){
@@ -967,7 +979,7 @@ setlistener("sim/signals/fdm-initialized", func {
     settimer(ac_sync,5);
     settimer(func{ setprop("VC10/fuel/temperature", getprop("/environment/temperature-degc")) } , 5);
     
-    print("Electrical System ... Initialized");
+    print("Electrical System ... Initialised");
     
     setprop("controls/engines/msg", 1);
 });
@@ -976,14 +988,14 @@ setlistener("sim/signals/fdm-initialized", func {
 
 # switch back the lights, if there is now power on ess-bus
 setlistener("controls/lighting/landing-light", func {
-    var bat = getprop("VC10/ess-bus") or 0;
+    var bat = getprop("VC10/electric/ess-bus") or 0;
     if(bat < 20) setprop("controls/lighting/landing-light", 0);
 });
 setlistener("controls/lighting/landing-light[1]", func {
-    var bat = getprop("VC10/ess-bus") or 0;
+    var bat = getprop("VC10/electric/ess-bus") or 0;
     if(bat < 20) setprop("controls/lighting/landing-light[1]", 0);
 });
 setlistener("controls/lighting/landing-light[2]", func {
-    var bat = getprop("VC10/ess-bus") or 0;
+    var bat = getprop("VC10/electric/ess-bus") or 0;
     if(bat < 20) setprop("controls/lighting/landing-light[2]", 0);
 });

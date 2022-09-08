@@ -159,7 +159,7 @@ if you contacted me before making any changes to this software.
 		<object-name>LightVolume2</object-name>
 		<condition>
 			<greater-than>
-				<property>VC10/ess-bus</property>
+				<property>VC10/electric/ess-bus</property>
 				<value>20</value>
 			</greater-than>
 			<property>/sim/rendering/rembrandt/enabled</property>
@@ -417,7 +417,7 @@ if you contacted me before making any changes to this software.
 		</offsets>
 	</model>
 
-	<animation>
+<!--	<animation>
 		<type>select</type>
 		<object-name>capt_light_1</object-name>
 		<object-name>capt_light_2</object-name>
@@ -441,7 +441,7 @@ if you contacted me before making any changes to this software.
 			<property>/sim/rendering/rembrandt/enabled</property>
 			<property>/sim/current-view/internal</property>
 		</condition>
-	</animation>	 
+	</animation>	  -->
 
 	<!-- Ice on the windshield -->
 	<!--	 <model>
@@ -514,7 +514,6 @@ if you contacted me before making any changes to this software.
 		<name>overhead-panel-equipment</name>
 		<path>Aircraft/VC10/Models/Cockpit/Equipment/oh_panel/ohpanel.xml</path>
 		<offsets>
-			<!--		  <x-m>-18.55</x-m> -->
 			<x-m>1.89</x-m>
 			<y-m>  0.0</y-m>
 			<z-m>  1.35</z-m>
@@ -526,7 +525,6 @@ if you contacted me before making any changes to this software.
 		<name>circuit-breaker-panel</name>
 		<path>Aircraft/VC10/Models/Cockpit/Equipment/oh_panel/circuitBreaker.xml</path>
 		<offsets>
-			<!--		  <x-m>-18.04</x-m> -->
 			<x-m>2.40</x-m>
 			<y-m>  0.0</y-m>
 			<z-m>  1.52</z-m>
@@ -535,11 +533,10 @@ if you contacted me before making any changes to this software.
 	</model>
 
 	<model>
-		<name>engineer-panel-top</name>
-		<path>Aircraft/VC10/Models/Cockpit/Equipment/eng_panel/epaneltop.xml</path>
+		<name>707engineer-panel-top</name>
+		<path>Aircraft/VC10/Models/Cockpit/Equipment/eng_panel/707epaneltop.xml</path>
 		<offsets>
-			<!--		  <x-m>-17.545</x-m> -->
-			<x-m>2.895</x-m>
+			<x-m>2.4</x-m>
 			<y-m>  0.646</y-m>
 			<z-m>  1.386</z-m>
 			<roll-deg>33.15</roll-deg>
@@ -547,16 +544,26 @@ if you contacted me before making any changes to this software.
 	</model>
 
 	<model>
-		<name>engineer-panel-bottom</name>
-		<path>Aircraft/VC10/Models/Cockpit/Equipment/eng_panel/epanelbot.xml</path>
+		<name>707engineer-panel-bottom</name>
+		<path>Aircraft/VC10/Models/Cockpit/Equipment/eng_panel/707epanelbot.xml</path>
 		<offsets>
-			<!--		  <x-m>-17.545</x-m> -->
-			<x-m>2.895</x-m>
+			<x-m>2.4</x-m>
 			<y-m>  0.761</y-m>
 			<z-m>  0.980</z-m>
 		</offsets>
+	</model> 
+	
+	<model>
+		<name>engineer-panels</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/EngineerPanels.xml</path>
+		<offsets>
+			<x-m>2.895</x-m>
+			<y-m>  0.761</y-m>
+             <z-m>  0.675</z-m>
+			<heading-deg>-90.0</heading-deg>
+		</offsets>
 	</model>
-
+	
 	<model>
 		<name>wiper_pilot</name>
 		<path>Aircraft/VC10/Models/Cockpit/Equipment/wiper/wiper-l.xml</path>
@@ -673,7 +680,8 @@ if you contacted me before making any changes to this software.
 		<object-name>overhead-panel-equipment</object-name>
 		<object-name>circuit-breaker-panel</object-name>
 		<object-name>engineer-panel-top</object-name>	
-		<object-name>engineer-panel-bottom</object-name>		
+		<object-name>engineer-panel-bottom</object-name>
+		<object-name>FuelPanel</object-name>
 		<object-name>pedestal</object-name>		
 		<object-name>door</object-name>	
 		<object-name>book</object-name>

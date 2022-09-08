@@ -58,10 +58,10 @@
 		<type>material</type>
 		<object-name>face</object-name>
 		<object-name>face.001</object-name>
-		<object-name>needle</object-name>
-		<object-name>needle.001</object-name>
-		<object-name>needleB</object-name>
-		<object-name>needleB.001</object-name>
+		<object-name>Needle</object-name>
+		<object-name>Needle.001</object-name>
+		<object-name>NeedleB</object-name>
+		<object-name>NeedleB.001</object-name>
 		<object-name>sup</object-name>
 		<object-name>sup.001</object-name>
 		<condition>			
@@ -79,10 +79,10 @@
 		<type>material</type>
 		<object-name>face</object-name>
 		<object-name>face.001</object-name>
-		<object-name>needle</object-name>
-		<object-name>needle.001</object-name>
-		<object-name>needleB</object-name>
-		<object-name>needleB.001</object-name>
+		<object-name>Needle</object-name>
+		<object-name>Needle.001</object-name>
+		<object-name>NeedleB</object-name>
+		<object-name>NeedleB.001</object-name>
 		<object-name>sup</object-name>
 		<object-name>sup.001</object-name>
 		<condition>			
@@ -125,7 +125,7 @@
 		<object-name>LampGreenON</object-name>
 		<condition>		
 			<greater-than>
-				<property>VC10/ess-bus</property>
+				<property>VC10/electric/ess-bus</property>
 				<value>20</value>
 			</greater-than>
 		  <or>
@@ -157,7 +157,7 @@
 		<object-name>LampGreenON.001</object-name>
 		<condition>		
 			<greater-than>
-				<property>VC10/ess-bus</property>
+				<property>VC10/electric/ess-bus</property>
 				<value>20</value>
 			</greater-than>
 		  <or>
@@ -189,7 +189,7 @@
 		<object-name>LampGreenON.002</object-name>
 		<condition>		
 			<greater-than>
-				<property>VC10/ess-bus</property>
+				<property>VC10/electric/ess-bus</property>
 				<value>20</value>
 			</greater-than>
 		  <or>
@@ -221,7 +221,7 @@
 		<object-name>LampGreenON.003</object-name>
 		<condition>		
 			<greater-than>
-				<property>VC10/ess-bus</property>
+				<property>VC10/electric/ess-bus</property>
 				<value>20</value>
 			</greater-than>
 		  <or>
@@ -253,7 +253,7 @@
 		<object-name>LampAmberON.004</object-name>
 		<condition>		
 			<greater-than>
-				<property>VC10/ess-bus</property>
+				<property>VC10/electric/ess-bus</property>
 				<value>20</value>
 			</greater-than>
 		  <or>
@@ -283,8 +283,8 @@
 	<!-- temperature instruments -->
 	<animation>
 		<type>select</type>
-		<object-name>needle</object-name>
-		<object-name>needle.001</object-name>
+		<object-name>Needle</object-name>
+		<object-name>Needle.001</object-name>
 		<condition>		
 		  <not><property>VC10/anti-ice/duct-temp-select</property></not>
 		</condition>
@@ -292,8 +292,8 @@
 	
 	<animation>
 		<type>select</type>
-		<object-name>needleB</object-name>
-		<object-name>needleB.001</object-name>
+		<object-name>NeedleB</object-name>
+		<object-name>NeedleB.001</object-name>
 		<condition>		
 		  <property>VC10/anti-ice/duct-temp-select</property>
 		</condition>
@@ -301,10 +301,10 @@
 	
 	<animation>
 		<type>rotate</type>
-		<object-name>needle</object-name>		
+		<object-name>Needle</object-name>		
 		<condition>		
 			<greater-than>
-				<property>VC10/ess-bus</property>
+				<property>VC10/electric/ess-bus</property>
 				<value>20</value>
 			</greater-than>
 		</condition>
@@ -327,10 +327,10 @@
 	
 	<animation>
 		<type>rotate</type>
-		<object-name>needleB</object-name>		
+		<object-name>NeedleB</object-name>		
 		<condition>		
 			<greater-than>
-				<property>VC10/ess-bus</property>
+				<property>VC10/electric/ess-bus</property>
 				<value>20</value>
 			</greater-than>
 		</condition>
@@ -353,10 +353,10 @@
 
 	<animation>
 		<type>rotate</type>
-		<object-name>needle.001</object-name>		
+		<object-name>Needle.001</object-name>		
 		<condition>		
 			<greater-than>
-				<property>VC10/ess-bus</property>
+				<property>VC10/electric/ess-bus</property>
 				<value>20</value>
 			</greater-than>
 		</condition>
@@ -379,10 +379,10 @@
 
 	<animation>
 		<type>rotate</type>
-		<object-name>needleB.001</object-name>		
+		<object-name>NeedleB.001</object-name>		
 		<condition>		
 			<greater-than>
-				<property>VC10/ess-bus</property>
+				<property>VC10/electric/ess-bus</property>
 				<value>20</value>
 			</greater-than>
 		</condition>

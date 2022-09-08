@@ -12,12 +12,12 @@
 
 	<animation>
 		<type>material</type>
-		<object-name>Flap.needle</object-name>
+		<object-name>Flap.Needle</object-name>
 		<object-name>Flap.face</object-name>
-		<object-name>Flap.needle.001</object-name>
+		<object-name>Flap.Needle.001</object-name>
 		<object-name>Flap.face.001</object-name>
-		<object-name>Slats.needle</object-name>
-		<object-name>Slats.needle.001</object-name>
+		<object-name>Slats.Needle</object-name>
+		<object-name>Slats.Needle.001</object-name>
 		<condition>
 			<less-than><property>systems/electrical/outputs/cabin-dim</property><value>0.8</value></less-than>
 		</condition>
@@ -31,12 +31,12 @@
 
 	<animation>
 		<type>material</type>
-		<object-name>Flap.needle</object-name>
+		<object-name>Flap.Needle</object-name>
 		<object-name>Flap.face</object-name>
-		<object-name>Flap.needle.001</object-name>
+		<object-name>Flap.Needle.001</object-name>
 		<object-name>Flap.face.001</object-name>
-		<object-name>Slats.needle</object-name>
-		<object-name>Slats.needle.001</object-name>
+		<object-name>Slats.Needle</object-name>
+		<object-name>Slats.Needle.001</object-name>
 		<condition>
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
 			<property>systems/electrical/outputs/cabin-dim</property>
@@ -132,7 +132,7 @@
 		<object-name>LampBlueON</object-name>  <!-- but its a green lamp now :-)) -->
 		<condition>		
 			<greater-than>
-				<property>VC10/ess-bus</property>
+				<property>VC10/electric/ess-bus</property>
 				<value>20</value>
 			</greater-than>
 		  <or>
@@ -231,7 +231,7 @@
 		<object-name>lamp.door.ON</object-name>
 		<condition>		
 			<greater-than>
-				<property>VC10/ess-bus</property>
+				<property>VC10/electric/ess-bus</property>
 				<value>20</value>
 			</greater-than>
 		  <or>
@@ -250,7 +250,7 @@
 		<object-name>lamp.warning.ON</object-name>
 		<condition>	
 			<greater-than>
-				<property>VC10/ess-bus</property>
+				<property>VC10/electric/ess-bus</property>
 				<value>20</value>
 			</greater-than>
 		  <or>
@@ -280,7 +280,7 @@
 		<object-name>lamp.gear.ON</object-name>
 		<condition>	
 			<greater-than>
-				<property>VC10/ess-bus</property>
+				<property>VC10/electric/ess-bus</property>
 				<value>20</value>
 			</greater-than>
 		  <or>
@@ -298,7 +298,7 @@
 
 <animation>
   <type>rotate</type>
-  <object-name>Flap.needle</object-name>
+  <object-name>Flap.Needle</object-name>
   <property>surface-positions/flap-pos-norm</property>
   <interpolation>
     <entry><ind>   0</ind><dep>  0</dep></entry>
@@ -321,7 +321,7 @@
 
 <animation>
   <type>rotate</type>
-  <object-name>Flap.needle.001</object-name>
+  <object-name>Flap.Needle.001</object-name>
   <property>surface-positions/flap-pos-norm</property>
   <interpolation>
     <entry><ind>   0</ind><dep>  0</dep></entry>
@@ -344,7 +344,7 @@
 
 <animation>
   <type>rotate</type>
-  <object-name>Slats.needle</object-name>
+  <object-name>Slats.Needle</object-name>
   <property>surface-positions/flap-pos-norm</property>
   <interpolation>
     <entry><ind>   0</ind><dep>  0</dep></entry>
@@ -367,7 +367,7 @@
 
 <animation>
   <type>rotate</type>
-  <object-name>Slats.needle.001</object-name>
+  <object-name>Slats.Needle.001</object-name>
   <property>surface-positions/flap-pos-norm</property>
   <interpolation>
     <entry><ind>   0</ind><dep>  0</dep></entry>

@@ -2282,10 +2282,10 @@ refs 3
 1 0.227168351412 0.787224411964
 kids 0
 OBJECT poly
-name "needle"
+name "Needle"
 loc -0.025511 -0.065387 0.001863
 data 6
-needle
+Needle
 texture "gen_drive.png"
 texrep 1 1
 crease 30.000001

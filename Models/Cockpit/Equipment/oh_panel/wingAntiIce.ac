@@ -7905,10 +7905,10 @@ refs 3
 2 0.797375559807 0.198282599449
 kids 0
 OBJECT poly
-name "needle"
+name "Needle"
 loc -0.001205 0.045967 0.256616
 data 6
-needle
+Needle
 texture "wingAntiIce.png"
 texrep 1 1
 crease 30.000001
@@ -7949,10 +7949,10 @@ refs 3
 4 0.016632951796 0.324751675129
 kids 0
 OBJECT poly
-name "needle.001"
+name "Needle.001"
 loc -0.001205 0.045887 0.220338
 data 10
-needle.001
+Needle.001
 texture "wingAntiIce.png"
 texrep 1 1
 crease 30.000001
@@ -7993,10 +7993,10 @@ refs 3
 4 0.016632951796 0.324751675129
 kids 0
 OBJECT poly
-name "needleB"
+name "NeedleB"
 loc -0.001205 0.045967 0.256616
 data 7
-needleB
+NeedleB
 texture "wingAntiIce.png"
 texrep 1 1
 crease 30.000001
@@ -8037,10 +8037,10 @@ refs 3
 4 0.016632951796 0.324751675129
 kids 0
 OBJECT poly
-name "needleB.001"
+name "NeedleB.001"
 loc -0.001205 0.045887 0.220338
 data 11
-needleB.001
+NeedleB.001
 texture "wingAntiIce.png"
 texrep 1 1
 crease 30.000001
