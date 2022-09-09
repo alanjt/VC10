@@ -63,8 +63,8 @@ if you contacted me before making any changes to this software.
 	<!-- LPCock ENGINE 1 -->
 	<animation>
 		  <type>rotate</type>
-		  <object-name>Lever</object-name>
-		  <object-name>LeverPin</object-name>
+		<object-name>switch_lever</object-name>
+		<object-name>switch_cylinder</object-name>
 		  <property>VC10/fuel/switches/LPCock[2]</property>
       <factor>60</factor>
 		  <axis>
@@ -81,10 +81,9 @@ if you contacted me before making any changes to this software.
 
 	<animation>
 		  <type>pick</type>
-		  <object-name>Lever</object-name>
-		  <object-name>LeverPin</object-name>
-		  <object-name>Case</object-name>
-		  <object-name>Guard</object-name>
+		<object-name>switch_lever</object-name>
+		<object-name>switch_cylinder</object-name>
+		<object-name>switch_base</object-name>
 		  <action>
 		    <button>0</button>
 		    <repeatable>false</repeatable>
