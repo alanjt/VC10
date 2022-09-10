@@ -33,6 +33,16 @@ props.globals.initNode("VC10/electric/ac/generator/gen2-control-sw",0,"INT");
 props.globals.initNode("VC10/electric/ac/generator/gen3-control-sw",0,"INT");
 props.globals.initNode("VC10/electric/ac/generator/gen4-control-sw",0,"INT");
 
+props.globals.initNode("VC10/electric/ac/FreqVoltsSelectsw",0,"INT");
+
+props.globals.initNode("VC10/electric/dc/bat1_sw",1,"BOOL");
+props.globals.initNode("VC10/electric/dc/bat2_sw",1,"BOOL");
+props.globals.initNode("VC10/electric/dc/tru1_sw",1,"BOOL");
+props.globals.initNode("VC10/electric/dc/tru2_sw",1,"BOOL");
+props.globals.initNode("VC10/electric/dc/Galley1_sw",0,"BOOL");
+props.globals.initNode("VC10/electric/dc/Galley2_sw",0,"BOOL");
+props.globals.initNode("VC10/electric/dc/Galley3_sw",0,"BOOL");
+
 var PowermeterKnob = props.globals.initNode("VC10/electric/ac/generator/powermeter-knob",0,"BOOL");
 var EssDCbus = props.globals.initNode("VC10/electric/ess-bus",0,"DOUBLE");
 var EssFreq = props.globals.initNode("VC10/electric/ess-freq",400,"DOUBLE"); #400Hz is standard

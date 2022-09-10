@@ -472,7 +472,7 @@ if you contacted me before making any changes to this software.
 		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/BoostSw4Aft.xml</path>
 		<offsets>
 		  <x-m>0</x-m>
-		  <y-m> 0.3297</y-m>
+		  <y-m> 0.3967</y-m>
 		  <z-m> 0.3448</z-m>
 		</offsets>
 	</model>
