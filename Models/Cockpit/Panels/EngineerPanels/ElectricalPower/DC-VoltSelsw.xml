@@ -25,7 +25,34 @@ if you contacted me before making any changes to this software.
 <PropertyList>
 
 	<path>Aircraft/VC10/Models/Cockpit/SwitchesLamps/SwitchKnob.ac</path>
-
+	<animation>
+		<type>knob</type>
+		<object-name>knob</object-name>
+		<property>VC10/electric/dc/VoltsSelectsw</property>
+		<factor>45</factor>
+		<center><x-m>0</x-m><y-m>0</y-m><z-m>0</z-m></center>
+		<axis><x>-1</x></axis>
+		<action>
+			<binding>
+				<command>property-cycle</command>
+				<property>VC10/electric/dc/VoltsSelectsw</property>
+				<value>0</value>
+				<value>1</value>
+				<value>2</value>
+				<value>3</value>
+				<value>4</value>
+				<wrap>false</wrap>
+			</binding>
+		</action>
+		<hovered>
+			<binding>
+				<command>set-tooltip</command>
+				<label>FVselect: %d</label>
+				<tooltip-id>no</tooltip-id>
+				<property>VC10/electric/dc/VoltsSelectsw</property>
+			</binding>
+		</hovered>
+	</animation>
 	<!--  -->
 
 </PropertyList>
