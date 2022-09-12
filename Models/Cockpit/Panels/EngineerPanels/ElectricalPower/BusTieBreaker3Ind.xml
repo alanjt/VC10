@@ -26,11 +26,11 @@ if you contacted me before making any changes to this software.
 
 	<path>Aircraft/VC10/Models/Cockpit/SwitchesLamps/magnetic_indicator_round.ac</path>
 
-	<!-- LPCock Indicator ENGINE 1 -->
-<!--	<animation>
+	<!-- BTB indicator 3 -->
+	<animation>
 		<type>textranslate</type>
 		<object-name>ball</object-name>
-		<property>VC10/fuel/valves/LPCock[0]</property>
+		<property>VC10/electric/ac/BTB3-ind</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0.2</dep></entry>
 			<entry><ind>1.0</ind><dep>0</dep></entry>
@@ -43,7 +43,7 @@ if you contacted me before making any changes to this software.
 			<y>1</y>
 			<z>0</z>
 		</axis>
-	</animation> -->
+	</animation>
 
 
 </PropertyList>
