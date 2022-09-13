@@ -168,11 +168,11 @@ if you contacted me before making any changes to this software.
 		</key>
 		<key>
 			<name>Shift + ></name>
-			<desc>toggle Pilot - Autopilot view</desc>
+			<desc>toggle Pilot - Jump Seat view</desc>
 		</key>
 		<key>
 			<name>Ctrl + ></name>
-			<desc>toggle Pilot - Officer view</desc>
+			<desc>toggle Pilot - Navigator view</desc>
 		</key>
 		<key>
 		  <name>F1</name>

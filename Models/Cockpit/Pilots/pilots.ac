@@ -6,7 +6,7 @@ kids 8
 OBJECT poly
 name "CopilotSeat"
 loc 11.3786 -0.259623 -0.162845
-texture "C:/Flightgear/MyAircraft/VC10/Models/Cockpit/Equipment/seats/seats.png"
+texture "seats.png"
 crease 45.000000
 numvert 224
 -8.97525 0.671787 -0.118917
@@ -1488,7 +1488,7 @@ kids 0
 OBJECT poly
 name "fe-seat"
 loc 11.5507 -0.259623 0.452614
-texture "C:/Flightgear/MyAircraft/VC10/Models/Cockpit/Equipment/seats/seats.png"
+texture "seats.png"
 crease 45.000000
 numvert 194
 -8.3839 0.631201 -1.07155
@@ -2714,7 +2714,7 @@ kids 0
 OBJECT poly
 name "NavSeat"
 loc -3.65125 -0.259623 5.41505
-texture "C:/Flightgear/MyAircraft/VC10/Models/Cockpit/Equipment/seats/seats.png"
+texture "seats.png"
 crease 45.000000
 numvert 194
 6.71351 0.277675 -4.97975
@@ -3940,7 +3940,7 @@ kids 0
 OBJECT poly
 name "CaptainSeat"
 loc 11.3764 -0.259623 -0.118238
-texture "C:/Flightgear/MyAircraft/VC10/Models/Cockpit/Equipment/seats/seats.png"
+texture "seats.png"
 crease 45.000000
 numvert 224
 -9.28097 0.584222 0.388894
