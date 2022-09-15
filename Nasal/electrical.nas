@@ -24,10 +24,10 @@
 var count = 0;
 var wait = 0;
 
-props.globals.initNode("VC10/electric/ac/generator/gen-drive-sw[0]",1,"BOOL");
-props.globals.initNode("VC10/electric/ac/generator/gen-drive-sw[1]",1,"BOOL");
-props.globals.initNode("VC10/electric/ac/generator/gen-drive-sw[2]",1,"BOOL");
-props.globals.initNode("VC10/electric/ac/generator/gen-drive-sw[3]",1,"BOOL");
+props.globals.initNode("VC10/electric/ac/generator/gen1-drive-sw",1,"BOOL");
+props.globals.initNode("VC10/electric/ac/generator/gen2-drive-sw",1,"BOOL");
+props.globals.initNode("VC10/electric/ac/generator/gen3-drive-sw",1,"BOOL");
+props.globals.initNode("VC10/electric/ac/generator/gen4-drive-sw",1,"BOOL");
 props.globals.initNode("VC10/electric/ac/generator/gen1-control-sw",0,"INT");
 props.globals.initNode("VC10/electric/ac/generator/gen2-control-sw",0,"INT");
 props.globals.initNode("VC10/electric/ac/generator/gen3-control-sw",0,"INT");
@@ -79,7 +79,30 @@ props.globals.initNode("VC10/electric/dc/NonEssDCbus2-ind",0,"INT");
 props.globals.initNode("VC10/electric/dc/StbyTRUdcBus1-ind",0,"INT");
 props.globals.initNode("VC10/electric/dc/StbyTRUdcBus2-ind",0,"INT");
 
-var PowermeterKnob = props.globals.initNode("VC10/electric/ac/generator/powermeter-knob",0,"BOOL");
+var GroundPowerBus = props.globals.initNode("VC10/electric/gound-power-bus",0,"DOUBLE");
+
+var No1EssDCBus = props.globals.initNode("VC10/electric/no1-essDC-bus",0,"DOUBLE");
+var No1NonEssDCBus = props.globals.initNode("VC10/electric/no1-nonessDC-bus",0,"DOUBLE");
+var No1BatBus = props.globals.initNode("VC10/electric/no1-bat-bus",0,"DOUBLE");
+var No2EssDCBus = props.globals.initNode("VC10/electric/no2-essDC-bus",0,"DOUBLE");
+var No2NonEssDCBus = props.globals.initNode("VC10/electric/no2-nonessDC-bus",0,"DOUBLE");
+var No2BatBus = props.globals.initNode("VC10/electric/no2-bat-bus",0,"DOUBLE");
+
+var No1GenACBus = props.globals.initNode("VC10/electric/no1-genAC-bus",0,"DOUBLE");
+var No1GenControlDCBus = props.globals.initNode("VC10/electric/no1-gen1controlDC-bus",0,"DOUBLE");
+var No2GenACBus = props.globals.initNode("VC10/electric/no2-genAC-bus",0,"DOUBLE");
+var No2GenControlDCBus = props.globals.initNode("VC10/electric/no-gen2controlDC-bus",0,"DOUBLE");
+var No3GenACBus = props.globals.initNode("VC10/electric/no3-genAC-bus",0,"DOUBLE");
+var No3GenControlDCBus = props.globals.initNode("VC10/electric/no-gen3controlDC-bus",0,"DOUBLE");
+var No4GenACBus = props.globals.initNode("VC10/electric/no4-genAC-bus",0,"DOUBLE");
+var No4GenControlDCBus = props.globals.initNode("VC10/electric/no-gen4controlDC-bus",0,"DOUBLE");
+
+var ACEmergELRATBus = props.globals.initNode("VC10/electric/ACEmergELRAT-bus",0,"DOUBLE");
+var ACAuxBus = props.globals.initNode("VC10/electric/ACAux-bus",0,"DOUBLE");
+
+
+####################################################################################################################
+#                                        707 electrical system 
 var EssDCbus = props.globals.initNode("VC10/electric/ess-bus",0,"DOUBLE");
 var EssFreq = props.globals.initNode("VC10/electric/ess-freq",400,"DOUBLE"); #400Hz is standard
 var EssPwr= props.globals.initNode("VC10/electric/ess-power-switch",0,"DOUBLE");
@@ -97,8 +120,10 @@ var LightBeacon = props.globals.initNode("controls/lighting/switches/beacon",0,"
 var LightStrobe = props.globals.initNode("controls/lighting/switches/strobe",0,"BOOL");
 var LightLogo = props.globals.initNode("controls/lighting/switches/logo-lights",0,"BOOL");
 
-
+var PowermeterKnob = props.globals.initNode("VC10/electric/ac/generator/powermeter-knob",0,"BOOL");
 var ExternalConnected = props.globals.initNode("VC10/electric/external-power-connected",0,"BOOL");
+####################################################################################################################
+
 
 var EssDCbus_volts = 0.0;
 var EssDCbus_input=[];
