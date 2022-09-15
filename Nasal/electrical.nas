@@ -253,6 +253,9 @@ var Generator = {
     }    
 
 };
+###							switch-prop					volts_output		  ideal_volts,amps,amp_hours,charge_decimal,charge_amps);
+var battery1 = Battery.new("VC10/electric/dc/bat1_sw","/VC10/electric/dc/bat1",28.0,30,25,1.0,7.0);
+var battery2 = Battery.new("VC10/electric/dc/bat2_sw","/VC10/electric/dc/bat2",28.0,30,25,1.0,7.0);
 
 var battery = Battery.new("VC10/electric/dc/battery-switch","/VC10/electric/dc/battery",24.6,30,34,1.0,7.0);
 
@@ -262,6 +265,9 @@ var generator2 = Generator.new(1,"VC10/electric/ac/generator/gen-drive[1]","/eng
 var generator3 = Generator.new(2,"VC10/electric/ac/generator/gen-drive[2]","/engines/engine[2]/amp-v","/engines/engine[2]/n1",20.0,28.0,60.0);
 var generator4 = Generator.new(3,"VC10/electric/ac/generator/gen-drive[3]","/engines/engine[3]/amp-v","/engines/engine[3]/n1",20.0,28.0,60.0);
 var generator5 = Generator.new(4,"VC10/electric/ac/generator/gen-drive[4]","/engines/APU/amp-v","/engines/APU/rpm",80.0,26.0,60.0);
+
+var TRU1 = Generator.new(0,"VC10/electric/ac/generator/gen-drive[0]","/engines/engine[0]/amp-v","/engines/engine[0]/n1",20.0,28.0,60.0);
+
 
 #####################################
 
