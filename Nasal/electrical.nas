@@ -28,10 +28,16 @@ props.globals.initNode("VC10/electric/ac/generator/gen1-drive-sw",1,"BOOL");
 props.globals.initNode("VC10/electric/ac/generator/gen2-drive-sw",1,"BOOL");
 props.globals.initNode("VC10/electric/ac/generator/gen3-drive-sw",1,"BOOL");
 props.globals.initNode("VC10/electric/ac/generator/gen4-drive-sw",1,"BOOL");
-props.globals.initNode("VC10/electric/ac/generator/gen1-control-sw",0,"INT");
-props.globals.initNode("VC10/electric/ac/generator/gen2-control-sw",0,"INT");
-props.globals.initNode("VC10/electric/ac/generator/gen3-control-sw",0,"INT");
-props.globals.initNode("VC10/electric/ac/generator/gen4-control-sw",0,"INT");
+
+props.globals.initNode("VC10/electric/ac/generator/GC1-sw",0,"INT");
+props.globals.initNode("VC10/electric/ac/generator/GC2-sw",0,"INT");
+props.globals.initNode("VC10/electric/ac/generator/GC3-sw",0,"INT");
+props.globals.initNode("VC10/electric/ac/generator/GC4-sw",0,"INT");
+
+props.globals.initNode("VC10/electric/ac/generator/GCR1-sw",0,"INT");
+props.globals.initNode("VC10/electric/ac/generator/GCR2-sw",0,"INT");
+props.globals.initNode("VC10/electric/ac/generator/GCR3-sw",0,"INT");
+props.globals.initNode("VC10/electric/ac/generator/GCR4-sw",0,"INT");
 
 props.globals.initNode("VC10/electric/ac/SplitSystem_sw",0,"INT");
 props.globals.initNode("VC10/electric/ac/GoundPowerSwitch_sw",0,"INT");
@@ -42,8 +48,8 @@ props.globals.initNode("VC10/electric/ac/CSD_GenTempselsw",0,"INT");
 props.globals.initNode("VC10/electric/ac/KW-KVARselsw",0,"INT");
 props.globals.initNode("VC10/electric/dc/VoltsSelectsw",0,"INT");
 
-props.globals.initNode("VC10/electric/dc/bat1_sw",1,"BOOL");
-props.globals.initNode("VC10/electric/dc/bat2_sw",1,"BOOL");
+props.globals.initNode("VC10/electric/dc/bat1_sw",1,"INT");
+props.globals.initNode("VC10/electric/dc/bat2_sw",1,"INT");
 props.globals.initNode("VC10/electric/dc/tru1_sw",1,"BOOL");
 props.globals.initNode("VC10/electric/dc/tru2_sw",1,"BOOL");
 

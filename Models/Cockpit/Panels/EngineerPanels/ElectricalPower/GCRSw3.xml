@@ -43,7 +43,7 @@ if you contacted me before making any changes to this software.
 	<animation>
 		<type>rotate</type>
 		<object-name>switch_lever</object-name>
-		<property>VC10/electric/ac/generator/GCR-sw[2]</property>
+		<property>VC10/electric/ac/generator/GCR3-sw</property>
 		<axis>
 			<x>0</x><y>1</y><z>0</z>
 		</axis>
@@ -65,18 +65,13 @@ if you contacted me before making any changes to this software.
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>VC10/electric/ac/generator/GCR-sw[2]</property>
+				<property>VC10/electric/ac/generator/GCR3-sw</property>
 			</binding>
-			<!--			<binding>
-				<command>nasal</command>
-				<script>VC10.ac_sync();</script>
-			</binding> -->
 			<binding>
 				<command>property-toggle</command>
 				<property>sim/sound/switch2</property>
 			</binding>
 		</action>
 	</animation>
-	<!--  -->
 
 </PropertyList>

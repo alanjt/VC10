@@ -70,10 +70,17 @@ if you contacted me before making any changes to this software.
 				<command>property-toggle</command>
 				<property>VC10/electric/ac/GoundPowerSwitch_sw</property>
 			</binding>
-			<!--			<binding>
-				<command>nasal</command>
-				<script>VC10.ac_sync();</script>
-			</binding> -->
+ <!--       <binding>
+            <command>nasal</command>
+            <script>	
+							var exco = getprop("VC10/electric/external-power-connected") or 0;
+							var elbat = getprop("/VC10/electric/dc/battery-switch") or 0;
+							var epow = getprop("VC10/electric/ess-power-switch") or 0;
+							if(!elbat or !exco or epow != 5){
+								settimer(func{ setprop("VC10/electric/ground-connect", 0);}, 0.2);
+							}
+						</script>
+        </binding> -->
 			<binding>
 				<command>property-toggle</command>
 				<property>sim/sound/switch2</property>

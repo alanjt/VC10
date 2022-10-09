@@ -295,7 +295,7 @@ if you contacted me before making any changes to this software.
 		<y-m>0</y-m>
 		<z-m>-2.9</z-m>
 	 </offsets>
-	</model>
+	</model> -->
 	
 	<model>
 	 <name>ExternalPowerUnit</name>
@@ -329,7 +329,7 @@ if you contacted me before making any changes to this software.
     		<property>VC10/electric/external-power-connected</property>
 		  </binding>
 		</action>
-  </animation> -->
+  </animation>
 
 	<!-- Fuel Truck -->
 	<!--  <model>
