@@ -532,7 +532,7 @@ if you contacted me before making any changes to this software.
 		</offsets>
 	</model>
 
-	<model>
+<!--	<model>
 		<name>707engineer-panel-top</name>
 		<path>Aircraft/VC10/Models/Cockpit/Equipment/eng_panel/707epaneltop.xml</path>
 		<offsets>
@@ -551,7 +551,7 @@ if you contacted me before making any changes to this software.
 			<y-m>  0.761</y-m>
 			<z-m>  0.980</z-m>
 		</offsets>
-	</model> 
+	</model>  -->
 	
 	<model>
 		<name>engineer-panels</name>

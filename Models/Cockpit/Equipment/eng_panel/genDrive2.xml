@@ -100,7 +100,7 @@ if you contacted me before making any changes to this software.
 				<value>20</value>
 			</greater-than>
 		  <or>
-		  	<not><property>VC10/electric/ac/generator/gen-drive[1]</property></not>
+		  	<not><property>VC10/electric/ac/generator/GenDrv2-sw</property></not>
 		  	<less-than>
 		    	<property>engines/engine[1]/oil-pressure-psi</property>
 		    	<value>37</value>
@@ -142,7 +142,7 @@ if you contacted me before making any changes to this software.
   <animation>
     <type>rotate</type>
     <object-name>cover</object-name>
-    <property>VC10/electric/ac/generator/gen-drive-cover[1]</property>
+    <property>VC10/electric/ac/generator/GenDrv2-Guard</property>
     <interpolation> 
             <entry>
                 <ind>0</ind>
@@ -173,7 +173,7 @@ if you contacted me before making any changes to this software.
 		    <repeatable>false</repeatable>
 		    <binding>
 		        <command>property-toggle</command>
-		        <property>VC10/electric/ac/generator/gen-drive-cover[1]</property>
+		        <property>VC10/electric/ac/generator/GenDrv2-Guard</property>
 		    </binding>
 		    <binding>
 		      <command>property-toggle</command>
@@ -185,7 +185,7 @@ if you contacted me before making any changes to this software.
 	<animation>
 		  <type>rotate</type>
 		  <object-name>switch</object-name>
-		  <property>VC10/electric/ac/generator/gen-drive[1]</property>
+		  <property>VC10/electric/ac/generator/GenDrv2-sw</property>
       <factor>-60</factor>
 		  <axis>
 		   <x>1</x>
@@ -208,7 +208,7 @@ if you contacted me before making any changes to this software.
 		    <repeatable>false</repeatable>
 		    <binding>
 		        <command>property-toggle</command>
-		        <property>VC10/electric/ac/generator/gen-drive[1]</property>
+		        <property>VC10/electric/ac/generator/GenDrv2-sw</property>
 		    </binding>          
 		    <binding>
           <command>nasal</command>

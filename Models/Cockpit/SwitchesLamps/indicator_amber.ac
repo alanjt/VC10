@@ -806,7 +806,7 @@ refs 17
 26 0.205516 0.335581
 kids 0
 OBJECT poly
-name "light"
+name "lens"
 loc 0.0177152 0.0010668 0.000573883
 texture "PressButtonLamp.png"
 crease 61.000000

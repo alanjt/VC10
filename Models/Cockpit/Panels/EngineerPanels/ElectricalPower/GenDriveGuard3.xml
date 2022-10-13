@@ -44,7 +44,7 @@ if you contacted me before making any changes to this software.
 	<animation>
 		<type>rotate</type>
 		<object-name>guard</object-name>
-		<property>VC10/electric/ac/generator/gen-drive-cover[2]</property>
+		<property>VC10/electric/ac/generator/GenDrv3-Guard</property>
 		<interpolation>
 			<entry>
 				<ind>0</ind>
@@ -75,7 +75,7 @@ if you contacted me before making any changes to this software.
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>VC10/electric/ac/generator/gen-drive-cover[2]</property>
+				<property>VC10/electric/ac/generator/GenDrv3-Guard</property>
 			</binding>
 			<binding>
 				<command>property-toggle</command>

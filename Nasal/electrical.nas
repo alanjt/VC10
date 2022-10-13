@@ -24,39 +24,46 @@
 var count = 0;
 var wait = 0;
 
-props.globals.initNode("VC10/electric/ac/generator/gen1-drive-sw",1,"BOOL");
-props.globals.initNode("VC10/electric/ac/generator/gen2-drive-sw",1,"BOOL");
-props.globals.initNode("VC10/electric/ac/generator/gen3-drive-sw",1,"BOOL");
-props.globals.initNode("VC10/electric/ac/generator/gen4-drive-sw",1,"BOOL");
+props.globals.initNode("VC10/electric/ac/generator/GenDrv1-Guard",0,"BOOL");
+props.globals.initNode("VC10/electric/ac/generator/GenDrv2-Guard",0,"BOOL");
+props.globals.initNode("VC10/electric/ac/generator/GenDrv3-Guard",0,"BOOL");
+props.globals.initNode("VC10/electric/ac/generator/GenDrv4-Guard",0,"BOOL");
 
-props.globals.initNode("VC10/electric/ac/generator/GC1-sw",0,"INT");
-props.globals.initNode("VC10/electric/ac/generator/GC2-sw",0,"INT");
-props.globals.initNode("VC10/electric/ac/generator/GC3-sw",0,"INT");
-props.globals.initNode("VC10/electric/ac/generator/GC4-sw",0,"INT");
+props.globals.initNode("VC10/electric/ac/generator/GenDrv1-sw",1,"BOOL");
+props.globals.initNode("VC10/electric/ac/generator/GenDrv2-sw",1,"BOOL");
+props.globals.initNode("VC10/electric/ac/generator/GenDrv3-sw",1,"BOOL");
+props.globals.initNode("VC10/electric/ac/generator/GenDrv4-sw",1,"BOOL");
+props.globals.initNode("VC10/electric/ac/generator/ELRAT-sw",0,"BOOL");
+
+props.globals.initNode("VC10/electric/ac/generator/GenDrive1",1,"BOOL");
+props.globals.initNode("VC10/electric/ac/generator/GenDrive2",1,"BOOL");
+props.globals.initNode("VC10/electric/ac/generator/GenDrive3",1,"BOOL");
+props.globals.initNode("VC10/electric/ac/generator/GenDrive4",1,"BOOL");
 
 props.globals.initNode("VC10/electric/ac/generator/GCR1-sw",0,"INT");
 props.globals.initNode("VC10/electric/ac/generator/GCR2-sw",0,"INT");
 props.globals.initNode("VC10/electric/ac/generator/GCR3-sw",0,"INT");
 props.globals.initNode("VC10/electric/ac/generator/GCR4-sw",0,"INT");
 
-props.globals.initNode("VC10/electric/ac/SplitSystem_sw",0,"INT");
-props.globals.initNode("VC10/electric/ac/GoundPowerSwitch_sw",0,"INT");
-props.globals.initNode("VC10/electric/dc/StbyTRUsel_sw",0,"INT");
+props.globals.initNode("VC10/electric/ac/generator/GC1-sw",0,"INT");
+props.globals.initNode("VC10/electric/ac/generator/GC2-sw",0,"INT");
+props.globals.initNode("VC10/electric/ac/generator/GC3-sw",0,"INT");
+props.globals.initNode("VC10/electric/ac/generator/GC4-sw",0,"INT");
+
+props.globals.initNode("VC10/electric/ac/generator/GEN1-volts",0,"DOUBLE");
+props.globals.initNode("VC10/electric/ac/generator/GEN2-volts",0,"DOUBLE");
+props.globals.initNode("VC10/electric/ac/generator/GEN3-volts",0,"DOUBLE");
+props.globals.initNode("VC10/electric/ac/generator/GEN3-volts",0,"DOUBLE");
+props.globals.initNode("VC10/electric/ac/generator/ELRAT-volts",0,"DOUBLE");
+
+props.globals.initNode("VC10/electric/ac/SSB-sw",0,"INT");
+props.globals.initNode("VC10/electric/ac/GroundPower-sw",0,"INT");
+props.globals.initNode("VC10/electric/ac/GroundBreaker",0,"INT");
 
 props.globals.initNode("VC10/electric/ac/FreqVoltsSelectsw",0,"INT");
 props.globals.initNode("VC10/electric/ac/CSD_GenTempselsw",0,"INT");
 props.globals.initNode("VC10/electric/ac/KW-KVARselsw",0,"INT");
 props.globals.initNode("VC10/electric/dc/VoltsSelectsw",0,"INT");
-
-props.globals.initNode("VC10/electric/dc/bat1_sw",1,"INT");
-props.globals.initNode("VC10/electric/dc/bat2_sw",1,"INT");
-props.globals.initNode("VC10/electric/dc/tru1_sw",1,"BOOL");
-props.globals.initNode("VC10/electric/dc/tru2_sw",1,"BOOL");
-
-
-props.globals.initNode("VC10/electric/dc/Galley1_sw",0,"BOOL");
-props.globals.initNode("VC10/electric/dc/Galley2_sw",0,"BOOL");
-props.globals.initNode("VC10/electric/dc/Galley3_sw",0,"BOOL");
 
 props.globals.initNode("VC10/electric/ac/generator/GCB1-ind",0,"INT");
 props.globals.initNode("VC10/electric/ac/generator/GCB2-ind",0,"INT");
@@ -67,23 +74,31 @@ props.globals.initNode("VC10/electric/ac/BTB1-ind",0,"INT");
 props.globals.initNode("VC10/electric/ac/BTB2-ind",0,"INT");
 props.globals.initNode("VC10/electric/ac/BTB3-ind",0,"INT");
 props.globals.initNode("VC10/electric/ac/BTB4-ind",0,"INT");
-
 props.globals.initNode("VC10/electric/ac/SSB-ind",0,"INT");
 
 props.globals.initNode("VC10/electric/ac/AUXbus-ind",0,"INT");
+
+props.globals.initNode("VC10/electric/dc/bat1_sw",1,"INT");
+props.globals.initNode("VC10/electric/dc/bat2_sw",1,"INT");
+props.globals.initNode("VC10/electric/dc/BAT1-ind",0,"INT");
+props.globals.initNode("VC10/electric/dc/BAT2-ind",0,"INT");
+
+props.globals.initNode("VC10/electric/dc/tru1_sw",1,"BOOL");
+props.globals.initNode("VC10/electric/dc/tru2_sw",1,"BOOL");
+props.globals.initNode("VC10/electric/dc/StbyTRUsel_sw",0,"INT");
 
 props.globals.initNode("VC10/electric/dc/TRU1power-ind",0,"INT");
 props.globals.initNode("VC10/electric/dc/TRU2power-ind",0,"INT");
 props.globals.initNode("VC10/electric/dc/StbyTRUpower-ind",0,"INT");
 
-props.globals.initNode("VC10/electric/dc/BAT1-ind",0,"INT");
-props.globals.initNode("VC10/electric/dc/BAT2-ind",0,"INT");
-
+props.globals.initNode("VC10/electric/dc/StbyTRUdcBus1-ind",0,"INT");
+props.globals.initNode("VC10/electric/dc/StbyTRUdcBus2-ind",0,"INT");
 props.globals.initNode("VC10/electric/dc/NonEssDCbus1-ind",0,"INT");
 props.globals.initNode("VC10/electric/dc/NonEssDCbus2-ind",0,"INT");
 
-props.globals.initNode("VC10/electric/dc/StbyTRUdcBus1-ind",0,"INT");
-props.globals.initNode("VC10/electric/dc/StbyTRUdcBus2-ind",0,"INT");
+props.globals.initNode("VC10/electric/dc/Galley1_sw",0,"BOOL");
+props.globals.initNode("VC10/electric/dc/Galley2_sw",0,"BOOL");
+props.globals.initNode("VC10/electric/dc/Galley3_sw",0,"BOOL");
 
 var GroundPowerBus = props.globals.initNode("VC10/electric/gound-power-bus",0,"DOUBLE");
 
@@ -290,14 +305,14 @@ var battery2 = Battery.new("VC10/electric/dc/bat2_sw","/VC10/electric/dc/bat2",2
 
 var battery = Battery.new("VC10/electric/dc/battery-switch","/VC10/electric/dc/battery",24.6,30,34,1.0,7.0);
 
-###                            num,switch,gen_output,                                      rpm_source,           rpm_threshold,volts,amps
-var generator1 = Generator.new(0,"VC10/electric/ac/generator/gen-drive[0]","/engines/engine[0]/amp-v","/engines/engine[0]/n1",20.0,28.0,60.0);
-var generator2 = Generator.new(1,"VC10/electric/ac/generator/gen-drive[1]","/engines/engine[1]/amp-v","/engines/engine[1]/n1",20.0,28.0,60.0);
-var generator3 = Generator.new(2,"VC10/electric/ac/generator/gen-drive[2]","/engines/engine[2]/amp-v","/engines/engine[2]/n1",20.0,28.0,60.0);
-var generator4 = Generator.new(3,"VC10/electric/ac/generator/gen-drive[3]","/engines/engine[3]/amp-v","/engines/engine[3]/n1",20.0,28.0,60.0);
-var generator5 = Generator.new(4,"VC10/electric/ac/generator/gen-drive[4]","/engines/APU/amp-v","/engines/APU/rpm",80.0,26.0,60.0);
+###                            num,switch,								gen_output,              rpm_source,           rpm_threshold,volts,amps
+var generator1 = Generator.new(0,"VC10/electric/ac/generator/GCR1-sw","VC10/electric/ac/generator/GEN1-volts","/engines/engine[0]/n1",20.0,115.0,60.0);
+var generator2 = Generator.new(1,"VC10/electric/ac/generator/GCR2-sw","VC10/electric/ac/generator/GEN2-volts","/engines/engine[1]/n1",20.0,115.0,60.0);
+var generator3 = Generator.new(2,"VC10/electric/ac/generator/GCR3-sw","VC10/electric/ac/generator/GEN3-volts","/engines/engine[2]/n1",20.0,115.0,60.0);
+var generator4 = Generator.new(3,"VC10/electric/ac/generator/GCR4-sw","VC10/electric/ac/generator/GEN4-volts","/engines/engine[3]/n1",20.0,115.0,60.0);
+var generator5 = Generator.new(4,"VC10/electric/ac/generator/ELRAT-sw","VC10/electric/ac/generator/ELRAT-volts","/fdm/jsbsim/velocities/vtrue-kts",100.0,115.0,60.0);
 
-var TRU1 = Generator.new(0,"VC10/electric/ac/generator/gen-drive[0]","/engines/engine[0]/amp-v","/engines/engine[0]/n1",20.0,28.0,60.0);
+var TRU1 = Generator.new(0,"VC10/electric/ac/generator/GenDrv1-sw","/engines/engine[0]/amp-v","/engines/engine[0]/n1",20.0,28.0,60.0);
 
 
 #####################################
@@ -407,14 +422,14 @@ var update_virtual_bus = func {
 				setprop("VC10/ground-service/fuel-truck/state", 0);
 		  }
 		  
-		  if(battery.switch.getBoolValue()){		  
+		  if(battery1.switch.getBoolValue()){		  
 				if (EssPwr.getValue() == 5 and ExternalConnected.getBoolValue()){
 					  power_source = "External Power";
 					  essdcbus_volts = 27.5;
 						EssSourceFailure.setBoolValue(0);
 					  #recharge
-					  if(essdcbus_volts > battery.actual_volts.getValue()){
-					  	battery.actual_volts.setDoubleValue(battery.actual_volts.getValue() + 0.0005);
+					  if(essdcbus_volts > battery1.actual_volts.getValue()){
+					  	battery1.actual_volts.setDoubleValue(battery1.actual_volts.getValue() + 0.0005);
 					  }		  
 					  if(!getprop("VC10/electric/ground-connect")){
 							if(!generator1.get_output_volts()){
@@ -436,35 +451,35 @@ var update_virtual_bus = func {
 					  essdcbus_volts = generator4.get_output_volts();
 						EssSourceFailure.setBoolValue(0);
 					  #recharge
-					  if(battery.switch.getBoolValue() and essdcbus_volts > battery.actual_volts.getValue()){
-					  	battery.actual_volts.setDoubleValue(battery.actual_volts.getValue() + 0.0005);
+					  if(battery1.switch.getBoolValue() and essdcbus_volts > battery1.actual_volts.getValue()){
+					  	battery1.actual_volts.setDoubleValue(battery1.actual_volts.getValue() + 0.0005);
 					  }
 				}elsif (EssPwr.getValue() == 3 and generator3.get_output_volts() and generator3.gen_bus_tie.getValue() and generator3.gen_breaker.getValue() and generator3.gen_control.getValue()){
 					  power_source = "Generator3";
 					  essdcbus_volts = generator3.get_output_volts();
 						EssSourceFailure.setBoolValue(0);
 					  #recharge
-					  if(battery.switch.getBoolValue() and essdcbus_volts > battery.actual_volts.getValue()){
-					  	battery.actual_volts.setDoubleValue(battery.actual_volts.getValue() + 0.0005);
+					  if(battery1.switch.getBoolValue() and essdcbus_volts > battery1.actual_volts.getValue()){
+					  	battery1.actual_volts.setDoubleValue(battery1.actual_volts.getValue() + 0.0005);
 					  }
 				}elsif (EssPwr.getValue() == 2 and generator2.get_output_volts() and generator2.gen_bus_tie.getValue() and generator2.gen_breaker.getValue() and generator2.gen_control.getValue()){
 					  power_source = "Generator2";
 					  essdcbus_volts = generator2.get_output_volts();
 						EssSourceFailure.setBoolValue(0);
 					  #recharge
-					  if(battery.switch.getBoolValue() and essdcbus_volts > battery.actual_volts.getValue()){
-					  	battery.actual_volts.setDoubleValue(battery.actual_volts.getValue() + 0.0005);
+					  if(battery1.switch.getBoolValue() and essdcbus_volts > battery1.actual_volts.getValue()){
+					  	battery1.actual_volts.setDoubleValue(battery1.actual_volts.getValue() + 0.0005);
 					  }
 				}elsif (EssPwr.getValue() == 1 and generator1.get_output_volts() and generator1.gen_bus_tie.getValue() and generator1.gen_breaker.getValue() and generator1.gen_control.getValue()){
 					  power_source = "Generator1";
 					  essdcbus_volts = generator1.get_output_volts();
 						EssSourceFailure.setBoolValue(0);
 					  #recharge
-					  if(battery.switch.getBoolValue() and essdcbus_volts > battery.actual_volts.getValue()){
-					  	battery.actual_volts.setDoubleValue(battery.actual_volts.getValue() + 0.0005);
+					  if(battery1.switch.getBoolValue() and essdcbus_volts > battery1.actual_volts.getValue()){
+					  	battery1.actual_volts.setDoubleValue(battery1.actual_volts.getValue() + 0.0005);
 					  }
 				}else{
-						settimer(func{ setprop("VC10/electric/ground-connect", 0);}, 0.2);
+					  settimer(func{ setprop("VC10/electric/ground-connect", 0);}, 0.2);
 					  power_source = "APU";
 					  essdcbus_volts = generator5.get_output_volts();
 						if(generator5.get_output_volts() and EssPwr.getValue() == 0){
@@ -484,8 +499,8 @@ var update_virtual_bus = func {
 							}					  
 					  }
 					  #recharge
-					  if(battery.switch.getBoolValue() and essdcbus_volts > battery.actual_volts.getValue()){
-					  	battery.actual_volts.setDoubleValue(battery.actual_volts.getValue() + 0.0005);
+					  if(battery1.switch.getBoolValue() and essdcbus_volts > battery1.actual_volts.getValue()){
+					  	battery1.actual_volts.setDoubleValue(battery1.actual_volts.getValue() + 0.0005);
 					  }
 				}
 
@@ -529,19 +544,19 @@ var update_virtual_bus = func {
 				essdcbus_volts = 0;
 			}
 
-		  if(battery.switch.getBoolValue() and essdcbus_volts < 24){
+		  if(battery1.switch.getBoolValue() and essdcbus_volts < 24){
 		  	EssSourceFailure.setBoolValue(1);
 		  	power_source = "battery";	
-			essdcbus_volts = battery.get_output_volts();	  
+			essdcbus_volts = battery1.get_output_volts();	  
 		  }
 		  
 		  if (essdcbus_volts < 20 and count == 60){ 
 		  		# most switches fall back if ess-buss is low
-					setprop("VC10/electric/ac/generator/gen-drive[0]",0);
-					setprop("VC10/electric/ac/generator/gen-drive[1]",0);
-					setprop("VC10/electric/ac/generator/gen-drive[2]",0);
-					setprop("VC10/electric/ac/generator/gen-drive[3]",0);
-					setprop("VC10/electric/ac/generator/gen-drive[4]",0); #APU
+#					setprop("VC10/electric/ac/generator/GenDrv1-sw",0);
+#					setprop("VC10/electric/ac/generator/GenDrv2-sw",0);
+#					setprop("VC10/electric/ac/generator/GenDrv3-sw",0);
+#					setprop("VC10/electric/ac/generator/GenDrv4-sw",0);
+#					setprop("VC10/electric/ac/generator/gen-drive[4]",0); #APU
 					setprop("VC10/apu/off-start-run",0);
 					setprop("VC10/apu/apu-bleed-valve",0);
 					setprop("VC10/electric/ground-connect",0);
@@ -688,7 +703,7 @@ var sync_lamp = func(ref, in){
 
 ######################## ac paralleling #########################
 var ac_sync = func{		  
-		  if (battery.switch.getBoolValue() and essdcbus_volts > 20){ 
+		  if (battery1.switch.getBoolValue() and essdcbus_volts > 20){ 
 
 				syncLight1.setValue(1);
 				syncLight2.setValue(1);

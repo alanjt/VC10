@@ -40,13 +40,13 @@ if you contacted me before making any changes to this software.
 		</marker>
 		<condition>
 		  <equals>
-		    <property>VC10/electric/ac/generator/gen-drive[0]</property>
+		    <property>VC10/electric/ac/generator/GenDrv1-sw</property>
 		    <value>1</value>
 		  </equals>
 		</condition>		
 		<binding>
 		  <command>property-assign</command>
-		  <property>VC10/electric/ac/generator/gen-drive[0]</property>
+		  <property>VC10/electric/ac/generator/GenDrv1-sw</property>
 		  <value>1</value>
 		</binding>   
 	    <binding>
@@ -66,13 +66,13 @@ if you contacted me before making any changes to this software.
 		</marker>
 		<condition>
 		  <equals>
-		    <property>VC10/electric/ac/generator/gen-drive[1]</property>
+		    <property>VC10/electric/ac/generator/GenDrv2-sw</property>
 		    <value>1</value>
 		  </equals>
 		</condition>		
 		<binding>
 		  <command>property-assign</command>
-		  <property>VC10/electric/ac/generator/gen-drive[1]</property>
+		  <property>VC10/electric/ac/generator/GenDrv2-sw</property>
 		  <value>1</value>
 		</binding>   
 	    <binding>
@@ -92,13 +92,13 @@ if you contacted me before making any changes to this software.
 		</marker>
 		<condition>
 		  <equals>
-		    <property>VC10/electric/ac/generator/gen-drive[2]</property>
+		    <property>VC10/electric/ac/generator/GenDrv3-sw</property>
 		    <value>1</value>
 		  </equals>
 		</condition>		
 		<binding>
 		  <command>property-assign</command>
-		  <property>VC10/electric/ac/generator/gen-drive[2]</property>
+		  <property>VC10/electric/ac/generator/GenDrv3-sw</property>
 		  <value>1</value>
 		</binding>   
 	    <binding>
@@ -118,13 +118,13 @@ if you contacted me before making any changes to this software.
 		</marker>
 		<condition>
 		  <equals>
-		    <property>VC10/electric/ac/generator/gen-drive[3]</property>
+		    <property>VC10/electric/ac/generator/GenDrv4-sw</property>
 		    <value>1</value>
 		  </equals>
 		</condition>		
 		<binding>
 		  <command>property-assign</command>
-		  <property>VC10/electric/ac/generator/gen-drive[3]</property>
+		  <property>VC10/electric/ac/generator/GenDrv4-sw</property>
 		  <value>1</value>
 		</binding>   
 	    <binding>

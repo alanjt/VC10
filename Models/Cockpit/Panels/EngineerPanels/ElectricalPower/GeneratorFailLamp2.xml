@@ -34,7 +34,7 @@ if you contacted me before making any changes to this software.
 				<value>20</value>
 			</greater-than>
 			<or>
-				<not><property>VC10/electric/ac/generator/gen-drive[1]</property></not>
+				<not><property>VC10/electric/ac/generator/GenDrv2-sw</property></not>
 				<less-than>
 					<property>engines/engine[1]/oil-pressure-psi</property>
 					<value>37</value>
@@ -43,7 +43,7 @@ if you contacted me before making any changes to this software.
 			</or>
 		</condition> -->
 		<emission>
-			<factor-prop>VC10/electric/ac/generator/gen-drive[1]</factor-prop>
+			<factor-prop>VC10/electric/ac/generator/GenDrv2-sw</factor-prop>
 			<red>1</red>
 			<green>1</green>
 			<blue>1</blue>

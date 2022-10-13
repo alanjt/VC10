@@ -58,10 +58,10 @@ var Reset = func{
 		setprop("controls/engines/engine[2]/started","false");
 		setprop("controls/engines/engine[3]/started","false");
 		
-		setprop("VC10/electric/ac/generator/gen-drive[0]", 1);
-		setprop("VC10/electric/ac/generator/gen-drive[1]", 1);
-		setprop("VC10/electric/ac/generator/gen-drive[2]", 1);
-		setprop("VC10/electric/ac/generator/gen-drive[3]", 1);
+		setprop("VC10/electric/ac/generator/GenDrv1-sw", 1);
+		setprop("VC10/electric/ac/generator/GenDrv2-sw", 1);
+		setprop("VC10/electric/ac/generator/GenDrv3-sw", 1);
+		setprop("VC10/electric/ac/generator/GenDrv4-sw", 1);
 		setprop("VC10/electric/ac/generator/gen-drive[4]", 1);
 		setprop("VC10/electric/ac/generator/gen-bus-tie[0]", 1);
 		setprop("VC10/electric/ac/generator/gen-bus-tie[1]", 1);

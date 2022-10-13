@@ -52,7 +52,7 @@ if you contacted me before making any changes to this software.
 			<value>0</value>
 		</set>
 		<set>
-			<property>VC10/electric/ac/generator/gen-drive[0]</property>
+			<property>VC10/electric/ac/generator/GenDrv1-sw</property>
 			<value>0</value>
 		</set>
 		<set>
@@ -68,7 +68,7 @@ if you contacted me before making any changes to this software.
 			<value>0</value>
 		</set>
 		<set>
-			<property>VC10/electric/ac/generator/gen-drive[1]</property>
+			<property>VC10/electric/ac/generator/GenDrv2-sw</property>
 			<value>0</value>
 		</set>
 		<set>
@@ -84,7 +84,7 @@ if you contacted me before making any changes to this software.
 			<value>0</value>
 		</set>
 		<set>
-			<property>VC10/electric/ac/generator/gen-drive[2]</property>
+			<property>VC10/electric/ac/generator/GenDrv3-sw</property>
 			<value>0</value>
 		</set>
 		<set>
@@ -104,7 +104,7 @@ if you contacted me before making any changes to this software.
 			<value>0</value>
 		</set>
 		<set>
-			<property>VC10/electric/ac/generator/gen-drive[3]</property>
+			<property>VC10/electric/ac/generator/GenDrv4-sw</property>
 			<value>0</value>
 		</set>
 		<set>
@@ -722,22 +722,22 @@ if you contacted me before making any changes to this software.
 				Es imposible reconectarlas en vuelo.
 			</message>
 			<condition>
-				<not><property>VC10/electric/ac/generator/gen-drive[0]</property></not>
-				<not><property>VC10/electric/ac/generator/gen-drive[1]</property></not>
-				<not><property>VC10/electric/ac/generator/gen-drive[2]</property></not>
-				<not><property>VC10/electric/ac/generator/gen-drive[3]</property></not>
-				<property>VC10/electric/ac/generator/gen-drive-cover[0]</property>
-				<property>VC10/electric/ac/generator/gen-drive-cover[1]</property>
-				<property>VC10/electric/ac/generator/gen-drive-cover[2]</property>
-				<property>VC10/electric/ac/generator/gen-drive-cover[3]</property>
+				<not><property>VC10/electric/ac/generator/GenDrv1-sw</property></not>
+				<not><property>VC10/electric/ac/generator/GenDrv2-sw</property></not>
+				<not><property>VC10/electric/ac/generator/GenDrv3-sw</property></not>
+				<not><property>VC10/electric/ac/generator/GenDrv4-sw</property></not>
+				<property>VC10/electric/ac/generator/GenDrv1-Guard</property>
+				<property>VC10/electric/ac/generator/GenDrv2-Guard</property>
+				<property>VC10/electric/ac/generator/GenDrv3-Guard</property>
+				<property>VC10/electric/ac/generator/GenDrv4-Guard</property>
 			</condition>
 		</error>		
 		<exit>
 			<condition>
-				<property>VC10/electric/ac/generator/gen-drive[0]</property>
-				<property>VC10/electric/ac/generator/gen-drive[1]</property>
-				<property>VC10/electric/ac/generator/gen-drive[2]</property>
-				<property>VC10/electric/ac/generator/gen-drive[3]</property>
+				<property>VC10/electric/ac/generator/GenDrv1-sw</property>
+				<property>VC10/electric/ac/generator/GenDrv2-sw</property>
+				<property>VC10/electric/ac/generator/GenDrv3-sw</property>
+				<property>VC10/electric/ac/generator/GenDrv4-sw</property>
 			</condition>
 		</exit>
 	</step>

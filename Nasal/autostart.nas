@@ -331,73 +331,73 @@ var startup = func
 		# Gen Drive
 		settimer( func{
 		 	if(step == 5 and auto_procedure.getValue()) {
-				setprop("VC10/electric/ac/generator/gen-drive-cover[0]", 1);
+				setprop("VC10/electric/ac/generator/GenDrv1-Guard", 1);
 				click_switch3();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 		 	if(step == 5 and auto_procedure.getValue()) {
-				setprop("VC10/electric/ac/generator/gen-drive-cover[1]", 1);
+				setprop("VC10/electric/ac/generator/GenDrv2-Guard", 1);
 				click_switch3();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 		 	if(step == 5 and auto_procedure.getValue()) {
-				setprop("VC10/electric/ac/generator/gen-drive-cover[2]", 1);
+				setprop("VC10/electric/ac/generator/GenDrv3-Guard", 1);
 				click_switch3();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 		 	if(step == 5 and auto_procedure.getValue()) {
-				setprop("VC10/electric/ac/generator/gen-drive-cover[3]", 1);
+				setprop("VC10/electric/ac/generator/GenDrv4-Guard", 1);
 				click_switch3();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 		 	if(step == 5 and auto_procedure.getValue()) {
-				setprop("VC10/electric/ac/generator/gen-drive[3]", 1);
+				setprop("VC10/electric/ac/generator/GenDrv4-sw", 1);
 				click_switch2();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 		 	if(step == 5 and auto_procedure.getValue()) {
-				setprop("VC10/electric/ac/generator/gen-drive[2]", 1);
+				setprop("VC10/electric/ac/generator/GenDrv3-sw", 1);
 				click_switch2();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 		 	if(step == 5 and auto_procedure.getValue()) {
-				setprop("VC10/electric/ac/generator/gen-drive[1]", 1);
+				setprop("VC10/electric/ac/generator/GenDrv2-sw", 1);
 				click_switch2();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 		 	if(step == 5 and auto_procedure.getValue()) {
-				setprop("VC10/electric/ac/generator/gen-drive[0]", 1);
+				setprop("VC10/electric/ac/generator/GenDrv1-sw", 1);
 				click_switch2();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 		 	if(step == 5 and auto_procedure.getValue()) {
-				setprop("VC10/electric/ac/generator/gen-drive-cover[0]", 0);
+				setprop("VC10/electric/ac/generator/GenDrv1-Guard", 0);
 				click_switch3();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 		 	if(step == 5 and auto_procedure.getValue()) {
-				setprop("VC10/electric/ac/generator/gen-drive-cover[1]", 0);
+				setprop("VC10/electric/ac/generator/GenDrv2-Guard", 0);
 				click_switch3();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 		 	if(step == 5 and auto_procedure.getValue()) {
-				setprop("VC10/electric/ac/generator/gen-drive-cover[2]", 0);
+				setprop("VC10/electric/ac/generator/GenDrv3-Guard", 0);
 				click_switch3();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 		 	if(step == 5 and auto_procedure.getValue()) {
-				setprop("VC10/electric/ac/generator/gen-drive-cover[3]", 0);
+				setprop("VC10/electric/ac/generator/GenDrv4-Guard", 0);
 				click_switch3();
 				step = 6;
 			}
@@ -1355,10 +1355,10 @@ var startup = func
 var shutdown = func
  {
 	 	if(!auto_procedure.getValue()){
-			setprop("VC10/electric/ac/generator/gen-drive[0]", 0);
-			setprop("VC10/electric/ac/generator/gen-drive[1]", 0);
-			setprop("VC10/electric/ac/generator/gen-drive[2]", 0);
-			setprop("VC10/electric/ac/generator/gen-drive[3]", 0);
+			setprop("VC10/electric/ac/generator/GenDrv1-sw", 1);
+			setprop("VC10/electric/ac/generator/GenDrv2-sw", 1);
+			setprop("VC10/electric/ac/generator/GenDrv3-sw", 1);
+			setprop("VC10/electric/ac/generator/GenDrv4-sw", 1);
 			setprop("VC10/electric/ac/generator/gen-drive[4]", 0);
 		 	setprop("VC10/electric/ac/generator/gen-bus-tie[0]", 0);
 			setprop("VC10/electric/ac/generator/gen-bus-tie[1]", 0);
@@ -1521,7 +1521,7 @@ setlistener("engines/engine[0]/running", func
 	 setprop("controls/engines/engine[3]/msg", 0);
 	 setprop("controls/engines/msg", 0);
 	 if(getprop("controls/engines/engine[0]/started")){  # started control engines stop after running
-    	 	setprop("VC10/electric/ac/generator/gen-drive[0]", 0);
+#    	 	setprop("VC10/electric/ac/generator/GenDrv1-sw", 0);
     	 	setprop("VC10/electric/ac/generator/gen-bus-tie[0]", 0);
 				setprop("VC10/electric/ac/generator/gen-breaker[0]", 0);
 				setprop("VC10/electric/ac/generator/gen-control[0]", 0);	 
@@ -1540,7 +1540,7 @@ setlistener("engines/engine[1]/running", func
 	 setprop("controls/engines/engine[3]/msg", 0);
 	 setprop("controls/engines/msg", 0);
 	 if(getprop("controls/engines/engine[1]/started")){  # started control engines stop after running
-    	 	setprop("VC10/electric/ac/generator/gen-drive[1]", 0);
+#    	 	setprop("VC10/electric/ac/generator/GenDrv2-sw", 0);
     	 	setprop("VC10/electric/ac/generator/gen-bus-tie[1]", 0);
 				setprop("VC10/electric/ac/generator/gen-breaker[1]", 0);
 				setprop("VC10/electric/ac/generator/gen-control[1]", 0);	 
@@ -1559,7 +1559,7 @@ setlistener("engines/engine[2]/running", func
 	 setprop("controls/engines/engine[3]/msg", 0);
 	 setprop("controls/engines/msg", 0);
 	 if(getprop("controls/engines/engine[2]/started")){  # started control engines stop after running
-    	 	setprop("VC10/electric/ac/generator/gen-drive[2]", 0);
+ #   	 	setprop("VC10/electric/ac/generator/GenDrv3-sw", 0);
     	 	setprop("VC10/electric/ac/generator/gen-bus-tie[2]", 0);
 				setprop("VC10/electric/ac/generator/gen-breaker[2]", 0);
 				setprop("VC10/electric/ac/generator/gen-control[2]", 0);	 
@@ -1578,7 +1578,7 @@ setlistener("engines/engine[3]/running", func
 	 setprop("controls/engines/engine[3]/msg", 0);
 	 setprop("controls/engines/msg", 0);
 	 if(getprop("controls/engines/engine[3]/started")){  # started control engines stop after running
-    	 	setprop("VC10/electric/ac/generator/gen-drive[3]", 0);
+ #   	 	setprop("VC10/electric/ac/generator/GenDrv4-sw", 0);
     	 	setprop("VC10/electric/ac/generator/gen-bus-tie[3]", 0);
 				setprop("VC10/electric/ac/generator/gen-breaker[3]", 0);
 				setprop("VC10/electric/ac/generator/gen-control[3]", 0);	 
@@ -1637,10 +1637,10 @@ var short_startup = func
 		setprop("VC10/hydraulic/hyd-fluid-pump[0]", 1);
 		setprop("VC10/hydraulic/hyd-fluid-pump[1]", 1);
 	
-		setprop("VC10/electric/ac/generator/gen-drive[0]", 1);
-		setprop("VC10/electric/ac/generator/gen-drive[1]", 1);
-		setprop("VC10/electric/ac/generator/gen-drive[2]", 1);
-		setprop("VC10/electric/ac/generator/gen-drive[3]", 1);
+		setprop("VC10/electric/ac/generator/GenDrv1-sw", 1);
+		setprop("VC10/electric/ac/generator/GenDrv2-sw", 1);
+		setprop("VC10/electric/ac/generator/GenDrv3-sw", 1);
+		setprop("VC10/electric/ac/generator/GenDrv4-sw", 1);
 	 	setprop("VC10/electric/ac/generator/gen-bus-tie[0]", 1);
 		setprop("VC10/electric/ac/generator/gen-bus-tie[1]", 1);
 		setprop("VC10/electric/ac/generator/gen-bus-tie[2]", 1);
