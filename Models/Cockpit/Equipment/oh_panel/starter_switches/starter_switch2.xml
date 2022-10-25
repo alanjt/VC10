@@ -73,9 +73,9 @@ if you contacted me before making any changes to this software.
 				<and>
 					<property>VC10/electric/external-power-connected</property>
 					<property>VC10/electric/ground-connect</property>	
-					<property>VC10/electric/ac/generator/gen-breaker[1]</property>
-					<property>VC10/electric/ac/generator/gen-bus-tie[1]</property>
-					<property>VC10/electric/ac/generator/gen-control[1]</property>
+					<property>VC10/electric/ac/generator/GCR2-sw</property>
+					<property>VC10/electric/ac/BTB2-relay</property>
+					<property>VC10/electric/ac/generator/GCB2-sw</property>
 					<not><property>engines/engine[1]/running</property></not> 
 				</and>
 				<and>
@@ -83,9 +83,9 @@ if you contacted me before making any changes to this software.
 						<property>VC10/electric/ess-bus</property>
 						<value>24</value>
 				 </greater-than>
-					<property>VC10/electric/ac/generator/gen-breaker[1]</property>
-					<property>VC10/electric/ac/generator/gen-bus-tie[1]</property>
-					<property>VC10/electric/ac/generator/gen-control[1]</property>
+					<property>VC10/electric/ac/generator/GCR2-sw</property>
+					<property>VC10/electric/ac/BTB2-relay</property>
+					<property>VC10/electric/ac/generator/GCB2-sw</property>
 					<not><property>engines/engine[1]/running</property></not> 
 				</and>
 				<and>

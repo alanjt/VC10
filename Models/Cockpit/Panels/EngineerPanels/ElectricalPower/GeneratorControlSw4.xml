@@ -29,7 +29,7 @@ if you contacted me before making any changes to this software.
 	<animation>
 		<type>knob</type>
 		<object-name>switch_lever</object-name>
-		<property>VC10/electric/ac/generator/GC4-sw</property>
+		<property>VC10/electric/ac/generator/GCB4-sw</property>
 		<interpolation>
 			<entry><ind>1</ind><dep>40</dep></entry>
 			<entry><ind>-1</ind><dep>-40</dep></entry>
@@ -44,7 +44,7 @@ if you contacted me before making any changes to this software.
 		<action>
 			<binding>
 				<command>property-adjust</command>
-				<property>VC10/electric/ac/generator/GC4-sw</property>
+				<property>VC10/electric/ac/generator/GCB4-sw</property>
 				<factor>1</factor>
 				<min>-1</min><max>1</max>                
 				<wrap>false</wrap>
@@ -58,7 +58,7 @@ if you contacted me before making any changes to this software.
       <release>
             <binding>
                 <command>property-adjust</command>
-                <property>VC10/electric/ac/generator/GC4-sw</property>
+                <property>VC10/electric/ac/generator/GCB4-sw</property>
                 <step>0</step>
                 <min>0</min>
                 <max>0</max>

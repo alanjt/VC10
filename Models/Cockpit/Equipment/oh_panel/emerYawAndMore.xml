@@ -141,7 +141,7 @@ if you contacted me before making any changes to this software.
 			</greater-than>
 		  <or>
 				<property>VC10/emergency/oxygen-valve[0]</property>
-				<not><property>VC10/emergency/oxygen-switch</property></not>
+				<not><property>VC10/emergency/oxygen-sw</property></not>
 		    <property>controls/test/warn-knob</property>
 		  </or>
 		</condition>
@@ -157,7 +157,7 @@ if you contacted me before making any changes to this software.
 			</greater-than>
 		  <or>
 				<property>VC10/emergency/oxygen-valve[1]</property>
-				<not><property>VC10/emergency/oxygen-switch</property></not>
+				<not><property>VC10/emergency/oxygen-sw</property></not>
 		    <property>controls/test/warn-knob</property>
 		  </or>
 		</condition>
@@ -182,7 +182,7 @@ if you contacted me before making any changes to this software.
 	<animation>
 		  <type>rotate</type>
 		  <object-name>switch</object-name>
-		  <property>VC10/emergency/oxygen-switch</property>
+		  <property>VC10/emergency/oxygen-sw</property>
 		 	<interpolation>
 				<entry><ind>  2.0</ind><dep> -50.0</dep></entry>
 				<entry><ind>  0.0</ind><dep>   0.0</dep></entry>
@@ -210,11 +210,11 @@ if you contacted me before making any changes to this software.
         <binding>
             <command>nasal</command>
             <script>
-            	var bt = getprop("VC10/emergency/oxygen-switch") or 0;
+            	var bt = getprop("VC10/emergency/oxygen-sw") or 0;
             	if(bt == 2){
-            		setprop("VC10/emergency/oxygen-switch", 0);
+            		setprop("VC10/emergency/oxygen-sw", 0);
             	}else{
-            		setprop("VC10/emergency/oxygen-switch", 2);
+            		setprop("VC10/emergency/oxygen-sw", 2);
             	}
             	setprop("VC10/emergency/oxygen-valve[0]", 1);
             	settimer( func { setprop("VC10/emergency/oxygen-valve[0]", 0)}, 1.0);
@@ -237,11 +237,11 @@ if you contacted me before making any changes to this software.
         <binding>
             <command>nasal</command>
             <script>
-            	var bt = getprop("VC10/emergency/oxygen-switch") or 0;
+            	var bt = getprop("VC10/emergency/oxygen-sw") or 0;
             	if(bt == 1){
-            		setprop("VC10/emergency/oxygen-switch", 0);
+            		setprop("VC10/emergency/oxygen-sw", 0);
             	}else{
-            		setprop("VC10/emergency/oxygen-switch", 1);
+            		setprop("VC10/emergency/oxygen-sw", 1);
             	}
             	setprop("VC10/emergency/oxygen-valve[1]", 1);
             	settimer( func { setprop("VC10/emergency/oxygen-valve[1]", 0)}, 1.0);

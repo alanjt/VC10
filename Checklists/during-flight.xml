@@ -411,13 +411,13 @@ if you contacted me before making any changes to this software.
 		</marker>
 		<condition>
 		  <equals>
-		    <property>VC10/emergency/oxygen-switch</property>
+		    <property>VC10/emergency/oxygen-sw</property>
 		    <value>2</value>
 		  </equals>
 		</condition>		
 		<binding>
 		  <command>property-assign</command>
-	      <property>VC10/emergency/oxygen-switch</property>
+	      <property>VC10/emergency/oxygen-sw</property>
 	      <value>2</value>
 		</binding>    
 	    <binding>

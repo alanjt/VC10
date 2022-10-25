@@ -256,7 +256,7 @@ var update_fuel = func {
 #Fuel feed to engines from fuselage tanks via collector tanks and LP cocks.
 ###################################################################################### 
 
-	if (getprop("controls/switches/port_lp_cock_sw") == 0) {
+	if (getprop("controls/switches/port_lp_cock-switch") == 0) {
 		Port_LPCock.set_closed();
 	}
 	else {
@@ -264,7 +264,7 @@ var update_fuel = func {
 	}
 	
 
-	if (getprop("controls/switches/stbd_lp_cock_sw") == 0) {
+	if (getprop("controls/switches/stbd_lp_cock-switch") == 0) {
 		Stbd_LPCock.set_closed();
 	}
 	else {
@@ -434,14 +434,14 @@ var update_fuel = func {
 ## fuel switches on the navigators fuel panel.
 
 	var direction_sw = (getprop("controls/switches/fuel/manual_transfer"));  # -1=AFT,  0=OFF,  1=FWD
-	var tank1_sw = (getprop("controls/switches/fuel/fuel_tank1_sw"));        # -1=FLGT, 0=OFF,  1=REFL
-	var tank2_sw = (getprop("controls/switches/fuel/fuel_tank2_sw"));        # -1=FLGT, 0=OFF,  1=REFL
-	var tank3_sw = (getprop("controls/switches/fuel/fuel_tank3_sw"));        # -1=FLGT, 0=OFF,  1=REFL
-	var tank4_sw = (getprop("controls/switches/fuel/fuel_tank4_sw"));        # -1=FLGT, 0=OFF,  1=REFL
-	var wingtank_sw = (getprop("controls/switches/fuel/fuel_tankwings_sw")); # -1=FLGT, 0=OFF,  1=REFL
-	var droptank_sw = (getprop("controls/switches/fuel/fuel_tankOL_sw"));    # -1=FLGT, 0=OFF,  1=REFL
-	var fuel_master_sw = (getprop("controls/switches/fuel/fuel_master_sw")); # -1=OFF,  0=REFL, 1=DEFL
-	var fuel_fuse_sw = (getprop("controls/switches/fuel/fuel_refuel_sw"));   #          0=FULL, 1=HALF
+	var tank1_sw = (getprop("controls/switches/fuel/fuel_tank1-switch"));        # -1=FLGT, 0=OFF,  1=REFL
+	var tank2_sw = (getprop("controls/switches/fuel/fuel_tank2-switch"));        # -1=FLGT, 0=OFF,  1=REFL
+	var tank3_sw = (getprop("controls/switches/fuel/fuel_tank3-switch"));        # -1=FLGT, 0=OFF,  1=REFL
+	var tank4_sw = (getprop("controls/switches/fuel/fuel_tank4-switch"));        # -1=FLGT, 0=OFF,  1=REFL
+	var wingtank_sw = (getprop("controls/switches/fuel/fuel_tankwings-switch")); # -1=FLGT, 0=OFF,  1=REFL
+	var droptank_sw = (getprop("controls/switches/fuel/fuel_tankOL-switch"));    # -1=FLGT, 0=OFF,  1=REFL
+	var fuel_master_sw = (getprop("controls/switches/fuel/fuel_master-switch")); # -1=OFF,  0=REFL, 1=DEFL
+	var fuel_fuse_sw = (getprop("controls/switches/fuel/fuel_refuel-switch"));   #          0=FULL, 1=HALF
 
 	var tank1Andgate1 = (tank1_sw == -1) and (direction_sw == 1) and Tank_1.below_Xferlevel();
 	var tank1Andgate2 = (Tank_1.below_half() or (fuel_master_sw == 1)) and (fuel_fuse_sw == 1);

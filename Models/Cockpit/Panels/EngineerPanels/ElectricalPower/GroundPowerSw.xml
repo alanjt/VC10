@@ -70,7 +70,7 @@ if you contacted me before making any changes to this software.
 				<command>property-toggle</command>
 				<property>VC10/electric/ac/GroundPower-sw</property>
 			</binding>
- <!--       <binding>
+        <binding>
             <command>nasal</command>
             <script>	
 							var exco = getprop("VC10/electric/external-power-connected") or 0;
@@ -80,7 +80,7 @@ if you contacted me before making any changes to this software.
 								settimer(func{ setprop("VC10/electric/ground-connect", 0);}, 0.2);
 							}
 						</script>
-        </binding> -->
+        </binding>
 			<binding>
 				<command>property-toggle</command>
 				<property>sim/sound/switch2</property>
