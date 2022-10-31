@@ -41,20 +41,33 @@ props.globals.initNode("VC10/electric/ac/generator/GenDrv3",1,"BOOL");
 props.globals.initNode("VC10/electric/ac/generator/GenDrv4",1,"BOOL");
 props.globals.initNode("VC10/electric/ac/generator/GenDrvELRAT",1,"BOOL");
 
+props.globals.initNode("VC10/electric/ac/generator/GenFail1",0,"BOOL");
+props.globals.initNode("VC10/electric/ac/generator/GenFail2",0,"BOOL");
+props.globals.initNode("VC10/electric/ac/generator/GenFail3",0,"BOOL");
+props.globals.initNode("VC10/electric/ac/generator/GenFail4",0,"BOOL");
+
+props.globals.initNode("VC10/electric/ac/generator/CSD1low_pressure",0,"BOOL");
+props.globals.initNode("VC10/electric/ac/generator/CSD2low_pressure",0,"BOOL");
+props.globals.initNode("VC10/electric/ac/generator/CSD3low_pressure",0,"BOOL");
+props.globals.initNode("VC10/electric/ac/generator/CSD4low_pressure",0,"BOOL");
+
+props.globals.initNode("VC10/electric/ac/generator/GenFail2",0,"BOOL");
+props.globals.initNode("VC10/electric/ac/generator/GenFail3",0,"BOOL");
+props.globals.initNode("VC10/electric/ac/generator/GenFail4",0,"BOOL");
 props.globals.initNode("VC10/electric/ac/generator/GCR1-sw",1,"INT");
 props.globals.initNode("VC10/electric/ac/generator/GCR2-sw",1,"INT");
 props.globals.initNode("VC10/electric/ac/generator/GCR3-sw",1,"INT");
 props.globals.initNode("VC10/electric/ac/generator/GCR4-sw",1,"INT");
 
-props.globals.initNode("VC10/electric/ac/generator/GCR1_relay",1,"INT");
-props.globals.initNode("VC10/electric/ac/generator/GCR2_relay",1,"INT");
-props.globals.initNode("VC10/electric/ac/generator/GCR3_relay",1,"INT");
-props.globals.initNode("VC10/electric/ac/generator/GCR4_relay",1,"INT");
+props.globals.initNode("VC10/electric/ac/generator/Gen1ControlRelay",1,"INT");
+props.globals.initNode("VC10/electric/ac/generator/Gen2ControlRelay",1,"INT");
+props.globals.initNode("VC10/electric/ac/generator/Gen3ControlRelay",1,"INT");
+props.globals.initNode("VC10/electric/ac/generator/Gen4ControlRelay",1,"INT");
 
-props.globals.initNode("VC10/electric/ac/generator/GCB1-sw",0,"INT");
-props.globals.initNode("VC10/electric/ac/generator/GCB2-sw",0,"INT");
-props.globals.initNode("VC10/electric/ac/generator/GCB3-sw",0,"INT");
-props.globals.initNode("VC10/electric/ac/generator/GCB4-sw",0,"INT");
+props.globals.initNode("VC10/electric/ac/generator/Gen1Control-sw",0,"INT");
+props.globals.initNode("VC10/electric/ac/generator/Gen2Control-sw",0,"INT");
+props.globals.initNode("VC10/electric/ac/generator/Gen3Control-sw",0,"INT");
+props.globals.initNode("VC10/electric/ac/generator/Gen4Control-sw",0,"INT");
 
 props.globals.initNode("VC10/electric/ac/generator/GCB1",0,"INT");
 props.globals.initNode("VC10/electric/ac/generator/GCB2",0,"INT");
@@ -87,11 +100,6 @@ props.globals.initNode("VC10/electric/ac/FreqVoltsSelectsw",0,"INT");
 props.globals.initNode("VC10/electric/ac/CSD_GenTempselsw",0,"INT");
 props.globals.initNode("VC10/electric/ac/KW-KVARselsw",0,"INT");
 props.globals.initNode("VC10/electric/dc/VoltsSelectsw",0,"INT");
-
-props.globals.initNode("VC10/electric/ac/generator/GCB1-ind",0,"INT");
-props.globals.initNode("VC10/electric/ac/generator/GCB2-ind",0,"INT");
-props.globals.initNode("VC10/electric/ac/generator/GCB3-ind",0,"INT");
-props.globals.initNode("VC10/electric/ac/generator/GCB4-ind",0,"INT");
 
 props.globals.initNode("VC10/electric/ac/BTB1-relay",0,"INT");
 props.globals.initNode("VC10/electric/ac/BTB2-relay",0,"INT");
@@ -284,47 +292,46 @@ var Generator = {
 		if (num == 0){
 			m.meter = props.globals.getNode("VC10/electric/ac/generator/gen-load[0]",1);
 			m.meter.setDoubleValue(0);
-			m.gen_bus_tie = props.globals.getNode("VC10/electric/ac/generator/BTB1-relay",1);
-			m.gen_bus_tie.setDoubleValue(0);			
+##			m.gen_bus_tie = props.globals.getNode("VC10/electric/ac/generator/BTB1-relay",1);
+##			m.gen_bus_tie.setDoubleValue(0);			
 			m.frequency = props.globals.getNode("VC10/electric/ac/generator/gen-freq[0]",1);
 			m.frequency.setDoubleValue(my_rand(386,418));
-			m.gen_breaker = props.globals.getNode("VC10/electric/ac/generator/GCR1_relay",1);
-			m.gen_breaker.setDoubleValue(0);
-			m.gen_control = props.globals.getNode("VC10/electric/ac/generator/GCB1",1);
-			m.gen_control.setDoubleValue(0);
+##			m.gen_breaker = props.globals.getNode("VC10/electric/ac/generator/GCB1",1);
+##			m.gen_breaker.setDoubleValue(0);
+##			m.gen_control = props.globals.getNode("VC10/electric/ac/generator/Gen1ControlRelay",1);
+##			m.gen_control.setDoubleValue(0);
 			}elsif( num == 1){
 		    m.meter = props.globals.getNode("VC10/electric/ac/generator/gen-load[1]",1);
 			m.meter.setDoubleValue(0);
-			m.gen_bus_tie = props.globals.getNode("VC10/electric/ac/generator/BTB2-relay",1);
-			m.gen_bus_tie.setDoubleValue(0);			
+##			m.gen_bus_tie = props.globals.getNode("VC10/electric/ac/generator/BTB2-relay",1);
+##			m.gen_bus_tie.setDoubleValue(0);			
 			m.frequency = props.globals.getNode("VC10/electric/ac/generator/gen-freq[1]",1);
 			m.frequency.setDoubleValue(my_rand(386,418));
-			m.gen_breaker = props.globals.getNode("VC10/electric/ac/generator/GCR2_relay",1);
-			m.gen_breaker.setDoubleValue(0);
-			m.gen_control = props.globals.getNode("VC10/electric/ac/generator/GCB2",1);
-			m.gen_control.setDoubleValue(0);
+##			m.gen_breaker = props.globals.getNode("VC10/electric/ac/generator/GCB2",1);
+##			m.gen_breaker.setDoubleValue(0);
+##			m.gen_control = props.globals.getNode("VC10/electric/ac/generator/Gen2ControlRelay",1);
+##			m.gen_control.setDoubleValue(0);
 			}elsif( num == 2){
 		    m.meter = props.globals.getNode("VC10/electric/ac/generator/gen-load[2]",1);
 			m.meter.setDoubleValue(0);
-			m.gen_bus_tie = props.globals.getNode("VC10/electric/ac/generator/BTB3-relay",1);
-			m.gen_bus_tie.setDoubleValue(0);			
+##			m.gen_bus_tie = props.globals.getNode("VC10/electric/ac/generator/BTB3-relay",1);
+##			m.gen_bus_tie.setDoubleValue(0);			
 			m.frequency = props.globals.getNode("VC10/electric/ac/generator/gen-freq[2]",1);
 			m.frequency.setDoubleValue(my_rand(386,418));
-			m.gen_breaker = props.globals.getNode("VC10/electric/ac/generator/GCR3_relay",1);
-			m.gen_breaker.setDoubleValue(0);
-			m.gen_control = props.globals.getNode("VC10/electric/ac/generator/GCB3",1);
-			m.gen_control.setDoubleValue(0);
-			}elsif( num == 3){
+##			m.gen_breaker = props.globals.getNode("VC10/electric/ac/generator/GCB3",1);
+##			m.gen_breaker.setDoubleValue(0);
+##			m.gen_control = props.globals.getNode("VC10/electric/ac/generator/Gen3ControlRelay",1);
+##			}elsif( num == 3){
 		    m.meter = props.globals.getNode("VC10/electric/ac/generator/gen-load[3]",1);
 			m.meter.setDoubleValue(0);
-			m.gen_bus_tie = props.globals.getNode("VC10/electric/ac/generator/BTB4-relay",1);
-			m.gen_bus_tie.setDoubleValue(0);			
+##			m.gen_bus_tie = props.globals.getNode("VC10/electric/ac/generator/BTB4-relay",1);
+##			m.gen_bus_tie.setDoubleValue(0);			
 			m.frequency = props.globals.getNode("VC10/electric/ac/generator/gen-freq[3]",1);
 			m.frequency.setDoubleValue(my_rand(386,418));
-			m.gen_control = props.globals.getNode("VC10/electric/ac/generator/GCR4_relay",1);
-			m.gen_control.setDoubleValue(0);
-			m.gen_breaker = props.globals.getNode("VC10/electric/ac/generator/GCB4",1);
-			m.gen_breaker.setDoubleValue(0);
+##			m.gen_control = props.globals.getNode("VC10/electric/ac/generator/GCB4",1);
+##			m.gen_control.setDoubleValue(0);
+##			m.gen_breaker = props.globals.getNode("VC10/electric/ac/generator/Gen4ControlRelay",1);
+##			m.gen_breaker.setDoubleValue(0);
 			}		
         m.gen_index = num;
         return m;
@@ -347,17 +354,18 @@ var Generator = {
 
     get_output_volts : func {
         var out = 0;
-##		var switch = me.gen_drive_switch.getBoolValue();
 		var switch = me.gen_drive_switch.getValue();
-##		print ("switch ", switch);
-##        if(me.gen_drive_switch.getBoolValue() and getprop("engines/engine["~me.gen_index~"]/running") or 
-       if(me.gen_drive_switch.getBoolValue() and (me.rpm_source.getValue() > me.rpm_threshold) or 
+		var threshold = me.rpm_threshold; 
+       
+		if(me.gen_drive_switch.getBoolValue() and (me.rpm_source.getValue() > threshold) or 
           (me.gen_drive_switch.getBoolValue() and me.gen_index == 4)){
-            var factor = me.rpm_source.getValue() / me.rpm_threshold or 0;
+            var factor = me.rpm_source.getValue() / threshold or 0;
             if ( factor > 1.0 )factor = 1.0;
             var out = (me.ideal_volts * factor) + me.condition; #condition is only a random between 0.01 and 0.6
         }
         me.gen_output.setValue(out);
+		
+		
         return out;
     }    
 };
@@ -482,11 +490,10 @@ var update_buses = func {
 	var Gen2_volts = getprop("VC10/electric/ac/generator/Gen2-volts") or 0;
 	var Gen3_volts = getprop("VC10/electric/ac/generator/Gen3-volts") or 0;
 	var Gen4_volts = getprop("VC10/electric/ac/generator/Gen4-volts") or 0;
-	
-	var GCR1_relay = getprop("VC10/electric/ac/generator/GCR1_relay") or 0;
-	var GCR2_relay = getprop("VC10/electric/ac/generator/GCR2_relay") or 0;	
-	var GCR3_relay = getprop("VC10/electric/ac/generator/GCR3_relay") or 0;	
-	var GCR4_relay = getprop("VC10/electric/ac/generator/GCR4_relay") or 0;
+	var Gen1ControlRelay = getprop("VC10/electric/ac/generator/Gen1ControlRelay") or 0;
+	var Gen2ControlRelay = getprop("VC10/electric/ac/generator/Gen2ControlRelay") or 0;	
+	var Gen3ControlRelay = getprop("VC10/electric/ac/generator/Gen3ControlRelay") or 0;	
+	var Gen4ControlRelay = getprop("VC10/electric/ac/generator/Gen4ControlRelay") or 0;
 	var GCB1 = getprop("VC10/electric/ac/generator/GCB1") or 0;
 	var GCB2 = getprop("VC10/electric/ac/generator/GCB2") or 0;	
 	var GCB3 = getprop("VC10/electric/ac/generator/GCB3") or 0;	
@@ -496,10 +503,10 @@ var update_buses = func {
 	var BTB3 = getprop("VC10/electric/ac/BTB3-relay") or 0;
 	var BTB4 = getprop("VC10/electric/ac/BTB4-relay") or 0;
 	var SSB = getprop("VC10/electric/ac/SSB") or 0;
-	var Gen1V = Gen1_volts*GCR1_relay;
-	var Gen2V = Gen2_volts*GCR2_relay; 
-	var Gen3V = Gen3_volts*GCR3_relay; 
-	var Gen4V = Gen4_volts*GCR4_relay; 
+	var Gen1V = Gen1_volts*Gen1ControlRelay;
+	var Gen2V = Gen2_volts*Gen2ControlRelay; 
+	var Gen3V = Gen3_volts*Gen3ControlRelay; 
+	var Gen4V = Gen4_volts*Gen4ControlRelay;
 	
 	var No1ACbus_volts = math.max(Gen1V*GCB1,
 								Gen3V*GCB3*BTB3*BTB1,
@@ -535,7 +542,7 @@ var update_buses = func {
 	setprop("VC10/electric/ac/no2-AC-bus-volts",No2ACbus_volts);
 	setprop("VC10/electric/ac/no3-AC-bus-volts",No3ACbus_volts);
 	setprop("VC10/electric/ac/no4-AC-bus-volts",No4ACbus_volts);
-	
+
 #	generator1.apply_load(load);
 #	generator2.apply_load(load);
 #	generator3.apply_load(load);
@@ -547,6 +554,26 @@ var update_buses = func {
 	generator3.get_output_volts();
 	generator4.get_output_volts();
 	generator0.get_output_volts(); # ELRAT
+	
+##	Constant Speed Drive  
+	var GDrive1 = getprop("VC10/electric/ac/generator/GenDrv1");
+	var GDrive2 = getprop("VC10/electric/ac/generator/GenDrv2");	
+	var GDrive3 = getprop("VC10/electric/ac/generator/GenDrv3");	
+	var GDrive4 = getprop("VC10/electric/ac/generator/GenDrv4");	
+	
+	var Engine1n2 = getprop("/engines/engine[0]/n2");
+	var Engine2n2 = getprop("/engines/engine[0]/n2");	
+	var Engine3n2 = getprop("/engines/engine[0]/n2");	
+	var Engine4n2 = getprop("/engines/engine[0]/n2");
+	
+	if ((Engine1n2 < 50.0) or !GDrive1) setprop("VC10/electric/ac/generator/CSD1low_pressure",1)
+		else setprop("VC10/electric/ac/generator/CSD1low_pressure",0); 
+	if ((Engine2n2 < 50.0) or !GDrive2) setprop("VC10/electric/ac/generator/CSD2low_pressure",1)
+		else setprop("VC10/electric/ac/generator/CSD2low_pressure",0); 
+	if ((Engine3n2 < 50.0) or !GDrive3) setprop("VC10/electric/ac/generator/CSD3low_pressure",1)
+		else setprop("VC10/electric/ac/generator/CSD3low_pressure",0); 
+	if ((Engine4n2 < 50.0) or !GDrive4) setprop("VC10/electric/ac/generator/CSD4low_pressure",1)
+		else setprop("VC10/electric/ac/generator/CSD4low_pressure",0); 
 }
 var update_virtual_bus = func {
 		  var PWR = getprop("systems/electrical/serviceable");
@@ -711,10 +738,10 @@ var update_virtual_bus = func {
 					setprop("VC10/electric/ac/generator/GCR2-sw",0);
 					setprop("VC10/electric/ac/generator/GCR3-sw",0);
 					setprop("VC10/electric/ac/generator/GCR4-sw",0);
-					setprop("VC10/electric/ac/generator/GCB1-sw",0);
-					setprop("VC10/electric/ac/generator/GCB2-sw",0);
-					setprop("VC10/electric/ac/generator/GCB3-sw",0);
-					setprop("VC10/electric/ac/generator/GCB4-sw",0);
+##					setprop("VC10/electric/ac/generator/Gen1Control-sw",0);
+##					setprop("VC10/electric/ac/generator/Gen2Control-sw",0);
+##					setprop("VC10/electric/ac/generator/Gen3Control-sw",0);
+##					setprop("VC10/electric/ac/generator/Gen4Control-sw",0);
 					setprop("VC10/electric/ac/generator/GC1_relay",0);
 					setprop("VC10/electric/ac/generator/GC2_relay",0);
 					setprop("VC10/electric/ac/generator/GC3_relay",0);
@@ -1039,95 +1066,104 @@ setlistener("VC10/electric/external-power-connected", func(state){
 
 },0,0);
 
-
+## Generator Drive Switches
+## 1 = Normal (Should be returned to this position after use, to unpower the CSD drive trip solenoid.)
+## 0 = Disconnect (Activates the generator CSD drive trip solenoid)
 setlistener("VC10/electric/ac/generator/GenDrv1-sw", func {
 	var GDsw = getprop("VC10/electric/ac/generator/GenDrv1-sw");
 	if(GDsw == 0){
 			setprop("VC10/electric/ac/generator/GenDrv1", 0);
+			setprop("VC10/electric/ac/generator/GCB1", 0);
+			setprop("VC10/electric/ac/generator/GenFail1", 1);
 		} 
 });
 setlistener("VC10/electric/ac/generator/GenDrv2-sw", func {
 	var GDsw = getprop("VC10/electric/ac/generator/GenDrv2-sw");
 	if(GDsw == 0){
 			setprop("VC10/electric/ac/generator/GenDrv2", 0);
+			setprop("VC10/electric/ac/generator/GCB2", 0);
+			setprop("VC10/electric/ac/generator/GenFail2", 1);
 		} 
 });
 setlistener("VC10/electric/ac/generator/GenDrv3-sw", func {
 	var GDsw = getprop("VC10/electric/ac/generator/GenDrv3-sw");
 	if(GDsw == 0){
 			setprop("VC10/electric/ac/generator/GenDrv3", 0);
+			setprop("VC10/electric/ac/generator/GCB3", 0);
+			setprop("VC10/electric/ac/generator/GenFail3", 1);
 		} 
 });
 setlistener("VC10/electric/ac/generator/GenDrv4-sw", func {
 	var GDsw = getprop("VC10/electric/ac/generator/GenDrv4-sw");
 	if(GDsw == 0){
 			setprop("VC10/electric/ac/generator/GenDrv4", 0);
-		} 
-});
-
-setlistener("VC10/electric/ac/generator/GCR1-sw", func {
-	var GCRsw = getprop("VC10/electric/ac/generator/GCR1-sw");
-	if(GCRsw == 1){
-			setprop("VC10/electric/ac/generator/GCR1_relay", 1);
-			}elsif(GCRsw == -1){
-			setprop("VC10/electric/ac/generator/GCR1_relay", 0);
-		} 
-});
-setlistener("VC10/electric/ac/generator/GCR2-sw", func {
-	var GCRsw = getprop("VC10/electric/ac/generator/GCR2-sw");
-	if(GCRsw == 1){
-			setprop("VC10/electric/ac/generator/GCR2_relay", 1);
-			}elsif(GCRsw == -1){
-			setprop("VC10/electric/ac/generator/GCR2_relay", 0);
-		} 
-});
-setlistener("VC10/electric/ac/generator/GCR3-sw", func {
-	var GCRsw = getprop("VC10/electric/ac/generator/GCR3-sw");
-	if(GCRsw == 1){
-			setprop("VC10/electric/ac/generator/GCR3_relay", 1);
-			}elsif(GCRsw == -1){
-			setprop("VC10/electric/ac/generator/GCR3_relay", 0);
-		} 
-});
-setlistener("VC10/electric/ac/generator/GCR4-sw", func {
-	var GCRsw = getprop("VC10/electric/ac/generator/GCR4-sw");
-	if(GCRsw == 1){
-			setprop("VC10/electric/ac/generator/GCR4_relay", 1);
-			}elsif(GCRsw == -1){
-			setprop("VC10/electric/ac/generator/GCR4_relay", 0);
-		} 
-});
-
-setlistener("VC10/electric/ac/generator/GCB1-sw", func {
-	var GCBsw = getprop("VC10/electric/ac/generator/GCB1-sw");
-	if(GCBsw == 1){
-			setprop("VC10/electric/ac/generator/GCB1", 1);
-			}elsif(GCBsw == -1){
-			setprop("VC10/electric/ac/generator/GCB1", 0);
-		} 
-});
- setlistener("VC10/electric/ac/generator/GCB2-sw", func {
-	var GCBsw = getprop("VC10/electric/ac/generator/GCB2-sw");
-	if(GCBsw == 1){
-			setprop("VC10/electric/ac/generator/GCB2", 1);
-			}elsif(GCBsw == -1){
-			setprop("VC10/electric/ac/generator/GCB2", 0);
-		} 
-});
-setlistener("VC10/electric/ac/generator/GCB3-sw", func {
-	var GCBsw = getprop("VC10/electric/ac/generator/GCB3-sw");
-	if(GCBsw == 1){
-			setprop("VC10/electric/ac/generator/GCB3", 1);
-			}elsif(GCBsw == -1){
-			setprop("VC10/electric/ac/generator/GCB3", 0);
-		} 
-});
-setlistener("VC10/electric/ac/generator/GCB4-sw", func {
-	var GCBsw = getprop("VC10/electric/ac/generator/GCB4-sw");
-	if(GCBsw == 1){
-			setprop("VC10/electric/ac/generator/GCB4", 1);
-			}elsif(GCBsw == -1){
 			setprop("VC10/electric/ac/generator/GCB4", 0);
+			setprop("VC10/electric/ac/generator/GenFail4", 1);
+		} 
+});
+
+## Generator Control Switches
+##  1 = Normal
+##  0   (spring loaded centre position)
+## -1 = Trip
+setlistener("VC10/electric/ac/generator/Gen1Control-sw", func {
+	var GenControl_sw = getprop("VC10/electric/ac/generator/Gen1Control-sw");
+	if (GenControl_sw == 1) {
+			setprop("VC10/electric/ac/generator/Gen1ControlRelay", 1);
+			}elsif(GenControl_sw == -1){
+			setprop("VC10/electric/ac/generator/Gen1ControlRelay", 0);
+		} 
+});
+setlistener("VC10/electric/ac/generator/Gen2Control-sw", func {
+	var GenControl_sw = getprop("VC10/electric/ac/generator/Gen2Control-sw");
+	if (GenControl_sw == 1) {
+			setprop("VC10/electric/ac/generator/Gen2ControlRelay", 1);
+			}elsif(GenControl_sw == -1){
+			setprop("VC10/electric/ac/generator/Gen2ControlRelay", 0);
+		} 
+});
+setlistener("VC10/electric/ac/generator/Gen3Control-sw", func {
+	var GenControl_sw = getprop("VC10/electric/ac/generator/Gen3Control-sw");
+	if (GenControl_sw == 1) {
+			setprop("VC10/electric/ac/generator/Gen3ControlRelay", 1);
+			}elsif(GenControl_sw == -1){
+			setprop("VC10/electric/ac/generator/Gen3ControlRelay", 0);
+		} 
+});
+setlistener("VC10/electric/ac/generator/Gen4Control-sw", func {
+	var GenControl_sw = getprop("VC10/electric/ac/generator/Gen4Control-sw");
+	if (GenControl_sw == 1) {
+			setprop("VC10/electric/ac/generator/Gen4ControlRelay", 1);
+			}elsif(GenControl_sw == -1){
+			setprop("VC10/electric/ac/generator/Gen4ControlRelay", 0);
+		} 
+});
+
+## Generator Circuit Breaker Switches
+## 1 = Close
+## 0 = Trip
+setlistener("VC10/electric/ac/generator/Gen1Control-sw", func {
+	var GenControl_sw = getprop("VC10/electric/ac/generator/Gen1Control-sw");
+	if(GenControl_sw == 1){
+			setprop("VC10/electric/ac/generator/GCB1", 1);
+		} 
+});
+ setlistener("VC10/electric/ac/generator/Gen2Control-sw", func {
+	var GenControl_sw = getprop("VC10/electric/ac/generator/Gen2Control-sw");
+	if(GenControl_sw == 1){
+			setprop("VC10/electric/ac/generator/GCB2", 1);
+		} 
+});
+setlistener("VC10/electric/ac/generator/Gen3Control-sw", func {
+	var GenControl_sw = getprop("VC10/electric/ac/generator/Gen3Control-sw");
+	if(GenControl_sw == 1){
+			setprop("VC10/electric/ac/generator/GCB3", 1);
+		} 
+});
+setlistener("VC10/electric/ac/generator/Gen4Control-sw", func {
+	var GenControl_sw = getprop("VC10/electric/ac/generator/Gen4Control-sw");
+	if(GenControl_sw == 1){
+			setprop("VC10/electric/ac/generator/GCB4", 1);
 		} 
 });
 ##############################################################################################

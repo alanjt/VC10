@@ -345,7 +345,7 @@ if you contacted me before making any changes to this software.
 			</greater-than>
 		  <or>
 		  	<less-than>
-		    	<property>VC10/electric/ac/generator/GCB2-sw</property>
+		    	<property>VC10/electric/ac/generator/Gen2Control-sw</property>
 		    	<value>1</value>
 		    </less-than>
 		    <property>controls/test/warn-knob</property>
@@ -363,7 +363,7 @@ if you contacted me before making any changes to this software.
 				</less-than>
 				<and>
 				  <greater-than>
-				  	<property>VC10/electric/ac/generator/GCB2-sw</property>
+				  	<property>VC10/electric/ac/generator/Gen2Control-sw</property>
 				  	<value>0</value>
 				  </greater-than>
 				  <not><property>controls/test/warn-knob</property></not>
@@ -418,7 +418,7 @@ if you contacted me before making any changes to this software.
 	<animation>
 		  <type>rotate</type>
 		  <object-name>switch.001</object-name>
-		  <property>VC10/electric/ac/generator/GCB2-sw</property>
+		  <property>VC10/electric/ac/generator/Gen2Control-sw</property>
       <factor>-40</factor>
 		  <axis>
 		   <x>1</x>
@@ -442,11 +442,11 @@ if you contacted me before making any changes to this software.
         <binding>
             <command>nasal</command>
             <script>
-            	var gc = getprop("VC10/electric/ac/generator/GCB2-sw") or 0;
+            	var gc = getprop("VC10/electric/ac/generator/Gen2Control-sw") or 0;
             	if(gc > 0){
-            		setprop("VC10/electric/ac/generator/GCB2-sw", 0);
+            		setprop("VC10/electric/ac/generator/Gen2Control-sw", 0);
             	}else{
-            		setprop("VC10/electric/ac/generator/GCB2-sw", 2);
+            		setprop("VC10/electric/ac/generator/Gen2Control-sw", 2);
             		VC10.ac_sync();
             	}
             </script>
@@ -455,12 +455,12 @@ if you contacted me before making any changes to this software.
           <binding>
             <command>nasal</command>
             <script>
-            	var gc = getprop("VC10/electric/ac/generator/GCB2-sw") or 0;
+            	var gc = getprop("VC10/electric/ac/generator/Gen2Control-sw") or 0;
             	if(gc == 2){
-            		setprop("VC10/electric/ac/generator/GCB2-sw", 1);
+            		setprop("VC10/electric/ac/generator/Gen2Control-sw", 1);
             		VC10.ac_sync();
             	}else{
-            		setprop("VC10/electric/ac/generator/GCB2-sw", 0);
+            		setprop("VC10/electric/ac/generator/Gen2Control-sw", 0);
             	}
             </script>
           </binding>

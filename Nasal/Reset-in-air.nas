@@ -66,6 +66,10 @@ var Reset = func{
 		setprop("VC10/electric/ac/generator/GenDrv2", 1);
 		setprop("VC10/electric/ac/generator/GenDrv3", 1);
 		setprop("VC10/electric/ac/generator/GenDrv4", 1);
+		setprop("VC10/electric/ac/generator/GenFail1", 0);
+		setprop("VC10/electric/ac/generator/GenFail2", 0);
+		setprop("VC10/electric/ac/generator/GenFail3", 0);
+		setprop("VC10/electric/ac/generator/GenFail4", 0);
 		setprop("VC10/electric/ac/generator/gen-drive[4]", 1);
 		setprop("VC10/electric/ac/BTB1-relay", 1);
 		setprop("VC10/electric/ac/BTB2-relay", 1);
@@ -75,10 +79,10 @@ var Reset = func{
 		setprop("VC10/electric/ac/generator/GCR2-sw", 1);			
 		setprop("VC10/electric/ac/generator/GCR3-sw", 1);			
 		setprop("VC10/electric/ac/generator/GCR4-sw", 1);
-		setprop("VC10/electric/ac/generator/GCB1-sw", 0);
-		setprop("VC10/electric/ac/generator/GCB2-sw", 0);
-		setprop("VC10/electric/ac/generator/GCB3-sw", 0);
-		setprop("VC10/electric/ac/generator/GCB4-sw", 0);
+		setprop("VC10/electric/ac/generator/Gen1Control-sw", 0);
+		setprop("VC10/electric/ac/generator/Gen2Control-sw", 0);
+		setprop("VC10/electric/ac/generator/Gen3Control-sw", 0);
+		setprop("VC10/electric/ac/generator/Gen4Control-sw", 0);
 		setprop("VC10/electric/ac/generator/GC1_relay", 1);
 		setprop("VC10/electric/ac/generator/GC2_relay", 1);
 		setprop("VC10/electric/ac/generator/GC3_relay", 1);

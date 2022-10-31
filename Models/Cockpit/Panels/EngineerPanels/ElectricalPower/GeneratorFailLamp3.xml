@@ -28,22 +28,8 @@ if you contacted me before making any changes to this software.
 	<animation>
 		<type>material</type>
 		<object-name>lens</object-name>
-<!--		<condition>
-			<greater-than>
-				<property>VC10/electric/ess-bus</property>
-				<value>20</value>
-			</greater-than>
-			<or>
-				<not><property>VC10/electric/ac/generator/GenDrv3-sw</property></not>
-				<less-than>
-					<property>engines/engine[2]/oil-pressure-psi</property>
-					<value>37</value>
-				</less-than>
-				<property>controls/test/warn-knob</property>
-			</or>
-		</condition> -->
 		<emission>
-			<factor-prop>VC10/electric/ac/generator/GenDrv3-sw</factor-prop>
+			<factor-prop>VC10/electric/ac/generator/GenFail3</factor-prop>
 			<red>1</red>
 			<green>1</green>
 			<blue>1</blue>

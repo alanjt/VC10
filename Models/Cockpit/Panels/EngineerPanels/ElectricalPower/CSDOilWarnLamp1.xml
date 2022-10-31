@@ -25,6 +25,16 @@ if you contacted me before making any changes to this software.
 <PropertyList>
 
 	<path>Aircraft/VC10/Models/Cockpit/SwitchesLamps/indicator_red.ac</path>
+	<animation>
+		<type>material</type>
+		<object-name>lens</object-name>
+		<emission>
+			<factor-prop>VC10/electric/ac/generator/CSD1low_pressure</factor-prop>
+			<red>1</red>
+			<green>1</green>
+			<blue>1</blue>
+		</emission>
+	</animation>
 
 	<!--  -->
 
