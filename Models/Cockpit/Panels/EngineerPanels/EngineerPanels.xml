@@ -72,6 +72,18 @@ if you contacted me before making any changes to this software.
 			<pitch-deg>55</pitch-deg>
 		</offsets>
 	</model>
+	
+	<model>
+		<name>Engineer Rear Panels</name>
+		<path>RearPanel/RearEngineerPanel.xml</path>
+		<offsets>
+			<x-m>0</x-m>
+			<y-m>1.05</y-m>
+			<z-m>0</z-m>
+			<pitch-deg>0</pitch-deg>
+			<heading-deg>-90</heading-deg>
+		</offsets>
+	</model>
 
 <!--	<model>
 		<name>FuelPanel</name>
