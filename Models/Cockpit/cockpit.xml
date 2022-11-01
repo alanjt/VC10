@@ -553,16 +553,19 @@ if you contacted me before making any changes to this software.
 		</offsets>
 	</model>  -->
 	
+	
+	
 	<model>
-		<name>engineer-panels</name>
-		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/EngineerPanels.xml</path>
+		<name>engineer-station</name>
+		<path>Aircraft/VC10/Models/Cockpit/EngineerStation.xml</path>
 		<offsets>
-			<x-m>2.895</x-m>
-			<y-m>  0.761</y-m>
-             <z-m>  0.675</z-m>
+			<x-m> 3.476</x-m>
+			<y-m> 1.173</y-m>
+            <z-m> 0.755</z-m>
 			<heading-deg>-90.0</heading-deg>
 		</offsets>
 	</model>
+
 	
 	<model>
 		<name>wiper_pilot</name>
