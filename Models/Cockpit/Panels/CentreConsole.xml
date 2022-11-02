@@ -70,7 +70,7 @@ if you contacted me before making any changes to this software.
 	 
 	 <model>
 		<path>Aircraft/VC10/Models/Cockpit/Instruments/radio/StationBoxCaptain.xml</path>
-		<name>AT_controller</name>
+		<name>StationBoxCaptain</name>
 		<offsets>   
 			<x-m>0.355</x-m>
 			<y-m>-0.160</y-m>

@@ -42,8 +42,8 @@ if you contacted me before making any changes to this software.
 		<name>Engineer Rear Bulkhead Panels</name>
 		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/RearPanel/RearEngineerPanel.xml</path>
 		<offsets>
-			<x-m>0</x-m>
-			<y-m>1.05</y-m>
+			<x-m>0.080</x-m>
+			<y-m>1.065</y-m>
 			<z-m>0</z-m>
 			<pitch-deg>0</pitch-deg>
 			<heading-deg>-90</heading-deg>
