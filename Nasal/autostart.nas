@@ -70,7 +70,7 @@ var startup = func
 	 	# Batteries
 	 	settimer( func{
 			if(step == 2 and auto_procedure.getValue()){
-				setprop("VC10/electric/dc/bat1-switch", 1);
+				setprop("VC10/electric/dc/bat1_sw", 1);
 				click_switch3();
 				step = 3;
 			}else{
@@ -82,7 +82,7 @@ var startup = func
 		t += 0.5;
 	 	settimer( func{
 			if(step == 3 and auto_procedure.getValue()){
-		 		setprop("VC10/electric/dc/bat2-switch", 1);
+		 		setprop("VC10/electric/dc/bat2_sw", 1);
 				click_switch3();
 				step = 4;
 			}else{
@@ -419,8 +419,8 @@ var startup = func
 		# external power to Power Bus Tie (sync bus)
 		settimer( func{
 		 	if(step == 6 and auto_procedure.getValue()) {
-				setprop("VC10/electric/ground-connect", 1);
-				click_switch2();
+##				setprop("VC10/electric/ground-connect", 1);
+##				click_switch2();
 				screen.log.write("External Power Unit connected!", 1, 1, 1);
 			}else{
 				step = 0;
@@ -1058,7 +1058,7 @@ var startup = func
 		# external power disconnected Power Bus Tie (sync bus)
 		settimer( func{ 		
 			if(step == 14 and auto_procedure.getValue()){
-				setprop("VC10/electric/ground-connect", 0);
+##				setprop("VC10/electric/ground-connect", 0);
 				click_switch2();
 				
 				screen.log.write("External Power Unit disconnected! Continue the startup procedure.", 1, 1, 1);
@@ -1346,7 +1346,7 @@ var starter = func(nr)
 	var s_ext_con = getprop("VC10/electric/external-power-connected") or 0;
 	var s_ess_pwr = getprop("VC10/electric/ess-power-switch") or 0;
 	var s_ess_bus = getprop("VC10/electric/ess-bus") or 0;
-	var s_ground_c = getprop("VC10/electric/ground-connect") or 0;
+##	var s_ground_c = getprop("VC10/electric/ground-connect") or 0;
 	var s_par_sel = getprop("VC10/electric/ac/ac-para-select") or 0;
 	if (nr == 0){
 		var s_apu_gen =  0;			
@@ -1371,7 +1371,8 @@ var starter = func(nr)
 	};
 	
 	if(s_bat and s_ess_bus > 20 and s_gen_bre and s_bus_tie and s_bus_con and
-			((s_ext_con and s_ess_pwr == 5 and s_ground_c == 1) or
+##			((s_ext_con and s_ess_pwr == 5 and s_ground_c == 1) or
+			((s_ext_con and s_ess_pwr == 5 ) or
 		 	 ( s_ess_pwr == 0 and s_apu_start == 2 and s_apu_gen) or
 		 	 ((run1.getBoolValue() and s_ess_pwr == 1) or 
 		 	  (run2.getBoolValue() and s_ess_pwr == 2) or 
@@ -1415,7 +1416,7 @@ setlistener("VC10/start/startercover[2]", func(open)
 	var s_ext_con = getprop("VC10/electric/external-power-connected") or 0;
 	var s_ess_pwr = getprop("VC10/electric/ess-power-switch") or 0;
 	var s_ess_bus = getprop("VC10/electric/ess-bus") or 0;
-	var s_ground_c = getprop("VC10/electric/ground-connect") or 0;
+#	var s_ground_c = getprop("VC10/electric/ground-connect") or 0;
 	var s_par_sel = getprop("VC10/electric/ac/ac-para-select") or 0;
 	var s_apu_start = getprop("VC10/apu/off-start-run") or 0;
 	var s_apu_gen = getprop("VC10/electric/ac/generator/gen-drive[4]") or 0;			
@@ -1423,7 +1424,8 @@ setlistener("VC10/start/startercover[2]", func(open)
 	var s_gen_bre = getprop("VC10/electric/ac/generator/GCR3-sw") or 0;
 	
 	if(open and s_bat and s_ess_bus > 20 and s_gen_bre and s_bus_tie and 
-			((s_ext_con and s_ess_pwr == 5 and s_ground_c == 1) or
+##			((s_ext_con and s_ess_pwr == 5 and s_ground_c == 1) or
+			((s_ext_con and s_ess_pwr == 5) or
 		 	 ( s_ess_pwr == 0 and s_apu_start == 2 and s_apu_gen))
 		){
 	 setprop("controls/engines/engine[2]/msg", 1);
@@ -1567,7 +1569,7 @@ var short_startup = func
  {
  	setprop("VC10/electric/dc/battery-switch", 1);		
  	setprop("VC10/electric/external-power-connected", 0);
-	setprop("VC10/electric/ground-connect", 0);
+#	setprop("VC10/electric/ground-connect", 0);
 	setprop("VC10/electric/ess-power-switch", 0);
 	setprop("VC10/electric/ac/ac-para-select", 0);
 ## 	setprop("VC10/apu/starter", 1);

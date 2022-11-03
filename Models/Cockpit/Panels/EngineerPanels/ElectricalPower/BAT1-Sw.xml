@@ -66,7 +66,7 @@ if you contacted me before making any changes to this software.
 				<property>sim/sound/switch2</property>
 			</binding>
 		</action>
-		<!-- Release action, limit to -1 and 1. 0 is spring loaded centre position -->
+		<!-- Release action, limit to -1 and 1. 0 is spring loaded centre position
 		<release>
 			<binding>
 				<command>property-adjust</command>
@@ -75,6 +75,6 @@ if you contacted me before making any changes to this software.
 				<min>0</min>
 				<max>0</max>
 			</binding>
-		</release>
+		</release> -->
 	</animation>
 </PropertyList>

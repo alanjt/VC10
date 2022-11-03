@@ -45,7 +45,7 @@ if you contacted me before making any changes to this software.
 		<type>rotate</type>
 		<object-name>switch_lever</object-name>
 		<object-name>switch_cylinder</object-name>
-		<property>VC10/electric/ac/GroundPower-sw</property>
+		<property>VC10/electric/GroundPower-sw</property>
 		<axis>
 			<x>0</x><y>1</y><z>0</z>
 		</axis>
@@ -68,19 +68,8 @@ if you contacted me before making any changes to this software.
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>VC10/electric/ac/GroundPower-sw</property>
+				<property>VC10/electric/GroundPower-sw</property>
 			</binding>
-        <binding>
-            <command>nasal</command>
-            <script>	
-							var exco = getprop("VC10/electric/external-power-connected") or 0;
-							var elbat = getprop("/VC10/electric/dc/battery-switch") or 0;
-							var epow = getprop("VC10/electric/ess-power-switch") or 0;
-							if(!elbat or !exco or epow != 5){
-								settimer(func{ setprop("VC10/electric/ground-connect", 0);}, 0.2);
-							}
-						</script>
-        </binding>
 			<binding>
 				<command>property-toggle</command>
 				<property>sim/sound/switch2</property>

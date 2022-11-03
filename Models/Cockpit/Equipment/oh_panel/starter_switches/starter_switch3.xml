@@ -72,7 +72,7 @@ if you contacted me before making any changes to this software.
 				<property>controls/test/warn-knob</property>
 				<and>
 					<property>VC10/electric/external-power-connected</property>
-					<property>VC10/electric/ground-connect</property>	
+<!--					<property>VC10/electric/ground-connect</property>	 -->
 					<property>VC10/electric/ac/generator/GCR3-sw</property>
 					<property>VC10/electric/ac/BTB3-relay</property>
 					<property>VC10/electric/ac/generator/Gen3Control-sw</property>

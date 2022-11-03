@@ -125,7 +125,7 @@ if you contacted me before making any changes to this software.
                 <type>bool</type><property type="string">VC10/electric/external-power-connected</property>
             </signal>
             <signal>
-                <type>double</type><property type="string">VC10/electric/ground-connect</property>
+ <!--               <type>double</type><property type="string">VC10/electric/ground-connect</property> -->
             </signal>
             <signal>
                 <type>double</type><property type="string">VC10/shake-effect/shaking</property>
