@@ -693,10 +693,6 @@
 		    <max>4</max>
 		    <wrap>1</wrap>
 		  </binding>
-		   <binding>
-		      <command>nasal</command>
-		      <script>VC10.ac_sync();</script>
-		  </binding>
 		  <binding>
 		    <command>property-toggle</command>
 		    <property>sim/sound/switch3</property>
@@ -712,10 +708,6 @@
 		    <min>0</min>
 		    <max>4</max>
 		    <wrap>1</wrap>
-		  </binding>
-		  <binding>
-		      <command>nasal</command>
-		      <script>VC10.ac_sync();</script>
 		  </binding>
 		  <binding>
 		    <command>property-toggle</command>

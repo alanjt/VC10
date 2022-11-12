@@ -48,11 +48,11 @@ if you contacted me before making any changes to this software.
 			<value>0</value>
 		</set>
 		<set>
-			<property>VC10/electric/ac/generator/Gen1Control-sw</property>
+			<property>VC10/electric/ac/generator/Gen1-Control-sw</property>
 			<value>0</value>
 		</set>
 		<set>
-			<property>VC10/electric/ac/generator/GenDrv1-sw</property>
+			<property>VC10/electric/ac/generator/Gen1-Drv-sw</property>
 			<value>0</value>
 		</set>
 		<set>
@@ -64,11 +64,11 @@ if you contacted me before making any changes to this software.
 			<value>0</value>
 		</set>
 		<set>
-			<property>VC10/electric/ac/generator/Gen2Control-sw</property>
+			<property>VC10/electric/ac/generator/Gen2-Control-sw</property>
 			<value>0</value>
 		</set>
 		<set>
-			<property>VC10/electric/ac/generator/GenDrv2-sw</property>
+			<property>VC10/electric/ac/generator/Gen2-Drv-sw</property>
 			<value>0</value>
 		</set>
 		<set>
@@ -80,11 +80,11 @@ if you contacted me before making any changes to this software.
 			<value>0</value>
 		</set>
 		<set>
-			<property>VC10/electric/ac/generator/Gen3Control-sw</property>
+			<property>VC10/electric/ac/generator/Gen3-Control-sw</property>
 			<value>0</value>
 		</set>
 		<set>
-			<property>VC10/electric/ac/generator/GenDrv3-sw</property>
+			<property>VC10/electric/ac/generator/Gen3-Drv-sw</property>
 			<value>0</value>
 		</set>
 		<set>
@@ -100,11 +100,11 @@ if you contacted me before making any changes to this software.
 			<value>0</value>
 		</set>
 		<set>
-			<property>VC10/electric/ac/generator/Gen4Control-sw</property>
+			<property>VC10/electric/ac/generator/Gen4-Control-sw</property>
 			<value>0</value>
 		</set>
 		<set>
-			<property>VC10/electric/ac/generator/GenDrv4-sw</property>
+			<property>VC10/electric/ac/generator/Gen4-Drv-sw</property>
 			<value>0</value>
 		</set>
 		<set>
@@ -208,7 +208,7 @@ if you contacted me before making any changes to this software.
 			<value>0</value>
 		</set>
 		<set>
-			<property>VC10/electric/dc/battery-switch</property>
+			<property>VC10/electric/dc/Battery-switch</property>
 			<value>0</value>
 		</set>		
 		<set>
@@ -333,12 +333,12 @@ if you contacted me before making any changes to this software.
 		<error>
 			<message>Open the cover and switch on the battery.</message>
 			<condition>
-				<not><property>VC10/electric/dc/battery-switch</property></not>
+				<not><property>VC10/electric/dc/Battery-switch</property></not>
 			</condition>
 		</error>
 		<exit>
 			<condition>
-				<property>VC10/electric/dc/battery-switch</property>
+				<property>VC10/electric/dc/Battery-switch</property>
 			</condition>
 		</exit>
 	</step>
@@ -723,22 +723,22 @@ if you contacted me before making any changes to this software.
 				Reconnect in flight is impossible.
 			</message>
 			<condition>
-				<not><property>VC10/electric/ac/generator/GenDrv1-sw</property></not>
-				<not><property>VC10/electric/ac/generator/GenDrv2-sw</property></not>
-				<not><property>VC10/electric/ac/generator/GenDrv3-sw</property></not>
-				<not><property>VC10/electric/ac/generator/GenDrv4-sw</property></not>
-				<property>VC10/electric/ac/generator/GenDrv1-Guard</property>
-				<property>VC10/electric/ac/generator/GenDrv2-Guard</property>
-				<property>VC10/electric/ac/generator/GenDrv3-Guard</property>
-				<property>VC10/electric/ac/generator/GenDrv4-Guard</property>
+				<not><property>VC10/electric/ac/generator/Gen1-Drv-sw</property></not>
+				<not><property>VC10/electric/ac/generator/Gen2-Drv-sw</property></not>
+				<not><property>VC10/electric/ac/generator/Gen3-Drv-sw</property></not>
+				<not><property>VC10/electric/ac/generator/Gen4-Drv-sw</property></not>
+				<property>VC10/electric/ac/generator/Gen1-Drv-Guard</property>
+				<property>VC10/electric/ac/generator/Gen2-Drv-Guard</property>
+				<property>VC10/electric/ac/generator/Gen3-Drv-Guard</property>
+				<property>VC10/electric/ac/generator/Gen4-Drv-Guard</property>
 			</condition>
 		</error>		
 		<exit>
 			<condition>
-				<property>VC10/electric/ac/generator/GenDrv1-sw</property>
-				<property>VC10/electric/ac/generator/GenDrv2-sw</property>
-				<property>VC10/electric/ac/generator/GenDrv3-sw</property>
-				<property>VC10/electric/ac/generator/GenDrv4-sw</property>
+				<property>VC10/electric/ac/generator/Gen1-Drv-sw</property>
+				<property>VC10/electric/ac/generator/Gen2-Drv-sw</property>
+				<property>VC10/electric/ac/generator/Gen3-Drv-sw</property>
+				<property>VC10/electric/ac/generator/Gen4-Drv-sw</property>
 			</condition>
 		</exit>
 	</step>
@@ -813,10 +813,10 @@ if you contacted me before making any changes to this software.
 				Switch on all controllers and close the covers!
 			</message>
 			<condition>
-				<not><property>VC10/electric/ac/generator/Gen1Control-sw</property></not>
-				<not><property>VC10/electric/ac/generator/Gen2Control-sw</property></not>
-				<not><property>VC10/electric/ac/generator/Gen3Control-sw</property></not>
-				<not><property>VC10/electric/ac/generator/Gen4Control-sw</property></not>
+				<not><property>VC10/electric/ac/generator/Gen1-Control-sw</property></not>
+				<not><property>VC10/electric/ac/generator/Gen2-Control-sw</property></not>
+				<not><property>VC10/electric/ac/generator/Gen3-Control-sw</property></not>
+				<not><property>VC10/electric/ac/generator/Gen4-Control-sw</property></not>
 				<property>VC10/electric/ac/generator/gen-control-cover[0]</property>
 				<property>VC10/electric/ac/generator/gen-control-cover[1]</property>
 				<property>VC10/electric/ac/generator/gen-control-cover[2]</property>
@@ -825,10 +825,10 @@ if you contacted me before making any changes to this software.
 		</error>	
 		<exit>
 			<condition>
-				<property>VC10/electric/ac/generator/Gen1Control-sw</property>
-				<property>VC10/electric/ac/generator/Gen2Control-sw</property>
-				<property>VC10/electric/ac/generator/Gen3Control-sw</property>
-				<property>VC10/electric/ac/generator/Gen4Control-sw</property>
+				<property>VC10/electric/ac/generator/Gen1-Control-sw</property>
+				<property>VC10/electric/ac/generator/Gen2-Control-sw</property>
+				<property>VC10/electric/ac/generator/Gen3-Control-sw</property>
+				<property>VC10/electric/ac/generator/Gen4-Control-sw</property>
 			</condition>
 		</exit>
 	</step>

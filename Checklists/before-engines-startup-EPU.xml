@@ -40,13 +40,13 @@ if you contacted me before making any changes to this software.
 	  </marker>
       <condition>
         <equals>
-          <property>VC10/electric/dc/battery-switch</property>
+          <property>VC10/electric/dc/Battery-switch</property>
           <value>1</value>
         </equals>
       </condition>
       <binding>
         <command>property-assign</command>
-        <property>VC10/electric/dc/battery-switch</property>
+        <property>VC10/electric/dc/Battery-switch</property>
         <value>1</value>
       </binding>        
 	  <binding>

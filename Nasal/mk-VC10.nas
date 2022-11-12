@@ -803,28 +803,28 @@ setlistener("VC10/warning/fire-button[3]", func(state){
 
 # if gen-drive is set to on in flight, engines crashed
 ## comment this out to allow in air reset without engines cutting out.  AJT
-setlistener("VC10/electric/ac/generator/GenDrv1-sw", func(state){
+setlistener("VC10/electric/ac/generator/Gen1-Drv-sw", func(state){
 	var state = state.getBoolValue() or 0;
 	var a = getprop("position/altitude-agl-ft") or 0;
 ##	if(a > 20 and state){
 ##		 settimer( func { setprop("controls/engines/engine[0]/fire", 1) }, 2);
 ##	}
 },0,0);
-setlistener("VC10/electric/ac/generator/GenDrv2-sw", func(state){
+setlistener("VC10/electric/ac/generator/Gen2-Drv-sw", func(state){
 	var state = state.getBoolValue() or 0;
 	var a = getprop("position/altitude-agl-ft") or 0;
 ##	if(a > 20 and state){
 ##		 settimer( func { setprop("controls/engines/engine[1]/fire", 1) }, 2);
 ##	}
 },0,0);
-setlistener("VC10/electric/ac/generator/GenDrv3-sw", func(state){
+setlistener("VC10/electric/ac/generator/Gen3-Drv-sw", func(state){
 	var state = state.getBoolValue() or 0;
 	var a = getprop("position/altitude-agl-ft") or 0;
 ##	if(a > 20 and state){
 ##		 settimer( func { setprop("controls/engines/engine[2]/fire", 1) }, 2);
 ##	}
 },0,0);
-setlistener("VC10/electric/ac/generator/GenDrv4-sw", func(state){
+setlistener("VC10/electric/ac/generator/Gen4-Drv-sw", func(state){
 	var state = state.getBoolValue() or 0;
 	var a = getprop("position/altitude-agl-ft") or 0;
 ##	if(a > 20 and state){

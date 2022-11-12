@@ -75,7 +75,7 @@ if you contacted me before making any changes to this software.
 <!--					<property>VC10/electric/ground-connect</property>	 -->
 					<property>VC10/electric/ac/generator/GCR2-sw</property>
 					<property>VC10/electric/ac/BTB2-relay</property>
-					<property>VC10/electric/ac/generator/Gen2Control-sw</property>
+					<property>VC10/electric/ac/generator/Gen2-Control-sw</property>
 					<not><property>engines/engine[1]/running</property></not> 
 				</and>
 				<and>
@@ -85,12 +85,12 @@ if you contacted me before making any changes to this software.
 				 </greater-than>
 					<property>VC10/electric/ac/generator/GCR2-sw</property>
 					<property>VC10/electric/ac/BTB2-relay</property>
-					<property>VC10/electric/ac/generator/Gen2Control-sw</property>
+					<property>VC10/electric/ac/generator/Gen2-Control-sw</property>
 					<not><property>engines/engine[1]/running</property></not> 
 				</and>
 				<and>
 					<property>VC10/apu/off-start-run</property>	
-					<property>VC10/electric/ac/generator/gen-drive[4]</property>
+					<property>VC10/electric/ac/generator/GenELRAT-drive</property>
 					<not><property>engines/engine[1]/running</property></not> 
 				</and>
 			</or>

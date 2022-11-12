@@ -25,7 +25,32 @@ if you contacted me before making any changes to this software.
 <PropertyList>
 
 <path>ElecKW_KVAR.ac</path>
-
+	<animation>
+		<type>rotate</type>
+		<object-name>Needle</object-name>
+		<object-name>NeedleCentre</object-name>
+		<!--		<condition>		
+			<greater-than>
+				<property>VC10/electric/ess-bus</property>
+				<value>20</value>
+			</greater-than>
+		</condition> -->
+		<property>VC10/electric/ACmeter4KW_KVAR</property>
+		<interpolation>
+			<entry><ind> 0.0</ind><dep> -45.0</dep></entry>
+			<entry><ind>50.0</ind><dep>45.0</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.01</z-m>
+		</center>
+	</animation>
 
 <!--  -->
 

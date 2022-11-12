@@ -29,7 +29,7 @@ if you contacted me before making any changes to this software.
 		<type>material</type>
 		<object-name>lens</object-name>
 		<emission>
-			<factor-prop>VC10/electric/ac/generator/GenFail2</factor-prop>
+			<factor-prop>VC10/electric/ac/generator/Gen2-Fail</factor-prop>
 			<red>1</red>
 			<green>1</green>
 			<blue>1</blue>

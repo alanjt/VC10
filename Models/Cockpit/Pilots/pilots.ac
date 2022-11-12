@@ -1487,7 +1487,7 @@ refs 4
 kids 0
 OBJECT poly
 name "fe-seat"
-loc 11.5507 -0.259623 0.452614
+loc 12.0177 -0.259623 0.226183
 texture "seats.png"
 crease 45.000000
 numvert 194
@@ -14768,7 +14768,7 @@ refs 3
 kids 0
 OBJECT poly
 name "Engineer"
-loc 23.0301 -0.49642 1.59968
+loc 23.4971 -0.49642 1.37325
 data 6
 pilots
 texture "pilots.png"

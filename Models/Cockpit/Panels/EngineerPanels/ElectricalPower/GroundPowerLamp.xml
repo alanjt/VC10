@@ -35,7 +35,7 @@ if you contacted me before making any changes to this software.
 				<value>20</value>
 			</greater-than>
 			<or>
-				<not><property>VC10/electric/ac/generator/GenDrv1-sw</property></not>
+				<not><property>VC10/electric/ac/generator/Gen1-Drv-sw</property></not>
 				<less-than>
 					<property>engines/engine[0]/oil-pressure-psi</property>
 					<value>37</value>

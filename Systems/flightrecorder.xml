@@ -110,10 +110,10 @@ if you contacted me before making any changes to this software.
                 <type>double</type><property type="string">VC10/apu/apu-bleed-valve</property>
             </signal>
             <signal>
-                <type>double</type><property type="string">VC10/electric/dc/battery</property>
+                <type>double</type><property type="string">VC10/electric/dc/Battery</property>
             </signal>
             <signal>
-                <type>bool</type><property type="string">VC10/electric/dc/battery-switch</property>
+                <type>bool</type><property type="string">VC10/electric/dc/Battery-switch</property>
             </signal>
             <signal>
                 <type>double</type><property type="string">VC10/electric/dc/volt-dc</property>

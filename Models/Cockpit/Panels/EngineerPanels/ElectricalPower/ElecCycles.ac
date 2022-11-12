@@ -844,7 +844,7 @@ refs 3
 kids 0
 OBJECT poly
 name "Needle"
-loc 0.0015 -0.00568213 0.0020005
+loc 0.0015 -0.00527756 -2.2358e-005
 texture "ElecCycles.png"
 crease 45.000000
 numvert 10

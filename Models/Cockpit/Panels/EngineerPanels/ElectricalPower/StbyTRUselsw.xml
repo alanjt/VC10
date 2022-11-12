@@ -45,7 +45,7 @@ if you contacted me before making any changes to this software.
 		<hovered>
 			<binding>
 				<command>set-tooltip</command>
-				<label>FVselect: %d</label>
+				<label>StandbyTruSelect: %d</label>
 				<tooltip-id>no</tooltip-id>
 				<property>VC10/electric/dc/StbyTRUsel_sw</property>
 			</binding>

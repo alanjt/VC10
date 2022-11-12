@@ -1673,7 +1673,7 @@ refs 4
 kids 0
 OBJECT poly
 name "sw_up_select"
-loc 0 0.0104524 0.000387846
+loc 0.000522902 0.0104524 0.000387846
 crease 45.000000
 numvert 4
 0 -0.00958458 -0.00969228
@@ -1691,7 +1691,7 @@ refs 4
 kids 0
 OBJECT poly
 name "sw_down_select"
-loc 0 -0.010009 0.000387846
+loc 0.000522902 -0.010009 0.000387846
 crease 45.000000
 numvert 4
 0 -0.0093692 -0.00969228
