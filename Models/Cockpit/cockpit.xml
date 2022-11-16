@@ -1,26 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--####################################################################
-Lake of Constance Hangar
-Vickers VC10 for Flightgear
-Copyright (C) 2013 M.Kraus
 
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-Every software has a developer, also free software. 
-As a gesture of courtesy and respect, I would be delighted 
-if you contacted me before making any changes to this software. 
-<info (at) marc-kraus.de> April, 2017
 ########################################################################-->
 <PropertyList>
 	<path>cockpit.ac</path>
@@ -197,7 +177,7 @@ if you contacted me before making any changes to this software.
 	</animation>	 
 
 	<!-- small lightcones for panel -->
-	<model>
+<!--	<model>
 		<path>Aircraft/VC10/Models/Lights/lightcone-mini.xml</path>
 		<name>capt_light_1</name>
 		<offsets>   
@@ -267,10 +247,10 @@ if you contacted me before making any changes to this software.
 			<pitch-deg>50.0</pitch-deg>
 			<roll-deg> 20.0</roll-deg>
 		</offsets>
-	</model>
+	</model> -->
 
 	<!-- pedestal light -->
-	<model>
+<!--	<model>
 		<path>Aircraft/VC10/Models/Lights/lightcone-small.xml</path>
 		<name>capt_light_7</name>
 		<offsets>   
@@ -280,10 +260,10 @@ if you contacted me before making any changes to this software.
 			<pitch-deg>-25.0</pitch-deg>
 			<roll-deg> 0.0</roll-deg>
 		</offsets>
-	</model>
+	</model> -->
 
 	<!-- overhead light -->
-	<model>
+<!--	<model>
 		<path>Aircraft/VC10/Models/Lights/lightcone-small-overhead.xml</path>
 		<name>ov_light_1</name>
 		<offsets>   
@@ -317,10 +297,10 @@ if you contacted me before making any changes to this software.
 			<pitch-deg>190.0</pitch-deg>
 			<roll-deg> 0.0</roll-deg>
 		</offsets>
-	</model>
+	</model> -->
 
 	<!-- engineer light -->
-	<model>
+<!--	<model>
 		<path>Aircraft/VC10/Models/Lights/lightcone-mini-engineer.xml</path>
 		<name>eng_light_1</name>
 		<offsets>   
@@ -402,20 +382,19 @@ if you contacted me before making any changes to this software.
 			<pitch-deg>0.0</pitch-deg>
 			<roll-deg> 5.0</roll-deg>
 		</offsets>
-	</model>	 
+	</model> 
 
 	<model>
 		<path>Aircraft/VC10/Models/Lights/lightcone-mini-engineer.xml</path>
 		<name>eng_light_8</name>
 		<offsets>   
-			<!--		  <x-m>-17.15</x-m> -->
 			<x-m>-17.15</x-m>
 			<y-m>  0.68</y-m>
 			<z-m>  1.37</z-m>
 			<pitch-deg>0.0</pitch-deg>
 			<roll-deg> 5.0</roll-deg>
 		</offsets>
-	</model>
+	</model>	-->
 
 <!--	<animation>
 		<type>select</type>
@@ -559,9 +538,11 @@ if you contacted me before making any changes to this software.
 		<name>engineer-station</name>
 		<path>Aircraft/VC10/Models/Cockpit/EngineerStation.xml</path>
 		<offsets>
-			<x-m> 3.476</x-m>
+<!--			<x-m> 3.476</x-m>
+            <z-m> 0.755</z-m> -->
+			<x-m> 3.13</x-m>
 			<y-m> 1.173</y-m>
-            <z-m> 0.755</z-m>
+            <z-m> 0.86</z-m>
 			<heading-deg>-90.0</heading-deg>
 		</offsets>
 	</model>
