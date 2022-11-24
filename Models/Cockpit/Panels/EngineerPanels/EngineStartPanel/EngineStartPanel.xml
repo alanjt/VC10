@@ -5,6 +5,190 @@
 <PropertyList>
 	<path>EngineStartPanel.ac</path>
 
+	<model>
+		<name>Ignition 1 Switch</name>
+		<path>IgnitionSw1.xml</path>
+		<offsets>
+			<x-m>-0.033</x-m>
+			<y-m>-0.080</y-m>
+			<z-m>-0.275</z-m>
+		</offsets>
+	</model>
+	<model>
+		<name>Ignition 2 Switch</name>
+		<path>IgnitionSw2.xml</path>
+		<offsets>
+			<x-m>-0.033</x-m>
+			<y-m>-0.032</y-m>
+			<z-m>-0.275</z-m>
+		</offsets>
+	</model>
+	<model>
+		<name>Ignition 3 Switch</name>
+		<path>IgnitionSw3.xml</path>
+		<offsets>
+			<x-m>-0.033</x-m>
+			<y-m> 0.018</y-m>
+			<z-m>-0.275</z-m>
+		</offsets>
+	</model>
+	<model>
+		<name>Ignition 4 Switch</name>
+		<path>IgnitionSw4.xml</path>
+		<offsets>
+			<x-m>-0.033</x-m>
+			<y-m> 0.066</y-m>
+			<z-m>-0.275</z-m>
+		</offsets>
+	</model>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>throttle.001</object-name>
+		<condition>
+			<not><property>engines/engine[0]/reversed</property></not>
+		</condition>
+		<property>controls/engines/engine[0]/throttle</property>
+		<factor>-50</factor>
+		<center>
+			<x-m>  0.0</x-m>
+			<y-m>  0.0</y-m>
+			<z-m>  0.0</z-m>
+		</center>
+		<axis>
+			<x>0.0</x>
+			<y>1.0</y>
+			<z>0.0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>slider</type>
+		<object-name>throttle.001</object-name>
+		<property>controls/engines/engine[0]/throttle</property>
+		<drag-direction>vertical</drag-direction>
+		<action>
+			<binding>
+			<command>property-adjust</command>
+			<property>controls/engines/engine[0]/throttle</property>
+			<factor> 0.05 </factor>
+			<min>0.0</min>
+			<max>1</max>
+			<wrap>false</wrap>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>throttle.002</object-name>
+		<condition>
+			<not><property>engines/engine[1]/reversed</property></not>
+		</condition>
+		<property>controls/engines/engine[1]/throttle</property>
+		<factor>-50</factor>
+		<center>
+			<x-m>  0.0</x-m>
+			<y-m>  0.0</y-m>
+			<z-m>  0.0</z-m>
+		</center>
+		<axis>
+			<x>0.0</x>
+			<y>1.0</y>
+			<z>0.0</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>slider</type>
+		<object-name>throttle.002</object-name>
+		<property>controls/engines/engine[1]/throttle</property>
+		<drag-direction>vertical</drag-direction>
+		<action>
+			<binding>
+			<command>property-adjust</command>
+			<property>controls/engines/engine[1]/throttle</property>
+			<factor> 0.05 </factor>
+			<min>0.0</min>
+			<max>1</max>
+			<wrap>false</wrap>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>throttle.003</object-name>
+		<condition>
+			<not><property>engines/engine[2]/reversed</property></not>
+		</condition>
+		<property>controls/engines/engine[2]/throttle</property>
+		<factor>-50</factor>
+		<center>
+			<x-m>  0.0</x-m>
+			<y-m>  0.0</y-m>
+			<z-m>  0.0</z-m>
+		</center>
+		<axis>
+			<x>0.0</x>
+			<y>1.0</y>
+			<z>0.0</z>
+		</axis>
+	</animation>		
+
+	<animation>
+		<type>slider</type>
+		<object-name>throttle.003</object-name>
+		<property>controls/engines/engine[2]/throttle</property>
+		<drag-direction>vertical</drag-direction>
+		<action>
+			<binding>
+			<command>property-adjust</command>
+			<property>controls/engines/engine[2]/throttle</property>
+			<factor> 0.05 </factor>
+			<min>0.0</min>
+			<max>1</max>
+			<wrap>false</wrap>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>throttle.004</object-name>
+		<condition>
+			<not><property>engines/engine[3]/reversed</property></not>
+		</condition>
+		<property>controls/engines/engine[3]/throttle</property>
+		<factor>-50</factor>
+		<center>
+			<x-m>  0.0</x-m>
+			<y-m>  0.0</y-m>
+			<z-m>  0.0</z-m>
+		</center>
+		<axis>
+			<x>0.0</x>
+			<y>1.0</y>
+			<z>0.0</z>
+		</axis>
+	</animation>
 	
 
+	<animation>
+		<type>slider</type>
+		<object-name>throttle.004</object-name>
+		<property>controls/engines/engine[3]/throttle</property>
+		<drag-direction>vertical</drag-direction>
+		<action>
+			<binding>
+			<command>property-adjust</command>
+			<property>controls/engines/engine[3]/throttle</property>
+			<factor> 0.05 </factor>
+			<min>0.0</min>
+			<max>1</max>
+			<wrap>false</wrap>
+			</binding>
+		</action>
+	</animation>
+	
 </PropertyList>
