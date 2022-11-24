@@ -1,0 +1,54 @@
+<PropertyList>
+
+	<path>Aircraft/VC10/Models/Cockpit/SwitchesLamps/ToggleSwitch.ac</path>
+	<animation>
+		<object-name>switch_lever</object-name>
+		<object-name>switch_base</object-name>
+		<condition>
+			<not><property>/sim/rendering/rembrandt/enabled</property></not>
+		</condition>
+		<emission>
+			<red>0.2</red>
+			<green>0.2</green>
+			<blue>0.2</blue>
+			<factor-prop>systems/electrical/outputs/engineer-dim</factor-prop>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>knob</type>
+		<object-name>switch_lever</object-name>
+		<object-name>switch_base</object-name>
+		<object-name>sw_up_select</object-name>
+		<object-name>sw_down_select</object-name>
+		<property>VC10/start/start_sw1</property>
+		<drag-direction>vertical</drag-direction>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>VC10/start/start_sw1</property>
+				<min>-1</min>
+				<max>1</max>
+			</binding>
+			<binding>
+				<command>property-toggle</command>
+				<property>sim/sound/switch2</property>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>switch_lever</object-name>
+		<property>VC10/start/start_sw1</property>
+		<axis>
+			<x>0</x><y>-1</y><z>0</z>
+		</axis>
+		<center>
+			<x-m>0.0</x-m><y-m>0.0</y-m><z-m>0.0</z-m>
+		</center>
+		<interpolation>
+			<entry><ind>1</ind><dep>40</dep></entry>
+			<entry><ind>-1</ind><dep>-40</dep></entry>
+		</interpolation>
+	</animation>
+</PropertyList>
