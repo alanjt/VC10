@@ -35,6 +35,15 @@
 				<property>sim/sound/switch2</property>
 			</binding>
 		</action>
+        <release>
+            <binding>
+                <command>property-adjust</command>
+                <property>VC10/start/start_sw1</property>
+                <step>0</step>
+                <min>-1</min>
+                <max>0</max>
+            </binding>
+        </release>
 	</animation>
 	<animation>
 		<type>rotate</type>

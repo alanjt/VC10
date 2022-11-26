@@ -4,6 +4,16 @@
 ########################################################################-->
 <PropertyList>
 	<path>EngineStartPanel.ac</path>
+	
+	<model>
+		<name>LP Rotation Indicator</name>
+		<path>LP_Rotation_ind.xml</path>
+		<offsets>
+			<x-m>-0.033</x-m>
+			<y-m>-0.114</y-m>
+			<z-m>-0.275</z-m>
+		</offsets>
+	</model>
 
 	<model>
 		<name>Ignition 1 Switch</name>

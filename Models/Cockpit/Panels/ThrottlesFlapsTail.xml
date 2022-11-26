@@ -26,7 +26,7 @@ if you contacted me before making any changes to this software.
 
 	<path>ThrottlesFlapsTail.ac</path>
 
-<!--	<animation>
+	<!--	<animation>
 		<type>material</type>
 		<object-name>pedestal</object-name> 
 		<object-name>throttle.001</object-name>   
@@ -64,9 +64,9 @@ if you contacted me before making any changes to this software.
 		<property>controls/engines/engine[0]/throttle</property>
 		<factor>-50</factor>
 		<center>
-			<x-m>  0.0</x-m>
-			<y-m>  0.0</y-m>
-			<z-m>  0.0</z-m>
+			<x-m>0.0</x-m>
+			<y-m>0.0</y-m>
+			<z-m>0.0</z-m>
 		</center>
 		<axis>
 			<x>0.0</x>
@@ -76,30 +76,18 @@ if you contacted me before making any changes to this software.
 	</animation>
 
 	<animation>
-		<type>pick</type>
+		<type>slider</type>
 		<object-name>throttle.001</object-name>
+		<property>controls/engines/engine[0]/throttle</property>
+		<drag-direction>vertical</drag-direction>
 		<action>
-			<button>3</button>
-			<repeatable>false</repeatable>
 			<binding>
-				<command>property-adjust</command>
-				<property>controls/engines/engine[0]/throttle</property>
-				<step>0.05</step>
-				<min>0</min>
-				<max>1</max>
-				<wrap>false</wrap>
-			</binding>
-		</action>
-		<action>
-			<button>4</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-adjust</command>
-				<property>controls/engines/engine[0]/throttle</property>
-				<step>-0.05</step>
-				<min>0</min>
-				<max>1</max>
-				<wrap>false</wrap>
+			<command>property-adjust</command>
+			<property>controls/engines/engine[0]/throttle</property>
+			<factor> 0.05 </factor>
+			<min>0.0</min>
+			<max>1</max>
+			<wrap>false</wrap>
 			</binding>
 		</action>
 	</animation>
@@ -114,9 +102,9 @@ if you contacted me before making any changes to this software.
 		<property>controls/engines/engine[1]/throttle</property>
 		<factor>-50</factor>
 		<center>
-			<x-m>  0.0</x-m>
-			<y-m>  0.0</y-m>
-			<z-m>  0.0</z-m>
+			<x-m>0.0</x-m>
+			<y-m>0.0</y-m>
+			<z-m>0.0</z-m>
 		</center>
 		<axis>
 			<x>0.0</x>
@@ -126,30 +114,18 @@ if you contacted me before making any changes to this software.
 	</animation>
 
 	<animation>
-		<type>pick</type>
+		<type>slider</type>
 		<object-name>throttle.002</object-name>
+		<property>controls/engines/engine[1]/throttle</property>
+		<drag-direction>vertical</drag-direction>
 		<action>
-			<button>3</button>
-			<repeatable>false</repeatable>
 			<binding>
-				<command>property-adjust</command>
-				<property>controls/engines/engine[1]/throttle</property>
-				<step>0.05</step>
-				<min>0</min>
-				<max>1</max>
-				<wrap>false</wrap>
-			</binding>
-		</action>
-		<action>
-			<button>4</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-adjust</command>
-				<property>controls/engines/engine[1]/throttle</property>
-				<step>-0.05</step>
-				<min>0</min>
-				<max>1</max>
-				<wrap>false</wrap>
+			<command>property-adjust</command>
+			<property>controls/engines/engine[1]/throttle</property>
+			<factor> 0.05 </factor>
+			<min>0.0</min>
+			<max>1</max>
+			<wrap>false</wrap>
 			</binding>
 		</action>
 	</animation>
@@ -164,9 +140,9 @@ if you contacted me before making any changes to this software.
 		<property>controls/engines/engine[2]/throttle</property>
 		<factor>-50</factor>
 		<center>
-			<x-m>  0.0</x-m>
-			<y-m>  0.0</y-m>
-			<z-m>  0.0</z-m>
+			<x-m>0.0</x-m>
+			<y-m>0.0</y-m>
+			<z-m>0.0</z-m>
 		</center>
 		<axis>
 			<x>0.0</x>
@@ -176,30 +152,18 @@ if you contacted me before making any changes to this software.
 	</animation>
 
 	<animation>
-		<type>pick</type>
+		<type>slider</type>
 		<object-name>throttle.003</object-name>
+		<property>controls/engines/engine[2]/throttle</property>
+		<drag-direction>vertical</drag-direction>
 		<action>
-			<button>3</button>
-			<repeatable>false</repeatable>
 			<binding>
-				<command>property-adjust</command>
-				<property>controls/engines/engine[2]/throttle</property>
-				<step>0.05</step>
-				<min>0</min>
-				<max>1</max>
-				<wrap>false</wrap>
-			</binding>
-		</action>
-		<action>
-			<button>4</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-adjust</command>
-				<property>controls/engines/engine[2]/throttle</property>
-				<step>-0.05</step>
-				<min>0</min>
-				<max>1</max>
-				<wrap>false</wrap>
+			<command>property-adjust</command>
+			<property>controls/engines/engine[2]/throttle</property>
+			<factor> 0.05 </factor>
+			<min>0.0</min>
+			<max>1</max>
+			<wrap>false</wrap>
 			</binding>
 		</action>
 	</animation>
@@ -214,9 +178,9 @@ if you contacted me before making any changes to this software.
 		<property>controls/engines/engine[3]/throttle</property>
 		<factor>-50</factor>
 		<center>
-			<x-m>  0.0</x-m>
-			<y-m>  0.0</y-m>
-			<z-m>  0.0</z-m>
+			<x-m>0.0</x-m>
+			<y-m>0.0</y-m>
+			<z-m>0.0</z-m>
 		</center>
 		<axis>
 			<x>0.0</x>
@@ -224,49 +188,37 @@ if you contacted me before making any changes to this software.
 			<z>0.0</z>
 		</axis>
 	</animation>
-
 	<animation>
-		<type>pick</type>
+		<type>slider</type>
 		<object-name>throttle.004</object-name>
+		<property>controls/engines/engine[3]/throttle</property>
+		<drag-direction>vertical</drag-direction>
 		<action>
-			<button>3</button>
-			<repeatable>false</repeatable>
 			<binding>
-				<command>property-adjust</command>
-				<property>controls/engines/engine[3]/throttle</property>
-				<step>0.05</step>
-				<min>0</min>
-				<max>1</max>
-				<wrap>false</wrap>
-			</binding>
-		</action>
-		<action>
-			<button>4</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-adjust</command>
-				<property>controls/engines/engine[3]/throttle</property>
-				<step>-0.05</step>
-				<min>0</min>
-				<max>1</max>
-				<wrap>false</wrap>
+			<command>property-adjust</command>
+			<property>controls/engines/engine[3]/throttle</property>
+			<factor> 0.05 </factor>
+			<min>0.0</min>
+			<max>1</max>
+			<wrap>false</wrap>
 			</binding>
 		</action>
 	</animation>
 
+
 	<!-- Thrust  Reverse levers -->
 	<animation>
 		<type>rotate</type>
-		<object-name>reverser.001</object-name>		
+		<object-name>reverser.001</object-name>
 		<condition>
 			<property>engines/engine[0]/reversed</property>
 		</condition>
 		<property>controls/engines/engine[0]/throttle</property>
 		<factor>140</factor>
 		<center>
-			<x-m>  0.093</x-m>
-			<y-m>  0.0</y-m>
-			<z-m>  0.066</z-m>
+			<x-m>0.093</x-m>
+			<y-m>0.0</y-m>
+			<z-m>0.066</z-m>
 		</center>
 		<axis>
 			<x>0.0</x>
@@ -277,16 +229,16 @@ if you contacted me before making any changes to this software.
 
 	<animation>
 		<type>rotate</type>
-		<object-name>reverser.002</object-name>		
+		<object-name>reverser.002</object-name>
 		<condition>
 			<property>engines/engine[1]/reversed</property>
 		</condition>
 		<property>controls/engines/engine[1]/throttle</property>
 		<factor>140</factor>
 		<center>
-			<x-m>  0.093</x-m>
-			<y-m>  0.0</y-m>
-			<z-m>  0.066</z-m>
+			<x-m>0.093</x-m>
+			<y-m>0.0</y-m>
+			<z-m>0.066</z-m>
 		</center>
 		<axis>
 			<x>0.0</x>
@@ -297,16 +249,16 @@ if you contacted me before making any changes to this software.
 
 	<animation>
 		<type>rotate</type>
-		<object-name>reverser.003</object-name>		
+		<object-name>reverser.003</object-name>
 		<condition>
 			<property>engines/engine[2]/reversed</property>
 		</condition>
 		<property>controls/engines/engine[2]/throttle</property>
 		<factor>140</factor>
 		<center>
-			<x-m>  0.093</x-m>
-			<y-m>  0.0</y-m>
-			<z-m>  0.066</z-m>
+			<x-m>0.093</x-m>
+			<y-m>0.0</y-m>
+			<z-m>0.066</z-m>
 		</center>
 		<axis>
 			<x>0.0</x>
@@ -317,16 +269,16 @@ if you contacted me before making any changes to this software.
 
 	<animation>
 		<type>rotate</type>
-		<object-name>reverser.004</object-name>		
+		<object-name>reverser.004</object-name>
 		<condition>
 			<property>engines/engine[3]/reversed</property>
 		</condition>
 		<property>controls/engines/engine[3]/throttle</property>
 		<factor>140</factor>
 		<center>
-			<x-m>  0.093</x-m>
-			<y-m>  0.0</y-m>
-			<z-m>  0.066</z-m>
+			<x-m>0.093</x-m>
+			<y-m>0.0</y-m>
+			<z-m>0.066</z-m>
 		</center>
 		<axis>
 			<x>0.0</x>
@@ -352,18 +304,16 @@ if you contacted me before making any changes to this software.
 	</animation>
 
 	<!-- speedbrake lever -->
-		<animation>
+	<animation>
 		<type>rotate</type>
 		<object-name>SpeedBrkLever</object-name>
-<!--	<property>controls/flight/spoilers</property> -->
+		<!--	<property>controls/flight/spoilers</property> -->
 		<property>controls/flight/speedbrake</property>
 		<factor>50</factor>
 		<center>
-			<center>
-				<x-m>  0.093</x-m>
-				<y-m>  0.0</y-m>
-				<z-m>  0.066</z-m>
-			</center>
+			<x-m>0.0</x-m>
+			<y-m>0.0</y-m>
+			<z-m>0.0</z-m>
 		</center>
 		<axis>
 			<x>0.0</x>
@@ -382,7 +332,7 @@ if you contacted me before making any changes to this software.
 				<command>nasal</command>
 				<script>controls.stepProps("/controls/flight/speedbrake", "/sim/speedbrake", -1);</script>
 				<min>0</min>
-				<max>1</max>                
+				<max>1</max>
 				<wrap>false</wrap>
 			</binding>
 		</increase>
@@ -391,7 +341,7 @@ if you contacted me before making any changes to this software.
 				<command>nasal</command>
 				<script>controls.stepProps("/controls/flight/speedbrake", "/sim/speedbrake", 1);</script>
 				<min>0</min>
-				<max>1</max>                
+				<max>1</max>
 				<wrap>false</wrap>
 			</binding>
 		</decrease>
@@ -404,11 +354,9 @@ if you contacted me before making any changes to this software.
 		<property>controls/flight/flaps</property>
 		<factor>50</factor>
 		<center>
-			<center>
-				<x-m>  0.093</x-m>
-				<y-m>  0.0</y-m>
-				<z-m>  0.066</z-m>
-			</center>
+			<x-m>0.0</x-m>
+			<y-m>0.0</y-m>
+			<z-m>0.0</z-m>
 		</center>
 		<axis>
 			<x>0.0</x>
@@ -427,7 +375,7 @@ if you contacted me before making any changes to this software.
 				<command>nasal</command>
 				<script>controls.stepProps("/controls/flight/flaps", "/sim/flaps", -1);</script>
 				<min>0</min>
-				<max>1</max>                
+				<max>1</max>
 				<wrap>false</wrap>
 			</binding>
 		</increase>
@@ -436,7 +384,7 @@ if you contacted me before making any changes to this software.
 				<command>nasal</command>
 				<script>controls.stepProps("/controls/flight/flaps", "/sim/flaps", 1);</script>
 				<min>0</min>
-				<max>1</max>                
+				<max>1</max>
 				<wrap>false</wrap>
 			</binding>
 		</decrease>
