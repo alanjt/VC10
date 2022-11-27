@@ -1,0 +1,40 @@
+<PropertyList>
+
+	<path>IgnitionLamps.ac</path>
+	<animation>
+		<object-name>Lamp1</object-name>
+		<object-name>Lamp2</object-name>
+		<object-name>Case</object-name>
+		<condition>
+			<not><property>/sim/rendering/rembrandt/enabled</property></not>
+		</condition>
+		<emission>
+			<red>0.2</red>
+			<green>0.2</green>
+			<blue>0.2</blue>
+			<factor-prop>systems/electrical/outputs/engineer-dim</factor-prop>
+		</emission>
+	</animation>
+	
+
+<!--	<animation>
+		<type>material</type>
+		<object-name>Lamp1</object-name>
+		<emission>
+			<factor-prop>VC10/electric/ac/generator/CSD1low_pressure</factor-prop>
+			<red>1</red>
+			<green>1</green>
+			<blue>1</blue>
+		</emission>
+	</animation> 	<animation>
+		<type>material</type>
+		<object-name>Lamp2</object-name>
+		<emission>
+			<factor-prop>VC10/electric/ac/generator/CSD1low_pressure</factor-prop>
+			<red>1</red>
+			<green>1</green>
+			<blue>1</blue>
+		</emission>
+	</animation> -->-->
+
+</PropertyList>
