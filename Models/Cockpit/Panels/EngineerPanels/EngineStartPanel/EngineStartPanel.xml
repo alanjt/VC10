@@ -14,7 +14,17 @@
 			<z-m>-0.275</z-m>
 		</offsets>
 	</model>
-
+	
+	<model>
+		<name>Engine start switch</name>
+		<path>EngineStartSw.xml</path>
+		<offsets>
+			<x-m>-0.033</x-m>
+			<y-m>-0.0135</y-m>
+			<z-m>-0.322</z-m>
+		</offsets>
+	</model>
+	
 	<model>
 		<name>Ignition 1 Switch</name>
 		<path>IgnitionSw1.xml</path>
