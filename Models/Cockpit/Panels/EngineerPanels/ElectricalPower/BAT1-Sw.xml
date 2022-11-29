@@ -42,39 +42,39 @@ if you contacted me before making any changes to this software.
 	<animation>
 		<type>knob</type>
 		<object-name>switch_lever</object-name>
+		<object-name>switch_base</object-name>
+		<object-name>sw_up_select</object-name>
+		<object-name>sw_down_select</object-name>
 		<property>VC10/electric/dc/BAT1_sw</property>
-		<axis>
-			<x>0</x><y>1</y><z>0</z>
-		</axis>
-		<center>
-			<x-m>0.0</x-m><y-m>0.0</y-m><z-m>0.0</z-m>
-		</center>
-		<interpolation>
-			<entry><ind>-1</ind><dep>30.0</dep></entry>
-			<entry><ind>1</ind><dep>-30.0</dep></entry>
-		</interpolation>
 		<drag-direction>vertical</drag-direction>
 		<action>
 			<binding>
 				<command>property-adjust</command>
 				<property>VC10/electric/dc/BAT1_sw</property>
-				<min>-1</min>
-				<max>1</max>
+				<factor>1</factor>
+				<min>-1</min><max>1</max>
 			</binding>
 			<binding>
 				<command>property-toggle</command>
 				<property>sim/sound/switch2</property>
 			</binding>
 		</action>
-		<!-- Release action, limit to -1 and 1. 0 is spring loaded centre position
-		<release>
-			<binding>
-				<command>property-adjust</command>
-				<property>VC10/electric/dc/BAT1_sw</property>
-				<step>0</step>
-				<min>0</min>
-				<max>0</max>
-			</binding>
-		</release> -->
 	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>switch_lever</object-name>
+		<property>VC10/electric/dc/BAT1_sw</property>
+		<axis>
+			<x>0</x><y>-1</y><z>0</z>
+		</axis>
+		<center>
+			<x-m>0.0</x-m><y-m>0.0</y-m><z-m>0.0</z-m>
+		</center>
+		<interpolation>
+			<entry><ind>1</ind><dep>40</dep></entry>
+			<entry><ind>-1</ind><dep>-40</dep></entry>
+		</interpolation>
+	</animation>
+
 </PropertyList>
