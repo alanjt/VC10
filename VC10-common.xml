@@ -367,13 +367,13 @@ if you contacted me before making any changes to this software.
 			<kw type="double">0</kw>
 		</engine>
 		<engine n="3">
-			<on-fire type="bool">false</on-fire>
+	<!--		<on-fire type="bool">false</on-fire>
 			<reverser-pos-norm type="double">0</reverser-pos-norm>
 			<running type="bool">false</running>
 			<rpm type="double">0</rpm>
 			<started type="bool">false</started>
 			<failed type="bool">false</failed>
-			<kw type="double">0</kw>
+			<kw type="double">0</kw> -->
 		</engine>
 	</engines>
 
@@ -428,31 +428,32 @@ if you contacted me before making any changes to this software.
 		<APU>
 			<off-start-run type="double">2</off-start-run>
 		</APU>
+		
 		<engines>
 			<engine-start-switch type="int">1</engine-start-switch>
 			<engine n="0">
 				<cutoff type="bool">true</cutoff>
 				<starter type="bool">false</starter>
-				<starter-switch type="bool">false</starter-switch>
-				<out-of-fuel type="bool">false</out-of-fuel>
+<!--			<starter-switch type="bool">false</starter-switch>
+				<out-of-fuel type="bool">false</out-of-fuel>-->
 			</engine>
 			<engine n="1">
 				<cutoff type="bool">true</cutoff>
 				<starter type="bool">false</starter>
-				<starter-switch type="bool">false</starter-switch>
-				<out-of-fuel type="bool">false</out-of-fuel>
+<!--			<starter-switch type="bool">false</starter-switch>
+				<out-of-fuel type="bool">false</out-of-fuel>-->
 			</engine>
 			<engine n="2">
 				<cutoff type="bool">true</cutoff>
 				<starter type="bool">false</starter>
-				<starter-switch type="bool">false</starter-switch>
-				<out-of-fuel type="bool">false</out-of-fuel>
+<!--			<starter-switch type="bool">false</starter-switch>
+				<out-of-fuel type="bool">false</out-of-fuel>-->
 			</engine>
 			<engine n="3">
 				<cutoff type="bool">true</cutoff>
 				<starter type="bool">false</starter>
-				<starter-switch type="bool">false</starter-switch>
-				<out-of-fuel type="bool">false</out-of-fuel>
+<!--			<starter-switch type="bool">false</starter-switch>
+				<out-of-fuel type="bool">false</out-of-fuel>-->
 			</engine>
 		</engines>
 		<lighting>

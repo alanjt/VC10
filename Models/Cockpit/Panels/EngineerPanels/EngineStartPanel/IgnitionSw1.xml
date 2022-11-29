@@ -21,12 +21,12 @@
 		<object-name>switch_base</object-name>
 		<object-name>sw_up_select</object-name>
 		<object-name>sw_down_select</object-name>
-		<property>VC10/start/start_sw1</property>
+		<property>VC10/engine[0]/start_sw</property>
 		<drag-direction>vertical</drag-direction>
 		<action>
 			<binding>
 				<command>property-adjust</command>
-				<property>VC10/start/start_sw1</property>
+				<property>VC10/engine[0]/start_sw</property>
 				<min>-1</min>
 				<max>1</max>
 			</binding>
@@ -38,7 +38,7 @@
         <release>
             <binding>
                 <command>property-adjust</command>
-                <property>VC10/start/start_sw1</property>
+                <property>VC10/engine[0]/start_sw</property>
                 <step>0</step>
                 <min>-1</min>
                 <max>0</max>
@@ -48,7 +48,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>switch_lever</object-name>
-		<property>VC10/start/start_sw1</property>
+		<property>VC10/engine[0]/start_sw</property>
 		<axis>
 			<x>0</x><y>-1</y><z>0</z>
 		</axis>

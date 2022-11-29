@@ -128,7 +128,7 @@ refs 4
 3 0.816636 0.988486
 kids 0
 OBJECT poly
-name "cutoff.004"
+name "HPcock.004"
 loc -0.666938 -0.972091 0
 texture "pedestal.png"
 crease 45.000000
@@ -1004,7 +1004,7 @@ refs 4
 172 0.037613 0.025914
 kids 0
 OBJECT poly
-name "cutoff.003"
+name "HPcock.003"
 loc -0.666938 -0.972091 0
 texture "pedestal.png"
 crease 45.000000
@@ -1880,7 +1880,7 @@ refs 4
 172 0.053273 0.0245
 kids 0
 OBJECT poly
-name "cutoff.002"
+name "HPcock.002"
 loc -0.666938 -0.972091 0
 texture "pedestal.png"
 crease 45.000000
@@ -2756,7 +2756,7 @@ refs 4
 172 0.053273 0.0245
 kids 0
 OBJECT poly
-name "cutoff.001"
+name "HPcock.001"
 loc -0.666938 -0.972091 0
 texture "pedestal.png"
 crease 45.000000

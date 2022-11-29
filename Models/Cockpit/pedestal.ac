@@ -8,7 +8,6 @@ name "AileronArrow"
 loc 2.24141 0.634583 -0.062153
 texture "pedestal.png"
 crease 45.000000
-hidden
 numvert 27
 -0.0140629 -0.018583 0.012636
 -0.0140629 -0.018583 0.00346
@@ -184,7 +183,6 @@ name "AileronScale"
 loc 2.22122 0.64805 -0.054995
 texture "pedestal.png"
 crease 45.000000
-hidden
 numvert 4
 -0.00303268 -0.02287 -0.041454
 -0.00303268 -0.02287 0.042532
@@ -204,7 +202,6 @@ name "AileronTab"
 loc 2.27415 0.643001 -0.13553
 texture "pedestal.png"
 crease 45.000000
-hidden
 numvert 128
 -0.0461063 -0.055529 0.125609
 -0.0461063 -0.047072 0.123094
@@ -1971,11 +1968,10 @@ refs 4
 87 0.161616 0.576706
 kids 0
 OBJECT poly
-name "cutoff.001"
+name "HPcock.001"
 loc 1.16045 -0.246001 0
 texture "pedestal.png"
 crease 45.000000
-hidden
 numvert 174
 0.7498 0.967321 0.021661
 0.7498 0.967321 0.023945
@@ -2848,11 +2844,10 @@ refs 4
 32 0.283443 0.039983
 kids 0
 OBJECT poly
-name "cutoff.002"
+name "HPcock.002"
 loc 1.16045 -0.246001 0
 texture "pedestal.png"
 crease 45.000000
-hidden
 numvert 174
 0.696125 0.944069 0.009078
 0.696125 0.944069 0.011362
@@ -3725,11 +3720,10 @@ refs 4
 128 0.354907 0.131839
 kids 0
 OBJECT poly
-name "cutoff.003"
+name "HPcock.003"
 loc 1.16045 -0.246001 0
 texture "pedestal.png"
 crease 45.000000
-hidden
 numvert 174
 0.696243 0.944121 -0.01173
 0.696243 0.944121 -0.009446
@@ -4602,11 +4596,10 @@ refs 4
 32 0.283443 0.039983
 kids 0
 OBJECT poly
-name "cutoff.004"
+name "HPcock.004"
 loc 1.16045 -0.246001 0
 texture "pedestal.png"
 crease 45.000000
-hidden
 numvert 174
 0.749681 0.967269 -0.023985
 0.749681 0.967269 -0.021701
@@ -5483,7 +5476,6 @@ name "ElevatorArrow"
 loc 1.96375 0.718174 0.000622
 texture "pedestal.png"
 crease 45.000000
-hidden
 numvert 8
 -0.13995 -0.00682199 0.088882
 -0.137066 -0.00737602 0.088882
@@ -5514,7 +5506,6 @@ name "ElevatorHelpL"
 loc 1.83123 0.331027 -0.131523
 texture "pedestal.png"
 crease 45.000000
-hidden
 numvert 66
 -0.0265255 0.321443 0.248001
 -0.0234833 0.321443 0.248606
@@ -6117,7 +6108,6 @@ name "ElevatorHelpR"
 loc 1.83123 0.331027 -0.378337
 texture "pedestal.png"
 crease 45.000000
-hidden
 numvert 66
 -0.0265255 0.321443 0.248001
 -0.0234833 0.321443 0.248606
@@ -6720,7 +6710,6 @@ name "ElevatorScale"
 loc 1.96375 0.718174 0.000622
 texture "pedestal.png"
 crease 45.000000
-hidden
 numvert 52
 -0.103748 -0.026944 0.096185
 -0.103748 -0.026944 -0.096184
@@ -6949,7 +6938,6 @@ name "ElevatorStab"
 loc 2.20141 1.03294 0.42603
 texture "pedestal.png"
 crease 45.000000
-hidden
 numvert 8
 -0.311382 -0.380243 -0.499612
 -0.311563 -0.379953 -0.519654
@@ -6987,7 +6975,6 @@ name "ElevatorStabArrow"
 loc 1.96375 0.718174 0.000622
 texture "pedestal.png"
 crease 45.000000
-hidden
 numvert 16
 -0.0790348 -0.0541743 -0.0824577
 -0.0774212 -0.056584 -0.082397
@@ -7096,7 +7083,6 @@ name "ElevatorTab"
 loc 1.80442 0.646091 -0.13553
 texture "pedestal.png"
 crease 45.000000
-hidden
 numvert 512
 0.000452042 0.084503 0.033574
 0.0169296 0.082791 0.033574
@@ -14159,7 +14145,6 @@ name "IdleSup"
 loc 2.16841 1.04732 0.426715
 texture "pedestal.png"
 crease 45.000000
-hidden
 numvert 14
 -0.325409 -0.324809 -0.431441
 -0.304754 -0.341967 -0.431978
@@ -14217,7 +14202,6 @@ name "PBrakeLever"
 loc 1.90416 0.684277 0.0569
 texture "pedestal.png"
 crease 45.000000
-hidden
 numvert 128
 -0.0165596 0.02167 0.01216
 -0.0154552 0.021352 0.03764
@@ -15145,7 +15129,6 @@ name "pedestal"
 loc 2.20141 1.03294 0.42603
 texture "pedestal.png"
 crease 45.000000
-hidden
 numvert 134
 -0.0651703 -0.810903 -0.296304
 0.0277042 -0.810903 -0.320961
@@ -15972,7 +15955,6 @@ name "reverser.001"
 loc 0.634912 0.195156 0.006083
 texture "pedestal.png"
 crease 45.000000
-hidden
 numvert 174
 1.19654 0.587532 0.043274
 1.20087 0.58532 0.043274
@@ -16849,7 +16831,6 @@ name "reverser.002"
 loc 0.634912 0.195156 0.006083
 texture "pedestal.png"
 crease 45.000000
-hidden
 numvert 174
 1.20161 0.576842 0.010661
 1.20161 0.576842 0.004345
@@ -17726,7 +17707,6 @@ name "reverser.003"
 loc 0.634912 0.195156 0.006083
 texture "pedestal.png"
 crease 45.000000
-hidden
 numvert 174
 1.19654 0.587532 -0.00943
 1.20087 0.58532 -0.00943
@@ -18603,7 +18583,6 @@ name "reverser.004"
 loc 0.634912 0.195156 0.006083
 texture "pedestal.png"
 crease 45.000000
-hidden
 numvert 174
 1.20161 0.576842 -0.04345
 1.20161 0.576842 -0.049766
@@ -19480,7 +19459,6 @@ name "RudderArrow"
 loc 2.09361 0.634583 0.049362
 texture "pedestal.png"
 crease 45.000000
-hidden
 numvert 22
 0.0162582 0.00773901 -0.004588
 0.0162582 0.00773901 0.004588
@@ -19623,7 +19601,6 @@ name "RudderScale"
 loc 2.20013 1.01088 0.45103
 texture "pedestal.png"
 crease 45.000000
-hidden
 numvert 34
 -0.0490475 -0.359135 -0.361172
 -0.0494823 -0.359135 -0.442412
@@ -19778,7 +19755,6 @@ name "RudderSup"
 loc 2.20141 1.03294 0.45103
 texture "pedestal.png"
 crease 45.000000
-hidden
 numvert 128
 -0.0578423 -0.407955 -0.357616
 -0.0662994 -0.407955 -0.360131
@@ -20767,7 +20743,6 @@ name "RudderTab"
 loc 2.07906 0.671091 -0.11053
 texture "pedestal.png"
 crease 45.000000
-hidden
 numvert 162
 0.122698 -0.014439 0.167669
 0.122698 -0.00697201 0.167669
@@ -21878,7 +21853,6 @@ name "throttle.001"
 loc 0.793133 0.195156 0.006083
 texture "pedestal.png"
 crease 45.000000
-hidden
 numvert 198
 1.09914 0.584055 0.035609
 1.09049 0.594731 0.035609
@@ -22853,7 +22827,6 @@ name "throttle.002"
 loc 0.793133 0.195156 0.006083
 texture "pedestal.png"
 crease 45.000000
-hidden
 numvert 198
 1.13258 0.601681 0.018651
 1.13803 0.598898 0.018651
@@ -23828,7 +23801,6 @@ name "throttle.003"
 loc 0.793133 0.195156 0.006083
 texture "pedestal.png"
 crease 45.000000
-hidden
 numvert 198
 1.09914 0.584055 -0.017463
 1.09049 0.594731 -0.017463
@@ -24803,7 +24775,6 @@ name "throttle.004"
 loc 0.793133 0.195156 0.006083
 texture "pedestal.png"
 crease 45.000000
-hidden
 numvert 198
 1.13258 0.601681 -0.035046
 1.13803 0.598898 -0.035046
@@ -25778,7 +25749,6 @@ name "HPcockmount"
 loc 2.20141 1.03294 0.42603
 texture "pedestal.png"
 crease 45.000000
-hidden
 numvert 14
 -0.337931 -0.327375 -0.470981
 -0.318911 -0.356505 -0.470981
@@ -25847,7 +25817,6 @@ name "ThrottleCover"
 loc 2.20141 1.03294 0.42603
 texture "pedestal.png"
 crease 45.000000
-hidden
 numvert 86
 -0.459296 -0.357141 -0.35243
 -0.459296 -0.357141 -0.497425
