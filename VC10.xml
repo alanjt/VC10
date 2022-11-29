@@ -279,7 +279,7 @@ if you contacted me before making any changes to this software.
 				<yaw>0.00</yaw>
 			</orient> -->
 			<!--			<feed>11</feed> -->
-			<feed>1</feed>
+			<feed>1</feed>      <!-- for testing -->
 			<thruster file="direct">
 				<location unit="IN">
 					<x>1462.0</x>
@@ -306,7 +306,7 @@ if you contacted me before making any changes to this software.
 				<yaw>0.00</yaw>
 			</orient> -->
 			<!--			<feed>12</feed> -->
-			<feed>2</feed>
+			<feed>2</feed>      <!-- for testing -->
 			<thruster file="direct">
 				<location unit="IN">
 					<x>1462.0</x>
@@ -332,7 +332,7 @@ if you contacted me before making any changes to this software.
 				<yaw>0.00</yaw>
 			</orient> -->
 			<!--			<feed>13</feed>  -->
-			<feed>4</feed>
+			<feed>4</feed>     <!-- for testing -->
 			<thruster file="direct">
 				<location unit="IN">
 					<x>1462.0</x>
@@ -358,7 +358,7 @@ if you contacted me before making any changes to this software.
 				<yaw>0.00</yaw>
 			</orient> -->
 			<!--			<feed>14</feed>  -->
-			<feed>5</feed>
+			<feed>5</feed>     <!-- for testing -->
 			<thruster file="direct">
 				<location unit="IN">
 					<x>1462.0</x>
