@@ -27,11 +27,11 @@
 		<type>rotate</type>
 		<object-name>HPcock.001</object-name>
 		<property>VC10/engines/HPcock[0]</property>
-		<factor>30</factor>
+		<factor>55</factor>
 		<center>
-			<x-m>  0.0</x-m>
+			<x-m>  0.0571</x-m>
 			<y-m>  0.0</y-m>
-			<z-m>  -0.046</z-m>
+			<z-m>  -0.1292</z-m>
 		</center>
 		<axis>
 		  <x>0.0</x>
@@ -57,11 +57,11 @@
 		<type>rotate</type>
 		<object-name>HPcock.002</object-name>
 		<property>VC10/engines/HPcock[1]</property>
-		<factor>30</factor>
+		<factor>55</factor>
 		<center>
-			<x-m>  0.0</x-m>
+			<x-m>  0.0571</x-m>
 			<y-m>  0.0</y-m>
-			<z-m>  -0.046</z-m>
+			<z-m>  -0.1292</z-m>
 		</center>
 		<axis>
 		  <x>0.0</x>
@@ -87,11 +87,11 @@
 		<type>rotate</type>
 		<object-name>HPcock.003</object-name>
 		<property>VC10/engines/HPcock[2]</property>
-		<factor>30</factor>
+		<factor>55</factor>
 		<center>
-			<x-m>  0.0</x-m>
+			<x-m>  0.0571</x-m>
 			<y-m>  0.0</y-m>
-			<z-m>  -0.046</z-m>
+			<z-m>  -0.1292</z-m>
 		</center>
 		<axis>
 		  <x>0.0</x>
@@ -117,11 +117,11 @@
 		<type>rotate</type>
 		<object-name>HPcock.004</object-name>
 		<property>VC10/engines/HPcock[3]</property>
-		<factor>30</factor>
+		<factor>55</factor>
 		<center>
-			<x-m>  0.0</x-m>
+			<x-m>  0.0571</x-m>
 			<y-m>  0.0</y-m>
-			<z-m>  -0.046</z-m>
+			<z-m>  -0.1292</z-m>
 		</center>
 		<axis>
 		  <x>0.0</x>
