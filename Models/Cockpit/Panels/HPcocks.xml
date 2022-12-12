@@ -21,13 +21,17 @@
 		</emission>
 	</animation> 
 
-	
 	<!-- HPcock levers -->
+	
 	<animation>
 		<type>rotate</type>
 		<object-name>HPcock.001</object-name>
 		<property>VC10/engines/HPcock[0]</property>
-		<factor>55</factor>
+		<interpolation>
+			<entry><ind>0</ind><dep>55</dep></entry>
+			<entry><ind>1</ind><dep>15</dep></entry>
+			<entry><ind>2</ind><dep>0</dep></entry>
+		</interpolation>
 		<center>
 			<x-m>  0.0571</x-m>
 			<y-m>  0.0</y-m>
@@ -39,25 +43,42 @@
 		  <z>0.0</z>
 		</axis>
 	</animation>
-
-	<animation>
-		<type>pick</type>
-		<object-name>HPcock.001</object-name>
-		<action>
-		  <button>0</button>
-		  <repeatable>false</repeatable>
-		  <binding>
-		    <command>property-toggle</command>
-		    <property>VC10/engines/HPcock[0]</property>
-		  </binding>
-		</action>
-	</animation>
 	
+	<animation>
+		<name>HP Cock 1 </name>
+		<type>slider</type>
+		<object-name>HPcock.001</object-name>
+		<property>VC10/engines/HPcock[0]</property>
+		<drag-direction>vertical</drag-direction>
+		<action>
+			<binding>
+				<command>property-cycle</command>
+				<property>VC10/engines/HPcock[0]</property>
+				<value>0</value>
+				<value>1</value>
+				<value>2</value>
+				<wrap>false</wrap>
+			</binding>
+		</action>
+		<hovered>
+			<binding>
+				<command>set-tooltip</command>
+				<label>HP Cock 1 : %d</label>
+				<tooltip-id>no</tooltip-id>
+				<property>VC10/engines/HPcock[0]</property>
+			</binding>
+		</hovered>
+	</animation>
+
 	<animation>
 		<type>rotate</type>
 		<object-name>HPcock.002</object-name>
 		<property>VC10/engines/HPcock[1]</property>
-		<factor>55</factor>
+		<interpolation>
+			<entry><ind>0</ind><dep>55</dep></entry>
+			<entry><ind>1</ind><dep>15</dep></entry>
+			<entry><ind>2</ind><dep>0</dep></entry>
+		</interpolation>
 		<center>
 			<x-m>  0.0571</x-m>
 			<y-m>  0.0</y-m>
@@ -69,25 +90,42 @@
 		  <z>0.0</z>
 		</axis>
 	</animation>
-
+	
 	<animation>
-		<type>pick</type>
+		<name>HP Cock 2 </name>
+		<type>slider</type>
 		<object-name>HPcock.002</object-name>
+		<property>VC10/engines/HPcock[1]</property>
+		<drag-direction>vertical</drag-direction>
 		<action>
-		  <button>0</button>
-		  <repeatable>false</repeatable>
-		  <binding>
-		    <command>property-toggle</command>
-		    <property>VC10/engines/HPcock[1]</property>
-		  </binding>
+			<binding>
+				<command>property-cycle</command>
+				<property>VC10/engines/HPcock[1]</property>
+				<value>0</value>
+				<value>1</value>
+				<value>2</value>
+				<wrap>false</wrap>
+			</binding>
 		</action>
+		<hovered>
+			<binding>
+				<command>set-tooltip</command>
+				<label>HP Cock 2 : %d</label>
+				<tooltip-id>no</tooltip-id>
+				<property>VC10/engines/HPcock[1]</property>
+			</binding>
+		</hovered>
 	</animation>
 	
 	<animation>
 		<type>rotate</type>
 		<object-name>HPcock.003</object-name>
 		<property>VC10/engines/HPcock[2]</property>
-		<factor>55</factor>
+		<interpolation>
+			<entry><ind>0</ind><dep>55</dep></entry>
+			<entry><ind>1</ind><dep>15</dep></entry>
+			<entry><ind>2</ind><dep>0</dep></entry>
+		</interpolation>
 		<center>
 			<x-m>  0.0571</x-m>
 			<y-m>  0.0</y-m>
@@ -99,25 +137,42 @@
 		  <z>0.0</z>
 		</axis>
 	</animation>
-
+	
 	<animation>
-		<type>pick</type>
+		<name>HP Cock 3 </name>
+		<type>slider</type>
 		<object-name>HPcock.003</object-name>
+		<property>VC10/engines/HPcock[2]</property>
+		<drag-direction>vertical</drag-direction>
 		<action>
-		  <button>0</button>
-		  <repeatable>false</repeatable>
-		  <binding>
-		    <command>property-toggle</command>
-		    <property>VC10/engines/HPcock[2]</property>
-		  </binding>
+			<binding>
+				<command>property-cycle</command>
+				<property>VC10/engines/HPcock[2]</property>
+				<value>0</value>
+				<value>1</value>
+				<value>2</value>
+				<wrap>false</wrap>
+			</binding>
 		</action>
+		<hovered>
+			<binding>
+				<command>set-tooltip</command>
+				<label>HP Cock 3 : %d</label>
+				<tooltip-id>no</tooltip-id>
+				<property>VC10/engines/HPcock[2]</property>
+			</binding>
+		</hovered>
 	</animation>
 	
 	<animation>
 		<type>rotate</type>
 		<object-name>HPcock.004</object-name>
 		<property>VC10/engines/HPcock[3]</property>
-		<factor>55</factor>
+		<interpolation>
+			<entry><ind>0</ind><dep>55</dep></entry>
+			<entry><ind>1</ind><dep>15</dep></entry>
+			<entry><ind>2</ind><dep>0</dep></entry>
+		</interpolation>
 		<center>
 			<x-m>  0.0571</x-m>
 			<y-m>  0.0</y-m>
@@ -129,19 +184,31 @@
 		  <z>0.0</z>
 		</axis>
 	</animation>
-
+	
 	<animation>
-		<type>pick</type>
+		<name>HP Cock 4 </name>
+		<type>slider</type>
 		<object-name>HPcock.004</object-name>
+		<property>VC10/engines/HPcock[0]</property>
+		<drag-direction>vertical</drag-direction>
 		<action>
-		  <button>0</button>
-		  <repeatable>false</repeatable>
-		  <binding>
-		    <command>property-toggle</command>
-		    <property>VC10/engines/HPcock[3]</property>
-		  </binding>
+			<binding>
+				<command>property-cycle</command>
+				<property>VC10/engines/HPcock[3]</property>
+				<value>0</value>
+				<value>1</value>
+				<value>2</value>
+				<wrap>false</wrap>
+			</binding>
 		</action>
+		<hovered>
+			<binding>
+				<command>set-tooltip</command>
+				<label>HP Cock 4 : %d</label>
+				<tooltip-id>no</tooltip-id>
+				<property>VC10/engines/HPcock[3]</property>
+			</binding>
+		</hovered>
 	</animation>
 	
-
 </PropertyList>
