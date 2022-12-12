@@ -59,12 +59,12 @@ if you contacted me before making any changes to this software.
 
 		<systems n="0">
 			<autopilot n="0">
-				<path>Aircraft/VC10/Systems/autopilot.xml</path>
+				<path>Systems/autopilot.xml</path>
 			</autopilot>
 		</systems>
 
 		<instrumentation>
-			<path>Aircraft/VC10/Systems/instrumentation.xml</path>
+			<path>Systems/instrumentation.xml</path>
 		</instrumentation>
 
 		<model>
@@ -93,7 +93,7 @@ if you contacted me before making any changes to this software.
 		</airport>
 
 		<sound>
-			<path>Aircraft/VC10/Sounds/VC10-sound.xml</path>
+			<path>Sounds/VC10-sound.xml</path>
 			<switch type="bool">0</switch>
 			<stall-horn type="bool">0</stall-horn>
 		</sound>
@@ -307,7 +307,7 @@ if you contacted me before making any changes to this software.
 			</generic>
 		</multiplay>
 
-		<flight-recorder include="Aircraft/VC10/Systems/flightrecorder.xml"/>
+		<flight-recorder include="Systems/flightrecorder.xml"/>
 
 		<flaps>
 			<setting>0.0</setting><!--  0 deg -->
@@ -378,7 +378,7 @@ if you contacted me before making any changes to this software.
 	</engines>
 
 	<input>
-		<keyboard include="Aircraft/VC10/Systems/keyboard.xml"/>
+		<keyboard include="Systems/keyboard.xml"/>
 	</input>
 
 	<autopilot>
@@ -522,7 +522,7 @@ if you contacted me before making any changes to this software.
 			<text3 type="string">FOR FLIGHTGEAR SIMULATION ONLY</text3>
 			<subtitle4 type="string"/>
 			<text4 type="string">Lake of Constance Hangar Vol. 1.1.5</text4>
-			<content include="Aircraft/VC10/Models/Cockpit/Manual/manual.xml"/>
+			<content include="Models/Cockpit/Manual/manual.xml"/>
 		</manual>
 		<ground-service>
 			<fuel-truck>
@@ -583,7 +583,7 @@ if you contacted me before making any changes to this software.
 		</weight>
 	</payload>
 
-	<instrumentation include="Aircraft/VC10/Systems/instrumentation-init.xml"/>
+	<instrumentation include="Systems/instrumentation-init.xml"/>
 
 	<limits>
 		<mass-and-balance>
