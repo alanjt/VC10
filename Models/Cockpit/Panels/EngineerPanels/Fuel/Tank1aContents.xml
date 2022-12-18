@@ -66,8 +66,8 @@ if you contacted me before making any changes to this software.
 		<object-name>NeedleCentre</object-name>
 		<condition>		
 			<greater-than>
-				<property>VC10/electric/ess-bus</property>
-				<value>20</value>
+				<property>VC10/electric/ac/ACbus4-volts</property>
+				<value>100</value>
 			</greater-than>
 		</condition>
 		<property>consumables/fuel/tank[0]/level-lbs</property>

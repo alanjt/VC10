@@ -29,8 +29,8 @@
 		<property>VC10/engines/HPcock[0]</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>55</dep></entry>
-			<entry><ind>1</ind><dep>15</dep></entry>
-			<entry><ind>2</ind><dep>0</dep></entry>
+			<entry><ind>0.75</ind><dep>15</dep></entry>
+			<entry><ind>1</ind><dep>0</dep></entry>
 		</interpolation>
 		<center>
 			<x-m>  0.0571</x-m>
@@ -55,15 +55,15 @@
 				<command>property-cycle</command>
 				<property>VC10/engines/HPcock[0]</property>
 				<value>0</value>
-				<value>1</value>
-				<value>2</value>
+				<value>0.75</value>
+				<value>1.0</value>
 				<wrap>false</wrap>
 			</binding>
 		</action>
 		<hovered>
 			<binding>
 				<command>set-tooltip</command>
-				<label>HP Cock 1 : %d</label>
+				<label>HP Cock 1 : %.2f</label>
 				<tooltip-id>no</tooltip-id>
 				<property>VC10/engines/HPcock[0]</property>
 			</binding>
@@ -76,8 +76,8 @@
 		<property>VC10/engines/HPcock[1]</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>55</dep></entry>
-			<entry><ind>1</ind><dep>15</dep></entry>
-			<entry><ind>2</ind><dep>0</dep></entry>
+			<entry><ind>0.75</ind><dep>15</dep></entry>
+			<entry><ind>1</ind><dep>0</dep></entry>
 		</interpolation>
 		<center>
 			<x-m>  0.0571</x-m>
@@ -102,15 +102,15 @@
 				<command>property-cycle</command>
 				<property>VC10/engines/HPcock[1]</property>
 				<value>0</value>
-				<value>1</value>
-				<value>2</value>
+				<value>0.75</value>
+				<value>1.0</value>
 				<wrap>false</wrap>
 			</binding>
 		</action>
 		<hovered>
 			<binding>
 				<command>set-tooltip</command>
-				<label>HP Cock 2 : %d</label>
+				<label>HP Cock 2 : %.2f</label>
 				<tooltip-id>no</tooltip-id>
 				<property>VC10/engines/HPcock[1]</property>
 			</binding>
@@ -123,8 +123,8 @@
 		<property>VC10/engines/HPcock[2]</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>55</dep></entry>
-			<entry><ind>1</ind><dep>15</dep></entry>
-			<entry><ind>2</ind><dep>0</dep></entry>
+			<entry><ind>0.75</ind><dep>15</dep></entry>
+			<entry><ind>1</ind><dep>0</dep></entry>
 		</interpolation>
 		<center>
 			<x-m>  0.0571</x-m>
@@ -149,15 +149,15 @@
 				<command>property-cycle</command>
 				<property>VC10/engines/HPcock[2]</property>
 				<value>0</value>
-				<value>1</value>
-				<value>2</value>
+				<value>0.75</value>
+				<value>1.0</value>
 				<wrap>false</wrap>
 			</binding>
 		</action>
 		<hovered>
 			<binding>
 				<command>set-tooltip</command>
-				<label>HP Cock 3 : %d</label>
+				<label>HP Cock 3 : %.2f</label>
 				<tooltip-id>no</tooltip-id>
 				<property>VC10/engines/HPcock[2]</property>
 			</binding>
@@ -170,8 +170,8 @@
 		<property>VC10/engines/HPcock[3]</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>55</dep></entry>
-			<entry><ind>1</ind><dep>15</dep></entry>
-			<entry><ind>2</ind><dep>0</dep></entry>
+			<entry><ind>0.75</ind><dep>15</dep></entry>
+			<entry><ind>1</ind><dep>0</dep></entry>
 		</interpolation>
 		<center>
 			<x-m>  0.0571</x-m>
@@ -196,15 +196,15 @@
 				<command>property-cycle</command>
 				<property>VC10/engines/HPcock[3]</property>
 				<value>0</value>
-				<value>1</value>
-				<value>2</value>
+				<value>0.75</value>
+				<value>1.0</value>
 				<wrap>false</wrap>
 			</binding>
 		</action>
 		<hovered>
 			<binding>
 				<command>set-tooltip</command>
-				<label>HP Cock 4 : %d</label>
+				<label>HP Cock 4 : %.2f</label>
 				<tooltip-id>no</tooltip-id>
 				<property>VC10/engines/HPcock[3]</property>
 			</binding>

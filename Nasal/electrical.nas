@@ -597,7 +597,12 @@ var update_buses = func {
 			setprop("VC10/electric/dc/NonEssDCbus1-ind",0);
 			setprop("VC10/electric/dc/NonEssDCbus2-ind",0);			
 		}
-
+		
+	if (BAT1sw == 1) setprop ("VC10/electric/dc/BAT1-ind",1)
+	else setprop ("VC10/electric/dc/BAT1-ind",0);
+	if (BAT2sw == 1) setprop ("VC10/electric/dc/BAT2-ind",1)
+	else setprop ("VC10/electric/dc/BAT2-ind",0);
+	
 #	generator1.apply_load(load);
 #	generator2.apply_load(load);
 #	generator3.apply_load(load);

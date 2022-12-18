@@ -66,7 +66,7 @@ if you contacted me before making any changes to this software.
 		<object-name>NeedleCentre</object-name>
 		<condition>		
 			<greater-than>
-				<property>VC10/electric/ess-bus</property>
+				<property>VC10/electric/dc/EssDCbus1-volts</property>
 				<value>20</value>
 			</greater-than>
 		</condition>
