@@ -16,8 +16,8 @@
 	</model>
 	
 	<model>
-		<name>Engine start switch</name>
-		<path>EngineStartSw.xml</path>
+		<name>Engine start master switch</name>
+		<path>EngineStartMasterSw.xml</path>
 		<offsets>
 			<x-m>-0.033</x-m>
 			<y-m>-0.0135</y-m>
@@ -62,8 +62,8 @@
 		</offsets>
 	</model>
 	<model>
-		<name>Ignition Lamps</name>
-		<path>IgnitionLamps.xml</path>
+		<name>Igniter Lamps</name>
+		<path>IgniterLamps.xml</path>
 		<offsets>
 			<x-m>-0.033</x-m>
 			<y-m>-0.127</y-m>

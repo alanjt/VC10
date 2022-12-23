@@ -7,16 +7,9 @@
 # All values in US Gallons, unless specified.
 
 # VC10 fuel system operation logic:
-# 2 wing tanks (left and right), 4 fuselage tanks. 
-# The two forward fuselage tanks gravity feed a collector tank, from which fuel is
-# taken by a pair of fueldraulic boost pumps.
-# The two aft tanks have a similar system.
-#  
-# Normally the fwd boost pumps feed the left engine and
-# the aft boost pumps feed the right engine. The two feed lines
-# may be interconnected by opening a cross feed valve.
+# 6 wing tanks (1a,1,2 left and 3,4,4a right), 1 centre wing tank. 
 
-# Fuel balance is automatic, by manual transfer selection or by differential throttle setting
+
 
 # Check valves prevent reverse fuel flow from the main tanks to the wing tanks.
 
@@ -646,7 +639,8 @@ var update_fuel = func {
 	var fuel_flow_rate0 = getprop("fdm/jsbsim/propulsion/engine[0]/fuel-flow-rate-pps") or 0;
 	var fuel_flow_rate1 = getprop("fdm/jsbsim/propulsion/engine[1]/fuel-flow-rate-pps") or 0;
 	var fuel_flow_rate2 = getprop("fdm/jsbsim/propulsion/engine[2]/fuel-flow-rate-pps") or 0;
-	var fuel_flow_rate = fuel_flow_rate0 + fuel_flow_rate1 + fuel_flow_rate2;
+	var fuel_flow_rate3 = getprop("fdm/jsbsim/propulsion/engine[3]/fuel-flow-rate-pps") or 0;
+	var fuel_flow_rate = fuel_flow_rate0 + fuel_flow_rate1 + fuel_flow_rate2 + fuel_flow_rate2;
 	setprop("systems/fuel/fuel-flow-rate-pps", fuel_flow_rate);
 	if (fuel_flow_rate < 1.0) fuel_flow_rate = 0.0001;
 	var flight_time_remaining = fuel_remaining / (60.0 * fuel_flow_rate);

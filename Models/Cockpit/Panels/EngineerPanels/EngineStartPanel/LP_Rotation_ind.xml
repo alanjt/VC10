@@ -26,16 +26,16 @@ if you contacted me before making any changes to this software.
 
 	<path>Aircraft/VC10/Models/Cockpit/SwitchesLamps/indicator_green.ac</path>
 
-<!--	<animation>
+	<animation>
 		<type>material</type>
-		<object-name>lens</object-name>
+		<object-name>light</object-name>
 		<emission>
-			<factor-prop>VC10/engines/StarterRotation</factor-prop>
+			<factor-prop>props.globals.initNode("VC10/engines/LPshaftRotation",0,"INT");</factor-prop>
 			<red>1</red>
 			<green>1</green>
 			<blue>1</blue>
 		</emission>
-	</animation> -->
+	</animation>
 
 
 </PropertyList>

@@ -1,6 +1,6 @@
 <PropertyList>
 
-	<path>IgnitionLamps.ac</path>
+	<path>IgniterLamps.ac</path>
 	<animation>
 		<object-name>Lamp1</object-name>
 		<object-name>Lamp2</object-name>

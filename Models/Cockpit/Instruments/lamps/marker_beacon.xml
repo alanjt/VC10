@@ -95,10 +95,10 @@
   <type>select</type>
   <object-name>LampBlueON</object-name>
   <condition>
-		<greater-than>
+		<!--<greater-than>
 			<property>VC10/electric/ess-bus</property>
 			<value>20</value>
-		</greater-than>
+		</greater-than>-->
     <or>
       <property>instrumentation/marker-beacon/outer</property>
       <property>controls/test/warn-knob</property>
@@ -110,11 +110,11 @@
   <type>select</type>
   <object-name>LampAmberON</object-name>
   <condition>
-		<greater-than>
+		<!--<greater-than>
 			<property>VC10/electric/ess-bus</property>
 			<value>20</value>
-		</greater-than>
-    <or>
+		</greater-than>-->
+    <or> 
       <property>instrumentation/marker-beacon/middle</property>
       <property>controls/test/warn-knob</property>
     </or>
@@ -125,10 +125,10 @@
   <type>select</type>
   <object-name>LampWhiteON</object-name>
   <condition>
-		<greater-than>
+		<!--<greater-than>
 			<property>VC10/electric/ess-bus</property>
 			<value>20</value>
-		</greater-than>
+		</greater-than>-->
     <or>
       <property>instrumentation/marker-beacon/inner</property>
       <property>controls/test/warn-knob</property>

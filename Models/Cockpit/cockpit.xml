@@ -489,7 +489,7 @@
 		</offsets>
 	</model>
 
-	<model>
+<!--	<model>
 		<name>overhead-panel-equipment</name>
 		<path>Aircraft/VC10/Models/Cockpit/Equipment/oh_panel/ohpanel.xml</path>
 		<offsets>
@@ -498,9 +498,9 @@
 			<z-m>  1.35</z-m>
 			<pitch-deg>69.5</pitch-deg>
 		</offsets>
-	</model>
+	</model> -->
 
-	<model>
+<!--	<model>
 		<name>circuit-breaker-panel</name>
 		<path>Aircraft/VC10/Models/Cockpit/Equipment/oh_panel/circuitBreaker.xml</path>
 		<offsets>
@@ -509,7 +509,7 @@
 			<z-m>  1.52</z-m>
 			<pitch-deg>75</pitch-deg>
 		</offsets>
-	</model>
+	</model> -->
 
 <!--	<model>
 		<name>707engineer-panel-top</name>

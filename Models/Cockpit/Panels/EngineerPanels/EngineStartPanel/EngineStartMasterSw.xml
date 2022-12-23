@@ -24,10 +24,10 @@ if you contacted me before making any changes to this software.
 ########################################################################-->
 <PropertyList>
 
-	<path>EngineStartSw.ac</path>
+	<path>EngineStartMasterSw.ac</path>
 
 	<animation>
-		<name>Engine Start Select </name>
+		<name>Engine Start Master </name>
 		<type>knob</type>
 		<object-name>knob</object-name>
 		<property>VC10/engines/StartModeSw</property>
@@ -37,7 +37,7 @@ if you contacted me before making any changes to this software.
 		<action>
 			<binding>
 				<command>property-cycle</command>
-				<property>VC10/engines/StartModeSw</property>
+				<property>VC10/engines/StartMasterSw</property>
 				<value>0</value>
 				<value>1</value>
 				<value>2</value>
@@ -49,7 +49,7 @@ if you contacted me before making any changes to this software.
 				<command>set-tooltip</command>
 				<label>StartMode: %d</label>
 				<tooltip-id>no</tooltip-id>
-				<property>VC10/engines/StartModeSw</property>
+				<property>VC10/engines/StartMasterSw</property>
 			</binding>
 		</hovered>
 	</animation>
