@@ -39,6 +39,336 @@ if you contacted me before making any changes to this software.
 			<factor-prop>systems/electrical/outputs/engineer-dim</factor-prop>
 		</emission>
 	</animation> -->
+	
+	<model>
+		<name>HP_StopValve1Sw</name>
+		<path>HP_StopValve1Sw.xml</path>
+		<offsets>
+			<x-m>-0.0</x-m>
+			<y-m>0.0313</y-m>
+			<z-m>0.4143</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>HP_StopValve1Ind</name>
+		<path>HP_StopValve1Ind.xml</path>
+		<offsets>
+			<x-m>-0.0</x-m>
+			<y-m>0.0582</y-m>
+			<z-m>0.4143</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>HP_StopValve2Sw</name>
+		<path>HP_StopValve2Sw.xml</path>
+		<offsets>
+			<x-m>-0.0</x-m>
+			<y-m>0.0926</y-m>
+			<z-m>0.4143</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>HP_StopValve2Ind</name>
+		<path>HP_StopValve2Ind.xml</path>
+		<offsets>
+			<x-m>-0.0</x-m>
+			<y-m>0.1185</y-m>
+			<z-m>0.4143</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>HP_StopValve3Sw</name>
+		<path>HP_StopValve3Sw.xml</path>
+		<offsets>
+			<x-m>-0.0</x-m>
+			<y-m>0.1563</y-m>
+			<z-m>0.4143</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>HP_StopValve3Ind</name>
+		<path>HP_StopValve3Ind.xml</path>
+		<offsets>
+			<x-m>-0.0</x-m>
+			<y-m>0.1826</y-m>
+			<z-m>0.4143</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>HP_StopValve4Sw</name>
+		<path>HP_StopValve4Sw.xml</path>
+		<offsets>
+			<x-m>-0.0</x-m>
+			<y-m>0.2163</y-m>
+			<z-m>0.4143</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>HP_StopValve4Ind</name>
+		<path>HP_StopValve4Ind.xml</path>
+		<offsets>
+			<x-m>-0.0</x-m>
+			<y-m>0.2429</y-m>
+			<z-m>0.4143</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>ReduceValve1_2Sw</name>
+		<path>ReduceValve1_2Sw.xml</path>
+		<offsets>
+			<x-m>-0.0</x-m>
+			<y-m>0.0471</y-m>
+			<z-m>0.3761</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>ReduceValve1_2Ind</name>
+		<path>ReduceValve1_2Ind.xml</path>
+		<offsets>
+			<x-m>-0.0</x-m>
+			<y-m>0.0710</y-m>
+			<z-m>0.3761</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>ReduceValve3_4Sw</name>
+		<path>ReduceValve3_4Sw.xml</path>
+		<offsets>
+			<x-m>-0.0</x-m>
+			<y-m>0.2081</y-m>
+			<z-m>0.3761</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>ReduceValve3_4Ind</name>
+		<path>ReduceValve3_4Ind.xml</path>
+		<offsets>
+			<x-m>-0.0</x-m>
+			<y-m>0.2312</y-m>
+			<z-m>0.3761</z-m>
+		</offsets>
+	</model>
+		
+	<model>
+		<name>WingActuator1Sw</name>
+		<path>WingActuator1Sw.xml</path>
+		<offsets>
+			<x-m>-0.0</x-m>
+			<y-m>0.0434</y-m>
+			<z-m>0.3123</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>WingActuator2Sw</name>
+		<path>WingActuator2Sw.xml</path>
+		<offsets>
+			<x-m>-0.0</x-m>
+			<y-m>0.0610</y-m>
+			<z-m>0.3123</z-m>
+		</offsets>
+	</model>
+		
+	<model>
+		<name>WingActuator1Ind</name>
+		<path>WingActuator1Ind.xml</path>
+		<offsets>
+			<x-m>-0.0</x-m>
+			<y-m>0.0854</y-m>
+			<z-m>0.3123</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>WingActuator2Ind</name>
+		<path>WingActuator2Ind.xml</path>
+		<offsets>
+			<x-m>-0.0</x-m>
+			<y-m>0.1149</y-m>
+			<z-m>0.3123</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>TailStopValveSw</name>
+		<path>TailStopValveSw.xml</path>
+		<offsets>
+			<x-m>-0.0</x-m>
+			<y-m>0.1664</y-m>
+			<z-m>0.3123</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>TailStopValveInd</name>
+		<path>TailStopValveInd.xml</path>
+		<offsets>
+			<x-m>-0.0</x-m>
+			<y-m>0.1945</y-m>
+			<z-m>0.3123</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>DuctTempSelect</name>
+		<path>DuctTempSelectSw.xml</path>
+		<offsets>
+			<x-m>-0.0</x-m>
+			<y-m>0.1177</y-m>
+			<z-m>0.3660</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>WingTempSelectSwitch</name>
+		<path>WingTempSw.xml</path>
+		<offsets>
+			<x-m>-0.0</x-m>
+			<y-m>0.0847</y-m>
+			<z-m>0.2658</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>TailTempSelectSwitch</name>
+		<path>TailTempSw.xml</path>
+		<offsets>
+			<x-m>-0.0</x-m>
+			<y-m>0.1868</y-m>
+			<z-m>0.2658</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>StubOverheatLamp1</name>
+		<path>StubOverheatLamp1.xml</path>
+		<offsets>
+			<x-m>-0.0</x-m>
+			<y-m>0.0586</y-m>
+			<z-m>0.3494</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>StubOverheatLamp2</name>
+		<path>StubOverheatLamp2.xml</path>
+		<offsets>
+			<x-m>-0.0</x-m>
+			<y-m>0.2439</y-m>
+			<z-m>0.3494</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>DuctFailLamp</name>
+		<path>DuctFailLamp.xml</path>
+		<offsets>
+			<x-m>-0.0</x-m>
+			<y-m>0.2119</y-m>
+			<z-m>0.3259</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>DuctOverheatLamp</name>
+		<path>DuctOverheatLamp.xml</path>
+		<offsets>
+			<x-m>-0.0</x-m>
+			<y-m>0.2439</y-m>
+			<z-m>0.3259</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Engine1_AntiIceSw</name>
+		<path>Engine1_AntiIceSw.xml</path>
+		<offsets>
+			<x-m>-0.0</x-m>
+			<y-m>0.1982</y-m>
+			<z-m>0.1531</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Engine2_AntiIceSw</name>
+		<path>Engine2_AntiIceSw.xml</path>
+		<offsets>
+			<x-m>-0.0</x-m>
+			<y-m>0.2163</y-m>
+			<z-m>0.1531</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Engine3_AntiIceSw</name>
+		<path>Engine3_AntiIceSw.xml</path>
+		<offsets>
+			<x-m>-0.0</x-m>
+			<y-m>0.2340</y-m>
+			<z-m>0.1531</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Engine4_AntiIceSw</name>
+		<path>Engine4_AntiIceSw.xml</path>
+		<offsets>
+			<x-m>-0.0</x-m>
+			<y-m>0.2542</y-m>
+			<z-m>0.1531</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>vsi</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/vs/vsi.xml</path>
+		<offsets>
+			<x-m>-0.0</x-m>
+			<y-m>0.5075</y-m>
+			<z-m>0.1390</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>mach</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/mach/mach.xml</path>
+		<offsets>
+			<x-m>-0.0</x-m>
+			<y-m>0.3198</y-m>
+			<z-m>0.0527</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>asi</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/asi/asi.xml</path>
+		<offsets>
+			<x-m>0</x-m>
+			<y-m>0.4097</y-m>
+			<z-m>0.0527</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>alt</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/alt/alt.xml</path>
+		<offsets>
+			<x-m>-0.0</x-m>
+			<y-m>0.5017</y-m>
+			<z-m>0.0527</z-m>
+		</offsets>
+	</model>
 
 	<!--	<model>
 		<name>crossfeedSelectors</name>

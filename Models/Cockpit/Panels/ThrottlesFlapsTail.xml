@@ -106,6 +106,23 @@ if you contacted me before making any changes to this software.
 			<z>0.0</z>
 		</axis>
 	</animation>
+	
+	<animation>
+		<type>slider</type>
+		<object-name>throttle.002</object-name>
+		<property>controls/engines/engine[1]/throttle</property>
+		<drag-direction>vertical</drag-direction>
+		<action>
+			<binding>
+			<command>property-adjust</command>
+			<property>controls/engines/engine[1]/throttle</property>
+			<factor> 0.05 </factor>
+			<min>0.0</min>
+			<max>1</max>
+			<wrap>false</wrap>
+			</binding>
+		</action>
+	</animation>
 
 	<animation>
 		<type>rotate</type>
