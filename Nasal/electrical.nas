@@ -39,10 +39,10 @@ props.globals.initNode("VC10/electric/ac/generator/GCR2-sw",1,"INT");
 props.globals.initNode("VC10/electric/ac/generator/GCR3-sw",1,"INT");
 props.globals.initNode("VC10/electric/ac/generator/GCR4-sw",1,"INT");
 
-props.globals.initNode("VC10/electric/ac/generator/Gen1-ControlRelay",0,"INT");
-props.globals.initNode("VC10/electric/ac/generator/Gen2-ControlRelay",0,"INT");
-props.globals.initNode("VC10/electric/ac/generator/Gen3-ControlRelay",0,"INT");
-props.globals.initNode("VC10/electric/ac/generator/Gen4-ControlRelay",0,"INT");
+props.globals.initNode("VC10/electric/ac/generator/Gen1-ControlRelay",1,"INT");
+props.globals.initNode("VC10/electric/ac/generator/Gen2-ControlRelay",1,"INT");
+props.globals.initNode("VC10/electric/ac/generator/Gen3-ControlRelay",1,"INT");
+props.globals.initNode("VC10/electric/ac/generator/Gen4-ControlRelay",1,"INT");
 
 props.globals.initNode("VC10/electric/ac/generator/Gen1-Control-sw",0,"INT");
 props.globals.initNode("VC10/electric/ac/generator/Gen2-Control-sw",0,"INT");
@@ -77,10 +77,10 @@ props.globals.initNode("VC10/electric/GroundPowerBreaker",0,"INT");
 props.globals.initNode("VC10/electric/GroundPowerBusVolts",0,"DOUBLE");
 props.globals.initNode("VC10/electric/GroundPowerBusCycles",0,"DOUBLE");
 
-props.globals.initNode("VC10/electric/ac/FreqVoltsSelectsw",0,"INT");
-props.globals.initNode("VC10/electric/ac/CSD_GenTempselsw",0,"INT");
-props.globals.initNode("VC10/electric/ac/KW-KVARselsw",0,"INT");
-props.globals.initNode("VC10/electric/dc/VoltsSelectsw",0,"INT");
+props.globals.initNode("VC10/electric/AC_FreqVoltsSelectsw",0,"INT");
+props.globals.initNode("VC10/electric/AC_CSD_GenTempselsw",0,"INT");
+props.globals.initNode("VC10/electric/AC_KW-KVARselsw",0,"INT");
+props.globals.initNode("VC10/electric/DC_VoltsSelectsw",0,"INT");
 
 props.globals.initNode("VC10/electric/ac/BTB1-relay",1,"INT");
 props.globals.initNode("VC10/electric/ac/BTB2-relay",1,"INT");
@@ -88,6 +88,12 @@ props.globals.initNode("VC10/electric/ac/BTB3-relay",1,"INT");
 props.globals.initNode("VC10/electric/ac/BTB4-relay",1,"INT");
 props.globals.initNode("VC10/electric/ac/SSB",0,"INT");
 props.globals.initNode("VC10/electric/ac/SSB-sw",0,"INT");
+
+props.globals.initNode("VC10/electric/ac/BTB1-ind",0,"INT");
+props.globals.initNode("VC10/electric/ac/BTB2-ind",0,"INT");
+props.globals.initNode("VC10/electric/ac/BTB3-ind",0,"INT");
+props.globals.initNode("VC10/electric/ac/BTB4-ind",0,"INT");
+props.globals.initNode("VC10/electric/ac/SSB-ind",0,"INT");
 
 props.globals.initNode("VC10/electric/ac/AUXbus-ind",0,"INT");
 
@@ -103,7 +109,6 @@ props.globals.initNode("VC10/electric/dc/BAT2-ind",0,"INT");
 
 props.globals.initNode("VC10/electric/dc/TRU1-sw",1,"BOOL");
 props.globals.initNode("VC10/electric/dc/TRU2-sw",1,"BOOL");
-props.globals.initNode("VC10/electric/dc/StbyTRU-switch",0,"INT");
 
 props.globals.initNode("VC10/electric/dc/TRU1power-ind",0,"INT");
 props.globals.initNode("VC10/electric/dc/TRU2power-ind",0,"INT");
@@ -122,6 +127,8 @@ props.globals.initNode("VC10/electric/ac/Galley1-sw",0,"BOOL");
 props.globals.initNode("VC10/electric/ac/Galley2-sw",0,"BOOL");
 props.globals.initNode("VC10/electric/ac/Galley3-sw",0,"BOOL");
 
+props.globals.initNode("VC10/electric/dc/DC1Fail",0,"BOOL");
+props.globals.initNode("VC10/electric/dc/DC2Fail",0,"BOOL");
 
 var No1ACbus_volts = props.globals.initNode("VC10/electric/ac/ACbus1-volts",0,"DOUBLE");
 var No2ACbus_volts = props.globals.initNode("VC10/electric/ac/ACbus2-volts",0,"DOUBLE");
@@ -179,8 +186,8 @@ var EssDCbus_output=[];
 var EssDCbus_load=[];
 var EssDCbus_service=[];
 
-var ACSelector = props.globals.initNode("VC10/electric/ac/FreqVoltsSelectsw",0,"INT");
-var DCSelector = props.globals.initNode("VC10/electric/dc/VoltsSelectsw",0,"INT");
+var ACSelector = props.globals.initNode("VC10/electric/AC_FreqVoltsSelectsw",0,"INT");
+var DCSelector = props.globals.initNode("VC10/electric/DC_VoltsSelectsw",0,"INT");
 
 var strobe_switch = props.globals.getNode("controls/lighting/strobe", 1);
 aircraft.light.new("controls/lighting/strobe-state", [0.05, 1.30], strobe_switch);
@@ -346,8 +353,8 @@ var Generator = {
     }    
 };
 ###							switch-prop					volts_output		  ideal_volts,amps,amp_hours,charge_decimal,charge_amps);
-var battery1 = Battery.new("VC10/electric/dc/BAT1_sw","VC10/electric/dc/BAT1-volts",28.0,30,25,1.0,7.0);
-var battery2 = Battery.new("VC10/electric/dc/BAT2_sw","VC10/electric/dc/BAT2-volts",28.0,30,25,1.0,7.0);
+var battery1 = Battery.new("VC10/electric/dc/BAT1_sw","VC10/electric/dc/BAT1-volts",24.0,30,25,1.0,7.0);
+var battery2 = Battery.new("VC10/electric/dc/BAT2_sw","VC10/electric/dc/BAT2-volts",24.0,30,25,1.0,7.0);
 
 ###                            num,switch,								gen_output,              rpm_source,           rpm_threshold,volts,amps,freq
 var generator0 = Generator.new(0,"VC10/electric/ac/generator/GenELRAT-drive","VC10/electric/ac/generator/GenELRAT-volts","/fdm/jsbsim/velocities/vtrue-kts",100.0,115.0,60.0);
@@ -358,14 +365,11 @@ var generator4 = Generator.new(4,"VC10/electric/ac/generator/Gen4-Drv","VC10/ele
 
 props.globals.initNode("VC10/electric/dc/TRU1-sw",1,"BOOL");
 props.globals.initNode("VC10/electric/dc/TRU2-sw",1,"BOOL");
-props.globals.initNode("VC10/electric/dc/StbyTRUsel-switch",0,"INT");
+props.globals.initNode("VC10/electric/dc/StbyTRUsel_sw",0,"INT");
 
 props.globals.initNode("VC10/electric/dc/TRU1power-ind",0,"INT");
 props.globals.initNode("VC10/electric/dc/TRU2power-ind",0,"INT");
-props.globals.initNode("VC10/electric/dc/StbyTRUpower-ind",0,"INT");
 
-props.globals.initNode("VC10/electric/dc/StbyTRUbus1-ind",0,"INT");
-props.globals.initNode("VC10/electric/dc/StbyTRUbus2-ind",0,"INT");
 props.globals.initNode("VC10/electric/dc/NonEssDCbus1-ind",0,"INT");
 props.globals.initNode("VC10/electric/dc/NonEssDCbus2-ind",0,"INT");
 #####################################
@@ -492,25 +496,22 @@ var update_buses = func {
 	if (GCR2 == 0) GCB2 = 0;
 	if (GCR3 == 0) GCB3 = 0;
 	if (GCR4 == 0) GCB4 = 0;
-	
 
-	
+	var SSBsw = getprop("VC10/electric/ac/SSB-sw") or 0;	
 #Split System Breaker
-	var SSBsw = getprop("VC10/electric/ac/SSB-sw") or 0;
-
 	if (((GCB1 == 0) or (GCB3 == 0) or (GCB2 == 0) or (GCB4 == 0)) and (SSBsw == 1)) SSB = 1;
-	if (((BTB1 == 0 ) and (BTB3 == 0)) or ((BTB2 == 0 ) and (BTB4 == 0))) SSB = 0;
+	if (((BTB1 == 0 ) and (BTB3 == 0)) or ((BTB2 == 0 ) and (BTB4 == 0)) or (SSBsw == 0)) SSB = 0;
 ###	print ("SSBsw ",SSBsw," GCB1234 ",GCB1,GCB2,GCB3,GCB4," BTB1234 ",BTB1,BTB2,BTB3,BTB4, "    SSB ",SSB);
 	
-#Ground Power Breaker
 	var BAT1sw = getprop("VC10/electric/dc/BAT1_sw");
 	var BAT2sw = getprop("VC10/electric/dc/BAT2_sw");
 	var GPsw = getprop("VC10/electric/GroundPower-sw");
 	
 ###	print ("GPsw ",GPsw," BAT1sw, BAT2sw ",BAT1sw,BAT2sw," GCR1234 ",GCR1,GCR2,GCR3,GCR4);
 	
-	if ((GPsw == 1) and (BAT1sw == 1) and (BAT2sw == 1) and
-	    (GCR1 == 0) and (GCR2 == 0) and (GCR3 == 0) and (GCR4 == 0)) {
+#Ground Power Breaker
+	if ((GPsw == 1) and (BAT1sw == 1) and (BAT2sw == 1) and             ## Ground Power and Betteries on
+	    (GCB1 == 0) and (GCB2 == 0) and (GCB3 == 0) and (GCB4 == 0)) {  ## all Generator circuit breakers open
 				setprop ("VC10/electric/GroundPowerBreaker",1);
 				setprop ("VC10/electric/GroundPowerBusVolts",115.0);
 				setprop ("VC10/electric/GroundPowerBusCycles",400.0);
@@ -556,8 +557,10 @@ var update_buses = func {
 	var No1NonEssDCbus_volts = getprop("VC10/electric/dc/NonEssDCbus1-volts");
 	var No2NonEssDCbus_volts = getprop("VC10/electric/dc/NonEssDCbus2-volts");
 
-	var No1Batbus_volts = getprop("VC10/electric/dc/BAT1-bus-volts");
-	var No2Batbus_volts = getprop("VC10/electric/dc/BAT2-bus-volts");
+	var No1Bat_volts = getprop("VC10/electric/dc/BAT1-volts");
+	var No2Bat_volts = getprop("VC10/electric/dc/BAT2-volts");
+	
+	AuxACbus_volts = No3ACbus_volts;                ## or VC10/electric/ac/generator/GenELRAT-volts when Elrat is deployed
 		
 	var TRU1_volts = No1ACbus_volts * 28.0 / 115.0;	
 	var TRU2_volts = No4ACbus_volts * 28.0 / 115.0;
@@ -569,19 +572,42 @@ var update_buses = func {
 	if (TRU2_volts > 24) TRU2_power=1;
 	var StbyTRU_power = 0;	
 	if (StbyTRU_volts > 24) StbyTRU_power=1;
-	
-	setprop("VC10/electric/dc/TRU1power-ind",TRU1_power);
-	setprop("VC10/electric/dc/TRU2power-ind",TRU2_power);
-	setprop("VC10/electric/dc/StbyTRUpower-ind",StbyTRU_power);
 
 	var StbyTRU_Sel_sw = getprop("VC10/electric/dc/StbyTRUsel_sw" );
 	var StbyTRU_bus1_ind = 0;
-	if ((StbyTRU_Sel_sw == -1) and (StbyTRU_volts > 24))StbyTRU_bus1_ind =1;
+	if ((StbyTRU_Sel_sw == -1) and (StbyTRU_volts > 24))  StbyTRU_bus1_ind = 1;
 	var StbyTRU_bus2_ind = 0;
-	if ((StbyTRU_Sel_sw == -1) and (StbyTRU_volts > 24))StbyTRU_bus1_ind =1;
+	if ((StbyTRU_Sel_sw == 1) and (StbyTRU_volts > 24))  StbyTRU_bus2_ind = 1;
+	
+	var BAT1_ind = getprop ("VC10/electric/dc/BAT1-ind");
+	var BAT2_ind = getprop ("VC10/electric/dc/BAT2-ind");
 		
-	var No1EssDCbus_volts = math.max(TRU1_volts, No1Batbus_volts, StbyTRU_volts * StbyTRU_bus1_ind );
-	var No2EssDCbus_volts = math.max(TRU2_volts, No2Batbus_volts, StbyTRU_volts * StbyTRU_bus2_ind );
+	if (BAT1sw == 1){
+			BAT1_ind=1;
+		}elsif (BAT1sw == 0){
+			BAT1_ind=0; 
+		}elsif (BAT1sw == -1){
+			BAT1_ind=1;
+		}
+	
+	if (BAT2sw == 1){
+			BAT2_ind=1;
+		}elsif (BAT2sw == 0){
+			BAT2_ind=0; 
+		}elsif (BAT2sw == -1){
+			BAT2_ind=1;
+		}
+	
+	setprop ("VC10/electric/dc/BAT1-ind",BAT1_ind);
+	setprop ("VC10/electric/dc/BAT2-ind",BAT2_ind);
+	
+	var No1EssDCbus_volts = math.max(TRU1_volts, No1Bat_volts*BAT1_ind, StbyTRU_volts * StbyTRU_bus1_ind );
+	var No2EssDCbus_volts = math.max(TRU2_volts, No2Bat_volts*BAT2_ind, StbyTRU_volts * StbyTRU_bus2_ind );
+	
+	if ((No1EssDCbus_volts < 26.0) and BAT1_ind) setprop ("VC10/electric/dc/DC1Fail",1)
+		else setprop ("VC10/electric/dc/DC1Fail",0);
+	if ((No2EssDCbus_volts < 26.0) and BAT2_ind) setprop ("VC10/electric/dc/DC2Fail",1)
+		else setprop ("VC10/electric/dc/DC2Fail",0);
 
 	var Elrat_drive = getprop("VC10/electric/ac/generator/GenELRAT-drive");
 	
@@ -597,11 +623,21 @@ var update_buses = func {
 			setprop("VC10/electric/dc/NonEssDCbus1-ind",0);
 			setprop("VC10/electric/dc/NonEssDCbus2-ind",0);			
 		}
-		
-	if (BAT1sw == 1) setprop ("VC10/electric/dc/BAT1-ind",1)
-	else setprop ("VC10/electric/dc/BAT1-ind",0);
-	if (BAT2sw == 1) setprop ("VC10/electric/dc/BAT2-ind",1)
-	else setprop ("VC10/electric/dc/BAT2-ind",0);
+ 	var BTB1_ind = BTB1;
+ 	var BTB2_ind = BTB2; 
+ 	var BTB3_ind = BTB3; 
+ 	var BTB4_ind = BTB4;
+	var SSB_ind = SSB;
+	if (No1EssDCbus_volts < 20) {
+		BTB1_ind = 0;
+		BTB3_ind = 0;
+		SSB_ind = 0;
+	}
+		if (No2EssDCbus_volts < 20) {
+		BTB2_ind = 0;
+		BTB4_ind = 0;
+	}
+
 	
 #	generator1.apply_load(load);
 #	generator2.apply_load(load);
@@ -655,6 +691,17 @@ var update_buses = func {
 	setprop("VC10/electric/dc/NonEssDCbus1-volts",No1NonEssDCbus_volts);
 	setprop("VC10/electric/dc/NonEssDCbus2-volts",No2NonEssDCbus_volts);
 	
+	setprop("VC10/electric/dc/BAT1-bus-volts",No1Bat_volts);
+	setprop("VC10/electric/dc/BAT2-bus-volts",No2Bat_volts);
+	
+	
+
+###################################################################################
+# temporary fix to supply 707 ess bus for imported systems	
+	essbus = math.max(No1EssDCbus_volts,No2EssDCbus_volts);
+	setprop("VC10/electric/ess-bus",essbus);
+###################################################################################
+	
 	setprop("VC10/electric/ac/generator/Gen1-volts",Gen1_volts);
 	setprop("VC10/electric/ac/generator/Gen2-volts",Gen2_volts);
 	setprop("VC10/electric/ac/generator/Gen3-volts",Gen3_volts);
@@ -671,12 +718,23 @@ var update_buses = func {
 	setprop("VC10/electric/ac/BTB4-relay",BTB4);
 	setprop("VC10/electric/ac/SSB",SSB);
 	
+	setprop("VC10/electric/ac/BTB1-ind",BTB1_ind);
+	setprop("VC10/electric/ac/BTB2-ind",BTB2_ind);
+	setprop("VC10/electric/ac/BTB3-ind",BTB3_ind);
+	setprop("VC10/electric/ac/BTB4-ind",BTB4_ind);
+	setprop("VC10/electric/ac/SSB-ind",SSB_ind);
+	
 	setprop("VC10/electric/ac/generator/GCB1",GCB1);
 	setprop("VC10/electric/ac/generator/GCB2",GCB2);	
 	setprop("VC10/electric/ac/generator/GCB3",GCB3);	
-	setprop("VC10/electric/ac/generator/GCB4",GCB4);	
-		
-
+	setprop("VC10/electric/ac/generator/GCB4",GCB4);
+	
+	setprop("VC10/electric/dc/TRU1power-ind",TRU1_power);
+	setprop("VC10/electric/dc/TRU2power-ind",TRU2_power);
+	setprop("VC10/electric/dc/StbyTRUpower-ind",StbyTRU_power);
+	
+	setprop("VC10/electric/dc/StbyTRUbus1-ind",StbyTRU_bus1_ind);
+	setprop("VC10/electric/dc/StbyTRUbus2-ind",StbyTRU_bus2_ind);
 }
 ###############################################################################################################
 
@@ -686,7 +744,7 @@ var update_electrical = func {
 	settimer(update_electrical,0.05);   ## loop 20 per second
 }
 var update_electrical_meters = func {
-	var ACSelector = getprop("VC10/electric/ac/FreqVoltsSelectsw");
+	var ACSelector = getprop("VC10/electric/AC_FreqVoltsSelectsw");
 	if (ACSelector == 0){ 
 		setprop("VC10/electric/ACmeter-volts", getprop("VC10/electric/ac/gound-power-bus-volts"));
 		setprop("VC10/electric/ACmeter-freq", getprop("VC10/electric/ac/gound-power-bus-freq"));
@@ -706,7 +764,7 @@ var update_electrical_meters = func {
 		setprop("VC10/electric/ACmeter-volts", getprop("VC10/electric/ac/generator/GenELRAT-volts"));
 		setprop("VC10/electric/ACmeter-freq", getprop("VC10/electric/ac/generator/GenELRAT-freq"));
 		}	
-	var DCSelector = getprop("VC10/electric/dc/VoltsSelectsw");
+	var DCSelector = getprop("VC10/electric/DC_VoltsSelectsw");
 	if (DCSelector == 0){ 
 		setprop("VC10/electric/DCmeter-volts", 0);
 		}elsif ( DCSelector == 1){ 
@@ -734,7 +792,7 @@ setlistener("VC10/electric/external-power-connected", func(state){
 	var src_ext = getprop("VC10/electric/ess-power-switch") or 0;
 
 
-# 	setprop("VC10/electric/ground-connect", 0);
+ 	setprop("VC10/electric/GroundPower-sw", 0);
  	
 	if(getprop("sim/sound/switch2") == 1){
   	 setprop("sim/sound/switch2", 0); 
@@ -830,25 +888,37 @@ setlistener("VC10/electric/ac/generator/Gen1-Control-sw", func {
 	var GenControl_sw = getprop("VC10/electric/ac/generator/Gen1-Control-sw");
 	if(GenControl_sw == 1){
 			setprop("VC10/electric/ac/generator/GCB1", 1);
-		} 
+		}
+	if(GenControl_sw == -1){
+			setprop("VC10/electric/ac/generator/GCB1", 0);
+		}		
 });
  setlistener("VC10/electric/ac/generator/Gen2-Control-sw", func {
 	var GenControl_sw = getprop("VC10/electric/ac/generator/Gen2-Control-sw");
 	if(GenControl_sw == 1){
 			setprop("VC10/electric/ac/generator/GCB2", 1);
-		} 
+		}
+	if(GenControl_sw == -1){
+			setprop("VC10/electric/ac/generator/GCB2", 0);
+		}		
 });
 setlistener("VC10/electric/ac/generator/Gen3-Control-sw", func {
 	var GenControl_sw = getprop("VC10/electric/ac/generator/Gen3-Control-sw");
 	if(GenControl_sw == 1){
 			setprop("VC10/electric/ac/generator/GCB3", 1);
 		} 
+	if(GenControl_sw == -1){
+			setprop("VC10/electric/ac/generator/GCB3", 0);
+		}
 });
 setlistener("VC10/electric/ac/generator/Gen4-Control-sw", func {
 	var GenControl_sw = getprop("VC10/electric/ac/generator/Gen4-Control-sw");
 	if(GenControl_sw == 1){
 			setprop("VC10/electric/ac/generator/GCB4", 1);
-		} 
+		}
+	if(GenControl_sw == -1){
+			setprop("VC10/electric/ac/generator/GCB4", 0);
+		}		
 });
 ##############################################################################################
 setlistener("sim/signals/fdm-initialized", func {

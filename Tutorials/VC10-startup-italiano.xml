@@ -200,7 +200,7 @@ if you contacted me before making any changes to this software.
 			<value>0</value>
 		</set>
 		<set>
-			<property>VC10/electric/load-volt-selector</property>
+			<property>VC10/electric/AC_FreqVoltsSelectsw</property>
 			<value>0</value>
 		</set>
 		<set>
@@ -369,11 +369,11 @@ if you contacted me before making any changes to this software.
 			<condition>
 				<or>
 					<less-than>
-						<property>VC10/electric/load-volt-selector</property>
+						<property>VC10/electric/AC_FreqVoltsSelectsw</property>
 						<value>1</value>
 					</less-than>
 					<greater-than>
-						<property>VC10/electric/load-volt-selector</property>
+						<property>VC10/electric/AC_FreqVoltsSelectsw</property>
 						<value>1</value>
 					</greater-than>
 				</or>
@@ -382,7 +382,7 @@ if you contacted me before making any changes to this software.
 		<exit>
 			<condition>
 				<equals>
-					<property>VC10/electric/load-volt-selector</property>
+					<property>VC10/electric/AC_FreqVoltsSelectsw</property>
 					<value>1</value>
 				</equals>
 			</condition>
@@ -690,12 +690,12 @@ if you contacted me before making any changes to this software.
 				Porre su ON.
 			</message>
 			<condition>
-				<not><property>VC10/electric/ground-connect</property></not>
+				<not><property>VC10/electric/GroundPower-sw</property></not>
 			</condition>
 		</error>
 		<exit>
 			<condition>
-				<property>VC10/electric/ground-connect</property>
+				<property>VC10/electric/GroundPower-sw</property>
 			</condition>
 		</exit>
 	</step>
@@ -2148,12 +2148,12 @@ if you contacted me before making any changes to this software.
 				Porre su OFF
 			</message>
 			<condition>
-				<property>VC10/electric/ground-connect</property>
+				<property>VC10/electric/GroundPower-sw</property>
 			</condition>
 		</error>
 		<exit>
 			<condition>
-				<not><property>VC10/electric/ground-connect</property></not>
+				<not><property>VC10/electric/GroundPower-sw</property></not>
 			</condition>
 		</exit>
 	</step>

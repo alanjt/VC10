@@ -92,8 +92,6 @@ var startup = func
 		}, t); t += 0.5;
 	 	settimer( func{
 			if(step == 4 and auto_procedure.getValue()){
-##				setprop("VC10/electric/dc/BATt-cover", 0);
-##				setprop("VC10/apu/off-start-run", 0);
 				setprop("VC10/electric/ac/generator/Gen4-Drv", 1);
 				click_switch3();
 				step = 4;
@@ -106,43 +104,43 @@ var startup = func
 		# Volt-Loads-Selector
 	 	settimer( func{
 		 	if(step == 4 and auto_procedure.getValue()) {
-		 		setprop("VC10/electric/load-volt-selector", 1);
+		 		setprop("VC10/electric/AC_FreqVoltsSelectsw", 1);
 				click_switch3();
 			}
 		}, t); t += 0.2;
 	 	settimer( func{
 		 	if(step == 4 and auto_procedure.getValue()) {
-		 		setprop("VC10/electric/load-volt-selector", 2);
+		 		setprop("VC10/electric/AC_FreqVoltsSelectsw", 2);
 				click_switch3();
 			}
 		}, t); t += 0.2;
 	 	settimer( func{
 		 	if(step == 4 and auto_procedure.getValue()) {
-		 		setprop("VC10/electric/load-volt-selector", 3);
+		 		setprop("VC10/electric/AC_FreqVoltsSelectsw", 3);
 				click_switch3();
 			}
 		}, t); t += 0.2;
 	 	settimer( func{
 		 	if(step == 4 and auto_procedure.getValue()) {
-		 		setprop("VC10/electric/load-volt-selector", 4);
+		 		setprop("VC10/electric/AC_FreqVoltsSelectsw", 4);
 				click_switch3();
 			}
 		}, t); t += 0.2;
 	 	settimer( func{
 		 	if(step == 4 and auto_procedure.getValue()) {
-		 		setprop("VC10/electric/load-volt-selector", 5);
+		 		setprop("VC10/electric/AC_FreqVoltsSelectsw", 5);
 				click_switch3();
 			}
 		}, t); t += 0.2;
 	 	settimer( func{
 		 	if(step == 4 and auto_procedure.getValue()){ 
-		 		setprop("VC10/electric/load-volt-selector", 0);
+		 		setprop("VC10/electric/AC_FreqVoltsSelectsw", 0);
 				click_switch3();
 			}
 		}, t); t += 0.2;
 	 	settimer( func{
 		 	if(step == 4 and auto_procedure.getValue()) {
-		 		setprop("VC10/electric/load-volt-selector", 1);
+		 		setprop("VC10/electric/AC_FreqVoltsSelectsw", 1);
 				click_switch3();
 			}
 		}, t); t += 0.5;
@@ -150,72 +148,35 @@ var startup = func
 		# Essential-Power-Selector
 	 	settimer( func{
 		 	if(step == 4 and auto_procedure.getValue()) {
-		 		setprop("VC10/electric/ess-power-switch", 1);
+		 		setprop("VC10/electric/DC_VoltsSelectsw", 1);
 				click_switch3();
 			}
 		}, t); t += 0.2;
 	 	settimer( func{
 		 	if(step == 4 and auto_procedure.getValue()) {
-		 		setprop("VC10/electric/ess-power-switch", 2);
+		 		setprop("VC10/electric/DC_VoltsSelectsw", 2);
 				click_switch3();
 			}
 		}, t); t += 0.2;
 	 	settimer( func{
 		 	if(step == 4 and auto_procedure.getValue()) {
-		 		setprop("VC10/electric/ess-power-switch", 3);
+		 		setprop("VC10/electric/DC_VoltsSelectsw", 3);
 				click_switch3();
 			}
 		}, t); t += 0.2;
 	 	settimer( func{
 		 	if(step == 4 and auto_procedure.getValue()) {
-		 		setprop("VC10/electric/ess-power-switch", 4);
+		 		setprop("VC10/electric/DC_VoltsSelectsw", 4);
 				click_switch3();
 			}
 		}, t); t += 0.2;
 	 	settimer( func{
 		 	if(step == 4 and auto_procedure.getValue()) {
-		 		setprop("VC10/electric/ess-power-switch", 5);
+		 		setprop("VC10/electric/DC_VoltsSelectsw", 0);
 				click_switch3();
 			}
 		}, t); t += 0.5;
 
-		# AC-Paralleling-Selector
-	 	settimer( func{
-		 	if(step == 4 and auto_procedure.getValue()) {
-		 		setprop("VC10/electric/ac/ac-para-select", 1);
-				click_switch3();
-			}
-		}, t); t += 0.2;
-	 	settimer( func{
-		 	if(step == 4 and auto_procedure.getValue()) {
-		 		setprop("VC10/electric/ac/ac-para-select", 2);
-				click_switch3();
-			}
-		}, t); t += 0.2;
-	 	settimer( func{
-		 	if(step == 4 and auto_procedure.getValue()) {
-		 		setprop("VC10/electric/ac/ac-para-select", 3);
-				click_switch3();
-			}
-		}, t); t += 0.2;
-	 	settimer( func{
-		 	if(step == 4 and auto_procedure.getValue()) {
-		 		setprop("VC10/electric/ac/ac-para-select", 4);
-				click_switch3();
-			}
-		}, t); t += 0.2;
-	 	settimer( func{
-		 	if(step == 4 and auto_procedure.getValue()) {
-		 		setprop("VC10/electric/ac/ac-para-select", 5);
-				click_switch3();
-			}
-		}, t); t += 0.2;
-	 	settimer( func{
-		 	if(step == 4 and auto_procedure.getValue()) {
-		 		setprop("VC10/electric/ac/ac-para-select", 6);
-				click_switch3();
-			}
-		}, t); t += 0.5;
 		
 		# Auxilliary Pumps and Hydraulic Pumps Engine 2 and 3
 		settimer( func{
@@ -419,7 +380,7 @@ var startup = func
 		# external power to Power Bus Tie (sync bus)
 		settimer( func{
 		 	if(step == 6 and auto_procedure.getValue()) {
-##				setprop("VC10/electric/ground-connect", 1);
+##				setprop("VC10/electric/GroundPower-sw", 1);
 ##				click_switch2();
 				screen.log.write("External Power Unit connected!", 1, 1, 1);
 			}else{
@@ -1058,7 +1019,7 @@ var startup = func
 		# external power disconnected Power Bus Tie (sync bus)
 		settimer( func{ 		
 			if(step == 14 and auto_procedure.getValue()){
-##				setprop("VC10/electric/ground-connect", 0);
+##				setprop("VC10/electric/GroundPower-sw", 0);
 				click_switch2();
 				
 				screen.log.write("External Power Unit disconnected! Continue the startup procedure.", 1, 1, 1);
@@ -1346,7 +1307,7 @@ var starter = func(nr)
 	var s_ext_con = getprop("VC10/electric/external-power-connected") or 0;
 	var s_ess_pwr = getprop("VC10/electric/ess-power-switch") or 0;
 	var s_ess_bus = getprop("VC10/electric/ess-bus") or 0;
-##	var s_ground_c = getprop("VC10/electric/ground-connect") or 0;
+##	var s_ground_c = getprop("VC10/electric/GroundPower-sw") or 0;
 	var s_par_sel = getprop("VC10/electric/ac/ac-para-select") or 0;
 	if (nr == 0){
 		var s_apu_gen =  0;			
@@ -1430,7 +1391,7 @@ setlistener("VC10/start/startercover[2]", func(open)
 	var s_ext_con = getprop("VC10/electric/external-power-connected") or 0;
 	var s_ess_pwr = getprop("VC10/electric/ess-power-switch") or 0;
 	var s_ess_bus = getprop("VC10/electric/ess-bus") or 0;
-#	var s_ground_c = getprop("VC10/electric/ground-connect") or 0;
+#	var s_ground_c = getprop("VC10/electric/GroundPower-sw") or 0;
 	var s_par_sel = getprop("VC10/electric/ac/ac-para-select") or 0;
 	var s_apu_start = getprop("VC10/apu/off-start-run") or 0;
 	var s_apu_gen = getprop("VC10/electric/ac/generator/GenELRAT-drive") or 0;			
@@ -1583,11 +1544,11 @@ var short_startup = func
  {
  	setprop("VC10/electric/dc/Battery-switch", 1);		
  	setprop("VC10/electric/external-power-connected", 0);
-#	setprop("VC10/electric/ground-connect", 0);
+#	setprop("VC10/electric/GroundPower-sw", 0);
 	setprop("VC10/electric/ess-power-switch", 0);
 ##	setprop("VC10/electric/ac/ac-para-select", 0);
 ## 	setprop("VC10/apu/starter", 1);
-	setprop("VC10/electric/load-volt-selector", 1);
+	setprop("VC10/electric/AC_FreqVoltsSelectsw", 1);
 	setprop("instrumentation/transponder/inputs/knob-mode", 4);
 	
 ##   settimer(func

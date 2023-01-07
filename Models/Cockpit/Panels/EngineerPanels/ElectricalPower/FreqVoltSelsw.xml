@@ -29,14 +29,14 @@ if you contacted me before making any changes to this software.
 		<name>Freq Volts Select </name>
 		<type>knob</type>
 		<object-name>knob</object-name>
-		<property>VC10/electric/ac/FreqVoltsSelectsw</property>
+		<property>VC10/electric/AC_FreqVoltsSelectsw</property>
 		<factor>60</factor>
 		<center><x-m>0</x-m><y-m>0</y-m><z-m>0</z-m></center>
 		<axis><x>-1</x></axis>
 		<action>
 			<binding>
 				<command>property-cycle</command>
-				<property>VC10/electric/ac/FreqVoltsSelectsw</property>
+				<property>VC10/electric/AC_FreqVoltsSelectsw</property>
 				<value>0</value>
 				<value>1</value>
 				<value>2</value>
@@ -51,7 +51,7 @@ if you contacted me before making any changes to this software.
 				<command>set-tooltip</command>
 				<label>FreqVoltSel: %d</label>
 				<tooltip-id>no</tooltip-id>
-				<property>VC10/electric/ac/FreqVoltsSelectsw</property>
+				<property>VC10/electric/AC_FreqVoltsSelectsw</property>
 			</binding>
 		</hovered>
 	</animation>

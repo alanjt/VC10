@@ -299,13 +299,13 @@ if you contacted me before making any changes to this software.
 		</marker>
 		<condition>
 		  <equals>
-		    <property>VC10/electric/ground-connect</property>
+		    <property>VC10/electric/GroundPower-sw</property>
 		    <value>0</value>
 		  </equals>
 		</condition>
 		<binding>
 		  <command>property-assign</command>
-		  <property>VC10/electric/ground-connect</property>
+		  <property>VC10/electric/GroundPower-sw</property>
 		  <value>0</value>
 		</binding>  
 	    <binding>
@@ -325,13 +325,13 @@ if you contacted me before making any changes to this software.
 	  </marker>
       <condition>
         <equals>
-          <property>VC10/electric/load-volt-selector</property>
+          <property>VC10/electric/AC_FreqVoltsSelectsw</property>
           <value>1</value>
         </equals>
       </condition>
       <binding>
         <command>property-assign</command>
-        <property>VC10/electric/load-volt-selector</property>
+        <property>VC10/electric/AC_FreqVoltsSelectsw</property>
         <value>1</value>
       </binding>        
 	  <binding>
