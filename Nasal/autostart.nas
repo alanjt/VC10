@@ -36,6 +36,7 @@ var step = 0;
 # startup/shutdown functions
 var startup = func
  {
+   print (" startup");
   if(!auto_procedure.getValue()){
 	 	auto_procedure.setValue(1);
 	 	step = 1;
@@ -1237,6 +1238,7 @@ var startup = func
 
 var shutdown = func
  {
+   print (" shutdown");
 	 	if(!auto_procedure.getValue()){
 			setprop("VC10/electric/ac/generator/Gen1-Drv-sw", 1);
 			setprop("VC10/electric/ac/generator/Gen2-Drv-sw", 1);
@@ -1287,6 +1289,7 @@ var shutdown = func
 # listener to activate these functions accordingly
 setlistener("sim/model/start-idling", func(idle)
  {
+   print (" listener start-idling");
  var autorun = idle.getBoolValue();
  
  if (autorun and !run1.getBoolValue() and !run2.getBoolValue() and !run3.getBoolValue() and !run4.getBoolValue())
@@ -1301,8 +1304,13 @@ setlistener("sim/model/start-idling", func(idle)
  
 ## START PROCEDURE ON MAIN SWITCHES ###
 #######################################
-var starter = func(nr)
+var starter = func(nr) 
+{
+print ("starter func" );
+}
+var starter707 = func(nr)
  {
+ print ("starter func" );
  	var s_bat = getprop("VC10/electric/dc/Battery-switch") or 0;
 	var s_ext_con = getprop("VC10/electric/external-power-connected") or 0;
 	var s_ess_pwr = getprop("VC10/electric/ess-power-switch") or 0;
@@ -1409,6 +1417,7 @@ setlistener("VC10/start/startercover[2]", func(open)
 
 setlistener("controls/engines/engine[0]/starter", func
  {
+ print (" listener engine 1 starter");
  	if(!run1.getBoolValue()){
 	 starter(0);
 	}
@@ -1416,7 +1425,7 @@ setlistener("controls/engines/engine[0]/starter", func
  
 setlistener("controls/engines/engine[1]/starter", func
  {
-
+ print (" listener engine 2 starter");
  	if(!run2.getBoolValue()){
 	 starter(1);
 	}
@@ -1424,6 +1433,7 @@ setlistener("controls/engines/engine[1]/starter", func
  
 setlistener("controls/engines/engine[2]/starter", func
  {
+  print (" listener engine 3 starter");
  	if(!run3.getBoolValue()){
 	 starter(2);
 	}
@@ -1431,6 +1441,7 @@ setlistener("controls/engines/engine[2]/starter", func
  
 setlistener("controls/engines/engine[3]/starter", func
  {
+  print (" listener engine 4 starter");
  	if(!run4.getBoolValue()){
 	 starter(3);
 	}
@@ -1438,6 +1449,7 @@ setlistener("controls/engines/engine[3]/starter", func
 
 setlistener("engines/engine[0]/running", func
  {
+  print (" listener engine 1 running");
  	if(run1.getBoolValue()){
 	 setprop("controls/engines/msg", 2);
 	}else{
@@ -1458,6 +1470,7 @@ setlistener("engines/engine[0]/running", func
  
 setlistener("engines/engine[1]/running", func
  {
+   print (" listener engine 2 running");
  	if(run2.getBoolValue()){
 	 setprop("controls/engines/engine[0]/msg", 1);
 	}else{
@@ -1478,6 +1491,7 @@ setlistener("engines/engine[1]/running", func
  
 setlistener("engines/engine[2]/running", func
  {
+   print (" listener engine 3 running");
  	if(run3.getBoolValue()){
 	 setprop("controls/engines/engine[3]/msg", 1);
 	}else{
@@ -1498,6 +1512,7 @@ setlistener("engines/engine[2]/running", func
  
 setlistener("engines/engine[3]/running", func
  {
+   print (" listener engine 4 running");
  	if(run4.getBoolValue()){
 	 setprop("controls/engines/engine[1]/msg", 1);
 	}else{
@@ -1542,6 +1557,7 @@ var click_switch3 = func{
 
 var short_startup = func
  {
+   print (" short startup");
  	setprop("VC10/electric/dc/Battery-switch", 1);		
  	setprop("VC10/electric/external-power-connected", 0);
 #	setprop("VC10/electric/GroundPower-sw", 0);
@@ -1644,6 +1660,7 @@ var short_startup = func
 
    settimer(func
     {
+	  print (" set cutoff(s) to zero");
 			setprop("controls/engines/engine[0]/cutoff", 0);
 			setprop("controls/engines/engine[1]/cutoff", 0);
 			setprop("controls/engines/engine[2]/cutoff", 0);

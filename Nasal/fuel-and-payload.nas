@@ -1389,9 +1389,9 @@ var dump_loop_r = maketimer(2.1, func(){
 ############  Start up the loops ################
 
 # do not burn fuel while sim is paused.
-engines_alive.simulatedTime = 1;
-engines_alive.start();
-crossfeed_action.start();
+#engines_alive.simulatedTime = 1;
+#engines_alive.start();
+#crossfeed_action.start();
 
 ############################################# external fuel service action ###########################################
 var fuel_truck = props.globals.getNode("/VC10/ground-service/fuel-truck/state");

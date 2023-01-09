@@ -40,6 +40,8 @@ if you contacted me before making any changes to this software.
   <tsfc>            0.8 </tsfc>
   <bleed>           0.03</bleed>
   <idlen1>         30.0 </idlen1>
+  <ignitionn1>		5.21 </ignitionn1>
+  <ignitionn2>		25.18 </ignitionn2>
   <idlen2>         60.0 </idlen2>
   <maxn1>         100.0 </maxn1>
   <maxn2>         100.0 </maxn2>

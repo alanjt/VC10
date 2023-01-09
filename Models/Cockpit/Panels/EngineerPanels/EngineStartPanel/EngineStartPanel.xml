@@ -110,9 +110,6 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>throttle.002</object-name>
-		<condition>
-			<not><property>engines/engine[1]/reversed</property></not>
-		</condition>
 		<property>controls/engines/engine[1]/throttle</property>
 		<factor>-50</factor>
 		<center>
@@ -147,9 +144,6 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>throttle.003</object-name>
-		<condition>
-			<not><property>engines/engine[2]/reversed</property></not>
-		</condition>
 		<property>controls/engines/engine[2]/throttle</property>
 		<factor>-50</factor>
 		<center>
