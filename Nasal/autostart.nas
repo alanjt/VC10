@@ -36,7 +36,7 @@ var step = 0;
 # startup/shutdown functions
 var startup = func
  {
-   print (" startup");
+   print ("707 startup");
   if(!auto_procedure.getValue()){
 	 	auto_procedure.setValue(1);
 	 	step = 1;
@@ -1415,7 +1415,7 @@ setlistener("VC10/start/startercover[2]", func(open)
 	}
  }, 0, 0); 
 
-setlistener("controls/engines/engine[0]/starter", func
+setlistener("controls/engines/engine[0]/starter707", func
  {
  print (" listener engine 1 starter");
  	if(!run1.getBoolValue()){
@@ -1423,7 +1423,7 @@ setlistener("controls/engines/engine[0]/starter", func
 	}
  }, 0, 0);
  
-setlistener("controls/engines/engine[1]/starter", func
+setlistener("controls/engines/engine[1]/starter707", func
  {
  print (" listener engine 2 starter");
  	if(!run2.getBoolValue()){
@@ -1431,7 +1431,7 @@ setlistener("controls/engines/engine[1]/starter", func
 	}
  }, 0, 0);
  
-setlistener("controls/engines/engine[2]/starter", func
+setlistener("controls/engines/engine[2]/starter707", func
  {
   print (" listener engine 3 starter");
  	if(!run3.getBoolValue()){
@@ -1439,7 +1439,7 @@ setlistener("controls/engines/engine[2]/starter", func
 	}
  }, 0, 0); 
  
-setlistener("controls/engines/engine[3]/starter", func
+setlistener("controls/engines/engine[3]/starter707", func
  {
   print (" listener engine 4 starter");
  	if(!run4.getBoolValue()){
@@ -1447,7 +1447,7 @@ setlistener("controls/engines/engine[3]/starter", func
 	}
  }, 0, 0);
 
-setlistener("engines/engine[0]/running", func
+setlistener("engines/engine[0]/running707", func
  {
   print (" listener engine 1 running");
  	if(run1.getBoolValue()){
@@ -1468,7 +1468,7 @@ setlistener("engines/engine[0]/running", func
 	}
  }, 0, 0);
  
-setlistener("engines/engine[1]/running", func
+setlistener("engines/engine[1]/running707", func
  {
    print (" listener engine 2 running");
  	if(run2.getBoolValue()){
@@ -1489,7 +1489,7 @@ setlistener("engines/engine[1]/running", func
 	}
  }, 0, 0);
  
-setlistener("engines/engine[2]/running", func
+setlistener("engines/engine[2]/running707", func
  {
    print (" listener engine 3 running");
  	if(run3.getBoolValue()){
@@ -1510,7 +1510,7 @@ setlistener("engines/engine[2]/running", func
 	}
  }, 0, 0); 
  
-setlistener("engines/engine[3]/running", func
+setlistener("engines/engine[3]/running707", func
  {
    print (" listener engine 4 running");
  	if(run4.getBoolValue()){

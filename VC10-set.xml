@@ -294,6 +294,7 @@ _______________________________________________________
 			<file>Nasal/manual.nas</file>	
 			<file>Nasal/Reset-in-air.nas</file>
 			<file>Nasal/controls.nas</file>
+			<file>Nasal/engines.nas</file>
 		</VC10> 
 		
 		<dialogs>

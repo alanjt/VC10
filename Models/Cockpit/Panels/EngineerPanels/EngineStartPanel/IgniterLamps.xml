@@ -17,24 +17,26 @@
 	</animation>
 	
 
-<!--	<animation>
+	<animation>
 		<type>material</type>
 		<object-name>Lamp1</object-name>
 		<emission>
-			<factor-prop>VC10/engines/Igniter1</factor-prop>
+			<factor-prop>VC10/engines/Igniter1Lamp</factor-prop>
 			<red>1</red>
 			<green>1</green>
 			<blue>1</blue>
 		</emission>
-	</animation> 	<animation>
+	</animation>
+
+ 	<animation>
 		<type>material</type>
 		<object-name>Lamp2</object-name>
 		<emission>
-			<factor-prop>VC10/engines/Igniter1</factor-prop>
+			<factor-prop>VC10/engines/Igniter2Lamp</factor-prop>
 			<red>1</red>
 			<green>1</green>
 			<blue>1</blue>
 		</emission>
-	</animation> -->-->
+	</animation>
 
 </PropertyList>

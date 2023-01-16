@@ -30,7 +30,7 @@ if you contacted me before making any changes to this software.
 		<type>material</type>
 		<object-name>light</object-name>
 		<emission>
-			<factor-prop>props.globals.initNode("VC10/engines/LPshaftRotation",0,"INT");</factor-prop>
+			<factor-prop>VC10/engines/LPshaftRotationLamp</factor-prop>
 			<red>1</red>
 			<green>1</green>
 			<blue>1</blue>
