@@ -760,7 +760,7 @@ setlistener("/fdm/jsbsim/inertia/weight-lbs", func(wlbs){
 
 #################### CROSSFEED VALVES IN ENGINEER PANEL and FUEL DUMP valves #################################
 var valve_pos = func(nr){ 
-	if(getprop("/VC10/electric/ess-bus") > 24){
+	if(getprop("/VC10/electric/ess-bus") > 20){
 		setprop("/VC10/fuel/valves/valve-pos["~nr~"]", 0);
 		settimer( func { setprop("/VC10/fuel/valves/valve-pos["~nr~"]", 1) }, 1.8 );	
 	}else{

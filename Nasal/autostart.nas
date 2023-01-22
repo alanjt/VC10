@@ -36,7 +36,7 @@ var step = 0;
 # startup/shutdown functions
 var startup = func
  {
-   print ("707 startup");
+   print ("startup");
   if(!auto_procedure.getValue()){
 	 	auto_procedure.setValue(1);
 	 	step = 1;
@@ -55,7 +55,7 @@ var startup = func
 	 	
 	 	t += 1.0;
 	 	
-		# External Power Unit / see green lights
+		# Connect External Power
 	 	settimer( func{
 	 	  if(step == 1 and auto_procedure.getValue()){
 		 		setprop("VC10/electric/external-power-connected", 1);
@@ -420,28 +420,28 @@ var startup = func
 		settimer( func{
 		 	if(step == 6 and auto_procedure.getValue()) {
 				setprop("VC10/electric/ac/generator/Gen4-Control-sw", 0);
-				setprop("VC10/electric/ac/generator/GC4_relay", 1);
+				setprop("VC10/electric/ac/generator/GCB4", 1);
 				click_switch2();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 		 	if(step == 6 and auto_procedure.getValue()) {
 				setprop("VC10/electric/ac/generator/Gen3-Control-sw", 0);
-				setprop("VC10/electric/ac/generator/GC3_relay", 1);
+				setprop("VC10/electric/ac/generator/GCB3", 1);
 				click_switch2();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 		 	if(step == 6 and auto_procedure.getValue()) {
 				setprop("VC10/electric/ac/generator/Gen2-Control-sw", 0);
-				setprop("VC10/electric/ac/generator/GC2_relay", 1);
+				setprop("VC10/electric/ac/generator/GCB2", 1);
 				click_switch2();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 		 	if(step == 6 and auto_procedure.getValue()) {
 				setprop("VC10/electric/ac/generator/Gen1-Control-sw", 0);
-				setprop("VC10/electric/ac/generator/GC1_relay", 1);
+				setprop("VC10/electric/ac/generator/GCB1", 1);
 				click_switch2();
 			}
 		}, t); t += 0.2;			
@@ -1264,10 +1264,10 @@ var shutdown = func
 			setprop("VC10/electric/ac/generator/Gen2-Control-sw", 0);
 			setprop("VC10/electric/ac/generator/Gen3-Control-sw", 0);
 			setprop("VC10/electric/ac/generator/Gen4-Control-sw", 0);
-			setprop("VC10/electric/ac/generator/GC1_relay", 1);
-			setprop("VC10/electric/ac/generator/GC2_relay", 1);	
-			setprop("VC10/electric/ac/generator/GC3_relay", 1);	
-			setprop("VC10/electric/ac/generator/GC4_relay", 1);				
+			setprop("VC10/electric/ac/generator/GCB1", 1);
+			setprop("VC10/electric/ac/generator/GCB2", 1);	
+			setprop("VC10/electric/ac/generator/GCB3", 1);	
+			setprop("VC10/electric/ac/generator/GCB4", 1);				
 		 	setprop("VC10/electric/ac/generator/Gen1-freq", 0);
 			setprop("VC10/electric/ac/generator/Gen2-freq", 0);
 			setprop("VC10/electric/ac/generator/Gen3-freq", 0);
@@ -1463,7 +1463,7 @@ setlistener("engines/engine[0]/running707", func
     	 	setprop("VC10/electric/ac/BTB1-relay", 1);
 			setprop("VC10/electric/ac/generator/GCR1-sw", 0);
 			setprop("VC10/electric/ac/generator/Gen1-Control-sw", 0);
-			setprop("VC10/electric/ac/generator/GC1_relay", 1);			
+			setprop("VC10/electric/ac/generator/GCB1", 1);			
 	 };
 	}
  }, 0, 0);
@@ -1484,7 +1484,7 @@ setlistener("engines/engine[1]/running707", func
     	 	setprop("VC10/electric/ac/BTB2-relay", 1);
 			setprop("VC10/electric/ac/generator/GCR2-sw", 0);
 			setprop("VC10/electric/ac/generator/Gen2-Control-sw", 0);
-			setprop("VC10/electric/ac/generator/GC2_relay", 1);					
+			setprop("VC10/electric/ac/generator/GCB2", 1);					
 	 };
 	}
  }, 0, 0);
@@ -1505,7 +1505,7 @@ setlistener("engines/engine[2]/running707", func
     	 	setprop("VC10/electric/ac/BTB3-relay", 1);
 			setprop("VC10/electric/ac/generator/GCR3-sw", 0);
 			setprop("VC10/electric/ac/generator/Gen3-Control-sw", 0);
-			setprop("VC10/electric/ac/generator/GC3_relay", 1);					
+			setprop("VC10/electric/ac/generator/GCB3", 1);					
 	 };
 	}
  }, 0, 0); 
@@ -1526,7 +1526,7 @@ setlistener("engines/engine[3]/running707", func
     	 	setprop("VC10/electric/ac/BTB4-relay", 1);
 			setprop("VC10/electric/ac/generator/GCR4-sw", 0);
 			setprop("VC10/electric/ac/generator/Gen4-Control-sw", 0);
-			setprop("VC10/electric/ac/generator/GC4_relay", 1);					
+			setprop("VC10/electric/ac/generator/GCB4", 1);					
 	 };
 	}
  }, 0, 0);
@@ -1606,10 +1606,10 @@ var short_startup = func
 		setprop("VC10/electric/ac/generator/Gen2-Control-sw", 0);
 		setprop("VC10/electric/ac/generator/Gen3-Control-sw", 0);
 		setprop("VC10/electric/ac/generator/Gen4-Control-sw", 0);
-		setprop("VC10/electric/ac/generator/GC1_relay", 1);
-		setprop("VC10/electric/ac/generator/GC2_relay", 1);
-		setprop("VC10/electric/ac/generator/GC3_relay", 1);
-		setprop("VC10/electric/ac/generator/GC4_relay", 1);
+		setprop("VC10/electric/ac/generator/GCB1", 1);
+		setprop("VC10/electric/ac/generator/GCB2", 1);
+		setprop("VC10/electric/ac/generator/GCB3", 1);
+		setprop("VC10/electric/ac/generator/GCB4", 1);
 	
 		setprop("VC10/fuel/valves/valve[0]", 0);
 		VC10.valve_pos(0);

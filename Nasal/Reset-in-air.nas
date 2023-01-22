@@ -83,10 +83,10 @@ var Reset = func{
 		setprop("VC10/electric/ac/generator/Gen2-Control-sw", 0);
 		setprop("VC10/electric/ac/generator/Gen3-Control-sw", 0);
 		setprop("VC10/electric/ac/generator/Gen4-Control-sw", 0);
-		setprop("VC10/electric/ac/generator/GC1_relay", 1);
-		setprop("VC10/electric/ac/generator/GC2_relay", 1);
-		setprop("VC10/electric/ac/generator/GC3_relay", 1);
-		setprop("VC10/electric/ac/generator/GC4_relay", 1);
+		setprop("VC10/electric/ac/generator/GCB1", 1);
+		setprop("VC10/electric/ac/generator/GCB2", 1);
+		setprop("VC10/electric/ac/generator/GCB3", 1);
+		setprop("VC10/electric/ac/generator/GCB4", 1);
 		setprop("VC10/electric/ac/generator/Gen1-freq", 400);
 		setprop("VC10/electric/ac/generator/Gen2-freq", 400);
 		setprop("VC10/electric/ac/generator/Gen3-freq", 400);
