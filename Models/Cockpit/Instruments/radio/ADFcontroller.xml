@@ -25,59 +25,6 @@ Used with Marconi AD360 Automatic Direction Finder.
 
 	<animation>
 		<type>material</type>
-		<object-name>LoopKnob</object-name>
-		<object-name>BFOsw</object-name>
-		<object-name>BFOsw_nut</object-name>
-		<object-name>Sharpsw</object-name>
-		<object-name>Sharpsw_nut</object-name>
-		<object-name>BFOknob</object-name>
-		<object-name>BFOknob_nut</object-name>
-		<object-name>ModeKnob</object-name>
-		<object-name>FreqKnob1</object-name>
-		<object-name>FreqKnob2</object-name>
-		<object-name>FreqKnob3</object-name>
-		<object-name>GainKnob</object-name>
-		<object-name>GainKnob_nut</object-name>
-		<condition>
-			<less-than><property>systems/electrical/outputs/cabin-dim</property><value>0.6</value></less-than>
-		</condition>
-		<emission>
-			<red>0.3</red>
-			<green>0.3</green>
-			<blue>0.3</blue>
-			<factor-prop>systems/electrical/outputs/panel-dim</factor-prop>
-		</emission>
-	</animation>
-
-	<animation>
-		<type>material</type>
-		<object-name>LoopKnob</object-name>
-		<object-name>BFOsw</object-name>
-		<object-name>BFOsw_nut</object-name>
-		<object-name>Sharpsw</object-name>
-		<object-name>Sharpsw_nut</object-name>
-		<object-name>BFOknob</object-name>
-		<object-name>BFOknob_nut</object-name>
-		<object-name>ModeKnob</object-name>
-		<object-name>FreqKnob1</object-name>
-		<object-name>FreqKnob2</object-name>
-		<object-name>FreqKnob3</object-name>
-		<object-name>GainKnob</object-name>
-		<object-name>GainKnob_nut</object-name>
-		<condition>
-			<not><property>/sim/rendering/rembrandt/enabled</property></not>
-			<property>systems/electrical/outputs/cabin-dim</property>
-		</condition>
-		<emission>
-			<red>0.6</red>
-			<green>0.6</green>
-			<blue>0.6</blue>
-			<factor-prop>systems/electrical/outputs/cabin-dim</factor-prop>
-		</emission>
-	</animation>
-
-	<animation>
-		<type>material</type>
 		<object-name>Digit1</object-name>
 		<object-name>Digit2</object-name>
 		<object-name>Digit3</object-name>
@@ -377,6 +324,57 @@ Used with Marconi AD360 Automatic Direction Finder.
 				<property>instrumentation/adf[0]/volume-norm</property>
 			</binding>
 		</hovered>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>LoopKnob</object-name>
+		<object-name>BFOsw</object-name>
+		<object-name>BFOsw_nut</object-name>
+		<object-name>Sharpsw</object-name>
+		<object-name>Sharpsw_nut</object-name>
+		<object-name>BFOknob</object-name>
+		<object-name>BFOknob_nut</object-name>
+		<object-name>ModeKnob</object-name>
+		<object-name>FreqKnob1</object-name>
+		<object-name>FreqKnob2</object-name>
+		<object-name>FreqKnob3</object-name>
+		<object-name>GainKnob</object-name>
+		<object-name>GainKnob_nut</object-name>
+		<condition>
+			<less-than><property>systems/electrical/outputs/cabin-dim</property><value>0.6</value></less-than>
+		</condition>
+		<emission>
+			<red>0.3</red>
+			<green>0.3</green>
+			<blue>0.3</blue>
+			<factor-prop>systems/electrical/outputs/panel-dim</factor-prop>
+		</emission>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>LoopKnob</object-name>
+		<object-name>BFOsw</object-name>
+		<object-name>BFOsw_nut</object-name>
+		<object-name>Sharpsw</object-name>
+		<object-name>Sharpsw_nut</object-name>
+		<object-name>BFOknob</object-name>
+		<object-name>BFOknob_nut</object-name>
+		<object-name>ModeKnob</object-name>
+		<object-name>FreqKnob1</object-name>
+		<object-name>FreqKnob2</object-name>
+		<object-name>FreqKnob3</object-name>
+		<object-name>GainKnob</object-name>
+		<object-name>GainKnob_nut</object-name>
+		<condition>
+			<not><property>/sim/rendering/rembrandt/enabled</property></not>
+			<property>systems/electrical/outputs/cabin-dim</property>
+		</condition>
+		<emission>
+			<red>0.6</red>
+			<green>0.6</green>
+			<blue>0.6</blue>
+			<factor-prop>systems/electrical/outputs/cabin-dim</factor-prop>
+		</emission>
 	</animation>
 
 </PropertyList>

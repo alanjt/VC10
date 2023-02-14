@@ -25,30 +25,7 @@ if you contacted me before making any changes to this software.
 <PropertyList>
 
 	<path>AT_controller.ac</path>
-<animation>
-		<type>material</type>
-		<object-name>AT_1switch_lever</object-name>
-		<object-name>AT_2switch_lever</object-name>
-		<object-name>AT_3switch_lever</object-name>
-		<object-name>AT_4switch_lever</object-name>
-		<object-name>AT_1switch_base</object-name>
-		<object-name>AT_2switch_base</object-name>
-		<object-name>AT_3switch_base</object-name>
-		<object-name>AT_4switch_base</object-name>
-		<object-name>AT_powerswitch_lever</object-name>
-		<object-name>AT_powerswitch_base</object-name>
-		<object-name>AT_engageswitch_lever</object-name>
-		<object-name>AT_engageswitch_base</object-name>
-		<condition>
-			<not><property>systems/electrical/outputs/cabin-dim</property></not>
-		</condition>
-		<emission>
-			<red>0.2</red>
-			<green>0.2</green>
-			<blue>0.2</blue>
-			<factor-prop>systems/electrical/outputs/panel-dim</factor-prop>
-		</emission>
-	</animation>	
+	
 
 	<animation>
 		<type>pick</type>
@@ -302,6 +279,29 @@ if you contacted me before making any changes to this software.
 		<axis><x>0</x><y>1</y><z>0</z></axis>
 	</animation>
 
-
+<animation>
+		<type>material</type>
+		<object-name>AT_1switch_lever</object-name>
+		<object-name>AT_2switch_lever</object-name>
+		<object-name>AT_3switch_lever</object-name>
+		<object-name>AT_4switch_lever</object-name>
+		<object-name>AT_1switch_base</object-name>
+		<object-name>AT_2switch_base</object-name>
+		<object-name>AT_3switch_base</object-name>
+		<object-name>AT_4switch_base</object-name>
+		<object-name>AT_powerswitch_lever</object-name>
+		<object-name>AT_powerswitch_base</object-name>
+		<object-name>AT_engageswitch_lever</object-name>
+		<object-name>AT_engageswitch_base</object-name>
+		<condition>
+			<not><property>systems/electrical/outputs/cabin-dim</property></not>
+		</condition>
+		<emission>
+			<red>0.2</red>
+			<green>0.2</green>
+			<blue>0.2</blue>
+			<factor-prop>systems/electrical/outputs/panel-dim</factor-prop>
+		</emission>
+	</animation>
 
 </PropertyList>

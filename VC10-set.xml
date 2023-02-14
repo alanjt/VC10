@@ -53,7 +53,7 @@ if you contacted me before making any changes to this software.
 					<label>Autostart / shutdown</label>
 					<binding>
 						<command>property-toggle</command>
-						<property>sim/model/start-idling</property>
+						<property>sim/model/Autostart_shutdown</property>
 					</binding>
 				</item>      
 				<item>

@@ -26,30 +26,7 @@ if you contacted me before making any changes to this software.
 
 	<path>AP_controller.ac</path>
 
-	<animation>
-		<type>material</type>
-		<object-name>ModeSelect</object-name>
-		<object-name>PitchWheels</object-name>
-		<object-name>TurnKnob</object-name>
-		<object-name>DatumAdjustKnob</object-name>
-		<object-name>NAV_Select</object-name>
-		<object-name>AP-1Select</object-name>
-		<object-name>Damper-1Select</object-name>
-		<object-name>Damper-2Select</object-name>
-		<object-name>AP-2Select</object-name>
-		<object-name>ALT_Select</object-name>
-		<object-name>IAS_Select</object-name>
-		<object-name>MACH_Select</object-name>
-		<condition>
-			<not><property>systems/electrical/outputs/cabin-dim</property></not>
-		</condition>
-		<emission>
-			<red>0.2</red>
-			<green>0.2</green>
-			<blue>0.2</blue>
-			<factor-prop>systems/electrical/outputs/panel-dim</factor-prop>
-		</emission>
-	</animation>
+
 
 	<!--	<animation>
 		<type>material</type>
@@ -814,5 +791,28 @@ if you contacted me before making any changes to this software.
 
 		<!--  <object-name>IAS_Select</object-name>
   <object-name>MACH_Select</object-name> -->
-
+	<animation>
+		<type>material</type>
+		<object-name>ModeSelect</object-name>
+		<object-name>PitchWheels</object-name>
+		<object-name>TurnKnob</object-name>
+		<object-name>DatumAdjustKnob</object-name>
+		<object-name>NAV_Select</object-name>
+		<object-name>AP-1Select</object-name>
+		<object-name>Damper-1Select</object-name>
+		<object-name>Damper-2Select</object-name>
+		<object-name>AP-2Select</object-name>
+		<object-name>ALT_Select</object-name>
+		<object-name>IAS_Select</object-name>
+		<object-name>MACH_Select</object-name>
+		<condition>
+			<not><property>systems/electrical/outputs/cabin-dim</property></not>
+		</condition>
+		<emission>
+			<red>0.2</red>
+			<green>0.2</green>
+			<blue>0.2</blue>
+			<factor-prop>systems/electrical/outputs/panel-dim</factor-prop>
+		</emission>
+	</animation>
 	</PropertyList>

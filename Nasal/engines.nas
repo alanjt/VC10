@@ -64,12 +64,21 @@ var engine_start = func {
 	var No1EssDCbus = (No1EssDCbus_volts > 20.0);
 	var No2EssDCbus = (No2EssDCbus_volts > 20.0);
 	var flasher = getprop("VC10/engines/lamp_flash");
+	var HPcock1 = getprop("VC10/engines/HPcock[0]");
+	var HPcock2 = getprop("VC10/engines/HPcock[1]");
+	var HPcock3 = getprop("VC10/engines/HPcock[2]");
+	var HPcock4 = getprop("VC10/engines/HPcock[3]");
+	
+	if (HPcock1 == 0) setprop("controls/engines/engine[0]/cutoff", true);
+	if (HPcock2 == 0) setprop("controls/engines/engine[1]/cutoff", true);
+	if (HPcock3 == 0) setprop("controls/engines/engine[2]/cutoff", true);
+	if (HPcock4 == 0) setprop("controls/engines/engine[3]/cutoff", true);	
 
 	if (IgnSw1 == 1 ){
 		setprop("controls/engines/engine[0]/starter", 1);
 		setprop("VC10/engines/LPshaftRotationLamp", ((getprop("engines/engine[0]/n1") > 1.0) and flasher and No1EssDCbus));
-		if (getprop("VC10/engines/LPshaftRotationLamp")) setprop("VC10/engines/HPcock[0]", 0.75)
-			else setprop("VC10/engines/HPcock[0]", 0);
+		if (getprop("VC10/engines/LPshaftRotationLamp")) setprop("VC10/engines/HPcock[0]", 0.75);
+##			else setprop("VC10/engines/HPcock[0]", 0);
 		if (getprop("VC10/engines/HPcock[0]") > 0.74) setprop("controls/engines/engine[0]/cutoff", false);
 ##			else setprop("controls/engines/engine[0]/cutoff", true); 
 		setprop("VC10/engines/Igniter1Lamp", No1EssDCbus);
@@ -79,8 +88,8 @@ var engine_start = func {
 	elsif (IgnSw2 == 1 ){
 		setprop("controls/engines/engine[1]/starter", 1);
 		setprop("VC10/engines/LPshaftRotationLamp", ((getprop("engines/engine[1]/n1") > 1.0) and flasher and No1EssDCbus));
-		if (getprop("VC10/engines/LPshaftRotationLamp")) setprop("VC10/engines/HPcock[1]", 0.75)
-			else setprop("VC10/engines/HPcock[1]", 0);
+		if (getprop("VC10/engines/LPshaftRotationLamp")) setprop("VC10/engines/HPcock[1]", 0.75);
+##			else setprop("VC10/engines/HPcock[1]", 0);
 		if (getprop("VC10/engines/HPcock[1]") > 0.74) setprop("controls/engines/engine[1]/cutoff", false);
 ##			else setprop("controls/engines/engine[1]/cutoff", true); 
 		setprop("VC10/engines/Igniter1Lamp", No1EssDCbus);
@@ -90,8 +99,8 @@ var engine_start = func {
 	elsif (IgnSw3 == 1 ){
 		setprop("controls/engines/engine[2]/starter", 1);
 		setprop("VC10/engines/LPshaftRotationLamp", ((getprop("engines/engine[2]/n1") > 1.0) and flasher and No1EssDCbus));
-		if (getprop("VC10/engines/LPshaftRotationLamp")) setprop("VC10/engines/HPcock[2]", 0.75)
-			else setprop("VC10/engines/HPcock[2]", 0);
+		if (getprop("VC10/engines/LPshaftRotationLamp")) setprop("VC10/engines/HPcock[2]", 0.75);
+##			else setprop("VC10/engines/HPcock[2]", 0);
 		if (getprop("VC10/engines/HPcock[2]") > 0.74) setprop("controls/engines/engine[2]/cutoff", false);
 ##			else setprop("controls/engines/engine[2]/cutoff", true); 
 		setprop("VC10/engines/Igniter1Lamp", No1EssDCbus);
@@ -101,8 +110,8 @@ var engine_start = func {
 	elsif (IgnSw4 == 1 ){
 		setprop("controls/engines/engine[3]/starter", 1);
 		setprop("VC10/engines/LPshaftRotationLamp", ((getprop("engines/engine[3]/n1") > 1.0) and flasher and No1EssDCbus));
-		if (getprop("VC10/engines/LPshaftRotationLamp")) setprop("VC10/engines/HPcock[3]", 0.75)
-			else setprop("VC10/engines/HPcock[3]", 0);
+		if (getprop("VC10/engines/LPshaftRotationLamp")) setprop("VC10/engines/HPcock[3]", 0.75);
+##			else setprop("VC10/engines/HPcock[3]", 0);
 		if (getprop("VC10/engines/HPcock[3]") > 0.74) setprop("controls/engines/engine[3]/cutoff", false);
 ##			else setprop("controls/engines/engine[3]/cutoff", true); 
 		setprop("VC10/engines/Igniter1Lamp", No1EssDCbus);

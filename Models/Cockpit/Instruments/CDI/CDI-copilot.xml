@@ -8,95 +8,7 @@
 <PropertyList>
 
   <path>CDI.ac</path>
-  
-  	<animation>
-		<type>material</type>
-			<object-name>off-flag</object-name>
-			<object-name>DialCentre</object-name>
-			<object-name>hdg-arrow</object-name>
-			<object-name>arrow</object-name>
-			<object-name>CDI-ring</object-name>
-			<object-name>VorLocDeviationBar</object-name>
-			<object-name>VOR_LOC_dots</object-name>			
-			<object-name>CrsNum.1</object-name>
-			<object-name>CrsNum.2</object-name>
-			<object-name>CrsNum.3</object-name>
-			<object-name>CrsNum.off</object-name>
-			<object-name>From</object-name>
-			<object-name>To</object-name>
-			<object-name>noNav</object-name>
-		<condition>
-			<less-than><property>systems/electrical/outputs/cabin-dim</property><value>0.8</value></less-than>
-		</condition>
-		<emission>
-			<red>0.6</red>
-			<green>0.4</green>
-			<blue>0.3</blue>
-			<factor-prop>systems/electrical/outputs/panel-dim</factor-prop>
-		</emission>
-	</animation>
-	
-	<animation>
-		<type>material</type>
-			<object-name>off-flag</object-name>
-			<object-name>DialCentre</object-name>
-			<object-name>hdg-arrow</object-name>
-			<object-name>arrow</object-name>
-			<object-name>CDI-ring</object-name>
-			<object-name>VorLocDeviationBar</object-name>
-			<object-name>VOR_LOC_dots</object-name>			
-			<object-name>CrsNum.1</object-name>
-		    <object-name>CrsNum.2</object-name>
-			<object-name>CrsNum.3</object-name>
-			<object-name>CrsNum.off</object-name>
-			<object-name>From</object-name>
-			<object-name>To</object-name>
-			<object-name>noNav</object-name>
-<!--			<object-name>shadow</object-name> -->
-		<condition>
-			<not><property>/sim/rendering/rembrandt/enabled</property></not>
-			<property>systems/electrical/outputs/cabin-dim</property>
-		</condition>
-		<emission>
-		  <red>0.8</red>
-		  <green>0.8</green>
-		  <blue>0.8</blue>
-		  <factor-prop>systems/electrical/outputs/cabin-dim</factor-prop>
-		</emission>
-	</animation>
-
-	<animation>
-		<type>material</type>
-		<object-name>mount</object-name>
-		<object-name>hdg_knob</object-name>
-		<object-name>course_knob</object-name>
-		<condition>
-			<less-than><property>systems/electrical/outputs/cabin-dim</property><value>0.8</value></less-than>
-		</condition>
-		<emission>
-			<red>0.2</red>
-			<green>0.2</green>
-			<blue>0.2</blue>
-			<factor-prop>systems/electrical/outputs/panel-dim</factor-prop>
-		</emission>
-	</animation>
-	
-	<animation>
-		<type>material</type>
-		<object-name>mount</object-name>
-		<object-name>hdg_knob</object-name>
-		<object-name>course_knob</object-name>
-		<condition>
-			<not><property>/sim/rendering/rembrandt/enabled</property></not>
-			<property>systems/electrical/outputs/cabin-dim</property>
-		</condition>
-		<emission>
-		  <red>0.3</red>
-		  <green>0.3</green>
-		  <blue>0.3</blue>
-		  <factor-prop>systems/electrical/outputs/cabin-dim</factor-prop>
-		</emission>
-	</animation>
+ 
 
 	<animation>
 		<type>select</type>
@@ -358,6 +270,95 @@
 				</axis>
 		</animation>
 
+ 
+  	<animation>
+		<type>material</type>
+			<object-name>off-flag</object-name>
+			<object-name>DialCentre</object-name>
+			<object-name>hdg-arrow</object-name>
+			<object-name>arrow</object-name>
+			<object-name>CDI-ring</object-name>
+			<object-name>VorLocDeviationBar</object-name>
+			<object-name>VOR_LOC_dots</object-name>			
+			<object-name>CrsNum.1</object-name>
+			<object-name>CrsNum.2</object-name>
+			<object-name>CrsNum.3</object-name>
+			<object-name>CrsNum.off</object-name>
+			<object-name>From</object-name>
+			<object-name>To</object-name>
+			<object-name>noNav</object-name>
+		<condition>
+			<less-than><property>systems/electrical/outputs/cabin-dim</property><value>0.8</value></less-than>
+		</condition>
+		<emission>
+			<red>0.6</red>
+			<green>0.4</green>
+			<blue>0.3</blue>
+			<factor-prop>systems/electrical/outputs/panel-dim</factor-prop>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+			<object-name>off-flag</object-name>
+			<object-name>DialCentre</object-name>
+			<object-name>hdg-arrow</object-name>
+			<object-name>arrow</object-name>
+			<object-name>CDI-ring</object-name>
+			<object-name>VorLocDeviationBar</object-name>
+			<object-name>VOR_LOC_dots</object-name>			
+			<object-name>CrsNum.1</object-name>
+		    <object-name>CrsNum.2</object-name>
+			<object-name>CrsNum.3</object-name>
+			<object-name>CrsNum.off</object-name>
+			<object-name>From</object-name>
+			<object-name>To</object-name>
+			<object-name>noNav</object-name>
+<!--			<object-name>shadow</object-name> -->
+		<condition>
+			<not><property>/sim/rendering/rembrandt/enabled</property></not>
+			<property>systems/electrical/outputs/cabin-dim</property>
+		</condition>
+		<emission>
+		  <red>0.8</red>
+		  <green>0.8</green>
+		  <blue>0.8</blue>
+		  <factor-prop>systems/electrical/outputs/cabin-dim</factor-prop>
+		</emission>
+	</animation>
+
+	<animation>
+		<type>material</type>
+		<object-name>mount</object-name>
+		<object-name>hdg_knob</object-name>
+		<object-name>course_knob</object-name>
+		<condition>
+			<less-than><property>systems/electrical/outputs/cabin-dim</property><value>0.8</value></less-than>
+		</condition>
+		<emission>
+			<red>0.2</red>
+			<green>0.2</green>
+			<blue>0.2</blue>
+			<factor-prop>systems/electrical/outputs/panel-dim</factor-prop>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>mount</object-name>
+		<object-name>hdg_knob</object-name>
+		<object-name>course_knob</object-name>
+		<condition>
+			<not><property>/sim/rendering/rembrandt/enabled</property></not>
+			<property>systems/electrical/outputs/cabin-dim</property>
+		</condition>
+		<emission>
+		  <red>0.3</red>
+		  <green>0.3</green>
+		  <blue>0.3</blue>
+		  <factor-prop>systems/electrical/outputs/cabin-dim</factor-prop>
+		</emission>
+	</animation>
 
   <animation>
     <type>range</type>

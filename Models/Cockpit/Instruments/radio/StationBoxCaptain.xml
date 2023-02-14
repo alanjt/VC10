@@ -25,60 +25,6 @@ if you contacted me before making any changes to this software.
 <PropertyList>
 
 	<path>StationBoxCaptain.ac</path>
-	<animation>
-		<type>material</type>
-		<object-name>UHF1button</object-name>
-		<object-name>UHF1base</object-name>
-		<object-name>UHF2button</object-name>
-		<object-name>UHF2base</object-name>
-		<object-name>VHF1button</object-name>
-		<object-name>VHF1base</object-name>
-		<object-name>VHF2button</object-name>
-		<object-name>VHF2base</object-name>
-		<object-name>HF1button</object-name>
-		<object-name>HF1base</object-name>
-		<object-name>HF2button</object-name>
-		<object-name>HF2base</object-name>
-		<object-name>ADF1Voicebutton</object-name>
-		<object-name>ADF1Voicebase</object-name>
-		<object-name>ADF2Voicebutton</object-name>
-		<object-name>ADF2Voicebase</object-name>
-		<object-name>ADF1Rangebutton</object-name>
-		<object-name>ADF1Rangebase</object-name>
-		<object-name>ADF2Rangebutton</object-name>
-		<object-name>ADF2Rangebase</object-name>
-		<object-name>VOR1Voicebutton</object-name>
-		<object-name>VOR1Voicebase</object-name>
-		<object-name>VOR2Voicebutton</object-name>
-		<object-name>VOR2Voicebase</object-name>
-		<object-name>VOR1Rangebutton</object-name>
-		<object-name>VOR1Rangebase</object-name>
-		<object-name>VOR2Rangebutton</object-name>
-		<object-name>VOR2Rangebase</object-name>
-		<object-name>MKRbutton</object-name>
-		<object-name>MKRbase</object-name>
-		<object-name>PAbutton</object-name>
-		<object-name>PAbase</object-name>
-		<object-name>TACANbutton</object-name>
-		<object-name>TACANbase</object-name>
-		<object-name>Overridebutton</object-name>
-		<object-name>Overridebase</object-name>
-		<object-name>ICbutton</object-name>
-		<object-name>ICbase</object-name>
-		<object-name>Fuse</object-name>
-		<object-name>CALLlight</object-name>
-		<object-name>EMERGknob</object-name>
-		<object-name>TxKnob</object-name>
-		<condition>
-			<not><property>systems/electrical/outputs/cabin-dim</property></not>
-		</condition>
-		<emission>
-			<red>0.2</red>
-			<green>0.2</green>
-			<blue>0.2</blue>
-			<factor-prop>systems/electrical/outputs/panel-dim</factor-prop>
-		</emission>
-	</animation>
 
 <!-- ADF1 -->
 <!--	<animation>
@@ -235,6 +181,60 @@ if you contacted me before making any changes to this software.
 			<y>0.0</y>
 			<z>0.0</z>
 		</axis>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>UHF1button</object-name>
+		<object-name>UHF1base</object-name>
+		<object-name>UHF2button</object-name>
+		<object-name>UHF2base</object-name>
+		<object-name>VHF1button</object-name>
+		<object-name>VHF1base</object-name>
+		<object-name>VHF2button</object-name>
+		<object-name>VHF2base</object-name>
+		<object-name>HF1button</object-name>
+		<object-name>HF1base</object-name>
+		<object-name>HF2button</object-name>
+		<object-name>HF2base</object-name>
+		<object-name>ADF1Voicebutton</object-name>
+		<object-name>ADF1Voicebase</object-name>
+		<object-name>ADF2Voicebutton</object-name>
+		<object-name>ADF2Voicebase</object-name>
+		<object-name>ADF1Rangebutton</object-name>
+		<object-name>ADF1Rangebase</object-name>
+		<object-name>ADF2Rangebutton</object-name>
+		<object-name>ADF2Rangebase</object-name>
+		<object-name>VOR1Voicebutton</object-name>
+		<object-name>VOR1Voicebase</object-name>
+		<object-name>VOR2Voicebutton</object-name>
+		<object-name>VOR2Voicebase</object-name>
+		<object-name>VOR1Rangebutton</object-name>
+		<object-name>VOR1Rangebase</object-name>
+		<object-name>VOR2Rangebutton</object-name>
+		<object-name>VOR2Rangebase</object-name>
+		<object-name>MKRbutton</object-name>
+		<object-name>MKRbase</object-name>
+		<object-name>PAbutton</object-name>
+		<object-name>PAbase</object-name>
+		<object-name>TACANbutton</object-name>
+		<object-name>TACANbase</object-name>
+		<object-name>Overridebutton</object-name>
+		<object-name>Overridebase</object-name>
+		<object-name>ICbutton</object-name>
+		<object-name>ICbase</object-name>
+		<object-name>Fuse</object-name>
+		<object-name>CALLlight</object-name>
+		<object-name>EMERGknob</object-name>
+		<object-name>TxKnob</object-name>
+		<condition>
+			<not><property>systems/electrical/outputs/cabin-dim</property></not>
+		</condition>
+		<emission>
+			<red>0.2</red>
+			<green>0.2</green>
+			<blue>0.2</blue>
+			<factor-prop>systems/electrical/outputs/panel-dim</factor-prop>
+		</emission>
 	</animation>
 
 </PropertyList>

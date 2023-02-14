@@ -721,55 +721,67 @@ var startup = func
 			}
 		}, t); t += 2.5;
 
-		# throttle levers
+		# close throttle levers
 		settimer( func{
 			if(step == 8 and auto_procedure.getValue()){
-			interpolate("controls/engines/engine[0]/throttle", 0.25, 0.4);
-			interpolate("controls/engines/engine[1]/throttle", 0.25, 0.4);
-			interpolate("controls/engines/engine[2]/throttle", 0.25, 0.4);
-			interpolate("controls/engines/engine[3]/throttle", 0.25, 0.4);
+			interpolate("controls/engines/engine[0]/throttle", 0.0, 0.4);
+			interpolate("controls/engines/engine[1]/throttle", 0.0, 0.4);
+			interpolate("controls/engines/engine[2]/throttle", 0.0, 0.4);
+			interpolate("controls/engines/engine[3]/throttle", 0.0, 0.4);
 			}
 		}, t); t += 1.0;
-	
+
+		# close HP cocks	
 		settimer( func{
 			if(step == 8 and auto_procedure.getValue()){
-				setprop("controls/engines/engine[0]/cutoff", 1);
+				screen.log.write("Close HP cocks.", 1, 1, 1);
+#				setprop("controls/engines/engine[0]/cutoff", 1);
+				interpolate("VC10/engines/HPcock[0]", 0.0, 0.4);
 				click_switch2();
 			}
 		}, t); t += 0.5;
 		settimer( func{
 			if(step == 8 and auto_procedure.getValue()){
-				setprop("controls/engines/engine[1]/cutoff", 1);
+#				setprop("controls/engines/engine[1]/cutoff", 1);
+				interpolate("VC10/engines/HPcock[1]", 0.0, 0.4);
 				click_switch2();
 			}
 		}, t); t += 0.5;
 		settimer( func{
 			if(step == 8 and auto_procedure.getValue()){
-				setprop("controls/engines/engine[2]/cutoff", 1);
+#				setprop("controls/engines/engine[2]/cutoff", 1);
+				interpolate("VC10/engines/HPcock[2]", 0.0, 0.4);
 				click_switch2();
 			}
 		}, t); t += 0.5;	
 		settimer( func{
 			if(step == 8 and auto_procedure.getValue()){
-				setprop("controls/engines/engine[3]/cutoff", 1);
+#				setprop("controls/engines/engine[3]/cutoff", 1);
+				interpolate("VC10/engines/HPcock[3]", 0.0, 0.4);
 				click_switch2();
-				screen.log.write("We continue at the overhead panel.", 1, 1, 1);
+				screen.log.write("Engine Start Panel.", 1, 1, 1);
 				step = 9;
 			}
 		}, t); t += 1.5;
 
-		# Starter in the overhead panel
+		# Engine Start Panel
 		settimer( func{
 			if(step == 9 and auto_procedure.getValue()){
-				setprop("VC10/start/startercover[2]", 1);
+				setprop("VC10/engines/StartModeSw", 2);
 				click_switch3();
-
-				screen.log.write("Engine 3!", 1, 1, 1);
 			}
-		}, t); t += 0.5;
+		}, t); t += 0.5;	
+#############################################
 		settimer( func{
 			if(step == 9 and auto_procedure.getValue()){
-			setprop("controls/engines/engine[2]/starter", 1);
+				setprop("VC10/engines/start_sw3", 1);										  
+				click_switch3();
+				screen.log.write("Engine 3 start switch", 1, 1, 1);
+			}
+		}, t); t += 1.5;
+		settimer( func{
+			if(step == 9 and auto_procedure.getValue()){
+				screen.log.write("Open Engine 3 HP Cock to start position", 1, 1, 1);
 			click_switch2();
 			}else{
 				screen.log.write("WARNING: startup interrupted before ENGINE 3 ", 1, 0, 0);
@@ -777,28 +789,28 @@ var startup = func
 		}, t); t += 6.0;
 		settimer(func{
 			if(step == 9 and auto_procedure.getValue()){
-				setprop("controls/engines/engine[2]/cutoff", 0);
+				screen.log.write("Engine 3 spoolup", 1, 1, 1);
 			}
-		}, t); t += 29.5;	
+		}, t); t += 28.5;	
 		settimer( func{
 			if(step == 9 and auto_procedure.getValue()){
-				setprop("VC10/start/startercover[2]", 0);
+				screen.log.write("Engine 3 release start switch", 1, 1, 1);
+				setprop("VC10/engines/start_sw3", 0);
 				click_switch3();
 				step = 10;
 			}
 		}, t); t += 0.5; # 30 sec per engine
-
+#############################################
 		settimer( func{	  
 			if(step == 10 and auto_procedure.getValue()){
-				setprop("VC10/start/startercover[3]", 1);
+				setprop("VC10/engines/start_sw4", 1);
 				click_switch3();
-
-				screen.log.write("Engine 4!", 1, 1, 1);
+				screen.log.write("Engine 4 start switch", 1, 1, 1);
 			}
-		}, t); t += 0.5;
+		}, t); t += 1.5;
 		settimer( func{
-			if(step == 10 and auto_procedure.getValue() and run3.getBoolValue()){
-				setprop("controls/engines/engine[3]/starter", 1);
+			if(step == 10 and auto_procedure.getValue()){
+				screen.log.write("Open Engine 4 HP Cock to start position", 1, 1, 1);
 				click_switch2();
 			}else{
 				screen.log.write("WARNING: startup interrupted at ENGINE 4 ", 1, 0, 0);
@@ -806,28 +818,28 @@ var startup = func
 		}, t); t += 6.0;
 		settimer(func{
 			if(step == 10 and auto_procedure.getValue()){
-				setprop("controls/engines/engine[3]/cutoff", 0);
+				screen.log.write("Engine 4 spoolup", 1, 1, 1);
 			}
-		}, t); t += 29.5;	
+		}, t); t += 28.5;	
 		settimer( func{
 			if(step == 10 and auto_procedure.getValue()){
-				setprop("VC10/start/startercover[3]", 0);
+				screen.log.write("Engine 4 release start switch", 1, 1, 1);
+				setprop("VC10/engines/start_sw4", 0);
 				click_switch3();
 				step = 11;
 			}
 		}, t); t += 0.5; # 30 sec per engine 	
-	
+#############################################	
 		settimer( func{	  
 			if(step == 11 and auto_procedure.getValue()){
-				setprop("VC10/start/startercover[1]", 1);
+				setprop("VC10/engines/start_sw2", 1);
 				click_switch3();
-
-				screen.log.write("Engine 2!", 1, 1, 1);
+				screen.log.write("Engine 2 start switch", 1, 1, 1);
 			}
-		}, t); t += 0.5;
+		}, t); t += 1.5;
 		settimer( func{
-			if(step == 11 and auto_procedure.getValue() and run3.getBoolValue() and run4.getBoolValue()){
-				setprop("controls/engines/engine[1]/starter", 1);
+			if(step == 11 and auto_procedure.getValue()){
+				screen.log.write("Open Engine 2 HP Cock to start position", 1, 1, 1);
 				click_switch2();
 			}else{
 				screen.log.write("WARNING: startup interrupted at ENGINE 2 ", 1, 0, 0);
@@ -835,28 +847,28 @@ var startup = func
 		}, t); t += 6.0;
 		settimer(func{
 			if(step == 11 and auto_procedure.getValue()){
-				setprop("controls/engines/engine[1]/cutoff", 0);
+			screen.log.write("Engine 2 spoolup", 1, 1, 1);
 			}
-		}, t); t += 29.5;	
+		}, t); t += 28.5;	
 		settimer( func{
 			if(step == 11 and auto_procedure.getValue()){
-				setprop("VC10/start/startercover[1]", 0);
+			screen.log.write("Engine 2 release start switch", 1, 1, 1);
+				setprop("VC10/engines/start_sw2", 0);
 				click_switch3();
 				step = 12;
 			}
-		}, t); t += 0.5; # 30 sec per engine 
-
+		}, t); t += 0.5; # 30 sec per engine 	
+#############################################
 		settimer( func{	  
 			if(step == 12 and auto_procedure.getValue()){
-				setprop("VC10/start/startercover[0]", 1);
+				setprop("VC10/engines/start_sw1", 1);
 				click_switch3();
-
-				screen.log.write("Engine 1!", 1, 1, 1);
+				screen.log.write("Engine 1 start switch", 1, 1, 1);
 			}
-		}, t); t += 0.5;
+		}, t); t += 1.5;
 		settimer( func{
-			if(step == 12 and auto_procedure.getValue() and run2.getBoolValue() and run3.getBoolValue() and run4.getBoolValue()){
-				setprop("controls/engines/engine[0]/starter", 1);
+			if(step == 12 and auto_procedure.getValue()){
+				screen.log.write("Open Engine 1 HP Cock to start position", 1, 1, 1);
 				click_switch2();
 			}else{
 				screen.log.write("WARNING: startup interrupted at ENGINE 1 ", 1, 0, 0);
@@ -864,18 +876,19 @@ var startup = func
 		}, t); t += 6.0;
 		settimer(func{
 			if(step == 12 and auto_procedure.getValue()){
-				setprop("controls/engines/engine[0]/cutoff", 0);
+				screen.log.write("Engine 1 spoolup", 1, 1, 1);
 			}
-		}, t); t += 29.5;
+		}, t); t += 28.5;
 		settimer( func{
 			if(step == 12 and auto_procedure.getValue()){
-				setprop("VC10/start/startercover[0]", 0);
+				screen.log.write("Engine 1 release start switch", 1, 1, 1);
+				setprop("VC10/engines/start_sw1", 0);
 				click_switch3();
 				screen.log.write("Synchronisation of the engines now - have a look to the engineer panel", 1, 1, 1);
 				step = 13;
 			}
 		}, t); t += 1.5; # 30 sec per engine 
-		 
+#############################################		 
 		# synchronized the generator one and select this engine as ess-pwr
 	 	settimer( func{		
 			if(step == 13 and auto_procedure.getValue()){
@@ -1286,22 +1299,23 @@ var shutdown = func
 		}
  };
 
-# listener to activate these functions accordingly
-setlistener("sim/model/start-idling", func(idle)
+ # listener to activate these functions accordingly
+setlistener("sim/model/Autostart_shutdown", func(idle)
  {
-   print (" listener start-idling");
  var autorun = idle.getBoolValue();
- 
+
+ # Autostart if no engines are running.
  if (autorun and !run1.getBoolValue() and !run2.getBoolValue() and !run3.getBoolValue() and !run4.getBoolValue())
   {
+  print ("Engines start");
   startup();
   }
  else
   {
+  print ("Shutdown");
   shutdown();
   }
  }, 0, 0);
- 
 ## START PROCEDURE ON MAIN SWITCHES ###
 #######################################
 var starter = func(nr) 
@@ -1644,10 +1658,10 @@ var short_startup = func
 		setprop("VC10/fuel/valves/LPCock[3]", 1);
 		VC10.shutoff_pos(3);
 	
-		setprop("controls/engines/engine[0]/throttle", 0.25);
-		setprop("controls/engines/engine[1]/throttle", 0.25);
-		setprop("controls/engines/engine[2]/throttle", 0.25);
-		setprop("controls/engines/engine[3]/throttle", 0.25);
+		setprop("controls/engines/engine[0]/throttle", 0.0);
+		setprop("controls/engines/engine[1]/throttle", 0.0);
+		setprop("controls/engines/engine[2]/throttle", 0.0);
+		setprop("controls/engines/engine[3]/throttle", 0.0);
 		setprop("controls/engines/engine[0]/cutoff", 1);
 		setprop("controls/engines/engine[1]/cutoff", 1);
 		setprop("controls/engines/engine[2]/cutoff", 1);
