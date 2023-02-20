@@ -357,7 +357,7 @@ var battery1 = Battery.new("VC10/electric/dc/BAT1_sw","VC10/electric/dc/BAT1-vol
 var battery2 = Battery.new("VC10/electric/dc/BAT2_sw","VC10/electric/dc/BAT2-volts",24.0,30,25,1.0,7.0);
 
 ###                            num,switch,								gen_output,              rpm_source,           rpm_threshold,volts,amps,freq
-var generator0 = Generator.new(0,"VC10/electric/ac/generator/GenELRAT-drive","VC10/electric/ac/generator/GenELRAT-volts","/fdm/jsbsim/velocities/vtrue-kts",100.0,115.0,60.0);
+var generator0 = Generator.new(0,"VC10/electric/ac/generator/GenELRAT-drive","VC10/electric/ac/generator/GenELRAT-volts","fdm/jsbsim/velocities/vtrue-kts",100.0,115.0,60.0);
 var generator1 = Generator.new(1,"VC10/electric/ac/generator/Gen1-Drv","VC10/electric/ac/generator/Gen1-volts","/engines/engine[0]/n1",20.0,115.0,60.0);
 var generator2 = Generator.new(2,"VC10/electric/ac/generator/Gen2-Drv","VC10/electric/ac/generator/Gen2-volts","/engines/engine[1]/n1",20.0,115.0,60.0);
 var generator3 = Generator.new(3,"VC10/electric/ac/generator/Gen3-Drv","VC10/electric/ac/generator/Gen3-volts","/engines/engine[2]/n1",20.0,115.0,60.0);

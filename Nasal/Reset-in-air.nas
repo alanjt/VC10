@@ -175,9 +175,9 @@ var Reset = func{
 		
 	setprop("controls/gear/brake-parking", park_brake);      ## brakes
     setprop("/controls/gear/gear-down", gear_down);		
-    setprop("/fdm/jsbsim/gear/gear-cmd-norm", gear_down);	
+    setprop("fdm/jsbsim/gear/gear-cmd-norm", gear_down);	
     setprop("/controls/flight/flaps", flaps);		
-    setprop("/fdm/jsbsim/fcs/flaps", flaps);
+    setprop("fdm/jsbsim/fcs/flaps", flaps);
     setprop("controls/flight/rudder-trim", 0);
     setprop("controls/flight/elevator-trim", 0);
     setprop("controls/flight/aileron-trim", 0);

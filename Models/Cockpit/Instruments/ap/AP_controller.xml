@@ -486,18 +486,18 @@ if you contacted me before making any changes to this software.
 				<binding>
 					<command>nasal</command>
 					<script>
-					var bt = getprop("/autopilot/Bendix-PB-20/controls/AP-1active") or 0;
+					var bt = getprop("autopilot/Bendix-PB-20/controls/AP-1active") or 0;
 					var bat = getprop("VC10/electric/ess-bus") or 0;
 					print ("bt ",bt,"  bat ", bat);
 					if(bt){
 					#	if(bt or bat &lt; 20){
-					###### setprop("/autopilot/Bendix-PB-20/controls/AP-1active", 0);
-					###### setprop("/autopilot/Bendix-PB-20/controls/ALT-active", 0);
-					###### setprop("/autopilot/Bendix-PB-20/controls/IAS-active", 0);
-					###### setprop("/autopilot/Bendix-PB-20/controls/MACH-active", 0);
-					setprop("/autopilot/Bendix-PB-20/controls/AP-1active", 0);
+					###### setprop("autopilot/Bendix-PB-20/controls/AP-1active", 0);
+					###### setprop("autopilot/Bendix-PB-20/controls/ALT-active", 0);
+					###### setprop("autopilot/Bendix-PB-20/controls/IAS-active", 0);
+					###### setprop("autopilot/Bendix-PB-20/controls/MACH-active", 0);
+					setprop("autopilot/Bendix-PB-20/controls/AP-1active", 0);
 					}else{
-					setprop("/autopilot/Bendix-PB-20/controls/AP-1active", 1);
+					setprop("autopilot/Bendix-PB-20/controls/AP-1active", 1);
 					}
 </script>
 				</binding>
@@ -530,16 +530,16 @@ if you contacted me before making any changes to this software.
 				<!--			<binding>
 				<command>nasal</command>
 				<script>
-					#var bt = getprop("/autopilot/Bendix-PB-20/controls/Damper-1active") or 0;
+					#var bt = getprop("autopilot/Bendix-PB-20/controls/Damper-1active") or 0;
 					#var bat = getprop("VC10/electric/ess-bus") or 0;
 					#if(bt){
 					#	if(bt or bat &lt; 20){
-					###### setprop("/autopilot/Bendix-PB-20/controls/Damper-1active", 0);
-					###### setprop("/autopilot/Bendix-PB-20/controls/ALT-active", 0);
-					###### setprop("/autopilot/Bendix-PB-20/controls/IAS-active", 0);
-					###### setprop("/autopilot/Bendix-PB-20/controls/MACH-active", 0);
+					###### setprop("autopilot/Bendix-PB-20/controls/Damper-1active", 0);
+					###### setprop("autopilot/Bendix-PB-20/controls/ALT-active", 0);
+					###### setprop("autopilot/Bendix-PB-20/controls/IAS-active", 0);
+					###### setprop("autopilot/Bendix-PB-20/controls/MACH-active", 0);
 					#}else{
-					#setprop("/autopilot/Bendix-PB-20/controls/Damper-1active", 1);
+					#setprop("autopilot/Bendix-PB-20/controls/Damper-1active", 1);
 					#}
 				</script> 
 			</binding> -->
@@ -576,16 +576,16 @@ if you contacted me before making any changes to this software.
 				<!--			<binding>
 				<command>nasal</command>
 				<script>
-					var bt = getprop("/autopilot/Bendix-PB-20/controls/Damper-2active") or 0;
+					var bt = getprop("autopilot/Bendix-PB-20/controls/Damper-2active") or 0;
 					var bat = getprop("VC10/electric/ess-bus") or 0;
 					if(bt){
 					#	if(bt or bat &lt; 20){
-					###### setprop("/autopilot/Bendix-PB-20/controls/Damper-2active", 0);
-					###### setprop("/autopilot/Bendix-PB-20/controls/ALT-active", 0);
-					###### setprop("/autopilot/Bendix-PB-20/controls/IAS-active", 0);
-					###### setprop("/autopilot/Bendix-PB-20/controls/MACH-active", 0);
+					###### setprop("autopilot/Bendix-PB-20/controls/Damper-2active", 0);
+					###### setprop("autopilot/Bendix-PB-20/controls/ALT-active", 0);
+					###### setprop("autopilot/Bendix-PB-20/controls/IAS-active", 0);
+					###### setprop("autopilot/Bendix-PB-20/controls/MACH-active", 0);
 					}else{
-					setprop("/autopilot/Bendix-PB-20/controls/Damper-2active", 1);
+					setprop("autopilot/Bendix-PB-20/controls/Damper-2active", 1);
 					}
 				</script>
 			</binding> -->
@@ -623,17 +623,17 @@ if you contacted me before making any changes to this software.
 				<binding>
 					<command>nasal</command>
 					<script>
-					var bt = getprop("/autopilot/Bendix-PB-20/controls/AP-2active") or 0;
+					var bt = getprop("autopilot/Bendix-PB-20/controls/AP-2active") or 0;
 					var bat = getprop("VC10/electric/ess-bus") or 0;
 					if(bt){
 					#	if(bt or bat &lt; 20){
-					###### setprop("/autopilot/Bendix-PB-20/controls/AP-2active", 0);
-					###### setprop("/autopilot/Bendix-PB-20/controls/ALT-active", 0);
-					###### setprop("/autopilot/Bendix-PB-20/controls/IAS-active", 0);
-					###### setprop("/autopilot/Bendix-PB-20/controls/MACH-active", 0);
-					setprop("/autopilot/Bendix-PB-20/controls/AP-2active", 0);
+					###### setprop("autopilot/Bendix-PB-20/controls/AP-2active", 0);
+					###### setprop("autopilot/Bendix-PB-20/controls/ALT-active", 0);
+					###### setprop("autopilot/Bendix-PB-20/controls/IAS-active", 0);
+					###### setprop("autopilot/Bendix-PB-20/controls/MACH-active", 0);
+					setprop("autopilot/Bendix-PB-20/controls/AP-2active", 0);
 					}else{
-					setprop("/autopilot/Bendix-PB-20/controls/AP-2active", 1);
+					setprop("autopilot/Bendix-PB-20/controls/AP-2active", 1);
 					}
 </script>
 				</binding>
@@ -679,9 +679,9 @@ if you contacted me before making any changes to this software.
 				<!--			<binding>
 				<command>nasal</command>
 				<script>
-					var apa = getprop("/autopilot/Bendix-PB-20/controls/active") or 0;
+					var apa = getprop("autopilot/Bendix-PB-20/controls/active") or 0;
 					if(!apa){
-					settimer(func{ setprop("/autopilot/Bendix-PB-20/controls/ALT-active", 0);}, 0.2);
+					settimer(func{ setprop("autopilot/Bendix-PB-20/controls/ALT-active", 0);}, 0.2);
 					}
 				</script>
 			</binding> -->
@@ -727,9 +727,9 @@ if you contacted me before making any changes to this software.
 				<!--			<binding>
 				<command>nasal</command>
 				<script>
-					var iaspa = getprop("/autopilot/Bendix-PB-20/controls/active") or 0;
+					var iaspa = getprop("autopilot/Bendix-PB-20/controls/active") or 0;
 					if(!iaspa){
-					settimer(func{ setprop("/autopilot/Bendix-PB-20/controls/IAS-active", 0);}, 0.2);
+					settimer(func{ setprop("autopilot/Bendix-PB-20/controls/IAS-active", 0);}, 0.2);
 					}
 				</script>
 			</binding> -->
@@ -776,9 +776,9 @@ if you contacted me before making any changes to this software.
 				<!--			<binding>
 				<command>nasal</command>
 				<script>
-					var machpa = getprop("/autopilot/Bendix-PB-20/controls/active") or 0;
+					var machpa = getprop("autopilot/Bendix-PB-20/controls/active") or 0;
 					if(!machpa){
-					settimer(func{ setprop("/autopilot/Bendix-PB-20/controls/MACH-active", 0);}, 0.2);
+					settimer(func{ setprop("autopilot/Bendix-PB-20/controls/MACH-active", 0);}, 0.2);
 					}
 				</script>
 			</binding>  -->

@@ -26,7 +26,7 @@ if you contacted me before making any changes to this software.
 
 	<path>Aircraft/VC10/Models/Cockpit/SwitchesLamps/magnetic_indicator_round.ac</path>
 
-	<!-- LeftAltTXIndicator -->
+	<!-- Tank1A_AltTXindicator -->
 <!--	<animation>
 		<type>textranslate</type>
 		<object-name>ball</object-name>

@@ -209,7 +209,7 @@
 						setprop("VC10/refuelling/receiving-switch", 1);
 						
 						if(pwr_ref &gt; 20){
-							setprop("/systems/refuel/serviceable", 1);
+							setprop("systems/refuel/serviceable", 1);
 							VC10.doorsystem.refuelexport();
 						}else{
 							settimer(func{setprop("VC10/refuelling/receiving-switch", 0);},0.25);
@@ -217,7 +217,7 @@
 						
 					}else{
 						setprop("VC10/refuelling/receiving-switch", 0);
-						setprop("/systems/refuel/serviceable", 0);
+						setprop("systems/refuel/serviceable", 0);
 						if(pwr_ref &gt; 20){
 							VC10.doorsystem.refuelexport();
 						}

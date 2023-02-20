@@ -183,12 +183,12 @@ if you contacted me before making any changes to this software.
          <binding>
 			<command>nasal</command>
 			<script>
-				if (getprop("/instrumentation/tacan/frequencies/selected-channel[4]") == "X") {
-					setprop("/instrumentation/tacan/frequencies/selected-channel[4]", "Y");
-					setprop("/instrumentation/tacan/xy-position", 0);
+				if (getprop("instrumentation/tacan/frequencies/selected-channel[4]") == "X") {
+					setprop("instrumentation/tacan/frequencies/selected-channel[4]", "Y");
+					setprop("instrumentation/tacan/xy-position", 0);
 				}else{
-					setprop("/instrumentation/tacan/frequencies/selected-channel[4]", "X");
-					setprop("/instrumentation/tacan/xy-position", 1);
+					setprop("instrumentation/tacan/frequencies/selected-channel[4]", "X");
+					setprop("instrumentation/tacan/xy-position", 1);
 				}
 			</script>
          </binding>
@@ -331,10 +331,10 @@ if you contacted me before making any changes to this software.
         <binding>
 			<command>nasal</command>
 			<script>
-				if (getprop("/instrumentation/tacan/frequencies/selected-channel[4]") == "X") {
-					setprop("/instrumentation/tacan/xy-position", 1);
+				if (getprop("instrumentation/tacan/frequencies/selected-channel[4]") == "X") {
+					setprop("instrumentation/tacan/xy-position", 1);
 				}else{
-					setprop("/instrumentation/tacan/xy-position", 0);
+					setprop("instrumentation/tacan/xy-position", 0);
 				}
 			</script>
         </binding>	

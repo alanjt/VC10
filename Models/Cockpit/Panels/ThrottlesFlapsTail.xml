@@ -278,7 +278,7 @@ if you contacted me before making any changes to this software.
 		<increase>
 			<binding>
 				<command>nasal</command>
-				<script>controls.stepProps("/controls/flight/speedbrake", "/sim/speedbrake", -1);</script>
+				<script>controls.stepProps("controls/flight/speedbrake", "sim/speedbrake", -1);</script>
 				<min>0</min>
 				<max>1</max>
 				<wrap>false</wrap>
@@ -287,7 +287,7 @@ if you contacted me before making any changes to this software.
 		<decrease>
 			<binding>
 				<command>nasal</command>
-				<script>controls.stepProps("/controls/flight/speedbrake", "/sim/speedbrake", 1);</script>
+				<script>controls.stepProps("controls/flight/speedbrake", "sim/speedbrake", 1);</script>
 				<min>0</min>
 				<max>1</max>
 				<wrap>false</wrap>
@@ -321,7 +321,7 @@ if you contacted me before making any changes to this software.
 		<increase>
 			<binding>
 				<command>nasal</command>
-				<script>controls.stepProps("/controls/flight/flaps", "/sim/flaps", -1);</script>
+				<script>controls.stepProps("controls/flight/flaps", "sim/flaps", -1);</script>
 				<min>0</min>
 				<max>1</max>
 				<wrap>false</wrap>
@@ -330,7 +330,7 @@ if you contacted me before making any changes to this software.
 		<decrease>
 			<binding>
 				<command>nasal</command>
-				<script>controls.stepProps("/controls/flight/flaps", "/sim/flaps", 1);</script>
+				<script>controls.stepProps("controls/flight/flaps", "sim/flaps", 1);</script>
 				<min>0</min>
 				<max>1</max>
 				<wrap>false</wrap>

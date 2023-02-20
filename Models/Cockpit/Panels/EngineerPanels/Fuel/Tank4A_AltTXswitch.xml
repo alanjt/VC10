@@ -24,26 +24,45 @@ if you contacted me before making any changes to this software.
 ########################################################################-->
 <PropertyList>
 
-	<path>Aircraft/VC10/Models/Cockpit/SwitchesLamps/magnetic_indicator_round.ac</path>
+	<path>Aircraft/VC10/Models/Cockpit/SwitchesLamps/ToggleSwitch.ac</path>
 
-	<!-- LeftAltTXIndicator -->
-<!--	<animation>
-		<type>textranslate</type>
-		<object-name>ball</object-name>
-		<property>VC10/fuel/valves/LPCock[0]</property>
+	<animation>
+		<type>rotate</type>
+		<object-name>switch_lever</object-name>
+		<property>VC10/fuel/switches/Tank4A_AltTXswitch</property>
 		<interpolation>
-			<entry><ind>0</ind><dep>0.2</dep></entry>
-			<entry><ind>1.0</ind><dep>0</dep></entry>
+			<entry><ind>0</ind><dep>-20.0</dep></entry>
+			<entry><ind>1.0</ind><dep>20.0</dep></entry>
 		</interpolation>
-		<bias>0.001</bias>
-		<factor>-0.1</factor>
-		<step>0.1</step>
+		<factor>1</factor>
 		<axis>
 			<x>0</x>
 			<y>1</y>
 			<z>0</z>
 		</axis>
-	</animation> -->
+		<center>
+			<x-m>0.0</x-m>
+			<y-m>-0.0</y-m>
+			<z-m>0.0</z-m>
+		</center>
+	</animation>
 
+	<animation>
+		<type>pick</type>
+		<object-name>switch_lever</object-name>
+		<object-name>switch_base</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>VC10/fuel/switches/Tank4A_AltTXswitch</property>
+			</binding>
+			<binding>
+				<command>property-toggle</command>
+				<property>sim/sound/switch2</property>
+			</binding>
+		</action>
+	</animation>
 
 </PropertyList>

@@ -981,11 +981,11 @@ printf ("  FUEL WeightFuelDialog");
     dialog[name].addChild("hrule");
 
     var fdmdata = {
-            grosswgt : "/fdm/jsbsim/inertia/weight-lbs",
+            grosswgt : "fdm/jsbsim/inertia/weight-lbs",
             payload  : "/payload",
-            cg_x_in       : "/fdm/jsbsim/inertia/cg-x-in",
-			cg_x_pcent : "/fdm/jsbsim/inertia/cg-x-percent",
-	        cg_z_in       : "/fdm/jsbsim/inertia/cg-z-in",
+            cg_x_in       : "fdm/jsbsim/inertia/cg-x-in",
+			cg_x_pcent : "fdm/jsbsim/inertia/cg-x-percent",
+	        cg_z_in       : "fdm/jsbsim/inertia/cg-z-in",
         };
 
     var contentArea = dialog[name].addChild("group");

@@ -6,7 +6,7 @@
 
 	<nasal>
 		<open>
-			var p = props.globals.getNode("/sim/gui/dialogs/location-in-air/", 1);
+			var p = props.globals.getNode("sim/gui/dialogs/location-in-air/", 1);
 			var mode = {
 			airport: p.getNode("airport", 1),
 			lonlat:  p.getNode("lonlat", 1),
@@ -348,7 +348,7 @@
 			<binding>
 				<command>nasal</command>
 				<script>
-					setprop("/sim/presets/flaps",getprop("/sim/presets/flaps_deg")/45.0);
+					setprop("sim/presets/flaps",getprop("sim/presets/flaps_deg")/45.0);
 				</script>
 			</binding>			
 		</combo>
@@ -455,37 +455,37 @@
 			<binding>
 				<command>nasal</command>
 				<script>
-					setprop("/sim/presets/parkpos", "");
+					setprop("sim/presets/parkpos", "");
 
 					if (!mode.airport.getBoolValue()) {
-					setprop("/sim/presets/airport-id", "");
-					setprop("/sim/presets/runway", "");
+					setprop("sim/presets/airport-id", "");
+					setprop("sim/presets/runway", "");
 					}
 
 					if (!mode.lonlat.getBoolValue()) {
-					setprop("/sim/presets/longitude-deg", -9999);
-					setprop("/sim/presets/latitude-deg", -9999);
+					setprop("sim/presets/longitude-deg", -9999);
+					setprop("sim/presets/latitude-deg", -9999);
 					}
 
 					if (!mode.vor.getBoolValue()) {
-					setprop("/sim/presets/vor-id", "");
+					setprop("sim/presets/vor-id", "");
 					} else {
-					pickNearest("vor","/sim/presets/vor-id","/sim/presets/vor-freq");
+					pickNearest("vor","sim/presets/vor-id","sim/presets/vor-freq");
 					}
 
 					if (!mode.ndb.getBoolValue()) {
-					setprop("/sim/presets/ndb-id", "");
+					setprop("sim/presets/ndb-id", "");
 					} else {
-					pickNearest("ndb","/sim/presets/ndb-id","/sim/presets/ndb-freq");
+					pickNearest("ndb","sim/presets/ndb-id","sim/presets/ndb-freq");
 					}
 
 					if (!mode.fix.getBoolValue()) {
-					setprop("/sim/presets/fix", "");
+					setprop("sim/presets/fix", "");
 					}
 
-					var speedRequested = getprop("/sim/presets/airspeed-kt");
+					var speedRequested = getprop("sim/presets/airspeed-kt");
 					if (speedRequested > 0) {
-					setprop("/sim/presets/speed-set", "knots");
+					setprop("sim/presets/speed-set", "knots");
 					}
 					Reset();
 				</script>
@@ -496,10 +496,10 @@
 			<binding>
 				<command>nasal</command>
 				<script>
-					ac = getprop("/sim/aircraft");
+					ac = getprop("sim/aircraft");
 					if (ac == "ufo") { return }
 
-					var eng = props.globals.getNode("/controls/engines");
+					var eng = props.globals.getNode("controls/engines");
 					if (eng != nil) {
 					foreach (c; eng.getChildren("engine")) {
 					c.getNode("magnetos", 1).setIntValue(3);

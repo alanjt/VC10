@@ -114,7 +114,7 @@ if you contacted me before making any changes to this software.
           <button>0</button>
           <binding>
 							<command>nasal</command>
-							<script>interpolate("/controls/flight/rudder", 0, 1);</script>
+							<script>interpolate("controls/flight/rudder", 0, 1);</script>
           </binding>
       </action>
       <action>
