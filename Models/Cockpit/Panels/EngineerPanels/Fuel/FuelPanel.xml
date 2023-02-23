@@ -166,7 +166,6 @@
 	
 	<model>
 		<name>CrossfeedLPIndicator</name>
-<!--		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/CrossFeedLPInd.xml</path> -->
 		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/TransLowPressInd.xml</path>	
 		<offsets>
 		  <x-m>0</x-m>

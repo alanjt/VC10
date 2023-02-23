@@ -30,7 +30,7 @@ if you contacted me before making any changes to this software.
 <!--	<animation>
 		<type>textranslate</type>
 		<object-name>ball</object-name>
-		<property>VC10/fuel/valves/LPCock[0]</property>
+		<property>VC10/fuel/valves/LPCock1</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0.2</dep></entry>
 			<entry><ind>1.0</ind><dep>0</dep></entry>

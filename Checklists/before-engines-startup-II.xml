@@ -196,13 +196,13 @@ if you contacted me before making any changes to this software.
 		</marker>
 		<condition>
 		  <equals>
-		    <property>VC10/fuel/switches/boost-pump[0]</property>
+		    <property>VC10/fuel/switches/BoostPump1_fwdSwitch</property>
 		    <value>1</value>
 		  </equals>
 		</condition>
 		<binding>
 		  <command>property-assign</command>
-		  <property>VC10/fuel/switches/boost-pump[0]</property>
+		  <property>VC10/fuel/switches/BoostPump1_fwdSwitch</property>
 		  <value>1</value>
 		</binding> 
 	    <binding>
@@ -222,13 +222,13 @@ if you contacted me before making any changes to this software.
 		</marker>
 		<condition>
 		  <equals>
-		    <property>VC10/fuel/switches/boost-pump[1]</property>
+		    <property>VC10/fuel/switches/BoostPump1_aftSwitch</property>
 		    <value>1</value>
 		  </equals>
 		</condition>
 		<binding>
 		  <command>property-assign</command>
-		  <property>VC10/fuel/switches/boost-pump[1]</property>
+		  <property>VC10/fuel/switches/BoostPump1_aftSwitch</property>
 		  <value>1</value>
 		</binding>  
 	    <binding>
@@ -248,13 +248,13 @@ if you contacted me before making any changes to this software.
 		</marker>	
 		<condition>
 		  <equals>
-		    <property>VC10/fuel/switches/boost-pump[2]</property>
+		    <property>VC10/fuel/switches/BoostPump2_fwdSwitch</property>
 		    <value>1</value>
 		  </equals>
 		</condition>
 		<binding>
 		  <command>property-assign</command>
-		  <property>VC10/fuel/switches/boost-pump[2]</property>
+		  <property>VC10/fuel/switches/BoostPump2_fwdSwitch</property>
 		  <value>1</value>
 		</binding> 
 	    <binding>
@@ -274,13 +274,13 @@ if you contacted me before making any changes to this software.
 		</marker>
 		<condition>
 		  <equals>
-		    <property>VC10/fuel/switches/boost-pump[3]</property>
+		    <property>VC10/fuel/switches/BoostPump2_aftSwitch</property>
 		    <value>1</value>
 		  </equals>
 		</condition>
 		<binding>
 		  <command>property-assign</command>
-		  <property>VC10/fuel/switches/boost-pump[3]</property>
+		  <property>VC10/fuel/switches/BoostPump2_aftSwitch</property>
 		  <value>1</value>
 		</binding>  
 	    <binding>
@@ -300,13 +300,13 @@ if you contacted me before making any changes to this software.
 		</marker>
 		<condition>
 		  <equals>
-		    <property>VC10/fuel/switches/boost-pump[4]</property>
+		    <property>VC10/fuel/switches/BoostPump3_fwdSwitch</property>
 		    <value>1</value>
 		  </equals>
 		</condition>
 		<binding>
 		  <command>property-assign</command>
-		  <property>VC10/fuel/switches/boost-pump[4]</property>
+		  <property>VC10/fuel/switches/BoostPump3_fwdSwitch</property>
 		  <value>1</value>
 		</binding> 
 	    <binding>
@@ -326,13 +326,13 @@ if you contacted me before making any changes to this software.
 		</marker>
 		<condition>
 		  <equals>
-		    <property>VC10/fuel/switches/boost-pump[5]</property>
+		    <property>VC10/fuel/switches/BoostPump3_aftSwitch</property>
 		    <value>1</value>
 		  </equals>
 		</condition>
 		<binding>
 		  <command>property-assign</command>
-		  <property>VC10/fuel/switches/boost-pump[5]</property>
+		  <property>VC10/fuel/switches/BoostPump3_aftSwitch</property>
 		  <value>1</value>
 		</binding>  
 	    <binding>
@@ -352,13 +352,13 @@ if you contacted me before making any changes to this software.
 		</marker>	
 		<condition>
 		  <equals>
-		    <property>VC10/fuel/switches/boost-pump[6]</property>
+		    <property>VC10/fuel/switches/BoostPump4_fwdSwitch</property>
 		    <value>1</value>
 		  </equals>
 		</condition>
 		<binding>
 		  <command>property-assign</command>
-		  <property>VC10/fuel/switches/boost-pump[6]</property>
+		  <property>VC10/fuel/switches/BoostPump4_fwdSwitch</property>
 		  <value>1</value>
 		</binding> 
 	    <binding>
@@ -378,13 +378,13 @@ if you contacted me before making any changes to this software.
 		</marker>
 		<condition>
 		  <equals>
-		    <property>VC10/fuel/switches/boost-pump[7]</property>
+		    <property>VC10/fuel/switches/BoostPump4_aftSwitch</property>
 		    <value>1</value>
 		  </equals>
 		</condition>
 		<binding>
 		  <command>property-assign</command>
-		  <property>VC10/fuel/switches/boost-pump[7]</property>
+		  <property>VC10/fuel/switches/BoostPump4_aftSwitch</property>
 		  <value>1</value>
 		</binding>  
 	    <binding>
@@ -393,58 +393,7 @@ if you contacted me before making any changes to this software.
 	    </binding>
 	</item>
 	
-			
-	<item>
-		<name>BOOST PUMP No.4 F</name>
-		<value>ON</value>
-		<marker>
-		    <x-m>-17.5587</x-m>
-		    <y-m>0.7719</y-m>
-		    <z-m>1.0256</z-m>
-		    <scale>1.8760</scale>
-		</marker>
-		<condition>
-		  <equals>
-		    <property>VC10/fuel/switches/boost-pump[8]</property>
-		    <value>1</value>
-		  </equals>
-		</condition>
-		<binding>
-		  <command>property-assign</command>
-		  <property>VC10/fuel/switches/boost-pump[8]</property>
-		  <value>1</value>
-		</binding> 
-	    <binding>
-	      <command>property-toggle</command>
-	      <property>sim/sound/switch1</property>
-	    </binding>
-	</item>
 		
-	<item>
-		<name>BOOST PUMP No.4 A</name>
-		<value>ON</value>
-		<marker>
-		    <x-m>-17.5182</x-m>
-		    <y-m>0.7719</y-m>
-		    <z-m>1.0256</z-m>
-		    <scale>1.8760</scale>
-		</marker>	
-		<condition>
-		  <equals>
-		    <property>VC10/fuel/switches/boost-pump[9]</property>
-		    <value>1</value>
-		  </equals>
-		</condition>
-		<binding>
-		  <command>property-assign</command>
-		  <property>VC10/fuel/switches/boost-pump[9]</property>
-		  <value>1</value>
-		</binding>  
-	    <binding>
-	      <command>property-toggle</command>
-	      <property>sim/sound/switch1</property>
-	    </binding>
-	</item>
 		
 	<item>
 		<name>SHUTOFF ENG 1</name>
@@ -457,13 +406,13 @@ if you contacted me before making any changes to this software.
 		</marker>
 		<condition>
 		  <equals>
-		    <property>VC10/fuel/valves/LPCock[0]</property>
+		    <property>VC10/fuel/valves/LPCock1</property>
 		    <value>1</value>
 		  </equals>
 		</condition>
 		<binding>
 		  <command>property-assign</command>
-		  <property>VC10/fuel/valves/LPCock[0]</property>
+		  <property>VC10/fuel/valves/LPCock1</property>
 		  <value>1</value>
 		</binding>        
 <!--		<binding>
@@ -487,13 +436,13 @@ if you contacted me before making any changes to this software.
 		</marker>
 		<condition>
 		  <equals>
-		    <property>VC10/fuel/valves/LPCock[1]</property>
+		    <property>VC10/fuel/valves/LPCock2</property>
 		    <value>1</value>
 		  </equals>
 		</condition>
 		<binding>
 		  <command>property-assign</command>
-		  <property>VC10/fuel/valves/LPCock[1]</property>
+		  <property>VC10/fuel/valves/LPCock2</property>
 		  <value>1</value>
 		</binding>      
 <!--		<binding>
@@ -517,13 +466,13 @@ if you contacted me before making any changes to this software.
 		</marker>
 		<condition>
 		  <equals>
-		    <property>VC10/fuel/valves/LPCock[2]</property>
+		    <property>VC10/fuel/valves/LPCock3</property>
 		    <value>1</value>
 		  </equals>
 		</condition>
 		<binding>
 		  <command>property-assign</command>
-		  <property>VC10/fuel/valves/LPCock[2]</property>
+		  <property>VC10/fuel/valves/LPCock3</property>
 		  <value>1</value>
 		</binding>      
 <!--		<binding>
@@ -547,13 +496,13 @@ if you contacted me before making any changes to this software.
 		</marker>
 		<condition>
 		  <equals>
-		    <property>VC10/fuel/valves/LPCock[3]</property>
+		    <property>VC10/fuel/valves/LPCock4</property>
 		    <value>1</value>
 		  </equals>
 		</condition>
 		<binding>
 		  <command>property-assign</command>
-		  <property>VC10/fuel/valves/LPCock[3]</property>
+		  <property>VC10/fuel/valves/LPCock4</property>
 		  <value>1</value>
 		</binding>      
 <!--		<binding>

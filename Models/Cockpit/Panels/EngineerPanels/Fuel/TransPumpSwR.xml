@@ -90,7 +90,7 @@ if you contacted me before making any changes to this software.
 		    <repeatable>false</repeatable>
 		    <binding>
 		        <command>property-toggle</command>
-		        <property>VC10/fuel/switches/LPCock[0]</property>
+		        <property>VC10/fuel/switches/LPCock1</property>
 		    </binding>          
 		    <binding>
 		      <command>property-toggle</command>

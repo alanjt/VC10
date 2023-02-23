@@ -8,18 +8,36 @@ var Inter_engine_Valve_right= nil;
 
 props.globals.initNode("VC10/fuel/switches/CentreTankLH_TXPumpSw",0,"BOOL");
 props.globals.initNode("VC10/fuel/switches/CentreTankRH_TXPumpSw",0,"BOOL");
+
 props.globals.initNode("VC10/fuel/switches/Tank1A_AltTXswitch",0,"BOOL");
 props.globals.initNode("VC10/fuel/switches/Tank4A_AltTXswitch",0,"BOOL");
 
-props.globals.initNode("VC10/fuel/switches/LPCock[0]]",0,"BOOL");
-props.globals.initNode("VC10/fuel/switches/LPCock[1]]",0,"BOOL");
-props.globals.initNode("VC10/fuel/switches/LPCock[2]]",0,"BOOL");
-props.globals.initNode("VC10/fuel/switches/LPCock[3]]",0,"BOOL");
+props.globals.initNode("VC10/fuel/switches/Tank1A_Tank1TXswitch",0,"BOOL");
+props.globals.initNode("VC10/fuel/switches/Tank4A_Tank4TXswitch",0,"BOOL");
 
-props.globals.initNode("VC10/fuel/valves/LPCock[0]",0,"BOOL");
-props.globals.initNode("VC10/fuel/valves/LPCock[1]",0,"BOOL");
-props.globals.initNode("VC10/fuel/valves/LPCock[2]",0,"BOOL");
-props.globals.initNode("VC10/fuel/valves/LPCock[3]",0,"BOOL");
+props.globals.initNode("VC10/fuel/switches/Tank1TXswitch",0,"BOOL");
+props.globals.initNode("VC10/fuel/switches/Tank2TXswitch",0,"BOOL");
+props.globals.initNode("VC10/fuel/switches/Tank3TXswitch",0,"BOOL");
+props.globals.initNode("VC10/fuel/switches/Tank4TXswitch",0,"BOOL");
+
+props.globals.initNode("VC10/fuel/switches/BoostPump1_aftSwitch",0,"BOOL");
+props.globals.initNode("VC10/fuel/switches/BoostPump1_fwdSwitch",0,"BOOL");
+props.globals.initNode("VC10/fuel/switches/BoostPump2_aftSwitch",0,"BOOL");
+props.globals.initNode("VC10/fuel/switches/BoostPump2_fwdSwitch",0,"BOOL");
+props.globals.initNode("VC10/fuel/switches/BoostPump3_aftSwitch",0,"BOOL");
+props.globals.initNode("VC10/fuel/switches/BoostPump3_fwdSwitch",0,"BOOL");
+props.globals.initNode("VC10/fuel/switches/BoostPump4_aftSwitch",0,"BOOL");
+props.globals.initNode("VC10/fuel/switches/BoostPump4_fwdSwitch",0,"BOOL");
+
+props.globals.initNode("VC10/fuel/switches/LPCock1",0,"BOOL");
+props.globals.initNode("VC10/fuel/switches/LPCock2",0,"BOOL");
+props.globals.initNode("VC10/fuel/switches/LPCock3",0,"BOOL");
+props.globals.initNode("VC10/fuel/switches/LPCock4",0,"BOOL");
+
+props.globals.initNode("VC10/fuel/valves/LPCock1",0,"BOOL");
+props.globals.initNode("VC10/fuel/valves/LPCock2",0,"BOOL");
+props.globals.initNode("VC10/fuel/valves/LPCock3",0,"BOOL");
+props.globals.initNode("VC10/fuel/valves/LPCock4",0,"BOOL");
 
 props.globals.initNode("VC10/fuel/valves/valve[0]",0,"BOOL");
 props.globals.initNode("VC10/fuel/valves/valve[1]",0,"BOOL");
@@ -839,16 +857,14 @@ var tf3 = props.globals.getNode("consumables/fuel/tank[4]/level-lbs");
 var tf4 = props.globals.getNode("consumables/fuel/tank[5]/level-lbs");
 var tf4a = props.globals.getNode("consumables/fuel/tank[6]/level-lbs");
 
-var bp0 = props.globals.initNode("VC10/fuel/switches/boost-pump[0]",0,"BOOL");
-var bp1 = props.globals.initNode("VC10/fuel/switches/boost-pump[1]",0,"BOOL");
-var bp2 = props.globals.initNode("VC10/fuel/switches/boost-pump[2]",0,"BOOL");
-var bp3 = props.globals.initNode("VC10/fuel/switches/boost-pump[3]",0,"BOOL");
-var bp4 = props.globals.initNode("VC10/fuel/switches/boost-pump[4]",0,"BOOL");
-var bp5 = props.globals.initNode("VC10/fuel/switches/boost-pump[5]",0,"BOOL");
-var bp6 = props.globals.initNode("VC10/fuel/switches/boost-pump[6]",0,"BOOL");
-var bp7 = props.globals.initNode("VC10/fuel/switches/boost-pump[7]",0,"BOOL");
-var bp8 = props.globals.initNode("VC10/fuel/switches/boost-pump[8]",0,"BOOL");
-var bp9 = props.globals.initNode("VC10/fuel/switches/boost-pump[9]",0,"BOOL");
+var bp0 = props.globals.initNode("VC10/fuel/switches/BoostPump1_fwdSwitch",0,"BOOL");
+var bp1 = props.globals.initNode("VC10/fuel/switches/BoostPump1_aftSwitch",0,"BOOL");
+var bp2 = props.globals.initNode("VC10/fuel/switches/BoostPump2_fwdSwitch",0,"BOOL");
+var bp3 = props.globals.initNode("VC10/fuel/switches/BoostPump2_aftSwitch",0,"BOOL");
+var bp4 = props.globals.initNode("VC10/fuel/switches/BoostPump3_fwdSwitch",0,"BOOL");
+var bp5 = props.globals.initNode("VC10/fuel/switches/BoostPump3_aftSwitch",0,"BOOL");
+var bp6 = props.globals.initNode("VC10/fuel/switches/BoostPump4_fwdSwitch",0,"BOOL");
+var bp7 = props.globals.initNode("VC10/fuel/switches/BoostPump4_aftSwitch",0,"BOOL");
 
 var fp0 = props.globals.initNode("VC10/fuel/fuel-pressure[0]",0,"DOUBLE");
 var fp1 = props.globals.initNode("VC10/fuel/fuel-pressure[1]",0,"DOUBLE");

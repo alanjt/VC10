@@ -9,7 +9,7 @@
 		  <type>rotate</type>
 		<object-name>switch_lever</object-name>
 		<object-name>switch_cylinder</object-name>
-		  <property>VC10/fuel/switches/LPCock[0]</property>
+		  <property>VC10/fuel/switches/LPCock1</property>
       <factor>60</factor>
 		  <axis>
 		   <x>0</x>
@@ -33,7 +33,7 @@
 		    <repeatable>false</repeatable>
 		    <binding>
 		        <command>property-toggle</command>
-		        <property>VC10/fuel/switches/LPCock[0]</property>
+		        <property>VC10/fuel/switches/LPCock1</property>
 		    </binding>          
 		    <binding>
 		      <command>property-toggle</command>

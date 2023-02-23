@@ -129,23 +129,21 @@ var Reset = func{
 
 		
 		
-		setprop("VC10/fuel/switches/boost-pump[0]", 1);
-		setprop("VC10/fuel/switches/boost-pump[1]", 1);	
-		setprop("VC10/fuel/switches/boost-pump[2]", 1);
-		setprop("VC10/fuel/switches/boost-pump[3]", 1);
-		setprop("VC10/fuel/switches/boost-pump[4]", 1);
-		setprop("VC10/fuel/switches/boost-pump[5]", 1);	
-		setprop("VC10/fuel/switches/boost-pump[6]", 1);
-		setprop("VC10/fuel/switches/boost-pump[7]", 1);
-		setprop("VC10/fuel/switches/boost-pump[8]", 1);
-		setprop("VC10/fuel/switches/boost-pump[9]", 1);
-		setprop("VC10/fuel/valves/LPCock[0]", 1);
+		setprop("VC10/fuel/switches/BoostPump1_fwdSwitch", 1);
+		setprop("VC10/fuel/switches/BoostPump1_aftSwitch", 1);	
+		setprop("VC10/fuel/switches/BoostPump2_fwdSwitch", 1);
+		setprop("VC10/fuel/switches/BoostPump2_aftSwitch", 1);
+		setprop("VC10/fuel/switches/BoostPump3_fwdSwitch", 1);
+		setprop("VC10/fuel/switches/BoostPump3_aftSwitch", 1);	
+		setprop("VC10/fuel/switches/BoostPump4_fwdSwitch", 1);
+		setprop("VC10/fuel/switches/BoostPump4_aftSwitch", 1);
+		setprop("VC10/fuel/valves/LPCock1", 1);
 ##		VC10.shutoff_pos(0);
-		setprop("VC10/fuel/valves/LPCock[1]", 1);
+		setprop("VC10/fuel/valves/LPCock2", 1);
 ##		VC10.shutoff_pos(1);
-		setprop("VC10/fuel/valves/LPCock[2]", 1);
+		setprop("VC10/fuel/valves/LPCock3", 1);
 ##		VC10.shutoff_pos(2);
-		setprop("VC10/fuel/valves/LPCock[3]", 1);
+		setprop("VC10/fuel/valves/LPCock4", 1);
 ##        VC10.shutoff_pos(3);		
 		setprop("controls/wiper/degrees",0);
 		setprop("VC10/apu/off-start-run", 0);
