@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+	<path>Aircraft/VC10/Models/Cockpit/SwitchesLamps/ToggleSwitch.ac</path>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>switch_lever</object-name>
+		<property>VC10/fuel/switches/CrossFeedSw</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>-20.0</dep></entry>
+			<entry><ind>1.0</ind><dep>20.0</dep></entry>
+		</interpolation>
+		<factor>1</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0.0</x-m>
+			<y-m>-0.0</y-m>
+			<z-m>0.0</z-m>
+		</center>
+	</animation>
+
+	<animation>
+		<type>pick</type>
+		<object-name>switch_lever</object-name>
+		<object-name>switch_base</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>VC10/fuel/switches/CrossFeedSw</property>
+			</binding>
+			<binding>
+				<command>property-toggle</command>
+				<property>sim/sound/switch2</property>
+			</binding>
+		</action>
+	</animation>
+
+</PropertyList>

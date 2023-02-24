@@ -94,8 +94,8 @@
 	</model>
 	
 	<model>
-		<name>Tank1A_AltTXswitch</name>
-		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/Tank1A_AltTXswitch.xml</path>
+		<name>Tank1A_AltTXsw</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/Tank1A_AltTXsw.xml</path>
 		<offsets>
 		  <x-m>0</x-m>
 		  <y-m> 0.1438</y-m>
@@ -114,8 +114,8 @@
 	</model>
 	
 	<model>
-		<name>Tank4A_AltTXswitch</name>
-		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/Tank4A_AltTXswitch.xml</path>
+		<name>Tank4A_AltTXsw</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/Tank4A_AltTXsw.xml</path>
 		<offsets>
 		  <x-m>0</x-m>
 		  <y-m> 0.2951</y-m>
@@ -155,7 +155,7 @@
 	
 	<model>
 		<name>CrossfeedValveSw</name>
-		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/CrossfeedValveswitch.xml</path>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/CrossFeedValveSw.xml</path>
 		<offsets>
 		  <x-m>0</x-m>
 		  <y-m> 0.2233</y-m>
@@ -186,7 +186,7 @@
 
 	<model>
 		<name>Tank1AtoTank1TxSw</name>
-		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/Tank1AtoTank1TXswitch.xml</path>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/Tank1AtoTank1TXsw.xml</path>
 		<offsets>
 		  <x-m>0</x-m>
 		  <y-m> 0.0387</y-m>
@@ -196,7 +196,7 @@
 
 	<model>
 		<name>Tank4AtoTank4TxSw</name>
-		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/Tank4AtoTank4TXswitch.xml</path>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/Tank4AtoTank4TXsw.xml</path>
 		<offsets>
 		  <x-m>0</x-m>
 		  <y-m> 0.3921</y-m>
@@ -216,7 +216,7 @@
 
 	<model>
 		<name>Tank1TxSw</name>
-		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/Tank1TXswitch.xml</path>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/Tank1TXsw.xml</path>
 		<offsets>
 		  <x-m>0</x-m>
 		  <y-m> 0.0902</y-m>
@@ -236,7 +236,7 @@
 	
 	<model>
 		<name>Tank2TxSw</name>
-		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/Tank2TXswitch.xml</path>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/Tank2TXsw.xml</path>
 		<offsets>
 		  <x-m>0</x-m>
 		  <y-m> 0.1620</y-m>
@@ -256,7 +256,7 @@
 
 	<model>
 		<name>Tank3TxSw</name>
-		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/Tank3TXswitch.xml</path>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/Tank3TXsw.xml</path>
 		<offsets>
 		  <x-m>0</x-m>
 		  <y-m> 0.2615</y-m>
@@ -276,7 +276,7 @@
 	
 	<model>
 		<name>Tank4TxSw</name>
-		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/Tank4TXswitch.xml</path>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/Tank4TXsw.xml</path>
 		<offsets>
 		  <x-m>0</x-m>
 		  <y-m> 0.3419</y-m>

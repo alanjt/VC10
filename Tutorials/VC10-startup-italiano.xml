@@ -148,35 +148,35 @@ if you contacted me before making any changes to this software.
 			<value>0</value>
 		</set>
 		<set>
-			<property>VC10/fuel/switches/BoostPump1_fwdSwitch</property>
+			<property>VC10/fuel/switches/BoostPump1_fwdSw</property>
 			<value>0</value>
 		</set>
 		<set>
-			<property>VC10/fuel/switches/BoostPump1_aftSwitch</property>
+			<property>VC10/fuel/switches/BoostPump1_aftSw</property>
 			<value>0</value>
 		</set>
 		<set>
-			<property>VC10/fuel/switches/BoostPump2_fwdSwitch</property>
+			<property>VC10/fuel/switches/BoostPump2_fwdSw</property>
 			<value>0</value>
 		</set>
 		<set>
-			<property>VC10/fuel/switches/BoostPump2_aftSwitch</property>
+			<property>VC10/fuel/switches/BoostPump2_aftSw</property>
 			<value>0</value>
 		</set>
 		<set>
-			<property>VC10/fuel/switches/BoostPump3_fwdSwitch</property>
+			<property>VC10/fuel/switches/BoostPump3_fwdSw</property>
 			<value>0</value>
 		</set>
 		<set>
-			<property>VC10/fuel/switches/BoostPump3_aftSwitch</property>
+			<property>VC10/fuel/switches/BoostPump3_aftSw</property>
 			<value>0</value>
 		</set>
 		<set>
-			<property>VC10/fuel/switches/BoostPump4_fwdSwitch</property>
+			<property>VC10/fuel/switches/BoostPump4_fwdSw</property>
 			<value>0</value>
 		</set>
 		<set>
-			<property>VC10/fuel/switches/BoostPump4_aftSwitch</property>
+			<property>VC10/fuel/switches/BoostPump4_aftSw</property>
 			<value>0</value>
 		</set>
 		<set>
@@ -951,26 +951,26 @@ if you contacted me before making any changes to this software.
 				Porre BOOST PUMPS su ON (10 interruttori)!
 			</message>
 			<condition>
-				<not><property>VC10/fuel/switches/BoostPump1_fwdSwitch</property></not>
-				<not><property>VC10/fuel/switches/BoostPump1_aftSwitch</property></not>
-				<not><property>VC10/fuel/switches/BoostPump2_fwdSwitch</property></not>
-				<not><property>VC10/fuel/switches/BoostPump2_aftSwitch</property></not>
-				<not><property>VC10/fuel/switches/BoostPump3_fwdSwitch</property></not>
-				<not><property>VC10/fuel/switches/BoostPump3_aftSwitch</property></not>
-				<not><property>VC10/fuel/switches/BoostPump4_fwdSwitch</property></not>
-				<not><property>VC10/fuel/switches/BoostPump4_aftSwitch</property></not>
+				<not><property>VC10/fuel/switches/BoostPump1_fwdSw</property></not>
+				<not><property>VC10/fuel/switches/BoostPump1_aftSw</property></not>
+				<not><property>VC10/fuel/switches/BoostPump2_fwdSw</property></not>
+				<not><property>VC10/fuel/switches/BoostPump2_aftSw</property></not>
+				<not><property>VC10/fuel/switches/BoostPump3_fwdSw</property></not>
+				<not><property>VC10/fuel/switches/BoostPump3_aftSw</property></not>
+				<not><property>VC10/fuel/switches/BoostPump4_fwdSw</property></not>
+				<not><property>VC10/fuel/switches/BoostPump4_aftSw</property></not>
 			</condition>
 		</error>
 		<exit>
 			<condition>
-				<property>VC10/fuel/switches/BoostPump1_fwdSwitch</property>
-				<property>VC10/fuel/switches/BoostPump1_aftSwitch</property>
-				<property>VC10/fuel/switches/BoostPump2_fwdSwitch</property>
-				<property>VC10/fuel/switches/BoostPump2_aftSwitch</property>
-				<property>VC10/fuel/switches/BoostPump3_fwdSwitch</property>
-				<property>VC10/fuel/switches/BoostPump3_aftSwitch</property>
-				<property>VC10/fuel/switches/BoostPump4_fwdSwitch</property>
-				<property>VC10/fuel/switches/BoostPump4_aftSwitch</property>
+				<property>VC10/fuel/switches/BoostPump1_fwdSw</property>
+				<property>VC10/fuel/switches/BoostPump1_aftSw</property>
+				<property>VC10/fuel/switches/BoostPump2_fwdSw</property>
+				<property>VC10/fuel/switches/BoostPump2_aftSw</property>
+				<property>VC10/fuel/switches/BoostPump3_fwdSw</property>
+				<property>VC10/fuel/switches/BoostPump3_aftSw</property>
+				<property>VC10/fuel/switches/BoostPump4_fwdSw</property>
+				<property>VC10/fuel/switches/BoostPump4_aftSw</property>
 			</condition>
 		</exit>
 	</step>

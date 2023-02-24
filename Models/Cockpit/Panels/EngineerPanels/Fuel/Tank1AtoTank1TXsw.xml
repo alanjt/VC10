@@ -7,7 +7,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>switch_lever</object-name>
-		<property>VC10/fuel/switches/Tank4A_AltTXswitch</property>
+		<property>VC10/fuel/switches/Tank1A_Tank1TXsw</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>-20.0</dep></entry>
 			<entry><ind>1.0</ind><dep>20.0</dep></entry>
@@ -34,7 +34,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>VC10/fuel/switches/Tank4A_AltTXswitch</property>
+				<property>VC10/fuel/switches/Tank1A_Tank1TXsw</property>
 			</binding>
 			<binding>
 				<command>property-toggle</command>

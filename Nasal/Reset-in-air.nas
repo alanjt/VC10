@@ -129,14 +129,14 @@ var Reset = func{
 
 		
 		
-		setprop("VC10/fuel/switches/BoostPump1_fwdSwitch", 1);
-		setprop("VC10/fuel/switches/BoostPump1_aftSwitch", 1);	
-		setprop("VC10/fuel/switches/BoostPump2_fwdSwitch", 1);
-		setprop("VC10/fuel/switches/BoostPump2_aftSwitch", 1);
-		setprop("VC10/fuel/switches/BoostPump3_fwdSwitch", 1);
-		setprop("VC10/fuel/switches/BoostPump3_aftSwitch", 1);	
-		setprop("VC10/fuel/switches/BoostPump4_fwdSwitch", 1);
-		setprop("VC10/fuel/switches/BoostPump4_aftSwitch", 1);
+		setprop("VC10/fuel/switches/BoostPump1_fwdSw", 1);
+		setprop("VC10/fuel/switches/BoostPump1_aftSw", 1);	
+		setprop("VC10/fuel/switches/BoostPump2_fwdSw", 1);
+		setprop("VC10/fuel/switches/BoostPump2_aftSw", 1);
+		setprop("VC10/fuel/switches/BoostPump3_fwdSw", 1);
+		setprop("VC10/fuel/switches/BoostPump3_aftSw", 1);	
+		setprop("VC10/fuel/switches/BoostPump4_fwdSw", 1);
+		setprop("VC10/fuel/switches/BoostPump4_aftSw", 1);
 		setprop("VC10/fuel/valves/LPCock1", 1);
 ##		VC10.shutoff_pos(0);
 		setprop("VC10/fuel/valves/LPCock2", 1);
