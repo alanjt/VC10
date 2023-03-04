@@ -4,11 +4,10 @@
 
 	<path>Aircraft/VC10/Models/Cockpit/SwitchesLamps/magnetic_indicator_round.ac</path>
 
-	<!-- Tank1A_AltTXindicator -->
-<!--	<animation>
+	<animation>
 		<type>textranslate</type>
 		<object-name>ball</object-name>
-		<property>VC10/fuel/valves/LPCock1</property>
+		<property>VC10/fuel/valves/Tank4A_AltTX</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0.2</dep></entry>
 			<entry><ind>1.0</ind><dep>0</dep></entry>
@@ -21,7 +20,7 @@
 			<y>1</y>
 			<z>0</z>
 		</axis>
-	</animation> -->
+	</animation>
 
 
 </PropertyList>

@@ -1,10 +1,9 @@
 # VC10 Fuel System
 # ----------------
 # Author: A J Teeder
+
 #################################################################################
-var Cross_Feed_Valve   		= nil;
-var Inter_engine_Valve_left = nil;
-var Inter_engine_Valve_right= nil;
+# switches
 
 props.globals.initNode("VC10/fuel/switches/CentreTankLH_TXPumpSw",0,"BOOL");
 props.globals.initNode("VC10/fuel/switches/CentreTankRH_TXPumpSw",0,"BOOL");
@@ -19,7 +18,7 @@ props.globals.initNode("VC10/fuel/switches/Tank1TXsw",0,"BOOL");
 props.globals.initNode("VC10/fuel/switches/Tank2TXsw",0,"BOOL");
 props.globals.initNode("VC10/fuel/switches/Tank3TXsw",0,"BOOL");
 props.globals.initNode("VC10/fuel/switches/Tank4TXsw",0,"BOOL");
-props.globals.initNode("VC10/fuel/switches/CrossFeedSw",0,"BOOL");
+props.globals.initNode("VC10/fuel/switches/CrossFeedTXSw",0,"BOOL");
 
 props.globals.initNode("VC10/fuel/switches/BoostPump1_aftSw",0,"BOOL");
 props.globals.initNode("VC10/fuel/switches/BoostPump1_fwdSw",0,"BOOL");
@@ -39,24 +38,51 @@ props.globals.initNode("VC10/fuel/switches/InterEngineLeftSw",0,"BOOL");
 props.globals.initNode("VC10/fuel/switches/InterEngineXfeedSw",0,"BOOL");
 props.globals.initNode("VC10/fuel/switches/InterEngineRightSw",0,"BOOL");
 
+#################################################################################
+# valves
+
+props.globals.initNode("VC10/fuel/valves/Tank1A_AltTX",0,"BOOL");
+props.globals.initNode("VC10/fuel/valves/Tank4A_AltTX",0,"BOOL");
+
+props.globals.initNode("VC10/fuel/valves/Tank1A_Tank1TX",0,"BOOL");
+props.globals.initNode("VC10/fuel/valves/Tank4A_Tank4TX",0,"BOOL");
+
+props.globals.initNode("VC10/fuel/valves/Tank1TX",0,"BOOL");
+props.globals.initNode("VC10/fuel/valves/Tank2TX",0,"BOOL");
+props.globals.initNode("VC10/fuel/valves/Tank3TX",0,"BOOL");
+props.globals.initNode("VC10/fuel/valves/Tank4TX",0,"BOOL");
+props.globals.initNode("VC10/fuel/valves/CrossFeedTX",0,"BOOL");
+
 props.globals.initNode("VC10/fuel/valves/LPCock1",0,"BOOL");
 props.globals.initNode("VC10/fuel/valves/LPCock2",0,"BOOL");
 props.globals.initNode("VC10/fuel/valves/LPCock3",0,"BOOL");
 props.globals.initNode("VC10/fuel/valves/LPCock4",0,"BOOL");
 
-props.globals.initNode("VC10/fuel/valves/valve[0]",0,"BOOL");
-props.globals.initNode("VC10/fuel/valves/valve[1]",0,"BOOL");
-props.globals.initNode("VC10/fuel/valves/valve[2]",0,"BOOL");
-props.globals.initNode("VC10/fuel/valves/valve[3]",0,"BOOL");
-props.globals.initNode("VC10/fuel/valves/valve[4]",0,"BOOL");
-props.globals.initNode("VC10/fuel/valves/valve[5]",0,"BOOL");
+props.globals.initNode("VC10/fuel/valves/InterEngineLeft",0,"BOOL");
+props.globals.initNode("VC10/fuel/valves/InterEngineXfeed",0,"BOOL");
+props.globals.initNode("VC10/fuel/valves/InterEngineRight",0,"BOOL");
 
-props.globals.initNode("VC10/fuel/valves/valve-pos[0]",0,"BOOL");
-props.globals.initNode("VC10/fuel/valves/valve-pos[1]",0,"BOOL");
-props.globals.initNode("VC10/fuel/valves/valve-pos[2]",0,"BOOL");
-props.globals.initNode("VC10/fuel/valves/valve-pos[3]",0,"BOOL");
-props.globals.initNode("VC10/fuel/valves/valve-pos[4]",0,"BOOL");
-props.globals.initNode("VC10/fuel/valves/valve-pos[5]",0,"BOOL");
+#################################################################################
+# pumps
+
+props.globals.initNode("VC10/fuel/pumps/CentreTankLH_TXPump",0,"BOOL");
+props.globals.initNode("VC10/fuel/pumps/CentreTankRH_TXPump",0,"BOOL");
+
+props.globals.initNode("VC10/fuel/pumps/BoostPump1_aft",0,"BOOL");
+props.globals.initNode("VC10/fuel/pumps/BoostPump1_fwd",0,"BOOL");
+props.globals.initNode("VC10/fuel/pumps/BoostPump2_aft",0,"BOOL");
+props.globals.initNode("VC10/fuel/pumps/BoostPump2_fwd",0,"BOOL");
+props.globals.initNode("VC10/fuel/pumps/BoostPump3_aft",0,"BOOL");
+props.globals.initNode("VC10/fuel/pumps/BoostPump3_fwd",0,"BOOL");
+props.globals.initNode("VC10/fuel/pumps/BoostPump4_aft",0,"BOOL");
+props.globals.initNode("VC10/fuel/pumps/BoostPump4_fwd",0,"BOOL");
+
+#################################################################################
+# tanks - defined in VC10.xml
+#################################################################################
+
+#################################################################################
+# Fuel dump 
 
 props.globals.initNode("VC10/fuel/valves/dump-cover[0]",0,"DOUBLE");
 props.globals.initNode("VC10/fuel/valves/dump-cover[1]",0,"DOUBLE");
@@ -75,6 +101,180 @@ props.globals.initNode("VC10/fuel/valves/dump-valve-pos[2]",1,"BOOL");
 props.globals.initNode("VC10/fuel/valves/dump-valve-pos[3]",1,"BOOL");
 props.globals.initNode("VC10/fuel/valves/dump-valve-pos[4]",1,"BOOL");
 props.globals.initNode("VC10/fuel/valves/dump-valve-pos[5]",1,"BOOL");
+#################################################################################
+
+
+##############################################################################################
+var update_fuel = func {
+#	print ("update_fuel");
+
+# update valves
+
+	if(getprop("VC10/fuel/switches/Tank1A_AltTXsw") == 1){
+		setprop("VC10/fuel/valves/Tank1A_AltTX", 1);
+	}else{
+		setprop("VC10/fuel/valves/Tank1A_AltTX",0);
+	}
+	
+	if(getprop("VC10/fuel/switches/Tank4A_AltTXsw") == 1){
+		setprop("VC10/fuel/valves/Tank4A_AltTX", 1);
+	}else{
+		setprop("VC10/fuel/valves/Tank4A_AltTX",0);
+	}
+
+	if(getprop("VC10/fuel/switches/Tank1A_Tank1TXsw") == 1){
+		setprop("VC10/fuel/valves/Tank1A_Tank1TX", 1);
+	}else{
+		setprop("VC10/fuel/valves/Tank1A_Tank1TX",0);
+	}
+
+	if(getprop("VC10/fuel/switches/Tank4A_Tank4TXsw") == 1){
+		setprop("VC10/fuel/valves/Tank4A_Tank4TX", 1);
+	}else{
+		setprop("VC10/fuel/valves/Tank4A_Tank4TX",0);
+	}
+	
+	if(getprop("VC10/fuel/switches/Tank1TXsw") == 1){
+		setprop("VC10/fuel/valves/Tank1TX", 1);
+	}else{
+		setprop("VC10/fuel/valves/Tank1TX",0);
+	}
+
+	if(getprop("VC10/fuel/switches/Tank2TXsw") == 1){
+		setprop("VC10/fuel/valves/Tank2TX", 1);
+	}else{
+		setprop("VC10/fuel/valves/Tank2TX",0);
+	}
+
+	if(getprop("VC10/fuel/switches/Tank3TXsw") == 1){
+		setprop("VC10/fuel/valves/Tank3TX", 1);
+	}else{
+		setprop("VC10/fuel/valves/Tank3TX",0);
+	}
+
+	if(getprop("VC10/fuel/switches/Tank4TXsw") == 1){
+		setprop("VC10/fuel/valves/Tank4TX", 1);
+	}else{
+		setprop("VC10/fuel/valves/Tank4TX",0);
+	}
+	
+	if(getprop("VC10/fuel/switches/CrossFeedTXSw") == 1){
+		setprop("VC10/fuel/valves/CrossFeedTX", 1);
+	}else{
+		setprop("VC10/fuel/valves/CrossFeedTX",0);
+	}
+
+	if(getprop("VC10/fuel/switches/LPCock1Sw") == 1){
+		setprop("VC10/fuel/valves/LPCock1", 1);
+	}else{
+		setprop("VC10/fuel/valves/LPCock1",0);
+	}
+	
+		if(getprop("VC10/fuel/switches/LPCock2Sw") == 1){
+		setprop("VC10/fuel/valves/LPCock2", 1);
+	}else{
+		setprop("VC10/fuel/valves/LPCock2",0);
+	}
+	
+	if(getprop("VC10/fuel/switches/LPCock3Sw") == 1){
+		setprop("VC10/fuel/valves/LPCock3", 1);
+	}else{
+		setprop("VC10/fuel/valves/LPCock3",0);
+	}
+
+	if(getprop("VC10/fuel/switches/LPCock4Sw") == 1){
+		setprop("VC10/fuel/valves/LPCock4", 1);
+	}else{
+		setprop("VC10/fuel/valves/LPCock4",0);
+	}
+	
+	if(getprop("VC10/fuel/switches/InterEngineLeftSw") == 1){
+		setprop("VC10/fuel/valves/InterEngineLeft", 1);
+	}else{
+		setprop("VC10/fuel/valves/InterEngineLeft",0);
+	}
+
+	if(getprop("VC10/fuel/switches/InterEngineRightSw") == 1){
+		setprop("VC10/fuel/valves/InterEngineRight", 1);
+	}else{
+		setprop("VC10/fuel/valves/InterEngineRight",0);
+	}
+
+	if(getprop("VC10/fuel/switches/InterEngineXfeedSw") == 1){
+		setprop("VC10/fuel/valves/InterEngineXfeed", 1);
+	}else{
+		setprop("VC10/fuel/valves/InterEngineXfeed",0);
+	}
+	
+# update pumps
+
+	if(getprop("VC10/fuel/switches/CentreTankLH_TXPumpSw") == 1){
+		setprop("VC10/fuel/pumps/CentreTankLH_TXPump", 1);
+	}else{
+		setprop("VC10/fuel/pumps/CentreTankLH_TXPump",0);
+	}
+
+	if(getprop("VC10/fuel/switches/CentreTankRH_TXPumpSw") == 1){
+		setprop("VC10/fuel/pumps/CentreTankRH_TXPump", 1);
+	}else{
+		setprop("VC10/fuel/pumps/CentreTankRH_TXPump",0);
+	}	
+	
+	if(getprop("VC10/fuel/switches/BoostPump1_fwdSw") == 1){
+		setprop("VC10/fuel/pumps/BoostPump1_fwd", 1);
+	}else{
+		setprop("VC10/fuel/pumps/BoostPump1_fwd",0);
+	}
+
+	if(getprop("VC10/fuel/switches/BoostPump1_aftSw") == 1){
+		setprop("VC10/fuel/pumps/BoostPump1_aft", 1);
+	}else{
+		setprop("VC10/fuel/pumps/BoostPump1_aft",0);
+	}
+
+	if(getprop("VC10/fuel/switches/BoostPump2_fwdSw") == 1){
+		setprop("VC10/fuel/pumps/BoostPump2_fwd", 1);
+	}else{
+		setprop("VC10/fuel/pumps/BoostPump2_fwd",0);
+	}
+
+	if(getprop("VC10/fuel/switches/BoostPump2_aftSw") == 1){
+		setprop("VC10/fuel/pumps/BoostPump2_aft", 1);
+	}else{
+		setprop("VC10/fuel/pumps/BoostPump2_aft",0);
+	}
+
+	if(getprop("VC10/fuel/switches/BoostPump3_fwdSw") == 1){
+		setprop("VC10/fuel/pumps/BoostPump3_fwd", 1);
+	}else{
+		setprop("VC10/fuel/pumps/BoostPump3_fwd",0);
+	}
+
+	if(getprop("VC10/fuel/switches/BoostPump3_aftSw") == 1){
+		setprop("VC10/fuel/pumps/BoostPump3_aft", 1);
+	}else{
+		setprop("VC10/fuel/pumps/BoostPump3_aft",0);
+	}
+
+	if(getprop("VC10/fuel/switches/BoostPump4_fwdSw") == 1){
+		setprop("VC10/fuel/pumps/BoostPump4_fwd", 1);
+	}else{
+		setprop("VC10/fuel/pumps/BoostPump4_fwd",0);
+	}
+
+	if(getprop("VC10/fuel/switches/BoostPump4_aftSw") == 1){
+		setprop("VC10/fuel/pumps/BoostPump4_aft", 1);
+	}else{
+		setprop("VC10/fuel/pumps/BoostPump4_aft",0);
+	}
+
+	settimer(func update_fuel(), 0.01);   ## loop 10 per second
+	}
+
+##############################################################################################
+setlistener("sim/signals/fdm-initialized", func {
+    update_fuel ();
+});
 
 
 

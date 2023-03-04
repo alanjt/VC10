@@ -4,4 +4,23 @@
 
 	<path>Aircraft/VC10/Models/Cockpit/SwitchesLamps/magnetic_indicator_round.ac</path>
 
+	<animation>
+		<type>textranslate</type>
+		<object-name>ball</object-name>
+		<property>VC10/fuel/valves/CrossFeedTX</property>
+		<interpolation>
+			<entry><ind>1.0</ind><dep>0.2</dep></entry>
+			<entry><ind>0.0</ind><dep>0</dep></entry>
+		</interpolation>
+		<bias>0.001</bias>
+		<factor>-0.1</factor>
+		<step>0.1</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+
 </PropertyList>

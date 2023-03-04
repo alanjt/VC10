@@ -155,7 +155,7 @@
 	
 	<model>
 		<name>CrossfeedValveSw</name>
-		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/CrossFeedValveSw.xml</path>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Fuel/CrossFeedValveTxSw.xml</path>
 		<offsets>
 		  <x-m>0</x-m>
 		  <y-m> 0.2233</y-m>

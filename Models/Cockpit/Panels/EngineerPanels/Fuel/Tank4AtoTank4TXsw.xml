@@ -8,8 +8,8 @@
 		<object-name>switch_lever</object-name>
 		<property>VC10/fuel/switches/Tank4A_Tank4TXsw</property>
 		<interpolation>
-			<entry><ind>0</ind><dep>-20.0</dep></entry>
-			<entry><ind>1.0</ind><dep>20.0</dep></entry>
+			<entry><ind>1.0</ind><dep>-20.0</dep></entry>
+			<entry><ind>0.0</ind><dep>20.0</dep></entry>
 		</interpolation>
 		<factor>1</factor>
 		<axis>

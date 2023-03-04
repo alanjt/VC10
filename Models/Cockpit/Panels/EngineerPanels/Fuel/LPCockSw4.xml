@@ -10,17 +10,16 @@
 		<object-name>switch_lever</object-name>
 		<object-name>switch_cylinder</object-name>
 		  <property>VC10/fuel/switches/LPCock4Sw</property>
-      <factor>60</factor>
-		  <axis>
-		   <x>0</x>
-		   <y>1</y>
-		   <z>0</z>
-		  </axis>
-		  <center>
-		  <x-m>0.0</x-m>
-		  <y-m>-0.0</y-m>
-		  <z-m>0.0</z-m>
-		  </center>  
+		<axis>
+			<x>0</x><y>1</y><z>0</z>
+		</axis>
+		<center>
+			<x-m>0.0</x-m><y-m>0.0</y-m><z-m>0.0</z-m>
+		</center>
+		<interpolation>
+			<entry><ind>0</ind><dep>60.0</dep></entry>
+			<entry><ind>1</ind><dep>0.0</dep></entry>
+		</interpolation> 
 	</animation>
 
 	<animation>

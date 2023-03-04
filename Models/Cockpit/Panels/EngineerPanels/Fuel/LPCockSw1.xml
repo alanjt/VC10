@@ -2,44 +2,43 @@
 
 <PropertyList>
 
-<path>Aircraft/VC10/Models/Cockpit/SwitchesLamps/OtehallSwitch.ac</path>
+	<path>Aircraft/VC10/Models/Cockpit/SwitchesLamps/OtehallSwitch.ac</path>
 
 	<!-- LPCock ENGINE 1 -->
 	<animation>
-		  <type>rotate</type>
+		<type>rotate</type>
 		<object-name>switch_lever</object-name>
 		<object-name>switch_cylinder</object-name>
-		  <property>VC10/fuel/switches/LPCock1Sw</property>
-      <factor>60</factor>
-		  <axis>
-		   <x>0</x>
-		   <y>1</y>
-		   <z>0</z>
-		  </axis>
-		  <center>
-		  <x-m>0.0</x-m>
-		  <y-m>-0.0</y-m>
-		  <z-m>0.0</z-m>
-		  </center>  
+		<property>VC10/fuel/switches/LPCock1Sw</property>
+		<axis>
+			<x>0</x><y>1</y><z>0</z>
+		</axis>
+		<center>
+			<x-m>0.0</x-m><y-m>0.0</y-m><z-m>0.0</z-m>
+		</center>
+		<interpolation>
+			<entry><ind>0</ind><dep>60.0</dep></entry>
+			<entry><ind>1</ind><dep>0.0</dep></entry>
+		</interpolation>
 	</animation>
 
 	<animation>
-		  <type>pick</type>
+		<type>pick</type>
 		<object-name>switch_lever</object-name>
 		<object-name>switch_cylinder</object-name>
 		<object-name>switch_base</object-name>
-		  <action>
-		    <button>0</button>
-		    <repeatable>false</repeatable>
-		    <binding>
-		        <command>property-toggle</command>
-		        <property>VC10/fuel/switches/LPCock1Sw</property>
-		    </binding>          
-		    <binding>
-		      <command>property-toggle</command>
-		      <property>sim/sound/switch2</property>
-		    </binding>
-		  </action>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>VC10/fuel/switches/LPCock1Sw</property>
+			</binding>
+			<binding>
+				<command>property-toggle</command>
+				<property>sim/sound/switch2</property>
+			</binding>
+		</action>
 	</animation>
 
 </PropertyList>
