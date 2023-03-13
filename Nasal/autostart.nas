@@ -527,95 +527,40 @@ var startup = func
 		# The fuel valves
 		settimer( func{
 			if(step == 7 and auto_procedure.getValue()){
-				setprop("VC10/fuel/valves/valve[0]", 1);
-				VC10.valve_pos(0);
+				setprop("VC10/fuel/switches/LPCock1Sw", 1);
+				setprop("VC10/fuel/valves/LPCock1", 1);
 				click_switch3();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 			if(step == 7 and auto_procedure.getValue()){
-				setprop("VC10/fuel/valves/valve[1]", 1);
-				VC10.valve_pos(1);
+				setprop("VC10/fuel/switches/LPCock2Sw", 1);
+				setprop("VC10/fuel/valves/LPCock2", 1);
 				click_switch3();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 			if(step == 7 and auto_procedure.getValue()){
-				setprop("VC10/fuel/valves/valve[2]", 1);
-				VC10.valve_pos(2);
+				setprop("VC10/fuel/switches/LPCock3Sw", 1);
+				setprop("VC10/fuel/valves/LPCock3", 1);
 				click_switch3();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 			if(step == 7 and auto_procedure.getValue()){
-				setprop("VC10/fuel/valves/valve[3]", 1);
-				VC10.valve_pos(3);
+				setprop("VC10/fuel/switches/LPCock4Sw", 1);
+				setprop("VC10/fuel/valves/LPCock4", 1);;
 				click_switch3();
 			}
 		}, t); t += 0.2;
-		settimer( func{
-			if(step == 7 and auto_procedure.getValue()){
-				setprop("VC10/fuel/valves/valve[4]", 1);
-				VC10.valve_pos(4);
-				click_switch3();
-			}
-		}, t); t += 0.2;
-		settimer( func{
-			if(step == 7 and auto_procedure.getValue()){
-				setprop("VC10/fuel/valves/valve[5]", 1);
-				VC10.valve_pos(5);
-				click_switch3();
-			}
-		}, t); t += 0.8;
-		settimer( func{
-			if(step == 7 and auto_procedure.getValue()){
-				setprop("VC10/fuel/valves/valve[0]", 0);
-				VC10.valve_pos(0);
-				click_switch3();
-			}
-		}, t); t += 0.2;
-		settimer( func{
-			if(step == 7 and auto_procedure.getValue()){
-				setprop("VC10/fuel/valves/valve[1]", 0);
-				VC10.valve_pos(1);
-				click_switch3();
-			}
-		}, t); t += 0.2;
-		settimer( func{
-			if(step == 7 and auto_procedure.getValue()){
-				setprop("VC10/fuel/valves/valve[2]", 0);
-				VC10.valve_pos(2);
-				click_switch3();
-			}
-		}, t); t += 0.2;
-		settimer( func{
-			if(step == 7 and auto_procedure.getValue()){
-				setprop("VC10/fuel/valves/valve[3]", 0);
-				VC10.valve_pos(3);
-				click_switch3();
-			}
-		}, t); t += 0.2;
-		settimer( func{
-			if(step == 7 and auto_procedure.getValue()){
-				setprop("VC10/fuel/valves/valve[4]", 0);
-				VC10.valve_pos(4);
-				click_switch3();
-			}
-		}, t); t += 0.2;
-		settimer( func{
-			if(step == 7 and auto_procedure.getValue()){
-				setprop("VC10/fuel/valves/valve[5]", 0);
-				VC10.valve_pos(5);
-				click_switch3();
-			}
-		}, t); t += 0.8;
+
 		
 		# the fuel boost-pumps
 				settimer( func{
 			if(step == 7 and auto_procedure.getValue()){
 				setprop("VC10/fuel/switches/BoostPump1_fwdSw", 1);
 				click_switch2();
-
+				
 				screen.log.write("Boost pumps controll!", 1, 1, 1);
 			}
 		}, t); t += 0.2;
@@ -665,29 +610,29 @@ var startup = func
 		# the fuel shutoff-valves
 		settimer( func{
 			if(step == 7 and auto_procedure.getValue()){
+				setprop("VC10/fuel/switches/LPCock1Sw", 1);
 				setprop("VC10/fuel/valves/LPCock1", 1);
-				VC10.shutoff_pos(0);
 				click_switch2();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 			if(step == 7 and auto_procedure.getValue()){
+				setprop("VC10/fuel/switches/LPCock2Sw", 1);
 				setprop("VC10/fuel/valves/LPCock2", 1);
-				VC10.shutoff_pos(1);
 				click_switch2();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 			if(step == 7 and auto_procedure.getValue()){
+				setprop("VC10/fuel/switches/LPCock3Sw", 1);
 				setprop("VC10/fuel/valves/LPCock3", 1);
-				VC10.shutoff_pos(2);
 				click_switch2();
 			}
 		}, t); t += 0.2;
 		settimer( func{
 			if(step == 7 and auto_procedure.getValue()){
+				setprop("VC10/fuel/switches/LPCock4Sw", 1);
 				setprop("VC10/fuel/valves/LPCock4", 1);
-				VC10.shutoff_pos(3);
 				click_switch2();				
 				screen.log.write("Look down to your throttle levers on centre pedestal.", 1, 1, 1);
 				
@@ -1417,39 +1362,39 @@ setlistener("VC10/start/startercover[2]", func(open)
 	}
  }, 0, 0); 
 
-setlistener("controls/engines/engine[0]/starter707", func
+setlistener("controls/engines/engine[0]/starter", func
  {
- print (" listener engine 1 starter");
  	if(!run1.getBoolValue()){
+	print (" start engine 1");
 	 starter(0);
 	}
  }, 0, 0);
  
-setlistener("controls/engines/engine[1]/starter707", func
+setlistener("controls/engines/engine[1]/starter", func
  {
- print (" listener engine 2 starter");
  	if(!run2.getBoolValue()){
+		print (" start engine 2");
 	 starter(1);
 	}
  }, 0, 0);
  
-setlistener("controls/engines/engine[2]/starter707", func
+setlistener("controls/engines/engine[2]/starter", func
  {
-  print (" listener engine 3 starter");
  	if(!run3.getBoolValue()){
+			print (" start engine 3");
 	 starter(2);
 	}
  }, 0, 0); 
  
-setlistener("controls/engines/engine[3]/starter707", func
+setlistener("controls/engines/engine[3]/starter", func
  {
-  print (" listener engine 4 starter");
  	if(!run4.getBoolValue()){
+			print (" start engine 4");
 	 starter(3);
 	}
  }, 0, 0);
 
-setlistener("engines/engine[0]/running707", func
+setlistener("engines/engine[0]/running", func
  {
   print (" listener engine 1 running");
  	if(run1.getBoolValue()){
@@ -1470,7 +1415,7 @@ setlistener("engines/engine[0]/running707", func
 	}
  }, 0, 0);
  
-setlistener("engines/engine[1]/running707", func
+setlistener("engines/engine[1]/running", func
  {
    print (" listener engine 2 running");
  	if(run2.getBoolValue()){
@@ -1491,7 +1436,7 @@ setlistener("engines/engine[1]/running707", func
 	}
  }, 0, 0);
  
-setlistener("engines/engine[2]/running707", func
+setlistener("engines/engine[2]/running", func
  {
    print (" listener engine 3 running");
  	if(run3.getBoolValue()){
@@ -1512,7 +1457,7 @@ setlistener("engines/engine[2]/running707", func
 	}
  }, 0, 0); 
  
-setlistener("engines/engine[3]/running707", func
+setlistener("engines/engine[3]/running", func
  {
    print (" listener engine 4 running");
  	if(run4.getBoolValue()){
@@ -1634,15 +1579,15 @@ var short_startup = func
 		setprop("VC10/fuel/switches/BoostPump3_aftSw", 1);
 		setprop("VC10/fuel/switches/BoostPump4_fwdSw", 1);
 		setprop("VC10/fuel/switches/BoostPump4_aftSw", 1);
-	
+		
+		setprop("VC10/fuel/switches/LPCock1Sw", 1);	
 		setprop("VC10/fuel/valves/LPCock1", 1);
-		VC10.shutoff_pos(0);
+		setprop("VC10/fuel/switches/LPCock2Sw", 1);	
 		setprop("VC10/fuel/valves/LPCock2", 1);
-		VC10.shutoff_pos(1);
+		setprop("VC10/fuel/switches/LPCock3Sw", 1);	
 		setprop("VC10/fuel/valves/LPCock3", 1);
-		VC10.shutoff_pos(2);
+		setprop("VC10/fuel/switches/LPCock4Sw", 1);	
 		setprop("VC10/fuel/valves/LPCock4", 1);
-		VC10.shutoff_pos(3);
 	
 		setprop("controls/engines/engine[0]/throttle", 0.0);
 		setprop("controls/engines/engine[1]/throttle", 0.0);

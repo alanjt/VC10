@@ -11,7 +11,7 @@
 		<property>VC10/fuel/valves/LPCock1</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0.2</dep></entry>
-			<entry><ind>1.0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0</dep></entry>
 		</interpolation>
 		<bias>0.001</bias>
 		<factor>-0.1</factor>

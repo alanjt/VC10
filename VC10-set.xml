@@ -2,6 +2,7 @@
 <!--####################################################################
 Lake of Constance Hangar
 Vickers VC10 for Flightgear
+Copyright (C) 2023 A J Teeder
 Copyright (C) 2013 M.Kraus
 
 This program is free software: you can redistribute it and/or modify
@@ -17,14 +18,10 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-This VC10 is based, with permission, upon the 707 produced by the Lake Constance Team. Thanks to them.
+This VC10 simulation started life as the 707 produced by the Lake Constance Team. Thanks to them.
 The VC10 and 707 have a surprising amount of commonality. e.g. They are both powered by
 RR Conway engines and the VC10´s Elliot autopilot is a Bendix PB20 built under licence.
 
-Every software has a developer, also free software. 
-As a gesture of courtesy and respect, I would be delighted 
-if you contacted me before making any changes to this software. 
-<ajteeder (at) v-twin.org.uk> October, 2020
 ########################################################################-->
 <PropertyList include="VC10-common.xml">
  <sim n="0">
@@ -55,7 +52,7 @@ if you contacted me before making any changes to this software.
 						<command>property-toggle</command>
 						<property>sim/model/Autostart_shutdown</property>
 					</binding>
-				</item>      
+				</item>     
 				<item>
 			        <label>Checklists</label>
 			        <binding>
@@ -93,7 +90,7 @@ if you contacted me before making any changes to this software.
 						 <dialog-name>pushback</dialog-name>
 					</binding>
 				</item>				
-				<item>
+<!--				<item>
 					<label>Fuel Truck Controls</label>
 					<binding>
 						<command>nasal</command>
@@ -102,7 +99,7 @@ if you contacted me before making any changes to this software.
 							   fuel.open();
 							</script>
 					</binding>
-				</item>
+				</item> -->
 				<item>
 					<label>External Power Unit</label>
 					<binding>
@@ -190,7 +187,7 @@ if you contacted me before making any changes to this software.
 		  <name>F9</name>
 		  <desc>open Fuel &amp; Weight Menu</desc>
 		</key>
-		<text>
+<!--		<text>
 _______________ Vickers VC10 ___________________
 
 Startup engines:
@@ -235,7 +232,7 @@ _______________________________________________________
 
 
 
-		</text>
+		</text> -->
 		
 	</help>
     <view n="105">
@@ -269,6 +266,44 @@ _______________________________________________________
       </config>
   	</view> 
  </sim>
+ 
+   <consumables>
+    <fuel>
+      <tank n="0">
+        <name>Tank 1A</name>
+      </tank>
+      <tank n="1">
+        <name>Tank 1</name>
+      </tank>
+      <tank n="2">
+        <name>Tank 2</name>
+      </tank>
+      <tank n="3">
+        <name>Tank 3</name>
+      </tank>
+      <tank n="4">
+        <name>Tank 4</name>
+      </tank>
+      <tank n="5">
+        <name>Tank 4A</name>
+      </tank>
+      <tank n="6">
+        <name>Centre Tank</name>
+      </tank>
+      <tank n="7">
+        <name>Engine 1 LP</name>
+      </tank>
+      <tank n="8">
+        <name>Engine 2 LP</name>
+      </tank>
+      <tank n="9">
+        <name>Engine 3 LP</name>
+      </tank>
+      <tank n="10">
+        <name>Engine 4 LP</name>
+      </tank>
+    </fuel>	
+   </consumables>	
 
 	<nasal> 
 		<VC10>		
@@ -321,7 +356,7 @@ _______________________________________________________
      ********************************************************************** -->    
 
 		<!-- Set up aliased properties for jsbsim use-->
-	<fuel>
+<!--	<fuel>
 		<switches>
 			<Tank1_1A_SlowXfer alias="/fdm/jsbsim/fuel/switches/Tank1_1A_SlowXfer" /> 			
 			<Tank1_1A_FastXfer alias="/fdm/jsbsim/fuel/switches/Tank1_1A_FastXfer" />
@@ -335,8 +370,7 @@ _______________________________________________________
 			<Vm0-kts alias="/fdm/jsbsim/velocities/Vspeeds/Vm0-kts" /> 
 		</Vspeeds>
 	</velocities>
-
-		<!-- Initialise aliased properties for jsbsim use-->	
+	
 	<fdm>
 		<jsbsim>
 			<fuel>
@@ -349,7 +383,7 @@ _______________________________________________________
 			</fuel>
 		</jsbsim>
 	</fdm>
-	
+	-->
 <!-- ********************************************************************** -->
 	
 </PropertyList>

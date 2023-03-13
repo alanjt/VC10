@@ -59,7 +59,7 @@
 	<property value="1.0"> fuel/indicator/LP_cock_2 </property>
 	<property value="1.0"> fuel/indicator/LP_cock_3 </property> -->
 
-	<property value="1.0"> fuel/switch/Engine_1_2_Valve </property>
+<!--	<property value="1.0"> fuel/switch/Engine_1_2_Valve </property>
 	<property value="1.0"> fuel/indicator/Engine_1_2_Valve </property>		
 	<property value="1.0"> fuel/switch/Fuel_Feed_Xfeed_Valve </property>
 	<property value="1.0"> fuel/indicator/Fuel_Feed_Xfeed_Valve </property>
@@ -71,7 +71,7 @@
 	<property value="1.0"> fuel/indicator/LP_warn_2 </property>
 	<property value="1.0"> fuel/indicator/LP_warn_3 </property> -->
 	
-	<channel name="fuel">
+<!--	<channel name="fuel"> -->
 		
 <!--Transfer Tank 1A to 1 -->
 <!--		<switch name="propulsion/tank[1]/external-flow-rate/SlowXfer">
@@ -110,7 +110,7 @@
 		</switch>-->
 
 <!-- Fuel Feed Gallery Inter-engine 1-2 -->	
-		<switch name="propulsion/tank[7]/external-flow-rate/Engine-x-feed">
+	<!--	<switch name="propulsion/tank[7]/external-flow-rate/Engine-x-feed">
 			<default value="0"/>
 			<test logic="AND" value="0">
 				fuel/switch/Engine_1_2_Valve == 1
@@ -126,11 +126,11 @@
 				propulsion/tank[8]/contents-lbs gt propulsion/tank[7]/contents-lbs
 				propulsion/tank[8]/contents-lbs gt 0
 				propulsion/tank[7]/contents-lbs lt 10
-			</test>
-		</switch>
+			</test> 
+		</switch>-->
 
 <!-- Fuel Feed Gallery centre crossfeed -->	
-		<switch name="propulsion/tank[8]/external-flow-rate/x-feed">
+<!--		<switch name="propulsion/tank[8]/external-flow-rate/x-feed">
 			<default value="0"/>
 			<test logic="AND" value="0">
 				fuel/switch/Fuel_Feed_Xfeed_Valve == 1
@@ -147,10 +147,10 @@
 				propulsion/tank[9]/contents-lbs gt 0
 				propulsion/tank[8]/contents-lbs lt 10
 			</test>
-		</switch>
+		</switch> -->
 		
 <!-- Fuel Feed Gallery Inter-engine 3-4 -->	
-		<switch name="propulsion/tank[9]/external-flow-rate/Engine-x-feed">
+<!--		<switch name="propulsion/tank[9]/external-flow-rate/Engine-x-feed">
 			<default value="0"/>
 			<test logic="AND" value="0">
 				fuel/switch/Engine_3_4_Valve == 1
@@ -167,8 +167,8 @@
 				propulsion/tank[10]/contents-lbs gt 0
 				propulsion/tank[9]/contents-lbs lt 10
 			</test>
-		</switch>		
+		</switch>		 -->
 
 		
-	</channel>
+<!--	</channel>  -->
 </system>

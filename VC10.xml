@@ -16,10 +16,6 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-Every software has a developer, also free software. 
-As a gesture of courtesy and respect, I would be delighted 
-if you contacted me before making any changes to this software. 
-<ajteeder (at) v-twin (dot) org (dot) uk> October 2020
 ########################################################################-->
 <?xml-stylesheet type="text/xsl" href="http://jsbsim.sourceforge.net/JSBSim.xsl"?>
 <fdm_config name="VC10" version="2.0" release="ALPHA"
@@ -84,9 +80,6 @@ if you contacted me before making any changes to this software.
 	</metrics>
 
 	<mass_balance>
-		<!--		<ixx unit="SLUG*FT2">   2322405 </ixx>
-		<iyy unit="SLUG*FT2">   2886669 </iyy>
-		<izz unit="SLUG*FT2">   5260000 </izz>  -->
 		<!-- Note. These inertias are for the empty aircraft -->
 		<ixx unit="SLUG*FT2">1131000</ixx>
 		<iyy unit="SLUG*FT2">6092000</iyy>
@@ -156,7 +149,6 @@ if you contacted me before making any changes to this software.
 	</mass_balance>
 
 	<ground_reactions>
-
 		<contact type="BOGEY" name="NOSE">
 			<location unit="IN">
 				<x>218.44</x>
@@ -262,24 +254,11 @@ if you contacted me before making any changes to this software.
 			<spring_coeff unit="LBS/FT">360600.00</spring_coeff>
 			<damping_coeff unit="LBS/FT/SEC">80000.00</damping_coeff>
 		</contact>
-
 	</ground_reactions>
 
 	<propulsion>
-
 		<engine file="RCo12">
-			<!--	<location unit="IN">
-				<x>1462.0</x>
-				<y>-180.8</y>
-				<z>15.0</z>
-			</location>
-			<orient unit="DEG">
-				<pitch>3.0</pitch>
-				<roll>0.00</roll>
-				<yaw>0.00</yaw>
-			</orient> -->
-			<!--			<feed>11</feed> -->
-			<feed>1</feed>      <!-- for testing -->
+			<feed>7</feed>
 			<thruster file="direct">
 				<location unit="IN">
 					<x>1462.0</x>
@@ -295,18 +274,7 @@ if you contacted me before making any changes to this software.
 		</engine>
 
 		<engine file="RCo12">
-			<!--<location unit="IN">
-				<x>1462.0</x>
-				<y>-112.2</y>
-				<z>15.0</z>
-			</location>
-			<orient unit="DEG">
-				<pitch>3.0</pitch>
-				<roll>0.00</roll>
-				<yaw>0.00</yaw>
-			</orient> -->
-			<!--			<feed>12</feed> -->
-			<feed>2</feed>      <!-- for testing -->
+			<feed>8</feed>
 			<thruster file="direct">
 				<location unit="IN">
 					<x>1462.0</x>
@@ -322,17 +290,7 @@ if you contacted me before making any changes to this software.
 		</engine>
 
 		<engine file="RCo12">
-			<!--		<x>1462.0</x>
-				<y>112.2</y>
-				<z>15.0</z>
-			</location>
-			<orient unit="DEG">
-				<pitch>3.0</pitch>>
-				<roll>0.00</roll>
-				<yaw>0.00</yaw>
-			</orient> -->
-			<!--			<feed>13</feed>  -->
-			<feed>4</feed>     <!-- for testing -->
+			<feed>9</feed>
 			<thruster file="direct">
 				<location unit="IN">
 					<x>1462.0</x>
@@ -348,17 +306,7 @@ if you contacted me before making any changes to this software.
 		</engine>
 
 		<engine file="RCo12">
-			<!--		<x>1462.0</x>
-				<y>180.9</y>
-				<z>15.0</z>
-			</location>
-			<orient unit="DEG">
-				<pitch>3.0</pitch>>
-				<roll>0.00</roll>
-				<yaw>0.00</yaw>
-			</orient> -->
-			<!--			<feed>14</feed>  -->
-			<feed>5</feed>     <!-- for testing -->
+			<feed>10</feed>
 			<thruster file="direct">
 				<location unit="IN">
 					<x>1462.0</x>
@@ -372,6 +320,8 @@ if you contacted me before making any changes to this software.
 				</orient>
 			</thruster>
 		</engine>
+		
+		
 		<!-- Tank 1A -->
 		<tank type="FUEL" number="0">
 			<location unit="IN">
@@ -402,18 +352,8 @@ if you contacted me before making any changes to this software.
 			<capacity unit="LBS">27040.00</capacity>
 			<contents unit="LBS">12500.00</contents>
 		</tank>
-		<!-- Centre Tank -->
-		<tank type="FUEL" number="3">
-			<location unit="IN">
-				<x>881.89</x>
-				<y>0.0</y>
-				<z>-29.53</z>
-			</location>
-			<capacity unit="LBS">36520.00</capacity>
-			<contents unit="LBS">32000.00</contents>
-		</tank>
 		<!-- Tank 3  -->
-		<tank type="FUEL" number="4">
+		<tank type="FUEL" number="3">
 			<location unit="IN">
 				<x>881.89</x>
 				<y>165.35</y>
@@ -423,7 +363,7 @@ if you contacted me before making any changes to this software.
 			<contents unit="LBS">12500.00</contents>
 		</tank>
 		<!-- Tank 4  -->
-		<tank type="FUEL" number="5">
+		<tank type="FUEL" number="4">
 			<location unit="IN">
 				<x>984.25</x>
 				<y>370.08</y>
@@ -433,7 +373,7 @@ if you contacted me before making any changes to this software.
 			<contents unit="LBS">7500.00</contents>
 		</tank>
 		<!-- Tank 4A  -->
-		<tank type="FUEL" number="6">
+		<tank type="FUEL" number="5">
 			<location unit="IN">
 				<x>1110.2</x>
 				<y>669.7</y>
@@ -442,125 +382,62 @@ if you contacted me before making any changes to this software.
 			<capacity unit="LBS">11440.00</capacity>
 			<contents unit="LBS">1400.00</contents>
 		</tank>
-		<!-- Fuel Feed Gallery
-     Engines are supplied from a Fuel Feed Gallery which is split into 4 sections, one per engine.
-     In normal use each section directs fuel directly from a wing tank to the corresponding
-     engine. The sections may be linked together by means of cross-feed valves to allow fuel
-	 to be routed to the engines from alternate tanks. -->
+		<!-- Centre Tank -->
+		<tank type="FUEL" number="6">
+			<location unit="IN">
+				<x>881.89</x>
+				<y>0.0</y>
+				<z>-29.53</z>
+			</location>
+			<capacity unit="LBS">36520.00</capacity>
+			<contents unit="LBS">32000.00</contents>
+		</tank>
+		
+		<!-- Individual Low Pressure Cocks connect the Engine Fuel Supply Pipes to the related section of the Fuel Feed Galery.-->
 
-		<!-- Engine 1 Fuel Gallery -->
+		<!-- Engine 1 Fuel Supply Pipes-->
 		<tank type="FUEL" number="7">
 			<location unit="IN">
-				<x>984.25</x>
-				<y>-370.08</y>
-				<z>-18.90</z>
+				<x>1462.0</x>
+				<y>-180.8</y>
+				<z>5.90</z>
 			</location>
-			<capacity unit="LBS">10.0</capacity>
-			<contents unit="LBS">10.0</contents>
+			<capacity unit="LBS">60.0</capacity>
+			<contents unit="LBS">60.0</contents>
 		</tank>
-		<!-- Engine 2 Fuel Gallery -->
+		
+		<!-- Engine 2 Fuel Supply Pipes -->
 		<tank type="FUEL" number="8">
 			<location unit="IN">
-				<x>881.89</x>
-				<y>-165.35</y>
-				<z>-29.53</z>
+				<x>1462.0</x>
+				<y>-112.22</y>
+				<z>5.90</z>
 			</location>
-			<capacity unit="LBS">10.0</capacity>
-			<contents unit="LBS">10.0</contents>
+			<capacity unit="LBS">60.0</capacity>
+			<contents unit="LBS">60.0</contents>
 		</tank>
-		<!-- Engine 3 Fuel Gallery -->
+
+		<!-- Engine 3 Fuel Supply Pipes -->
 		<tank type="FUEL" number="9">
 			<location unit="IN">
-				<x>881.89</x>
-				<y>165.35</y>
-				<z>-29.53</z>
+				<x>1462.0</x>
+				<y>112.22</y>
+				<z>5.90</z>
 			</location>
-			<capacity unit="LBS">10.0</capacity>
-			<contents unit="LBS">10.0</contents>
+			<capacity unit="LBS">60.0</capacity>
+			<contents unit="LBS">60.0</contents>
 		</tank>
-		<!-- Engine 4 Fuel Gallery -->
+
+		<!-- Engine 4 Fuel Supply Pipes-->
 		<tank type="FUEL" number="10">
 			<location unit="IN">
-				<x>984.25</x>
-				<y>370.08</y>
-				<z>-18.90</z>
+				<x>1462.0</x>
+				<y>180.8</y>
+				<z>-5.90</z>
 			</location>
-			<capacity unit="LBS">10.0</capacity>
-			<contents unit="LBS">10.0</contents>
+			<capacity unit="LBS">60.0</capacity>
+			<contents unit="LBS">60.0</contents>
 		</tank>
-
-		<!-- Individual Low Pressure Cocks connect each Engine Fuel Supply Pipe to the related section of the Fuel Feed Galery.-->
-
-		<!-- Engine 1 Fuel Supply Pipe-->
-		<tank type="FUEL" number="11">
-			<location unit="IN">
-				<x>984.25</x>
-				<y>-370.08</y>
-				<z>-18.90</z>
-			</location>
-			<capacity unit="LBS">10.0</capacity>
-			<contents unit="LBS">10.0</contents>
-		</tank>
-		<!-- Engine 2 Fuel Supply Pipe -->
-		<tank type="FUEL" number="12">
-			<location unit="IN">
-				<x>984.25</x>
-				<y>-370.08</y>
-				<z>-18.90</z>
-			</location>
-			<capacity unit="LBS">10.0</capacity>
-			<contents unit="LBS">10.0</contents>
-		</tank>
-
-		<!-- Engine 3 Fuel Supply Pipe -->
-		<tank type="FUEL" number="13">
-			<location unit="IN">
-				<x>984.25</x>
-				<y>-370.08</y>
-				<z>-18.90</z>
-			</location>
-			<capacity unit="LBS">10.0</capacity>
-			<contents unit="LBS">10.0</contents>
-		</tank>
-
-		<!-- Engine 4 Fuel Supply Pipe-->
-		<tank type="FUEL" number="14">
-			<location unit="IN">
-				<x>984.25</x>
-				<y>-370.08</y>
-				<z>-18.90</z>
-			</location>
-			<capacity unit="LBS">10.0</capacity>
-			<contents unit="LBS">10.0</contents>
-		</tank>
-
-		<!-- Fuel Refuel/Defuel and Jetison Gallery
-     As well as the Fuel Feed Gallery, the fuel tanks are linked by a Refuel/Defuel and Jetison
-	 Gallery. This is used to transfer fuel between fuel tanks, to refuel, vent and jetison fuel.
-     This gallery is split into two halves linked by the Transfer Cross-Feed  Valve. Warning lamps
-     warn when either half has low pressure.	 -->
-
-		<!-- Port Fuel Supply Gallery -->
-		<tank type="FUEL" number="15">
-			<location unit="IN">
-				<x>881.89</x>
-				<y>-165.35</y>
-				<z>-29.53</z>
-			</location>
-			<capacity unit="LBS">10.0</capacity>
-			<contents unit="LBS">10.0</contents>
-		</tank>
-		<!-- Stbd Fuel Supply Gallery -->
-		<tank type="FUEL" number="16">
-			<location unit="IN">
-				<x>881.89</x>
-				<y>165.35</y>
-				<z>-29.53</z>
-			</location>
-			<capacity unit="LBS">10.0</capacity>
-			<contents unit="LBS">10.0</contents>
-		</tank>
-
 	</propulsion>
 
 	<system file="pushback"/>
@@ -900,13 +777,13 @@ if you contacted me before making any changes to this software.
      **********************************************************************
 -->
 	<!--	<aerodynamics file="VC10_aeroOpenVSP.xml"/> -->
-		<aerodynamics file="VC10_aeroDatcom.xml"/>
-	<!--<aerodynamics file="VC10_aeromatic.xml"/> --> 
+	<aerodynamics file="VC10_aeroDatcom.xml"/>
+	<!--<aerodynamics file="VC10_aeromatic.xml"/> -->
 	<!-- **********************************************************************
         FUEL
      **********************************************************************
 -->
-	<system file="VC10_fuel.xml"/>
+	<!--	<system file="VC10_fuel.xml"/> -->
 
 	<external_reactions>
 		<force name="pushback" frame="BODY">
