@@ -79,6 +79,11 @@ props.globals.initNode("VC10/fuel/pumps/BoostPump4_fwd",0,"BOOL");
 
 #################################################################################
 # tanks - defined in VC10.xml
+props.globals.initNode("consumables/fuel/tank[7]/space-lbs",0,"DOUBLE");
+props.globals.initNode("consumables/fuel/tank[8]/space-lbs",0,"DOUBLE");
+props.globals.initNode("consumables/fuel/tank[9]/space-lbs",0,"DOUBLE");
+props.globals.initNode("consumables/fuel/tank[10]/space-lbs",0,"DOUBLE");
+
 #################################################################################
 
 #################################################################################
@@ -267,94 +272,41 @@ var update_fuel = func {
 	}else{
 		setprop("VC10/fuel/pumps/BoostPump4_aft",0);
 	}
-
+# LP pipework
+	var density =  getprop("consumables/fuel/tank[7]/density-ppg") or 6.6;
+	var LP1CapacityLbs = getprop("consumables/fuel/tank[7]/capacity-gal_us") * density;
+	var LP2CapacityLbs = getprop("consumables/fuel/tank[8]/capacity-gal_us") * density;
+	var LP3CapacityLbs = getprop("consumables/fuel/tank[9]/capacity-gal_us") * density;
+	var LP4CapacityLbs = getprop("consumables/fuel/tank[10]/capacity-gal_us") * density;
+	var LP1Lbs = getprop("consumables/fuel/tank[7]/level-lbs");
+	var LP2Lbs = getprop("consumables/fuel/tank[8]/level-lbs");
+	var LP3Lbs = getprop("consumables/fuel/tank[9]/level-lbs");
+	var LP4Lbs = getprop("consumables/fuel/tank[10]/level-lbs");
+	var LP1SpaceLbs = LP1CapacityLbs - LP1Lbs;
+	var LP2SpaceLbs = LP2CapacityLbs - LP2Lbs;
+	var LP3SpaceLbs = LP3CapacityLbs - LP3Lbs;
+	var LP4SpaceLbs = LP4CapacityLbs - LP4Lbs;	
+	
+	setprop ("consumables/fuel/tank[7]/space-lbs", LP1SpaceLbs);
+	setprop ("consumables/fuel/tank[8]/space-lbs", LP2SpaceLbs);
+	setprop ("consumables/fuel/tank[9]/space-lbs", LP2SpaceLbs);
+	setprop ("consumables/fuel/tank[10]/space-lbs", LP2SpaceLbs);
+	
 	settimer(func update_fuel(), 0.01);   ## loop 10 per second
 	}
 
 ##############################################################################################
 setlistener("sim/signals/fdm-initialized", func {
-    update_fuel ();
+	print (" fdm_initalized");
+    settimer(func update_fuel(), 10.0);
 });
 
-
-
-
-#################### CROSSFEED VALVES IN ENGINEER PANEL and FUEL DUMP valves #################################
-var valve_pos = func(nr){ 
-print("Func valve_pos");
-	if(getprop("VC10/electric/ess-bus") > 20){
-		setprop("VC10/fuel/valves/valve-pos["~nr~"]", 0);
-		settimer( func { setprop("VC10/fuel/valves/valve-pos["~nr~"]", 1) }, 1.8 );	
-	}else{
-		screen.log.write("No electrical power!", 1, 0, 0);
-	}
-}
-var shutoff_pos = func(nr) {
-print("Func shutoff_pos");
-	setprop("VC10/fuel/valves/LPCock-pos["~nr~"]", 0);
-	settimer( func { setprop("VC10/fuel/valves/LPCock-pos["~nr~"]", 1) }, 1.8 );
-}
-var dump_pos = func(nr) {
-	setprop("VC10/fuel/valves/dump-valve-pos["~nr~"]", 0);
-	settimer( func { setprop("VC10/fuel/valves/dump-valve-pos["~nr~"]", 1) }, 1.8 );
-}
-var dump_cover = func(nr) {
-	var state = getprop("VC10/fuel/valves/dump-cover["~nr~"]") or 0;
-	if(!state){
-		interpolate("VC10/fuel/valves/dump-cover["~nr~"]", 1, 0.4);
-	}else{
-		interpolate("VC10/fuel/valves/dump-cover["~nr~"]", 0, 0.4);
-		setprop("VC10/fuel/valves/dump-retract[0]", 0);
-		setprop("VC10/fuel/valves/dump-retract[1]", 0);
-	}
-}
-
-setlistener("VC10/fuel/temperatur-selector", func(nr){
-  # 0 = Main Tank 1, 1 = Engine 1, 2 = Engine 2 ...
-  var nr = nr.getValue() or 0;
-  temp = getprop("VC10/fuel/temp["~nr~"]") or 0;
-  setprop("VC10/fuel/temperature", 0);
-	interpolate("VC10/fuel/temperature", temp, 1.2);
-},1,0); 
-######### Loop for fuel temperature you will find in the mk-VC10.nas in the nacelle_deicing() ###########
 
 
 ########################################### LOOP ENGINES ######################################################
 ###############################################################################################################
 # engines feed only on the main tank. Engine 1 to main 1 etc.
 
-# VC10 Tank numbers      1a,       1,     2,  Centre,   3,     4,     4a    
-engine_for_tank      = [ -1,       0,     1,    -1,     2,     3,     -1 ]; # -1 means no engine connected to that tank 
-boost_pumps_for_tank = [ [-1,-1], [0,1], [2,3], [4,5], [6,7], [8,9], [-1,-1] ];
-
-var boost_pumps_for_tank_are_on = func (tank)
-{
-print("Func boost_pumps_for_tank_are_on");
-  if (boost_pumps_for_tank[tank][0] == -1 or boost_pumps_for_tank[tank][1] == -1) {
-    return 0;
-  }
-  return getprop ("VC10/fuel/switches/boost-pump[" ~ boost_pumps_for_tank[tank][0] ~ "]")
-      or getprop ("VC10/fuel/switches/boost-pump[" ~ boost_pumps_for_tank[tank][1] ~ "]");
-}
-
-var boost_pumps_for_engine = func (engine) {
-print("Func boost_pumps_for_engine");
-  var tank = -1;
-  forindex (index; engine_for_tank) {
-    if (engine_for_tank[index] == engine) {
-      tank = index;
-      break;
-    }
-  }
-  if (tank == -1) {
-    print ("bug: no main tank for engine " ~ engine);
-    return [];
-  }
-  return [
-    getprop ("VC10/fuel/switches/boost-pump[" ~ boost_pumps_for_tank[tank][0] ~ "]"),
-    getprop ("VC10/fuel/switches/boost-pump[" ~ boost_pumps_for_tank[tank][1] ~ "]")
-  ];
-}
 
 var engines_alive = maketimer (8.0, func {
 print("Func engines_live");
@@ -977,10 +929,9 @@ var WeightFuelDialog = func {
     kg.set("label", "kg");
     kg.set("halign", "left");
     
- ##   var tnames = ["  1A", "   1", "   2", "   3", "   4", "  4A", "Centre","];
+ ##   var tnames = ["  1A", "   1", "   2", "   3", "   4", "  4A", "Centre","LP1","LP2","LP3","LP4"];
 
     var tanks = props.globals.getNode("consumables/fuel").getChildren("tank");
-##    for(var ti=0; ti<7; ti+=1) {
     for(var ti=0; ti<11; ti+=1) {
         var t = tanks[ti];
  ##       var tname = tnames[ti] ~ "";
@@ -1228,9 +1179,9 @@ var count_all = func{
  setprop("VC10/passengers/load-weight-kg", load*0.45359237);
 }
 
-#Linie 328
 var calc_fuel = func{
 	# how much fuel is inside the tanks
+	print ("calc_fuel");
   var cfuel  = 0;
   var cfuel += tf1a.getValue() or 0;
   var cfuel += tf1.getValue() or 0;
@@ -1251,6 +1202,7 @@ var calc_fuel = func{
 }
 
 var standard_load = func{
+print ("standard_load");
 	var st = getprop("VC10/standard-load") or 0;
   if(!st){
 		setprop("fdm/jsbsim/inertia/pointmass-weight-lbs[0]", 1068.0);
