@@ -402,8 +402,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				<y>-180.8</y>
 				<z>5.90</z>
 			</location>
-			<capacity unit="LBS">60.0</capacity>
-			<contents unit="LBS">60.0</contents>
+			<capacity unit="LBS">10.0</capacity>
+			<contents unit="LBS">10.0</contents>
 		</tank>
 		
 		<!-- Engine 2 Fuel Supply Pipes -->
@@ -413,8 +413,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				<y>-112.22</y>
 				<z>5.90</z>
 			</location>
-			<capacity unit="LBS">60.0</capacity>
-			<contents unit="LBS">60.0</contents>
+			<capacity unit="LBS">10.0</capacity>
+			<contents unit="LBS">10.0</contents>
 		</tank>
 
 		<!-- Engine 3 Fuel Supply Pipes -->
@@ -424,8 +424,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				<y>112.22</y>
 				<z>5.90</z>
 			</location>
-			<capacity unit="LBS">60.0</capacity>
-			<contents unit="LBS">60.0</contents>
+			<capacity unit="LBS">10.0</capacity>
+			<contents unit="LBS">10.0</contents>
 		</tank>
 
 		<!-- Engine 4 Fuel Supply Pipes-->
@@ -435,8 +435,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				<y>180.8</y>
 				<z>-5.90</z>
 			</location>
-			<capacity unit="LBS">60.0</capacity>
-			<contents unit="LBS">60.0</contents>
+			<capacity unit="LBS">10.0</capacity>
+			<contents unit="LBS">10.0</contents>
 		</tank>
 	</propulsion>
 

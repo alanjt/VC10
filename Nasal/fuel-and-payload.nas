@@ -285,12 +285,68 @@ var update_fuel = func {
 	var LP1SpaceLbs = LP1CapacityLbs - LP1Lbs;
 	var LP2SpaceLbs = LP2CapacityLbs - LP2Lbs;
 	var LP3SpaceLbs = LP3CapacityLbs - LP3Lbs;
-	var LP4SpaceLbs = LP4CapacityLbs - LP4Lbs;	
-	
+	var LP4SpaceLbs = LP4CapacityLbs - LP4Lbs;
+
 	setprop ("consumables/fuel/tank[7]/space-lbs", LP1SpaceLbs);
 	setprop ("consumables/fuel/tank[8]/space-lbs", LP2SpaceLbs);
-	setprop ("consumables/fuel/tank[9]/space-lbs", LP2SpaceLbs);
-	setprop ("consumables/fuel/tank[10]/space-lbs", LP2SpaceLbs);
+	setprop ("consumables/fuel/tank[9]/space-lbs", LP3SpaceLbs);
+	setprop ("consumables/fuel/tank[10]/space-lbs", LP4SpaceLbs);	
+	setprop ("consumables/fuel/tank[7]/space-lbs", LP1SpaceLbs);
+	setprop ("consumables/fuel/tank[8]/space-lbs", LP2SpaceLbs);
+	setprop ("consumables/fuel/tank[9]/space-lbs", LP3SpaceLbs);
+	setprop ("consumables/fuel/tank[10]/space-lbs", LP4SpaceLbs);
+	
+#fill space in LP pipework from main tanks
+
+	var Tank1Lbs = getprop("consumables/fuel/tank[1]/level-lbs");
+	var Tank2Lbs = getprop("consumables/fuel/tank[2]/level-lbs");
+	var Tank3Lbs = getprop("consumables/fuel/tank[3]/level-lbs");
+	var Tank4Lbs = getprop("consumables/fuel/tank[4]/level-lbs");
+
+	if (getprop("VC10/fuel/switches/LPCock1Sw") == 1) {
+		if (Tank1Lbs > LP1SpaceLbs) {
+			Tank1Lbs = Tank1Lbs - LP1SpaceLbs;
+			LP1Lbs = LP1Lbs + LP1SpaceLbs;
+			}else{
+			Tank1Lbs = 0.0;
+			}
+		}
+		
+	if (getprop("VC10/fuel/switches/LPCock2Sw") == 1) {		
+		if (Tank2Lbs > LP2SpaceLbs) {
+			Tank2Lbs = Tank2Lbs - LP2SpaceLbs;
+			LP2Lbs = LP2Lbs + LP2SpaceLbs;
+			}else{
+			Tank2Lbs = 0.0;
+			}
+		}
+		
+	if (getprop("VC10/fuel/switches/LPCock3Sw") == 1) {		
+		if (Tank3Lbs > LP3SpaceLbs) {
+			Tank3Lbs = Tank3Lbs - LP3SpaceLbs;
+			LP3Lbs = LP3Lbs + LP3SpaceLbs;
+			}else{
+			Tank3Lbs = 0.0;
+			}
+		}
+		
+	if (getprop("VC10/fuel/switches/LPCock4Sw") == 1) {		
+		if (Tank4Lbs > LP4SpaceLbs) {
+			Tank4Lbs = Tank4Lbs - LP4SpaceLbs;
+			LP4Lbs = LP4Lbs + LP4SpaceLbs;
+			}else{
+			Tank4Lbs = 0.0;
+			}
+		}
+		
+	setprop ("consumables/fuel/tank[1]/level-lbs",Tank1Lbs );
+	setprop ("consumables/fuel/tank[2]/level-lbs",Tank2Lbs );
+	setprop ("consumables/fuel/tank[3]/level-lbs",Tank3Lbs );
+	setprop ("consumables/fuel/tank[4]/level-lbs",Tank4Lbs );
+	setprop ("consumables/fuel/tank[7]/level-lbs",LP1Lbs );
+	setprop ("consumables/fuel/tank[8]/level-lbs",LP2Lbs );
+	setprop ("consumables/fuel/tank[9]/level-lbs",LP3Lbs );
+	setprop ("consumables/fuel/tank[10]/level-lbs",LP4Lbs );
 	
 	settimer(func update_fuel(), 0.01);   ## loop 10 per second
 	}
