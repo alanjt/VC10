@@ -311,11 +311,9 @@ var update_fuel = func {
 	var Tank4Lbs = getprop("consumables/fuel/tank[4]/level-lbs");
 
 #fill space in LP pipework from main tanks
-
-	if (IELv == 0 and IERv == 0 and IEXv == 0){
 	
+	if (IELv == 0 and IERv == 0 and IEXv == 0){
 # 1. With no cross feed valves open
-
 		if (getprop("VC10/fuel/switches/LPCock1Sw") == 1) {
 			if (Tank1Lbs > LP1SpaceLbs) {
 				Tank1Lbs = Tank1Lbs - LP1SpaceLbs;
@@ -348,11 +346,52 @@ var update_fuel = func {
 				Tank4Lbs = 0.0;
 				}
 			}
-		}else{
-	if (IELv == 0 and IERv == 1 and IEXv == 0){
+		}elsif (IELv == 1 and IERv == 0 and IEXv == 0){
+	
+# 2. With left engines cross feed valve open
+			
+		var NBP = BP1a + BP1f + BP2a + BP2f;        # number of Boost pumps running
+		var LP12Space = LP1SpaceLbs + LP2SpaceLbs;  # fuel required to fill LP1, LP2 pipework
+		var QBP = LP12Space / NBP; 					# amount of fuel to be supplied by each Boost pump
+		var QBP1 = QBP*(BP1a+BP1f);
+		var QBP2 = QBP*(BP2a+BP2f);
+		
+		if (getprop("VC10/fuel/switches/LPCock1Sw") == 1) {		
+			if (Tank1Lbs > QBP1) {
+				Tank1Lbs = Tank1Lbs - QBP1;
+				LP1Lbs = LP1Lbs + LP1SpaceLbs;
+				}else{
+				Tank1Lbs = 0.0;
+				}
+			}
+		if (getprop("VC10/fuel/switches/LPCock2Sw") == 1) {		
+			if (Tank2Lbs > QBP2) {
+				Tank2Lbs = Tank2Lbs - QBP2;
+				LP2Lbs = LP2Lbs + LP2SpaceLbs;
+				}else{
+				Tank2Lbs = 0.0;
+				}
+			}
+		if (getprop("VC10/fuel/switches/LPCock3Sw") == 1) {		
+			if (Tank3Lbs > LP3SpaceLbs) {
+				Tank3Lbs = Tank3Lbs - LP3SpaceLbs;
+				LP3Lbs = LP3Lbs + LP3SpaceLbs;
+				}else{
+				Tank3Lbs = 0.0;
+				}
+			}
+		if (getprop("VC10/fuel/switches/LPCock4Sw") == 1) {		
+			if (Tank4Lbs > LP4SpaceLbs) {
+				Tank4Lbs = Tank4Lbs - LP4SpaceLbs;
+				LP4Lbs = LP4Lbs + LP4SpaceLbs;
+				}else{
+				Tank4Lbs = 0.0;
+				}
+			}
+		}elsif (IELv == 0 and IERv == 1 and IEXv == 0){
 	
 # 3. With right engines cross feed valve open
-
+	
 		if (getprop("VC10/fuel/switches/LPCock1Sw") == 1) {
 			if (Tank1Lbs > LP1SpaceLbs) {
 				Tank1Lbs = Tank1Lbs - LP1SpaceLbs;
@@ -374,8 +413,55 @@ var update_fuel = func {
 		var LP34Space = LP3SpaceLbs + LP4SpaceLbs;  # fuel required to fill LP3, LP4 pipework
 		var QBP = LP34Space / NBP; 					# amount of fuel to be supplied by each Boost pump
 		var QBP3 = QBP*(BP3a+BP3f);
-		var QBP4 = QBP*(BP4a+BP4f);
+		var QBP4 = QBP*(BP4a+BP4f);	
+		if (getprop("VC10/fuel/switches/LPCock3Sw") == 1) {		
+			if (Tank3Lbs > QBP3) {
+				Tank3Lbs = Tank3Lbs - QBP3;
+				LP3Lbs = LP3Lbs + LP3SpaceLbs;
+				}else{
+				Tank3Lbs = 0.0;
+				}
+			}
+		if (getprop("VC10/fuel/switches/LPCock4Sw") == 1) {		
+			if (Tank4Lbs > QBP4) {
+				Tank4Lbs = Tank4Lbs - QBP4;
+				LP4Lbs = LP4Lbs + LP4SpaceLbs;
+				}else{
+				Tank4Lbs = 0.0;
+				}
+			}	
+		}elsif (IELv == 1 and IERv == 1 and IEXv == 0){
+	
+#4. With left and right engines cross feed valves open
+	
+		var NBP = BP1a + BP1f + BP2a + BP2f;        # number of Boost pumps running
+		var LP12Space = LP1SpaceLbs + LP2SpaceLbs;  # fuel required to fill LP1, LP2 pipework
+		var QBP = LP12Space / NBP; 					# amount of fuel to be supplied by each Boost pump
+		var QBP1 = QBP*(BP1a+BP1f);
+		var QBP2 = QBP*(BP2a+BP2f);
 		
+		if (getprop("VC10/fuel/switches/LPCock1Sw") == 1) {		
+			if (Tank1Lbs > QBP1) {
+				Tank1Lbs = Tank1Lbs - QBP1;
+				LP1Lbs = LP1Lbs + LP1SpaceLbs;
+				}else{
+				Tank1Lbs = 0.0;
+				}
+			}
+		if (getprop("VC10/fuel/switches/LPCock2Sw") == 1) {		
+			if (Tank2Lbs > QBP2) {
+				Tank2Lbs = Tank2Lbs - QBP2;
+				LP2Lbs = LP2Lbs + LP2SpaceLbs;
+				}else{
+				Tank2Lbs = 0.0;
+				}
+			}
+			
+		var NBP = BP3a + BP3f + BP4a + BP4f;        # number of Boost pumps running
+		var LP34Space = LP3SpaceLbs + LP4SpaceLbs;  # fuel required to fill LP3, LP4 pipework
+		var QBP = LP34Space / NBP; 					# amount of fuel to be supplied by each Boost pump
+		var QBP3 = QBP*(BP3a+BP3f);
+		var QBP4 = QBP*(BP4a+BP4f);	
 		if (getprop("VC10/fuel/switches/LPCock3Sw") == 1) {		
 			if (Tank3Lbs > QBP3) {
 				Tank3Lbs = Tank3Lbs - QBP3;
@@ -393,7 +479,6 @@ var update_fuel = func {
 				}
 			}
 		}	
-	}
 # update property tree
 		
 	setprop ("consumables/fuel/tank[1]/level-lbs",Tank1Lbs );
