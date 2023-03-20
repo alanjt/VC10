@@ -408,8 +408,7 @@ var update_fuel = func {
 				}else{
 				Tank2Lbs = 0.0;
 				}
-			}
-			
+			}		
 		var NBP34 = BP3a + BP3f + BP4a + BP4f;        # number of Boost pumps running
 		var LP34Space = LP3SpaceLbs + LP4SpaceLbs;    # fuel required to fill LP3, LP4 pipework
 		var QBP34 = LP34Space / NBP34; 				  # amount of fuel to be supplied by each Boost pump
@@ -502,6 +501,134 @@ var update_fuel = func {
 		var QBP34 = LP34Space / NBP34; 				  # amount of fuel to be supplied by each Boost pump
 		var QBP3 = QBP34*(BP3a+BP3f);
 		var QBP4 = QBP34*(BP4a+BP4f);	
+		if (getprop("VC10/fuel/switches/LPCock3Sw") == 1) {		
+			if (Tank3Lbs > QBP3) {
+				Tank3Lbs = Tank3Lbs - QBP3;
+				LP3Lbs = LP3Lbs + LP3SpaceLbs;
+				}else{
+				Tank3Lbs = 0.0;
+				}
+			}
+		if (getprop("VC10/fuel/switches/LPCock4Sw") == 1) {		
+			if (Tank4Lbs > QBP4) {
+				Tank4Lbs = Tank4Lbs - QBP4;
+				LP4Lbs = LP4Lbs + LP4SpaceLbs;
+				}else{
+				Tank4Lbs = 0.0;
+				}
+			}
+		}elsif (IELv == 1 and IERv == 0 and IEXv == 1){	
+#6.  With both left engine and centre cross feed valves open
+	
+		var NBP123 = BP1a + BP1f + BP2a + BP2f + BP3a + BP3f;        # number of Boost pumps running
+		var LP123Space = LP1SpaceLbs + LP2SpaceLbs + LP3SpaceLbs;    # fuel required to fill LP1, LP2, LP3pipework
+		var QBP123 = LP123Space / NBP123; 				             # amount of fuel to be supplied by each Boost pump
+		var QBP1 = QBP123*(BP1a+BP1f);
+		var QBP2 = QBP123*(BP2a+BP2f);
+		var QBP3 = QBP123*(BP3a+BP3f);
+		
+		if (getprop("VC10/fuel/switches/LPCock1Sw") == 1) {		
+			if (Tank1Lbs > QBP1) {
+				Tank1Lbs = Tank1Lbs - QBP1;
+				LP1Lbs = LP1Lbs + LP1SpaceLbs;
+				}else{
+				Tank1Lbs = 0.0;
+				}
+			}
+		if (getprop("VC10/fuel/switches/LPCock2Sw") == 1) {		
+			if (Tank2Lbs > QBP2) {
+				Tank2Lbs = Tank2Lbs - QBP2;
+				LP2Lbs = LP2Lbs + LP2SpaceLbs;
+				}else{
+				Tank2Lbs = 0.0;
+				}
+			}		
+
+		if (getprop("VC10/fuel/switches/LPCock3Sw") == 1) {		
+			if (Tank3Lbs > QBP3) {
+				Tank3Lbs = Tank3Lbs - QBP3;
+				LP3Lbs = LP3Lbs + LP3SpaceLbs;
+				}else{
+				Tank3Lbs = 0.0;
+				}
+			}
+		if (getprop("VC10/fuel/switches/LPCock4Sw") == 1) {		
+			if (Tank4Lbs > LP4SpaceLbs) {
+				Tank4Lbs = Tank4Lbs - LP4SpaceLbs;
+				LP4Lbs = LP4Lbs + LP4SpaceLbs;
+				}else{
+				Tank4Lbs = 0.0;
+				}
+			}
+		}elsif (IELv == 0 and IERv == 1 and IEXv == 1){	
+#7.  With both right engine and centre cross feed valves open
+	
+		var NBP234 = BP2a + BP2f + BP3a + BP3f + BP4a + BP4f;        # number of Boost pumps running
+		var LP234Space = LP2SpaceLbs + LP3SpaceLbs + LP4SpaceLbs;    # fuel required to fill LP2, LP3, LP4 pipework
+		var QBP234 = LP234Space / NBP234; 				             # amount of fuel to be supplied by each Boost pump
+		var QBP2 = QBP234*(BP2a+BP2f);
+		var QBP3 = QBP234*(BP3a+BP3f);
+		var QBP4 = QBP234*(BP4a+BP4f);
+		
+		if (getprop("VC10/fuel/switches/LPCock1Sw") == 1) {		
+			if (Tank1Lbs > LP1SpaceLbs) {
+				Tank1Lbs = Tank1Lbs - LP1SpaceLbs;
+				LP1Lbs = LP1Lbs + LP1SpaceLbs;
+				}else{
+				Tank1Lbs = 0.0;
+				}
+			}
+		if (getprop("VC10/fuel/switches/LPCock2Sw") == 1) {		
+			if (Tank2Lbs > QBP2) {
+				Tank2Lbs = Tank2Lbs - QBP2;
+				LP2Lbs = LP2Lbs + LP2SpaceLbs;
+				}else{
+				Tank2Lbs = 0.0;
+				}
+			}		
+		if (getprop("VC10/fuel/switches/LPCock3Sw") == 1) {		
+			if (Tank3Lbs > QBP3) {
+				Tank3Lbs = Tank3Lbs - QBP3;
+				LP3Lbs = LP3Lbs + LP3SpaceLbs;
+				}else{
+				Tank3Lbs = 0.0;
+				}
+			}
+		if (getprop("VC10/fuel/switches/LPCock4Sw") == 1) {		
+			if (Tank4Lbs > QBP4) {
+				Tank4Lbs = Tank4Lbs - QBP4;
+				LP4Lbs = LP4Lbs + LP4SpaceLbs;
+				}else{
+				Tank4Lbs = 0.0;
+				}
+			}
+		}elsif (IELv == 1 and IERv == 1 and IEXv == 1){	
+#8.  With all 3 cross feed valves open
+	
+		var NBP1234 = BP1a + BP1f + BP2a + BP2f + BP3a + BP3f + BP4a + BP4f;        # number of Boost pumps running
+		var LP1234Space = LP1SpaceLbs + LP2SpaceLbs + LP3SpaceLbs + LP4SpaceLbs;    # fuel required to fill LP1, LP2, LP3, LP4 pipework
+		var QBP1234 = LP1234Space / NBP1234;		                                # amount of fuel to be supplied by each Boost pump
+		var QBP1 = QBP1234*(BP1a+BP1f);
+		var QBP2 = QBP1234*(BP2a+BP2f);
+		var QBP3 = QBP1234*(BP3a+BP3f);
+		var QBP4 = QBP1234*(BP4a+BP4f);
+		
+		if (getprop("VC10/fuel/switches/LPCock1Sw") == 1) {		
+			if (Tank1Lbs > QBP1) {
+				Tank1Lbs = Tank1Lbs - QBP1;
+				LP1Lbs = LP1Lbs + LP1SpaceLbs;
+				}else{
+				Tank1Lbs = 0.0;
+				}
+			}
+		if (getprop("VC10/fuel/switches/LPCock2Sw") == 1) {		
+			if (Tank2Lbs > QBP2) {
+				Tank2Lbs = Tank2Lbs - QBP2;
+				LP2Lbs = LP2Lbs + LP2SpaceLbs;
+				}else{
+				Tank2Lbs = 0.0;
+				}
+			}		
 		if (getprop("VC10/fuel/switches/LPCock3Sw") == 1) {		
 			if (Tank3Lbs > QBP3) {
 				Tank3Lbs = Tank3Lbs - QBP3;
