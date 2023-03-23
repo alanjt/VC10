@@ -84,6 +84,13 @@ props.globals.initNode("consumables/fuel/tank[8]/space-lbs",0,"DOUBLE");
 props.globals.initNode("consumables/fuel/tank[9]/space-lbs",0,"DOUBLE");
 props.globals.initNode("consumables/fuel/tank[10]/space-lbs",0,"DOUBLE");
 
+props.globals.initNode("consumables/fuel/tank[0]/inches",0,"DOUBLE");
+props.globals.initNode("consumables/fuel/tank[1]/inches",0,"DOUBLE");
+props.globals.initNode("consumables/fuel/tank[2]/inches",0,"DOUBLE");
+props.globals.initNode("consumables/fuel/tank[3]/inches",0,"DOUBLE");
+props.globals.initNode("consumables/fuel/tank[4]/inches",0,"DOUBLE");
+props.globals.initNode("consumables/fuel/tank[5]/inches",0,"DOUBLE");
+
 #################################################################################
 
 #################################################################################
@@ -309,6 +316,9 @@ var update_fuel = func {
 	var Tank2Lbs = getprop("consumables/fuel/tank[2]/level-lbs");
 	var Tank3Lbs = getprop("consumables/fuel/tank[3]/level-lbs");
 	var Tank4Lbs = getprop("consumables/fuel/tank[4]/level-lbs");
+	
+	var Tank1aLbs = getprop("consumables/fuel/tank[0]/level-lbs");
+	var Tank4aLbs = getprop("consumables/fuel/tank[5]/level-lbs");
 
 #fill space in LP pipework from main tanks
 	
@@ -680,6 +690,24 @@ var update_fuel = func {
 				}
 			}		
 		}
+
+	
+#############################################################################################################
+
+	var Tank1gal = getprop("consumables/fuel/tank[1]/level-gal_imp");
+	var Tank2gal = getprop("consumables/fuel/tank[2]/level-gal_imp");
+	var Tank3gal = getprop("consumables/fuel/tank[3]/level-gal_imp");
+	var Tank4gal = getprop("consumables/fuel/tank[4]/level-gal_imp");
+	
+	var Tank1agal = getprop("consumables/fuel/tank[0]/level-gal_imp");
+	var Tank4agal = getprop("consumables/fuel/tank[5]/level-gal_imp");
+# Tank crossfeed
+var Tank1inch  = -5.3833E-012*math.pow(Tank1gal,4) + 2.8875E-008*math.pow(Tank1gal,3) - 5.409E-005*math.pow(Tank1gal,2)  + 0.04680*Tank1gal; 
+var Tank4inch  = -5.3833E-012*math.pow(Tank4gal,4) + 2.8875E-008*math.pow(Tank4gal,3) - 5.409E-005*math.pow(Tank4gal,2)  + 0.04680*Tank4gal;
+var Tank1ainch = -7.015E-012*math.pow(Tank1agal,4) + 3.432E-008*math.pow(Tank1agal,3) - 5.409E-005*math.pow(Tank1agal,2) + 0.04680*Tank1agal; 
+var Tank4ainch = -7.015E-012*math.pow(Tank4agal,4) + 3.432E-008*math.pow(Tank4agal,3) - 5.409E-005*math.pow(Tank4agal,2) + 0.04680*Tank4agal;
+
+#############################################################################################################
 # update property tree
 		
 	setprop ("consumables/fuel/tank[1]/level-lbs",Tank1Lbs );
@@ -689,8 +717,12 @@ var update_fuel = func {
 	setprop ("consumables/fuel/tank[7]/level-lbs",LP1Lbs );
 	setprop ("consumables/fuel/tank[8]/level-lbs",LP2Lbs );
 	setprop ("consumables/fuel/tank[9]/level-lbs",LP3Lbs );
-	setprop ("consumables/fuel/tank[10]/level-lbs",LP4Lbs );
-	
+	setprop ("consumables/fuel/tank[10]/level-lbs",LP4Lbs );	
+	setprop ("consumables/fuel/tank[1]/inches",Tank1inch );
+	setprop ("consumables/fuel/tank[4]/inches",Tank4inch );
+	setprop ("consumables/fuel/tank[0]/inches",Tank1ainch );
+	setprop ("consumables/fuel/tank[5]/inches",Tank4ainch );
+
 	settimer(func update_fuel(), 0.01);   ## loop 10 per second
 	}
 
