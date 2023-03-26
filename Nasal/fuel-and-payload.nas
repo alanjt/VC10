@@ -90,8 +90,12 @@ props.globals.initNode("consumables/fuel/tank[2]/inches",0,"DOUBLE");
 props.globals.initNode("consumables/fuel/tank[3]/inches",0,"DOUBLE");
 props.globals.initNode("consumables/fuel/tank[4]/inches",0,"DOUBLE");
 props.globals.initNode("consumables/fuel/tank[5]/inches",0,"DOUBLE");
+props.globals.initNode("consumables/fuel/tank[0]/Head",0,"DOUBLE");
+props.globals.initNode("consumables/fuel/tank[5]/Head",0,"DOUBLE");																   
 
 #################################################################################
+# Fuel transfer
+props.globals.initNode("VC10/fuel/XferRate",2,"DOUBLE");  #  gravity transfer from tank 1a to 1 and 4a to 4  (lbs/sec)
 
 #################################################################################
 # Fuel dump 
@@ -119,6 +123,12 @@ props.globals.initNode("VC10/fuel/valves/dump-valve-pos[5]",1,"BOOL");
 ##############################################################################################
 var update_fuel = func {
 #	print ("update_fuel");
+##	if ( FuelFreeze.getBoolValue() ) { return }
+	
+	var current_time = getprop("/sim/time/elapsed-sec");
+	var dt = 0.1;
+	var dtr = getprop("/sim/time/delta-realtime-sec"); 
+#	print ("dt  ", dt, "  dtreal ", dtr," current_time ",current_time);
 
 # update valves
 
@@ -316,9 +326,6 @@ var update_fuel = func {
 	var Tank2Lbs = getprop("consumables/fuel/tank[2]/level-lbs");
 	var Tank3Lbs = getprop("consumables/fuel/tank[3]/level-lbs");
 	var Tank4Lbs = getprop("consumables/fuel/tank[4]/level-lbs");
-	
-	var Tank1aLbs = getprop("consumables/fuel/tank[0]/level-lbs");
-	var Tank4aLbs = getprop("consumables/fuel/tank[5]/level-lbs");
 
 #fill space in LP pipework from main tanks
 	
@@ -701,19 +708,52 @@ var update_fuel = func {
 	
 	var Tank1agal = getprop("consumables/fuel/tank[0]/level-gal_imp");
 	var Tank4agal = getprop("consumables/fuel/tank[5]/level-gal_imp");
-# Tank crossfeed
-var Tank1inch  = -5.3833E-012*math.pow(Tank1gal,4) + 2.8875E-008*math.pow(Tank1gal,3) - 5.409E-005*math.pow(Tank1gal,2)  + 0.04680*Tank1gal; 
-var Tank4inch  = -5.3833E-012*math.pow(Tank4gal,4) + 2.8875E-008*math.pow(Tank4gal,3) - 5.409E-005*math.pow(Tank4gal,2)  + 0.04680*Tank4gal;
-var Tank1ainch = -7.015E-012*math.pow(Tank1agal,4) + 3.432E-008*math.pow(Tank1agal,3) - 5.409E-005*math.pow(Tank1agal,2) + 0.04680*Tank1agal; 
-var Tank4ainch = -7.015E-012*math.pow(Tank4agal,4) + 3.432E-008*math.pow(Tank4agal,3) - 5.409E-005*math.pow(Tank4agal,2) + 0.04680*Tank4agal;
+	var Tank1aTxValve = getprop("VC10/fuel/valves/Tank1A_Tank1TX");
+	var Tank4aTxValve = getprop("VC10/fuel/valves/Tank4A_Tank4TX");
 
+	var Tank1aLbs = getprop("consumables/fuel/tank[0]/level-lbs");
+	var Tank4aLbs = getprop("consumables/fuel/tank[5]/level-lbs");
+	
+	var Tank1CapacityLbs = getprop("consumables/fuel/tank[1]/capacity-gal_us") * density;
+	var Tank2CapacityLbs = getprop("consumables/fuel/tank[2]/capacity-gal_us") * density;
+	var Tank3CapacityLbs = getprop("consumables/fuel/tank[3]/capacity-gal_us") * density;
+	var Tank4CapacityLbs = getprop("consumables/fuel/tank[4]/capacity-gal_us") * density;
+	
+	var Tank1SpaceLbs = Tank1CapacityLbs - Tank1Lbs;
+	var Tank2SpaceLbs = Tank2CapacityLbs - Tank2Lbs;
+	var Tank3SpaceLbs = Tank3CapacityLbs - Tank3Lbs;
+	var Tank4SpaceLbs = Tank4CapacityLbs - Tank4Lbs;
+
+# Tank 1/1a and 4/4a crossfeed
+#Calculate depth of fuel in outer wing tanks. This is the depth used by the fuel contents sensors, and is measured from the lowest part of each tank.
+	var Tank1inch  = -5.3833E-012*math.pow(Tank1gal,4) + 2.8875E-008*math.pow(Tank1gal,3) - 5.409E-005*math.pow(Tank1gal,2)  + 0.04680*Tank1gal; 
+	var Tank4inch  = -5.3833E-012*math.pow(Tank4gal,4) + 2.8875E-008*math.pow(Tank4gal,3) - 5.409E-005*math.pow(Tank4gal,2)  + 0.04680*Tank4gal;
+	var Tank1ainch = -7.015E-012*math.pow(Tank1agal,4) + 3.432E-008*math.pow(Tank1agal,3) - 5.409E-005*math.pow(Tank1agal,2) + 0.04680*Tank1agal; 
+	var Tank4ainch = -7.015E-012*math.pow(Tank4agal,4) + 3.432E-008*math.pow(Tank4agal,3) - 5.409E-005*math.pow(Tank4agal,2) + 0.04680*Tank4agal;
+# The lowest point of outboard tanks 1a and 4a are 18 inches higher than tanks 1 and 2, due to dihedral.
+# Therefore add this distance to these tanks when calculating fuel flow from the outboard to inboard tanks due to gravity.
+
+	var XfrRate = getprop("VC10/fuel/XferRate")*dt;
+
+	var Tank1aHead = Tank1ainch + 18.0 - Tank1inch;
+	if (Tank1aTxValve and (Tank1aHead > 0) and (Tank1aLbs > 0) and (Tank1SpaceLbs > XfrRate)) {
+				Tank1aLbs = Tank1aLbs - XfrRate;
+				Tank1Lbs = Tank1Lbs + XfrRate;	
+			}
+	var Tank4aHead = Tank4ainch + 18.0 - Tank4inch;
+	if (Tank4aTxValve and (Tank4aHead > 0) and (Tank4aLbs > 0) and (Tank4SpaceLbs > XfrRate)) {
+				Tank4aLbs = Tank4aLbs - XfrRate;
+				Tank4Lbs = Tank4Lbs + XfrRate;	
+			}									  
 #############################################################################################################
 # update property tree
 		
+	setprop ("consumables/fuel/tank[0]/level-lbs",Tank1aLbs );
 	setprop ("consumables/fuel/tank[1]/level-lbs",Tank1Lbs );
 	setprop ("consumables/fuel/tank[2]/level-lbs",Tank2Lbs );
 	setprop ("consumables/fuel/tank[3]/level-lbs",Tank3Lbs );
 	setprop ("consumables/fuel/tank[4]/level-lbs",Tank4Lbs );
+	setprop ("consumables/fuel/tank[5]/level-lbs",Tank4aLbs );
 	setprop ("consumables/fuel/tank[7]/level-lbs",LP1Lbs );
 	setprop ("consumables/fuel/tank[8]/level-lbs",LP2Lbs );
 	setprop ("consumables/fuel/tank[9]/level-lbs",LP3Lbs );
@@ -722,7 +762,9 @@ var Tank4ainch = -7.015E-012*math.pow(Tank4agal,4) + 3.432E-008*math.pow(Tank4ag
 	setprop ("consumables/fuel/tank[4]/inches",Tank4inch );
 	setprop ("consumables/fuel/tank[0]/inches",Tank1ainch );
 	setprop ("consumables/fuel/tank[5]/inches",Tank4ainch );
-
+	setprop ("consumables/fuel/tank[0]/Head",Tank1aHead );
+	setprop ("consumables/fuel/tank[5]/Head",Tank4aHead );
+	
 	settimer(func update_fuel(), 0.01);   ## loop 10 per second
 	}
 
@@ -731,8 +773,6 @@ setlistener("sim/signals/fdm-initialized", func {
 	print (" fdm_initalized");
     settimer(func update_fuel(), 10.0);
 });
-
-
 
 ########################################### LOOP ENGINES ######################################################
 ###############################################################################################################
