@@ -304,28 +304,44 @@ var update_fuel = func {
 	var BP4a = getprop("VC10/fuel/pumps/BoostPump4_aft");	
 
 	var density =  getprop("consumables/fuel/tank[7]/density-ppg") or 6.6;
-	var LP1CapacityLbs = getprop("consumables/fuel/tank[7]/capacity-gal_us") * density;
-	var LP2CapacityLbs = getprop("consumables/fuel/tank[8]/capacity-gal_us") * density;
-	var LP3CapacityLbs = getprop("consumables/fuel/tank[9]/capacity-gal_us") * density;
-	var LP4CapacityLbs = getprop("consumables/fuel/tank[10]/capacity-gal_us") * density;
-	var LP1Lbs = getprop("consumables/fuel/tank[7]/level-lbs");
-	var LP2Lbs = getprop("consumables/fuel/tank[8]/level-lbs");
-	var LP3Lbs = getprop("consumables/fuel/tank[9]/level-lbs");
-	var LP4Lbs = getprop("consumables/fuel/tank[10]/level-lbs");
-	var LP1SpaceLbs = LP1CapacityLbs - LP1Lbs;
-	var LP2SpaceLbs = LP2CapacityLbs - LP2Lbs;
-	var LP3SpaceLbs = LP3CapacityLbs - LP3Lbs;
-	var LP4SpaceLbs = LP4CapacityLbs - LP4Lbs;
-
-	setprop ("consumables/fuel/tank[7]/space-lbs", LP1SpaceLbs);
-	setprop ("consumables/fuel/tank[8]/space-lbs", LP2SpaceLbs);
-	setprop ("consumables/fuel/tank[9]/space-lbs", LP3SpaceLbs);
-	setprop ("consumables/fuel/tank[10]/space-lbs", LP4SpaceLbs);	
 	
+	var Tank1aCapacityLbs = getprop("consumables/fuel/tank[0]/capacity-gal_us") * density;	
+	var Tank1CapacityLbs = getprop("consumables/fuel/tank[1]/capacity-gal_us") * density;
+	var Tank2CapacityLbs = getprop("consumables/fuel/tank[2]/capacity-gal_us") * density;
+	var Tank3CapacityLbs = getprop("consumables/fuel/tank[3]/capacity-gal_us") * density;
+	var Tank4CapacityLbs = getprop("consumables/fuel/tank[4]/capacity-gal_us") * density;
+	var Tank4aCapacityLbs = getprop("consumables/fuel/tank[5]/capacity-gal_us") * density;
+	var TankCCapacityLbs = getprop("consumables/fuel/tank[6]/capacity-gal_us") * density;
+
+	var Tank1aLbs = getprop("consumables/fuel/tank[0]/level-lbs");
 	var Tank1Lbs = getprop("consumables/fuel/tank[1]/level-lbs");
 	var Tank2Lbs = getprop("consumables/fuel/tank[2]/level-lbs");
 	var Tank3Lbs = getprop("consumables/fuel/tank[3]/level-lbs");
 	var Tank4Lbs = getprop("consumables/fuel/tank[4]/level-lbs");
+	var Tank4aLbs = getprop("consumables/fuel/tank[5]/level-lbs");
+	var TankCLbs = getprop("consumables/fuel/tank[6]/level-lbs");
+	
+	var Tank1aSpaceLbs = Tank1aCapacityLbs - Tank1aLbs;
+	var Tank1SpaceLbs = Tank1CapacityLbs - Tank1Lbs;
+	var Tank2SpaceLbs = Tank2CapacityLbs - Tank2Lbs;
+	var Tank3SpaceLbs = Tank3CapacityLbs - Tank3Lbs;
+	var Tank4SpaceLbs = Tank4CapacityLbs - Tank4Lbs;
+	var Tank4aSpaceLbs = Tank4aCapacityLbs - Tank4aLbs;	
+	var TankCSpaceLbs = TankCCapacityLbs - TankCLbs;	
+	
+	var LP1CapacityLbs = getprop("consumables/fuel/tank[7]/capacity-gal_us") * density;
+	var LP2CapacityLbs = getprop("consumables/fuel/tank[8]/capacity-gal_us") * density;
+	var LP3CapacityLbs = getprop("consumables/fuel/tank[9]/capacity-gal_us") * density;
+	var LP4CapacityLbs = getprop("consumables/fuel/tank[10]/capacity-gal_us") * density;	
+	var LP1Lbs = getprop("consumables/fuel/tank[7]/level-lbs");
+	var LP2Lbs = getprop("consumables/fuel/tank[8]/level-lbs");
+	var LP3Lbs = getprop("consumables/fuel/tank[9]/level-lbs");
+	var LP4Lbs = getprop("consumables/fuel/tank[10]/level-lbs");
+	
+	var LP1SpaceLbs = LP1CapacityLbs - LP1Lbs;
+	var LP2SpaceLbs = LP2CapacityLbs - LP2Lbs;
+	var LP3SpaceLbs = LP3CapacityLbs - LP3Lbs;
+	var LP4SpaceLbs = LP4CapacityLbs - LP4Lbs;	
 
 #fill space in LP pipework from main tanks
 	
@@ -452,8 +468,8 @@ var update_fuel = func {
 # 4. With centre cross feed valve open
 		
 		var NBP23 = BP2a + BP2f + BP3a + BP3f;        # number of Boost pumps running
-		var LP23Space = LP2SpaceLbs + LP3SpaceLbs;  # fuel required to fill LP2, LP3 pipework
-		var QBP23 = LP23Space / NBP23; 					# amount of fuel to be supplied by each Boost pump
+		var LP23Space = LP2SpaceLbs + LP3SpaceLbs;    # fuel required to fill LP2, LP3 pipework
+		var QBP23 = LP23Space / NBP23; 				  # amount of fuel to be supplied by each Boost pump
 		var QBP2 = QBP23*(BP2a+BP2f);
 		var QBP3 = QBP23*(BP3a+BP3f);
 		if (getprop("VC10/fuel/switches/LPCock1Sw") == 1) {
@@ -700,37 +716,28 @@ var update_fuel = func {
 
 	
 #############################################################################################################
+# Tank 1/1a and 4/4a crossfeed
 
-	var Tank1gal = getprop("consumables/fuel/tank[1]/level-gal_imp");
-	var Tank2gal = getprop("consumables/fuel/tank[2]/level-gal_imp");
-	var Tank3gal = getprop("consumables/fuel/tank[3]/level-gal_imp");
-	var Tank4gal = getprop("consumables/fuel/tank[4]/level-gal_imp");
-	
-	var Tank1agal = getprop("consumables/fuel/tank[0]/level-gal_imp");
-	var Tank4agal = getprop("consumables/fuel/tank[5]/level-gal_imp");
 	var Tank1aTxValve = getprop("VC10/fuel/valves/Tank1A_Tank1TX");
 	var Tank4aTxValve = getprop("VC10/fuel/valves/Tank4A_Tank4TX");
 
-	var Tank1aLbs = getprop("consumables/fuel/tank[0]/level-lbs");
-	var Tank4aLbs = getprop("consumables/fuel/tank[5]/level-lbs");
-	
-	var Tank1CapacityLbs = getprop("consumables/fuel/tank[1]/capacity-gal_us") * density;
-	var Tank2CapacityLbs = getprop("consumables/fuel/tank[2]/capacity-gal_us") * density;
-	var Tank3CapacityLbs = getprop("consumables/fuel/tank[3]/capacity-gal_us") * density;
-	var Tank4CapacityLbs = getprop("consumables/fuel/tank[4]/capacity-gal_us") * density;
-	
 	var Tank1SpaceLbs = Tank1CapacityLbs - Tank1Lbs;
 	var Tank2SpaceLbs = Tank2CapacityLbs - Tank2Lbs;
 	var Tank3SpaceLbs = Tank3CapacityLbs - Tank3Lbs;
 	var Tank4SpaceLbs = Tank4CapacityLbs - Tank4Lbs;
 
-# Tank 1/1a and 4/4a crossfeed
 #Calculate depth of fuel in outer wing tanks. This is the depth used by the fuel contents sensors, and is measured from the lowest part of each tank.
+
+	var Tank1gal = getprop("consumables/fuel/tank[1]/level-gal_imp");
+	var Tank4gal = getprop("consumables/fuel/tank[4]/level-gal_imp");
+	var Tank1agal = getprop("consumables/fuel/tank[0]/level-gal_imp");
+	var Tank4agal = getprop("consumables/fuel/tank[5]/level-gal_imp");
 	var Tank1inch  = -5.3833E-012*math.pow(Tank1gal,4) + 2.8875E-008*math.pow(Tank1gal,3) - 5.409E-005*math.pow(Tank1gal,2)  + 0.04680*Tank1gal; 
 	var Tank4inch  = -5.3833E-012*math.pow(Tank4gal,4) + 2.8875E-008*math.pow(Tank4gal,3) - 5.409E-005*math.pow(Tank4gal,2)  + 0.04680*Tank4gal;
 	var Tank1ainch = -7.015E-012*math.pow(Tank1agal,4) + 3.432E-008*math.pow(Tank1agal,3) - 5.409E-005*math.pow(Tank1agal,2) + 0.04680*Tank1agal; 
 	var Tank4ainch = -7.015E-012*math.pow(Tank4agal,4) + 3.432E-008*math.pow(Tank4agal,3) - 5.409E-005*math.pow(Tank4agal,2) + 0.04680*Tank4agal;
 # The lowest point of outboard tanks 1a and 4a are 18 inches higher than tanks 1 and 2, due to dihedral.
+
 # Therefore add this distance to these tanks when calculating fuel flow from the outboard to inboard tanks due to gravity.
 
 	var XfrRate = getprop("VC10/fuel/XferRate")*dt;
@@ -746,6 +753,66 @@ var update_fuel = func {
 				Tank4Lbs = Tank4Lbs + XfrRate;	
 			}									  
 #############################################################################################################
+# transfer of fuel from centre tank to wing tanks
+
+	var Tank1aTXvalve = getprop("VC10/fuel/valves/Tank1A_AltTX");
+	var Tank1TXvalve = getprop("VC10/fuel/valves/Tank1TX");
+	var Tank2TXvalve = getprop("VC10/fuel/valves/Tank2TX");
+	var Tank3TXvalve = getprop("VC10/fuel/valves/Tank3TX");
+	var Tank4TXvalve = getprop("VC10/fuel/valves/Tank4TX");
+	var Tank4aTXvalve = getprop("VC10/fuel/valves/Tank4A_AltTX");
+	var XfeedTXvalve = getprop("VC10/fuel/valves/CrossFeedTX");
+	
+	var LH_TXPump = 0;
+	var RH_TXPump = 0; 
+	if (getprop("VC10/fuel/pumps/CentreTankLH_TXPump")) {LH_TXPump = 1;}
+	if (getprop("VC10/fuel/pumps/CentreTankRH_TXPump")) {RH_TXPump = 1;}
+
+	var LHfuelXf = 0.0;
+	var RHfuelXf = 0.0;
+	if (TankCLbs > 0){   
+		LHfuelXf = LH_TXPump * 250.0 * dt /60.0;   # fuel pumped from centre tank in time dt
+		RHfuelXf = RH_TXPump * 250.0 * dt /60.0;   #  - assume pump capacity is 250 lb/min. 
+		}
+		
+	var Tank1aHasSpace = (Tank1aSpaceLbs > 0);
+	var Tank1HasSpace = (Tank1SpaceLbs > 0);	
+	var Tank2HasSpace = (Tank2SpaceLbs > 0);
+	var Tank4aHasSpace = (Tank4aSpaceLbs > 0);
+	var Tank4HasSpace = (Tank4SpaceLbs > 0);	
+	var Tank3HasSpace = (Tank3SpaceLbs > 0);
+#  number of tanks that are not full and have their transfer valve open.			
+	var NumTanksL = (Tank1aTXvalve and Tank1aHasSpace) + (Tank1TXvalve and Tank1HasSpace) + (Tank2TXvalve and Tank2HasSpace);
+	var NumTanksR = (Tank4aTXvalve and Tank4aHasSpace) + (Tank4TXvalve and Tank4HasSpace) + (Tank3TXvalve and Tank3HasSpace);	
+
+	if (XfeedTXvalve) { 
+
+		}
+		else {
+		if (LH_TXPump  and (NumTanksL > 0))
+			{
+			XfrRate = LHfuelXf/NumTanksL;
+			if (Tank1aTXvalve and Tank1aHasSpace)
+				{
+				Tank1aLbs = Tank1aLbs + XfrRate;
+				TankCLbs = TankCLbs - XfrRate;				
+				}
+			if (Tank1TXvalve and Tank1HasSpace)
+				{
+				Tank1Lbs = Tank1Lbs + XfrRate;
+				TankCLbs = TankCLbs - XfrRate;				
+				}
+			if (Tank2TXvalve and Tank2HasSpace)
+				{
+				Tank2Lbs = Tank2Lbs + XfrRate;
+				TankCLbs = TankCLbs - XfrRate;				
+				}
+			}
+
+		}
+
+	
+#############################################################################################################	
 # update property tree
 		
 	setprop ("consumables/fuel/tank[0]/level-lbs",Tank1aLbs );
@@ -754,16 +821,23 @@ var update_fuel = func {
 	setprop ("consumables/fuel/tank[3]/level-lbs",Tank3Lbs );
 	setprop ("consumables/fuel/tank[4]/level-lbs",Tank4Lbs );
 	setprop ("consumables/fuel/tank[5]/level-lbs",Tank4aLbs );
-	setprop ("consumables/fuel/tank[7]/level-lbs",LP1Lbs );
-	setprop ("consumables/fuel/tank[8]/level-lbs",LP2Lbs );
-	setprop ("consumables/fuel/tank[9]/level-lbs",LP3Lbs );
-	setprop ("consumables/fuel/tank[10]/level-lbs",LP4Lbs );	
-	setprop ("consumables/fuel/tank[1]/inches",Tank1inch );
+	setprop ("consumables/fuel/tank[6]/level-lbs",TankCLbs );	
+
+	setprop ("consumables/fuel/tank[1]/inches",Tank1inch );	
 	setprop ("consumables/fuel/tank[4]/inches",Tank4inch );
 	setprop ("consumables/fuel/tank[0]/inches",Tank1ainch );
 	setprop ("consumables/fuel/tank[5]/inches",Tank4ainch );
 	setprop ("consumables/fuel/tank[0]/Head",Tank1aHead );
 	setprop ("consumables/fuel/tank[5]/Head",Tank4aHead );
+	
+	setprop ("consumables/fuel/tank[7]/level-lbs", LP1Lbs );
+	setprop ("consumables/fuel/tank[8]/level-lbs", LP2Lbs );
+	setprop ("consumables/fuel/tank[9]/level-lbs", LP3Lbs );
+	setprop ("consumables/fuel/tank[10]/level-lbs",LP4Lbs );
+	setprop ("consumables/fuel/tank[7]/space-lbs", LP1SpaceLbs);
+	setprop ("consumables/fuel/tank[8]/space-lbs", LP2SpaceLbs);
+	setprop ("consumables/fuel/tank[9]/space-lbs", LP3SpaceLbs);
+	setprop ("consumables/fuel/tank[10]/space-lbs", LP4SpaceLbs);	
 	
 	settimer(func update_fuel(), 0.01);   ## loop 10 per second
 	}
