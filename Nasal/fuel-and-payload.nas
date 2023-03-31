@@ -786,7 +786,40 @@ var update_fuel = func {
 	var NumTanksR = (Tank4aTXvalve and Tank4aHasSpace) + (Tank4TXvalve and Tank4HasSpace) + (Tank3TXvalve and Tank3HasSpace);	
 
 	if (XfeedTXvalve) { 
-
+		if ((LH_TXPump or RH_TXPump)  and ((NumTanksL + NumTanksR) > 0))
+			{
+			XfrRate = (LHfuelXf+RHfuelXf)/(NumTanksL+NumTanksR);
+			if (Tank1aTXvalve and Tank1aHasSpace)
+				{
+				Tank1aLbs = Tank1aLbs + XfrRate;
+				TankCLbs = TankCLbs - XfrRate;				
+				}
+			if (Tank1TXvalve and Tank1HasSpace)
+				{
+				Tank1Lbs = Tank1Lbs + XfrRate;
+				TankCLbs = TankCLbs - XfrRate;				
+				}
+			if (Tank2TXvalve and Tank2HasSpace)
+				{
+				Tank2Lbs = Tank2Lbs + XfrRate;
+				TankCLbs = TankCLbs - XfrRate;				
+				}
+			if (Tank4aTXvalve and Tank4aHasSpace)
+				{
+				Tank4aLbs = Tank4aLbs + XfrRate;
+				TankCLbs = TankCLbs - XfrRate;				
+				}
+			if (Tank4TXvalve and Tank4HasSpace)
+				{
+				Tank4Lbs = Tank4Lbs + XfrRate;
+				TankCLbs = TankCLbs - XfrRate;				
+				}
+			if (Tank3TXvalve and Tank3HasSpace)
+				{
+				Tank3Lbs = Tank3Lbs + XfrRate;
+				TankCLbs = TankCLbs - XfrRate;				
+				}
+			}
 		}
 		else {
 		if (LH_TXPump  and (NumTanksL > 0))
@@ -805,6 +838,25 @@ var update_fuel = func {
 			if (Tank2TXvalve and Tank2HasSpace)
 				{
 				Tank2Lbs = Tank2Lbs + XfrRate;
+				TankCLbs = TankCLbs - XfrRate;				
+				}
+			}
+		if (RH_TXPump  and (NumTanksR > 0))
+			{
+			XfrRate = RHfuelXf/NumTanksR;
+			if (Tank4aTXvalve and Tank4aHasSpace)
+				{
+				Tank4aLbs = Tank4aLbs + XfrRate;
+				TankCLbs = TankCLbs - XfrRate;				
+				}
+			if (Tank4TXvalve and Tank4HasSpace)
+				{
+				Tank4Lbs = Tank4Lbs + XfrRate;
+				TankCLbs = TankCLbs - XfrRate;				
+				}
+			if (Tank3TXvalve and Tank3HasSpace)
+				{
+				Tank3Lbs = Tank3Lbs + XfrRate;
 				TankCLbs = TankCLbs - XfrRate;				
 				}
 			}
