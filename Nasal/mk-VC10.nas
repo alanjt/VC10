@@ -512,7 +512,7 @@ setlistener( "instrumentation/compass-control[0]/lat-turn", func(state){
 	var magVar = getprop("environment/magnetic-variation-deg") or 0;
 	var nS = getprop("instrumentation/compass-control[0]/lat-knob") or 0;
 	var f = (nS) ? -1 : 1;
-	#offset = magnetische Abweichung + ((Knob adjust error percent) * N/S * max error)
+# offset = magnetic deviation + ((Knob adjust error percent) * N/S * max error)
 	var latJustify = latPos - latCorr * f;
 	if (latJustify >= -1 and latJustify <= 1) {
 		setprop("instrumentation/compass-control[0]/justify",1);
@@ -530,7 +530,7 @@ setlistener( "instrumentation/compass-control[1]/lat-turn", func(state){
 	var magVar = getprop("environment/magnetic-variation-deg") or 0;
 	var nS = getprop("instrumentation/compass-control[1]/lat-knob") or 0;
 	var f = (nS) ? -1 : 1;
-	#offset = magnetische Abweichung + ((Knob adjust error percent) * N/S * max error)
+# offset = magnetic deviation + ((Knob adjust error percent) * N/S * max error)
 	var latJustify = latPos - latCorr * f;
 	if (latJustify >= -1 and latJustify <= 1) {
 		setprop("instrumentation/compass-control[1]/justify",1);

@@ -3,17 +3,6 @@
 Lake of Constance Hangar
 Vickers VC10 for Flightgear
 Copyright (C) 2023 A J Teeder
-Copyright (C) 2013 M.Kraus
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
@@ -24,73 +13,73 @@ RR Conway engines and the VC10´s Elliot autopilot is a Bendix PB20 built under 
 
 ########################################################################-->
 <PropertyList include="VC10-common.xml">
- <sim n="0">
-  <description>Vickers VC10</description>
-	<startup>
-		<splash-texture>VC10_splash.png</splash-texture>
-	</startup>
+	<sim n="0">
+		<description>Vickers VC10</description>
+		<startup>
+			<splash-texture>VC10_splash.png</splash-texture>
+		</startup>
 	
-  <model n="0">
-   	 <path>Models/VC10model.xml</path>
-      <livery>
-        <file type="string">VC10</file>
-      </livery>
-  </model>
+		<model n="0">
+			<path>Models/VC10model.xml</path>
+			<livery>
+				<file type="string">VC10</file>
+			</livery>
+		</model>
   
-  <remote>
-   <pilot-callsign type="string"/>
-  </remote>
+		<remote>
+			<pilot-callsign type="string"/>
+		</remote>
 
-	<menubar>
-		<default>
-			<menu n="100">
-				<label>Vickers VC10</label>
-				<enabled type="bool">true</enabled>
-				<item>
-					<label>Autostart / shutdown</label>
-					<binding>
-						<command>property-toggle</command>
-						<property>sim/model/Autostart_shutdown</property>
-					</binding>
-				</item>     
-				<item>
-			        <label>Checklists</label>
-			        <binding>
-			          <command>dialog-show</command>
-			          <dialog-name>checklist</dialog-name>
-			        </binding>
-			    </item>
-				<item>
-					<label>--- Selection ---</label>
-					<enabled>false</enabled>
-				</item>
-				<item>
-					<label>Select livery</label>
-					<binding>
-						<command>nasal</command>
-						<script>aircraft.livery.dialog.open()</script>
-					</binding>
-				</item>
-				<item>
-					<label>Show/hide yokes</label>
-					<binding>
-						<command>property-toggle</command>
-		    		<property>sim/yokes-visible</property>
-					</binding>
-				</item>			
-				<item>
-					<label>--- Equipment ---</label>
-					<enabled>false</enabled>
-				</item>
-				<item>
-					<label>Pushback</label>
-					<name>pushback</name>
-					<binding>
-						 <command>dialog-show</command>
-						 <dialog-name>pushback</dialog-name>
-					</binding>
-				</item>				
-<!--				<item>
+		<menubar>
+			<default>
+				<menu n="100">
+					<label>Vickers VC10</label>
+					<enabled type="bool">true</enabled>
+					<item>
+						<label>Autostart / shutdown</label>
+						<binding>
+							<command>property-toggle</command>
+							<property>sim/model/Autostart_shutdown</property>
+						</binding>
+					</item>
+					<item>
+						<label>Checklists</label>
+						<binding>
+							<command>dialog-show</command>
+							<dialog-name>checklist</dialog-name>
+						</binding>
+					</item>
+					<item>
+						<label>--- Selection ---</label>
+						<enabled>false</enabled>
+					</item>
+					<item>
+						<label>Select livery</label>
+						<binding>
+							<command>nasal</command>
+							<script>aircraft.livery.dialog.open()</script>
+						</binding>
+					</item>
+					<item>
+						<label>Show/hide yokes</label>
+						<binding>
+							<command>property-toggle</command>
+							<property>sim/yokes-visible</property>
+						</binding>
+					</item>
+					<item>
+						<label>--- Equipment ---</label>
+						<enabled>false</enabled>
+					</item>
+					<item>
+						<label>Pushback</label>
+						<name>pushback</name>
+						<binding>
+							<command>dialog-show</command>
+							<dialog-name>pushback</dialog-name>
+						</binding>
+					</item>
+					<!--				<item>
 					<label>Fuel Truck Controls</label>
 					<binding>
 						<command>nasal</command>
@@ -100,94 +89,94 @@ RR Conway engines and the VC10´s Elliot autopilot is a Bendix PB20 built under 
 							</script>
 					</binding>
 				</item> -->
-				<item>
-					<label>External Power Unit</label>
-					<binding>
-						<command>property-toggle</command>
-		    		<property>VC10/electric/external-power-connected</property>
-					</binding>
-				</item>				
-				<item>
-					<label>--- Registration ---</label>
-					<enabled>false</enabled>
-				</item>
-	            <item>
-	              <label>A/C Registration</label>
-	              <binding>
-	                <command>nasal</command>
-	                <script><![CDATA[ 
+					<item>
+						<label>External Power Unit</label>
+						<binding>
+							<command>property-toggle</command>
+							<property>VC10/electric/external-power-connected</property>
+						</binding>
+					</item>
+					<item>
+						<label>--- Registration ---</label>
+						<enabled>false</enabled>
+					</item>
+					<item>
+						<label>A/C Registration</label>
+						<binding>
+							<command>nasal</command>
+							<script><![CDATA[ 
 	                  VC10.registrationDialog.toggle();
 	                ]]></script>
-	              </binding>
-	            </item>			
-				<item>
-					<label>--- Boarding ---</label>
-					<enabled>false</enabled>
-				</item>
-		        <item>
-		         <label>Select Passenger</label>
-		         <binding>
-		          <command>nasal</command>
-		          <script>
+						</binding>
+					</item>
+					<item>
+						<label>--- Boarding ---</label>
+						<enabled>false</enabled>
+					</item>
+					<item>
+						<label>Select Passenger</label>
+						<binding>
+							<command>nasal</command>
+							<script>
 		            dual_control_tools.copilot_dialog.show(aircraft_dual_control.copilot_type);
-		           </script>
-		          </binding>
-		         </item>
-			</menu>
-		</default>
-	</menubar>
+							</script>
+						</binding>
+					</item>
+				</menu>
+			</default>
+		</menubar>
 
-	<help>
-	  <title>Vickers VC10</title>
-		<key>
-		  <name>L</name>
-		  <desc>toggle Landing Lights</desc>
-		</key>
-		<key>
-		  <name>Ctrl + B</name>
-		  <desc>Full Speedbrake</desc>
-		</key>
-		<key>
-		  <name>k/j</name>
-		  <desc>Step Speedbrake</desc>
-		</key>
-		<key>
-		  <name>Del</name>
-		  <desc>toggle Reverser</desc>
-		</key>
-		<key>
-		  <name>y</name>
-		  <desc>toggle Yokes</desc>
-		</key>
-		<key>
-			<name>></name>
-			<desc>toggle Pilot - Engineer view</desc>
-		</key>
-		<key>
-			<name>Shift + ></name>
-			<desc>toggle Pilot - Jump Seat view</desc>
-		</key>
-		<key>
-			<name>Ctrl + ></name>
-			<desc>toggle Pilot - Navigator view</desc>
-		</key>
-		<key>
-		  <name>F1</name>
-		  <desc>Checklists</desc>
-		</key>
-		<key>
-		  <name>F7</name>
-		  <desc>open Map</desc>
-		</key>
-		<key>
-		  <name>F8</name>
-		  <desc>open Route-manager</desc>
-		</key>
-		<key>
-		  <name>F9</name>
-		  <desc>open Fuel &amp; Weight Menu</desc>
-		</key>
-<!--		<text>
+		<help>
+			<title>Vickers VC10</title>
+			<key>
+				<name>L</name>
+				<desc>toggle Landing Lights</desc>
+			</key>
+			<key>
+				<name>Ctrl + B</name>
+				<desc>Full Speedbrake</desc>
+			</key>
+			<key>
+				<name>k/j</name>
+				<desc>Step Speedbrake</desc>
+			</key>
+			<key>
+				<name>Del</name>
+				<desc>toggle Reverser</desc>
+			</key>
+			<key>
+				<name>y</name>
+				<desc>toggle Yokes</desc>
+			</key>
+			<key>
+				<name>></name>
+				<desc>toggle Pilot - Engineer view</desc>
+			</key>
+			<key>
+				<name>Shift + ></name>
+				<desc>toggle Pilot - Jump Seat view</desc>
+			</key>
+			<key>
+				<name>Ctrl + ></name>
+				<desc>toggle Pilot - Navigator view</desc>
+			</key>
+			<key>
+				<name>F1</name>
+				<desc>Checklists</desc>
+			</key>
+			<key>
+				<name>F7</name>
+				<desc>open Map</desc>
+			</key>
+			<key>
+				<name>F8</name>
+				<desc>open Route-manager</desc>
+			</key>
+			<key>
+				<name>F9</name>
+				<desc>open Fuel &amp; Weight Menu</desc>
+			</key>
+			<!--		<text>
 _______________ Vickers VC10 ___________________
 
 Startup engines:
@@ -234,79 +223,87 @@ _______________________________________________________
 
 		</text> -->
 		
-	</help>
-    <view n="105">
-      <name>Passengers View</name>
-      <enabled type="bool">true</enabled>
-      <type>lookfrom</type>
-      <internal type="bool">false</internal>
-      <config>
-  			<from-model type="bool">true</from-model>
-  			<from-model-idx type="int">0</from-model-idx>
-  			<!-- x/y/z == right/up/back -->
-  			<x-offset-m archive="y">-1.36</x-offset-m>
-  			<y-offset-m archive="y"> 1.05</y-offset-m>
-  			<z-offset-m archive="y"> 8.85</z-offset-m>
-  			<heading-offset-deg type="double">70.0</heading-offset-deg>
-  			<pitch-offset-deg type="double">-2.0</pitch-offset-deg>
-  			<from-model-idx type="int">0</from-model-idx>
-  			<ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
-  			<default-field-of-view-deg type="double">90.0</default-field-of-view-deg>
-  			<default-pitch-deg type="double">-2.0</default-pitch-deg>
-  			<default-heading-deg type="double">0</default-heading-deg>
-  			<front-direction-deg type="double">0</front-direction-deg>
-  			<front-left-direction-deg type="double">45</front-left-direction-deg>
-  			<left-direction-deg type="double">90</left-direction-deg>
-  			<back-left-direction-deg type="double">135</back-left-direction-deg>
-  			<back-direction-deg type="double">180</back-direction-deg>
-  			<back-right-direction-deg type="double">225</back-right-direction-deg>
-  			<right-direction-deg type="double">270</right-direction-deg>
-  			<front-right-direction-deg type="double">315</front-right-direction-deg>
-  			<dynamic-view type="bool">true</dynamic-view>
-      </config>
-  	</view> 
- </sim>
- 
-   <consumables>
-    <fuel>
-      <tank n="0">
-        <name>Tank 1A</name>
-      </tank>
-      <tank n="1">
-        <name>Tank 1</name>
-      </tank>
-      <tank n="2">
-        <name>Tank 2</name>
-      </tank>
-      <tank n="3">
-        <name>Tank 3</name>
-      </tank>
-      <tank n="4">
-        <name>Tank 4</name>
-      </tank>
-      <tank n="5">
-        <name>Tank 4A</name>
-      </tank>
-      <tank n="6">
-        <name>Centre Tank</name>
-      </tank>
-      <tank n="7">
-        <name>Engine 1 LP</name>
-      </tank>
-      <tank n="8">
-        <name>Engine 2 LP</name>
-      </tank>
-      <tank n="9">
-        <name>Engine 3 LP</name>
-      </tank>
-      <tank n="10">
-        <name>Engine 4 LP</name>
-      </tank>
-    </fuel>	
-   </consumables>	
+		</help>
+		<view n="105">
+			<name>Passengers View</name>
+			<enabled type="bool">true</enabled>
+			<type>lookfrom</type>
+			<internal type="bool">false</internal>
+			<config>
+				<from-model type="bool">true</from-model>
+				<from-model-idx type="int">0</from-model-idx>
+				<!-- x/y/z == right/up/back -->
+				<x-offset-m archive="y">-1.36</x-offset-m>
+				<y-offset-m archive="y">1.05</y-offset-m>
+				<z-offset-m archive="y">8.85</z-offset-m>
+				<heading-offset-deg type="double">70.0</heading-offset-deg>
+				<pitch-offset-deg type="double">-2.0</pitch-offset-deg>
+				<from-model-idx type="int">0</from-model-idx>
+				<ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
+				<default-field-of-view-deg type="double">90.0</default-field-of-view-deg>
+				<default-pitch-deg type="double">-2.0</default-pitch-deg>
+				<default-heading-deg type="double">0</default-heading-deg>
+				<front-direction-deg type="double">0</front-direction-deg>
+				<front-left-direction-deg type="double">45</front-left-direction-deg>
+				<left-direction-deg type="double">90</left-direction-deg>
+				<back-left-direction-deg type="double">135</back-left-direction-deg>
+				<back-direction-deg type="double">180</back-direction-deg>
+				<back-right-direction-deg type="double">225</back-right-direction-deg>
+				<right-direction-deg type="double">270</right-direction-deg>
+				<front-right-direction-deg type="double">315</front-right-direction-deg>
+				<dynamic-view type="bool">true</dynamic-view>
+			</config>
+		</view>
+		
+		<!-- Disable Flightgear´s built in electrical system -->
+		<!-- Clear electrical path to use VC10/nasal/electrical.nas instead -->
+		
+		<systems>
+			<electrical><path></path></electrical>
+		</systems>
 
-	<nasal> 
-		<VC10>		
+	</sim>
+ 
+	<consumables>
+		<fuel>
+			<tank n="0">
+				<name>Tank 1A</name>
+			</tank>
+			<tank n="1">
+				<name>Tank 1</name>
+			</tank>
+			<tank n="2">
+				<name>Tank 2</name>
+			</tank>
+			<tank n="3">
+				<name>Tank 3</name>
+			</tank>
+			<tank n="4">
+				<name>Tank 4</name>
+			</tank>
+			<tank n="5">
+				<name>Tank 4A</name>
+			</tank>
+			<tank n="6">
+				<name>Centre Tank</name>
+			</tank>
+			<tank n="7">
+				<name>Engine 1 LP</name>
+			</tank>
+			<tank n="8">
+				<name>Engine 2 LP</name>
+			</tank>
+			<tank n="9">
+				<name>Engine 3 LP</name>
+			</tank>
+			<tank n="10">
+				<name>Engine 4 LP</name>
+			</tank>
+		</fuel>
+	</consumables>
+
+	<nasal>
+		<VC10>
 			<file>Nasal/shake.nas</file>
 			<file>Nasal/autostart.nas</file>
 			<file>Nasal/fuel-and-payload.nas</file>
@@ -316,9 +313,9 @@ _______________________________________________________
 			<file>Nasal/mk-agl-radar.nas</file>
 			<file>Nasal/mk-frw.nas</file>
 			<file>Nasal/mk-stopwatch.nas</file>
-<!--			<file>Nasal/mk-rmi.nas</file> -->
+			<!--			<file>Nasal/mk-rmi.nas</file> -->
 			<file>Nasal/mk-wiper.nas</file>
-			<file>Nasal/mk-ci-tacan.nas</file>   
+			<file>Nasal/mk-ci-tacan.nas</file>
 			<file>Nasal/doors.nas</file>
 			<file>Nasal/tyresmoke.nas</file>
 			<file>Nasal/brakesystem.nas</file>
@@ -326,37 +323,37 @@ _______________________________________________________
 			<file>Nasal/autopilot-Bendix-PB-20.nas</file>
 			<file>Nasal/tcas.nas</file>
 			<file>Nasal/registration.nas</file>
-			<file>Nasal/manual.nas</file>	
+			<file>Nasal/manual.nas</file>
 			<file>Nasal/Reset-in-air.nas</file>
 			<file>Nasal/controls.nas</file>
 			<file>Nasal/engines.nas</file>
-		</VC10> 
+		</VC10>
 		
 		<dialogs>
 			<file>Nasal/dialogs.nas</file>
 		</dialogs>
 		
-	    <dual_control_tools>
-	     <file>Nasal/DualControl/dual-control-tools.nas</file>
-	    </dual_control_tools>
-	    <aircraft_dual_control>
-	     <file>Nasal/DualControl/VC10-dual-control.nas</file>
-	    </aircraft_dual_control>
-	    <dual_control>
-	     <file>Nasal/DualControl/pilot-dual-control.nas</file>
-	    </dual_control>
+		<dual_control_tools>
+			<file>Nasal/DualControl/dual-control-tools.nas</file>
+		</dual_control_tools>
+		<aircraft_dual_control>
+			<file>Nasal/DualControl/VC10-dual-control.nas</file>
+		</aircraft_dual_control>
+		<dual_control>
+			<file>Nasal/DualControl/pilot-dual-control.nas</file>
+		</dual_control>
 	</nasal>
 	
-    <dual-control>
-      <active type="bool">0</active>
-    </dual-control>
+	<dual-control>
+		<active type="bool">0</active>
+	</dual-control>
 	
-<!-- **********************************************************************
+	<!-- **********************************************************************
         JSBsim interface
-     ********************************************************************** -->    
+     ********************************************************************** -->
 
-		<!-- Set up aliased properties for jsbsim use-->
-<!--	<fuel>
+	<!-- Set up aliased properties for jsbsim use-->
+	<!--	<fuel>
 		<switches>
 			<Tank1_1A_SlowXfer alias="/fdm/jsbsim/fuel/switches/Tank1_1A_SlowXfer" /> 			
 			<Tank1_1A_FastXfer alias="/fdm/jsbsim/fuel/switches/Tank1_1A_FastXfer" />
@@ -384,6 +381,6 @@ _______________________________________________________
 		</jsbsim>
 	</fdm>
 	-->
-<!-- ********************************************************************** -->
+	<!-- ********************************************************************** -->
 	
 </PropertyList>

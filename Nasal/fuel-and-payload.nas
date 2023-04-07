@@ -1824,7 +1824,8 @@ print ("standard_load");
 }
 
 # the passengers quantity
-setlistener("fdm/jsbsim/inertia/pointmass-weight-lbs[0]", func(wlbs){
+##setlistener("fdm/jsbsim/inertia/pointmass-weight-lbs[0]", func(wlbs){
+setlistener("payload/weight/lb[0]", func(wlbs){
 	var pers = wlbs.getValue() or 0;
 	setprop("VC10/passengers/weight-kg[0]", pers*0.45359237);
   pers = (pers > 0) ? pers/180 : 0;  # 180lbs per crew member
@@ -1832,52 +1833,52 @@ setlistener("fdm/jsbsim/inertia/pointmass-weight-lbs[0]", func(wlbs){
   count_all();
 },1,0);
 
-setlistener("payload/weight[0]/weight", func(wlbs){
-	var pers = wlbs.getValue() or 0;
-	setprop("VC10/passengers/weight-kg[0]", pers*0.45359237);
-  pers = (pers > 0) ? pers/180 : 0;  # 180lbs per crew member
-  setprop("VC10/passengers/count[0]", pers);  
-  count_all();
-},1,0);
-setlistener("fdm/jsbsim/inertia/pointmass-weight-lbs[1]", func(wlbs){
+##setlistener("fdm/jsbsim/inertia/pointmass-weight-lbs[1]", func(wlbs){
+setlistener("payload/weight/lb[1]", func(wlbs){
 	var pers = wlbs.getValue() or 0;
 	setprop("VC10/passengers/weight-kg[1]", pers*0.45359237);
   pers = (pers > 0) ? pers/180 : 0;  # 180lbs per passanger
   setprop("VC10/passengers/count[1]", pers);
   count_all();
 },1,0);
-setlistener("fdm/jsbsim/inertia/pointmass-weight-lbs[2]", func(wlbs){
+##setlistener("fdm/jsbsim/inertia/pointmass-weight-lbs[2]", func(wlbs){
+setlistener("payload/weight/lb[2]", func(wlbs){
 	var pers = wlbs.getValue() or 0;
 	setprop("VC10/passengers/weight-kg[2]", pers*0.45359237);
   pers = (pers > 0) ? pers/180 : 0;  # 180lbs per passanger
   setprop("VC10/passengers/count[2]", pers);
   count_all();
 },1,0);
-setlistener("fdm/jsbsim/inertia/pointmass-weight-lbs[3]", func(wlbs){
+##setlistener("fdm/jsbsim/inertia/pointmass-weight-lbs[3]", func(wlbs){
+setlistener("payload/weight/lb[3]", func(wlbs){
 	var pers = wlbs.getValue() or 0;
 	setprop("VC10/passengers/weight-kg[3]", pers*0.45359237);
   pers = (pers > 0) ? pers/180 : 0;  # 180lbs per passanger
   setprop("VC10/passengers/count[3]", pers);
   count_all();
 },1,0);
-setlistener("fdm/jsbsim/inertia/pointmass-weight-lbs[4]", func(wlbs){
+##setlistener("fdm/jsbsim/inertia/pointmass-weight-lbs[4]", func(wlbs){
+setlistener("payload/weight/lb[4]", func(wlbs){
 	var lag = wlbs.getValue() or 0;
 	setprop("VC10/passengers/weight-kg[4]", lag*0.45359237);
   count_all();
 },1,0);
-setlistener("fdm/jsbsim/inertia/pointmass-weight-lbs[5]", func(wlbs){
+##setlistener("fdm/jsbsim/inertia/pointmass-weight-lbs[5]", func(wlbs){
+setlistener("payload/weight/lb[5]", func(wlbs){
 	var lag = wlbs.getValue() or 0;
 	setprop("VC10/passengers/weight-kg[5]", lag*0.45359237);
   count_all();
 },1,0);
-setlistener("fdm/jsbsim/inertia/pointmass-weight-lbs[6]", func(wlbs){
+##setlistener("fdm/jsbsim/inertia/pointmass-weight-lbs[6]", func(wlbs){
+setlistener("payload/weight/lb[6]", func(wlbs){
 	var lag = wlbs.getValue() or 0;
 	setprop("VC10/passengers/weight-kg[6]", lag*0.45359237);
   count_all();
 },1,0);
 
 setlistener("fdm/jsbsim/inertia/weight-lbs", func(wlbs){
-	var wlbs = wlbs.getValue();
+##setlistener("payload/weight/lb[6]", func(wlbs){
+  var wlbs = wlbs.getValue();
   wlbs = (wlbs > 0) ? wlbs*0.45359237 : 0;  # 0.45359237
   setprop("VC10/weight-kg", wlbs);
 },1,0);

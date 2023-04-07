@@ -1,30 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--####################################################################
-Lake of Constance Hangar
+
 Vickers VC10 for Flightgear
-Copyright (C) 2013 M.Kraus
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-Every software has a developer, also free software. 
-As a gesture of courtesy and respect, I would be delighted 
-if you contacted me before making any changes to this software. 
-<info (at) marc-kraus.de> April, 2017
-########################################################################-->
+###############################-->
 <PropertyList>
 
 <!-- specific ADF -->
+
 <adf n="0">
 	<mode type="string">adf</mode>
 	<power-btn type="bool">true</power-btn>
@@ -33,7 +15,7 @@ if you contacted me before making any changes to this software.
 	<volume-norm type="double">0.5</volume-norm>
 <!--	<frequencies>
 		<selected-khz type="int">490</selected-khz> -->
-		 <!--  NDB "DVI" (Donaueschingen)  -->>
+		 <!--  NDB "DVI" (Donaueschingen)  -->
 <!--	</frequencies> -->
 </adf>
 <adf n="1">
@@ -45,17 +27,17 @@ if you contacted me before making any changes to this software.
 <!--	<frequencies>
 		<selected-khz type="int">442</selected-khz> -->
 		 <!--  EDNY near the lake of constance  -->
-<!--	</frequencies>-->
+<!--	</frequencies> -->
 </adf>
 
 <rmi>	
 	<face-offset type="double">0.0</face-offset>
-<!--	<rmi-Needle n="0">
+	<rmi-Needle n="0">
 		<switch type="bool">0</switch>
 	</rmi-Needle>
 	<rmi-Needle n="1">
 		<switch type="bool">1</switch>
-	</rmi-Needle> -->
+	</rmi-Needle>
 </rmi>
 
 <deviation-indicator>
@@ -259,7 +241,7 @@ if you contacted me before making any changes to this software.
   </table>
 </mptcas>
 
-<transponder>
+<transponder>-
   <inputs><knob-mode type="int">0</knob-mode></inputs>
 </transponder>
 

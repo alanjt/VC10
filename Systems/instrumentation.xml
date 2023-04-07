@@ -1,30 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--####################################################################
-Lake of Constance Hangar
+
 Vickers VC10 for Flightgear
-Copyright (C) 2013 M.Kraus
 
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-Every software has a developer, also free software. 
-As a gesture of courtesy and respect, I would be delighted 
-if you contacted me before making any changes to this software. 
-<info (at) marc-kraus.de> April, 2017
 ########################################################################-->
 <!--
 VC10 usage: Note that this file is essentially a copy of the generic instrumentation.
-The only reason it's here is to specify a second ADF.
+The only reason it's here is to specify aditional instruments.
 -->
 
 <PropertyList>
@@ -97,8 +79,9 @@ The only reason it's here is to specify a second ADF.
 	<clock>
 		<name>clock</name>
 		<number>0</number>
-	</clock> 
+	</clock>
 
+<!-- Flux Gate (magnetic) Compass -->	
 	<heading-indicator-fg>
 		<name>heading-indicator-fg</name>
 		<number>0</number>
@@ -109,10 +92,26 @@ The only reason it's here is to specify a second ADF.
 		<number>1</number>
 	</heading-indicator-fg>
 
+<!-- Directional Gyro Compass -->		
+	<heading-indicator-dg>
+		<name>heading-indicator-dg</name>
+		<number>0</number>
+	</heading-indicator-dg>
+
+	<heading-indicator-dg>
+		<name>heading-indicator-dg</name>
+		<number>1</number>
+	</heading-indicator-dg>
+
 	<magnetic-compass>
 		<name>magnetic-compass</name>
 		<number>0</number>
 	</magnetic-compass>
+
+	<master-reference-gyro>
+		<name>master-reference-gyro</name>
+		<number>0</number>
+	</master-reference-gyro>
 
 	<slip-skid-ball>
 		<name>slip-skid-ball</name>
@@ -143,17 +142,17 @@ The only reason it's here is to specify a second ADF.
 	<mk-viii>
 		<name>mk-viii</name>
 		<number>0</number>
-	</mk-viii> 
+	</mk-viii>
 
 	<marker-beacon>
 		<name>marker-beacon</name>
 		<number>0</number>
-	</marker-beacon> 
+	</marker-beacon>
 
 	<transponder>
 		<name type="string">transponder</name>
 		<number type="int">0</number>
-		<mode type="int">1</mode> <!-- 0 = Mode A, 1 = Mode C, 2 = Mode S -->
+		<mode type="int">1</mode><!-- 0 = Mode A, 1 = Mode C, 2 = Mode S -->
 		<bus-volts type="double">8.0</bus-volts>
 		<encoder-path type="string">instrumentation/altimeter</encoder-path>
 		<kt70-compatibility type="bool">0</kt70-compatibility>

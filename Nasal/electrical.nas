@@ -374,84 +374,38 @@ props.globals.initNode("VC10/electric/dc/NonEssDCbus1-ind",0,"INT");
 props.globals.initNode("VC10/electric/dc/NonEssDCbus2-ind",0,"INT");
 #####################################
 
-var init_switches = func{
+var init_lighting_switches = func{
     props.globals.getNode("systems/electrical/serviceable",0,"BOOL");
     setprop("controls/lighting/panel-norm",0.0);
     setprop("controls/lighting/cabin-dim",0.0);
     setprop("controls/lighting/engineer-dim",0.0);
     setprop("controls/lighting/overhead-dim",0.0);
-    
-    var AVswitch=props.globals.initNode("controls/electric/avionics-switch",1,"BOOL");
-    setprop("controls/lighting/efis-norm",0.8); 
-    
-    append(EssDCbus_input,AVswitch);
-    append(EssDCbus_output,props.globals.initNode("systems/electrical/outputs/KNS80",0,"DOUBLE"));
-    append(EssDCbus_load,1);
-    append(EssDCbus_service, nil);
-    append(EssDCbus_input,AVswitch);
-    append(EssDCbus_output,props.globals.initNode("systems/electrical/outputs/efis",0,"DOUBLE"));
-    append(EssDCbus_load,1);
-    append(EssDCbus_service, nil);
-    append(EssDCbus_input,AVswitch);
-    append(EssDCbus_output,props.globals.initNode("systems/electrical/outputs/adf[0]",0,"DOUBLE"));
-    append(EssDCbus_load,1);
-    append(EssDCbus_service, props.globals.initNode("instrumentation/adf[0]/serviceable",0,"BOOL"));
-    append(EssDCbus_input,AVswitch);
-    append(EssDCbus_output,props.globals.initNode("systems/electrical/outputs/adf[1]",0,"DOUBLE"));
-    append(EssDCbus_load,1);
-    append(EssDCbus_service, props.globals.initNode("instrumentation/adf[1]/serviceable",0,"BOOL"));
-    append(EssDCbus_input,AVswitch);
-    append(EssDCbus_output,props.globals.initNode("systems/electrical/outputs/dme[0]",0,"DOUBLE"));
-    append(EssDCbus_load,1);
-    append(EssDCbus_service, props.globals.initNode("instrumentation/dme[0]/serviceable",0,"BOOL"));
-    append(EssDCbus_input,AVswitch);
-    append(EssDCbus_output,props.globals.initNode("systems/electrical/outputs/dme[1]",0,"DOUBLE"));
-    append(EssDCbus_load,1);
-    append(EssDCbus_service, props.globals.initNode("instrumentation/dme[1]/serviceable",0,"BOOL"));
-    append(EssDCbus_input,AVswitch);
-    append(EssDCbus_output,props.globals.initNode("systems/electrical/outputs/gps",0,"DOUBLE"));
-    append(EssDCbus_load,1);
-    append(EssDCbus_service, nil);
-    append(EssDCbus_input,AVswitch); 
-    append(EssDCbus_output,props.globals.initNode("systems/electrical/outputs/DG",0,"DOUBLE"));
-    append(EssDCbus_load,1);
-    append(EssDCbus_service, nil);
-    append(EssDCbus_input,AVswitch);
-    append(EssDCbus_output,props.globals.initNode("systems/electrical/outputs/transponder",0,"DOUBLE"));
-    append(EssDCbus_load,1);
-    append(EssDCbus_service, nil);
-    append(EssDCbus_input,AVswitch);
-    append(EssDCbus_output,props.globals.initNode("systems/electrical/outputs/mk-viii",0,"DOUBLE"));
-    append(EssDCbus_load,1);
-    append(EssDCbus_service, nil);
-    append(EssDCbus_input,AVswitch);
-    append(EssDCbus_output,props.globals.initNode("systems/electrical/outputs/turn-coordinator",0,"DOUBLE"));
-    append(EssDCbus_load,1);
-    append(EssDCbus_service, nil);
-    append(EssDCbus_input,AVswitch);
-    append(EssDCbus_output,props.globals.initNode("systems/electrical/outputs/comm[0]",0,"DOUBLE"));
-    append(EssDCbus_load,1);
-    append(EssDCbus_service, props.globals.initNode("instrumentation/comm[0]/serviceable",0,"BOOL"));
-    append(EssDCbus_input,AVswitch);
-    append(EssDCbus_output,props.globals.initNode("systems/electrical/outputs/comm[1]",0,"DOUBLE"));
-    append(EssDCbus_load,1);
-    append(EssDCbus_service, props.globals.initNode("instrumentation/comm[1]/serviceable",0,"BOOL"));
-    append(EssDCbus_input,AVswitch);
-    append(EssDCbus_output,props.globals.initNode("systems/electrical/outputs/nav[0]",0,"DOUBLE"));
-    append(EssDCbus_load,1);
-    append(EssDCbus_service, props.globals.initNode("instrumentation/nav[0]/serviceable",0,"BOOL"));
-    append(EssDCbus_input,AVswitch);
-    append(EssDCbus_output,props.globals.initNode("systems/electrical/outputs/nav[1]",0,"DOUBLE"));
-    append(EssDCbus_load,1);
-    append(EssDCbus_service, props.globals.initNode("instrumentation/nav[1]/serviceable",0,"BOOL"));
-    append(EssDCbus_input,AVswitch);
-    append(EssDCbus_output,props.globals.initNode("systems/electrical/outputs/marker-beacon",0,"DOUBLE"));
-    append(EssDCbus_load,1);
-    append(EssDCbus_service, props.globals.initNode("instrumentation/marker-beacon/serviceable",0,"BOOL"));
+}
 
-##    append(EssDCbus_service, props.globals.initNode("instrumentation/marker-beacon/inner",0,"BOOL"));
-##    append(EssDCbus_service, props.globals.initNode("instrumentation/marker-beacon/middle",0,"BOOL"));
-##    append(EssDCbus_service, props.globals.initNode("instrumentation/marker-beacon/outer",0,"BOOL"));
+var init_instrumentation_power = func{	   
+	props.globals.initNode("systems/electrical/outputs/KNS80",0,"DOUBLE");
+	props.globals.initNode("systems/electrical/outputs/efis",0,"DOUBLE");
+	props.globals.initNode("systems/electrical/outputs/adf[0]",0,"DOUBLE"); 
+	props.globals.initNode("systems/electrical/outputs/adf[1]",0,"DOUBLE");									
+	props.globals.initNode("systems/electrical/outputs/dme[0]",0,"DOUBLE"); 
+	props.globals.initNode("systems/electrical/outputs/dme[1]",0,"DOUBLE");																							  
+	props.globals.initNode("systems/electrical/outputs/gps",0,"DOUBLE");						
+	props.globals.initNode("systems/electrical/outputs/DG[0]",0,"DOUBLE"); 
+	props.globals.initNode("systems/electrical/outputs/DG[1]",0,"DOUBLE");									
+	props.globals.initNode("systems/electrical/outputs/transponder",0,"DOUBLE");																							 
+	props.globals.initNode("systems/electrical/outputs/mk-viii",0,"DOUBLE");						
+	props.globals.initNode("systems/electrical/outputs/turn-coordinator",0,"DOUBLE");							  
+	props.globals.initNode("systems/electrical/outputs/com[0]",0,"DOUBLE"); 
+	props.globals.initNode("systems/electrical/outputs/com[1]",0,"DOUBLE");
+	props.globals.initNode("systems/electrical/outputs/nav[0]",0,"DOUBLE"); 
+	props.globals.initNode("systems/electrical/outputs/nav[1]",0,"DOUBLE"); 
+	props.globals.initNode("systems/electrical/outputs/marker-beacon",0,"DOUBLE");
+
+
+# perhaps these should be in marker-beacon.nas or instrumentation.nas
+	props.globals.initNode("instrumentation/marker-beacon/inner",0,"BOOL");
+	props.globals.initNode("instrumentation/marker-beacon/middle",0,"BOOL");
+	props.globals.initNode("instrumentation/marker-beacon/outer",0,"BOOL");	
 }
 
 #############################################################################################################
@@ -700,6 +654,11 @@ var update_buses = func {
 # temporary fix to supply 707 ess bus for imported systems	
 	essbus = math.max(No1EssDCbus_volts,No2EssDCbus_volts);
 	setprop("VC10/electric/ess-bus",essbus);
+	
+	
+	setprop("systems/electrical/outputs/adf",No1NonEssDCbus_volts);
+	setprop("systems/electrical/outputs/adf[1]",No2EssDCbus_volts);
+
 ###################################################################################
 	
 	setprop("VC10/electric/ac/generator/Gen1-volts",Gen1_volts);
@@ -922,7 +881,8 @@ setlistener("VC10/electric/ac/generator/Gen4-Control-sw", func {
 });
 ##############################################################################################
 setlistener("sim/signals/fdm-initialized", func {
-    init_switches();
+    init_lighting_switches();
+	init_instrumentation_power();
     settimer(update_electrical,5);
 
     settimer(func{ setprop("VC10/fuel/temperature", getprop("/environment/temperature-degc")) } , 5);
