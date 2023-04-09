@@ -647,18 +647,26 @@ var update_buses = func {
 	
 	setprop("VC10/electric/dc/BAT1-bus-volts",No1Bat_volts);
 	setprop("VC10/electric/dc/BAT2-bus-volts",No2Bat_volts);
-	
-	
+
+
 
 ###################################################################################
 # temporary fix to supply 707 ess bus for imported systems	
 	essbus = math.max(No1EssDCbus_volts,No2EssDCbus_volts);
 	setprop("VC10/electric/ess-bus",essbus);
 	
-	
-	setprop("systems/electrical/outputs/adf",No1NonEssDCbus_volts);
-	setprop("systems/electrical/outputs/adf[1]",No2EssDCbus_volts);
-
+	setprop("systems/electrical/outputs/DG[0]",AuxACbus_volts);
+	setprop("systems/electrical/outputs/DG[1]",No4ACbus_volts);  	
+	setprop("systems/electrical/outputs/adf[0]",No1EssDCbus_volts);   # via switch at Nav console
+	setprop("systems/electrical/outputs/adf[1]",No2NonEssDCbus_volts);# via switch at Nav console
+	setprop("systems/electrical/outputs/nav[0]",No1EssDCbus_volts);   # via switch at Nav console
+	setprop("systems/electrical/outputs/nav[1]",No2NonEssDCbus_volts);# via switch at Nav console		
+	setprop("systems/electrical/outputs/com[0]",No1EssDCbus_volts);   # via switch at Nav console
+	setprop("systems/electrical/outputs/com[1]",No2NonEssDCbus_volts);# via switch at Nav console
+	setprop("systems/electrical/outputs/dme[0]",No1EssDCbus_volts);   # via switch at Nav console
+	setprop("systems/electrical/outputs/dme[1]",No2NonEssDCbus_volts);# via switch at Nav console
+	setprop("systems/electrical/outputs/transponder",No1EssDCbus_volts);
+	setprop("systems/electrical/outputs/marker-beacon",No1EssDCbus_volts);
 ###################################################################################
 	
 	setprop("VC10/electric/ac/generator/Gen1-volts",Gen1_volts);

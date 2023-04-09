@@ -81,7 +81,7 @@ The only reason it's here is to specify aditional instruments.
 		<number>0</number>
 	</clock>
 
-<!-- Flux Gate (magnetic) Compass -->	
+<!-- Flux Gate (gyro-magnetic) Compass -->	
 	<heading-indicator-fg>
 		<name>heading-indicator-fg</name>
 		<number>0</number>
