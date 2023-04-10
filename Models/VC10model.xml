@@ -17,6 +17,8 @@ Copyright (C) 2019 Alan Teeder
 	<animation>
 		<type>select</type>
 		<!--		<object-name>Fuselage</object-name> -->
+		<object-name>Door</object-name>
+		<object-name>Floor</object-name>
 		<object-name>Fin</object-name>
 		<object-name>Rudder</object-name>
 		<object-name>Engine1</object-name>

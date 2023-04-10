@@ -3,11 +3,11 @@ MATERIAL "Material.004" rgb 1 1 1  amb 0.8 0.8 0.8  emis 0 0 0  spec 0.5 0.5 0.5
 OBJECT world
 kids 1
 OBJECT poly
-name "floor"
-loc 0 -0.0124999 0
+name "coclpitfloor"
+loc 0 -1.12299e-005 0
 data 10
 floor.mesh
-texture "Liveries/texMap.png"
+texture "D:/fg/MyAircraft/VC10/Models/Liveries/texMap.png"
 crease 40.000000
 numvert 20
 3.31112 0 -0.00659118

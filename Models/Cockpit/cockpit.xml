@@ -548,8 +548,20 @@
 	</model>
 
 	<model>
-		<name>Coxkpit rear wall</name>
-		<path>Aircraft/VC10/Models/Cockpit/CockpitDoor.xml</path>
+		<name>Cockpit rear wall</name>
+		<path>Aircraft/VC10/Models/Cockpit/CockpitBack.xml</path>
+		<offsets>
+			<x-m>5.2195</x-m>
+			<y-m>0</y-m>
+			<z-m>0</z-m>
+			<pitch-deg>0</pitch-deg>
+			<heading-deg>0</heading-deg>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Cockpit Floor</name>
+		<path>Aircraft/VC10/Models/Cockpit/CockpitFloor.xml</path>
 		<offsets>
 			<x-m>0</x-m>
 			<y-m>0</y-m>
