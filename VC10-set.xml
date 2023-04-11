@@ -319,7 +319,7 @@ _______________________________________________________
 			<file>Nasal/doors.nas</file>
 			<file>Nasal/tyresmoke.nas</file>
 			<file>Nasal/brakesystem.nas</file>
-			<file>Nasal/autopilot-routemanager.nas</file>
+<!--			<file>Nasal/autopilot-routemanager.nas</file> -->
 			<file>Nasal/autopilot-Bendix-PB-20.nas</file>
 			<file>Nasal/tcas.nas</file>
 			<file>Nasal/registration.nas</file>

@@ -1,0 +1,247 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+	<!-- Automatic Variation Control Unit - AVCU -->
+	<!-- Allows navigator to control magnetic daviation and variation for the 
+	directional gyro/fluxgate system.
+	Normal use is to set Auto mode. This applies system computed variation. If the 
+	MAG mode on the navigator´s compass is selected then the compass will read true heading.
+	In Manual mode the navigator can set the variation. If he sets variation to zero then his compass will show magnetic heading.
+	The pilot´s HDD compass displays the same heading when  is not selected.
+	If the pilot selects IP (Inertial Platform) mode then true heading from the Central Computing System (CCS) is displayed.
+	Magnetic deviation (due to aircraft magnetic field and compass errors) can also be input.
+	During CCS IP alignment, the navigator should select auto mode to give a good aproximation of true north as a start point when aligning the CCS inertial platform.
+	
+	-->
+
+	<path>AVCU.ac</path>
+	
+	<animation>
+		<type>knob</type>
+		<object-name>Deviation_knob</object-name>
+		<object-name>Deviation_dial</object-name>
+		<property>instrumentation/compass_system/Compass_Avcu/AVCU_mag_deviation</property>	
+		<drag-direction>horizontal</drag-direction>
+		<drag-scale-px>50</drag-scale-px>		
+		<interpolation>
+			<entry><ind>-5</ind><dep>-80</dep></entry>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>5</ind><dep>80</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>0.0</x-m>
+			<y-m>0.03083</y-m>
+			<z-m>-0.0231</z-m>
+		</center>
+		<axis>
+			<x>-1</x>
+		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>instrumentation/compass_system/Compass_Avcu/AVCU_mag_deviation</property>
+				<repeatable>false</repeatable>
+				<factor>1</factor>
+				<min>-5</min>
+				<max>5</max>
+				<wrap>0</wrap>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>knob</type>
+		<object-name>Auto_Manual_sw</object-name>
+		<property>instrumentation/compass_system/Compass_Avcu/AVCU_auto</property>	
+		<interpolation>
+			<entry><ind>1</ind><dep>30</dep></entry>
+			<entry><ind>0</ind><dep>-30</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0.0645</y-m>
+			<z-m>-0.0165</z-m>
+		</center>
+		<axis><y>-1</y></axis>
+		<drag-direction>vertical</drag-direction>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>instrumentation/compass_system/Compass_Avcu/AVCU_auto</property>
+				<factor>1</factor>
+				<min>0</min><max>1</max>                
+				<wrap>false</wrap>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>knob</type>
+		<object-name>N-S_sw</object-name>
+		<property>instrumentation/compass_system/Compass_Avcu/AVCU_N_S</property>	
+		<interpolation>
+			<entry><ind>1</ind><dep>30</dep></entry>
+			<entry><ind>0</ind><dep>-30</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0.0828</y-m>
+			<z-m>-0.0165</z-m>
+		</center>
+		<axis><y>-1</y></axis>
+		<drag-direction>vertical</drag-direction>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>instrumentation/compass_system/Compass_Avcu/AVCU_N_S</property>
+				<factor>1</factor>
+				<min>0</min><max>1</max>                
+				<wrap>false</wrap>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>knob</type>
+		<object-name>Latitude_knob</object-name>
+		<object-name>Latitude_dial</object-name>
+		<property>instrumentation/compass_system/Compass_Avcu/AVCU_latitude</property>	
+		<drag-direction>horizontal</drag-direction>
+		<drag-scale-px>50</drag-scale-px>		
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>10</ind><dep>32.5</dep></entry>
+			<entry><ind>20</ind><dep>65.8</dep></entry>
+			<entry><ind>30</ind><dep>102.7</dep></entry>
+			<entry><ind>40</ind><dep>143.9</dep></entry>
+			<entry><ind>50</ind><dep>188.8</dep></entry>
+			<entry><ind>60</ind><dep>235.5</dep></entry>
+			<entry><ind>70</ind><dep>280.6</dep></entry>
+			<entry><ind>80</ind><dep>319.7</dep></entry>
+			<entry><ind>90</ind><dep>345</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>0.0</x-m>
+			<y-m>0.1138</y-m>
+			<z-m>-0.0238</z-m>
+		</center>
+		<axis>
+			<x>-1</x>
+		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>instrumentation/compass_system/Compass_Avcu/AVCU_latitude</property>
+				<repeatable>false</repeatable>
+				<factor>1</factor>
+				<min>0</min>
+				<max>90</max>
+				<wrap>0</wrap>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<type>knob</type>
+		<object-name>adjust_knob</object-name>
+		<property>systems/navigation/AVCU_adjust</property>
+		<drag-direction>horizontal</drag-direction>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>instrumentation/compass_system/Compass_Avcu/AVCU_adjust</property>
+				<factor>1</factor>
+				<min>-1</min><max>1</max>                
+				<wrap>false</wrap>
+			</binding>
+			<binding>
+				<command>property-toggle</command>
+				<property>sim/sound/click</property>
+			</binding>
+		</action>
+		<!-- Release action, spring loaded to 0 -->
+		<release>
+			<binding>
+				<command>property-adjust</command>
+				<property>instrumentation/compass_system/Compass_Avcu/AVCU_adjust</property>
+				<step>0</step>
+				<min>0</min>
+				<max>0</max>
+			</binding>
+		</release>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>adjust_knob</object-name>    
+		<property>instrumentation/compass_system/Compass_Avcu/AVCU_adjust</property>
+		<interpolation>
+			<entry><ind>-1</ind><dep>-10</dep></entry>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>10</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0.0882</y-m>
+			<z-m>-0.0484</z-m>
+		</center>
+		<axis><x>-1</x></axis>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>Var_EW</object-name>
+		<property>instrumentation/compass_system/Compass_Avcu/AVCU_var_EW</property>
+		<factor>0.1</factor>
+		<step>1</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>Var_digit1</object-name>
+		<property>instrumentation/compass_system/Compass_Avcu/AVCU_abs_mag_variation</property>
+		<factor>0.01</factor>
+		<step>10</step>
+		<bias>0.005</bias>
+		<axis><x>0</x><y>1</y><z>0</z></axis>
+	</animation>
+
+	<animation>
+		<type>textranslate</type>
+		<object-name>Var_digit2</object-name>
+		<property>instrumentation/compass_system/Compass_Avcu/AVCU_abs_mag_variation</property>
+		<factor>0.1</factor>
+		<step>1.0</step>
+		<bias>0.005</bias>
+		<axis><x>0</x><y>1</y><z>0</z></axis>
+	</animation>
+
+	<animation>
+		<type>textranslate</type>
+		<object-name>Var_digit3</object-name>
+		<property>instrumentation/compass_system/Compass_Avcu/AVCU_abs_mag_variation</property>
+		<factor>1.0</factor>
+		<step>0.1</step>
+		<bias>0.005</bias>
+		<axis><x>0</x><y>1</y><z>0</z></axis>
+	</animation>
+
+
+	<animation>
+		<type>noshadow</type>
+	</animation>
+
+	<!-- *** LoD *** -->
+	<animation>
+		<type>range</type>
+		<min-m>0</min-m>
+		<max-m>5</max-m>
+
+	</animation> 	
+
+</PropertyList>

@@ -7,7 +7,7 @@ name "coclpitfloor"
 loc 0 -1.12299e-005 0
 data 10
 floor.mesh
-texture "D:/fg/MyAircraft/VC10/Models/Liveries/texMap.png"
+texture "cockpitMore.png"
 crease 40.000000
 numvert 20
 3.31112 0 -0.00659118

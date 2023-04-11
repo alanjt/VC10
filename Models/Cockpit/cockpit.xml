@@ -78,7 +78,7 @@
 		</emission>
 	</animation> -->
 
-	<animation>
+<!--	<animation>
 		<type>material</type>
 		<object-name>exitON</object-name>
 		<emission>
@@ -94,7 +94,7 @@
 		<condition>
 			<property>VC10/emergency/exit-lights</property>
 		</condition>
-	</animation>	
+	</animation>	 -->
 
 
 	<animation>
