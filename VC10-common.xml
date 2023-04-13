@@ -461,7 +461,7 @@ if you contacted me before making any changes to this software.
 			<strobe type="bool">false</strobe>
 			<nav-lights type="bool">false</nav-lights>
 			<cabin-lights type="bool">false</cabin-lights>
-			<cabin-dim type="double">0.0</cabin-dim>
+			<cabin-dim type="double">0.8</cabin-dim>
 		</lighting>
 		<special>
 			<wiper-switch type="int">0</wiper-switch>

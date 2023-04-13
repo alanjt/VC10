@@ -163,7 +163,7 @@ var EssDCbus = props.globals.initNode("VC10/electric/ess-bus",0,"DOUBLE");
 
 
 var EssPwr= props.globals.initNode("VC10/electric/ess-power-switch",0,"DOUBLE");
-var CabinDim = props.globals.initNode("systems/electrical/outputs/cabin-dim",0,"DOUBLE");
+var CabinDim = props.globals.initNode("systems/electrical/outputs/cabin-dim",0.8,"DOUBLE");
 var PanelDim = props.globals.initNode("systems/electrical/outputs/panel-dim",0,"DOUBLE");
 var OverheadDim = props.globals.initNode("systems/electrical/outputs/overhead-dim",0,"DOUBLE");
 var EngineerDim = props.globals.initNode("systems/electrical/outputs/engineer-dim",0,"DOUBLE");
@@ -377,7 +377,7 @@ props.globals.initNode("VC10/electric/dc/NonEssDCbus2-ind",0,"INT");
 var init_lighting_switches = func{
     props.globals.getNode("systems/electrical/serviceable",0,"BOOL");
     setprop("controls/lighting/panel-norm",0.0);
-    setprop("controls/lighting/cabin-dim",0.0);
+    setprop("controls/lighting/cabin-dim",0.8);
     setprop("controls/lighting/engineer-dim",0.0);
     setprop("controls/lighting/overhead-dim",0.0);
 }
