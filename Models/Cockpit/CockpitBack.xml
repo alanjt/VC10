@@ -1,26 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PropertyList>
 
-	<model>
-		<name>Cockpit Back Wall and Door</name>
-		<path>CockpitBack.ac</path>
-		<offsets>
-			<x-m>0.0</x-m>
-			<y-m>0.0</y-m>
-			<z-m>0.0</z-m>
-		</offsets>
-	</model>
-	
+	<path>CockpitBack.ac</path>
+
 	
 	<model>
 		<name>NavigatorPanel</name>
 		<path>Aircraft/VC10/Models/Cockpit/Panels/NavigatorPanel/NavPanel.xml</path>
 		<offsets>
-			<x-m>0.0</x-m>
+			<x-m>-0.886</x-m>
 			<y-m>0.381</y-m>
 			<z-m>0.65</z-m>
 			<pitch-deg>0</pitch-deg>
-			<heading-deg>0.0</heading-deg>
+			<heading-deg>-7.5</heading-deg>
 		</offsets>
 	</model>
 

@@ -153,18 +153,6 @@ if you contacted me before making any changes to this software.
 	<animation>
 		<type>rotate</type>
 		<object-name>drum</object-name>
-<!--		<property>instrumentation/vertical-speed-indicator/indicated-speed-fpm</property>		
-		<interpolation>
-		  <entry><ind>-6000</ind><dep>-150</dep></entry>
-		  <entry><ind>-4000</ind><dep>-120</dep></entry>
-		  <entry><ind>-2000</ind><dep>-60</dep></entry>
-		  <entry><ind>-1000</ind><dep>-30</dep></entry>
-		  <entry><ind>    0</ind><dep>  0</dep></entry>
-		  <entry><ind> 1000</ind><dep> 30</dep></entry>
-		  <entry><ind> 2000</ind><dep> 60</dep></entry>
-		  <entry><ind> 4000</ind><dep> 120</dep></entry>
-		  <entry><ind> 6000</ind><dep> 150</dep></entry> 
-		</interpolation> -->
         <property>orientation/pitch-deg</property>
 		<interpolation>
 		  <entry><ind>-60</ind><dep>-150</dep></entry>
@@ -250,7 +238,7 @@ if you contacted me before making any changes to this software.
 	</animation>
 	
   
-  <!-- The knop -->
+  <!-- The knob -->
   <animation>
       <type>translate</type>
       <object-name>gaugeKnob</object-name>
