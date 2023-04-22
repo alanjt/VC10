@@ -12,7 +12,7 @@ name "ALTface"
 loc 0.000015 0.000002 0.00001
 data 7
 ALTface
-texture "alt.png"
+texture "PrecisionAltimeter.png"
 texrep 1 1
 crease 30.000001
 numvert 16
@@ -88,7 +88,7 @@ name "BaroKnob"
 loc 0.007425 -0.03655 0.023123
 data 8
 BaroKnob
-texture "alt.png"
+texture "PrecisionAltimeter.png"
 texrep 1 1
 crease 45.000001
 numvert 81
@@ -899,7 +899,7 @@ name "Needle.001"
 loc 0.000751 0.000002 0.00001
 data 10
 Needle.001
-texture "alt.png"
+texture "PrecisionAltimeter.png"
 texrep 1 1
 crease 30.000001
 numvert 34

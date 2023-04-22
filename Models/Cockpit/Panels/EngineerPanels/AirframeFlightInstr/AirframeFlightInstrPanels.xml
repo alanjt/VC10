@@ -432,7 +432,7 @@ if you contacted me before making any changes to this software.
 	
 	<model>
 		<name>alt</name>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/alt/alt.xml</path>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/PrecisionAltimeter/PrecisionAltimeter.xml</path>
 		<offsets>
 			<x-m>-0.0</x-m>
 			<y-m>0.5017</y-m>

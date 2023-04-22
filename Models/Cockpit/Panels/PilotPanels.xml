@@ -58,7 +58,7 @@ Vickers VC10 for Flightgear
 
 	<model>
 		<name>alt</name>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/alt/alt.xml</path>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/PrecisionAltimeter/PrecisionAltimeter.xml</path>
 		<offsets>
 			<x-m>-0.0</x-m>
 			<y-m>-0.362</y-m>
@@ -724,7 +724,7 @@ Vickers VC10 for Flightgear
 
 	<model>
 		<name>alt_cp</name>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/alt/alt.xml</path>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/PrecisionAltimeter/PrecisionAltimeter.xml</path>
 		<offsets>
 			<x-m>-0.0</x-m>
 			<y-m>0.608</y-m>
