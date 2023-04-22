@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PropertyList>
 
+	<path>NavPanel.ac</path>
+	
 	<model>
-		<name>Navigator Panel</name>
-		<path>NavPanel.ac</path>
+		<path>asi.xml</path>
+		<name>navigator asi</name>
 		<offsets>
 			<x-m>0.0</x-m>
-			<y-m>0.0</y-m>
-			<z-m>0.0</z-m>
+			<y-m>0.9812</y-m>
+			<z-m>0.4313</z-m>
 		</offsets>
 	</model>
 
-</PropertyList>	
+</PropertyList>

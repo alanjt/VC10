@@ -325,7 +325,7 @@ Vickers VC10 for Flightgear
 
 	<model>
 		<name>Standby Altimeter</name>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/altm/altm.xml</path>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/StbyAlt/StbyAlt.xml</path>
 		<offsets>
 			<x-m>0.0</x-m>
 			<y-m>-0.193</y-m>

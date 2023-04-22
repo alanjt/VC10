@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--####################################################################
+
+Vickers VC10 for Flightgear
+
+########################################################################-->
+<PropertyList>
+	<path>asi.ac</path>
+
+	<animation>
+		<type>material</type>
+		<object-name>ASI.Face</object-name>
+		<object-name>Needle</object-name>
+		<object-name>Wasp.Needle</object-name>
+		<condition>
+			<less-than><property>systems/electrical/outputs/cabin-dim</property><value>0.8</value></less-than>
+		</condition>
+		<emission>
+			<red>0.6</red>
+			<green>0.4</green>
+			<blue>0.3</blue>
+			<factor-prop>systems/electrical/outputs/panel-dim</factor-prop>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>ASI.Face</object-name>
+		<object-name>Needle</object-name>
+		<object-name>Wasp.Needle</object-name>
+		<condition>
+			<not><property>/sim/rendering/rembrandt/enabled</property></not>
+			<property>systems/electrical/outputs/cabin-dim</property>
+		</condition>
+		<emission>
+			<red>0.8</red>
+			<green>0.8</green>
+			<blue>0.8</blue>
+			<factor-prop>systems/electrical/outputs/cabin-dim</factor-prop>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Bug1</object-name>
+		<object-name>Bug2</object-name>
+		<object-name>Bug3</object-name>
+		<object-name>Bug4</object-name>
+		<condition>
+			<value>0</value>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>Needle</object-name>
+		<property>instrumentation/airspeed-indicator/indicated-speed-kt</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>60</ind><dep>20.0</dep></entry>
+			<entry><ind>200</ind><dep>270.0</dep></entry>
+			<entry><ind>430</ind><dep>540.0</dep></entry>
+			<entry><ind>600</ind><dep>810.0</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>Bug1</object-name>
+		<property>fdm/jsbsim/velocities/Vspeeds/V1-kts</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>60</ind><dep>20.0</dep></entry>
+			<entry><ind>200</ind><dep>270.0</dep></entry>
+			<entry><ind>430</ind><dep>540.0</dep></entry>
+			<entry><ind>600</ind><dep>810.0</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+
+	<animation>
+		<type>rotate</type>
+		<object-name>Bug2</object-name>
+		<property>fdm/jsbsim/velocities/Vspeeds/V2-kts</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>60</ind><dep>20.0</dep></entry>
+			<entry><ind>200</ind><dep>270.0</dep></entry>
+			<entry><ind>430</ind><dep>540.0</dep></entry>
+			<entry><ind>600</ind><dep>810.0</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>Bug3</object-name>
+		<property>fdm/jsbsim/velocities/Vspeeds/VR-kts</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>60</ind><dep>20.0</dep></entry>
+			<entry><ind>200</ind><dep>270.0</dep></entry>
+			<entry><ind>430</ind><dep>540.0</dep></entry>
+			<entry><ind>600</ind><dep>810.0</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>Bug4</object-name>
+		<property>fdm/jsbsim/velocities/Vspeeds/VAT-kts</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>60</ind><dep>20.0</dep></entry>
+			<entry><ind>200</ind><dep>270.0</dep></entry>
+			<entry><ind>430</ind><dep>540.0</dep></entry>
+			<entry><ind>600</ind><dep>810.0</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>WaspNeedle</object-name>
+		<property>fdm/jsbsim/velocities/Vspeeds/Vm0-kts</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>60</ind><dep>20.0</dep></entry>
+			<entry><ind>200</ind><dep>270.0</dep></entry>
+			<entry><ind>430</ind><dep>540.0</dep></entry>
+			<entry><ind>600</ind><dep>810.0</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+</PropertyList>
