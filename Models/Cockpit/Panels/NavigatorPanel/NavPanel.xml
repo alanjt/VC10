@@ -4,13 +4,44 @@
 	<path>NavPanel.ac</path>
 	
 	<model>
-		<path>asi.xml</path>
+		<name>ADF_rmi_nav</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/rmi/rmi_adf1.xml</path>
+		<offsets>
+			<x-m>0.0</x-m>
+			<y-m>0.7495</y-m> 
+			<z-m>0.4290</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>VORrmi_nav</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/rmi/rmi_vor1.xml</path>
+		<offsets>
+			<x-m>0.0</x-m>
+			<y-m>0.8257</y-m>
+			<z-m>0.4290</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/NavigatorPanel/NavAlt/NavAlt.xml</path>
+		<name>navigator altimeter</name>
+		<offsets>
+			<x-m>0.0</x-m>
+			<y-m>0.9057</y-m>
+			<z-m>0.4290</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/NavigatorPanel/NavAsi/NavAsi.xml</path>
 		<name>navigator asi</name>
 		<offsets>
 			<x-m>0.0</x-m>
 			<y-m>0.9812</y-m>
-			<z-m>0.4313</z-m>
+			<z-m>0.4290</z-m>
 		</offsets>
 	</model>
+
 
 </PropertyList>

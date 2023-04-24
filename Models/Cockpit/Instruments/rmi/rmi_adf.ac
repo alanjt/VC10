@@ -4,7 +4,7 @@ OBJECT world
 kids 7
 OBJECT poly
 name "CompassCard"
-loc 0.000135 0 0
+loc 0.000219 -1.45519e-010 -1.45519e-010
 data 4
 face
 texture "rmi.png"
@@ -84,6 +84,7 @@ data 7
 heading
 texture "rmi.png"
 crease 30.000002
+locked
 numvert 64
 0.002413 -9.1e-005 -0.033947
 0.002413 -0.006779 -0.033288
@@ -382,6 +383,7 @@ data 6
 holder
 texture "rmi.png"
 crease 30.000002
+locked
 numvert 41
 -0.003461 5.5e-005 -0.003027
 -0.003461 -0.002053 -0.002153
@@ -537,6 +539,7 @@ data 7
 Needle1
 texture "rmi.png"
 crease 45.000000
+locked
 numvert 9
 0 -0.024134 -0.000542
 0 -0.024134 0.000542
@@ -584,6 +587,7 @@ data 7
 Needle2
 texture "rmi.png"
 crease 45.000000
+locked
 numvert 12
 0 -0.018229 -0.002114
 0 -0.018229 0.002153
@@ -641,6 +645,7 @@ data 4
 ring
 texture "rmi.png"
 crease 30.000002
+locked
 numvert 172
 0.003593 0.030247 -0.017421
 0.003593 0.024696 -0.024637
@@ -1378,11 +1383,12 @@ refs 4
 kids 0
 OBJECT poly
 name "shadow"
-loc 0.001681 0 0
+loc 0.001681 0.0510705 0.050113
 data 6
 shadow
 texture "shadow.png"
 crease 30.000002
+locked
 numvert 1
 0.000547 -0.050944 -0.049962
 kids 0

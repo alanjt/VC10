@@ -4,7 +4,7 @@ OBJECT world
 kids 7
 OBJECT poly
 name "CompassCard"
-loc 0.000135 0 0
+loc 0.000219 -1.45519e-010 -1.45519e-010
 data 4
 face
 texture "rmi.png"
@@ -1376,7 +1376,7 @@ refs 4
 kids 0
 OBJECT poly
 name "shadow"
-loc 0.001681 0 0
+loc 0.001681 0.0529059 0.0529059
 data 6
 shadow
 texture "shadow.png"

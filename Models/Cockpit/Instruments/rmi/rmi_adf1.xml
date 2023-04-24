@@ -61,7 +61,7 @@ if you contacted me before making any changes to this software.
 		</emission>
 	</animation>
 
-	<animation>
+<!--	<animation>
 		<type>noshadow</type>
 		<object-name>shadow</object-name>
 	</animation>
@@ -69,7 +69,7 @@ if you contacted me before making any changes to this software.
 	<effect>
 		<inherits-from>Effects/model-transparent</inherits-from>
 		<object-name>shadow</object-name>
-  </effect>
+  </effect> -->
   
 	<!-- Compass Card  -->
 	<animation>
