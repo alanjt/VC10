@@ -422,7 +422,7 @@ if you contacted me before making any changes to this software.
 	
 	<model>
 		<name>asi</name>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/asi/asi.xml</path>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/NavigatorPanel/NavAsi/NavAsi.xml</path>
 		<offsets>
 			<x-m>0</x-m>
 			<y-m>0.4097</y-m>
@@ -431,8 +431,8 @@ if you contacted me before making any changes to this software.
 	</model>
 	
 	<model>
-		<name>alt</name>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/PrecisionAltimeter/PrecisionAltimeter.xml</path>
+		<name>Engineer altimeteralt</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/StbyAlt/StbyAlt.xml</path>
 		<offsets>
 			<x-m>-0.0</x-m>
 			<y-m>0.5017</y-m>
