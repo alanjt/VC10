@@ -431,8 +431,8 @@ if you contacted me before making any changes to this software.
 	</model>
 	
 	<model>
-		<name>Engineer altimeteralt</name>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/StbyAlt/StbyAlt.xml</path>
+		<name>Engineer/navigator altimeters</name>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/NavigatorPanel/NavAlt/NavAlt.xml</path>
 		<offsets>
 			<x-m>-0.0</x-m>
 			<y-m>0.5017</y-m>
