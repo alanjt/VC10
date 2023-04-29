@@ -424,7 +424,7 @@ if you contacted me before making any changes to this software.
 		<name>asi</name>
 		<path>Aircraft/VC10/Models/Cockpit/Panels/NavigatorPanel/NavAsi/NavAsi.xml</path>
 		<offsets>
-			<x-m>0</x-m>
+			<x-m>0.0</x-m>
 			<y-m>0.4097</y-m>
 			<z-m>0.0527</z-m>
 		</offsets>
@@ -434,7 +434,7 @@ if you contacted me before making any changes to this software.
 		<name>Engineer/navigator altimeters</name>
 		<path>Aircraft/VC10/Models/Cockpit/Panels/NavigatorPanel/NavAlt/NavAlt.xml</path>
 		<offsets>
-			<x-m>-0.0</x-m>
+			<x-m>0.0</x-m>
 			<y-m>0.5017</y-m>
 			<z-m>0.0527</z-m>
 		</offsets>
