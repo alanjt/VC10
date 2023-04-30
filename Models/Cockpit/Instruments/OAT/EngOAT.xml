@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--####################################################################
+
+Vickers VC10 for Flightgear
+
+########################################################################-->
+<PropertyList>
+	<path>EngOAT.ac</path>
+
+	<animation>
+		<type>material</type>
+		<object-name>OAT.Face</object-name>
+		<object-name>Needle</object-name>
+		<condition>
+			<less-than><property>systems/electrical/outputs/cabin-dim</property><value>0.8</value></less-than>
+		</condition>
+		<emission>
+			<red>0.6</red>
+			<green>0.4</green>
+			<blue>0.3</blue>
+			<factor-prop>systems/electrical/outputs/panel-dim</factor-prop>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>OAT.Face</object-name>
+		<object-name>Needle</object-name>
+		<condition>
+			<not><property>/sim/rendering/rembrandt/enabled</property></not>
+			<property>systems/electrical/outputs/cabin-dim</property>
+		</condition>
+		<emission>
+			<red>0.8</red>
+			<green>0.8</green>
+			<blue>0.8</blue>
+			<factor-prop>systems/electrical/outputs/cabin-dim</factor-prop>
+		</emission>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>Needle</object-name>
+		<property>environment/temperature-degc</property>
+		<interpolation>
+			<entry><ind>-80</ind><dep>190.8</dep></entry>
+			<entry><ind>-60</ind><dep>-145.0</dep></entry>
+			<entry><ind>-40</ind><dep>-95.0</dep></entry>
+			<entry><ind>-20</ind><dep>-48.0</dep></entry>			
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>20</ind><dep>40.0.0</dep></entry>
+			<entry><ind>40</ind><dep>78.0</dep></entry>
+			<entry><ind>60</ind><dep>102.0</dep></entry>
+			<entry><ind>80</ind><dep>115.2</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+</PropertyList>

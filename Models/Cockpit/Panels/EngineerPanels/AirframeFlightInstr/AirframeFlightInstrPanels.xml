@@ -411,6 +411,16 @@ if you contacted me before making any changes to this software.
 	</model>
 	
 	<model>
+		<name>OAT</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/OAT/EngOAT.xml</path>
+		<offsets>
+			<x-m>-0.0</x-m>
+			<y-m>0.2304</y-m>
+			<z-m>0.0527</z-m>
+		</offsets>
+	</model>
+	
+	<model>
 		<name>mach</name>
 		<path>Aircraft/VC10/Models/Cockpit/Instruments/mach/mach.xml</path>
 		<offsets>
