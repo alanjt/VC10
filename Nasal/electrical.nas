@@ -157,10 +157,9 @@ var AC2KW_KVARmeter = props.globals.initNode("VC10/electric/ACmeter2KW_KVAR",0,"
 var AC3KW_KVARmeter = props.globals.initNode("VC10/electric/ACmeter3KW_KVAR",0,"DOUBLE");
 var AC4KW_KVARmeter = props.globals.initNode("VC10/electric/ACmeter4KW_KVAR",0,"DOUBLE");
 ####################################################################################################################
-#                                        707 electrical system 
+#                                        Left overs from 707 electrical system
+
 var EssDCbus = props.globals.initNode("VC10/electric/ess-bus",0,"DOUBLE");
-
-
 
 var EssPwr= props.globals.initNode("VC10/electric/ess-power-switch",0,"DOUBLE");
 var CabinDim = props.globals.initNode("systems/electrical/outputs/cabin-dim",0.8,"DOUBLE");
@@ -383,14 +382,14 @@ var init_lighting_switches = func{
 }
 
 var init_RadioNav_switches = func{
-    props.globals.initNode("controls/RadioNav/radio1",0,"BOOL");
-	props.globals.initNode("controls/RadioNav/radio1Emergency",0,"BOOL");
-	props.globals.initNode("controls/RadioNav/radio2",0,"BOOL");
-	props.globals.initNode("controls/RadioNav/intercom",0,"BOOL");
-	props.globals.initNode("controls/RadioNav/VertGyro1",0,"BOOL");
-	props.globals.initNode("controls/RadioNav/CompassGyro1",0,"BOOL");
-	props.globals.initNode("controls/RadioNav/VertGyro12",0,"BOOL");
-	props.globals.initNode("controls/RadioNav/CompassGyro2",0,"BOOL");
+    props.globals.initNode("systems/electrical/switches/RadioNav/radio1",0,"BOOL");
+	props.globals.initNode("systems/electrical/switches/RadioNav/radio1Emergency",0,"BOOL");
+	props.globals.initNode("systems/electrical/switches/RadioNav/radio2",0,"BOOL");
+	props.globals.initNode("systems/electrical/switches/RadioNav/intercom",0,"BOOL");
+	props.globals.initNode("systems/electrical/switches/RadioNav/VertGyro1",0,"BOOL");
+	props.globals.initNode("systems/electrical/switches/RadioNav/CompassGyro1",0,"BOOL");
+	props.globals.initNode("systems/electrical/switches/RadioNav/VertGyro2",0,"BOOL");
+	props.globals.initNode("systems/electrical/switches/RadioNav/CompassGyro2",0,"BOOL");
 }
 
 var init_instrumentation_power = func{	   

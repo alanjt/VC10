@@ -6,7 +6,7 @@ Vickers VC10 for Flightgear
 ########################################################################-->
 <PropertyList>
 
-	<path>Aircraft/VC10/Models/Cockpit/SwitchesLamps/OtehallSwitchQuad.ac</path>
+	<path>Aircraft/VC10/Models/Cockpit/SwitchesLamps/OtehallSwitchDouble.ac</path>
 	<animation>
 		<object-name>switch_lever</object-name>
 		<object-name>switch_base</object-name>
@@ -27,7 +27,7 @@ Vickers VC10 for Flightgear
 		<type>rotate</type>
 		<object-name>switch_lever</object-name>
 		<object-name>switch_cylinders</object-name>
-		<property>systems/electrical/switches/RadioNav/radio2</property>
+		<property>systems/electrical/switches/RadioNav/intercom</property>
 		<axis>
 			<x>0</x><y>1</y><z>0</z>
 		</axis>
@@ -50,7 +50,7 @@ Vickers VC10 for Flightgear
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>systems/electrical/switches/RadioNav/radio2</property>
+				<property>systems/electrical/switches/RadioNav/intercom</property>
 			</binding>
 			<binding>
 				<command>property-toggle</command>
