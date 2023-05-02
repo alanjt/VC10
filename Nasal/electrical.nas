@@ -382,6 +382,17 @@ var init_lighting_switches = func{
     setprop("controls/lighting/overhead-dim",0.0);
 }
 
+var init_RadioNav_switches = func{
+    props.globals.initNode("controls/RadioNav/radio1",0,"BOOL");
+	props.globals.initNode("controls/RadioNav/radio1Emergency",0,"BOOL");
+	props.globals.initNode("controls/RadioNav/radio2",0,"BOOL");
+	props.globals.initNode("controls/RadioNav/intercom",0,"BOOL");
+	props.globals.initNode("controls/RadioNav/VertGyro1",0,"BOOL");
+	props.globals.initNode("controls/RadioNav/CompassGyro1",0,"BOOL");
+	props.globals.initNode("controls/RadioNav/VertGyro12",0,"BOOL");
+	props.globals.initNode("controls/RadioNav/CompassGyro2",0,"BOOL");
+}
+
 var init_instrumentation_power = func{	   
 	props.globals.initNode("systems/electrical/outputs/KNS80",0,"DOUBLE");
 	props.globals.initNode("systems/electrical/outputs/efis",0,"DOUBLE");
@@ -648,12 +659,12 @@ var update_buses = func {
 	setprop("VC10/electric/dc/BAT1-bus-volts",No1Bat_volts);
 	setprop("VC10/electric/dc/BAT2-bus-volts",No2Bat_volts);
 
-
-
 ###################################################################################
 # temporary fix to supply 707 ess bus for imported systems	
 	essbus = math.max(No1EssDCbus_volts,No2EssDCbus_volts);
 	setprop("VC10/electric/ess-bus",essbus);
+	
+###################################################################################
 	
 	setprop("systems/electrical/outputs/DG[0]",AuxACbus_volts);
 	setprop("systems/electrical/outputs/DG[1]",No4ACbus_volts);  	
@@ -667,6 +678,7 @@ var update_buses = func {
 	setprop("systems/electrical/outputs/dme[1]",No2NonEssDCbus_volts);# via switch at Nav console
 	setprop("systems/electrical/outputs/transponder",No1EssDCbus_volts);
 	setprop("systems/electrical/outputs/marker-beacon",No1EssDCbus_volts);
+	
 ###################################################################################
 	
 	setprop("VC10/electric/ac/generator/Gen1-volts",Gen1_volts);
@@ -890,6 +902,7 @@ setlistener("VC10/electric/ac/generator/Gen4-Control-sw", func {
 ##############################################################################################
 setlistener("sim/signals/fdm-initialized", func {
     init_lighting_switches();
+	init_RadioNav_switches();
 	init_instrumentation_power();
     settimer(update_electrical,5);
 

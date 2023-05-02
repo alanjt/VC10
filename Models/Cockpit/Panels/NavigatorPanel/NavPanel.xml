@@ -2,6 +2,15 @@
 <PropertyList>
 
 	<path>NavPanel.ac</path>
+	<model>
+		<name>Radio and Gyro  Switches</name>
+		<path>NavSwitches.xml</path>
+		<offsets>
+			<x-m>0.0</x-m>
+			<y-m>0.0491</y-m> 
+			<z-m>0.5300</z-m>
+		</offsets>
+	</model>	
 	
 	<model>
 		<name>ADF_rmi_nav</name>
