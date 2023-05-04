@@ -27,6 +27,16 @@
 	</model>
 	
 	<model>
+		<name>RadioSwBar1</name>
+		<path>RadioSWBar1.xml</path>
+		<offsets>
+			<x-m>0.00</x-m>
+			<y-m>0.0640</y-m>
+			<z-m>0.2100</z-m>
+		</offsets>
+	</model>
+	
+	<model>
 		<name>Radio 2 Power Switch</name>
 		<path>Radio2PowerSw.xml</path>
 		<offsets>

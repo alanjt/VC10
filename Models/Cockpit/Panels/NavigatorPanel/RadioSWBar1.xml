@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--####################################################################
+Vickers VC10 for Flightgear
+
+########################################################################-->
+<PropertyList>
+
+	<path>SwitchBar.ac</path>
+
+	<animation>
+		<type>material</type>
+		<object-name>BarFrame</object-name>
+		<object-name>SwitchBar</object-name>
+		<condition>
+			<not><property>systems/electrical/outputs/cabin-dim</property></not>
+		</condition>
+		<emission>
+			<red>0.2</red>
+			<green>0.2</green>
+			<blue>0.2</blue>
+			<factor-prop>systems/electrical/outputs/panel-dim</factor-prop>
+		</emission>
+	</animation>
+
+	<animation>
+		<type>pick</type>
+		<object-name>SwitchBar</object-name> 
+		<action>
+			<button>0</button>
+			<repeatable>true</repeatable>
+			<binding>
+				<command>property-assign</command>
+				<property>systems/electrical/switches/RadioNav/RadioSWBar1</property>
+				<value>1</value>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>systems/electrical/switches/RadioNav/radio1</property>
+				<value>1</value>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>systems/electrical/switches/RadioNav/radio1Emergency</property>
+				<value>1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>systems/electrical/switches/RadioNav/RadioSWBar1</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>SwitchBar</object-name> 
+		<property>systems/electrical/switches/RadioNav/RadioSWBar1</property>
+		<interpolation>
+			<entry>
+				<ind>0</ind>
+				<dep>-70</dep>
+			</entry>
+			<entry>
+				<ind>1</ind>
+				<dep>20</dep>
+			</entry>
+		</interpolation>
+		<axis><x> 0</x> <y> -1</y><z> 0</z></axis>
+		<center><x-m>0.0</x-m><y-m>0.0</y-m><z-m>-0.0076</z-m></center>
+	</animation>
+
+</PropertyList>

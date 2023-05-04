@@ -391,6 +391,10 @@ var init_RadioNav_switches = func{
 	props.globals.initNode("systems/electrical/switches/RadioNav/VertGyro2",0,"BOOL");
 	props.globals.initNode("systems/electrical/switches/RadioNav/CompassGyro2",0,"BOOL");
 }
+	props.globals.initNode("systems/electrical/switches/RadioNav/RadioSWBar1",0,"BOOL");
+	props.globals.initNode("systems/electrical/switches/RadioNav/RadioSWBar2",0,"BOOL");
+	props.globals.initNode("systems/electrical/switches/RadioNav/GyroSWBar1",0,"BOOL");
+	props.globals.initNode("systems/electrical/switches/RadioNav/GyroSWBar2",0,"BOOL");
 
 var init_instrumentation_power = func{	   
 	props.globals.initNode("systems/electrical/outputs/KNS80",0,"DOUBLE");
