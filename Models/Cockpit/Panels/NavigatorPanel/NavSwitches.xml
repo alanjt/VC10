@@ -57,6 +57,16 @@
 	</model>
 	
 	<model>
+		<name>RadioSwBar2</name>
+		<path>RadioSWBar2.xml</path>
+		<offsets>
+			<x-m>0.00</x-m>
+			<y-m>0.0640</y-m>
+			<z-m>0.1544</z-m>
+		</offsets>
+	</model>
+		
+	<model>
 		<name>Vertical Gyro1 Power Switch</name>
 		<path>VertGyro1PowerSw.xml</path>
 		<offsets>
@@ -75,8 +85,17 @@
 			<z-m>0.0933</z-m>
 		</offsets>
 	</model>
-
 	
+	<model>
+		<name>GyroSwBar1</name>
+		<path>GyroSWBar1.xml</path>
+		<offsets>
+			<x-m>0.00</x-m>
+			<y-m>0.0640</y-m>
+			<z-m>0.0933</z-m>
+		</offsets>
+	</model>
+		
 	<model>
 		<name>Vertical Gyro2 Power Switch</name>
 		<path>VertGyro2PowerSw.xml</path>
@@ -95,5 +114,16 @@
 			<y-m>0.0933</y-m>
 			<z-m>0.0379</z-m>
 		</offsets>
-	</model>	
+	</model>
+	
+	<model>
+		<name>GyroSwBar2</name>
+		<path>GyroSWBar2.xml</path>
+		<offsets>
+			<x-m>0.00</x-m>
+			<y-m>0.0640</y-m>
+			<z-m>0.0379</z-m>
+		</offsets>
+	</model>
+	
 </PropertyList>

@@ -30,23 +30,23 @@ Vickers VC10 for Flightgear
 			<repeatable>true</repeatable>
 			<binding>
 				<command>property-assign</command>
-				<property>systems/electrical/switches/RadioNav/RadioSWBar1</property>
+				<property>systems/electrical/switches/RadioNav/RadioSWBar2</property>
 				<value>1</value>
 			</binding>
 			<binding>
 				<command>property-assign</command>
-				<property>systems/electrical/switches/RadioNav/radio1</property>
+				<property>systems/electrical/switches/RadioNav/radio2</property>
 				<value>1</value>
 			</binding>
 			<binding>
 				<command>property-assign</command>
-				<property>systems/electrical/switches/RadioNav/radio1Emergency</property>
+				<property>systems/electrical/switches/RadioNav/intercom</property>
 				<value>1</value>
 			</binding>
 			<mod-up>
 				<binding>
 					<command>property-assign</command>
-					<property>systems/electrical/switches/RadioNav/RadioSWBar1</property>
+					<property>systems/electrical/switches/RadioNav/RadioSWBar2</property>
 					<value>0</value>
 				</binding>
 			</mod-up>
@@ -60,7 +60,7 @@ Vickers VC10 for Flightgear
 	<animation>
 		<type>rotate</type>
 		<object-name>SwitchBar</object-name> 
-		<property>systems/electrical/switches/RadioNav/RadioSWBar1</property>
+		<property>systems/electrical/switches/RadioNav/RadioSWBar2</property>
 		<interpolation>
 			<entry>
 				<ind>0</ind>

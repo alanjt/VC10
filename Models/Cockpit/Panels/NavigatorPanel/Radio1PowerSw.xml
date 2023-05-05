@@ -22,7 +22,6 @@ Vickers VC10 for Flightgear
 		</emission>
 	</animation>
 	
-	
 	<animation>
 		<type>rotate</type>
 		<object-name>switch_lever</object-name>
