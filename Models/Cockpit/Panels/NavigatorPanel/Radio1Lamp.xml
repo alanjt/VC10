@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--####################################################################
+
+Vickers VC10 for Flightgear
+
+########################################################################-->
+<PropertyList>
+
+	<path>Aircraft/VC10/Models/Cockpit/SwitchesLamps/indicator_green.ac</path>
+
+	<animation>
+		<type>material</type>
+		<object-name>lens</object-name>
+		<emission>
+			<factor-prop>VC10/electric/ac/generator/CSD1low_pressure</factor-prop>
+			<red>1</red>
+			<green>1</green>
+			<blue>1</blue>
+		</emission>
+	</animation>
+
+
+
+</PropertyList>
