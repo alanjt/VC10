@@ -97,7 +97,6 @@ props.globals.initNode("VC10/electric/ac/SSB-ind",0,"INT");
 
 props.globals.initNode("VC10/electric/ac/AUXbus-ind",0,"INT");
 
-
 props.globals.initNode("VC10/electric/dc/TRU1-volts",1,"DOUBLE");
 props.globals.initNode("VC10/electric/dc/TRU2-volts",1,"DOUBLE");
 props.globals.initNode("VC10/electric/dc/StbyTRU-volts",0,"DOUBLE");
@@ -396,7 +395,15 @@ var init_RadioNav_switches = func{
 	props.globals.initNode("systems/electrical/switches/RadioNav/GyroSWBar1",0,"BOOL");
 	props.globals.initNode("systems/electrical/switches/RadioNav/GyroSWBar2",0,"BOOL");
 
-var init_instrumentation_power = func{	   
+var init_instrumentation_power = func{	
+
+	props.globals.initNode("systems/electrical/outputs/No1DC",0,"DOUBLE");
+	props.globals.initNode("systems/electrical/outputs/No1AC",0,"DOUBLE");
+	props.globals.initNode("systems/electrical/outputs/No1EmergencyDC",0,"DOUBLE");
+	props.globals.initNode("systems/electrical/outputs/No1EmergencyAC",0,"DOUBLE");
+	props.globals.initNode("systems/electrical/outputs/No2DC",0,"DOUBLE");
+	props.globals.initNode("systems/electrical/outputs/No2AC",0,"DOUBLE");
+	
 	props.globals.initNode("systems/electrical/outputs/KNS80",0,"DOUBLE");
 	props.globals.initNode("systems/electrical/outputs/efis",0,"DOUBLE");
 	props.globals.initNode("systems/electrical/outputs/adf[0]",0,"DOUBLE"); 
@@ -639,8 +646,12 @@ var update_buses = func {
 	if ((Engine4n2 < 50.0) or !GDrive4) setprop("VC10/electric/ac/generator/CSD4low_pressure",1)
 		else setprop("VC10/electric/ac/generator/CSD4low_pressure",0); 
 		
-# Update property tree
+# Update instrument power
 
+	
+
+
+# Update property tree
 	setprop("VC10/electric/dc/TRU1-volts",TRU1_volts);
 	setprop("VC10/electric/dc/TRU2-volts",TRU2_volts);
 	setprop("VC10/electric/dc/StbyTRU-volts",StbyTRU_volts);
@@ -670,17 +681,17 @@ var update_buses = func {
 ###################################################################################
 	
 	setprop("systems/electrical/outputs/DG[0]",AuxACbus_volts);
-	setprop("systems/electrical/outputs/DG[1]",No4ACbus_volts);  	
-	setprop("systems/electrical/outputs/adf[0]",No1EssDCbus_volts);   # via switch at Nav console
-	setprop("systems/electrical/outputs/adf[1]",No2NonEssDCbus_volts);# via switch at Nav console
-	setprop("systems/electrical/outputs/nav[0]",No1EssDCbus_volts);   # via switch at Nav console
-	setprop("systems/electrical/outputs/nav[1]",No2NonEssDCbus_volts);# via switch at Nav console		
-	setprop("systems/electrical/outputs/com[0]",No1EssDCbus_volts);   # via switch at Nav console
-	setprop("systems/electrical/outputs/com[1]",No2NonEssDCbus_volts);# via switch at Nav console
-	setprop("systems/electrical/outputs/dme[0]",No1EssDCbus_volts);   # via switch at Nav console
-	setprop("systems/electrical/outputs/dme[1]",No2NonEssDCbus_volts);# via switch at Nav console
+	setprop("systems/electrical/outputs/DG[1]",No4ACbus_volts);
+	setprop("systems/electrical/outputs/adf[0]",No1EssDCbus_volts);
+	setprop("systems/electrical/outputs/adf[1]",No2NonEssDCbus_volts);
+	setprop("systems/electrical/outputs/nav[0]",No1EssDCbus_volts);
+	setprop("systems/electrical/outputs/nav[1]",No2NonEssDCbus_volts);	
+	setprop("systems/electrical/outputs/com[0]",No1EssDCbus_volts);
+	setprop("systems/electrical/outputs/com[1]",No2NonEssDCbus_volts);
+	setprop("systems/electrical/outputs/dme[0]",No1EssDCbus_volts);
+	setprop("systems/electrical/outputs/dme[1]",No2NonEssDCbus_volts);
 	setprop("systems/electrical/outputs/transponder",No1EssDCbus_volts);
-	setprop("systems/electrical/outputs/marker-beacon",No1EssDCbus_volts);
+	setprop("systems/electrical/outputs/marker-beacon",No1EssDCbus_volts);	
 	
 ###################################################################################
 	
@@ -717,6 +728,16 @@ var update_buses = func {
 	
 	setprop("VC10/electric/dc/StbyTRUbus1-ind",StbyTRU_bus1_ind);
 	setprop("VC10/electric/dc/StbyTRUbus2-ind",StbyTRU_bus2_ind);
+	
+##############################################################################################################
+# AC and DC Supplies
+	
+	setprop("systems/electrical/outputs/No1DC",No1EssDCbus_volts * getprop("systems/electrical/switches/RadioNav/radio1"));
+	setprop("systems/electrical/outputs/No1AC",Gen1_volts * getprop("systems/electrical/switches/RadioNav/radio1"));	
+	setprop("systems/electrical/outputs/No2DC",No2NonEssDCbus_volts * getprop("systems/electrical/switches/RadioNav/radio2"));
+	setprop("systems/electrical/outputs/No1AC",Gen4_volts * getprop("systems/electrical/switches/RadioNav/radio2"));
+	setprop("systems/electrical/outputs/No1EmergencyDC",No1EssDCbus_volts * getprop("systems/electrical/switches/RadioNav/radio1Emergency"));
+	setprop("systems/electrical/outputs/No1EmergencyAC",AuxACbus_volts * getprop("systems/electrical/switches/RadioNav/radio1Emergency"));
 }
 ###############################################################################################################
 

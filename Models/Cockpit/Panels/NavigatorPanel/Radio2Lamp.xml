@@ -12,7 +12,7 @@ Vickers VC10 for Flightgear
 		<type>material</type>
 		<object-name>light</object-name>
 		<emission>
-			<factor-prop>systems/electrical/outputs/No1DC</factor-prop>
+			<factor-prop>systems/electrical/outputs/No2DC</factor-prop>
 			<red>1</red>
 			<green>1</green>
 			<blue>1</blue>

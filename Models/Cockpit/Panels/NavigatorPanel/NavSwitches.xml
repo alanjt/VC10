@@ -5,6 +5,36 @@
 
 
 	<path>NavSwitches.ac</path>
+
+	<model>
+		<name>Radio 1 Lamp</name>
+		<path>Radio1Lamp.xml</path>
+		<offsets>
+			<x-m>0.00</x-m>
+			<y-m>0.0195</y-m>
+			<z-m>0.2560</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>Radio 1 Emergency Lamp</name>
+		<path>Radio1EmergLamp.xml</path>
+		<offsets>
+			<x-m>0.00</x-m>
+			<y-m>0.0524</y-m>
+			<z-m>0.2560</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>Radio 2 Lamp</name>
+		<path>Radio2Lamp.xml</path>
+		<offsets>
+			<x-m>0.00</x-m>
+			<y-m>0.0822</y-m>
+			<z-m>0.2560</z-m>
+		</offsets>
+	</model>
 	
 	<model>
 		<name>Radio 1 Power Switch</name>
