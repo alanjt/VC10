@@ -421,6 +421,9 @@ var init_instrumentation_power = func{
 	props.globals.initNode("systems/electrical/outputs/nav[0]",0,"DOUBLE"); 
 	props.globals.initNode("systems/electrical/outputs/nav[1]",0,"DOUBLE"); 
 	props.globals.initNode("systems/electrical/outputs/marker-beacon",0,"DOUBLE");
+	
+	props.globals.initNode("systems/electrical/outputs/vertgyro[0]",0,"DOUBLE");
+	props.globals.initNode("systems/electrical/outputs/vertgyro[1]",0,"DOUBLE");	
 
 
 # perhaps these should be in marker-beacon.nas or instrumentation.nas
@@ -672,28 +675,6 @@ var update_buses = func {
 	
 	setprop("VC10/electric/dc/BAT1-bus-volts",No1Bat_volts);
 	setprop("VC10/electric/dc/BAT2-bus-volts",No2Bat_volts);
-
-###################################################################################
-# temporary fix to supply 707 ess bus for imported systems	
-	essbus = math.max(No1EssDCbus_volts,No2EssDCbus_volts);
-	setprop("VC10/electric/ess-bus",essbus);
-	
-###################################################################################
-	
-	setprop("systems/electrical/outputs/DG[0]",AuxACbus_volts);
-	setprop("systems/electrical/outputs/DG[1]",No4ACbus_volts);
-	setprop("systems/electrical/outputs/adf[0]",No1EssDCbus_volts);
-	setprop("systems/electrical/outputs/adf[1]",No2NonEssDCbus_volts);
-	setprop("systems/electrical/outputs/nav[0]",No1EssDCbus_volts);
-	setprop("systems/electrical/outputs/nav[1]",No2NonEssDCbus_volts);	
-	setprop("systems/electrical/outputs/com[0]",No1EssDCbus_volts);
-	setprop("systems/electrical/outputs/com[1]",No2NonEssDCbus_volts);
-	setprop("systems/electrical/outputs/dme[0]",No1EssDCbus_volts);
-	setprop("systems/electrical/outputs/dme[1]",No2NonEssDCbus_volts);
-	setprop("systems/electrical/outputs/transponder",No1EssDCbus_volts);
-	setprop("systems/electrical/outputs/marker-beacon",No1EssDCbus_volts);	
-	
-###################################################################################
 	
 	setprop("VC10/electric/ac/generator/Gen1-volts",Gen1_volts);
 	setprop("VC10/electric/ac/generator/Gen2-volts",Gen2_volts);
@@ -730,14 +711,54 @@ var update_buses = func {
 	setprop("VC10/electric/dc/StbyTRUbus2-ind",StbyTRU_bus2_ind);
 	
 ##############################################################################################################
-# AC and DC Supplies
+# Radio and Gyro AC/DC Supplies
+	var No1DCSupply = No1NonEssDCbus_volts * getprop("systems/electrical/switches/RadioNav/radio1");
+	var No1ACSupply = Gen1_volts * getprop("systems/electrical/switches/RadioNav/radio1");	
+	var No2DCSupply = No2NonEssDCbus_volts * getprop("systems/electrical/switches/RadioNav/radio2");
+	var No2ACSupply = Gen4_volts * getprop("systems/electrical/switches/RadioNav/radio2");
+	var No1EmergencyDCSupply = No1EssDCbus_volts * getprop("systems/electrical/switches/RadioNav/radio1Emergency");
+	var No1EmergencyACSupply = AuxACbus_volts * getprop("systems/electrical/switches/RadioNav/radio1Emergency");
 	
-	setprop("systems/electrical/outputs/No1DC",No1EssDCbus_volts * getprop("systems/electrical/switches/RadioNav/radio1"));
-	setprop("systems/electrical/outputs/No1AC",Gen1_volts * getprop("systems/electrical/switches/RadioNav/radio1"));	
-	setprop("systems/electrical/outputs/No2DC",No2NonEssDCbus_volts * getprop("systems/electrical/switches/RadioNav/radio2"));
-	setprop("systems/electrical/outputs/No1AC",Gen4_volts * getprop("systems/electrical/switches/RadioNav/radio2"));
-	setprop("systems/electrical/outputs/No1EmergencyDC",No1EssDCbus_volts * getprop("systems/electrical/switches/RadioNav/radio1Emergency"));
-	setprop("systems/electrical/outputs/No1EmergencyAC",AuxACbus_volts * getprop("systems/electrical/switches/RadioNav/radio1Emergency"));
+	var No1VertGyroACSupply = Gen1_volts * getprop("systems/electrical/switches/RadioNav/VertGyro1");
+	var No2VertGyroACSupply = Gen4_volts * getprop("systems/electrical/switches/RadioNav/VertGyro2");
+	var No1CompassACSupply = AuxACbus_volts * getprop("systems/electrical/switches/RadioNav/CompassGyro1");
+	var No2CompassACSupply = Gen4_volts * getprop("systems/electrical/switches/RadioNav/CompassGyro2");
+	
+	setprop("systems/electrical/outputs/No1DC",No1DCSupply);
+	setprop("systems/electrical/outputs/No1AC",No1ACSupply);	
+	setprop("systems/electrical/outputs/No2DC",No2DCSupply);
+	setprop("systems/electrical/outputs/No1EmergencyDC",No1EmergencyDCSupply);
+	setprop("systems/electrical/outputs/No1EmergencyAC",No1EmergencyACSupply);
+	
+	setprop("systems/electrical/outputs/nav[0]",No1EmergencyDCSupply); # supplies Nav1 radio
+	setprop("systems/electrical/outputs/nav[1]",No2DCSupply);          # supplies Nav2 radio
+	
+	setprop("systems/electrical/outputs/vertgyro[0]",No1VertGyroACSupply); # supplies pilot horizon
+	setprop("systems/electrical/outputs/vertgyro[1]",No2VertGyroACSupply); # supplies co-pilot horizon
+	
+	
+##################################################################################
+# temporary fix to supply 707 ess bus for imported systems	
+	essbus = math.max(No1EssDCbus_volts,No2EssDCbus_volts);
+	setprop("VC10/electric/ess-bus",essbus);
+	
+###################################################################################
+	
+	setprop("systems/electrical/outputs/DG[0]",AuxACbus_volts);
+	setprop("systems/electrical/outputs/DG[1]",No4ACbus_volts);
+	setprop("systems/electrical/outputs/adf[0]",No1EssDCbus_volts);
+	setprop("systems/electrical/outputs/adf[1]",No2NonEssDCbus_volts);
+##OLD	setprop("systems/electrical/outputs/nav[0]",No1EssDCbus_volts);
+##OLD	setprop("systems/electrical/outputs/nav[1]",No2NonEssDCbus_volts);	
+	setprop("systems/electrical/outputs/com[0]",No1EssDCbus_volts);
+	setprop("systems/electrical/outputs/com[1]",No2NonEssDCbus_volts);
+	setprop("systems/electrical/outputs/dme[0]",No1EssDCbus_volts);
+	setprop("systems/electrical/outputs/dme[1]",No2NonEssDCbus_volts);
+	setprop("systems/electrical/outputs/transponder",No1EssDCbus_volts);
+	setprop("systems/electrical/outputs/marker-beacon",No1EssDCbus_volts);	
+	
+###################################################################################
+
 }
 ###############################################################################################################
 

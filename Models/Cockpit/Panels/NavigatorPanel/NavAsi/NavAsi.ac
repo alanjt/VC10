@@ -8,7 +8,7 @@ name "Beze"
 loc 0.00133142 6.55772 -14.8906
 data 5
 Bezel
-texture "C:/fg/MyAircraft/VC10/Models/Cockpit/Instruments/StbyAlt/shadow.png"
+texture "../shadow.png"
 crease 30.000002
 numvert 144
 0.00127174 -6.53154 14.8647

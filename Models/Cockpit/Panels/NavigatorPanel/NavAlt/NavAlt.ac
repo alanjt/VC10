@@ -8,7 +8,7 @@ name "Bezel"
 loc 0.00134129 8.17236 -18.5906
 data 5
 Bezel
-texture "C:/fg/MyAircraft/VC10/Models/Cockpit/Instruments/StbyAlt/shadow.png"
+texture "../shadow.png"
 crease 30.000002
 numvert 144
 0.00179465 -8.1446 18.5629
@@ -693,7 +693,7 @@ name "ALT.Knob"
 loc 0.0102028 -0.0376029 0.0373378
 data 8
 ALT.Knob
-texture "C:/fg/MyAircraft/VC10/Models/Cockpit/Instruments/StbyAlt/shadow.png"
+texture "../shadow.png"
 crease 45.000000
 numvert 65
 0.000295762 0.00992196 -0.00398904

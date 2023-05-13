@@ -227,7 +227,7 @@ if you contacted me before making any changes to this software.
 				<y-offset-m archive="y">1.15</y-offset-m>
 				<z-offset-m archive="y">4.6</z-offset-m>
 				<!--<z-offset-m archive="y">4.06</z-offset-m> -->
-				<heading-offset-deg type="double">0.0</heading-offset-deg>
+				<heading-offset-deg type="double">190.0</heading-offset-deg>
 				<pitch-offset-deg type="double">-5.0</pitch-offset-deg>
 				<ground-level-nearplane-m type="double">0.5</ground-level-nearplane-m>
 				<default-field-of-view-deg type="double">70.0</default-field-of-view-deg>

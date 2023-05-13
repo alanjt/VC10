@@ -69,6 +69,20 @@ The only reason it's here is to specify aditional instruments.
 		<number>0</number>
 		<suction>systems/vacuum/suction-inhg</suction>
 	</attitude-indicator>
+	
+	<attitude-indicator-electric>
+		<name>attitude-indicator-vg</name>
+		<number>0</number>
+		<power-supply>systems/electrical/outputs/vertgyro[0]</power-supply>
+		<minimum-supply-volts>100.0</minimum-supply-volts>
+	</attitude-indicator-electric>
+	
+	<attitude-indicator-electric>
+		<name>attitude-indicator-vg</name>
+		<number>1</number>
+		<power-supply>systems/electrical/outputs/vertgyro[1]</power-supply>
+		<minimum-supply-volts>100.0</minimum-supply-volts>
+	</attitude-indicator-electric>
 
 	<vertical-speed-indicator>
 		<name>vertical-speed-indicator</name>
