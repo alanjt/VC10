@@ -71,14 +71,14 @@ The only reason it's here is to specify aditional instruments.
 	</attitude-indicator>
 	
 	<attitude-indicator-electric>
-		<name>attitude-indicator-vg</name>
+		<name>attitude-indicator-electric</name>
 		<number>0</number>
 		<power-supply>systems/electrical/outputs/vertgyro[0]</power-supply>
 		<minimum-supply-volts>100.0</minimum-supply-volts>
 	</attitude-indicator-electric>
 	
 	<attitude-indicator-electric>
-		<name>attitude-indicator-vg</name>
+		<name>attitude-indicator-electric</name>
 		<number>1</number>
 		<power-supply>systems/electrical/outputs/vertgyro[1]</power-supply>
 		<minimum-supply-volts>100.0</minimum-supply-volts>

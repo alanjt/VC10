@@ -47,8 +47,8 @@ Vickers VC10 for Flightgear
 	</model>
 
 	<model>
-		<name>ai</name>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/ai/ai.xml</path>
+		<name>HDI Pilot</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/HDI/HDI_pilot.xml</path>
 		<offsets>
 			<x-m>-0.0</x-m>
 			<y-m>-0.481</y-m>
@@ -714,7 +714,7 @@ Vickers VC10 for Flightgear
 
 	<model>
 		<name>ai_cp</name>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/ai/ai.xml</path>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/HDI/HDI_copilot.xml</path>
 		<offsets>
 			<x-m>-0.0</x-m>
 			<y-m>0.481</y-m>

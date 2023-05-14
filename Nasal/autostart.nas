@@ -159,7 +159,58 @@ var startup = func
 				click_switch3();
 			}
 		}, t); t += 0.5;
-
+		
+## set navigator panel radio and gyro switches all on		
+	 	settimer( func{
+		 	if(step == 4 and auto_procedure.getValue()) {
+		 		setprop("systems/electrical/switches/RadioNav/radio1", 1);
+				click_switch3();
+			}
+		}, t); t += 0.2;		
+	 	settimer( func{
+		 	if(step == 4 and auto_procedure.getValue()) {
+		 		setprop("systems/electrical/switches/RadioNav/radio2", 1);
+				click_switch3();
+			}
+		}, t); t += 0.2;
+	 	settimer( func{
+		 	if(step == 4 and auto_procedure.getValue()) {
+		 		setprop("systems/electrical/switches/RadioNav/radio1Emergency", 1);
+				click_switch3();
+			}
+		}, t); t += 0.2;		
+	 	settimer( func{
+		 	if(step == 4 and auto_procedure.getValue()) {
+		 		setprop("systems/electrical/switches/RadioNav/intercom", 1);
+				click_switch3();
+			}
+		}, t); t += 0.2;		
+		
+		
+	 	settimer( func{
+		 	if(step == 4 and auto_procedure.getValue()) {
+		 		setprop("systems/electrical/switches/RadioNav/VertGyro1", 1);
+				click_switch3();
+			}
+		}, t); t += 0.2;
+	 	settimer( func{
+		 	if(step == 4 and auto_procedure.getValue()) {
+		 		setprop("systems/electrical/switches/RadioNav/VertGyro2", 1);
+				click_switch3();
+			}
+		}, t); t += 0.2;
+	 	settimer( func{
+		 	if(step == 4 and auto_procedure.getValue()) {
+		 		setprop("systems/electrical/switches/RadioNav/CompassGyro1", 1);
+				click_switch3();
+			}
+		}, t); t += 0.2;
+	 	settimer( func{
+		 	if(step == 4 and auto_procedure.getValue()) {
+		 		setprop("systems/electrical/switches/RadioNav/CompassGyro2", 1);
+				click_switch3();
+			}
+		}, t); t += 0.5;
 		
 		# Auxilliary Pumps and Hydraulic Pumps Engine 2 and 3
 		settimer( func{
