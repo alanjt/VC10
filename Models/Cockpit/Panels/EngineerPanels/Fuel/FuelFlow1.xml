@@ -48,7 +48,7 @@ Vickers VC10 for Flightgear
 		<object-name>NeedleCentre</object-name>
 <!--		<condition>		
 			<greater-than>
-				<property>VC10/electric/ac/ACbus3-volts</property>
+				<property>VC10/electric/ac/No3GenBusbarVolts</property>
 				<value>100</value>
 			</greater-than>
 		</condition> -->

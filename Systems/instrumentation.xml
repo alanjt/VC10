@@ -106,7 +106,7 @@ The only reason it's here is to specify aditional instruments.
 	<heading-indicator-fg>
 		<name>heading-indicator-fg</name>
 		<number>1</number>
-		<power-supply>VC10/electric/ac/ACbus4-volts</power-supply>
+		<power-supply>VC10/electric/ac/No4GenBusbarVolts</power-supply>
 		<minimum-supply-volts>100</minimum-supply-volts>
 	</heading-indicator-fg>
 
@@ -121,7 +121,7 @@ The only reason it's here is to specify aditional instruments.
 	<heading-indicator-dg>
 		<name>heading-indicator-dg</name>
 		<number>1</number>
-		<power-supply>VC10/electric/ac/ACbus4-volts</power-supply>
+		<power-supply>VC10/electric/ac/No4GenBusbarVolts</power-supply>
 		<minimum-supply-volts>100</minimum-supply-volts>
 	</heading-indicator-dg>
 

@@ -129,10 +129,10 @@ props.globals.initNode("VC10/electric/ac/Galley3-sw",0,"BOOL");
 props.globals.initNode("VC10/electric/dc/DC1Fail",0,"BOOL");
 props.globals.initNode("VC10/electric/dc/DC2Fail",0,"BOOL");
 
-var No1ACbus_volts = props.globals.initNode("VC10/electric/ac/ACbus1-volts",0,"DOUBLE");
-var No2ACbus_volts = props.globals.initNode("VC10/electric/ac/ACbus2-volts",0,"DOUBLE");
-var No3ACbus_volts = props.globals.initNode("VC10/electric/ac/ACbus3-volts",0,"DOUBLE");
-var No4ACbus_volts = props.globals.initNode("VC10/electric/ac/ACbus4-volts",0,"DOUBLE");
+var No1GenBusbarVolts_volts = props.globals.initNode("VC10/electric/ac/No1GenBusbarVolts",0,"DOUBLE");
+var No2GenBusbarVolts_volts = props.globals.initNode("VC10/electric/ac/No2GenBusbarVolts",0,"DOUBLE");
+var No3GenBusbarVolts_volts = props.globals.initNode("VC10/electric/ac/No3GenBusbarVolts",0,"DOUBLE");
+var No4GenBusbarVolts_volts = props.globals.initNode("VC10/electric/ac/No4GenBusbarVolts",0,"DOUBLE");
 
 var ACEmergbus_volts = props.globals.initNode("VC10/electric/ac/ACEmerg-bus-volts",0,"DOUBLE");
 var AuxACbus_volts = props.globals.initNode("VC10/electric/ac/ACAux-bus-volts",0,"DOUBLE");
@@ -504,22 +504,22 @@ var update_buses = func {
 	
 ###	print ("GPB ",GPB, " GPBV ", GPBV);
 	
-	var No1ACbus_volts = math.max(Gen1V*GCB1,
+	var No1GenBusbarVolts_volts = math.max(Gen1V*GCB1,
 								Gen3V*GCB3*BTB3*BTB1,
 								Gen2V*GCB2*BTB2*SSB*BTB1,
 								Gen4V*GCB4*BTB4*SSB*BTB1,
 								GPBV*GPB*BTB1);
-	var No3ACbus_volts = math.max(Gen3V*GCB3,
+	var No3GenBusbarVolts_volts = math.max(Gen3V*GCB3,
 								Gen1V*GCB1*BTB1*BTB3,
 								Gen2V*GCB2*BTB2*SSB*BTB3,
 								Gen4V*GCB4*BTB4*SSB*BTB3,
 								GPBV*GPB*BTB3);
-	var No2ACbus_volts = math.max(Gen2V*GCB2,
+	var No2GenBusbarVolts_volts = math.max(Gen2V*GCB2,
 								Gen4V*GCB4*BTB4*BTB2,
 								Gen1V*GCB1*BTB1*SSB*BTB2,
 								Gen3V*GCB3*BTB3*SSB*BTB2,
 								GPBV*GPB*SSB*BTB2);
-	var No4ACbus_volts = math.max(Gen4V*GCB4,
+	var No4GenBusbarVolts_volts = math.max(Gen4V*GCB4,
 								Gen2V*GCB2*BTB2*BTB4,
 								Gen1V*GCB1*BTB1*SSB*BTB4,
 								Gen3V*GCB3*BTB3*SSB*BTB4,
@@ -538,10 +538,10 @@ var update_buses = func {
 	var No1Bat_volts = getprop("VC10/electric/dc/BAT1-volts");
 	var No2Bat_volts = getprop("VC10/electric/dc/BAT2-volts");
 	
-	AuxACbus_volts = No3ACbus_volts;                ## or VC10/electric/ac/generator/GenELRAT-volts when Elrat is deployed
+	AuxACbus_volts = No3GenBusbarVolts_volts;                ## or VC10/electric/ac/generator/GenELRAT-volts when Elrat is deployed
 		
-	var TRU1_volts = No1ACbus_volts * 28.0 / 115.0;	
-	var TRU2_volts = No4ACbus_volts * 28.0 / 115.0;
+	var TRU1_volts = No1GenBusbarVolts_volts * 28.0 / 115.0;	
+	var TRU2_volts = No4GenBusbarVolts_volts * 28.0 / 115.0;
 	var StbyTRU_volts = AuxACbus_volts * 28.0 / 115.0;
 	
 	var TRU1_power = 0;
@@ -663,10 +663,10 @@ var update_buses = func {
 	setprop("VC10/electric/ac/ACAux-bus-volts",AuxACbus_volts);
 	setprop("VC10/electric/GroundPowerBusVolts",GroundPowerbus_volts);
 	
-	setprop("VC10/electric/ac/ACbus1-volts",No1ACbus_volts);
-	setprop("VC10/electric/ac/ACbus2-volts",No2ACbus_volts);
-	setprop("VC10/electric/ac/ACbus3-volts",No3ACbus_volts);
-	setprop("VC10/electric/ac/ACbus4-volts",No4ACbus_volts);
+	setprop("VC10/electric/ac/No1GenBusbarVolts",No1GenBusbarVolts_volts);
+	setprop("VC10/electric/ac/No2GenBusbarVolts",No2GenBusbarVolts_volts);
+	setprop("VC10/electric/ac/No3GenBusbarVolts",No3GenBusbarVolts_volts);
+	setprop("VC10/electric/ac/No4GenBusbarVolts",No4GenBusbarVolts_volts);
 	
 	setprop("VC10/electric/dc/EssDCbus1-volts",No1EssDCbus_volts);
 	setprop("VC10/electric/dc/EssDCbus2-volts",No2EssDCbus_volts);
@@ -745,7 +745,7 @@ var update_buses = func {
 ###################################################################################
 	
 	setprop("systems/electrical/outputs/DG[0]",AuxACbus_volts);
-	setprop("systems/electrical/outputs/DG[1]",No4ACbus_volts);
+	setprop("systems/electrical/outputs/DG[1]",No4GenBusbarVolts_volts);
 	setprop("systems/electrical/outputs/adf[0]",No1EssDCbus_volts);
 	setprop("systems/electrical/outputs/adf[1]",No2NonEssDCbus_volts);
 ##OLD	setprop("systems/electrical/outputs/nav[0]",No1EssDCbus_volts);
