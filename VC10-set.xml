@@ -90,7 +90,7 @@ RR Conway engines and the VC10´s Elliot autopilot is a Bendix PB20 built under 
 					</binding>
 				</item> -->
 					<item>
-						<label>External Power Unit</label>
+						<label>External Power</label>
 						<binding>
 							<command>property-toggle</command>
 							<property>VC10/electric/external-power-connected</property>

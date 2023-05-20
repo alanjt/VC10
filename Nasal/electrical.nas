@@ -424,7 +424,8 @@ var init_instrumentation_power = func{
 	
 	props.globals.initNode("systems/electrical/outputs/vertgyro[0]",0,"DOUBLE");
 	props.globals.initNode("systems/electrical/outputs/vertgyro[1]",0,"DOUBLE");	
-
+	props.globals.initNode("systems/electrical/outputs/horizgyro[0]",0,"DOUBLE");
+	props.globals.initNode("systems/electrical/outputs/horizgyro[1]",0,"DOUBLE");
 
 # perhaps these should be in marker-beacon.nas or instrumentation.nas
 	props.globals.initNode("instrumentation/marker-beacon/inner",0,"BOOL");
@@ -736,6 +737,8 @@ var update_buses = func {
 	setprop("systems/electrical/outputs/vertgyro[0]",No1VertGyroACSupply); # supplies pilot HDI
 	setprop("systems/electrical/outputs/vertgyro[1]",No2VertGyroACSupply); # supplies co-pilot HDI
 	
+	setprop("systems/electrical/outputs/horizgyro[0]",No1CompassACSupply); # supplies pilot CDI
+	setprop("systems/electrical/outputs/horizgyro[1]",No2CompassACSupply); # supplies co-pilot CDI	
 	
 ##################################################################################
 # temporary fix to supply 707 ess bus for imported systems	
