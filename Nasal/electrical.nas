@@ -713,16 +713,16 @@ var update_buses = func {
 ##############################################################################################################
 # Radio and Gyro AC/DC Supplies
 	var No1DCSupply = No1NonEssDCbus_volts * getprop("systems/electrical/switches/RadioNav/radio1");
-	var No1ACSupply = Gen1_volts * getprop("systems/electrical/switches/RadioNav/radio1");	
+	var No1ACSupply = No1GenBusbarVolts_volts * getprop("systems/electrical/switches/RadioNav/radio1");	
 	var No2DCSupply = No2NonEssDCbus_volts * getprop("systems/electrical/switches/RadioNav/radio2");
-	var No2ACSupply = Gen4_volts * getprop("systems/electrical/switches/RadioNav/radio2");
+	var No2ACSupply = No4GenBusbarVolts_volts * getprop("systems/electrical/switches/RadioNav/radio2");
 	var No1EmergencyDCSupply = No1EssDCbus_volts * getprop("systems/electrical/switches/RadioNav/radio1Emergency");
 	var No1EmergencyACSupply = AuxACbus_volts * getprop("systems/electrical/switches/RadioNav/radio1Emergency");
 	
-	var No1VertGyroACSupply = Gen1_volts * getprop("systems/electrical/switches/RadioNav/VertGyro1");
-	var No2VertGyroACSupply = Gen4_volts * getprop("systems/electrical/switches/RadioNav/VertGyro2");
-	var No1CompassACSupply = AuxACbus_volts * getprop("systems/electrical/switches/RadioNav/CompassGyro1");
-	var No2CompassACSupply = Gen4_volts * getprop("systems/electrical/switches/RadioNav/CompassGyro2");
+	var No1VertGyroACSupply = No1ACSupply * getprop("systems/electrical/switches/RadioNav/VertGyro1");
+	var No2VertGyroACSupply = No2ACSupply * getprop("systems/electrical/switches/RadioNav/VertGyro2");
+	var No1CompassACSupply = No1ACSupply * getprop("systems/electrical/switches/RadioNav/CompassGyro1");
+	var No2CompassACSupply = No2ACSupply * getprop("systems/electrical/switches/RadioNav/CompassGyro2");
 	
 	setprop("systems/electrical/outputs/No1DC",No1DCSupply);
 	setprop("systems/electrical/outputs/No1AC",No1ACSupply);	
