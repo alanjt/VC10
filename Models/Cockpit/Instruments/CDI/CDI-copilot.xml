@@ -33,8 +33,7 @@
 		<object-name>noNav</object-name>
 		<object-name>VorLocDeviationBar</object-name>
 		<object-name>VOR_LOC_dots</object-name>
-	<!--<property>VC10/CDI/indicated-heading-deg</property> -->
-		<property>instrumentation/heading-indicator-fg[1]/indicated-heading-deg</property>
+		<property>instrumentation/heading-indicator-dg[1]/indicated-heading-deg</property>
 		<factor>-1</factor>
 		<axis>
 			<x>-1</x>
