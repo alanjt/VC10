@@ -44,11 +44,15 @@ The only reason it's here is to specify aditional instruments.
 	<dme>
 		<name>dme</name>
 		<number>0</number>
+		<power-supply>systems/electrical/outputs/nav[0]</power-supply>
+		<minimum-supply-volts>20.0</minimum-supply-volts>
 	</dme>
 
 	<dme>
 		<name>dme</name>
 		<number>1</number>
+		<power-supply>systems/electrical/outputs/nav[1]</power-supply>
+		<minimum-supply-volts>20.0</minimum-supply-volts>
 	</dme>
 
 	<airspeed-indicator>

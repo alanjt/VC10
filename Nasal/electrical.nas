@@ -731,8 +731,8 @@ var update_buses = func {
 	setprop("systems/electrical/outputs/No1EmergencyDC",No1EmergencyDCSupply);
 	setprop("systems/electrical/outputs/No1EmergencyAC",No1EmergencyACSupply);
 	
-	setprop("systems/electrical/outputs/nav[0]",No1EmergencyDCSupply); # supplies Nav1 radio
-	setprop("systems/electrical/outputs/nav[1]",No2DCSupply);          # supplies Nav2 radio
+	setprop("systems/electrical/outputs/nav[0]",No1EmergencyDCSupply); # supplies Nav1, DME1 radio
+	setprop("systems/electrical/outputs/nav[1]",No2DCSupply);          # supplies Nav2, DME2 radio
 	
 	setprop("systems/electrical/outputs/vertgyro[0]",No1VertGyroACSupply); # supplies pilot HDI
 	setprop("systems/electrical/outputs/vertgyro[1]",No2VertGyroACSupply); # supplies co-pilot HDI
@@ -750,9 +750,7 @@ var update_buses = func {
 	setprop("systems/electrical/outputs/DG[0]",AuxACbus_volts);
 	setprop("systems/electrical/outputs/DG[1]",No4GenBusbarVolts_volts);
 	setprop("systems/electrical/outputs/adf[0]",No1EssDCbus_volts);
-	setprop("systems/electrical/outputs/adf[1]",No2NonEssDCbus_volts);
-##OLD	setprop("systems/electrical/outputs/nav[0]",No1EssDCbus_volts);
-##OLD	setprop("systems/electrical/outputs/nav[1]",No2NonEssDCbus_volts);	
+	setprop("systems/electrical/outputs/adf[1]",No2NonEssDCbus_volts);	
 	setprop("systems/electrical/outputs/com[0]",No1EssDCbus_volts);
 	setprop("systems/electrical/outputs/com[1]",No2NonEssDCbus_volts);
 	setprop("systems/electrical/outputs/dme[0]",No1EssDCbus_volts);
