@@ -88,7 +88,7 @@ Vickers VC10 for Flightgear
 <dme n="0">
 	<mode type="string">dme</mode>
 	<power-btn type="bool">true</power-btn>
-	<serviceable type="bool">false</serviceable>
+	<serviceable type="bool">true</serviceable>
 	<ident type="bool">false</ident>
 	<volume type="double">0.0</volume>
 	<frequencies>
@@ -106,7 +106,7 @@ Vickers VC10 for Flightgear
 <dme n="1">
 	<mode type="string">dme</mode>
 	<power-btn type="bool">true</power-btn>
-	<serviceable type="bool">false</serviceable>
+	<serviceable type="bool">true</serviceable>
 	<ident type="bool">false</ident>
 	<volume type="double">0.0</volume>
 	<frequencies>

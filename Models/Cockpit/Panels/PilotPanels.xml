@@ -774,7 +774,7 @@ Vickers VC10 for Flightgear
 	
 	<model>
 		<name>dme_cp</name>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/dme/dme.xml</path>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/dme/dme_cp.xml</path>
 		<offsets>
 			<x-m> 0.0</x-m>
 			<y-m>0.379</y-m>
@@ -822,13 +822,24 @@ Vickers VC10 for Flightgear
 		</offsets>
 	</model>
 
-
-
+	
 	<model>
+		<name>trim_cp</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/trim/trim.xml</path>
+		<offsets>
+			<x-m>0.0</x-m>
+			<y-m>0.184</y-m>
+			<z-m>-0.40</z-m>
+		</offsets>
+	</model>
+
+
+	<!-- centre top panel -->
+
+<!--	<model>
 		<name>agl_cp</name>
 		<path>Aircraft/VC10/Models/Cockpit/Instruments/agl/agl.xml</path>
 		<offsets>
-			<!--    <x-m>-18.967</x-m> -->
 			<x-m>1.473</x-m>
 			<y-m> 0.482</y-m>
 			<z-m>0.878</z-m>
@@ -847,7 +858,7 @@ Vickers VC10 for Flightgear
 
 	<model>
 		<name>dme_cp</name>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/dme/dme.xml</path>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/dme/dme_cp.xml</path>
 		<offsets>
 			<x-m>1.524</x-m>
 			<y-m> 0.495</y-m>
@@ -859,7 +870,6 @@ Vickers VC10 for Flightgear
 		<name>speed-limit-lamps_cp</name>
 		<path>Aircraft/VC10/Models/Cockpit/Instruments/lamps/speed-limit.xml</path>
 		<offsets>
-			<!--    <x-m>-18.916</x-m> -->
 			<x-m>1.524</x-m>
 			<y-m>0.231</y-m>
 			<z-m>0.78</z-m>
@@ -871,36 +881,21 @@ Vickers VC10 for Flightgear
 		<name>turn_cp</name>
 		<path>Aircraft/VC10/Models/Cockpit/Instruments/turn/turn.xml</path>
 		<offsets>
-			<!--    <x-m>-18.916</x-m> -->
 			<x-m>1.524</x-m>
 			<y-m> 0.308</y-m>
 			<z-m>0.71</z-m>
 		</offsets>
 	</model>
-	
-	<model>
-		<name>trim_cp</name>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/trim/trim.xml</path>
-		<offsets>
-			<x-m>0.0</x-m>
-			<y-m>0.184</y-m>
-			<z-m>-0.40</z-m>
-		</offsets>
-	</model>
-
-
-	<!-- centre top panel -->
 
 	<model>
 		<name>firewarning_lamps</name>
 		<path>Aircraft/VC10/Models/Cockpit/Instruments/firewarning/firewarning.xml</path>
 		<offsets>
-			<!--   <x-m>-18.797</x-m>  -->
 			<x-m>1.683</x-m>
 			<y-m>  0.00</y-m>
 			<z-m>  1.05</z-m>
 		</offsets>
-	</model>
+	</model> -->
 
 <!--	<model>
 		<name>Autopilot Helper</name>
@@ -914,7 +909,7 @@ Vickers VC10 for Flightgear
 	</model> -->
 
 
-	<model>
+<!--	<model>
 		<path>Aircraft/VC10/Models/Cockpit/Instruments/radio/tacan.xml</path>
 		<condition>
 			<or>		
@@ -941,7 +936,6 @@ Vickers VC10 for Flightgear
 			</or>
 		</condition>
 		<offsets>   
-			<!--		  <x-m>-18.325</x-m> -->
 			<x-m>2.115</x-m>
 			<y-m>  0.0675</y-m>
 			<z-m>  0.625</z-m>
@@ -952,13 +946,12 @@ Vickers VC10 for Flightgear
 	<model>
 		<path>Aircraft/VC10/Models/Cockpit/Instruments/radar/radar.xml</path>
 		<offsets>
-			<!--			<x-m>-18.85</x-m> -->
 			<x-m>1.55</x-m>
 			<y-m>-0.0</y-m>
 			<z-m>0.729</z-m>
 			<pitch-deg>-70</pitch-deg>
 		</offsets>
-	</model>
+	</model> -->
 
 </PropertyList>
 
