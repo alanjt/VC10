@@ -733,6 +733,9 @@ var update_buses = func {
 	
 	setprop("systems/electrical/outputs/nav[0]",No1EmergencyDCSupply); # supplies Nav1, DME1 radio
 	setprop("systems/electrical/outputs/nav[1]",No2DCSupply);          # supplies Nav2, DME2 radio
+	setprop("systems/electrical/outputs/tacan[0]",No1EmergencyDCSupply); # supplies Nav1, DME1 radio
+	setprop("systems/electrical/outputs/tacan[1]",No2DCSupply);          # supplies Nav2, DME2 radio
+
 	
 	setprop("systems/electrical/outputs/vertgyro[0]",No1VertGyroACSupply); # supplies pilot HDI
 	setprop("systems/electrical/outputs/vertgyro[1]",No2VertGyroACSupply); # supplies co-pilot HDI
