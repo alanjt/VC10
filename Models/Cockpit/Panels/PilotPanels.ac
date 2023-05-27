@@ -7,7 +7,7 @@ name "PilotPanel"
 loc 0 -0.99228 0
 data 9
 Plane.002
-texture "PilotPanelsPanel.png"
+texture "PilotPanels.png"
 crease 40.000000
 numvert 50
 0 0.88965 0.70688
@@ -144,7 +144,7 @@ name "CenterPanel"
 loc 0 -0.99228 0
 data 9
 Plane.001
-texture "PilotPanelsPanel.png"
+texture "PilotPanels.png"
 crease 40.000000
 numvert 42
 0 0.66174 0.24353
@@ -264,7 +264,7 @@ name "CopilotPanel"
 loc 0 -0.99228 0
 data 5
 Plane
-texture "PilotPanelsPanel.png"
+texture "PilotPanels.png"
 crease 40.000000
 numvert 52
 0 0.859995 -0.488561
