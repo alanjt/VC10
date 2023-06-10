@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+
+<!--
+    Autopilot Configuration for the VC10
+-->
+
+
+<PropertyList>
+
+	<!--
+    ===============
+    Auto-throttle Mode Selector
+    ===============
+    -->
+
+	<!-- Hold IAS by varying throttle  -->
+	<filter>
+		<name>IAS Hold Throttle</name>
+		<debug>false</debug>
+		<type>gain</type>
+<!--		<gain>-5.0</gain>  -->
+		<gain>-4.0</gain>
+		<input><property>autopilot/internal/U-Ud-leadlag</property></input>
+		<output><property>autopilot/internal/throttlec-ias</property></output>
+	</filter>
+
+
+	<filter>
+		<name>Autothrottle selector</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<condition>
+				<and>
+					<or>
+						<property>autopilot/Bendix-PB-20/controls/ALT-active</property>
+						<property>autopilot/switches/ILS_GS</property>
+					</or>
+					<property>autopilot/Bendix-PB-20/controls/IAS-active</property>
+				</and>
+			</condition>
+			<property>autopilot/internal/throttlec-ias</property>
+		</input>
+		<input>
+			<condition>
+					<or>
+						<property>autopilot/Bendix-PB-20/controls/ALT-active</property>
+						<property>autopilot/switches/ILS_GS</property>
+					</or>
+			</condition>
+			<property>autopilot/internal/throttlec-mach</property>
+		</input>
+		<!-- no selection - default -->
+		<input><value>0.0</value></input>
+		<output><property>autopilot/commands/throttlec-deg</property></output>
+		<u_min>-25</u_min>
+		<u_max>25</u_max>
+	</filter>
+	
+<!--
+    ===============
+        Auto-throttle driver
+    ===============
+-->
+	<filter>
+		<name>Throttle Cmd</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>0.025</gain>
+		<input>
+			<property>autopilot/commands/throttlec-deg</property>
+		</input>
+		<output><property>fdm/jsbsim/fcs/afcs-throttle-cmd-norm</property></output>
+		<u_min>-0.8</u_min>
+		<u_max>0.8</u_max>
+	</filter>
+	
+</PropertyList>

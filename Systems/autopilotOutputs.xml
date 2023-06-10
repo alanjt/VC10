@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+
+<!--
+    Autopilot Configuration for the VC10
+-->
+
+
+<PropertyList>
+	
+
+    ===============
+        Auto-throttle driver
+    ===============
+-->
+	<filter>
+		<name>Throttle Cmd</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>0.025</gain>
+		<input>
+			<property>autopilot/commands/throttlec-deg</property>
+		</input>
+		<output><property>fdm/jsbsim/fcs/afcs-throttle-cmd-norm</property></output>
+		<u_min>-0.8</u_min>
+		<u_max>0.8</u_max>
+	</filter>
+
+</PropertyList>

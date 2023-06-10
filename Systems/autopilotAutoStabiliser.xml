@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+
+<!--
+    Autopilot Configuration for the VC10
+-->
+
+<PropertyList>
+
+	<!--
+    ===============
+    Yaw Autostabiliser and Autostiffening.
+    ===============
+    -->
+
+	<filter>
+		<name>rudderstab Ay</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain><property>autopilot/gain/GAy</property></gain>
+		<input>
+			<expression>
+				<product>
+					<property>fdm/jsbsim/accelerations/Ny</property>
+					<value>57.295779513082320876798154814105</value>
+				</product>
+			</expression>
+		</input>
+		<output><property>autopilot/commands/rudderstab-Ay-deg</property></output>
+		<u_min>-6</u_min>
+		<u_max>6</u_max>
+	</filter>
+
+	<filter>
+		<name>rudderstab Betadot</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain><property>autopilot/gain/GBetadot</property></gain>
+		<input>
+			<expression>
+				<product>
+					<dif>
+						<property>fdm/jsbsim/velocities/r-aero-rad_sec</property>  <!-- should be from AFCS gyro system -->
+						<sum>
+							<property>autopilot/internal/pAlpha</property>
+							<product>
+								<property>fdm/jsbsim/accelerations/gravity-ft_sec2</property>
+								<property>autopilot/internal/OneOverV</property>
+								<sin><product><value>0.01745329251994329576923690768489</value>
+										<property>orientation/roll-deg</property> <!-- should be from AFCS gyro system -->
+									</product></sin>
+								<cos><product><value>0.01745329251994329576923690768489</value>
+										<property>orientation/pitch-deg</property>  <!-- should be from AFCS gyro system -->
+									</product></cos>
+							</product>
+						</sum>
+					</dif>
+					<value>57.295779513082320876798154814105</value>
+				</product>
+			</expression>
+		</input>
+		<output><property>autopilot/commands/rudderstab-betadot-deg</property></output>
+		<u_min>-6</u_min>
+		<u_max>6</u_max>
+	</filter>
+	<!-- Yaw Damper -->
+	<!-- Yaw rate, passed through a washout filter having a time constant of aprox 3 seconds.
+-->	
+
+
+	<filter>
+		<type>high-pass</type>
+		<debug>false</debug>
+		<enable>
+			<condition>
+				<or>
+					<equals>
+						<property>autopilot/Bendix-PB-20/controls/Damper-Stbyactive</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>autopilot/Bendix-PB-20/controls/Damper-1active</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>autopilot/Bendix-PB-20/controls/Damper-2active</property>
+						<value>1</value>
+					</equals>
+				</or>
+			</condition>
+		</enable>
+		<filter-time>2.0</filter-time>
+		<input>
+			<expression>
+				<product>
+					<property>fdm/jsbsim/velocities/r-aero-rad_sec</property>
+					<value> 100.0 </value>
+				</product>
+			</expression>
+		</input>
+		<output><property>fdm/jsbsim/fcs/afcs-yawdamper-deg</property></output>
+	</filter>
+
+
+</PropertyList>

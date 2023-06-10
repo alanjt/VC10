@@ -440,32 +440,36 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 		</tank>
 	</propulsion>
 
-<!--	<system file="pushback"/> -->
+	<!--	<system file="pushback"/> -->
 
-	<flight_control name="VC10-MK">
+	<flight_control name="FCS:VC10">
+
 		<channel name="Pitch">
-
-			<summer name="Elevator cmd Sum">
+			
+			<aerosurface_scale name="Elevator cmd Deg">
 				<input>fcs/elevator-cmd-norm</input>
-				<clipto><min>-1</min><max>1</max></clipto>
-				<output>fcs/elevator-sum-norm</output>
-			</summer>
-
-			<aerosurface_scale name="Elevator Control">
-				<input>fcs/elevator-sum-norm</input>
-				<zero_centered>true</zero_centered>
-				<domain><min>-1.0</min><max>1.0</max></domain>
-				<range><min>-1</min><max>1</max></range>
-				<output>fcs/elevator-pos-norm</output>
-			</aerosurface_scale>
-
-			<aerosurface_scale name="Elevator Pos Deg">
-				<input>fcs/elevator-sum-norm</input>
 				<zero_centered>true</zero_centered>
 				<domain><min>-1.0</min><max>1.0</max></domain>
 				<range><min>-17.683</min><max>26.55</max></range>
-				<output>fcs/elevator-pos-deg</output>
+				<output>fcs/elevator-cmd-deg</output>
 			</aerosurface_scale>
+			
+			<summer name="Elevator Pos Deg">
+				<input>fcs/elevator-cmd-deg</input>
+				<input>fcs/afcs-elevator-cmd-deg</input>
+				<clipto>
+					<min>-17.683</min>
+					<max>26.55</max>
+				</clipto>
+				<output>fcs/elevator-pos-deg</output>
+			</summer>
+			
+			<pure_gain name="Elevator pos rad">
+				<input>fcs/elevator-pos-deg</input>
+				<gain>0.0174533</gain>
+				<output>fcs/elevator-pos-rad</output>
+			</pure_gain>
+			
 
 			<aerosurface_scale name="Pitch Trim pos deg">
 				<input>fcs/pitch-trim-cmd-norm</input>
@@ -490,11 +494,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				<gain>23.25</gain>
 				<output>fcs/aileron-trim-cmd-deg</output>
 			</pure_gain>
-
+			
 			<summer name="Aileron Pos Deg">
 				<input>fcs/aileron-cmd-deg</input>
 				<input>fcs/aileron-trim-cmd-deg</input>
-				<input>afcs/aileron-deg</input>
+				<input>fcs/afcs-aileron-cmd-deg</input>
 				<clipto>
 					<min>-23.25</min>
 					<max>23.25</max>
@@ -629,8 +633,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			<summer name="Rudder Pos Deg">
 				<input>fcs/rudder-cmd-deg</input>
 				<input>fcs/rudder-trim-cmd-deg</input>
-				<input>afcs/rudder-deg</input>
-				<input>afcs/yawdamper-deg</input>
+				<input>fcs/afcs-rudder-cmd-deg</input>
+				<input>fcs/afcs-yawdamper-deg</input>
 				<clipto>
 					<min>-30</min>
 					<max>30</max>
@@ -748,7 +752,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				<output>fcs/LE-flap-cmd-norm</output>
 			</switch>
 
-			<kinematic name="Leading Edge Flaps Control">
+			<!--		<kinematic name="Leading Edge Flaps Control">
 				<input>fcs/LE-flap-cmd-norm</input>
 				<traverse>
 					<setting>
@@ -765,10 +769,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 					</setting>
 				</traverse>
 				<output>fcs/wing-fold-pos-norm</output>
-			</kinematic>
+			</kinematic> -->
 
 		</channel>
-
 
 	</flight_control>
 

@@ -57,10 +57,50 @@ if you contacted me before making any changes to this software.
 			<model type="int">2</model>
 		</rating>
 
-		<systems n="0">
-			<autopilot n="0">
-				<path>Systems/autopilot.xml</path>
+		<systems>
+<!--		<autopilot>
+				<path>Systems/autopilot.xml</path>   No longer used
 			</autopilot>
+-->
+		<autopilot>
+				<path>Systems/autopilotInputFilters.xml</path>
+		</autopilot>
+<!--			<autopilot>
+				<path>Systems/autopilotGains.xml</path>
+			</autopilot>
+			<autopilot>
+				<path>Systems/autopilotPitchModes.xml</path>
+			</autopilot>
+			<autopilot>
+				<path>Systems/autopilotMachIAS.xml</path>
+			</autopilot>
+			<autopilot>
+				<path>Systems/autopilotAircraftStateFilters.xml</path>
+			</autopilot>
+			<autopilot>
+				<path>Systems/autopilotPitchInnerLoop.xml</path>
+			</autopilot>
+			<autopilot>
+				<path>Systems/autopilotLateralModes.xml</path>
+			</autopilot> -->
+			<autopilot>
+				<path>Systems/autopilotAutoStabiliser.xml</path>
+			</autopilot>
+<!--			<autopilot>
+				<path>Systems/autopilotAutothrottle.xml</path>
+			</autopilot>
+			<autopilot>
+				<path>Systems/autopilotFlightDirector.xml</path>
+			</autopilot>
+			<autopilot>
+				<path>Systems/autopilotManoeverLimits.xml</path>
+			</autopilot>
+			<autopilot>
+				<path>autopilotOutputs.xml</path>
+			</autopilot> 
+			<autopilot>
+				<path>Systems/autopilotAutoTrim.xml</path>
+			</autopilot> -->
 		</systems>
 
 		<instrumentation>
@@ -413,16 +453,10 @@ if you contacted me before making any changes to this software.
 				<active type="bool">0</active><!-- the AP engage switch -->
 			</controls>
 		</Bendix-PB-20>
-
 	</autopilot>
 
 	<controls>
 		<flight>
-			<slats type="double" alias="/fdm/jsbsim/fcs/slat-cmd-norm">0.0</slats>
-			<elevator-deg type="double" alias="/fdm/jsbsim/afcs/elevator-deg">0.0</elevator-deg>
-			<aileron-deg type="double" alias="/fdm/jsbsim/afcs/aileron-deg">0.0</aileron-deg>
-			<rudder-deg type="double" alias="/fdm/jsbsim/afcs/rudder-deg">0.0</rudder-deg>
-			<yawdamper-deg type="double" alias="/fdm/jsbsim/afcs/yawdamper-deg">0.0</yawdamper-deg>
 		</flight>
 
 		<APU>
@@ -603,12 +637,12 @@ if you contacted me before making any changes to this software.
 
 	<fdm>
 		<jsbsim>
-			<afcs>
-				<elevator-deg type="double">0.0</elevator-deg>
-				<aileron-deg type="double">0.0</aileron-deg>
-				<rudder-deg type="double">0.0</rudder-deg>
-				<yawdamper-deg type="double">0.0</yawdamper-deg>
-			</afcs>
+				<fcs>
+					<afcs-elevator-cmd-deg type="double">0.0</afcs-elevator-cmd-deg>
+					<afcs-aileron-cmd-deg type="double">0.0</afcs-aileron-cmd-deg>
+					<afcs-rudder-cmd-deg type="double">0.0</afcs-rudder-cmd-deg>
+				</fcs>
 		</jsbsim>
 	</fdm>
+~
 </PropertyList>

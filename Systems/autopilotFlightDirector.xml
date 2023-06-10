@@ -1,0 +1,197 @@
+<?xml version="1.0"?>
+
+<!--
+    Autopilot Configuration for the VC10.
+-->
+
+
+<PropertyList>
+
+	<!--
+    ===============
+    Flight Director Control Circuits. Elliott Sec3 Fig9
+    ===============
+    -->		
+
+	<!--	<filter>
+		<name>Flight director pitch command</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0 </gain>
+		<input>
+			<expression>
+				<dif>
+					<product>
+						<property>autopilot/internal/qd</property>
+						<value>0.05</value>
+					</product>
+					<property>fdm/jsbsim/attitude/theta-deg</property>
+				</dif>
+			</expression>
+		</input>
+		<output><property>autopilot/commands/FD-pitch-deg</property></output>
+	</filter>  -->
+
+	<filter>
+		<name>q-qdb_swRelayA</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0 </gain>
+		<input>
+			<condition>
+				<property>autopilot/internal/RelayA</property>
+			</condition>
+			<property>autopilot/internal/q-qdb</property>
+		</input>
+		<input>
+			<value>-100000</value>
+		</input>
+		<output><property>autopilot/internal/q-qdb_swRelayA</property></output>
+	</filter>
+
+	<filter>
+		<name>qfd_sw</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0 </gain>
+		<input>
+			<condition>
+				<property>autopilot/internal/ElevationModeSelected</property>
+			</condition>
+			<property>autopilot/internal/qd</property>
+		</input>
+		<input>
+			<value>-100000</value>
+		</input>
+		<output><property>autopilot/internal/qdsw</property></output>
+	</filter>
+
+	<filter>
+		<name>qfd_mnu</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0 </gain>
+		<input>
+			<condition>
+				<greater-than>
+					<property>autopilot/internal/q-qdb_swRelayA</property>
+					<property>autopilot/internal/qdsw</property>
+				</greater-than>
+			</condition>
+			<property>autopilot/internal/q-qdb_swRelayA</property>
+		</input>
+		<input>
+			<property>autopilot/internal/qdsw</property>
+		</input>
+		<output><property>autopilot/internal/qfd_mnu</property></output>
+	</filter>
+
+	<filter>
+		<name>qfd_output</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0 </gain>
+		<input>
+			<condition>
+				<property>autopilot/switches/takeoff-fd</property>
+			</condition>
+			<property>autopilot/commands/FD-pitch-deg</property>
+		</input>
+		<input>
+			<condition>
+				<property>autopilot/internal/ElevationModeSelected</property>
+			</condition>
+			<property>autopilot/internal/qfd_mnu</property>
+		</input>
+		<input>
+			<value>0</value>
+		</input>
+		<output><property>autopilot/internal/qfd</property></output>
+		<output><property>autopilot/commands/FD-pitch-deg</property></output>
+	</filter>
+
+	<filter>
+		<name>Flight director roll command PsiFD_sw1</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0 </gain>
+		<input>
+			<condition>
+				<and>
+					<property>autopilot/switches/takeoff-fd</property>
+					<property>autopilot/switches/heading</property>				
+				</and>
+			</condition>
+			<property>autopilot/internal/PsiFD3</property>
+		</input>
+		<input>
+			<property>autopilot/internal/PsiFD2</property>
+		</input>
+		<output><property>autopilot/internal/PsiFD_sw1</property></output>
+	</filter>
+
+	<filter>
+		<name>Flight director roll command PsiFD_sw2</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0 </gain>
+		<input>
+			<condition>
+				<property>autopilot/switches/terrain-following</property>				
+			</condition>
+			<property>autopilot/internal/PsiFD1</property>
+		</input>
+		<input>
+			<property>autopilot/internal/PsiFD_sw1</property>
+		</input>
+		<output><property>autopilot/internal/PsiFD_sw2</property></output>
+	</filter>
+
+	<filter>
+		<name>Flight director roll command PsiFD_sw3</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0 </gain>
+		<input>
+			<condition>
+				<or>
+					<property>autopilot/switches/ILS-LOC</property>
+					<and>
+						<less_than>
+							<property>autopilot/internal/phi_r</property>
+							<value>0.5</value>
+						</less_than>
+						<greater_than>
+							<property>autopilot/internal/phi_r</property>
+							<value>-0.5</value>
+						</greater_than>
+					</and>
+				</or>
+			</condition>
+			<property>autopilot/internal/PsiFD_sw1</property>
+		</input>
+		<input>
+			<property>autopilot/internal/PsiFD_sw2</property>
+		</input>
+		<output><property>autopilot/internal/PsiFD_sw3</property></output>
+	</filter>
+
+	<filter>
+		<name>Flight director roll command</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0 </gain>
+		<input>
+			<condition>
+				<property>autopilot/internal/ElevationModeSelected</property>
+			</condition>
+			<property>autopilot/internal/PsiFD_sw3</property>
+		</input>
+		<input>
+			<value>0</value>
+		</input>
+		<output><property>autopilot/internal/PsiFD</property></output>
+		<output><property>autopilot/commands/FD-roll-deg</property></output>
+	</filter>
+
+</PropertyList>

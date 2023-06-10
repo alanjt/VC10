@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+
+<!--
+    Autopilot Configuration for the VC10.
+-->
+
+
+<PropertyList>
+
+	<!--
+    ===============
+    Pitch Manoeuvre Boost and Short Period Damping.
+    ===============
+    -->
+
+	<!-- Pitch rate error driver -->
+	<filter>
+		<name>Pitch rate error</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<expression>
+				<dif>
+					<property>autopilot/internal/q-deg_sec</property>
+					<property>autopilot/internal/qr</property>
+				</dif>
+			</expression>
+		</input>
+		<output><property>autopilot/internal/q-error</property></output>
+	</filter>
+
+	<filter>
+		<name>Pitch Manoever Boost</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain><property>autopilot/gain/Kb</property></gain>
+		<input>
+			<expression>
+				<sum>
+					<property>fdm/jsbsim/fcs/elevator-stick-cmd-deg</property>
+					<product>
+						<property>autopilot/gain/Kn</property>
+						<sum>
+							<property>fdm/jsbsim/accelerations/Nz</property>
+							<value>-1.0</value>
+						</sum>
+					</product>
+				</sum>
+			</expression>
+		</input>
+		<output><property>autopilot/commands/elevator-boost-deg</property></output>
+		<u_min>-20</u_min>
+		<u_max>20</u_max>
+	</filter>
+
+	<filter>
+		<name>Pitch AutoStabiliser</name>
+		<debug>false</debug>
+		<type>high-pass</type>
+		<filter-time>1.0</filter-time>
+		<input>
+			<expression>
+				<sum>
+					<product>
+						<property>autopilot/gain/Kb</property>
+						<property>autopilot/commands/elevator-boost-deg</property>
+					</product>
+					<product>
+						<property>autopilot/gain/Gq</property>
+						<property>autopilot/internal/q-error</property>
+					</product>
+				</sum>
+			</expression>
+		</input>
+		<output><property>autopilot/commands/elevator-stabiliser</property></output>
+		<u_min>-20</u_min>
+		<u_max>20</u_max>
+	</filter>
+
+	<filter>
+		<name>AFCS elevator</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<expression>
+				<sum>
+					<product>
+						<property>autopilot/gain/Gqr</property>
+						<property>autopilot/internal/q-error</property>
+					</product>
+					<property>autopilot/commands/APintegrator-deg</property>
+				</sum>
+			</expression>
+		</input>
+		<output><property>autopilot/commands/APelevator-deg</property></output>
+	</filter>
+
+	<filter>
+		<name>Pitch elevator Sum</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<condition>
+				<property>autopilot/switches/auto-engage</property>
+			</condition>
+			<property>autopilot/commands/APelevator-deg</property>
+		</input>
+		<input>
+			<property>autopilot/commands/elevator-stabiliser</property>
+		</input>
+		<output><property>autopilot/commands/afcs-elevator-deg</property></output>
+	</filter>
+
+	<filter>
+		<name>Pitch indicator driver</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<input>
+			<condition>
+				<property>autopilot/switches/auto-engage</property>
+			</condition>
+			<property>autopilot/commands/APelevator-deg</property>
+		</input>
+		<input><value>0</value></input>
+		<output><property>autopilot/commands/pitch-indicator</property></output>
+	</filter>
+
+</PropertyList>

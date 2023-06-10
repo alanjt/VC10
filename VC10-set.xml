@@ -304,16 +304,17 @@ _______________________________________________________
 
 	<nasal>
 		<VC10>
+			<file>Nasal/VC10-main.nas</file>
 			<file>Nasal/shake.nas</file>
 			<file>Nasal/autostart.nas</file>
 			<file>Nasal/fuel-and-payload.nas</file>
 			<file>Nasal/liveries.nas</file>
 			<file>Nasal/electrical.nas</file>
-			<file>Nasal/mk-VC10.nas</file>
+<!--			<file>Nasal/mk-VC10.nas</file> -->
 			<file>Nasal/mk-agl-radar.nas</file>
 			<file>Nasal/mk-frw.nas</file>
 			<file>Nasal/mk-stopwatch.nas</file>
-			<!--			<file>Nasal/mk-rmi.nas</file> -->
+<!--			<file>Nasal/mk-rmi.nas</file> -->
 			<file>Nasal/mk-wiper.nas</file>
 			<file>Nasal/mk-ci-tacan.nas</file>
 			<file>Nasal/doors.nas</file>
@@ -353,7 +354,8 @@ _______________________________________________________
      ********************************************************************** -->
 
 	<!-- Set up aliased properties for jsbsim use-->
-	<!--	<fuel>
+	<!--
+	<fuel>
 		<switches>
 			<Tank1_1A_SlowXfer alias="/fdm/jsbsim/fuel/switches/Tank1_1A_SlowXfer" /> 			
 			<Tank1_1A_FastXfer alias="/fdm/jsbsim/fuel/switches/Tank1_1A_FastXfer" />

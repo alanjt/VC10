@@ -1,0 +1,172 @@
+<?xml version="1.0"?>
+
+<!--
+    Autopilot Configuration for the VC10.
+-->
+
+
+<PropertyList>
+
+	<!--
+    ===============
+    Filters
+    ===============
+    -->
+
+	<filter>
+		<name>incidence lag</name>
+		<debug>false</debug>
+		<type>exponential</type>
+		<filter-time>0.1</filter-time>
+		<input><property>fdm/jsbsim/aero/alpha-deg</property></input>
+		<output><property>autopilot/internal/alpha-deg-lag</property></output>
+	</filter>
+
+	<filter>
+		<name>pAlpha</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<input>
+			<expression>
+				<product>
+					<property>fdm/jsbsim/velocities/p-aero-rad_sec</property>
+					<property>fdm/jsbsim/aero/alpha-rad</property>
+				</product>
+			</expression>
+		</input>
+		<output><property>autopilot/internal/pAlpha</property></output>
+	</filter>
+
+	<filter>
+		<name>pitch rate degps</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>57.295779513082320876798154814105</gain>
+		<input><property>fdm/jsbsim/velocities/q-rad_sec</property></input>
+		<output><property>autopilot/internal/q-deg_sec</property></output>
+	</filter>
+
+	<logic>
+		<input>
+			<or>
+				<property>autopilot/Bendix-PB-20/controls/MACH-active</property>
+				<property>autopilot/Bendix-PB-20/controls/IAS-active</property>
+				<property>autopilot/switches/ILS_GS</property>
+				<property>autopilot/Bendix-PB-20/controls/ALT-active</property>
+<!--			<property>autopilot/switches/height-Acquire</property> -->
+			</or>
+		</input>
+		<output><property>autopilot/internal/ElevationModeSelected</property></output>
+	</logic>
+
+	<!-- Roll Rate -->	
+	<filter>
+		<name>Roll rate deg-per-sec</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>57.295779513082320876798154814105</gain>
+		<input>
+			<property>fdm/jsbsim/velocities/p-rad_sec</property>
+		</input>
+		<output><property>autopilot/internal/p-deg_sec</property></output>
+	</filter>
+
+	<!-- Magnetic heading -->
+	<filter>
+		<name>mag-heading</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input><property>orientation/heading-magnetic-deg</property></input>
+		<output><property>autopilot/internal/heading-magnetic-deg</property></output>
+	</filter>
+
+	<!-- Track -->
+	<filter>
+		<name>track</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input><property>orientation/track-magnetic-deg</property></input>
+		<output><property>autopilot/internal/track-magnetic-deg</property></output>
+	</filter>
+
+	<!-- Drift -->
+	<filter>
+		<name>drift</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input><property>autopilot/internal/track-magnetic-deg</property></input>
+		<reference><property>autopilot/internal/heading-magnetic-deg</property></reference>
+		<output><property>autopilot/settings/drift-deg</property></output>
+		<period>
+			<min>-180</min>
+			<max>180</max>
+		</period>
+	</filter>
+
+	<filter>
+		<name>heading bug error</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input><property>autopilot/internal/heading-magnetic-deg</property></input>
+		<reference><property>autopilot/settings/heading-bug-deg</property></reference>
+		<output><property>autopilot/internal/hdg-hdgD</property></output>
+		<output><property>autopilot/internal/PsiFD3</property></output>
+		<period>
+			<min>-180</min>
+			<max>180</max>
+		</period>
+	</filter>
+
+	<filter>
+		<name>track (vor-loc) error</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input><property>instrumentation/gps/indicated-track-magnetic-deg</property></input>
+		<reference><property>autopilot/settings/heading-bug-deg</property></reference>
+		<output><property>autopilot/internal/track-hdgD</property></output>
+		<period>
+			<min>-180</min>
+			<max>180</max>
+		</period>
+	</filter>
+
+	<!--	<filter>
+		<name>track (route plan) error</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input><property>instrumentation/gps/indicated-track-true-deg</property></input>
+		<reference><property>autopilot/settings/true-heading-deg</property></reference>
+		<output><property>autopilot/internal/track_error</property></output>
+		<period>
+			<min>-180</min>
+			<max>180</max>
+		</period>
+	</filter> -->
+
+	<filter> <!-- Xtrack error (feet) -->
+		<name>Xtrack error limited</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input><property>systems/navigation/TSR2route/this_Xtrack_error</property></input>
+		<output><property>autopilot/internal/Xtrack_error_limited</property></output>
+		<u_min>-6076</u_min>
+		<u_max>6076</u_max>
+	</filter>
+	
+	<filter> <!-- Xtrack rate error (feet/sec) -->
+		<name>Xtrack rate</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input><property>systems/navigation/TSR2route/this_Xtrack_rate</property></input>
+		<output><property>autopilot/internal/Xtrack_rate</property></output>
+	</filter>
+
+</PropertyList>

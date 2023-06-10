@@ -57,7 +57,7 @@
 		<object-name>Needle-0</object-name>
 		<object-name>Needle-1</object-name>
 		<object-name>Needle-2</object-name>
-		<property>fdm/jsbsim/afcs/yawdamper-deg</property>
+		<property>fdm/jsbsim/fcs/afcs-yawdamper-deg</property>
 		<interpolation>
 			<entry><ind>-30.0</ind><dep> -0.006</dep></entry>
 			<entry><ind>-2.75</ind><dep> -0.005</dep></entry>

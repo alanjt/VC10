@@ -1,0 +1,206 @@
+<?xml version="1.0"?>
+
+<!--
+    Autopilot Configuration for the VC10.
+-->
+
+<PropertyList>
+
+	<!--
+    ===============
+     autopilot demand limits 
+    ===============
+    -->
+
+	<filter>
+		<name>CL max aero</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<expression>
+				<sum>
+					<value>0.8</value> <!-- buffet onset -->
+					<product>
+						<property>fdm/jsbsim/fcs/flap-pos-norm</property>
+						<value>0.6</value> <!-- extra CL available at full flap -->
+					</product>
+				</sum>
+			</expression>
+		</input>
+		<output><property>autopilot/internal/CLmaxaero</property></output>
+	</filter>
+
+	<filter>
+		<name>n max aero</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<expression>
+				<div>
+					<product>
+						<property>autopilot/internal/CLmaxaero</property>
+						<property>fdm/jsbsim/aero/qbar-psf</property>
+						<property>fdm/jsbsim/metrics/Sw-sqft</property>
+					</product>
+					<property>fdm/jsbsim/inertia/weight-lbs</property>	
+				</div>	
+			</expression>			
+		</input>
+		<u_min>-4</u_min>
+		<u_max>4</u_max>
+		<output><property>autopilot/internal/n_max_aero</property></output>
+	</filter>
+
+	<filter>
+		<name>n max</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<expression>
+				<dif>
+					<property>autopilot/internal/n_max_aero</property>
+					<cos>
+						<property>fdm/jsbsim/attitude/phi-rad</property>
+					</cos>
+				</dif>	
+			</expression>			
+		</input>
+		<output><property>autopilot/internal/n_max</property></output>
+	</filter>
+
+	<filter>
+		<name>q max</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<enable>
+			<condition>
+				<not-equals>
+					<property>fdm/jsbsim/velocities/vtrue-fps</property>
+					<value>0.0</value>
+				</not-equals>
+			</condition>
+		</enable>
+		<input>
+			<expression>
+				<product>
+					<div>
+						<product>
+							<property>autopilot/internal/n_max</property>
+							<value>32.18</value>
+						</product>
+						<property>fdm/jsbsim/velocities/vtrue-fps</property>	
+					</div>
+					<value>57.295779513082320876798154814105</value>
+				</product>				
+			</expression>				
+		</input>
+		<u_min>-100</u_min>
+		<u_max>100</u_max>
+		<output><property>autopilot/internal/qd_max</property></output>
+	</filter>
+
+	<filter>
+		<name>n min</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<expression>
+				<dif>
+					<value>0.5</value>
+					<cos>
+						<property>fdm/jsbsim/attitude/phi-rad</property>
+					</cos>
+				</dif>	
+			</expression>			
+		</input>
+		<u_min>-1</u_min>
+		<u_max>1</u_max>
+		<output><property>autopilot/internal/n_min</property></output>
+	</filter>
+
+	<filter>
+		<name>q min</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<enable>
+			<condition>
+				<not-equals>
+					<property>fdm/jsbsim/velocities/vtrue-fps</property>
+					<value>0.0</value>
+				</not-equals>
+			</condition>
+		</enable>
+		<input>
+			<expression>
+				<product>
+					<div>
+						<product>
+							<property>autopilot/internal/n_min</property>
+							<value>32.18</value>
+						</product>
+						<property>fdm/jsbsim/velocities/vtrue-fps</property>	
+					</div>
+					<value>57.295779513082320876798154814105</value>
+				</product>				
+			</expression>				
+		</input>
+		<u_min>-100</u_min>
+		<u_max>100</u_max>
+		<output><property>autopilot/internal/qd_min</property></output>
+	</filter>
+
+	<filter>
+		<name>sec-phi</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<enable>
+			<condition>
+				<not-equals>
+					<property>fdm/jsbsim/attitude/phi-rad</property>
+					<value>0.0</value>
+				</not-equals>
+			</condition>
+		</enable>
+		<input>
+			<expression>
+				<div>
+					<value>1</value>
+					<cos>
+						<property>fdm/jsbsim/attitude/phi-rad</property>
+					</cos>
+				</div>
+			</expression>			
+		</input>
+		<output><property>autopilot/internal/sec-phi</property></output>
+	</filter>
+
+	<filter>
+		<name>sintan-phi</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<expression>
+				<product>
+					<sin>
+						<property>fdm/jsbsim/attitude/phi-rad</property>
+					</sin>
+					<tan>
+						<property>fdm/jsbsim/attitude/phi-rad</property>
+					</tan>
+				</product>
+			</expression>			
+		</input>
+		<output><property>autopilot/internal/sintan-phi</property></output>
+	</filter>
+
+
+
+</PropertyList>

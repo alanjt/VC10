@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+
+<!--
+    Autopilot Configuration for the VC10.
+-->
+
+
+<PropertyList>
+
+
+
+	<!--
+    ===============
+        Auto-trim driver
+    ===============
+-->
+
+	<logic>
+		<name>Elevator Trim UP</name>
+		<debug>false</debug>
+		<input>
+			<and>
+				<equals>
+					<property>autopilot/switches/auto-trim-cutout</property>
+					<value>0</value>
+				</equals>
+				<equals>
+					<property>autopilot/switches/auto-engage</property>
+					<value>1</value>
+				</equals>
+				<less-than>
+					<property>autopilot/commands/APelevator-deg</property>
+					<value>-0.1</value>
+				</less-than>
+			</and>
+		</input>
+		<output><property>autopilot/commands/afcs-elevator-trim-UP</property></output>
+	</logic>
+
+	<logic>
+		<name>Elevator Trim DOWN</name>
+		<debug>false</debug>
+		<input>
+			<and>
+				<equals>
+					<property>autopilot/switches/auto-trim-cutout</property>
+					<value>0</value>
+				</equals>
+				<equals>
+					<property>autopilot/switches/auto-engage</property>
+					<value>1</value>
+				</equals>
+				<greater-than>
+					<property>autopilot/commands/APelevator-deg</property>
+					<value>0.0</value>
+				</greater-than>
+			</and>
+		</input>
+		<output><property>autopilot/commands/afcs-elevator-trim-DOWN</property></output>
+	</logic>
+
+	<filter>
+		<name>Fin Cmd</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<condition>
+				<property>autopilot/switches/fin-control</property>
+			</condition>
+			<value>0</value>
+		</input>
+		<input>
+			<expression>
+				<sum>
+					<property>autopilot/commands/rudderstab-Ay-deg</property>
+					<property>autopilot/commands/rudderstab-betadot-deg</property>
+					<property>autopilot/commands/rudderstab-aileron-deg</property>
+				</sum>
+			</expression>
+		</input>
+		<output><property>fdm/jsbsim/fcs/afcs-rudder-cmd-deg</property></output>
+		<u_min>-6.0</u_min>
+		<u_max>6.0</u_max>
+	</filter>
+
+</PropertyList>

@@ -1,0 +1,623 @@
+<?xml version="1.0"?>
+
+<!--
+    Autopilot Configuration for the VC10.
+-->
+
+
+<PropertyList>
+	<!--
+    ===============
+    1/V
+    ===============
+    -->
+	<filter>
+		<name>OneOverV</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1</gain>
+		<input>
+			<expression><div>
+					<value>1</value>
+					<property>fdm/jsbsim/velocities/vt-fps</property>
+				</div></expression>
+		</input>
+
+		<output>
+			<property>autopilot/internal/OneOverV</property>
+		</output>
+		<u_min>0.0</u_min>
+		<u_max>0.01</u_max>
+	</filter>
+	<!--
+    ===============
+    Speed of Sound IAS Kts
+    ===============
+    -->
+	<filter>
+		<name>Mach 1 IAS</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1</gain>
+		<enable>
+			<condition>
+				<not-equals>
+					<property>fdm/jsbsim/velocities/mach</property>
+					<value>0.0</value>
+				</not-equals>
+			</condition>
+		</enable>
+		<input>
+			<expression><div>
+					<property>fdm/jsbsim/velocities/vc-kts</property>
+					<property>fdm/jsbsim/velocities/mach</property>
+				</div></expression>
+		</input>
+		<output><property>autopilot/internal/Mach1Kts</property></output>
+	</filter>
+
+	<!--
+    ===============
+    Gain Schedulers and limits
+    ===============
+    -->
+
+	<!-- limits -->
+	<filter>
+		<name>Phi_r_limit</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1</gain>
+		<input>
+			<condition>
+				<property>autopilot/switches/ILS-LOC</property>
+			</condition>
+			<value>30.0</value>
+		</input>
+		<input>
+			<condition>
+				<property>autopilot/switches/terrain-following</property>
+			</condition>
+			<value>45.0</value>
+		</input>
+		<input>   <!-- default for other modes -->
+			<value>60.0</value>
+		</input>
+		<output><property>autopilot/internal/Phi_r_limit</property></output>
+	</filter>
+
+	<filter>
+		<name>Phi_r_neglimit</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>-1</gain>
+		<input>
+			<property>autopilot/internal/Phi_r_limit</property>
+		</input>
+		<output><property>autopilot/internal/Phi_r_neglimit</property></output>
+	</filter>
+
+	<filter>
+		<name>Roll driver limit</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<input>
+			<condition>
+				<greater-than>
+					<property>fdm/jsbsim/velocities/vc-kts</property>
+					<value>300</value>
+				</greater-than>
+			</condition>
+			<value>2.0</value>
+		</input>
+		<input>
+			<value>2.0</value>
+		</input>
+		<output><property>autopilot/internal/roll_driver_limit</property></output>
+	</filter>
+
+	<filter>
+		<name>Roll driver negative limit</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain><value>-1.0</value></gain>
+		<input>
+			<property>autopilot/internal/roll_driver_limit</property>
+		</input>
+		<output><property>autopilot/internal/roll_driver_neg_limit</property></output>
+	</filter>	
+
+	<!-- gains -->
+	<filter>
+		<name>Gq</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<input>
+			<input>
+				<condition>
+					<greater-than>
+						<property>fdm/jsbsim/velocities/mach</property>
+						<value>1</value>
+					</greater-than>
+				</condition>
+				<expression>
+					<sum>
+						<value>0.009</value>
+						<product>
+							<value>0.000005</value>
+							<property>fdm/jsbsim/atmosphere/pressure-altitude</property>
+						</product>
+					</sum>
+				</expression>
+			</input>
+			<expression>
+				<sum>
+					<value>0.43</value>
+					<product>
+						<value>-0.00033</value>
+						<property>fdm/jsbsim/aero/qbar-psf</property>
+					</product>
+				</sum>
+			</expression>
+		</input>
+		<u_min>0.1</u_min>
+		<u_max>1.0</u_max>
+		<output><property>autopilot/gain/Gq</property></output>
+	</filter>
+
+	<filter>
+		<name> Gqr</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>4.5</gain>
+		<input>
+			<property>autopilot/gain/Gq</property>
+		</input>
+		<output><property>autopilot/gain/Gqr</property></output>
+	</filter>
+
+	<!-- pitch manoeuvre boost gain Kn -->	
+	<filter>
+		<name>Kn</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<input>
+			<expression>
+				<sum>
+					<value>1.2</value>
+					<product>
+						<value>-3.0</value>
+						<property>fdm/jsbsim/velocities/mach</property>
+					</product>
+					<product>
+						<value>0.00027</value>
+						<property>fdm/jsbsim/atmosphere/pressure-altitude</property>
+					</product>
+				</sum>
+			</expression>
+		</input>
+		<u_min>0.9</u_min>
+		<u_max>10.0</u_max>
+		<output><property>autopilot/gain/Kn</property></output>
+	</filter>
+
+	<!-- pitch manoeuvre boost gain Kb -->
+	<filter>
+		<name>Kb</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<value>1.0</value>
+		</input>
+		<output><property>autopilot/gain/Kb</property></output>
+	</filter>
+
+	<!-- Roll stabiliser roll rate to aileron gain Kp_s  -->		
+	<filter>
+		<name>Kp_s</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<input>
+			<condition>
+				<greater-than>
+					<property>fdm/jsbsim/velocities/vt-fps</property>
+					<value>35.0</value>
+				</greater-than>
+			</condition>
+			<expression>
+				<sum>
+					<value>0.032</value>
+					<div>
+						<value>35.0</value>
+						<property>fdm/jsbsim/velocities/vt-fps</property>
+					</div>
+				</sum>
+			</expression>
+		</input>
+		<input>
+			<expression>
+				<product>
+					<value>0.032</value>
+					<div>
+						<property>fdm/jsbsim/velocities/vt-fps</property>
+						<value>35.0</value>
+					</div>
+				</product>
+			</expression>
+		</input>
+		<output><property>autopilot/gain/Kp_s</property></output>
+	</filter>
+
+	<!-- Autopilot roll rate to aileron Kp_r  -->	
+	<filter>
+		<name>Kp_r</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<input>
+			<condition>
+				<greater-than>
+					<property>fdm/jsbsim/velocities/vt-fps</property>
+					<value>80.0</value>
+				</greater-than>
+			</condition>
+			<expression>
+				<sum>
+					<value>0.032</value>
+					<div>
+						<value>80.0</value>
+						<property>fdm/jsbsim/velocities/vt-fps</property>
+					</div>
+				</sum>
+			</expression>
+		</input>
+		<input>
+			<expression>
+				<product>
+					<value>0.032</value>
+					<div>
+						<property>fdm/jsbsim/velocities/vt-fps</property>
+						<value>80.0</value>
+					</div>
+				</product>
+			</expression>
+		</input>
+		<output><property>autopilot/gain/Kp_r</property></output>
+	</filter>
+
+	<filter>
+		<name>Gbetadot altitude limiter</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input><property>instrumentation/altimeter/indicated-altitude-ft</property></input>
+		<output><property>autopilot/limit/altitude-ft-lim</property></output>
+		<u_min>9000.0</u_min>
+		<u_max>60000.0</u_max>
+	</filter>
+
+	<filter>
+		<name>Gbetadot</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<input>
+			<expression>
+				<sum>
+					<value>-0.17</value>
+					<product>
+						<value>0.000017</value>
+						<property>autopilot/limit/altitude-ft-lim</property>
+						<value>280.0</value>
+						<property>autopilot/internal/OneOverV</property>
+					</product>
+				</sum>
+			</expression>
+		</input>
+		<output><property>autopilot/gain/GBetadot</property></output>
+		<u_min>0.2</u_min>
+		<u_max>1.4</u_max>
+	</filter>
+
+	<filter>
+		<name>GAy</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<expression>
+				<table>
+					<property>instrumentation/altimeter/indicated-altitude-ft</property>
+					<entry><ind>0.0</ind><dep>0.045</dep></entry>
+					<entry><ind>22400</ind><dep>0.1196</dep></entry>
+					<entry><ind>56000</ind><dep>0.7</dep></entry>
+				</table>
+			</expression>
+		</input>
+		<output><property>autopilot/gain/GAy</property></output>
+	</filter>
+
+	<filter>
+		<name>GAileron</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<input>
+			<enable>
+				<condition>
+					<not-equals>
+						<property>fdm/jsbsim/velocities/vt-fps</property>
+						<value>0.0</value>
+					</not-equals>
+				</condition>
+			</enable>
+			<expression>
+				<sum>
+					<value>-0.641</value>
+					<div>
+						<table>
+							<property>instrumentation/altimeter/indicated-altitude-ft</property>
+							<entry><ind>0.0</ind><dep>450</dep></entry>
+							<entry><ind>9000</ind><dep>403</dep></entry>
+							<entry><ind>56000</ind><dep>403</dep></entry>
+						</table>
+						<property>fdm/jsbsim/velocities/vt-fps</property>
+					</div>
+					<table>
+						<property>instrumentation/altimeter/indicated-altitude-ft</property>
+						<entry><ind>0.0</ind><dep>0.0</dep></entry>
+						<entry><ind>22400</ind><dep>0.2160</dep></entry>
+						<entry><ind>56000</ind><dep>0.6496</dep></entry>
+					</table>
+				</sum>
+			</expression>
+		</input>
+		<output><property>autopilot/gain/GAileron</property></output>
+		<u_min>-0.32</u_min>
+		<u_max>0.32</u_max>
+	</filter>
+
+	<filter>
+		<name>Gu airspeed error gain</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<expression>
+				<table>
+					<property>instrumentation/altimeter/indicated-altitude-ft</property>
+					<entry><ind>1000.0</ind><dep>10</dep></entry>
+					<entry><ind>20000</ind><dep>5.0</dep></entry>
+				</table>
+			</expression>
+		</input>
+		<output><property>autopilot/gain/Gu</property></output>
+	</filter>
+
+	<filter>
+		<name>Gh height error gain</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input><value>-0.15</value></input>
+		<output><property>autopilot/gain/Gh</property></output>
+	</filter>
+
+	<filter>
+		<name>Ghdot height rate feedback gain</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input><value>-1.5</value></input>
+		<output><property>autopilot/gain/Ghdot</property></output>
+	</filter>
+
+	<filter>
+		<name>Static Pressure washout gain</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input><value>0.1</value></input>
+		<output><property>autopilot/gain/GStatic</property></output>
+	</filter>
+
+	<filter>
+		<name>IAS/Mach error integrator gain</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input><value>-0.005</value></input>
+		<output><property>autopilot/gain/GIASInt</property></output>
+	</filter>
+
+	<filter>
+		<name>Gh height error integrator gain</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input><value>-0.01</value></input>
+		<output><property>autopilot/gain/GhInt</property></output>
+	</filter>
+
+	<!-- hD integrator servo motor runs at 20 times normal rate when height modes are not engaged.
+This is needed in the simulator when altitude changes by a large amount during resets.
+It is not needed for a real aircraft where in-air resets are fictional. 
+--> 
+
+	<filter>
+		<name>GhD_integ</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<condition>
+				<or>
+					<property>autopilot/Bendix-PB-20/controls/ALT-active</property>
+					<property>autopilot/switches/height-Acquire</property>
+				</or>
+			</condition>
+			<value>1.0</value>
+		</input>
+		<input>
+			<value>20.0</value>
+		</input>
+		<output><property>autopilot/gain/GhD_integ</property></output>
+	</filter>
+
+	<filter>
+		<name>Glideslope error gain</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<expression>
+				<table>
+					<property>instrumentation/altimeter/indicated-altitude-ft</property>
+					<entry><ind>0.0</ind><dep>100</dep></entry>
+					<entry><ind>2000</ind><dep>1000.0</dep></entry>
+				</table>
+			</expression>
+		</input>
+		<output><property>autopilot/gain/gs-q</property></output>
+	</filter>
+
+	<filter>  <!-- pitch angle feedback -->
+		<name>Pitch angle feedback gain</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1</gain>
+		<input>
+			<!--<property>/TSR2/temp0_constant</property>  -->
+					<value>-50.0</value>
+		</input>
+		<output><property>autopilot/gain/Gtheta</property></output>
+	</filter>
+
+	<filter>
+		<name>Elevation error q gain</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<!--			<condition>
+				<greater-than>
+					<property>fdm/jsbsim/velocities/mach</property>
+					<value>1.0</value>
+				</greater-than>
+			</condition> -->
+			<expression>
+				<sum>
+					<value>0.009</value>
+					<product>
+						<value>0.000005</value>
+						<property>fdm/jsbsim/atmosphere/pressure-altitude</property>
+					</product>
+				</sum>
+			</expression>
+		</input>
+		<!--		<input>
+			<expression>
+				<sum>
+					<value>0.009</value>
+					<product>
+						<value>0.000005</value>
+						<property>fdm/jsbsim/aero/qbar-psf</property>
+					</product>
+				</sum>
+			</expression>
+		</input>  -->
+		<output><property>autopilot/gain/Gqe</property></output>
+	</filter>
+
+	<filter>
+		<name>Heading error gain</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>-0.005</gain>  <!-- gain = -1 at uBody=200fps -->
+		<input><property>velocities/uBody-fps</property></input>
+		<output><property>autopilot/gain/Khdg_phi</property></output>
+	</filter>
+
+	<filter>
+		<name>Bank angle error gain</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1</gain>
+		<input><value>10.0</value></input>
+		<output><property>autopilot/gain/Kphi</property></output>
+	</filter>
+
+
+	<filter>
+		<name>Track error gain</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1</gain>		
+		<input>
+			<expression><div>
+					<property>autopilot/test/input1</property>
+					<property>autopilot/gain/Khdg_phi</property>
+				</div></expression>
+		</input>
+		<output><property>autopilot/gain/Ktrk_phi</property></output>
+	</filter>
+
+	<filter>
+		<name>Track rate error gain</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1</gain>		
+		<input>
+			<expression><div>
+					<!--<value>3.0</value>
+				<property>autopilot/test/input2</property>   (was 3*4 = 12) -->
+					<!-- this value should give critical damping -->
+					<value>2.0</value>
+					<sqrt><abs>
+							<product>
+								<value>32.2</value>  <!-- "1G" -->
+								<value>0.01745329251994329576923690768489</value>  <!-- radians to degrees -->
+								<property>autopilot/gain/Ktrk_phi</property>
+								<property>autopilot/gain/Khdg_phi</property>				
+							</product>
+						</abs></sqrt>
+				</div></expression>
+		</input>
+		<output><property>autopilot/gain/Ktrk_phidot</property></output>
+	</filter>
+
+	<filter>
+		<name>Localiser error gain</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<expression>
+				<table>
+					<property>instrumentation/altimeter/indicated-altitude-ft</property>
+					<entry><ind>0.0</ind><dep>-2.0</dep></entry>
+					<entry><ind>2000</ind><dep>-5.0</dep></entry>
+				</table>
+			</expression>
+		</input>
+		<output><property>autopilot/gain/Kloc_Loc</property></output>
+	</filter>
+
+	<filter>
+		<name>Localiser QDM error gain</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>-0.0025</gain> <!-- gain = -.5 at uBody = 200fps -->
+		<input><property>velocities/uBody-fps</property></input>
+		<output><property>autopilot/gain/Kloc_Hdg</property></output>
+	</filter>
+
+	<filter>
+		<name>Localiser bank feedback gain</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input><value>0.0</value></input>
+		<output><property>autopilot/gain/Kloc_Phi</property></output>
+	</filter>	
+
+
+</PropertyList>

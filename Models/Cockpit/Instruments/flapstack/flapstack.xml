@@ -127,9 +127,9 @@
 		</emission>
 	</animation>
 
-	<animation>
+<!--	<animation>
 		<type>select</type>
-		<object-name>LampBlueON</object-name>  <!-- but its a green lamp now :-)) -->
+		<object-name>LampBlueON</object-name>  
 		<condition>		
 			<greater-than>
 				<property>VC10/electric/ess-bus</property>
@@ -146,7 +146,7 @@
 		    <property>controls/test/warn-knob</property>
 		  </or>
 		</condition>
-	</animation>
+	</animation> -->
 	
 	<animation>
 		<type>rotate</type>

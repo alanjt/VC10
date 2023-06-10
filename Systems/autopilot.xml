@@ -261,7 +261,7 @@ derived from a yaw rate gyro, passed through a washout filter having a time cons
 				</product>
 			</expression>
 		</input>
-		<output><property>/fdm/jsbsim/afcs/yawdamper-deg</property></output>
+		<output><property>/fdm/jsbsim/fcs/afcs-yawdamper-deg</property></output>
 	</filter>
 
 	<!-- Heading Bug Hold.  2 stage cascade controller. -->

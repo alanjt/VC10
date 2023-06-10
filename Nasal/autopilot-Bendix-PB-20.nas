@@ -8,6 +8,20 @@
 ##############################################################################
 
 print ("autopilot-Bendix-PB-20.nas");
+
+
+var initAFCS_FCSinputs = func() {
+    print("initAFCS_FCSinputs");
+	props.globals.getNode("/fdm/jsbsim/fcs/afcs-elevator-cmd-deg", 1).setDoubleValue(0);
+	props.globals.getNode("/fdm/jsbsim/fcs/afcs-aileron-cmd-deg", 1).setDoubleValue(0);
+	props.globals.getNode("/fdm/jsbsim/fcs/afcs-rudder-cmd-deg", 1).setDoubleValue(0);
+	props.globals.getNode("/fdm/jsbsim/fcs/afcs-throttle-cmd-norm", 1).setDoubleValue(0);
+	}
+
+#--------------------------------------------------------------------	
+#AFCS initialise switch positions and settings	
+#--------------------------------------------------------------------
+
 ### Bendix PB 20 ###
 # Knobs:
 # /autopilot/Bendix-PB-20/controls/active : true/false
@@ -18,6 +32,11 @@ print ("autopilot-Bendix-PB-20.nas");
 
 # init
 var listenerApPB20InitFunc = func {
+
+	props.globals.getNode("/fdm/jsbsim/fcs/afcs-elevator-cmd-deg", 1).setDoubleValue(0);
+	props.globals.getNode("/fdm/jsbsim/fcs/afcs-aileron-cmd-deg", 1).setDoubleValue(0);
+	props.globals.getNode("/fdm/jsbsim/fcs/afcs-rudder-cmd-deg", 1).setDoubleValue(0);
+	props.globals.getNode("/fdm/jsbsim/fcs/afcs-throttle-cmd-norm", 1).setDoubleValue(0);
 	
 	setprop("autopilot/Bendix-PB-20/controls/mode-selector", 0);
 	setprop("autopilot/Bendix-PB-20/controls/ALT-active", 0);
@@ -45,7 +64,7 @@ var listenerApPB20InitFunc = func {
 	setprop("autopilot/Bendix-PB-20/controls/Damper-2active", 0);
 	setprop("autopilot/Bendix-PB-20/controls/Damper-Stbyactive", 1);
 }
-setlistener("sim/signals/fdm-initialized", listenerApPB20InitFunc);
+###setlistener("sim/signals/fdm-initialized", listenerApPB20InitFunc);
 
 # Mutex - for synchronization of the listener-events
 var bendixPB20MutexSet = func(value) {
