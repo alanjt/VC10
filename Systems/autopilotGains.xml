@@ -74,12 +74,6 @@
 			</condition>
 			<value>30.0</value>
 		</input>
-		<input>
-			<condition>
-				<property>autopilot/switches/terrain-following</property>
-			</condition>
-			<value>45.0</value>
-		</input>
 		<input>   <!-- default for other modes -->
 			<value>60.0</value>
 		</input>
@@ -449,10 +443,8 @@ It is not needed for a real aircraft where in-air resets are fictional.
 		<gain>1.0</gain>
 		<input>
 			<condition>
-				<or>
 					<property>autopilot/Bendix-PB-20/controls/ALT-active</property>
-					<property>autopilot/switches/height-Acquire</property>
-				</or>
+
 			</condition>
 			<value>1.0</value>
 		</input>

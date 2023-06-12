@@ -65,15 +65,15 @@ if you contacted me before making any changes to this software.
 		<autopilot>
 				<path>Systems/autopilotInputFilters.xml</path>
 		</autopilot>
-<!--			<autopilot>
+			<autopilot>
 				<path>Systems/autopilotGains.xml</path>
 			</autopilot>
 			<autopilot>
 				<path>Systems/autopilotPitchModes.xml</path>
 			</autopilot>
-			<autopilot>
+<!--		<autopilot>
 				<path>Systems/autopilotMachIAS.xml</path>
-			</autopilot>
+			</autopilot> -->
 			<autopilot>
 				<path>Systems/autopilotAircraftStateFilters.xml</path>
 			</autopilot>
@@ -82,11 +82,11 @@ if you contacted me before making any changes to this software.
 			</autopilot>
 			<autopilot>
 				<path>Systems/autopilotLateralModes.xml</path>
-			</autopilot> -->
+			</autopilot>
 			<autopilot>
 				<path>Systems/autopilotAutoStabiliser.xml</path>
 			</autopilot>
-<!--			<autopilot>
+			<autopilot>
 				<path>Systems/autopilotAutothrottle.xml</path>
 			</autopilot>
 			<autopilot>
@@ -96,11 +96,8 @@ if you contacted me before making any changes to this software.
 				<path>Systems/autopilotManoeverLimits.xml</path>
 			</autopilot>
 			<autopilot>
-				<path>autopilotOutputs.xml</path>
-			</autopilot> 
-			<autopilot>
 				<path>Systems/autopilotAutoTrim.xml</path>
-			</autopilot> -->
+			</autopilot>
 		</systems>
 
 		<instrumentation>

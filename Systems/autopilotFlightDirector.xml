@@ -93,12 +93,6 @@
 		<gain>1.0 </gain>
 		<input>
 			<condition>
-				<property>autopilot/switches/takeoff-fd</property>
-			</condition>
-			<property>autopilot/commands/FD-pitch-deg</property>
-		</input>
-		<input>
-			<condition>
 				<property>autopilot/internal/ElevationModeSelected</property>
 			</condition>
 			<property>autopilot/internal/qfd_mnu</property>
@@ -117,10 +111,7 @@
 		<gain>1.0 </gain>
 		<input>
 			<condition>
-				<and>
-					<property>autopilot/switches/takeoff-fd</property>
-					<property>autopilot/switches/heading</property>				
-				</and>
+				<property>autopilot/switches/heading</property>				
 			</condition>
 			<property>autopilot/internal/PsiFD3</property>
 		</input>
@@ -135,12 +126,6 @@
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0 </gain>
-		<input>
-			<condition>
-				<property>autopilot/switches/terrain-following</property>				
-			</condition>
-			<property>autopilot/internal/PsiFD1</property>
-		</input>
 		<input>
 			<property>autopilot/internal/PsiFD_sw1</property>
 		</input>

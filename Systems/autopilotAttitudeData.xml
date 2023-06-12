@@ -38,11 +38,8 @@
 		<debug>false</debug>
 		<type>integrator</type>
 		<gain>1.0</gain>
-		<!-- integrator tracks pitch angle when thetaMachSw is clear -->
+		<!-- integrator thetaD_deg tracks pitch angle theta-deg-->
 		<input> 
-			<condition>
-				<not><property>autopilot/internal/thetaMachSw</property></not>
-			</condition>
 			<expression>
 				<product>
 					<value>1</value>  <!-- 1 sec time constant -->
@@ -52,10 +49,6 @@
 					</dif>
 				</product>
 			</expression>
-		</input>
-		<!-- lock output when thetaMachSw is not set -->
-		<input> 
-			<value>0.0</value>
 		</input>
 		<output><property>autopilot/internal/thetaD_deg</property></output>
 		<u_min>-20</u_min>
@@ -84,23 +77,6 @@
 		<type>high-pass</type>
 		<filter-time>1.0</filter-time>
 		<input><property>fdm/jsbsim/attitude/theta-deg</property></input>
-		<output><property>autopilot/internal/theta_washout</property></output>
-	</filter>
-
-	<filter>
-		<name>theta-thetaD </name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input> 
-			<condition> <!--output is theta_error when thetaMachSw is set -->
-				<property>autopilot/internal/thetaMachSw</property>
-			</condition>
-			<property>autopilot/internal/theta_error</property>
-		</input>
-		<input> 		<!-- output is theta_washout when thetaMachSw is not set -->
-			<property>autopilot/internal/theta_washout</property>
-		</input>
 		<output><property>autopilot/internal/theta_thetaD</property></output>
 		<u_min>-20</u_min>
 		<u_max>20</u_max>

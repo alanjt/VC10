@@ -114,18 +114,4 @@
 		<output><property>autopilot/commands/afcs-elevator-deg</property></output>
 	</filter>
 
-	<filter>
-		<name>Pitch indicator driver</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<input>
-			<condition>
-				<property>autopilot/switches/auto-engage</property>
-			</condition>
-			<property>autopilot/commands/APelevator-deg</property>
-		</input>
-		<input><value>0</value></input>
-		<output><property>autopilot/commands/pitch-indicator</property></output>
-	</filter>
-
 </PropertyList>

@@ -25,25 +25,6 @@
 			<property>autopilot/internal/hdg-hdgD</property>
 		</input>
 		<input>
-			<condition>
-				<or>
-					<property>autopilot/switches/track</property>
-				</or>
-			</condition>
-			<expression>
-				<product>
-					<sum>
-						<property>autopilot/internal/Xtrack_error_limited</property>
-						<product>
-							<property>autopilot/internal/Xtrack_rate</property>
-							<property>autopilot/gain/Ktrk_phidot</property>
-						</product>
-					</sum>
-					<property>autopilot/gain/Ktrk_phi</property>
-				</product>
-			</expression>
-		</input>
-		<input>
 			<value>0</value>
 		</input>
 		<output><property>autopilot/internal/PsiTrackHeading</property></output>

@@ -129,21 +129,6 @@
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
-		<input>
-			<condition>
-				<property>autopilot/switches/height-Acquire</property>
-			</condition> 
-			<property>autopilot/settings/height-aq-setting</property>
-		</input>
-		<!--		<input>
-			<condition>
-				<and>
-					<not><property>autopilot/Bendix-PB-20/controls/ALT-active</property></not>
-					<not><property>autopilot/switches/height-Acquire</property></not>
-				</and>
-			</condition>
-			<property>instrumentation/altimeter/indicated-altitude-ft</property>
-		</input> -->
 		<input><property>instrumentation/altimeter/indicated-altitude-ft</property></input>
 		<output><property>autopilot/internal/hAcquireD</property></output>
 	</filter>
@@ -155,10 +140,7 @@
 		<gain>1.0</gain>
 		<input>
 			<condition>
-				<or>
 					<property>autopilot/Bendix-PB-20/controls/ALT-active</property>
-					<property>autopilot/switches/height-Acquire</property>
-				</or>
 			</condition>
 			<property>autopilot/internal/sD</property>
 		</input>
@@ -252,176 +234,8 @@
 		<output><property>autopilot/internal/hR_dot_absp1</property></output>
 	</filter>
 
-	<!-- Height acquire flare mode relay  -->
-	<logic>
-		<input>
-			<and>
-				<greater-than>
-					<property>autopilot/internal/hR_dot_absp1</property>
-					<property>autopilot/internal/hD_dot_abs</property>
-				</greater-than>
-				<or>
-					<property>autopilot/Bendix-PB-20/controls/IAS-active</property>
-					<property>autopilot/Bendix-PB-20/controls/MACH-active</property>
-				</or>
-				<property>autopilot/switches/height-Acquire</property>	   
-			</and>
-		</input>
-		<output><property>autopilot/internal/R</property></output>
-	</logic>
 
-	<!--
-This computes height rate commands from height error.
-The height rate command is either
-1. Relay R = 0 Height acquire flare (requires a speed hold mode and height acquire mode to activate)
-2. Relay R = 1 Default operation
--->
-	<filter>
-		<name>hD_dot - height rate demand summer amplifier</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<!--		<type>exponential</type>
-		<filter-time>0.01</filter-time>  -->
-		<input>
-			<condition>
-				<not><property>autopilot/switches/height-Acquire</property></not>
-			</condition>
-			<property>autopilot/internal/hR_dot</property>
-		</input>
-		<input>
-			<condition>
-				<property>autopilot/internal/R</property>
-			</condition>
-			<property>autopilot/internal/h-hD</property>
-		</input>
-		<input>
-			<property>autopilot/internal/hR_dot_rate_limited</property>				
-		</input>
-		<output><property>autopilot/internal/hD_dot</property></output>
-		<u_min>-2000</u_min>
-		<u_max>2000</u_max>
-	</filter>
 
-	<!--
-This slews the current height datum by sending inputs to the hD integrator.
-The input to the hD integrator is either
-1. In LOCK mode - inputs from the Datum Adjust switch on the AFCS panel
-2. Not in LOCK mode - computed from height error.
--->
-	<filter>
-		<name>hD_dot_mt - height rate integrator input</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input>
-			<condition>
-				<property>autopilot/Bendix-PB-20/controls/ALT-active</property>
-			</condition>
-			<expression><product>
-					<property>autopilot/switches/ht-datum-adj</property>
-					<value>100.0</value>
-				</product></expression>
-		</input>
-		<input><property>autopilot/internal/hD_dot</property></input>
-		<output><property>autopilot/internal/hD_dot_mt</property></output>
-		<u_min>-2000</u_min>
-		<u_max>2000</u_max>
-	</filter>		
-
-	<filter>
-		<!-- This integrator was implemented as a servo motor with tachometer (i.e. rate) feedback.
-        A potentiometer on the output shaft gives the height demand output (hD) --> 
-		<name>height demand hD integrator</name>
-		<debug>false</debug>
-		<type>integrator</type>
-		<gain>1.0</gain>
-		<input>
-			<expression>
-				<product>
-					<property>autopilot/internal/hD_dot_mt</property>
-					<property>autopilot/gain/GhD_integ</property>
-				</product>
-			</expression>
-		</input>
-		<output><property>autopilot/internal/hD</property></output>
-		<u_min>0</u_min>
-		<u_max>50000</u_max>
-	</filter>
-
-	<!--
-This slews the current height datum by sending inputs to the hD integrator.
-The input to the hD integrator is either
-1. In LOCK mode - inputs from the Datum Adjust switch on the AFCS panel
-2. Not in LOCK mode - computed from height error.
--->	
-
-	<filter>
-		<!-- This integrator was implemented as a servo motor with tachometer (i.e. rate) feedback.
-        A potentiometer on the output shaft gives the height lock demand output (hLockD) --> 
-		<name>height hold integrator</name>
-		<debug>false</debug>
-		<type>integrator</type>
-		<gain>1.0</gain>
-		<input> <!-- Height hold mode - constant altitude, which may be slewed by datum adj sw -->
-			<condition>
-				<property>autopilot/Bendix-PB-20/controls/ALT-active</property>
-			</condition>
-			<expression>
-				<product>
-					<property>autopilot/switches/ht-datum-adj</property>
-					<value>100.0</value>
-				</product>
-			</expression>
-		</input>
-		<input> <!-- Not in height hold mode - track indicated altitude -->
-			<expression>
-				<product>
-					<dif>
-						<property>instrumentation/altimeter/indicated-altitude-ft</property>
-						<property>autopilot/internal/hLockD</property>
-					</dif>
-					<value>10.0</value>
-				</product>
-			</expression>
-		</input>
-		<output><property>autopilot/internal/hLockD</property></output>
-		<u_min>0</u_min>
-		<u_max>50000</u_max>
-	</filter>
-
-	<filter>
-		<name>hDemand</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input>
-			<condition>
-				<property>autopilot/Bendix-PB-20/controls/ALT-active</property>
-			</condition>
-			<property>autopilot/internal/hLockD</property>
-		</input>
-		<input>
-			<condition>
-				<property>autopilot/switches/height-Acquire</property>
-			</condition>
-			<property>autopilot/internal/hAcquireD</property>
-		</input>
-		<input>
-			<property>instrumentation/altimeter/indicated-altitude-ft</property>
-		</input>
-		<output><property>autopilot/internal/hDemand</property></output>
-		<u_min>0</u_min>
-		<u_max>50000</u_max>
-	</filter>
-
-	<filter>
-		<name>hDemand rate limit</name>
-		<type>noise-spike</type>
-		<max-rate-of-change>100.0</max-rate-of-change>
-		<input><property>autopilot/internal/hDemand</property></input>
-		<output><property>autopilot/internal/hDemandRL</property></output>
-	</filter>	
 
 	<filter>
 		<name>Height Error h-hDemand</name>
@@ -467,96 +281,9 @@ The input to the hD integrator is either
 		<output><property>autopilot/internal/h_dot_sq</property></output>
 	</filter>
 
-	<filter>
-		<name>hAcquire climb switch</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input>		
-			<expression><div>
-					<property>autopilot/internal/h_dot_sq</property>
-					<value>-32.2</value>
-				</div></expression>
-		</input>
-		<output><property>autopilot/internal/hAcquire_climb_sw</property></output>
-		<!--<value>-500.0</value> -->
-	</filter>
+	
 
-	<filter>
-		<name>hAcquire dive switch</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input>		
-			<expression><div>
-					<property>autopilot/internal/h_dot_sq</property>
-					<value>100.0</value>
-				</div></expression>
-		</input>
-		<output><property>autopilot/internal/hAcquire_dive_sw</property></output>
-		<!--<value>60.0</value> -->
-	</filter>	
 
-	<logic>
-		<name>height acquired flag</name>
-		<input>
-			<and>
-				<property>autopilot/switches/height-Acquire</property>
-				<or>
-					<property>autopilot/Bendix-PB-20/controls/MACH-active</property>
-					<property>autopilot/Bendix-PB-20/controls/IAS-active</property>
-				</or>
-				<less-than>
-					<property>autopilot/internal/h-hAcquireD</property>
-					<value>1500</value>
-				</less-than>
-				<greater-than>
-					<property>autopilot/internal/h-hAcquireD</property>
-					<value>-1500</value>
-				</greater-than>
-				<or>
-					<property>autopilot/internal/h-Acquired_flag</property>
-					<and>
-						<less-than>
-							<property>autopilot/internal/h-hAcquireD</property>
-							<!--<value>60</value> -->
-							<property>autopilot/internal/hAcquire_dive_sw</property>
-						</less-than>
-						<greater-than>
-							<property>autopilot/internal/h-hAcquireD</property>
-							<!--<value>-500.0</value>  -->
-							<property>autopilot/internal/hAcquire_climb_sw</property>
-						</greater-than>
-					</and>					
-				</or>p
-			</and>
-		</input>
-		<output><property>autopilot/internal/h-Acquired_flag</property></output>
-	</logic>
 
-	<state-machine>
-		<branch>autopilot/logic/acquire_height</branch>
-		<state>
-			<name>engaged</name>
-		</state>
-		<state>
-			<name>acquiring_height</name>
-		</state>
-		<state>
-			<name>acquired_height</name>
-		</state>
-		<transition>
-			<name>AQ_HT</name>
-			<source>acquiring_height</source>
-			<target>acquired_height</target>
-			<condition></condition>
-		</transition>
-		<transition>
-			<name>LOCK_HT</name>
-			<source>acquired_height</source>
-			<target>acquiring_height</target>
-			<condition></condition>
-		</transition>
-	</state-machine>
 
 </PropertyList>

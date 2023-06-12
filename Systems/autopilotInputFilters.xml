@@ -46,6 +46,17 @@
 		<output><property>autopilot/internal/q-deg_sec</property></output>
 	</filter>
 
+
+	<logic>
+		<input>
+			<or>
+				<property>autopilot/Bendix-PB-20/controls/AP-1active</property>
+				<property>autopilot/Bendix-PB-20/controls/AP-2active</property>
+			</or>
+		</input>
+		<output><property>autopilot/switches/auto-engage</property></output>
+	</logic>
+	
 	<logic>
 		<input>
 			<or>
@@ -53,7 +64,6 @@
 				<property>autopilot/Bendix-PB-20/controls/IAS-active</property>
 				<property>autopilot/switches/ILS_GS</property>
 				<property>autopilot/Bendix-PB-20/controls/ALT-active</property>
-<!--			<property>autopilot/switches/height-Acquire</property> -->
 			</or>
 		</input>
 		<output><property>autopilot/internal/ElevationModeSelected</property></output>
@@ -91,21 +101,6 @@
 		<output><property>autopilot/internal/track-magnetic-deg</property></output>
 	</filter>
 
-	<!-- Drift -->
-	<filter>
-		<name>drift</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input><property>autopilot/internal/track-magnetic-deg</property></input>
-		<reference><property>autopilot/internal/heading-magnetic-deg</property></reference>
-		<output><property>autopilot/settings/drift-deg</property></output>
-		<period>
-			<min>-180</min>
-			<max>180</max>
-		</period>
-	</filter>
-
 	<filter>
 		<name>heading bug error</name>
 		<debug>false</debug>
@@ -135,38 +130,5 @@
 		</period>
 	</filter>
 
-	<!--	<filter>
-		<name>track (route plan) error</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input><property>instrumentation/gps/indicated-track-true-deg</property></input>
-		<reference><property>autopilot/settings/true-heading-deg</property></reference>
-		<output><property>autopilot/internal/track_error</property></output>
-		<period>
-			<min>-180</min>
-			<max>180</max>
-		</period>
-	</filter> -->
-
-	<filter> <!-- Xtrack error (feet) -->
-		<name>Xtrack error limited</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input><property>systems/navigation/TSR2route/this_Xtrack_error</property></input>
-		<output><property>autopilot/internal/Xtrack_error_limited</property></output>
-		<u_min>-6076</u_min>
-		<u_max>6076</u_max>
-	</filter>
-	
-	<filter> <!-- Xtrack rate error (feet/sec) -->
-		<name>Xtrack rate</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input><property>systems/navigation/TSR2route/this_Xtrack_rate</property></input>
-		<output><property>autopilot/internal/Xtrack_rate</property></output>
-	</filter>
 
 </PropertyList>

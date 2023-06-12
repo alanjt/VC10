@@ -36,7 +36,7 @@
 		<input><property>fdm/jsbsim/velocities/vc-kts</property></input>
 		<reference><property>autopilot/internal/Ud</property></reference>
 		<output><property>autopilot/internal/U-Ud</property></output>
-	<!--		<u_min>-50</u_min>
+<!--	<u_min>-50</u_min>
 		<u_max>50</u_max> -->
 	</filter>
 
@@ -75,8 +75,6 @@
 		<gain><property>autopilot/internal/Mach1Kts</property></gain>
 		<input><property>autopilot/internal/M-Md</property></input>
 		<output><property>autopilot/internal/M-Mdkts</property></output>
-	<!--		<u_min>-50</u_min>
-		<u_max>50</u_max> -->
 	</filter>
 
 <!--	
@@ -264,26 +262,6 @@
 		<type>gain</type>
 		<gain><value>1.0</value></gain>
 		<input>
-			<condition>
-				<greater-than>
-					<property>fdm/jsbsim/velocities/mach</property>
-					<value>1.0</value>
-				</greater-than>
-			</condition>
-			<expression>
-				<product>
-					<property>autopilot/internal/qd-sum</property>
-					<property>autopilot/gain/Gqe</property>
-				</product>
-			</expression>
-		</input>
-		<input>
-			<condition>
-				<less-than>
-					<property>fdm/jsbsim/velocities/mach</property>
-					<value>1.0</value>
-				</less-than>
-			</condition>
 			<expression>
 				<product>
 					<property>autopilot/internal/qd-sum</property>
@@ -302,7 +280,6 @@
 		<input>
 			<condition>
 				<or>
-					<property>autopilot/switches/height-Acquire</property>
 					<property>autopilot/Bendix-PB-20/controls/ALT-active</property>
 					<property>autopilot/Bendix-PB-20/controls/MACH-active</property>
 					<property>autopilot/Bendix-PB-20/controls/IAS-active</property>
@@ -438,10 +415,7 @@
 					</or>
 					<or>
 						<not><property>autopilot/settings/height-aq</property></not>
-						<and>
-							<property>autopilot/switches/height-Acquire</property>
 							<not><property>autopilot/internal/h-Acquired_flag</property></not>
-						</and>
 					</or>
 					<not><property>autopilot/Bendix-PB-20/controls/ALT-active</property></not>
 				</and>
@@ -506,13 +480,9 @@
 					<or>
 						<property>autopilot/Bendix-PB-20/controls/MACH-active</property>
 						<property>autopilot/Bendix-PB-20/controls/IAS-active</property>
-						<property>autopilot/switches/height-Acquire</property>
 						<property>autopilot/Bendix-PB-20/controls/ALT-active</property>
 						<and>
-							<or>
-								<property>autopilot/switches/height-Acquire</property>
 								<property>autopilot/Bendix-PB-20/controls/ALT-active</property>
-							</or>
 							<or>
 								<property>autopilot/Bendix-PB-20/controls/MACH-active</property>
 								<property>autopilot/Bendix-PB-20/controls/IAS-active</property>
@@ -588,7 +558,6 @@
 						<property>autopilot/Bendix-PB-20/controls/IAS-active</property>
 						<and>
 							<or>
-								<property>autopilot/switches/height-Acquire</property>
 								<property>autopilot/Bendix-PB-20/controls/ALT-active</property>
 								<property>autopilot/submode/ILS-GS-cap</property>
 							</or>
@@ -597,7 +566,6 @@
 								<property>autopilot/Bendix-PB-20/controls/IAS-active</property>
 							</or>
 						</and>
-						<property>autopilot/switches/height-Acquire</property>
 						<property>autopilot/Bendix-PB-20/controls/ALT-active</property>
 					</or>
 				</and>
