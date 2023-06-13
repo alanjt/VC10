@@ -1,4 +1,4 @@
-####    autopilot/BendixPB20.nas help-functions adapted for VC10                                ####
+####    autopilot.nas help-functions adapted for VC10                                ####
 ####    Author: Markus Bulik                                                                   ####
 ####    This file is licenced under the terms of the GNU General Public Licence V2 or later    ####
 ##############################################################################
@@ -7,7 +7,7 @@
 ##                                                                          ##
 ##############################################################################
 
-print ("autopilot-Bendix-PB-20.nas");
+print ("autopilot.nas");
 
 
 var initAFCS_FCSinputs = func() {
@@ -31,7 +31,7 @@ var initAFCS_FCSinputs = func() {
 # /autopilot/settings/roll-knob-deg : -35 .. 35
 
 # init
-var listenerApPB20InitFunc = func {
+var listenerApInitFunc = func {
 
 	props.globals.getNode("/fdm/jsbsim/fcs/afcs-elevator-cmd-deg", 1).setDoubleValue(0);
 	props.globals.getNode("/fdm/jsbsim/fcs/afcs-aileron-cmd-deg", 1).setDoubleValue(0);
@@ -64,52 +64,52 @@ var listenerApPB20InitFunc = func {
 	setprop("autopilot/controls/Damper-2active", 0);
 	setprop("autopilot/controls/Damper-Stbyactive", 1);
 }
-###setlistener("sim/signals/fdm-initialized", listenerApPB20InitFunc);
+###setlistener("sim/signals/fdm-initialized", listenerApInitFunc);
 
 # Mutex - for synchronization of the listener-events
-var bendixPB20MutexSet = func(value) {
+var ApMutexSet = func(value) {
 	setprop("autopilot/mutex", value);
 }
-var bendixPB20MutexReset = func {
+var ApMutexReset = func {
 	setprop("autopilot/mutex", "");
 }
-var bendixPB20MutexResetFunc = func {
+var ApMutexResetFunc = func {
 	if (getprop("autopilot/mutex") != "") {
-		settimer(bendixPB20MutexReset, 0.2);
+		settimer(bendix MutexReset, 0.2);
 	}
 }
-setlistener("autopilot/mutex", bendixPB20MutexResetFunc);
+setlistener("autopilot/mutex", ApMutexResetFunc);
 
 # Active-switch
-var bendixPB20ActivePrev = 0;
-var listenerApPB20ActiveFunc = func {
-	if (bendixPB20ActivePrev == 0) {
+var ApActivePrev = 0;
+var listenerApActiveFunc = func {
+	if (ApActivePrev == 0) {
 		if (getprop("autopilot/controls/active") == 1) {
 			if (getprop("autopilot/mutex") == "") {
 				setprop("autopilot/controls/mode-selector", 2);
 			}
 		}
 	}
-	bendixPB20Active = getprop("autopilot/controls/active");
+	ApActive = getprop("autopilot/controls/active");
 }
-setlistener("autopilot/controls/active", listenerApPB20ActiveFunc);
+setlistener("autopilot/controls/active", listenerApActiveFunc);
 
 # Mode-selector
 #
 # !!! FEHLER: bei zurückschalten von Mode 4,5 auf 3,2,1 bleibt GS eingeschaltet anstatt ALT (bei eingeschaltetem Alt-Switch) !!!
-#
-var listenerApPB20ModeFunc = func {
+# !!! BUG: when switching back from mode 4.5 to 3.2.1, GS remains switched on instead of ALT (with the alt switch switched on) !!!
+var listenerApModeFunc = func {
 
 	if (	getprop("autopilot/mutex") == "" or
 		getprop("autopilot/mutex") == "MODE") {
-		bendixPB20MutexSet("MODE");
+		ApMutexSet("MODE");
 	}
 	else {
 		return;
 	}
 
 	if (getprop("autopilot/controls/active") == 1) {
-		#print ("-> listenerApPB20ModeFunc -> Mode-selector=", getprop("autopilot/controls/mode-selector"));
+		#print ("-> listenerApModeFunc -> Mode-selector=", getprop("autopilot/controls/mode-selector"));
 
 		if (	getprop("autopilot/controls/mode-selector") == 0) {
 			# NAV - Mode
@@ -145,13 +145,13 @@ var listenerApPB20ModeFunc = func {
 			#var rollKnobDeg = getprop("instrumentation/turn-indicator/indicated-turn-rate") * 36.63;
 			var rollKnobDeg = 0.0;
 			setprop("autopilot/settings/roll-knob-deg", rollKnobDeg);
-			listenerApPB20MANRollFunc();
+			listenerApMANRollFunc();
 
 			setprop("autopilot/locks/heading", "wing-leveler");
 
 			if (getprop("autopilot/controls/alt-active") == 0) {
 				setprop("autopilot/settings/pitch-wheel-deg", getprop("orientation/pitch-deg"));
-				listenerApPB20MANPitchFunc();
+				listenerApMANPitchFunc();
 
 				setprop("autopilot/locks/altitude", "pitch-hold");
 			}
@@ -209,11 +209,11 @@ var listenerApPB20ModeFunc = func {
 		setprop("autopilot/locks/altitude", "");
 		setprop("autopilot/internal/wing-leveler-target-roll-deg", 0.0);
 		setprop("autopilot/locks/passive-mode", 0);
-		setprop("autopilot/locks/speed", "");	# for compatibility only (Bendix-PB-20 don't have speed-mode)
+		setprop("autopilot/locks/speed", "");
 	}
 }
-setlistener("autopilot/controls/active", listenerApPB20ModeFunc);
-setlistener("autopilot/controls/mode-selector", listenerApPB20ModeFunc, 1,0);
+setlistener("autopilot/controls/active", listenerApModeFunc);
+setlistener("autopilot/controls/mode-selector", listenerApModeFunc, 1,0);
 
 # switches off 'altitude-hold' if GS is in range and all other conditions are satisfied
 var gsMANAltControl = func {
@@ -230,7 +230,7 @@ var gsMANAltControl = func {
 
 
 # MAN - Mode - roll-selector
-var listenerApPB20MANRollFunc = func {
+var listenerApMANRollFunc = func {
     # if roll-knob-deg turn, the mode selector jump to mode 2
 	setprop("autopilot/controls/mode-selector", 2);
 
@@ -240,10 +240,10 @@ var listenerApPB20MANRollFunc = func {
 		setprop("autopilot/internal/wing-leveler-target-roll-deg", getprop("autopilot/settings/roll-knob-deg"));
 	}
 }
-setlistener("autopilot/settings/roll-knob-deg", listenerApPB20MANRollFunc);
+setlistener("autopilot/settings/roll-knob-deg", listenerApMANRollFunc);
 
 # MAN - Mode - pitch-selector
-var listenerApPB20MANPitchFunc = func {
+var listenerApMANPitchFunc = func {
 
 	if (	getprop("autopilot/controls/active") == 1 and
 		getprop("autopilot/controls/mode-selector") == 2) {
@@ -256,13 +256,13 @@ var listenerApPB20MANPitchFunc = func {
 		}
 	}
 }
-setlistener("autopilot/settings/pitch-wheel-deg", listenerApPB20MANPitchFunc);
+setlistener("autopilot/settings/pitch-wheel-deg", listenerApMANPitchFunc);
 
 # ALT switch
-var listenerApPB20AltFunc = func {
+var listenerApAltFunc = func {
 
 	if (getprop("autopilot/mutex") == "") {
-		bendixPB20MutexSet("PB20-ALT");
+		ApMutexSet("PB20-ALT");
 	}
 	else {
 		return;
@@ -296,31 +296,31 @@ var listenerApPB20AltFunc = func {
 		setprop("autopilot/locks/altitude", "");
 	}
 }
-setlistener("autopilot/controls/alt-active", listenerApPB20AltFunc);
+setlistener("autopilot/controls/alt-active", listenerApAltFunc);
 
 
 # settings from FG-menu (F11)
 
-listenerApPB20SetHeadingFunc = func {
+listenerApSetHeadingFunc = func {
 
 	if (	getprop("autopilot/mutex") == "" or
 		getprop("autopilot/mutex") == "PASSIVE") {
-		bendixPB20MutexSet("HEADING");
+		ApMutexSet("HEADING");
 	}
 	else {
 		return;
 	}
 
-	menuSwitchBendixPB20();
+	menuSwitchAp();
 }
-setlistener("autopilot/locks/heading", listenerApPB20SetHeadingFunc);
+setlistener("autopilot/locks/heading", listenerApSetHeadingFunc);
 
-listenerApPB20SetPassiveModeFunc = func {
+listenerApSetPassiveModeFunc = func {
 
 	# unfortunalety 'passive-mode' is triggered many times, we only need to act if it's wsitched to '1'
 	if (	getprop("autopilot/mutex") == "" and
 		getprop("autopilot/locks/passive-mode") == 1) {
-		bendixPB20MutexSet("PASSIVE");
+		ApMutexSet("PASSIVE");
 	}
 	else {
 		return;
@@ -340,13 +340,13 @@ listenerApPB20SetPassiveModeFunc = func {
 		setprop("autopilot/controls/mode-selector", 0);
 	}
 }
-setlistener("autopilot/locks/passive-mode", listenerApPB20SetPassiveModeFunc);
+setlistener("autopilot/locks/passive-mode", listenerApSetPassiveModeFunc);
 
-listenerApPB20SetAltitudeFunc = func {
+listenerApSetAltitudeFunc = func {
 
 	if (	getprop("autopilot/mutex") == "" or
 		getprop("autopilot/mutex") == "PASSIVE") {
-		bendixPB20MutexSet("ALT");
+		ApMutexSet("ALT");
 	}
 	else {
 		return;
@@ -363,11 +363,11 @@ listenerApPB20SetAltitudeFunc = func {
 		setprop("autopilot/controls/alt-active", 0);
 	}
 
-	menuSwitchBendixPB20();
+	menuSwitchAp();
 }
-setlistener("autopilot/locks/altitude", listenerApPB20SetAltitudeFunc);
+setlistener("autopilot/locks/altitude", listenerApSetAltitudeFunc);
 
-var menuSwitchBendixPB20 = func {
+var menuSwitchAp = func {
 
 	if (getprop("autopilot/locks/heading") == "wing-leveler") {
 		setprop("autopilot/controls/active", 1);
@@ -396,12 +396,12 @@ var menuSwitchBendixPB20 = func {
 	}
 }
 
-listenerApPB20SetPitchFunc = func {
+listenerApSetPitchFunc = func {
 
 	setprop("autopilot/settings/pitch-wheel-deg", getprop("autopilot/settings/target-pitch-deg"));
 }
-setlistener("autopilot/locks/altitude", listenerApPB20SetPitchFunc);
-setlistener("autopilot/settings/pitch-hold", listenerApPB20SetPitchFunc);
+setlistener("autopilot/locks/altitude", listenerApSetPitchFunc);
+setlistener("autopilot/settings/pitch-hold", listenerApSetPitchFunc);
 
 ### Bendix PB 20 ###
 

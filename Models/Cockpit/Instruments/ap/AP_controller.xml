@@ -35,159 +35,6 @@ Vickers VC10 for Flightgear
 		<object-name>shadow</object-name>
 	</effect> -->
 
-	<!-- Autopilot Mode Selector -->
-	<animation>
-		<type>knob</type>
-		<object-name>ModeSelect</object-name>
-		<center><x-m>0</x-m><y-m>-0.1296</y-m><z-m>-0.0971</z-m></center>
-		<axis><x>-1</x><y>0</y><z>0</z></axis>
-		<property>autopilot/controls/mode-selector</property>
-		<!--		<factor>15.0</factor> -->
-		<factor>30.0</factor>
-		<action>
-			<binding>
-				<command>property-adjust</command>
-				<property>autopilot/controls/mode-selector</property>
-				<factor>1.0</factor>
-				<min>0</min>
-				<max>5</max>
-				<wrap>false</wrap>
-			</binding>
-			<binding>
-				<command>property-toggle</command>
-				<property>sim/sound/switch2</property>
-			</binding>
-		</action>
-		<hovered>
-			<binding>
-				<command>set-tooltip</command>
-				<label>AP Mode Sw: %.2f</label>
-				<tooltip-id>APModeKnob</tooltip-id>
-				<property>autopilot/controls/mode-selector</property>
-			</binding>
-		</hovered>
-	</animation>
-
-	<!-- Autopilot Pitch wheels -->
-		
-	<animation>
-		<type>knob</type>
-		<object-name>PitchWheels</object-name>
-		<property>autopilot/settings/pitch-wheel-deg</property>
-		<center>
-			<x-m>0.0</x-m><y-m>0.03968</y-m><z-m>-0.03968</z-m>
-		</center>
-		<axis>
-			<x>-1</x><y>0</y><z>0</z>
-		</axis>
-		<drag-direction>vertical</drag-direction>
-		<drag-scale-px>5</drag-scale-px>
-		<action>
-			<binding>
-				<command>property-adjust</command>
-				<property>autopilot/settings/pitch-wheel-deg</property>
-				<factor>1</factor>
-				<min>-14</min>
-				<max>14</max>
-				<wrap>0</wrap>
-			</binding>
-		</action>
-		<hovered>
-			<binding>
-				<command>set-tooltip</command>
-				<label>Pitch: %2d</label>
-				<tooltip-id>Pitch</tooltip-id>
-				<property>autopilot/settings/pitch-wheel-deg</property>
-			</binding>
-		</hovered>
-	</animation>
-	
-
-	<!-- Autopilot bank angle control -->
-	<animation>
-		<type>rotate</type>
-		<object-name>Turn</object-name>
-		<property>autopilot/settings/turn</property>
-		<factor>-1</factor>
-		<center>
-			<x-m>0.0</x-m>
-			<y-m>-0.0066</y-m>
-			<z-m>-0.09384</z-m>
-		</center>
-		<axis>
-			<x>1.0</x>
-			<y>0.0</y>
-			<z>0.0</z>
-		</axis>
-	</animation>
-		
-	<animation>
-		<type>knob</type>
-		<object-name>Turn</object-name>
-		<property>autopilot/settings/turn</property>
-		<center>
-			<x-m>0.0</x-m><y-m>0.03968</y-m><z-m>-0.03968</z-m>
-		</center>
-		<axis>
-			<x>-1</x><y>0</y><z>0</z>
-		</axis>
-		<drag-direction>horizontal</drag-direction>
-		<drag-scale-px>5</drag-scale-px>
-		<action>
-			<binding>
-				<command>property-adjust</command>
-				<property>autopilot/settings/turn</property>
-				<factor>1</factor>
-				<min>-25</min>
-				<max>25</max>
-				<wrap>0</wrap>
-			</binding>
-		</action>
-		<hovered>
-			<binding>
-				<command>set-tooltip</command>
-				<label>Bank: %2d</label>
-				<tooltip-id>Bank</tooltip-id>
-				<property>autopilot/settings/turn</property>
-			</binding>
-		</hovered>
-	</animation>
-
-
-	<!-- Autopilot datum adjust -->
-		
-	<animation>
-		<type>knob</type>
-		<object-name>Datum</object-name>
-		<property>autopilot/settings/datum_norm</property>
-		<center>
-			<x-m>0.0</x-m><y-m>0.03968</y-m><z-m>-0.03968</z-m>
-		</center>
-		<axis>
-			<x>-1</x><y>0</y><z>0</z>
-		</axis>
-		<drag-direction>horizontal</drag-direction>
-		<drag-scale-px>50</drag-scale-px>
-		<action>
-			<binding>
-				<command>property-adjust</command>
-				<property>autopilot/settings/datum_norm</property>
-				<factor>1</factor>
-				<min>-1</min>
-				<max>1</max>
-				<wrap>0</wrap>
-			</binding>
-		</action>
-		<hovered>
-			<binding>
-				<command>set-tooltip</command>
-				<label>Datum: %.2f</label>
-				<tooltip-id>Datum</tooltip-id>
-				<property>autopilot/settings/datum_norm</property>
-			</binding>
-		</hovered>
-	</animation>
-
 	<!-- NAV -->
 	<animation>
 		<type>rotate</type>
@@ -455,6 +302,8 @@ Vickers VC10 for Flightgear
 		<center><x-m>0.0</x-m><y-m>0.0</y-m><z-m>-0.0268</z-m></center>
 	</animation>
 
+<!--  <object-name>IAS_Select</object-name> -->
+
 	<animation>
 		<type>pick</type>
 		<visible>true</visible>
@@ -491,6 +340,7 @@ Vickers VC10 for Flightgear
 		</action>
 	</animation>
 
+<!--  <object-name>MACH_Select</object-name> -->
 
 	<animation>
 		<type>rotate</type>
@@ -503,6 +353,7 @@ Vickers VC10 for Flightgear
 		<axis><x>0</x><y>1</y><z>0</z></axis>
 		<center><x-m>0.0</x-m><y-m>0.0</y-m><z-m>-0.0268</z-m></center>
 	</animation>
+	
 	<animation>
 		<type>pick</type>
 		<visible>true</visible>
@@ -539,9 +390,160 @@ Vickers VC10 for Flightgear
 			</binding>
 		</action>
 	</animation>
+  
+	<!-- Autopilot Mode Selector Knob-->
+	<animation>
+		<type>knob</type>
+		<object-name>ModeSelect</object-name>
+		<center><x-m>0</x-m><y-m>-0.1296</y-m><z-m>-0.0971</z-m></center>
+		<axis><x>-1</x><y>0</y><z>0</z></axis>
+		<property>autopilot/controls/mode-selector</property>
+		<!--		<factor>15.0</factor> -->
+		<factor>30.0</factor>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>autopilot/controls/mode-selector</property>
+				<factor>1.0</factor>
+				<min>0</min>
+				<max>5</max>
+				<wrap>false</wrap>
+			</binding>
+			<binding>
+				<command>property-toggle</command>
+				<property>sim/sound/switch2</property>
+			</binding>
+		</action>
+		<hovered>
+			<binding>
+				<command>set-tooltip</command>
+				<label>AP Mode Sw: %.2f</label>
+				<tooltip-id>APModeKnob</tooltip-id>
+				<property>autopilot/controls/mode-selector</property>
+			</binding>
+		</hovered>
+	</animation>
 
-	<!--  <object-name>IAS_Select</object-name>
-  <object-name>MACH_Select</object-name> -->
+	<!-- Autopilot Pitch wheels -->
+		
+	<animation>
+		<type>knob</type>
+		<object-name>PitchWheels</object-name>
+		<property>autopilot/settings/pitch-wheel-deg</property>
+		<center>
+			<x-m>0.0</x-m><y-m>0.03968</y-m><z-m>-0.03968</z-m>
+		</center>
+		<axis>
+			<x>-1</x><y>0</y><z>0</z>
+		</axis>
+		<drag-direction>vertical</drag-direction>
+		<drag-scale-px>5</drag-scale-px>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>autopilot/settings/pitch-wheel-deg</property>
+				<factor>1</factor>
+				<min>-14</min>
+				<max>14</max>
+				<wrap>0</wrap>
+			</binding>
+		</action>
+		<hovered>
+			<binding>
+				<command>set-tooltip</command>
+				<label>Pitch: %2d</label>
+				<tooltip-id>Pitch</tooltip-id>
+				<property>autopilot/settings/pitch-wheel-deg</property>
+			</binding>
+		</hovered>
+	</animation>
+	
+
+	<!-- Autopilot bank angle control -->
+	<animation>
+		<type>rotate</type>
+		<object-name>Turn</object-name>
+		<property>autopilot/settings/turn</property>
+		<factor>-1</factor>
+		<center>
+			<x-m>0.0</x-m>
+			<y-m>-0.0066</y-m>
+			<z-m>-0.09384</z-m>
+		</center>
+		<axis>
+			<x>1.0</x>
+			<y>0.0</y>
+			<z>0.0</z>
+		</axis>
+	</animation>
+		
+	<animation>
+		<type>knob</type>
+		<object-name>Turn</object-name>
+		<property>autopilot/settings/turn</property>
+		<center>
+			<x-m>0.0</x-m><y-m>0.03968</y-m><z-m>-0.03968</z-m>
+		</center>
+		<axis>
+			<x>-1</x><y>0</y><z>0</z>
+		</axis>
+		<drag-direction>horizontal</drag-direction>
+		<drag-scale-px>5</drag-scale-px>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>autopilot/settings/turn</property>
+				<factor>1</factor>
+				<min>-25</min>
+				<max>25</max>
+				<wrap>0</wrap>
+			</binding>
+		</action>
+		<hovered>
+			<binding>
+				<command>set-tooltip</command>
+				<label>Bank: %2d</label>
+				<tooltip-id>Bank</tooltip-id>
+				<property>autopilot/settings/turn</property>
+			</binding>
+		</hovered>
+	</animation>
+
+
+	<!-- Autopilot datum adjust -->
+		
+	<animation>
+		<type>knob</type>
+		<object-name>Datum</object-name>
+		<property>autopilot/settings/datum_norm</property>
+		<center>
+			<x-m>0.0</x-m><y-m>0.03968</y-m><z-m>-0.03968</z-m>
+		</center>
+		<axis>
+			<x>-1</x><y>0</y><z>0</z>
+		</axis>
+		<drag-direction>horizontal</drag-direction>
+		<drag-scale-px>50</drag-scale-px>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>autopilot/settings/datum_norm</property>
+				<factor>1</factor>
+				<min>-1</min>
+				<max>1</max>
+				<wrap>0</wrap>
+			</binding>
+		</action>
+		<hovered>
+			<binding>
+				<command>set-tooltip</command>
+				<label>Datum: %.2f</label>
+				<tooltip-id>Datum</tooltip-id>
+				<property>autopilot/settings/datum_norm</property>
+			</binding>
+		</hovered>
+	</animation>
+
 	<animation>
 		<type>material</type>
 		<object-name>ModeSelect</object-name>
