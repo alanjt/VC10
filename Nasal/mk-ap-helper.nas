@@ -33,7 +33,7 @@ setlistener("sim/signals/fdm-initialized", func {
       setprop("autopilot/switches/ap", 0);
       setprop("autopilot/switches/hdg", 0);
       setprop("autopilot/switches/alt", 0);
-      setprop("autopilot/Bendix-PB-20/controls/IAS-active", 0);
+      setprop("autopilot/controls/IAS-active", 0);
       setprop("autopilot/switches/nav", 0);
       setprop("autopilot/switches/appr", 0);
       setprop("autopilot/switches/gps", 0);
@@ -45,7 +45,7 @@ setlistener("autopilot/switches/ap", func (ap){
     if (ap == 1){
       var hdgSet = getprop("autopilot/switches/hdg");
       var altSet = getprop("autopilot/switches/alt");
-      var iasSet = getprop("autopilot/Bendix-PB-20/controls/IAS-active");
+      var iasSet = getprop("autopilot/controls/IAS-active");
       var navSet = getprop("autopilot/switches/nav");
       var apprSet = getprop("autopilot/switches/appr");
       var gpsSet = getprop("autopilot/switches/gps");
@@ -64,7 +64,7 @@ setlistener("autopilot/switches/ap", func (ap){
       setprop("autopilot/locks/speed", "");
       setprop("autopilot/switches/hdg", 0);
       setprop("autopilot/switches/alt", 0);
-      setprop("autopilot/Bendix-PB-20/controls/IAS-active", 0);
+      setprop("autopilot/controls/IAS-active", 0);
       setprop("autopilot/switches/nav", 0);
       setprop("autopilot/switches/appr", 0);
       setprop("autopilot/switches/gps", 0);
@@ -101,7 +101,7 @@ setlistener("autopilot/switches/alt", func (alt){
     }
 });
 
-setlistener("autopilot/Bendix-PB-20/controls/IAS-active", func (ias){
+setlistener("autopilot/controls/IAS-active", func (ias){
     var ias = ias.getBoolValue();
     if (ias == 1){
       setprop("autopilot/switches/ap", 1);

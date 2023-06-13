@@ -50,8 +50,8 @@
 	<logic>
 		<input>
 			<or>
-				<property>autopilot/Bendix-PB-20/controls/AP-1active</property>
-				<property>autopilot/Bendix-PB-20/controls/AP-2active</property>
+				<property>autopilot/controls/AP-1active</property>
+				<property>autopilot/controls/AP-2active</property>
 			</or>
 		</input>
 		<output><property>autopilot/switches/auto-engage</property></output>
@@ -60,10 +60,10 @@
 	<logic>
 		<input>
 			<or>
-				<property>autopilot/Bendix-PB-20/controls/MACH-active</property>
-				<property>autopilot/Bendix-PB-20/controls/IAS-active</property>
+				<property>autopilot/controls/MACH-active</property>
+				<property>autopilot/controls/IAS-active</property>
 				<property>autopilot/switches/ILS_GS</property>
-				<property>autopilot/Bendix-PB-20/controls/ALT-active</property>
+				<property>autopilot/controls/ALT-active</property>
 			</or>
 		</input>
 		<output><property>autopilot/internal/ElevationModeSelected</property></output>

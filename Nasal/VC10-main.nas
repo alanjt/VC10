@@ -1205,7 +1205,7 @@ setlistener("VC10/pressurization/cabin-air-temp-selector", func(state){
 
 setlistener("controls/flight/elevator-trim", func(et){
 	var et = et.getValue();
-	var ap = getprop("autopilot/Bendix-PB-20/controls/active") or 0;
+	var ap = getprop("autopilot/controls/active") or 0;
 	if (!ap) {
 		setprop("VC10/trim/elevator-trim-turn", et);
 		lastTrimValue.setValue(et);
@@ -1214,7 +1214,7 @@ setlistener("controls/flight/elevator-trim", func(et){
 
 var trim_loop = func{
 	var et = getprop("controls/flight/elevator-trim") or 0;
-	var ap = getprop("autopilot/Bendix-PB-20/controls/active") or 0;
+	var ap = getprop("autopilot/controls/active") or 0;
 	var diff = abs(lastTrimValue.getValue() - et);
 	#print("Difference: "~diff);
 	if(ap and diff > 0.002){

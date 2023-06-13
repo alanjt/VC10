@@ -140,7 +140,7 @@
 		<gain>1.0</gain>
 		<input>
 			<condition>
-					<property>autopilot/Bendix-PB-20/controls/ALT-active</property>
+					<property>autopilot/controls/ALT-active</property>
 			</condition>
 			<property>autopilot/internal/sD</property>
 		</input>

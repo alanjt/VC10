@@ -19,7 +19,7 @@
 		<gain>1.0</gain>
 		<input>
 			<condition>
-				<equals><property>autopilot/Bendix-PB-20/controls/IAS-active</property><value>1</value></equals>
+				<equals><property>autopilot/controls/IAS-active</property><value>1</value></equals>
 			</condition>
 			<property>autopilot/internal/Ud</property>
 		</input>
@@ -48,7 +48,7 @@
 		<gain>1.0</gain>
 		<input>
 			<condition>
-				<equals><property>autopilot/Bendix-PB-20/controls/MACH-active</property><value>1</value></equals>
+				<equals><property>autopilot/controls/MACH-active</property><value>1</value></equals>
 			</condition>
 			<property>autopilot/internal/Md</property>
 		</input>
@@ -189,14 +189,14 @@
 		</input>
 		<input>   <!-- height error command -->	 	
 			<condition>
-					<property>autopilot/Bendix-PB-20/controls/ALT-active</property>
+					<property>autopilot/controls/ALT-active</property>
 			</condition>
 			<property>autopilot/internal/qd-height</property>
 		</input>		
 		<!-- If no active height error pitch command mode, fall through to IAS or MACH mode -->
 		<input>
 			<condition>
-				<property>autopilot/Bendix-PB-20/controls/IAS-active</property>
+				<property>autopilot/controls/IAS-active</property>
 			</condition>
 			<expression>
 				<product>
@@ -207,7 +207,7 @@
 		</input>
 		<input>
 			<condition>
-				<property>autopilot/Bendix-PB-20/controls/MACH-active</property>
+				<property>autopilot/controls/MACH-active</property>
 			</condition>
 			<expression>
 				<product>
@@ -280,9 +280,9 @@
 		<input>
 			<condition>
 				<or>
-					<property>autopilot/Bendix-PB-20/controls/ALT-active</property>
-					<property>autopilot/Bendix-PB-20/controls/MACH-active</property>
-					<property>autopilot/Bendix-PB-20/controls/IAS-active</property>
+					<property>autopilot/controls/ALT-active</property>
+					<property>autopilot/controls/MACH-active</property>
+					<property>autopilot/controls/IAS-active</property>
 					<property>autopilot/submode/ILS-GS-cap</property>
 				</or>
 			</condition>
@@ -385,13 +385,13 @@
 		<gain><value>0.1</value></gain>
 		<input>
 			<condition>
-				<property>autopilot/Bendix-PB-20/controls/IAS-active</property>
+				<property>autopilot/controls/IAS-active</property>
 			</condition>
 			<property>autopilot/internal/U-Ud-leadlag</property>
 		</input>
 		<input>
 			<condition>
-				<property>autopilot/Bendix-PB-20/controls/MACH-active</property>
+				<property>autopilot/controls/MACH-active</property>
 			</condition>
 			<property>autopilot/internal/M-Md-Kts-leadlag</property>
 		</input>
@@ -410,14 +410,14 @@
 			<condition>
 				<and>
 					<or>
-						<property>autopilot/Bendix-PB-20/controls/MACH-active</property>
-						<property>autopilot/Bendix-PB-20/controls/IAS-active</property>
+						<property>autopilot/controls/MACH-active</property>
+						<property>autopilot/controls/IAS-active</property>
 					</or>
 					<or>
 						<not><property>autopilot/settings/height-aq</property></not>
 							<not><property>autopilot/internal/h-Acquired_flag</property></not>
 					</or>
-					<not><property>autopilot/Bendix-PB-20/controls/ALT-active</property></not>
+					<not><property>autopilot/controls/ALT-active</property></not>
 				</and>
 			</condition>
 			<expression>
@@ -478,18 +478,18 @@
 				<and>
 					<property>autopilot/switches/auto-engage</property>
 					<or>
-						<property>autopilot/Bendix-PB-20/controls/MACH-active</property>
-						<property>autopilot/Bendix-PB-20/controls/IAS-active</property>
-						<property>autopilot/Bendix-PB-20/controls/ALT-active</property>
+						<property>autopilot/controls/MACH-active</property>
+						<property>autopilot/controls/IAS-active</property>
+						<property>autopilot/controls/ALT-active</property>
 						<and>
-								<property>autopilot/Bendix-PB-20/controls/ALT-active</property>
+								<property>autopilot/controls/ALT-active</property>
 							<or>
-								<property>autopilot/Bendix-PB-20/controls/MACH-active</property>
-								<property>autopilot/Bendix-PB-20/controls/IAS-active</property>
+								<property>autopilot/controls/MACH-active</property>
+								<property>autopilot/controls/IAS-active</property>
 							</or>
 						</and>
 <!--	<and> -->
-						<property>autopilot/Bendix-PB-20/controls/IAS-active</property>
+						<property>autopilot/controls/IAS-active</property>
 <!--	<property>autopilot/submode/ILS-GS-cap</property>
 		</and> -->
 					</or>
@@ -554,19 +554,19 @@
 				<and>
 					<property>autopilot/switches/auto-engage</property>
 					<or>
-						<property>autopilot/Bendix-PB-20/controls/MACH-active</property>
-						<property>autopilot/Bendix-PB-20/controls/IAS-active</property>
+						<property>autopilot/controls/MACH-active</property>
+						<property>autopilot/controls/IAS-active</property>
 						<and>
 							<or>
-								<property>autopilot/Bendix-PB-20/controls/ALT-active</property>
+								<property>autopilot/controls/ALT-active</property>
 								<property>autopilot/submode/ILS-GS-cap</property>
 							</or>
 							<or>
-								<property>autopilot/Bendix-PB-20/controls/MACH-active</property>
-								<property>autopilot/Bendix-PB-20/controls/IAS-active</property>
+								<property>autopilot/controls/MACH-active</property>
+								<property>autopilot/controls/IAS-active</property>
 							</or>
 						</and>
-						<property>autopilot/Bendix-PB-20/controls/ALT-active</property>
+						<property>autopilot/controls/ALT-active</property>
 					</or>
 				</and>
 			</condition>

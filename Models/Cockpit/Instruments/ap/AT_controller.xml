@@ -35,14 +35,14 @@ if you contacted me before making any changes to this software.
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>autopilot/Bendix-PB-20/controls/AT_1switch</property>
+				<property>autopilot/controls/AT_1switch</property>
 			</binding>
 		</action>r
 	</animation>
 	<animation>
 		<type>rotate</type>
 		<object-name>AT_1switch_lever</object-name> 
-		<property>autopilot/Bendix-PB-20/controls/AT_1switch</property>
+		<property>autopilot/controls/AT_1switch</property>
 		<interpolation>
 			<entry>
 				<ind>0</ind>
@@ -65,14 +65,14 @@ if you contacted me before making any changes to this software.
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>autopilot/Bendix-PB-20/controls/AT_2switch</property>
+				<property>autopilot/controls/AT_2switch</property>
 			</binding>
 		</action>r
 	</animation>
 	<animation>
 		<type>rotate</type>
 		<object-name>AT_2switch_lever</object-name> 
-		<property>autopilot/Bendix-PB-20/controls/AT_2switch</property>
+		<property>autopilot/controls/AT_2switch</property>
 		<interpolation>
 			<entry>
 				<ind>0</ind>
@@ -95,14 +95,14 @@ if you contacted me before making any changes to this software.
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>autopilot/Bendix-PB-20/controls/AT_3switch</property>
+				<property>autopilot/controls/AT_3switch</property>
 			</binding>
 		</action>r
 	</animation>
 	<animation>
 		<type>rotate</type>
 		<object-name>AT_3switch_lever</object-name> 
-		<property>autopilot/Bendix-PB-20/controls/AT_3switch</property>
+		<property>autopilot/controls/AT_3switch</property>
 		<interpolation>
 			<entry>
 				<ind>0</ind>
@@ -125,14 +125,14 @@ if you contacted me before making any changes to this software.
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>autopilot/Bendix-PB-20/controls/AT_4switch</property>
+				<property>autopilot/controls/AT_4switch</property>
 			</binding>
 		</action>r
 	</animation>
 	<animation>
 		<type>rotate</type>
 		<object-name>AT_4switch_lever</object-name> 
-		<property>autopilot/Bendix-PB-20/controls/AT_4switch</property>
+		<property>autopilot/controls/AT_4switch</property>
 		<interpolation>
 			<entry>
 				<ind>0</ind>
@@ -155,14 +155,14 @@ if you contacted me before making any changes to this software.
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>autopilot/Bendix-PB-20/controls/AT_powerswitch</property>
+				<property>autopilot/controls/AT_powerswitch</property>
 			</binding>
 		</action>r
 	</animation>
 	<animation>
 		<type>rotate</type>
 		<object-name>AT_powerswitch_lever</object-name> 
-		<property>autopilot/Bendix-PB-20/controls/AT_powerswitch</property>
+		<property>autopilot/controls/AT_powerswitch</property>
 		<interpolation>
 			<entry>
 				<ind>0</ind>
@@ -180,7 +180,7 @@ if you contacted me before making any changes to this software.
 	<animation>
 		<type>knob</type>
 		<object-name>AT_engageswitch_lever</object-name>
-		<property>autopilot/Bendix-PB-20/controls/AT_engageswitch</property>
+		<property>autopilot/controls/AT_engageswitch</property>
 		<interpolation>
 			<entry><ind>1</ind><dep>20</dep></entry>
 			<entry><ind>-1</ind><dep>-20</dep></entry>
@@ -191,7 +191,7 @@ if you contacted me before making any changes to this software.
 		<action>
 			<binding>
 				<command>property-adjust</command>
-				<property>autopilot/Bendix-PB-20/controls/AT_engageswitch</property>
+				<property>autopilot/controls/AT_engageswitch</property>
 				<factor>1</factor>
 				<min>-1</min><max>1</max>                
 				<wrap>false</wrap>
@@ -206,7 +206,7 @@ if you contacted me before making any changes to this software.
 	<animation>
 		<type>rotate</type>
 		<object-name>AT_setknots</object-name>		
-		<property>autopilot/Bendix-PB-20/settings/AT_setknots</property>
+		<property>autopilot/settings/AT_setknots</property>
 		<factor>-1</factor>  
 		<center>
 			<x-m> 0.0</x-m><y-m> 0.0395</y-m><z-m> 0.0370</z-m>
@@ -224,7 +224,7 @@ if you contacted me before making any changes to this software.
 		<repeatable>true</repeatable>
 		<binding>
 			 <command>property-interpolate</command>
-			 <property>autopilot/Bendix-PB-20/settings/AT_setknots</property>
+			 <property>autopilot/settings/AT_setknots</property>
 			 <value>160</value>
 			 <time>0.5</time>
 		</binding>
@@ -234,7 +234,7 @@ if you contacted me before making any changes to this software.
         <repeatable>true</repeatable>
         <binding>
             <command>property-adjust</command>
-            <property>autopilot/Bendix-PB-20/settings/AT_setknots</property>
+            <property>autopilot/settings/AT_setknots</property>
 		        <step type="double">1.0</step>
 		        <min>100.0</min>
 		        <max>180.0</max>
@@ -246,7 +246,7 @@ if you contacted me before making any changes to this software.
         <repeatable>true</repeatable>
         <binding>
             <command>property-adjust</command>
-            <property>autopilot/Bendix-PB-20/settings/AT_setknots</property>
+            <property>autopilot/settings/AT_setknots</property>
 		        <step type="double">-1.0</step>
 		        <min>100.0</min>
 		        <max>180.0</max>
@@ -257,7 +257,7 @@ if you contacted me before making any changes to this software.
 	<animation>
 		<type>textranslate</type>
 		<object-name>AT_knots100</object-name>
-		<property>autopilot/Bendix-PB-20/settings/AT_setknots</property>
+		<property>autopilot/settings/AT_setknots</property>
 		<factor>0.001</factor>
 		<step>100</step>
 		<axis><x>0</x><y>1</y><z>0</z></axis>
@@ -265,7 +265,7 @@ if you contacted me before making any changes to this software.
 	<animation>
 		<type>textranslate</type>
 		<object-name>AT_knots10</object-name>
-		<property>autopilot/Bendix-PB-20/settings/AT_setknots</property>
+		<property>autopilot/settings/AT_setknots</property>
 		<factor>0.01</factor>
 		<step>10</step>
 		<axis><x>0</x><y>1</y><z>0</z></axis>
@@ -273,7 +273,7 @@ if you contacted me before making any changes to this software.
 	<animation>
 		<type>textranslate</type>
 		<object-name>AT_knots1</object-name>
-		<property>autopilot/Bendix-PB-20/settings/AT_setknots</property>
+		<property>autopilot/settings/AT_setknots</property>
 		<factor>0.1</factor>
 		<step>1</step>
 		<axis><x>0</x><y>1</y><z>0</z></axis>

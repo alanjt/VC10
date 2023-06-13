@@ -74,15 +74,15 @@
 			<condition>
 				<or>
 					<equals>
-						<property>autopilot/Bendix-PB-20/controls/Damper-Stbyactive</property>
+						<property>autopilot/controls/Damper-Stbyactive</property>
 						<value>1</value>
 					</equals>
 					<equals>
-						<property>autopilot/Bendix-PB-20/controls/Damper-1active</property>
+						<property>autopilot/controls/Damper-1active</property>
 						<value>1</value>
 					</equals>
 					<equals>
-						<property>autopilot/Bendix-PB-20/controls/Damper-2active</property>
+						<property>autopilot/controls/Damper-2active</property>
 						<value>1</value>
 					</equals>
 				</or>

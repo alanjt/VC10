@@ -444,12 +444,11 @@ if you contacted me before making any changes to this software.
 			<descent-profile-low-base type="double">0.13</descent-profile-low-base>
 			<descent-profile-low-rate type="double">-0.00029032</descent-profile-low-rate>
 		</constant>
-		<Bendix-PB-20>
-			<controls>
-				<mode-selector type="int">2</mode-selector><!-- 2 is manual control-->
-				<active type="bool">0</active><!-- the AP engage switch -->
-			</controls>
-		</Bendix-PB-20>
+		<controls>
+			<mode-selector type="int">2</mode-selector><!-- 2 is manual control-->
+			<active type="bool">0</active><!-- the AP engage switch -->
+		</controls>
+
 	</autopilot>
 
 	<controls>

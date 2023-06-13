@@ -41,13 +41,13 @@ Vickers VC10 for Flightgear
 		<object-name>ModeSelect</object-name>
 		<center><x-m>0</x-m><y-m>-0.1296</y-m><z-m>-0.0971</z-m></center>
 		<axis><x>-1</x><y>0</y><z>0</z></axis>
-		<property>autopilot/Bendix-PB-20/controls/mode-selector</property>
+		<property>autopilot/controls/mode-selector</property>
 		<!--		<factor>15.0</factor> -->
 		<factor>30.0</factor>
 		<action>
 			<binding>
 				<command>property-adjust</command>
-				<property>autopilot/Bendix-PB-20/controls/mode-selector</property>
+				<property>autopilot/controls/mode-selector</property>
 				<factor>1.0</factor>
 				<min>0</min>
 				<max>5</max>
@@ -63,7 +63,7 @@ Vickers VC10 for Flightgear
 				<command>set-tooltip</command>
 				<label>AP Mode Sw: %.2f</label>
 				<tooltip-id>APModeKnob</tooltip-id>
-				<property>autopilot/Bendix-PB-20/controls/mode-selector</property>
+				<property>autopilot/controls/mode-selector</property>
 			</binding>
 		</hovered>
 	</animation>
@@ -85,7 +85,7 @@ Vickers VC10 for Flightgear
 		<action>
 			<binding>
 				<command>property-adjust</command>
-				<property>autopilot/Bendix-PB-20/settings/pitch-wheel-deg</property>
+				<property>autopilot/settings/pitch-wheel-deg</property>
 				<factor>1</factor>
 				<min>-14</min>
 				<max>14</max>
@@ -97,7 +97,7 @@ Vickers VC10 for Flightgear
 				<command>set-tooltip</command>
 				<label>Pitch: %2d</label>
 				<tooltip-id>Pitch</tooltip-id>
-				<property>autopilot/Bendix-PB-20/settings/pitch-wheel-deg</property>
+				<property>autopilot/settings/pitch-wheel-deg</property>
 			</binding>
 		</hovered>
 	</animation>
@@ -107,7 +107,7 @@ Vickers VC10 for Flightgear
 	<animation>
 		<type>rotate</type>
 		<object-name>Turn</object-name>
-		<property>autopilot/Bendix-PB-20/settings/turn</property>
+		<property>autopilot/settings/turn</property>
 		<factor>-1</factor>
 		<center>
 			<x-m>0.0</x-m>
@@ -124,7 +124,7 @@ Vickers VC10 for Flightgear
 	<animation>
 		<type>knob</type>
 		<object-name>Turn</object-name>
-		<property>autopilot/Bendix-PB-20/settings/turn</property>
+		<property>autopilot/settings/turn</property>
 		<center>
 			<x-m>0.0</x-m><y-m>0.03968</y-m><z-m>-0.03968</z-m>
 		</center>
@@ -136,7 +136,7 @@ Vickers VC10 for Flightgear
 		<action>
 			<binding>
 				<command>property-adjust</command>
-				<property>autopilot/Bendix-PB-20/settings/turn</property>
+				<property>autopilot/settings/turn</property>
 				<factor>1</factor>
 				<min>-25</min>
 				<max>25</max>
@@ -148,7 +148,7 @@ Vickers VC10 for Flightgear
 				<command>set-tooltip</command>
 				<label>Bank: %2d</label>
 				<tooltip-id>Bank</tooltip-id>
-				<property>autopilot/Bendix-PB-20/settings/turn</property>
+				<property>autopilot/settings/turn</property>
 			</binding>
 		</hovered>
 	</animation>
@@ -159,7 +159,7 @@ Vickers VC10 for Flightgear
 	<animation>
 		<type>knob</type>
 		<object-name>Datum</object-name>
-		<property>autopilot/Bendix-PB-20/settings/datum_norm</property>
+		<property>autopilot/settings/datum_norm</property>
 		<center>
 			<x-m>0.0</x-m><y-m>0.03968</y-m><z-m>-0.03968</z-m>
 		</center>
@@ -171,7 +171,7 @@ Vickers VC10 for Flightgear
 		<action>
 			<binding>
 				<command>property-adjust</command>
-				<property>autopilot/Bendix-PB-20/settings/datum_norm</property>
+				<property>autopilot/settings/datum_norm</property>
 				<factor>1</factor>
 				<min>-1</min>
 				<max>1</max>
@@ -183,7 +183,7 @@ Vickers VC10 for Flightgear
 				<command>set-tooltip</command>
 				<label>Datum: %.2f</label>
 				<tooltip-id>Datum</tooltip-id>
-				<property>autopilot/Bendix-PB-20/settings/datum_norm</property>
+				<property>autopilot/settings/datum_norm</property>
 			</binding>
 		</hovered>
 	</animation>
@@ -192,7 +192,7 @@ Vickers VC10 for Flightgear
 	<animation>
 		<type>rotate</type>
 		<object-name>NAV_Select</object-name>
-		<property>autopilot/Bendix-PB-20/controls/NAV-active</property>
+		<property>autopilot/controls/NAV-active</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0</dep></entry>
 			<entry><ind>1</ind><dep>-25</dep></entry>
@@ -209,7 +209,7 @@ Vickers VC10 for Flightgear
 			<button>0</button>
 			<binding>
 				<command>property-toggle</command>
-				<property>autopilot/Bendix-PB-20/controls/NAV-active</property>
+				<property>autopilot/controls/NAV-active</property>
 			</binding>
 		</action>
 	</animation>
@@ -219,7 +219,7 @@ Vickers VC10 for Flightgear
 	<animation>
 		<type>rotate</type>
 		<object-name>AP-1Select</object-name>
-		<property>autopilot/Bendix-PB-20/controls/AP-1active</property>
+		<property>autopilot/controls/AP-1active</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0</dep></entry>
 			<entry><ind>1</ind><dep>-25</dep></entry>
@@ -237,18 +237,18 @@ Vickers VC10 for Flightgear
 			<binding>
 				<command>nasal</command>
 				<script>
-					var bt = getprop("autopilot/Bendix-PB-20/controls/AP-1active") or 0;
+					var bt = getprop("autopilot/controls/AP-1active") or 0;
 					var bat = getprop("VC10/electric/ess-bus") or 0;
 					print ("bt ",bt,"  bat ", bat);
 					if(bt){
 					#	if(bt or bat &lt; 20){
-					###### setprop("autopilot/Bendix-PB-20/controls/AP-1active", 0);
-					###### setprop("autopilot/Bendix-PB-20/controls/ALT-active", 0);
-					###### setprop("autopilot/Bendix-PB-20/controls/IAS-active", 0);
-					###### setprop("autopilot/Bendix-PB-20/controls/MACH-active", 0);
-					setprop("autopilot/Bendix-PB-20/controls/AP-1active", 0);
+					###### setprop("autopilot/controls/AP-1active", 0);
+					###### setprop("autopilot/controls/ALT-active", 0);
+					###### setprop("autopilot/controls/IAS-active", 0);
+					###### setprop("autopilot/controls/MACH-active", 0);
+					setprop("autopilot/controls/AP-1active", 0);
 					}else{
-					setprop("autopilot/Bendix-PB-20/controls/AP-1active", 1);
+					setprop("autopilot/controls/AP-1active", 1);
 					}
 				</script>
 			</binding>
@@ -263,7 +263,7 @@ Vickers VC10 for Flightgear
 	<animation>
 		<type>rotate</type>
 		<object-name>Damper-1Select</object-name>
-		<property>autopilot/Bendix-PB-20/controls/Damper-1active</property>
+		<property>autopilot/controls/Damper-1active</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0</dep></entry>
 			<entry><ind>1</ind><dep>-25</dep></entry>
@@ -281,22 +281,22 @@ Vickers VC10 for Flightgear
 			<!--			<binding>
 				<command>nasal</command>
 				<script>
-					#var bt = getprop("autopilot/Bendix-PB-20/controls/Damper-1active") or 0;
+					#var bt = getprop("autopilot/controls/Damper-1active") or 0;
 					#var bat = getprop("VC10/electric/ess-bus") or 0;
 					#if(bt){
 					#	if(bt or bat &lt; 20){
-					###### setprop("autopilot/Bendix-PB-20/controls/Damper-1active", 0);
-					###### setprop("autopilot/Bendix-PB-20/controls/ALT-active", 0);
-					###### setprop("autopilot/Bendix-PB-20/controls/IAS-active", 0);
-					###### setprop("autopilot/Bendix-PB-20/controls/MACH-active", 0);
+					###### setprop("autopilot/controls/Damper-1active", 0);
+					###### setprop("autopilot/controls/ALT-active", 0);
+					###### setprop("autopilot/controls/IAS-active", 0);
+					###### setprop("autopilot/controls/MACH-active", 0);
 					#}else{
-					#setprop("autopilot/Bendix-PB-20/controls/Damper-1active", 1);
+					#setprop("autopilot/controls/Damper-1active", 1);
 					#}
 				</script> 
 			</binding> -->
 			<binding>
 				<command>property-toggle</command>
-				<property>autopilot/Bendix-PB-20/controls/Damper-1active</property>
+				<property>autopilot/controls/Damper-1active</property>
 			</binding>
 			<binding>
 				<command>property-toggle</command>
@@ -309,7 +309,7 @@ Vickers VC10 for Flightgear
 	<animation>
 		<type>rotate</type>
 		<object-name>Damper-2Select</object-name>
-		<property>autopilot/Bendix-PB-20/controls/Damper-2active</property>
+		<property>autopilot/controls/Damper-2active</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0</dep></entry>
 			<entry><ind>1</ind><dep>-25</dep></entry>
@@ -327,22 +327,22 @@ Vickers VC10 for Flightgear
 			<!--			<binding>
 				<command>nasal</command>
 				<script>
-					var bt = getprop("autopilot/Bendix-PB-20/controls/Damper-2active") or 0;
+					var bt = getprop("autopilot/controls/Damper-2active") or 0;
 					var bat = getprop("VC10/electric/ess-bus") or 0;
 					if(bt){
 					#	if(bt or bat &lt; 20){
-					###### setprop("autopilot/Bendix-PB-20/controls/Damper-2active", 0);
-					###### setprop("autopilot/Bendix-PB-20/controls/ALT-active", 0);
-					###### setprop("autopilot/Bendix-PB-20/controls/IAS-active", 0);
-					###### setprop("autopilot/Bendix-PB-20/controls/MACH-active", 0);
+					###### setprop("autopilot/controls/Damper-2active", 0);
+					###### setprop("autopilot/controls/ALT-active", 0);
+					###### setprop("autopilot/controls/IAS-active", 0);
+					###### setprop("autopilot/controls/MACH-active", 0);
 					}else{
-					setprop("autopilot/Bendix-PB-20/controls/Damper-2active", 1);
+					setprop("autopilot/controls/Damper-2active", 1);
 					}
 				</script>
 			</binding> -->
 			<binding>
 				<command>property-toggle</command>
-				<property>autopilot/Bendix-PB-20/controls/Damper-2active</property>
+				<property>autopilot/controls/Damper-2active</property>
 			</binding>
 			<binding>
 				<command>property-toggle</command>
@@ -356,7 +356,7 @@ Vickers VC10 for Flightgear
 	<animation>
 		<type>rotate</type>
 		<object-name>AP-2Select</object-name>
-		<property>autopilot/Bendix-PB-20/controls/AP-2active</property>
+		<property>autopilot/controls/AP-2active</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0</dep></entry>
 			<entry><ind>1</ind><dep>-25</dep></entry>
@@ -374,17 +374,17 @@ Vickers VC10 for Flightgear
 			<binding>
 				<command>nasal</command>
 				<script>
-					var bt = getprop("autopilot/Bendix-PB-20/controls/AP-2active") or 0;
+					var bt = getprop("autopilot/controls/AP-2active") or 0;
 					var bat = getprop("VC10/electric/ess-bus") or 0;
 					if(bt){
 					#	if(bt or bat &lt; 20){
-					###### setprop("autopilot/Bendix-PB-20/controls/AP-2active", 0);
-					###### setprop("autopilot/Bendix-PB-20/controls/ALT-active", 0);
-					###### setprop("autopilot/Bendix-PB-20/controls/IAS-active", 0);
-					###### setprop("autopilot/Bendix-PB-20/controls/MACH-active", 0);
-					setprop("autopilot/Bendix-PB-20/controls/AP-2active", 0);
+					###### setprop("autopilot/controls/AP-2active", 0);
+					###### setprop("autopilot/controls/ALT-active", 0);
+					###### setprop("autopilot/controls/IAS-active", 0);
+					###### setprop("autopilot/controls/MACH-active", 0);
+					setprop("autopilot/controls/AP-2active", 0);
 					}else{
-					setprop("autopilot/Bendix-PB-20/controls/AP-2active", 1);
+					setprop("autopilot/controls/AP-2active", 1);
 					}
 				</script>
 			</binding>
@@ -398,7 +398,7 @@ Vickers VC10 for Flightgear
 	<animation>
 		<type>rotate</type>
 		<object-name>ALT_Select</object-name>
-		<property>autopilot/Bendix-PB-20/controls/ALTactive</property>
+		<property>autopilot/controls/ALTactive</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0</dep></entry>
 			<entry><ind>1</ind><dep>-25</dep></entry>
@@ -415,24 +415,24 @@ Vickers VC10 for Flightgear
 			<button>0</button>
 			<binding>
 				<command>property-toggle</command>
-				<property>autopilot/Bendix-PB-20/controls/ALT-active</property>
+				<property>autopilot/controls/ALT-active</property>
 			</binding>
 			<!-- <binding>
 				<command>property-assign</command>
-				<property>autopilot/Bendix-PB-20/controls/IAS-active</property>
+				<property>autopilot/controls/IAS-active</property>
 				<value>0</value>
 			</binding>
 			<binding>
 				<command>property-assign</command>
-				<property>autopilot/Bendix-PB-20/controls/MACH-active</property>
+				<property>autopilot/controls/MACH-active</property>
 				<value>0</value>
 			</binding> -->
 			<!--			<binding>
 				<command>nasal</command>
 				<script>
-					var apa = getprop("autopilot/Bendix-PB-20/controls/active") or 0;
+					var apa = getprop("autopilot/controls/active") or 0;
 					if(!apa){
-					settimer(func{ setprop("autopilot/Bendix-PB-20/controls/ALT-active", 0);}, 0.2);
+					settimer(func{ setprop("autopilot/controls/ALT-active", 0);}, 0.2);
 					}
 				</script>
 			</binding> -->
@@ -446,7 +446,7 @@ Vickers VC10 for Flightgear
 	<animation>
 		<type>rotate</type>
 		<object-name>IAS_Select</object-name>
-		<property>autopilot/Bendix-PB-20/controls/IAS-active</property>
+		<property>autopilot/controls/IAS-active</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0</dep></entry>
 			<entry><ind>1</ind><dep>-25</dep></entry>
@@ -463,24 +463,24 @@ Vickers VC10 for Flightgear
 			<button>0</button>
 			<!--<binding>
 				<command>property-assign</command>
-				<property>autopilot/Bendix-PB-20/controls/ALT-active</property>
+				<property>autopilot/controls/ALT-active</property>
 				<value>0</value>
 			</binding> -->
 			<binding>
 				<command>property-toggle</command>
-				<property>autopilot/Bendix-PB-20/controls/IAS-active</property>
+				<property>autopilot/controls/IAS-active</property>
 			</binding>
 			<!-- <binding>
 				<command>property-assign</command>
-				<property>autopilot/Bendix-PB-20/controls/MACH-active</property>
+				<property>autopilot/controls/MACH-active</property>
 				<value>0</value>
 			</binding> -->
 			<!--			<binding>
 				<command>nasal</command>
 				<script>
-					var iaspa = getprop("autopilot/Bendix-PB-20/controls/active") or 0;
+					var iaspa = getprop("autopilot/controls/active") or 0;
 					if(!iaspa){
-					settimer(func{ setprop("autopilot/Bendix-PB-20/controls/IAS-active", 0);}, 0.2);
+					settimer(func{ setprop("autopilot/controls/IAS-active", 0);}, 0.2);
 					}
 				</script>
 			</binding> -->
@@ -495,7 +495,7 @@ Vickers VC10 for Flightgear
 	<animation>
 		<type>rotate</type>
 		<object-name>MACH_Select</object-name>
-		<property>autopilot/Bendix-PB-20/controls/MACH-active</property>
+		<property>autopilot/controls/MACH-active</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0</dep></entry>
 			<entry><ind>1</ind><dep>-25</dep></entry>
@@ -511,25 +511,25 @@ Vickers VC10 for Flightgear
 			<button>0</button>
 			<!-- <binding>
 				<command>property-assign</command>
-				<property>autopilot/Bendix-PB-20/controls/ALT-active</property>
+				<property>autopilot/controls/ALT-active</property>
 				<value>0</value>
 			</binding>			
 			<binding>
 				<command>property-assign</command>
-				<property>autopilot/Bendix-PB-20/controls/IAS-active</property>
+				<property>autopilot/controls/IAS-active</property>
 				<value>0</value>
 			</binding> -->
 			<binding>
 				<command>property-toggle</command>
-				<property>autopilot/Bendix-PB-20/controls/MACH-active</property>
+				<property>autopilot/controls/MACH-active</property>
 			</binding>
 
 			<!--			<binding>
 				<command>nasal</command>
 				<script>
-					var machpa = getprop("autopilot/Bendix-PB-20/controls/active") or 0;
+					var machpa = getprop("autopilot/controls/active") or 0;
 					if(!machpa){
-					settimer(func{ setprop("autopilot/Bendix-PB-20/controls/MACH-active", 0);}, 0.2);
+					settimer(func{ setprop("autopilot/controls/MACH-active", 0);}, 0.2);
 					}
 				</script>
 			</binding>  -->

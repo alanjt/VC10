@@ -34,10 +34,10 @@
 			<condition>
 				<and>
 					<or>
-						<property>autopilot/Bendix-PB-20/controls/ALT-active</property>
+						<property>autopilot/controls/ALT-active</property>
 						<property>autopilot/switches/ILS_GS</property>
 					</or>
-					<property>autopilot/Bendix-PB-20/controls/IAS-active</property>
+					<property>autopilot/controls/IAS-active</property>
 				</and>
 			</condition>
 			<property>autopilot/internal/throttlec-ias</property>
@@ -45,7 +45,7 @@
 		<input>
 			<condition>
 					<or>
-						<property>autopilot/Bendix-PB-20/controls/ALT-active</property>
+						<property>autopilot/controls/ALT-active</property>
 						<property>autopilot/switches/ILS_GS</property>
 					</or>
 			</condition>
