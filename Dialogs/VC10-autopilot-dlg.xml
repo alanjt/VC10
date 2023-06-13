@@ -6,7 +6,7 @@
 	<name>autopilot</name>
 	<layout>vbox</layout>
 
-	<group>
+	<frame>
 		<layout>hbox</layout>
 		<empty><stretch>1</stretch></empty>
 
@@ -30,47 +30,45 @@
 				<command>dialog-apply</command>
 			</binding>
 		</button>
-	</group>
+	</frame>
 	<hrule/>
 
 	<group>
 		<layout>hbox</layout>
 		<default-padding>8</default-padding>
 		<group>
-
 			<layout>vbox</layout>
-
-			<group>
+			<frame>
 				<layout>table</layout>
 				
 				<checkbox>
 					<row>0</row>
 					<col>0</col>
 					<label>NAV</label>
-					<property>autopilot/switches/NAV</property>
+					<property>autopilot/switches/NAV-sw</property>
 					<live>true</live>
 					<binding>
 						<command>property-toggle</command>
-						<property>autopilot/switches/NAV</property>
+						<property>autopilot/switches/NAV-sw</property>
 					</binding>
 				</checkbox>
 				
 				<text>
-					<label>        </label>
+					<label/>
 					<halign>centre</halign>
 					<row>0</row>
 					<col>1</col>
-				</text>	
+				</text>
 
 				<checkbox>
 					<row>0</row>
 					<col>2</col>
 					<label>AP-1</label>
-					<property>autopilot/switches/AP1</property>
+					<property>autopilot/switches/AP1-sw</property>
 					<live>true</live>
 					<binding>
 						<command>property-toggle</command>
-						<property>autopilot/switches/AP1</property>
+						<property>autopilot/switches/AP1-sw</property>
 					</binding>
 				</checkbox>
 
@@ -78,11 +76,11 @@
 					<row>0</row>
 					<col>3</col>
 					<label>DAMPER-1</label>
-					<property>autopilot/switches/damper1</property>
+					<property>autopilot/switches/YawDamper1-sw</property>
 					<live>true</live>
 					<binding>
 						<command>property-toggle</command>
-						<property>autopilot/switches/damper1</property>
+						<property>autopilot/switches/YawDamper1-sw</property>
 					</binding>
 				</checkbox>
 
@@ -90,11 +88,11 @@
 					<row>0</row>
 					<col>4</col>
 					<label>DAMPER-2</label>
-					<property>autopilot/switches/damper2</property>
+					<property>autopilot/switches/YawDamper2-sw</property>
 					<live>true</live>
 					<binding>
 						<command>property-toggle</command>
-						<property>autopilot/switches/damper2</property>
+						<property>autopilot/switches/YawDamper2-sw</property>
 					</binding>
 				</checkbox>
 
@@ -102,16 +100,16 @@
 					<row>0</row>
 					<col>5</col>
 					<label>AP-2</label>
-					<property>autopilot/switches/AP2</property>
+					<property>autopilot/switches/AP2-sw</property>
 					<live>true</live>
 					<binding>
 						<command>property-toggle</command>
-						<property>autopilot/switches/AP2</property>
+						<property>autopilot/switches/AP2-sw</property>
 					</binding>
 				</checkbox>
 				
 				<text>
-					<label>        </label>
+					<label/>
 					<halign>centre</halign>
 					<row>0</row>
 					<col>6</col>
@@ -121,11 +119,11 @@
 					<row>0</row>
 					<col>9</col>
 					<label>ALT</label>
-					<property>autopilot/switches/ALT</property>
+					<property>autopilot/switches/ALT-sw</property>
 					<live>true</live>
 					<binding>
 						<command>property-toggle</command>
-						<property>autopilot/switches/ALT</property>
+						<property>autopilot/switches/ALT-sw</property>
 					</binding>
 				</checkbox>
 
@@ -133,11 +131,11 @@
 					<row>0</row>
 					<col>10</col>
 					<label>IAS</label>
-					<property>autopilot/switches/IAS</property>
+					<property>autopilot/switches/IAS-sw</property>
 					<live>true</live>
 					<binding>
 						<command>property-toggle</command>
-						<property>autopilot/switches/IAS</property>
+						<property>autopilot/switches/IAS-sw</property>
 					</binding>
 				</checkbox>
 				
@@ -145,23 +143,51 @@
 					<row>0</row>
 					<col>11</col>
 					<label>MACH</label>
-					<property>autopilot/switches/MACH</property>
+					<property>autopilot/switches/MACH-sw</property>
 					<live>true</live>
 					<binding>
 						<command>property-toggle</command>
-						<property>autopilot/switches/MACH</property>
+						<property>autopilot/switches/MACH-sw</property>
 					</binding>
 				</checkbox>
-			</group>
-
-			<hrule/>
+			</frame>
+			<hrule/> 
 			
-<!--			<group>
+			<frame>
+<!--				<layout>hbox</layout> -->
+				<layout>table</layout>
+				<text>
+					<label>Mode</label>
+					<halign>centre</halign>
+					<row>0</row>
+					<col>0</col>
+				</text>
+				<text>
+					<label>Turn</label>
+					<halign>centre</halign>
+					<row>0</row>
+					<col>3</col>
+				</text>
+				<slider>
+					<name>Mode</name>
+					<halign>centre</halign>
+					<row>1</row>
+					<col>0</col>
+					<property>autopilot/switches/mode-knob</property>
+					<live>true</live>
+					<binding>
+						<command>dialog-apply</command>
+						<object-name>Mode</object-name>
+					</binding>
+					<min>-1</min>
+					<max>4</max>
+					<step>1</step>
+				</slider>
 
 				<slider>
 					<name>HT-datum</name>
-					<row>0</row>
-					<col>0</col>
+					<row>1</row>
+					<col>2</col>
 					<height>10</height>
 					<vertical>true</vertical>
 					<property>autopilot/switches/ht-datum-adj</property>
@@ -175,14 +201,7 @@
 					<step>1</step>
 				</slider>
 
-				<text>
-					<label>Bank</label>
-					<halign>centre</halign>
-					<row>0</row>
-					<col>1</col>
-				</text>
-				
-			<dial>
+				<!--			<dial>
 					<name>Roll-deg</name>
 					<row>0</row>
 					<col>2</col>
@@ -195,134 +214,13 @@
 						<command>dialog-apply</command>
 						<object-name>Roll-deg</object-name>
 					</binding>
-				</dial>
-
-				<text>
-					<row>0</row>
-					<col>3</col>
-					<label>-99.99</label>
-					<format>% 2.1f</format>
-					<property>autopilot/settings/target-roll-deg</property>
-					<live>true</live>
-				</text>
-
-				<input>
-					<name>AQ-height</name>
-					<row>0</row>
-					<col>4</col>
-					<property>autopilot/settings/height-aq-setting</property>
-					<live>true</live>
-					<binding>
-						<command>dialog-apply</command>
-						<object-name>AQ-height</object-name>
-					</binding>
-				</input>
-
-			</group> -->
-
-<!--			<hrule/> -->
-			
-<!--			<group>
-				<layout>table</layout>
-				<text>
-					<label>Mode</label>
-					<halign>centre</halign>
-					<row>3</row>
-					<col>0</col>
-				</text>
-				<slider>
-					<name>Mode</name>
-					<row>4</row>
-					<col>1</col>
-					<property>autopilot/settings/Mode</property>
-					<live>true</live>
-					<binding>
-						<command>dialog-apply</command>
-						<object-name>Mode</object-name>
-					</binding>
-					<min>0</min>
-					<step>1</step>
-					<max>5</max>
-				</slider>
-			</group> -->
-<!--			<hrule/> -->
-
-				<!-- Autopilot Engage -->
-<!--			<group>
-				<layout>table</layout>
-				<checkbox>
-					<row>0</row>
-					<col>0</col>
-					<label>Auto Engage</label>
-					<property>autopilot/switches/auto-engage</property>
-					<live>true</live>
-					<binding>
-						<command>property-toggle</command>
-						<property>autopilot/switches/auto-engage</property>
-					</binding>
-				</checkbox>
-
-				<button>
-					<row>1</row>
-					<col>2</col>
-					<legend>+</legend>
-					<live>true</live>
-					<binding>
-						<command>property-adjust</command>
-						<property>autopilot/internal/Ud</property>
-						<step>5.0</step>
-					</binding>
-					<binding>
-						<command>property-adjust</command>
-						<property>autopilot/internal/Md</property>
-						<step>0.01</step>
-					</binding>
-				</button>
-				<button>
-					<row>1</row>
-					<col>3</col>
-					<legend>-</legend>
-					<live>true</live>
-					<binding>
-						<command>property-adjust</command>
-						<property>autopilot/internal/Ud</property>
-						<step>-5.0</step>
-					</binding>
-					<binding>
-						<command>property-adjust</command>
-						<property>autopilot/internal/Md</property>
-						<step>-0.01</step>
-					</binding>
-				</button>
-
-				<checkbox>
-					<row>0</row>
-					<col>2</col>
-					<label>Mach</label>
-					<property>autopilot/switches/mach</property>
-					<live>true</live>
-					<binding>
-						<command>property-toggle</command>
-						<property>autopilot/switches/mach</property>
-					</binding>
-				</checkbox>
-
-				<checkbox>
-					<row>0</row>
-					<col>3</col>
-					<label>IAS</label>
-					<property>autopilot/switches/ias</property>
-					<live>true</live>
-					<binding>
-						<command>property-toggle</command>
-						<property>autopilot/switches/ias</property>
-					</binding>
-				</checkbox>
-			</group> -->
+				</dial> -->
+			</frame>
+			<hrule/>
 		</group>
 	</group>
 
-<!--	<hrule/> -->
+	<!--	<hrule/> -->
 
 	<button>
 		<legend>Close</legend>

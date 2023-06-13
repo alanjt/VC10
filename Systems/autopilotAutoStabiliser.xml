@@ -74,15 +74,15 @@
 			<condition>
 				<or>
 					<equals>
-						<property>autopilot/controls/Damper-Stbyactive</property>
+						<property>autopilot/switches/YawDamper-Stbyactive</property>
 						<value>1</value>
 					</equals>
 					<equals>
-						<property>autopilot/controls/Damper-1active</property>
+						<property>autopilot/switches/YawDamper1-sw</property>
 						<value>1</value>
 					</equals>
 					<equals>
-						<property>autopilot/controls/Damper-2active</property>
+						<property>autopilot/switches/YawDamper2-sw</property>
 						<value>1</value>
 					</equals>
 				</or>

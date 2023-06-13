@@ -63,31 +63,31 @@ setlistener("sim/signals/fdm-initialized", listenerApRouteManagerInitFunc);
 var listenerApRouteManagerInitFunc = func {
 	# initialise autopilot control panel.
 
-	setprop("autopilot/controls/mode-selector", 0);
-	setprop("autopilot/controls/ALT-active", 0);
-	setprop("autopilot/controls/IAS-active", 0);
-	setprop("autopilot/controls/MACH-active", 0);
-	setprop("autopilot/controls/NAV-active", 0);
-	setprop("autopilot/controls/mode-selector", 0);
+	setprop("autopilot/switches/mode-knob", 0);
+	setprop("autopilot/switches/ALT-sw", 0);
+	setprop("autopilot/switches/IAS-sw", 0);
+	setprop("autopilot/switches/MACH-sw", 0);
+	setprop("autopilot/switches/NAV-sw", 0);
+	setprop("autopilot/switches/mode-knob", 0);
 	
-	setprop("autopilot/controls/AP-1active", 0);
-	setprop("autopilot/controls/AP-2active", 0);
+	setprop("autopilot/switches/AP1-sw", 0);
+	setprop("autopilot/switches/AP2-sw", 0);
 	
-	setprop("autopilot/controls/AP_MasterL_switch", 0);
-	setprop("autopilot/controls/AP_MasterR_switch", 0);
-	setprop("autopilot/controls/AP_MasterNuisance_bar", 0);
+	setprop("autopilot/switches/AP_MasterL_switch", 0);
+	setprop("autopilot/switches/AP_MasterR_switch", 0);
+	setprop("autopilot/switches/AP_MasterNuisance_bar", 0);
 	
-	setprop("autopilot/controls/AT_1switch", 0);
-	setprop("autopilot/controls/AT_2switch", 0);
-	setprop("autopilot/controls/AT_3switch", 0);
-	setprop("autopilot/controls/AT_4switch", 0);
+	setprop("autopilot/switches/AT_1switch", 0);
+	setprop("autopilot/switches/AT_2switch", 0);
+	setprop("autopilot/switches/AT_3switch", 0);
+	setprop("autopilot/switches/AT_4switch", 0);
 	
-	setprop("autopilot/controls/AT_powerswitch", 0);
-	setprop("autopilot/controls/AT_engageswitch", 0);
+	setprop("autopilot/switches/AT_powerswitch", 0);
+	setprop("autopilot/switches/AT_engageswitch", 0);
 
-	setprop("autopilot/controls/Damper-1active", 0);
-	setprop("autopilot/controls/Damper-2active", 0);
-	setprop("autopilot/controls/Damper-Stbyactive", 1);
+	setprop("autopilot/switches/YawDamper1-sw", 0);
+	setprop("autopilot/switches/YawDamper2-sw", 0);
+	setprop("autopilot/switches/YawDamper-Stbyactive", 1);
 	
 }
 ###setlistener("sim/signals/fdm-initialized", listenerAutopilotInitFunc);

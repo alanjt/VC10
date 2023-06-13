@@ -48,14 +48,14 @@ if you contacted me before making any changes to this software.
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>autopilot/controls/Damper-Stbyactive</property>
+				<property>autopilot/switches/YawDamper-Stbyactive</property>
 			</binding>
 		</action>
 	</animation>
 	<animation>
 		<type>rotate</type>
 		<object-name>StbyYDswitch_lever</object-name> 
-		<property>autopilot/controls/Damper-Stbyactive</property>
+		<property>autopilot/switches/YawDamper-Stbyactive</property>
 		<interpolation>
 			<entry>
 				<ind>0</ind>

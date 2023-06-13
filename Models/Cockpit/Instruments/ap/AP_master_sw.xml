@@ -53,14 +53,14 @@ if you contacted me before making any changes to this software.
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>autopilot/controls/AP_MasterL_switch</property>
+				<property>autopilot/switches/AP_MasterL_switch</property>
 			</binding>
 		</action>
 	</animation>
 	<animation>
 		<type>rotate</type>
 		<object-name>AP_MasterL_switch_lever</object-name> 
-		<property>autopilot/controls/AP_MasterL_switch</property>
+		<property>autopilot/switches/AP_MasterL_switch</property>
 		<interpolation>
 			<entry>
 				<ind>0</ind>
@@ -84,14 +84,14 @@ if you contacted me before making any changes to this software.
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>autopilot/controls/AP_MasterR_switch</property>
+				<property>autopilot/switches/AP_MasterR_switch</property>
 			</binding>
 		</action>
 	</animation>
 	<animation>
 		<type>rotate</type>
 		<object-name>AP_MasterR_switch_lever</object-name> 
-		<property>autopilot/controls/AP_MasterR_switch</property>
+		<property>autopilot/switches/AP_MasterR_switch</property>
 		<interpolation>
 			<entry>
 				<ind>0</ind>
@@ -114,23 +114,23 @@ if you contacted me before making any changes to this software.
 			<repeatable>true</repeatable>
 			<binding>
 				<command>property-assign</command>
-				<property>autopilot/controls/AP_MasterNuisance_bar</property>
+				<property>autopilot/switches/AP_MasterNuisance_bar</property>
 				<value>1</value>
 			</binding>
 			<binding>
 				<command>property-assign</command>
-				<property>autopilot/controls/AP_MasterL_switch</property>
+				<property>autopilot/switches/AP_MasterL_switch</property>
 				<value>0</value>
 			</binding>
 			<binding>
 				<command>property-assign</command>
-				<property>autopilot/controls/AP_MasterR_switch</property>
+				<property>autopilot/switches/AP_MasterR_switch</property>
 				<value>0</value>
 			</binding>
 			<mod-up>
 				<binding>
 					<command>property-assign</command>
-					<property>autopilot/controls/AP_MasterNuisance_bar</property>
+					<property>autopilot/switches/AP_MasterNuisance_bar</property>
 					<value>0</value>
 				</binding>
 			</mod-up>
@@ -139,7 +139,7 @@ if you contacted me before making any changes to this software.
 	<animation>
 		<type>rotate</type>
 		<object-name>AP_MasterNuisance_bar</object-name> 
-		<property>autopilot/controls/AP_MasterNuisance_bar</property>
+		<property>autopilot/switches/AP_MasterNuisance_bar</property>
 		<interpolation>
 			<entry>
 				<ind>0</ind>

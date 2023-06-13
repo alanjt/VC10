@@ -50,8 +50,8 @@
 	<logic>
 		<input>
 			<or>
-				<property>autopilot/controls/AP-1active</property>
-				<property>autopilot/controls/AP-2active</property>
+				<property>autopilot/switches/AP1-sw</property>
+				<property>autopilot/switches/AP2-sw</property>
 			</or>
 		</input>
 		<output><property>autopilot/switches/auto-engage</property></output>
@@ -60,10 +60,10 @@
 	<logic>
 		<input>
 			<or>
-				<property>autopilot/controls/MACH-active</property>
-				<property>autopilot/controls/IAS-active</property>
+				<property>autopilot/switches/MACH-sw</property>
+				<property>autopilot/switches/IAS-sw</property>
 				<property>autopilot/switches/ILS_GS</property>
-				<property>autopilot/controls/ALT-active</property>
+				<property>autopilot/switches/ALT-sw</property>
 			</or>
 		</input>
 		<output><property>autopilot/internal/ElevationModeSelected</property></output>
