@@ -156,23 +156,15 @@
 			<frame>
 <!--				<layout>hbox</layout> -->
 				<layout>table</layout>
-				<text>
-					<label>Mode</label>
-					<halign>centre</halign>
-					<row>0</row>
-					<col>0</col>
-				</text>
-				<text>
-					<label>Turn</label>
-					<halign>centre</halign>
-					<row>0</row>
-					<col>3</col>
-				</text>
+				
 				<slider>
 					<name>Mode</name>
+					<label>Mode</label>
 					<halign>centre</halign>
 					<row>1</row>
 					<col>0</col>
+					<width>10</width>
+<!--					<vertical>true</vertical> -->
 					<property>autopilot/switches/mode-knob</property>
 					<live>true</live>
 					<binding>
@@ -183,23 +175,119 @@
 					<max>4</max>
 					<step>1</step>
 				</slider>
-
+				<text>
+					<row>5</row>
+					<col>0</col>
+					<label>-9.99</label>
+					<format>%2d</format>
+					<property>autopilot/switches/mode-knob</property>
+					<live>true</live>
+				</text>	
+				
 				<slider>
-					<name>HT-datum</name>
+					<name>pitch</name>
+					<label>Pitch</label>
+					<row>1</row>
+					<col>1</col>
+					<height>10</height>
+					<vertical>true</vertical>
+					<property>autopilot/settings/pitch-wheel-deg</property>
+					<live>true</live>
+					<binding>
+						<command>dialog-apply</command>
+						<object-name>pitch</object-name>
+					</binding>
+					<min>-14</min>
+					<max>14</max>
+					<step>0.1</step>
+				</slider>
+				<text>
+					<row>5</row>
+					<col>1</col>
+					<label>-9.99</label>
+					<format>%2d</format>
+					<property>autopilot/settings/pitch-wheel-deg</property>
+					<live>true</live>
+				</text>
+				
+				<slider>
+					<name>turn</name>
+					<label>Turn</label>
 					<row>1</row>
 					<col>2</col>
 					<height>10</height>
 					<vertical>true</vertical>
-					<property>autopilot/switches/ht-datum-adj</property>
+					<property>autopilot/settings/turn</property>
 					<live>true</live>
 					<binding>
 						<command>dialog-apply</command>
-						<object-name>HT-datum</object-name>
+						<object-name>turn</object-name>
+					</binding>
+					<min>-25</min>
+					<max>25</max>
+					<step>1.0</step>
+				</slider>
+				<text>
+					<row>5</row>
+					<col>2</col>
+					<label>-9.99</label>
+					<format>%2d</format>
+					<property>autopilot/settings/turn</property>
+					<live>true</live>
+				</text>
+				
+				<slider>
+					<name>pitch2</name>
+					<label>Pitch</label>
+					<row>1</row>
+					<col>3</col>
+					<height>10</height>
+					<vertical>true</vertical>
+					<property>autopilot/settings/pitch-wheel-deg</property>
+					<live>true</live>
+					<binding>
+						<command>dialog-apply</command>
+						<object-name>pitch2</object-name>
+					</binding>
+					<min>-14</min>
+					<max>14</max>
+					<step>0.1</step>
+				</slider>
+				<text>
+					<row>5</row>
+					<col>3</col>
+					<label>-9.99</label>
+					<format>%2d</format>
+					<property>autopilot/settings/pitch-wheel-deg</property>
+					<live>true</live>
+				</text>
+				
+				<slider>
+					<name>datum</name>
+					<label>Datum</label>
+					<row>1</row>
+					<col>4</col>
+					<height>10</height>
+					<vertical>true</vertical>
+					<property>autopilot/settings/datum_norm</property>
+					<live>true</live>
+					<binding>
+						<command>dialog-apply</command>
+						<object-name>datum</object-name>
 					</binding>
 					<min>-1</min>
 					<max>1</max>
-					<step>1</step>
+					<step>0.05</step>
 				</slider>
+				<text>
+					<row>5</row>
+					<col>4</col>
+					<label>-9.99</label>
+					<format>% 1.2f</format>
+					<property>autopilot/settings/datum_norm</property>
+					<live>true</live>
+				</text>
+
 
 				<!--			<dial>
 					<name>Roll-deg</name>
