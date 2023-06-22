@@ -19,7 +19,7 @@
 		<gain>1.0</gain>
 		<input>
 			<condition>
-				<equals><property>autopilot/switches/IAS-sw</property><value>1</value></equals>
+/				<equals><property>autopilot/switches/IAS-sw</property><value>1</value></equals>
 			</condition>
 			<property>autopilot/internal/Ud</property>
 		</input>
@@ -223,7 +223,7 @@
 	</filter>
 	
 	<filter>
-		<name>pitch feedback</name>
+		<name>pitch rate demand/feedback</name>
 		<debug>false</debug>
 		<type>gain</type>
 		<gain><value>1.0</value></gain>
@@ -280,6 +280,7 @@
 		<input>
 			<condition>
 				<or>
+					<property>autopilot/switches/AP1orAP2-sw</property>
 					<property>autopilot/switches/ALT-sw</property>
 					<property>autopilot/switches/MACH-sw</property>
 					<property>autopilot/switches/IAS-sw</property>
@@ -294,20 +295,13 @@
 	</filter>
 
 	<filter>
-		<name>q demand max nose up</name>
+		<name>q demand</name>
 		<debug>false</debug>
 		<type>gain</type>
 		<gain><value>1.0</value></gain>
 		<input>
-			<condition>
-				<greater-than>
-					<property>autopilot/internal/qd-ap</property>
-					<property>autopilot/internal/qd-tf</property>
-				</greater-than>
-			</condition>
 			<property>autopilot/internal/qd-ap</property>
 		</input>
-		<!-- no selection - default -->
 		<input><property>autopilot/internal/qd-tf</property></input>
 		<output><property>autopilot/internal/qd</property></output>
 	</filter>
@@ -476,7 +470,7 @@
 		<input>
 			<condition>
 				<and>
-					<property>autopilot/switches/auto-engage</property>
+					<property>autopilot/switches/AP1orAP2-sw</property>
 					<or>
 						<property>autopilot/switches/MACH-sw</property>
 						<property>autopilot/switches/IAS-sw</property>
@@ -552,7 +546,7 @@
 		<input>
 			<condition>
 				<and>
-					<property>autopilot/switches/auto-engage</property>
+					<property>autopilot/switches/AP1orAP2-sw</property>
 					<or>
 						<property>autopilot/switches/MACH-sw</property>
 						<property>autopilot/switches/IAS-sw</property>

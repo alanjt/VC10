@@ -33,7 +33,7 @@
 			<min>-180</min>
 			<max>180</max>
 		</period>
-	</filter>	
+	</filter>
 
 	<!-- Bank demand from AFCS panel roll knob -->
 
@@ -69,7 +69,7 @@
 			<expression>
 				<prod>
 					<property>instrumentation/nav/heading-needle-deflection</property>
-					<value>2.5</value>  --> <!-- ILS - Full scale 2 dots = 2.5 deg -->
+					<value>2.5</value>  --><!-- ILS - Full scale 2 dots = 2.5 deg -->
 		<!--		</prod>
 			</expression>
 		</input> -->
@@ -78,7 +78,7 @@
 			<expression>
 				<product>
 					<property>instrumentation/nav/heading-needle-deflection</property>
-					<value>10.0</value> -->  <!-- VOR - Full scale 2 dots = 10 deg -->
+					<value>10.0</value> --><!-- VOR - Full scale 2 dots = 10 deg -->
 		<!--		</product>
 			</expression>
 		</input> -->
@@ -121,7 +121,7 @@
 		<filter-time-b>1.0</filter-time-b>
 		<input><property>autopilot/internal/loc-deg</property></input>
 		<output><property>autopilot/internal/loc-deg-leadlag</property></output>
-	</filter>	
+	</filter>
 
 	<filter>
 		<name>Vor/Loc Bank Command Computer</name>
@@ -178,7 +178,7 @@
 				</or>
 			</condition>
 			<value>0.0</value>
-		</input>		
+		</input>
 		<input>
 			<condition>
 				<or>
@@ -187,7 +187,7 @@
 						<value>1.0</value>
 					</greater-than>
 					<less-than>
-						<property>autopilot/internal/target-roll-deg-filtered</property> 
+						<property>autopilot/internal/target-roll-deg-filtered</property>
 						<value>-1.0</value>
 					</less-than>
 				</or>
@@ -213,7 +213,7 @@
 			</condition>
 			<expression>
 				<product>
-					<property>autopilot/gain/Khdg_phi</property> 
+					<property>autopilot/gain/Khdg_phi</property>
 					<property>autopilot/internal/PsiTrackHeading</property>
 				</product>
 			</expression>
@@ -223,14 +223,14 @@
 				<property>autopilot/switches/ILS-LOC</property>
 			</condition>
 			<property>autopilot/internal/phid_loc</property>
-		</input>		
+		</input>
 		<input>
 			<value>0.0</value>
 		</input>
 		<output><property>autopilot/internal/phi_r</property></output>
-		<u_min><property>autopilot/internal/Phi_r_neglimit</property></u_min> 
+		<u_min><property>autopilot/internal/Phi_r_neglimit</property></u_min>
 		<u_max><property>autopilot/internal/Phi_r_limit</property></u_max>
-	</filter> 
+	</filter>
 
 
 	<filter>
@@ -238,7 +238,7 @@
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1</gain>
-		<input> 
+		<input>
 			<property>orientation/roll-deg</property>
 		</input>
 		<output><property>autopilot/internal/phi-deg</property></output>
@@ -268,8 +268,10 @@
 		<gain>1.0</gain>
 		<input>
 			<condition>
-				<property>autopilot/switches/auto-engage</property> and 
-				<property>systems/electrical/outputs/essACbus_online</property>
+				<and>
+					<property>autopilot/switches/AP1orAP2-sw</property>
+					<property>systems/electrical/outputs/essACbus_online</property>
+				</and>
 			</condition>
 			<expression>
 				<dif>
@@ -288,7 +290,7 @@
 			<value>0</value>
 		</input>
 		<output><property>autopilot/internal/p_error</property></output>
-	</filter>	
+	</filter>
 
 	<filter>
 		<name>Roll error limited</name>
@@ -301,7 +303,7 @@
 		<output><property>autopilot/commands/aileron-deg</property></output>
 		<u_min><property>autopilot/internal/roll_driver_neg_limit</property></u_min>
 		<u_max><property>autopilot/internal/roll_driver_limit</property></u_max>
-	</filter>	
+	</filter>
 
 	<filter>
 		<name>Roll Stabiliser</name>
@@ -323,7 +325,7 @@
 		<gain>1.0</gain>
 		<input>
 			<condition>
-				<property>autopilot/switches/auto-engage</property>
+				<property>autopilot/switches/AP1orAP2-sw</property>
 			</condition>
 			<property>autopilot/commands/aileron-deg</property>
 		</input>
@@ -336,7 +338,7 @@
 	<!-- AFCS aileron to rudder , i.e. turn co-ordination -->
 
 	<filter>
-		<name>rudderstab Aileron </name>
+		<name>rudderstab Aileron</name>
 		<debug>false</debug>
 		<type>gain</type>
 		<gain><value>0</value></gain>

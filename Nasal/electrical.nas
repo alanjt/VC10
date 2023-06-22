@@ -960,7 +960,8 @@ setlistener("sim/signals/fdm-initialized", func {
     print("Electrical System ... Initialised");
     
     setprop("controls/engines/msg", 1);
-});
+	}
+);
 
 ##########  ATTENTION: The setlistener for the /engines/engine[x]/running you will find in the autostart.nas
 

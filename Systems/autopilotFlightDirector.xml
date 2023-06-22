@@ -56,7 +56,7 @@
 		<gain>1.0 </gain>
 		<input>
 			<condition>
-				<property>autopilot/internal/ElevationModeSelected</property>
+				<property>autopilot/internal/BarometricModeSelected</property>
 			</condition>
 			<property>autopilot/internal/qd</property>
 		</input>
@@ -93,7 +93,7 @@
 		<gain>1.0 </gain>
 		<input>
 			<condition>
-				<property>autopilot/internal/ElevationModeSelected</property>
+				<property>autopilot/internal/BarometricModeSelected</property>
 			</condition>
 			<property>autopilot/internal/qfd_mnu</property>
 		</input>
@@ -113,7 +113,7 @@
 			<condition>
 				<property>autopilot/switches/heading</property>				
 			</condition>
-			<property>autopilot/internal/PsiFD3</property>
+			<property>autopilot/internal/hdg-hdgD</property>
 		</input>
 		<input>
 			<property>autopilot/internal/PsiFD2</property>
@@ -168,7 +168,7 @@
 		<gain>1.0 </gain>
 		<input>
 			<condition>
-				<property>autopilot/internal/ElevationModeSelected</property>
+				<property>autopilot/internal/BarometricModeSelected</property>
 			</condition>
 			<property>autopilot/internal/PsiFD_sw3</property>
 		</input>

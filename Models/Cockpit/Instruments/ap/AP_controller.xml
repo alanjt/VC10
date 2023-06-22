@@ -81,7 +81,7 @@ Vickers VC10 for Flightgear
 		<object-name>AP-1Select</object-name>
 		<action>
 			<button>0</button>
-			<binding>
+			<!--<binding>
 				<command>nasal</command>
 				<script>
 					var bt = getprop("autopilot/switches/AP1-sw") or 0;
@@ -98,7 +98,7 @@ Vickers VC10 for Flightgear
 					setprop("autopilot/switches/AP1-sw", 1);
 					}
 				</script>
-			</binding>
+			</binding> -->
 			<binding>
 				<command>property-toggle</command>
 				<property>sim/sound/switch2</property>
@@ -218,7 +218,7 @@ Vickers VC10 for Flightgear
 		<object-name>AP-2Select</object-name>
 		<action>
 			<button>0</button>
-			<binding>
+			<!--<binding>
 				<command>nasal</command>
 				<script>
 					var bt = getprop("autopilot/switches/AP2-sw") or 0;
@@ -234,7 +234,7 @@ Vickers VC10 for Flightgear
 					setprop("autopilot/switches/AP2-sw", 1);
 					}
 				</script>
-			</binding>
+			</binding>  -->
 			<binding>
 				<command>property-toggle</command>
 				<property>sim/sound/switch2</property>
@@ -277,7 +277,7 @@ Vickers VC10 for Flightgear
 			<!--			<binding>
 				<command>nasal</command>
 				<script>
-					var apa = getprop("autopilot/switches/active") or 0;
+					var apa = getprop("autopilot/switches/AP1orAP2-sw") or 0;
 					if(!apa){
 					settimer(func{ setprop("autopilot/switches/ALT-sw", 0);}, 0.2);
 					}
@@ -327,7 +327,7 @@ Vickers VC10 for Flightgear
 			<!--			<binding>
 				<command>nasal</command>
 				<script>
-					var iaspa = getprop("autopilot/switches/active") or 0;
+					var iaspa = getprop("autopilot/switches/AP1orAP2-sw") or 0;
 					if(!iaspa){
 					settimer(func{ setprop("autopilot/switches/IAS-sw", 0);}, 0.2);
 					}
@@ -378,7 +378,7 @@ Vickers VC10 for Flightgear
 			<!--			<binding>
 				<command>nasal</command>
 				<script>
-					var machpa = getprop("autopilot/switches/active") or 0;
+					var machpa = getprop("autopilot/switches/AP1orAP2-sw") or 0;
 					if(!machpa){
 					settimer(func{ setprop("autopilot/switches/MACH-sw", 0);}, 0.2);
 					}
@@ -441,7 +441,7 @@ Vickers VC10 for Flightgear
 			<binding>
 				<command>property-adjust</command>
 				<property>autopilot/settings/pitch-wheel-deg</property>
-				<factor>1</factor>
+				<factor>-1</factor>
 				<min>-14</min>
 				<max>14</max>
 				<wrap>0</wrap>

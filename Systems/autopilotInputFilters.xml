@@ -6,7 +6,33 @@
 
 
 <PropertyList>
+	<!--
+    ===============
+    Mode Switches
+    ===============
+    -->
 
+	<logic>
+		<input>
+			<or>
+				<property>autopilot/switches/AP1-sw</property>
+				<property>autopilot/switches/AP2-sw</property>
+			</or>
+		</input>
+		<output><property>autopilot/switches/AP1orAP2-sw</property></output>
+	</logic>
+	
+	<logic>
+		<input>
+			<or>
+				<property>autopilot/switches/MACH-sw</property>
+				<property>autopilot/switches/IAS-sw</property>
+				<property>autopilot/switches/ILS_GS</property>
+				<property>autopilot/switches/ALT-sw</property>
+			</or>
+		</input>
+		<output><property>autopilot/internal/BarometricModeSelected</property></output>
+	</logic>
 	<!--
     ===============
     Filters
@@ -47,27 +73,6 @@
 	</filter>
 
 
-	<logic>
-		<input>
-			<or>
-				<property>autopilot/switches/AP1-sw</property>
-				<property>autopilot/switches/AP2-sw</property>
-			</or>
-		</input>
-		<output><property>autopilot/switches/auto-engage</property></output>
-	</logic>
-	
-	<logic>
-		<input>
-			<or>
-				<property>autopilot/switches/MACH-sw</property>
-				<property>autopilot/switches/IAS-sw</property>
-				<property>autopilot/switches/ILS_GS</property>
-				<property>autopilot/switches/ALT-sw</property>
-			</or>
-		</input>
-		<output><property>autopilot/internal/ElevationModeSelected</property></output>
-	</logic>
 
 	<!-- Roll Rate -->	
 	<filter>
@@ -109,7 +114,6 @@
 		<input><property>autopilot/internal/heading-magnetic-deg</property></input>
 		<reference><property>autopilot/settings/heading-bug-deg</property></reference>
 		<output><property>autopilot/internal/hdg-hdgD</property></output>
-		<output><property>autopilot/internal/PsiFD3</property></output>
 		<period>
 			<min>-180</min>
 			<max>180</max>

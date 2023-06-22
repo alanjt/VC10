@@ -9,7 +9,7 @@
 
 	<!--
     ===============
-    Pitch Manoeuvre Boost and Short Period Damping.
+    Pitch Short Period Damping.
     ===============
     -->
 
@@ -31,46 +31,16 @@
 	</filter>
 
 	<filter>
-		<name>Pitch Manoever Boost</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain><property>autopilot/gain/Kb</property></gain>
-		<input>
-			<expression>
-				<sum>
-					<property>fdm/jsbsim/fcs/elevator-stick-cmd-deg</property>
-					<product>
-						<property>autopilot/gain/Kn</property>
-						<sum>
-							<property>fdm/jsbsim/accelerations/Nz</property>
-							<value>-1.0</value>
-						</sum>
-					</product>
-				</sum>
-			</expression>
-		</input>
-		<output><property>autopilot/commands/elevator-boost-deg</property></output>
-		<u_min>-20</u_min>
-		<u_max>20</u_max>
-	</filter>
-
-	<filter>
 		<name>Pitch AutoStabiliser</name>
 		<debug>false</debug>
 		<type>high-pass</type>
 		<filter-time>1.0</filter-time>
 		<input>
 			<expression>
-				<sum>
-					<product>
-						<property>autopilot/gain/Kb</property>
-						<property>autopilot/commands/elevator-boost-deg</property>
-					</product>
-					<product>
-						<property>autopilot/gain/Gq</property>
-						<property>autopilot/internal/q-error</property>
-					</product>
-				</sum>
+				<product>
+					<property>autopilot/gain/Gq</property>
+					<property>autopilot/internal/q-error</property>
+				</product>
 			</expression>
 		</input>
 		<output><property>autopilot/commands/elevator-stabiliser</property></output>
@@ -104,7 +74,7 @@
 		<gain>1.0</gain>
 		<input>
 			<condition>
-				<property>autopilot/switches/auto-engage</property>
+				<property>autopilot/switches/AP1orAP2-sw</property>
 			</condition>
 			<property>autopilot/commands/APelevator-deg</property>
 		</input>

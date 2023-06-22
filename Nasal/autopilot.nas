@@ -23,12 +23,15 @@ var initAFCS_FCSinputs = func() {
 #--------------------------------------------------------------------
 
 ### Bendix PB 20 ###
-# Knobs:
-# /autopilot/switches/active : true/false
+# Switches and Knobs:
+# /autopilot/switches/AP1-sw : true/false
+# /autopilot/switches/AP2-sw : true/false
 # /autopilot/switches/ALT-sw : true/false
-# /autopilot/switches/mode-knob : 0: NAV, 1: HDG, 2: MAN, 3: LOC VOR, 4: GS AUTO, 5: GS MAN
-# /autopilot/settings/pitch-wheel-deg : -30 .. 30
-# /autopilot/settings/roll-knob-deg : -35 .. 35
+# /autopilot/switches/IAS-sw : true/false
+# /autopilot/switches/MACH-sw : true/false
+# /autopilot/switches/mode-knob : -1: NAV, 0: HDG, 1: MAN, 2: LOC VOR, 3: GS AUTO, 4: GS MAN
+# /autopilot/settings/pitch-wheel-deg : -14 .. 14
+# /autopilot/settings/turn : -25 .. 25
 
 # init
 var listenerApInitFunc = func {
@@ -83,20 +86,19 @@ setlistener("autopilot/mutex", ApMutexResetFunc);
 var ApActivePrev = 0;
 var listenerApActiveFunc = func {
 	if (ApActivePrev == 0) {
-		if (getprop("autopilot/switches/active") == 1) {
+		if (getprop("autopilot/switches/AP1orAP2-sw") == 1) {
 			if (getprop("autopilot/mutex") == "") {
 				setprop("autopilot/switches/mode-knob", 1);
 			}
 		}
 	}
-	ApActive = getprop("autopilot/switches/active");
+	ApActive = getprop("autopilot/switches/AP1orAP2-sw");
 }
-setlistener("autopilot/switches/active", listenerApActiveFunc);
+setlistener("autopilot/switches/AP1orAP2-sw", listenerApActiveFunc);
 
 # Mode-selector
 #
-# !!! FEHLER: bei zurückschalten von Mode 4,5 auf 3,2,1 bleibt GS eingeschaltet anstatt ALT (bei eingeschaltetem Alt-Switch) !!!
-# !!! BUG: when switching back from mode 3 or 4 to 2,1or 0 GS remains switched on instead of ALT (with the alt switch switched on) !!!
+# !!! BUG: when switching back from mode 3 or 4 to 2, 1 or 0 GS remains switched on instead of ALT (with the alt switch switched on) !!!
 var listenerApModeFunc = func {
 
 	if (	getprop("autopilot/mutex") == "" or
@@ -107,7 +109,7 @@ var listenerApModeFunc = func {
 		return;
 	}
 
-	if (getprop("autopilot/switches/active") == 1) {
+	if (getprop("autopilot/switches/AP1orAP2-sw") == 1) {
 		#print ("-> listenerApModeFunc -> Mode-selector=", getprop("autopilot/switches/mode-knob"));
 
 		if (	getprop("autopilot/switches/mode-knob") == -1) {
@@ -211,12 +213,12 @@ var listenerApModeFunc = func {
 		setprop("autopilot/locks/speed", "");
 	}
 }
-setlistener("autopilot/switches/active", listenerApModeFunc);
+setlistener("autopilot/switches/AP1orAP2-sw", listenerApModeFunc);
 setlistener("autopilot/switches/mode-knob", listenerApModeFunc, 1,0);
 
 # switches off 'altitude-hold' if GS is in range and all other conditions are satisfied
 var gsMANAltControl = func {
-	if (	getprop("autopilot/switches/active") == 1 and
+	if (	getprop("autopilot/switches/AP1orAP2-sw") == 1 and
 		getprop("autopilot/switches/mode-knob") == 4) {
 		if (getprop("instrumentation/nav[0]/gs-in-range") == 0) {
 			settimer(gsMANAltControl, 0.2);
@@ -233,7 +235,7 @@ var listenerApMANRollFunc = func {
     # if roll-knob-deg turn, the mode selector jump to mode 1
 	setprop("autopilot/switches/mode-knob", 1);
 
-	if (	getprop("autopilot/switches/active") == 1 and
+	if (	getprop("autopilot/switches/AP1orAP2-sw") == 1 and
 		getprop("autopilot/switches/mode-knob") == 1) {
 
 		setprop("autopilot/internal/wing-leveler-target-roll-deg", getprop("autopilot/settings/roll-knob-deg"));
@@ -244,7 +246,7 @@ setlistener("autopilot/settings/roll-knob-deg", listenerApMANRollFunc);
 # MAN - Mode - pitch-selector
 var listenerApMANPitchFunc = func {
 
-	if (	getprop("autopilot/switches/active") == 1 and
+	if (	getprop("autopilot/switches/AP1orAP2-sw") == 1 and
 		getprop("autopilot/switches/mode-knob") == 1) {
 		if (getprop("autopilot/switches/ALT-sw") == 0) {
 
@@ -267,7 +269,7 @@ var listenerApAltFunc = func {
 		return;
 	}
 
-	if (getprop("autopilot/switches/active") == 1) {
+	if (getprop("autopilot/switches/AP1orAP2-sw") == 1) {
 		if (getprop("autopilot/switches/ALT-sw") == 1) {
 
 			# set altitude-hold-value to the actual altitude plus an offset dependent on vspeed
@@ -327,7 +329,7 @@ listenerApSetPassiveModeFunc = func {
 
 	if (getprop("autopilot/locks/passive-mode") == 1) {
 		if (getprop("autopilot/route-manager/active") == 1 and getprop("autopilot/route-manager/airborne") == 1) {
-			setprop("autopilot/switches/active", 1);
+			setprop("autopilot/switches/AP1orAP2-sw", 1);
 			setprop("autopilot/switches/mode-knob", -1);
 		}
 		else {
@@ -335,7 +337,7 @@ listenerApSetPassiveModeFunc = func {
 			setprop("autopilot/locks/passive-mode", 0);
 		}
 
-		setprop("autopilot/switches/active", 1);
+		setprop("autopilot/switches/AP1orAP2-sw", 1);
 		setprop("autopilot/switches/mode-knob", -1);
 	}
 }
@@ -352,7 +354,7 @@ listenerApSetAltitudeFunc = func {
 	}
 
 	if (getprop("autopilot/locks/altitude") == "altitude-hold") {
-		setprop("autopilot/switches/active", 1);
+		setprop("autopilot/switches/AP1orAP2-sw", 1);
 		setprop("autopilot/switches/ALT-sw", 1);
 		if (getprop("autopilot/switches/mode-knob") == 1) {
 			setprop("autopilot/locks/heading", "wing-leveler");
@@ -369,26 +371,26 @@ setlistener("autopilot/locks/altitude", listenerApSetAltitudeFunc);
 var menuSwitchAp = func {
 
 	if (getprop("autopilot/locks/heading") == "wing-leveler") {
-		setprop("autopilot/switches/active", 1);
+		setprop("autopilot/switches/AP1orAP2-sw", 1);
 		setprop("autopilot/switches/mode-knob", 1);
 	}
 	elsif (getprop("autopilot/locks/heading") == "dg-heading-hold") {
-		setprop("autopilot/switches/active", 1);
+		setprop("autopilot/switches/AP1orAP2-sw", 1);
 		setprop("autopilot/switches/mode-knob", 0);
 	}
 	elsif (	getprop("autopilot/locks/heading") == "nav1-hold") {
 		if (getprop("autopilot/locks/altitude") == "gs1-hold") {
-			setprop("autopilot/switches/active", 1);
+			setprop("autopilot/switches/AP1orAP2-sw", 1);
 			setprop("autopilot/switches/mode-knob", 3);
 		}
 		else {
-			setprop("autopilot/switches/active", 1);
+			setprop("autopilot/switches/AP1orAP2-sw", 1);
 			setprop("autopilot/switches/mode-knob", 2);
 		}
 	}
 	elsif (getprop("autopilot/locks/heading") == "") {
 		if (getprop("autopilot/locks/altitude") == "") {
-			setprop("autopilot/switches/active", 0);
+			setprop("autopilot/switches/AP1orAP2-sw", 0);
 			setprop("autopilot/switches/ALT-sw", 0);
 			setprop("autopilot/switches/mode-knob", 1);
 		}
@@ -407,13 +409,30 @@ setlistener("autopilot/settings/pitch-hold", listenerApSetPitchFunc);
 setlistener("controls/special/yoke-switch1", func (s1){
     var s1 = s1.getBoolValue();
     if (s1 == 1){
-      setprop("autopilot/switches/active", 0);
-      setprop("autopilot/switches/ALT-sw", 0);
-		  setprop("autopilot/switches/mode-knob", 1);
-      setprop("autopilot/settings/pitch-wheel-deg", 0);
-			setprop("autopilot/settings/target-pitch-deg", 0);
-			setprop("autopilot/locks/altitude", "");
-			setprop("autopilot/locks/speed", "");
+		setprop("autopilot/switches/AP1orAP2-sw", 0);
+		setprop("autopilot/switches/ALT-sw", 0);
+		setprop("autopilot/switches/mode-knob", 1);
+		setprop("autopilot/settings/pitch-wheel-deg", 0);
+		setprop("autopilot/settings/target-pitch-deg", 0);
+		setprop("autopilot/locks/altitude", "");
+		setprop("autopilot/locks/speed", "");
     }
 });
 
+#############################################################################################################
+## this should be moved to PCU.nas when PCU´s (i.e. individual control surface servos) are simulated.
+var update_flight_controls = func {
+	setprop("/fdm/jsbsim/fcs/afcs-elevator-cmd-deg", getprop("autopilot/commands/afcs-elevator-deg"));
+##	setprop("/fdm/jsbsim/fcs/afcs-aileron-cmd-deg", getprop("autopilot/commands/afcs-aileron-deg"));
+	settimer(update_flight_controls,0);   ## loop 
+}
+
+##############################################################################################
+setlistener("sim/signals/fdm-initialized", func {
+    settimer(update_flight_controls,5);
+	}
+);
+	
+#setlistener("sim/signals/fdm-initialized", func {
+#    settimer(update_electrical,5);
+#);

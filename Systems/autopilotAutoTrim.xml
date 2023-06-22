@@ -25,7 +25,7 @@
 					<value>0</value>
 				</equals>
 				<equals>
-					<property>autopilot/switches/auto-engage</property>
+					<property>autopilot/switches/AP1orAP2-sw</property>
 					<value>1</value>
 				</equals>
 				<less-than>
@@ -47,7 +47,7 @@
 					<value>0</value>
 				</equals>
 				<equals>
-					<property>autopilot/switches/auto-engage</property>
+					<property>autopilot/switches/AP1orAP2-sw</property>
 					<value>1</value>
 				</equals>
 				<greater-than>

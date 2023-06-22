@@ -199,7 +199,7 @@
 					</binding>
 					<min>-14</min>
 					<max>14</max>
-					<step>0.1</step>
+					<step>-0.1</step>
 				</slider>
 				<text>
 					<row>5</row>
@@ -210,14 +210,18 @@
 					<live>true</live>
 				</text>
 				
-				<slider>
-					<name>turn</name>
+				<text>
 					<label>Turn</label>
+					<halign>centre</halign>
 					<row>1</row>
 					<col>2</col>
-					<height>10</height>
-					<vertical>true</vertical>
+				</text>
+				<dial>
+					<name>turn</name>
+					<row>1</row>
+					<col>2</col>
 					<property>autopilot/settings/turn</property>
+					<wrap>false</wrap>
 					<live>true</live>
 					<binding>
 						<command>dialog-apply</command>
@@ -226,12 +230,12 @@
 					<min>-25</min>
 					<max>25</max>
 					<step>1.0</step>
-				</slider>
+				</dial>
 				<text>
 					<row>5</row>
 					<col>2</col>
 					<label>-9.99</label>
-					<format>%2d</format>
+					<format>%2.1f</format>
 					<property>autopilot/settings/turn</property>
 					<live>true</live>
 				</text>

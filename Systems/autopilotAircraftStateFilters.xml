@@ -12,126 +12,6 @@
     Primary Air Data - Aircraft Speed and Altitude
     =================================================
     -->
-	<filter>
-		<name>CSI airspeed scale</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input>
-			<condition>
-			<less-than>
-				<property>velocities/airspeed-kt</property><value>211</value>
-			</less-than>
-		</condition>
-		<expression>
-			<sum>
-				<product>
-					<value>-0.000033272</value>
-					<pow><property>velocities/airspeed-kt</property><value>3</value></pow>
-				</product>
-				<product>
-					<value>+0.013262</value>
-					<pow><property>velocities/airspeed-kt</property><value>2</value></pow>
-				</product>
-				<product>
-					<value>-0.60699</value>
-					<property>velocities/airspeed-kt</property>
-				</product>
-				<value>-4.9906</value>
-			</sum>
-		</expression>
-		</input>
-		<input>
-		<condition>
-			<greater-than-equals>
-				<property>velocities/airspeed-kt</property><value>211</value>
-			</greater-than-equals>
-		</condition>
-		<expression>
-			<sum>
-				<product>
-					<value>0.00000019453</value>
-					<pow><property>velocities/airspeed-kt</property><value>3</value></pow>
-				</product>
-				<product>
-					<value>-0.00058466</value>
-					<pow><property>velocities/airspeed-kt</property><value>2</value></pow>
-				</product>
-				<product>
-					<value>+0.75063</value>
-					<property>velocities/airspeed-kt</property>
-				</product>
-				<value>+10.456</value>
-			</sum>
-		</expression>
-		</input>
-		<output><property>autopilot/velocities/CSI_airspeed-deg</property></output>
-	</filter>
-	
-	<filter>
-		<name>CSI speedbug scale</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input>
-			<condition>
-			<less-than>
-				<property>autopilot/settings/HUD_rotation_speed</property><value>211</value>
-			</less-than>
-		</condition>
-		<expression>
-			<sum>
-				<product>
-					<value>-0.000033272</value>
-					<pow><property>autopilot/settings/HUD_rotation_speed</property><value>3</value></pow>
-				</product>
-				<product>
-					<value>+0.013262</value>
-					<pow><property>autopilot/settings/HUD_rotation_speed</property><value>2</value></pow>
-				</product>
-				<product>
-					<value>-0.60699</value>
-					<property>autopilot/settings/HUD_rotation_speed</property>
-				</product>
-				<value>-4.9906</value>
-			</sum>
-		</expression>
-		</input>
-		<input>
-		<condition>
-			<greater-than-equals>
-				<property>autopilot/settings/HUD_rotation_speed</property><value>211</value>
-			</greater-than-equals>
-		</condition>
-		<expression>
-			<sum>
-				<product>
-					<value>0.00000019453</value>
-					<pow><property>autopilot/settings/HUD_rotation_speed</property><value>3</value></pow>
-				</product>
-				<product>
-					<value>-0.00058466</value>
-					<pow><property>autopilot/settings/HUD_rotation_speed</property><value>2</value></pow>
-				</product>
-				<product>
-					<value>+0.75063</value>
-					<property>autopilot/settings/HUD_rotation_speed</property>
-				</product>
-				<value>+10.456</value>
-			</sum>
-		</expression>
-		</input>
-		<output><property>autopilot/velocities/CSI_speedbug-deg</property></output>
-	</filter>
-
-	<filter>
-		<name>Height acquire setting</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input><property>instrumentation/altimeter/indicated-altitude-ft</property></input>
-		<output><property>autopilot/internal/hAcquireD</property></output>
-	</filter>
 
 	<filter>
 		<name>Static Pressure Datum</name>
@@ -170,21 +50,6 @@
 		<output><property>autopilot/internal/hD_dot_abs</property></output>
 	</filter>
 
-	<filter>
-		<name>HR dot</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input>
-			<expression>
-				<dif>
-					<property>autopilot/internal/hAcquireD</property>
-					<property>autopilot/internal/hD</property>
-				</dif>
-			</expression>
-		</input>
-		<output><property>autopilot/internal/hR_dot</property></output>
-	</filter>
 
 	<filter>
 		<name>hR dot limited</name>
@@ -253,19 +118,6 @@
 		<u_max>2000</u_max>
 	</filter>
 
-	<filter>
-		<name>Height Error h-hAcquire</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input>
-			<expression><dif>
-					<property>instrumentation/altimeter/indicated-altitude-ft</property>
-					<property>autopilot/internal/hAcquireD</property>
-				</dif></expression>
-		</input>
-		<output><property>autopilot/internal/h-hAcquireD</property></output>
-	</filter>
 
 	<filter>
 		<name>Hdot squared</name>
