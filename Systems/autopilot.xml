@@ -200,7 +200,7 @@ Vickers VC10 for Flightgear
 	<!-- Yaw Damper -->
 	<!-- This PID based yaw damper is not representative of the VC10. The control signal was 
 derived from a yaw rate gyro, passed through a washout filter having a time constant of aprox 3 seconds.
--->	
+-->
 
 	<!--	<pid-controller>
 		<name>Yaw Damper (it's a guess: fast working controller on rudder-trim)</name>
@@ -236,18 +236,9 @@ derived from a yaw rate gyro, passed through a washout filter having a time cons
 		<enable>
 			<condition>
 				<or>
-					<equals>
-						<property>autopilot/switches/YawDamper-Stbyactive</property>
-						<value>1</value>
-					</equals>
-					<equals>
-						<property>autopilot/switches/YawDamper1-sw</property>
-						<value>1</value>
-					</equals>
-					<equals>
-						<property>autopilot/switches/YawDamper2-sw</property>
-						<value>1</value>
-					</equals>
+					<property>autopilot/switches/YDStby-engaged</property>
+					<property>autopilot/controls/YD_1_engaged</property>
+					<property>autopilot/controls/YD_2_engaged</property>
 				</or>
 			</condition>
 		</enable>
@@ -256,8 +247,8 @@ derived from a yaw rate gyro, passed through a washout filter having a time cons
 			<expression>
 				<product>
 					<property>/fdm/jsbsim/velocities/r-aero-rad_sec</property>
-	<!--					<value> 100.0 </value> -->
-					<value> 100.0 </value>
+					<!--					<value> 100.0 </value> -->
+					<value>100.0</value>
 				</product>
 			</expression>
 		</input>
@@ -622,7 +613,7 @@ derived from a yaw rate gyro, passed through a washout filter having a time cons
 	<!-- Pitch Axis Modes                                                -->
 	<!-- =============================================================== -->
 
-	<!-- Simple pitch hold --> 
+	<!-- Simple pitch hold -->
 	<pid-controller>
 		<name>Pitch hold</name>
 		<debug>false</debug>
@@ -640,19 +631,19 @@ derived from a yaw rate gyro, passed through a washout filter having a time cons
 			<prop>/autopilot/internal/elevator-trim-servo</prop>
 		</output>
 		<config>
-			<Kp>/autopilot/internal/target-kp-for-pitch-hold</Kp>      <!-- proportional gain -->
-			<beta>1.0</beta>    <!-- input value weighing factor -->
-			<alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
-			<gamma>0.0</gamma>  <!-- input value weighing factor for -->
+			<Kp>/autopilot/internal/target-kp-for-pitch-hold</Kp><!-- proportional gain -->
+			<beta>1.0</beta><!-- input value weighing factor -->
+			<alpha>0.1</alpha><!-- low pass filter weighing factor -->
+			<gamma>0.0</gamma><!-- input value weighing factor for -->
 			<!-- unfiltered derivative error -->
-			<Ti>1.0</Ti>        <!-- integrator time -->
-			<Td>0.00001</Td>    <!-- derivator time -->
-			<u_min>-1.0</u_min> <!-- minimum output clamp -->
-			<u_max>1.0</u_max>  <!-- maximum output clamp -->
+			<Ti>1.0</Ti><!-- integrator time -->
+			<Td>0.00001</Td><!-- derivator time -->
+			<u_min>-1.0</u_min><!-- minimum output clamp -->
+			<u_max>1.0</u_max><!-- maximum output clamp -->
 		</config>
 	</pid-controller>
 
-	<!-- Simple angle of attack hold --> 
+	<!-- Simple angle of attack hold -->
 	<pid-controller>
 		<name>AOA hold</name>
 		<debug>false</debug>
@@ -670,15 +661,15 @@ derived from a yaw rate gyro, passed through a washout filter having a time cons
 			<prop>/autopilot/internal/elevator-trim-servo</prop>
 		</output>
 		<config>
-			<Kp>-0.05</Kp>      <!-- proportional gain -->
-			<beta>1.0</beta>    <!-- input value weighing factor -->
-			<alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
-			<gamma>0.0</gamma>  <!-- input value weighing factor for -->
+			<Kp>-0.05</Kp><!-- proportional gain -->
+			<beta>1.0</beta><!-- input value weighing factor -->
+			<alpha>0.1</alpha><!-- low pass filter weighing factor -->
+			<gamma>0.0</gamma><!-- input value weighing factor for -->
 			<!-- unfiltered derivative error -->
-			<Ti>0.5</Ti>        <!-- integrator time -->
-			<Td>0.00001</Td>    <!-- derivator time -->
-			<u_min>-1.0</u_min> <!-- minimum output clamp -->
-			<u_max>1.0</u_max>  <!-- maximum output clamp -->
+			<Ti>0.5</Ti><!-- integrator time -->
+			<Td>0.00001</Td><!-- derivator time -->
+			<u_min>-1.0</u_min><!-- minimum output clamp -->
+			<u_max>1.0</u_max><!-- maximum output clamp -->
 		</config>
 	</pid-controller>
 
@@ -704,10 +695,10 @@ derived from a yaw rate gyro, passed through a washout filter having a time cons
 			<prop>/autopilot/internal/target-climb-rate-fps</prop>
 		</output>
 		<config>
-			<Kp>0.03</Kp>          <!-- proportional gain -->
-			<Ki>0.0</Ki>          <!-- integral gain -->
-			<u_min>-25.0</u_min> <!-- minimum output clamp -->
-			<u_max>25.0</u_max>   <!-- maximum output clamp -->
+			<Kp>0.03</Kp><!-- proportional gain -->
+			<Ki>0.0</Ki><!-- integral gain -->
+			<u_min>-25.0</u_min><!-- minimum output clamp -->
+			<u_max>25.0</u_max><!-- maximum output clamp -->
 		</config>
 	</pi-simple-controller>
 
@@ -732,10 +723,10 @@ derived from a yaw rate gyro, passed through a washout filter having a time cons
 			<prop>/autopilot/internal/target-climb-rate-fps</prop>
 		</output>
 		<config>
-			<Kp>0.3</Kp>          <!-- proportional gain -->
-			<Ki>0.0</Ki>          <!-- integral gain -->
-			<u_min>-25.0</u_min> <!-- minimum output clamp -->
-			<u_max>25.0</u_max>   <!-- maximum output clamp -->
+			<Kp>0.3</Kp><!-- proportional gain -->
+			<Ki>0.0</Ki><!-- integral gain -->
+			<u_min>-25.0</u_min><!-- minimum output clamp -->
+			<u_max>25.0</u_max><!-- maximum output clamp -->
 		</config>
 	</pi-simple-controller>
 
@@ -773,18 +764,18 @@ derived from a yaw rate gyro, passed through a washout filter having a time cons
 			<property>/autopilot/internal/elevator-trim-servo</property>
 		</output>
 		<config>
-			<Kp>/autopilot/internal/target-kp-for-alt-hold</Kp>      <!-- proportional gain -->
-			<beta>1.0</beta>    <!-- input value weighing factor -->
-			<alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
-			<gamma>0.0</gamma>  <!-- input value weighing factor for -->
+			<Kp>/autopilot/internal/target-kp-for-alt-hold</Kp><!-- proportional gain -->
+			<beta>1.0</beta><!-- input value weighing factor -->
+			<alpha>0.1</alpha><!-- low pass filter weighing factor -->
+			<gamma>0.0</gamma><!-- input value weighing factor for -->
 			<!-- unfiltered derivative error -->
-			<Ti>10.0</Ti>       <!-- integrator time -->
-			<Td>0.00001</Td>    <!-- derivator time -->
-			<u_min>-1.0</u_min> <!-- minimum output clamp -->
-			<u_max>1.0</u_max>  <!-- maximum output clamp -->
+			<Ti>10.0</Ti><!-- integrator time -->
+			<Td>0.00001</Td><!-- derivator time -->
+			<u_min>-1.0</u_min><!-- minimum output clamp -->
+			<u_max>1.0</u_max><!-- maximum output clamp -->
 		</config>
 	</pid-controller>
-	<!-- Fallback for 'speed-with-pitch' - control vspeed with throttle --> 
+	<!-- Fallback for 'speed-with-pitch' - control vspeed with throttle -->
 	<pid-controller>
 		<name>Altitude-hold with throttle</name>
 		<debug>false</debug>
@@ -818,15 +809,15 @@ derived from a yaw rate gyro, passed through a washout filter having a time cons
 			<prop>/autopilot/internal/throttle-servo</prop>
 		</output>
 		<config>
-			<Kp>0.1</Kp>        <!-- proportional gain -->
-			<beta>1.0</beta>    <!-- input value weighing factor -->
-			<alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
-			<gamma>0.0</gamma>  <!-- input value weighing factor for -->
+			<Kp>0.1</Kp><!-- proportional gain -->
+			<beta>1.0</beta><!-- input value weighing factor -->
+			<alpha>0.1</alpha><!-- low pass filter weighing factor -->
+			<gamma>0.0</gamma><!-- input value weighing factor for -->
 			<!-- unfiltered derivative error -->
-			<Ti>10.0</Ti>       <!-- integrator time -->
-			<Td>0.00001</Td>    <!-- derivator time -->
-			<u_min>0.0</u_min>  <!-- minimum output clamp -->
-			<u_max>1.0</u_max>  <!-- maximum output clamp -->
+			<Ti>10.0</Ti><!-- integrator time -->
+			<Td>0.00001</Td><!-- derivator time -->
+			<u_min>0.0</u_min><!-- minimum output clamp -->
+			<u_max>1.0</u_max><!-- maximum output clamp -->
 		</config>
 	</pid-controller>
 
@@ -860,18 +851,18 @@ derived from a yaw rate gyro, passed through a washout filter having a time cons
 			<prop>/autopilot/internal/elevator-trim-servo</prop>
 		</output>
 		<config>
-			<Kp>/autopilot/internal/target-kp-for-gs-hold</Kp>     <!-- proportional gain -->
-			<beta>1.0</beta>    <!-- input value weighing factor -->
-			<alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
-			<gamma>0.0</gamma>  <!-- input value weighing factor for -->
+			<Kp>/autopilot/internal/target-kp-for-gs-hold</Kp><!-- proportional gain -->
+			<beta>1.0</beta><!-- input value weighing factor -->
+			<alpha>0.1</alpha><!-- low pass filter weighing factor -->
+			<gamma>0.0</gamma><!-- input value weighing factor for -->
 			<!-- unfiltered derivative error -->
-			<Ti>9.0</Ti>        <!-- integrator time -->
-			<Td>0.00001</Td>    <!-- derivator time -->
-			<u_min>-1.0</u_min> <!-- minimum output clamp -->
-			<u_max>1.0</u_max>  <!-- maximum output clamp -->
+			<Ti>9.0</Ti><!-- integrator time -->
+			<Td>0.00001</Td><!-- derivator time -->
+			<u_min>-1.0</u_min><!-- minimum output clamp -->
+			<u_max>1.0</u_max><!-- maximum output clamp -->
 		</config>
 	</pid-controller>
-	<!-- Fallback for 'speed-with-pitch' - control vspeed with throttle --> 
+	<!-- Fallback for 'speed-with-pitch' - control vspeed with throttle -->
 	<pid-controller>
 		<name>GS-hold with throttle</name>
 		<debug>false</debug>
@@ -899,15 +890,15 @@ derived from a yaw rate gyro, passed through a washout filter having a time cons
 			<prop>/autopilot/internal/throttle-servo</prop>
 		</output>
 		<config>
-			<Kp>0.1</Kp>        <!-- proportional gain -->
-			<beta>1.0</beta>    <!-- input value weighing factor -->
-			<alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
-			<gamma>0.0</gamma>  <!-- input value weighing factor for -->
+			<Kp>0.1</Kp><!-- proportional gain -->
+			<beta>1.0</beta><!-- input value weighing factor -->
+			<alpha>0.1</alpha><!-- low pass filter weighing factor -->
+			<gamma>0.0</gamma><!-- input value weighing factor for -->
 			<!-- unfiltered derivative error -->
-			<Ti>10.0</Ti>       <!-- integrator time -->
-			<Td>0.00001</Td>    <!-- derivator time -->
-			<u_min>0.0</u_min>  <!-- minimum output clamp -->
-			<u_max>1.0</u_max>  <!-- maximum output clamp -->
+			<Ti>10.0</Ti><!-- integrator time -->
+			<Td>0.00001</Td><!-- derivator time -->
+			<u_min>0.0</u_min><!-- minimum output clamp -->
+			<u_max>1.0</u_max><!-- maximum output clamp -->
 		</config>
 	</pid-controller>
 
@@ -940,18 +931,18 @@ derived from a yaw rate gyro, passed through a washout filter having a time cons
 			<prop>/autopilot/internal/elevator-trim-servo</prop>
 		</output>
 		<config>
-			<Kp>/autopilot/internal/target-kp-for-alt-hold</Kp>      <!-- proportional gain -->
-			<beta>1.0</beta>    <!-- input value weighing factor -->
-			<alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
-			<gamma>0.0</gamma>  <!-- input value weighing factor for -->
+			<Kp>/autopilot/internal/target-kp-for-alt-hold</Kp><!-- proportional gain -->
+			<beta>1.0</beta><!-- input value weighing factor -->
+			<alpha>0.1</alpha><!-- low pass filter weighing factor -->
+			<gamma>0.0</gamma><!-- input value weighing factor for -->
 			<!-- unfiltered derivative error -->
-			<Ti>10.0</Ti>       <!-- integrator time -->
-			<Td>0.00001</Td>    <!-- derivator time -->
-			<u_min>-1.0</u_min> <!-- minimum output clamp -->
-			<u_max>1.0</u_max>  <!-- maximum output clamp -->
+			<Ti>10.0</Ti><!-- integrator time -->
+			<Td>0.00001</Td><!-- derivator time -->
+			<u_min>-1.0</u_min><!-- minimum output clamp -->
+			<u_max>1.0</u_max><!-- maximum output clamp -->
 		</config>
 	</pid-controller>
-	<!-- Fallback for 'speed-with-pitch' - control vspeed with throttle --> 
+	<!-- Fallback for 'speed-with-pitch' - control vspeed with throttle -->
 	<pid-controller>
 		<name>VSpeed-hold with throttle</name>
 		<debug>false</debug>
@@ -979,15 +970,15 @@ derived from a yaw rate gyro, passed through a washout filter having a time cons
 			<prop>/autopilot/internal/throttle-servo</prop>
 		</output>
 		<config>
-			<Kp>0.1</Kp>        <!-- proportional gain -->
-			<beta>1.0</beta>    <!-- input value weighing factor -->
-			<alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
-			<gamma>0.0</gamma>  <!-- input value weighing factor for -->
+			<Kp>0.1</Kp><!-- proportional gain -->
+			<beta>1.0</beta><!-- input value weighing factor -->
+			<alpha>0.1</alpha><!-- low pass filter weighing factor -->
+			<gamma>0.0</gamma><!-- input value weighing factor for -->
 			<!-- unfiltered derivative error -->
-			<Ti>10.0</Ti>       <!-- integrator time -->
-			<Td>0.00001</Td>    <!-- derivator time -->
-			<u_min>0.0</u_min>  <!-- minimum output clamp -->
-			<u_max>1.0</u_max>  <!-- maximum output clamp -->
+			<Ti>10.0</Ti><!-- integrator time -->
+			<Td>0.00001</Td><!-- derivator time -->
+			<u_min>0.0</u_min><!-- minimum output clamp -->
+			<u_max>1.0</u_max><!-- maximum output clamp -->
 		</config>
 	</pid-controller>
 
@@ -1155,7 +1146,7 @@ derived from a yaw rate gyro, passed through a washout filter having a time cons
 		</config>
 	</pid-controller>
 
-	<!-- Auto throttle --> 
+	<!-- Auto throttle -->
 	<pid-controller>
 		<name>Auto Throttle</name>
 		<debug>false</debug>
@@ -1173,15 +1164,15 @@ derived from a yaw rate gyro, passed through a washout filter having a time cons
 			<prop>/autopilot/internal/throttle-servo</prop>
 		</output>
 		<config>
-			<Kp>0.1</Kp>        <!-- proportional gain -->
-			<beta>1.0</beta>    <!-- input value weighing factor -->
-			<alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
-			<gamma>0.0</gamma>  <!-- input value weighing factor for -->
+			<Kp>0.1</Kp><!-- proportional gain -->
+			<beta>1.0</beta><!-- input value weighing factor -->
+			<alpha>0.1</alpha><!-- low pass filter weighing factor -->
+			<gamma>0.0</gamma><!-- input value weighing factor for -->
 			<!-- unfiltered derivative error -->
-			<Ti>10.0</Ti>       <!-- integrator time -->
-			<Td>0.00001</Td>    <!-- derivator time -->
-			<u_min>0.0</u_min>  <!-- minimum output clamp -->
-			<u_max>1.0</u_max>  <!-- maximum output clamp -->
+			<Ti>10.0</Ti><!-- integrator time -->
+			<Td>0.00001</Td><!-- derivator time -->
+			<u_min>0.0</u_min><!-- minimum output clamp -->
+			<u_max>1.0</u_max><!-- maximum output clamp -->
 		</config>
 	</pid-controller>
 

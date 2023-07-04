@@ -87,7 +87,7 @@ var listenerApRouteManagerInitFunc = func {
 
 	setprop("autopilot/switches/YawDamper1-sw", 0);
 	setprop("autopilot/switches/YawDamper2-sw", 0);
-	setprop("autopilot/switches/YawDamper-Stbyactive", 1);
+	setprop("autopilot/switches/YDStby-sw", 1);
 	
 }
 ###setlistener("sim/signals/fdm-initialized", listenerAutopilotInitFunc);

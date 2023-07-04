@@ -8,7 +8,11 @@
 ##############################################################################
 
 print ("autopilot.nas");
-
+	props.globals.initNode("autopilot/controls/AP_1_haspower", 0,"BOOL");
+	props.globals.initNode("autopilot/controls/AP_2_haspower", 0,"BOOL");
+	props.globals.initNode("autopilot/controls/YD_1_engaged", 0,"BOOL");
+	props.globals.initNode("autopilot/controls/YD_2_engaged", 0,"BOOL");
+	props.globals.initNode("autopilot/controls/YD_3_engaged", 0,"BOOL");
 
 var initAFCS_FCSinputs = func() {
     print("initAFCS_FCSinputs");
@@ -24,14 +28,17 @@ var initAFCS_FCSinputs = func() {
 
 ### Bendix PB 20 ###
 # Switches and Knobs:
+
 # /autopilot/switches/AP1-sw : true/false
 # /autopilot/switches/AP2-sw : true/false
 # /autopilot/switches/ALT-sw : true/false
 # /autopilot/switches/IAS-sw : true/false
 # /autopilot/switches/MACH-sw : true/false
-# /autopilot/switches/mode-knob : -1: NAV, 0: HDG, 1: MAN, 2: LOC VOR, 3: GS AUTO, 4: GS MAN
-# /autopilot/settings/pitch-wheel-deg : -14 .. 14
-# /autopilot/settings/turn : -25 .. 25
+
+# /autopilot/switches/mode-knob       : -1 HEADING : 0 MAN : 1 LOC VOR : 2 GS AUTO : 4 GS MAN : 5 FLARE :
+# /autopilot/settings/pitch-wheel-deg : -14 .. 0 .. +14
+# /autopilot/settings/turn            : -25 .. 0 .. +25
+# /autopilot/settings/datum_norm      :  -1 .. 0 .. +1
 
 # init
 var listenerApInitFunc = func {
@@ -40,31 +47,33 @@ var listenerApInitFunc = func {
 	props.globals.getNode("/fdm/jsbsim/fcs/afcs-aileron-cmd-deg", 1).setDoubleValue(0);
 	props.globals.getNode("/fdm/jsbsim/fcs/afcs-rudder-cmd-deg", 1).setDoubleValue(0);
 	props.globals.getNode("/fdm/jsbsim/fcs/afcs-throttle-cmd-norm", 1).setDoubleValue(0);
-	
-	setprop("autopilot/switches/mode-knob", 0);
-	setprop("autopilot/switches/ALT-sw", 0);
-	setprop("autopilot/switches/IAS-sw", 0);
-	setprop("autopilot/switches/MACH-sw", 0);
-	setprop("autopilot/switches/NAV-sw", 0);
-	
-	setprop("autopilot/switches/AP1-sw", 0);
-	setprop("autopilot/switches/AP2-sw", 0);
-	
-	setprop("autopilot/switches/AP_MasterL_switch", 0);
-	setprop("autopilot/switches/AP_MasterR_switch", 0);
-	setprop("autopilot/switches/AP_MasterNuisance_bar", 0);
-	
+
+	setprop("autopilot/switches/AT_powerswitch", 0);
+	setprop("autopilot/switches/AT_engageswitch", 0);
 	setprop("autopilot/switches/AT_1switch", 0);
 	setprop("autopilot/switches/AT_2switch", 0);
 	setprop("autopilot/switches/AT_3switch", 0);
 	setprop("autopilot/switches/AT_4switch", 0);
-	
-	setprop("autopilot/switches/AT_powerswitch", 0);
-	setprop("autopilot/switches/AT_engageswitch", 0);
 
+	setprop("autopilot/switches/YDStby-sw", 1);
+	
+	setprop("autopilot/switches/NAV-sw", 0);
+	setprop("autopilot/switches/AP1-sw", 0);
 	setprop("autopilot/switches/YawDamper1-sw", 0);
 	setprop("autopilot/switches/YawDamper2-sw", 0);
-	setprop("autopilot/switches/YawDamper-Stbyactive", 1);
+	setprop("autopilot/switches/AP2-sw", 0);	
+	setprop("autopilot/switches/ALT-sw", 0);
+	setprop("autopilot/switches/IAS-sw", 0);
+	setprop("autopilot/switches/MACH-sw", 0);
+	
+	setprop("autopilot/switches/mode-knob", 0);
+	setprop("autopilot/switches/pitch-wheel-deg", 0);
+	setprop("autopilot/switches/turn", 0);
+	setprop("autopilot/settings/datum_norm", 0);
+	
+	setprop("autopilot/switches/AP_MasterL_switch", 0);
+	setprop("autopilot/switches/AP_MasterR_switch", 0);
+	setprop("autopilot/switches/AP_MasterNuisance_bar", 0);
 }
 ###setlistener("sim/signals/fdm-initialized", listenerApInitFunc);
 
@@ -318,7 +327,7 @@ setlistener("autopilot/locks/heading", listenerApSetHeadingFunc);
 
 listenerApSetPassiveModeFunc = func {
 
-	# unfortunalety 'passive-mode' is triggered many times, we only need to act if it's wsitched to '1'
+	# unfortunalety 'passive-mode' is triggered many times, we only need to act if it's switched to '1'
 	if (	getprop("autopilot/mutex") == "" and
 		getprop("autopilot/locks/passive-mode") == 1) {
 		ApMutexSet("PASSIVE");
@@ -419,20 +428,54 @@ setlistener("controls/special/yoke-switch1", func (s1){
     }
 });
 
-#############################################################################################################
+##############################################################################################
+var update_autopilot = func {
+##	Autopilot main control loop
+
+	var AP_m_L_sw = getprop("autopilot/switches/AP_MasterL_switch") or 0;
+	var AP_m_R_sw = getprop("autopilot/switches/AP_MasterR_switch") or 0;
+	var No1GenBusVolts = getprop("VC10/electric/ac/No1GenBusbarVolts") or 0;
+	var No2GenBusVolts = getprop("VC10/electric/ac/No2GenBusbarVolts") or 0;
+	var No1GenBusLive  = 0;
+	var No2GenBusLive  = 0;
+	if( No1GenBusVolts > 100.0) No1GenBusLive  = 1;
+	if( No2GenBusVolts > 100.0) No2GenBusLive  = 1;	
+	var AP1_haspower  = 0;
+	var AP2_haspower  = 0;
+	if (AP_m_L_sw and No1GenBusLive) AP1_haspower = 1;
+	if (AP_m_R_sw and No1GenBusLive) AP2_haspower = 1;
+	setprop("autopilot/controls/AP_1_haspower", AP1_haspower);
+	setprop("autopilot/controls/AP_2_haspower", AP2_haspower);
+		
+	var YD1_engaged  = 0;
+	var YD2_engaged  = 0;
+	var YDStby_engaged  = 0;
+	if (AP1_haspower and getprop("autopilot/switches/YawDamper1-sw")) YD1_engaged  = 1;
+	if (AP1_haspower and getprop("autopilot/switches/YawDamper2-sw")) YD2_engaged  = 1;
+	setprop("autopilot/controls/YD_1_engaged", YD1_engaged);
+	setprop("autopilot/controls/YD_2_engaged", YD2_engaged);
+
+	var ACAuxBusvolts = getprop("VC10/electric/ac/ACAux-bus-volts") or 0;	
+	var ACAuxBusLive  = 0;
+	if( ACAuxBusvolts > 100.0) ACAuxBusLive  = 1;
+	if (ACAuxBusLive and getprop("autopilot/switches/YDStby-sw")) YDStby_engaged  = 1;
+	setprop("autopilot/controls/YD_3_engaged", YDStby_engaged);
+	
+	settimer(update_autopilot,0);   ## loop 
+};
+##############################################################################################
 ## this should be moved to PCU.nas when PCU´s (i.e. individual control surface servos) are simulated.
 var update_flight_controls = func {
 	setprop("/fdm/jsbsim/fcs/afcs-elevator-cmd-deg", getprop("autopilot/commands/afcs-elevator-deg"));
 ##	setprop("/fdm/jsbsim/fcs/afcs-aileron-cmd-deg", getprop("autopilot/commands/afcs-aileron-deg"));
 	settimer(update_flight_controls,0);   ## loop 
-}
+};
 
 ##############################################################################################
+
 setlistener("sim/signals/fdm-initialized", func {
+
+    settimer(update_autopilot,5);
     settimer(update_flight_controls,5);
 	}
 );
-	
-#setlistener("sim/signals/fdm-initialized", func {
-#    settimer(update_electrical,5);
-#);

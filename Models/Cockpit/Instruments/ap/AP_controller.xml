@@ -101,6 +101,10 @@ Vickers VC10 for Flightgear
 			</binding> -->
 			<binding>
 				<command>property-toggle</command>
+				<property>autopilot/switches/AP1-sw</property>
+			</binding>
+			<binding>
+				<command>property-toggle</command>
 				<property>sim/sound/switch2</property>
 			</binding>
 		</action>
@@ -235,6 +239,10 @@ Vickers VC10 for Flightgear
 					}
 				</script>
 			</binding>  -->
+			<binding>
+				<command>property-toggle</command>
+				<property>autopilot/switches/AP2-sw</property>
+			</binding>
 			<binding>
 				<command>property-toggle</command>
 				<property>sim/sound/switch2</property>
