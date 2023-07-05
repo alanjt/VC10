@@ -71,11 +71,11 @@ var listenerApInitFunc = func {
 	setprop("autopilot/switches/turn", 0);
 	setprop("autopilot/settings/datum_norm", 0);
 	
-	setprop("autopilot/switches/AP_MasterL_switch", 0);
-	setprop("autopilot/switches/AP_MasterR_switch", 0);
+	setprop("autopilot/switches/AP_MasterL_switch", 1);
+	setprop("autopilot/switches/AP_MasterR_switch", 1);
 	setprop("autopilot/switches/AP_MasterNuisance_bar", 0);
 }
-###setlistener("sim/signals/fdm-initialized", listenerApInitFunc);
+setlistener("sim/signals/fdm-initialized", listenerApInitFunc);
 
 # Mutex - for synchronization of the listener-events
 var ApMutexSet = func(value) {
@@ -440,8 +440,9 @@ var update_autopilot = func {
 	var No2GenBusLive  = 0;
 	if( No1GenBusVolts > 100.0) No1GenBusLive  = 1;
 	if( No2GenBusVolts > 100.0) No2GenBusLive  = 1;	
+	
 	var AP1_haspower  = 0;
-	var AP2_haspower  = 0;
+	var AP2_haspower  = 0;		
 	if (AP_m_L_sw and No1GenBusLive) AP1_haspower = 1;
 	if (AP_m_R_sw and No1GenBusLive) AP2_haspower = 1;
 	setprop("autopilot/controls/AP_1_haspower", AP1_haspower);
@@ -460,6 +461,28 @@ var update_autopilot = func {
 	if( ACAuxBusvolts > 100.0) ACAuxBusLive  = 1;
 	if (ACAuxBusLive and getprop("autopilot/switches/YDStby-sw")) YDStby_engaged  = 1;
 	setprop("autopilot/controls/YD_3_engaged", YDStby_engaged);
+
+## disconect Autopilot and Yawdamper if power is lost	
+	if (AP1_haspower == 0){
+		setprop("autopilot/switches/AP1-sw",0);
+		setprop("autopilot/switches/YawDamper1-sw",0);
+		}	
+
+	if (AP2_haspower == 0){
+		setprop("autopilot/switches/AP2-sw",0);
+		setprop("autopilot/switches/YawDamper2-sw",0);
+		}
+
+## disconect Autopilot if it´s Yawdamper if is not engaged.	
+	if (YD1_engaged == 0){
+		setprop("autopilot/switches/AP1-sw",0);
+		}	
+
+	if (YD2_engaged == 0){
+		setprop("autopilot/switches/AP2-sw",0);
+
+		}		
+
 	
 	settimer(update_autopilot,0);   ## loop 
 };

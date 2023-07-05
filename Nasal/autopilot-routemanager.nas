@@ -73,8 +73,8 @@ var listenerApRouteManagerInitFunc = func {
 	setprop("autopilot/switches/AP1-sw", 0);
 	setprop("autopilot/switches/AP2-sw", 0);
 	
-	setprop("autopilot/switches/AP_MasterL_switch", 0);
-	setprop("autopilot/switches/AP_MasterR_switch", 0);
+	setprop("autopilot/switches/AP_MasterL_switch", 1);
+	setprop("autopilot/switches/AP_MasterR_switch", 1);
 	setprop("autopilot/switches/AP_MasterNuisance_bar", 0);
 	
 	setprop("autopilot/switches/AT_1switch", 0);

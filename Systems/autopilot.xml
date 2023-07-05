@@ -236,7 +236,7 @@ derived from a yaw rate gyro, passed through a washout filter having a time cons
 		<enable>
 			<condition>
 				<or>
-					<property>autopilot/switches/YDStby-engaged</property>
+					<property>autopilot/controls/YDStby-engaged</property>
 					<property>autopilot/controls/YD_1_engaged</property>
 					<property>autopilot/controls/YD_2_engaged</property>
 				</or>
