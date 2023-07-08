@@ -268,26 +268,14 @@
 		<gain>1.0</gain>
 		<input>
 			<condition>
-				<and>
-					<property>autopilot/switches/AP1orAP2-sw</property>
-					<property>systems/electrical/outputs/essACbus_online</property>
-				</and>
+				<property>autopilot/switches/AP1orAP2-sw</property>
 			</condition>
 			<expression>
 				<dif>
-					<property>autopilot/internal/p-deg_sec</property>
 					<property>autopilot/internal/p_d</property>
+					<property>autopilot/internal/p-deg_sec</property>
 				</dif>
 			</expression>
-		</input>
-		<input>
-			<condition>
-				<property>systems/electrical/outputs/essACbus_online</property>
-			</condition>
-			<property>autopilot/internal/p-deg_sec</property>
-		</input>
-		<input>
-			<value>0</value>
 		</input>
 		<output><property>autopilot/internal/p_error</property></output>
 	</filter>
@@ -300,12 +288,14 @@
 		<input>
 			<property>autopilot/internal/p_error</property>
 		</input>
-		<output><property>autopilot/commands/aileron-deg</property></output>
+		<output><property>autopilot/commands/afcs-aileron-deg</property></output>
 		<u_min><property>autopilot/internal/roll_driver_neg_limit</property></u_min>
 		<u_max><property>autopilot/internal/roll_driver_limit</property></u_max>
 	</filter>
+	
+	
 
-	<filter>
+<!--	<filter>
 		<name>Roll Stabiliser</name>
 		<debug>false</debug>
 		<type>gain</type>
@@ -316,37 +306,28 @@
 		<output><property>autopilot/commands/aileron-stab-deg</property></output>
 		<u_min>-0.5</u_min>
 		<u_max>0.5</u_max>
-	</filter>
+	</filter> -->
 
-	<filter>
+<!--	<filter>
 		<name>AFCS Aileron output</name>
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
-		<input>
-			<condition>
-				<property>autopilot/switches/AP1orAP2-sw</property>
-			</condition>
-			<property>autopilot/commands/aileron-deg</property>
-		</input>
-		<input>
-			<property>autopilot/commands/aileron-stab-deg</property>
-		</input>
+		<input><property>autopilot/commands/aileron-deg</property></input>
 		<output><property>autopilot/commands/afcs-aileron-deg</property></output>
-	</filter>
+	</filter> -->
 
 	<!-- AFCS aileron to rudder , i.e. turn co-ordination -->
 
-	<filter>
+<!--	<filter>
 		<name>rudderstab Aileron</name>
 		<debug>false</debug>
 		<type>gain</type>
 		<gain><value>0</value></gain>
-		<!--		<gain><property>autopilot/gain/GAileron</property></gain> -->
 		<input><property>fdm/jsbsim/fcs/aileron-pos-deg</property></input>
 		<output><property>autopilot/commands/rudderstab-aileron-deg</property></output>
 		<u_min>-6</u_min>
 		<u_max>6</u_max>
-	</filter>
+	</filter> -->
 
 </PropertyList>

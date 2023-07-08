@@ -37,7 +37,7 @@ var initAFCS_FCSinputs = func() {
 
 # /autopilot/switches/mode-knob       : -1 HEADING : 0 MAN : 1 LOC VOR : 2 GS AUTO : 4 GS MAN : 5 FLARE :
 # /autopilot/settings/pitch-wheel-deg : -14 .. 0 .. +14
-# /autopilot/settings/turn            : -25 .. 0 .. +25
+# /autopilot/settings/TurnKnob            : -25 .. 0 .. +25
 # /autopilot/settings/datum_norm      :  -1 .. 0 .. +1
 
 # init
@@ -284,7 +284,7 @@ var listenerApAltFunc = func {
 			# set altitude-hold-value to the actual altitude plus an offset dependent on vspeed
 
 			var vspeed = getprop("velocities/vertical-speed-fps");
-			var altOffset = vspeed * 5;	# ft climed/falled in 5 seconds
+			var altOffset = vspeed * 5;	# aircraft altitude change in 5 seconds
 
 			var altitudeFt = getprop("instrumentation/altimeter/indicated-altitude-ft") + altOffset;
 			setprop("autopilot/settings/target-altitude-ft", altitudeFt);
@@ -490,7 +490,7 @@ var update_autopilot = func {
 ## this should be moved to PCU.nas when PCU´s (i.e. individual control surface servos) are simulated.
 var update_flight_controls = func {
 	setprop("/fdm/jsbsim/fcs/afcs-elevator-cmd-deg", getprop("autopilot/commands/afcs-elevator-deg"));
-##	setprop("/fdm/jsbsim/fcs/afcs-aileron-cmd-deg", getprop("autopilot/commands/afcs-aileron-deg"));
+	setprop("/fdm/jsbsim/fcs/afcs-aileron-cmd-deg", getprop("autopilot/commands/afcs-aileron-deg"));
 	settimer(update_flight_controls,0);   ## loop 
 };
 

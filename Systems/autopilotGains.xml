@@ -96,16 +96,7 @@
 		<debug>false</debug>
 		<type>gain</type>
 		<input>
-			<condition>
-				<greater-than>
-					<property>fdm/jsbsim/velocities/vc-kts</property>
-					<value>300</value>
-				</greater-than>
-			</condition>
-			<value>2.0</value>
-		</input>
-		<input>
-			<value>2.0</value>
+			<value>23.25</value>
 		</input>
 		<output><property>autopilot/internal/roll_driver_limit</property></output>
 	</filter>
@@ -221,7 +212,7 @@
 			</condition>
 			<expression>
 				<sum>
-					<value>0.032</value>
+					<value>-0.032</value>
 					<div>
 						<value>35.0</value>
 						<property>fdm/jsbsim/velocities/vt-fps</property>
@@ -232,7 +223,7 @@
 		<input>
 			<expression>
 				<product>
-					<value>0.032</value>
+					<value>-0.032</value>
 					<div>
 						<property>fdm/jsbsim/velocities/vt-fps</property>
 						<value>35.0</value>
@@ -257,7 +248,7 @@
 			</condition>
 			<expression>
 				<sum>
-					<value>0.032</value>
+					<value>-0.032</value>
 					<div>
 						<value>80.0</value>
 						<property>fdm/jsbsim/velocities/vt-fps</property>
@@ -268,7 +259,7 @@
 		<input>
 			<expression>
 				<product>
-					<value>0.032</value>
+					<value>-0.032</value>
 					<div>
 						<property>fdm/jsbsim/velocities/vt-fps</property>
 						<value>80.0</value>
