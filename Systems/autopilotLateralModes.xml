@@ -41,8 +41,8 @@
 		<name>Target Roll Filter</name>
 		<debug>false</debug>
 		<type>rate-limit</type>
-		<input><property>autopilot/settings/target-roll-deg</property></input>
-		<output><property>autopilot/internal/target-roll-deg-filtered</property></output>
+		<input><property>autopilot/settings/TurnKnob</property></input>
+		<output><property>autopilot/settings/TurnKnob-deg-filtered</property></output>
 		<max-rate-of-change>10.0</max-rate-of-change>
 		<min-rate-of-change>-10.0</min-rate-of-change>
 		<feedback-if-disabled>true</feedback-if-disabled>
@@ -160,7 +160,8 @@
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
-<!--		<input>
+		<!--		
+		<input>
 			<condition>
 				<or>
 					<less-than>
@@ -181,18 +182,24 @@
 		</input>  -->
 		<input>
 			<condition>
-				<or>
-					<greater-than>
-						<property>autopilot/internal/target-roll-deg-filtered</property>
-						<value>1.0</value>
-					</greater-than>
-					<less-than>
-						<property>autopilot/internal/target-roll-deg-filtered</property>
-						<value>-1.0</value>
-					</less-than>
-				</or>
+				<and>
+					<equals>
+						<property>autopilot/switches/mode-knob</property>
+						<value>0</value>
+					</equals>
+					<or>
+						<greater-than>
+							<property>autopilot/settings/TurnKnob-deg-filtered</property>
+							<value>1.0</value>
+						</greater-than>
+						<less-than>
+							<property>autopilot/settings/TurnKnob-deg-filtered</property>
+							<value>-1.0</value>
+						</less-than>
+					</or>
+				</and>
 			</condition>
-			<property>autopilot/internal/target-roll-deg-filtered</property>
+			<property>autopilot/settings/TurnKnob-deg-filtered</property>
 		</input>
 		<input>
 			<condition>
@@ -295,7 +302,7 @@
 	
 	
 
-<!--	<filter>
+	<!--	<filter>
 		<name>Roll Stabiliser</name>
 		<debug>false</debug>
 		<type>gain</type>
@@ -308,7 +315,7 @@
 		<u_max>0.5</u_max>
 	</filter> -->
 
-<!--	<filter>
+	<!--	<filter>
 		<name>AFCS Aileron output</name>
 		<debug>false</debug>
 		<type>gain</type>
@@ -319,7 +326,7 @@
 
 	<!-- AFCS aileron to rudder , i.e. turn co-ordination -->
 
-<!--	<filter>
+	<!--	<filter>
 		<name>rudderstab Aileron</name>
 		<debug>false</debug>
 		<type>gain</type>

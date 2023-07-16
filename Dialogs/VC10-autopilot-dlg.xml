@@ -297,7 +297,7 @@
 					<name>Roll-deg</name>
 					<row>0</row>
 					<col>2</col>
-					<property>autopilot/settings/target-roll-deg</property>
+					<property>autopilot/settings/TurnKnob</property>
 					<min>-60</min>
 					<max>60</max>
 					<wrap>false</wrap>

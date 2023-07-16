@@ -268,7 +268,7 @@ var listenerApHeadingFunc = func {
 		#print ("indicated-heading-deg=", getprop("VC10/CDI/indicated-heading-deg"));
 		#print ("heading-bug-error-deg=", getprop("autopilot/internal/heading-bug-error-deg")); 
 		#print ("true-heading-error-deg=", getprop("autopilot/internal/true-heading-error-deg")); 
-		#print ("target-roll-deg      =", getprop("autopilot/internal/target-roll-deg")); 
+		#print ("target-roll-deg      =", getprop("autopilot/settings/TurnKnob")); 
 
 		settimer(listenerApHeadingFunc, timerGap);
 	}
@@ -727,7 +727,7 @@ var listenerApNav1NearFarFunc = func {
 			if (getprop("autopilot/internal/VOR-near-by") == 0) {
 				listenerApHeadingSwitchFunc();
 
-				var targetRollDeg = getprop("autopilot/internal/target-roll-deg");
+				var targetRollDeg = getprop("autopilot/settings/TurnKnob");
 				setprop("autopilot/internal/target-roll-deg-for-VOR-near-by", 0.0);
 
 				setprop("autopilot/internal/VOR-near-by", 1);
