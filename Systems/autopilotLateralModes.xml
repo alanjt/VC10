@@ -160,7 +160,7 @@
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
-		<input>
+<!--		<input>
 			<condition>
 				<or>
 					<less-than>
@@ -178,7 +178,7 @@
 				</or>
 			</condition>
 			<value>0.0</value>
-		</input>
+		</input>  -->
 		<input>
 			<condition>
 				<or>
