@@ -133,13 +133,13 @@ setlistener("autopilot/switches/gps", func (gps){
         setprop("autopilot/switches/hdg", 0);
         setprop("autopilot/switches/nav", 0);
         setprop("autopilot/locks/heading", "true-heading-hold");
-      	setprop("autopilot/locks/passive-mode", 1);
+##     	setprop("autopilot/locks/passive-mode", 1);
       }else{
         settimer(switchback, 0.250 );
       }
     }else{
       setprop("autopilot/locks/heading", "");
-      setprop("autopilot/locks/passive-mode", 0);
+ ##     setprop("autopilot/locks/passive-mode", 0);
     }
 });
 

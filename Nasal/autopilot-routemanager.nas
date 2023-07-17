@@ -40,7 +40,7 @@ var listenerApRouteManagerInitFunc = func {
 	# do initializations of new properties
 
 	setprop("autopilot/internal/route-manager-waypoint-near-by", 0);
-	setprop("autopilot/locks/passive-mode", 0);
+##	setprop("autopilot/locks/passive-mode", 0);
 
 	setprop("autopilot/internal/target-kp-for-heading-deg", kpForHeadingDeg);
 	setprop("autopilot/internal/heading-min-roll", (headingMaxRoll * (-1)));
@@ -192,7 +192,7 @@ var listenerApHeadingPassiveModeFunc = func {
 		interpolate("autopilot/internal/target-kp-for-heading-deg", kpForHeadingDeg, 1);
 	}
 }
-setlistener("autopilot/locks/passive-mode", listenerApHeadingSwitchFunc);
+##setlistener("autopilot/locks/passive-mode", listenerApHeadingSwitchFunc);
 
 # switch-functions
 var listenerApHeadingFunc = func {
@@ -386,7 +386,7 @@ var apHeadingWaypointSetVSpeed_lastCalled = getprop("/sim/time/elapsed-sec");
 
 
 var apHeadingWaypointSetVSpeed = func {
-	if (	getprop("autopilot/locks/passive-mode") == 1 and
+	if (	##getprop("autopilot/locks/passive-mode") == 1 and
 		getprop("autopilot/route-manager/active") == 1 and getprop("/autopilot/route-manager/airborne") == 1) {
 
 		if (apHeadingWaypointSetVSpeed_force == 0) {
@@ -479,7 +479,7 @@ var apHeadingWaypointSetVSpeed = func {
 
 var apHeadingWaypointSetVSpeedRepeat = func() {
 
-	if (	getprop("autopilot/locks/passive-mode") == 1 and
+	if (	##getprop("autopilot/locks/passive-mode") == 1 and
 		getprop("autopilot/route-manager/active") == 1 and getprop("/autopilot/route-manager/airborne") == 1) {
 
 		apHeadingWaypointSetVSpeed_force = 0;
@@ -515,7 +515,7 @@ var listenerApPassiveMode = func {
 
 	var routeManagerWaypointNearBy = 0;
 
-	if (getprop("autopilot/locks/passive-mode") == 1) {
+##	if (getprop("autopilot/locks/passive-mode") == 1) {
 
 		var timerInterval = 0.5;
 
@@ -684,25 +684,25 @@ var listenerApPassiveMode = func {
 		setprop("autopilot/internal/route-manager-waypoint-near-by", routeManagerWaypointNearBy);
 
 		settimer(listenerApPassiveMode , timerInterval);
-	}
-	else {
+##	}
+##	else {
 		# we are switched off -> cleanup
 
-		if (getprop("autopilot/locks/heading") == "true-heading-hold") {
-			setprop("autopilot/locks/heading", "");
-		}
-		setprop("autopilot/internal/route-manager-waypoint-near-by", 0);
+##		if (getprop("autopilot/locks/heading") == "true-heading-hold") {
+##			setprop("autopilot/locks/heading", "");
+##		}
+##		setprop("autopilot/internal/route-manager-waypoint-near-by", 0);
 
-		waypointDistanceNmHold = 1.0;
-		waypointDistanceNm = 36000.0;
-		switchedToAltHold = 0;
-		waypointIdPrev = nil;
-		waypointVspeedChangedManually = 0;
-		waypointVspeedPrev = waypointVspeedMaxValue;
-		apHeadingWaypointSetVSpeed_force = 0;
-	}
+##		waypointDistanceNmHold = 1.0;
+##		waypointDistanceNm = 36000.0;
+##		switchedToAltHold = 0;
+##		waypointIdPrev = nil;
+##		waypointVspeedChangedManually = 0;
+##		waypointVspeedPrev = waypointVspeedMaxValue;
+##		apHeadingWaypointSetVSpeed_force = 0;
+##	}
 }
-setlistener("autopilot/locks/passive-mode", listenerApPassiveMode);
+##setlistener("autopilot/locks/passive-mode", listenerApPassiveMode);
 
 var listenerApAltitudeClambFunc = func {
 	if (getprop("autopilot/locks/altitude") == "gs1-hold") {

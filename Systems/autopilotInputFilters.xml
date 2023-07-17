@@ -6,50 +6,7 @@
 
 
 <PropertyList>
-	<!--
-    ===============
-    Mode Switches
-    ===============
-    -->
 
-	<logic>
-		<input>
-			<or>
-				<property>autopilot/switches/AP1-sw</property>
-				<property>autopilot/switches/AP2-sw</property>
-			</or>
-		</input>
-		<output><property>autopilot/switches/AP1orAP2-sw</property></output>
-	</logic>
-	
-	<logic>
-		<input>
-			<or>
-				<property>autopilot/switches/MACH-sw</property>
-				<property>autopilot/switches/IAS-sw</property>
-				<property>autopilot/switches/ILS_GS</property>
-				<property>autopilot/switches/ALT-sw</property>
-			</or>
-		</input>
-		<output><property>autopilot/internal/BarometricModeSelected</property></output>
-	</logic>
-
-	<logic>
-		<input>
-			<and>
-				<less-than>
-					<property>autopilot/settings/TurnKnob</property>
-					<value>0.11</value>
-				</less-than>
-				<greater-than>
-					<property>autopilot/settings/TurnKnob</property>
-					<value>-0.11</value>
-				</greater-than>
-			</and>
-		</input>
-		<output><property>autopilot/settings/RollKnobInDetent</property></output>
-	</logic>
-	
 	<!--
     ===============
     Filters
