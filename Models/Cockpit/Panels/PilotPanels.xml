@@ -119,7 +119,7 @@ Vickers VC10 for Flightgear
 			<y-m>-0.659</y-m>
 			<z-m>-0.197</z-m>
 		</offsets>
-	</model>
+	</model> 
 
 	<model>
 		<name>VORrmi</name>
@@ -334,52 +334,8 @@ Vickers VC10 for Flightgear
 	</model>
 
 	<model>
-		<name>epr1</name>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/eng_control/epr_1.xml</path>
-		<offsets>
-			<!--    <x-m>-18.919</x-m> -->
-			<x-m>1.521</x-m>
-			<y-m>-0.08</y-m>
-			<z-m> 0.976</z-m>
-		</offsets>
-	</model>
-
-	<model>
-		<name>epr2</name>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/eng_control/epr_2.xml</path>
-		<offsets>
-			<!--    <x-m>-18.919</x-m> -->
-			<x-m>1.521</x-m>
-			<y-m>-0.038</y-m>
-			<z-m> 0.976</z-m>
-		</offsets>
-	</model>
-
-	<model>
-		<name>epr3</name>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/eng_control/epr_3.xml</path>
-		<offsets>
-			<!--    <x-m>-18.919</x-m> -->
-			<x-m>1.521</x-m>
-			<y-m> 0.004</y-m>
-			<z-m> 0.976</z-m>
-		</offsets>
-	</model>
-
-	<model>
-		<name>epr4</name>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/eng_control/epr_4.xml</path>
-		<offsets>
-			<!--    <x-m>-18.919</x-m> -->
-			<x-m>1.521</x-m>
-			<y-m> 0.046</y-m>
-			<z-m> 0.976</z-m>
-		</offsets>
-	</model>
-
-	<model>
 		<name>n21</name>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/eng_control/n2_1.xml</path>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Engines/n2_1.xml</path>
 		<offsets>
 			<x-m>0.0</x-m>
 			<y-m>-0.096</y-m>
@@ -389,7 +345,7 @@ Vickers VC10 for Flightgear
 
 	<model>
 		<name>n22</name>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/eng_control/n2_2.xml</path>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Engines/n2_2.xml</path>
 		<offsets>
 			<x-m>0.0</x-m>
 			<y-m>-0.032</y-m>
@@ -399,7 +355,7 @@ Vickers VC10 for Flightgear
 
 	<model>
 		<name>n23</name>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/eng_control/n2_3.xml</path>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Engines/n2_3.xml</path>
 		<offsets>
 			<x-m>0.0</x-m>
 			<y-m>0.032</y-m>
@@ -409,7 +365,7 @@ Vickers VC10 for Flightgear
 
 	<model>
 		<name>n24</name>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/eng_control/n2_4.xml</path>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/Engines/n2_4.xml</path>
 		<offsets>
 			<x-m>0.0</x-m>
 			<y-m>0.096</y-m>
@@ -474,140 +430,6 @@ Vickers VC10 for Flightgear
 			<x-m>0.0</x-m>
 			<y-m>0.096</y-m>
 			<z-m> -0.175</z-m>
-		</offsets>
-	</model>
-
-
-
-	<model>
-		<name>extemp1</name>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/eng_control/exh_1.xml</path>
-		<offsets>
-			<!--    <x-m>-18.919</x-m> -->
-			<x-m>1.521</x-m>
-			<y-m>-0.08</y-m>
-			<z-m> 0.887</z-m>
-		</offsets>
-	</model>
-
-	<model>
-		<name>extemp2</name>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/eng_control/exh_2.xml</path>
-		<offsets>
-			<!--    <x-m>-18.919</x-m> -->
-			<x-m>1.521</x-m>
-			<y-m>-0.038</y-m>
-			<z-m> 0.887</z-m>
-		</offsets>
-	</model>
-
-	<model>
-		<name>extemp3</name>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/eng_control/exh_3.xml</path>
-		<offsets>
-			<!--    <x-m>-18.919</x-m> -->
-			<x-m>1.521</x-m>
-			<y-m> 0.004</y-m>
-			<z-m> 0.887</z-m>
-		</offsets>
-	</model>
-
-	<model>
-		<name>extemp4</name>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/eng_control/exh_4.xml</path>
-		<offsets>
-			<!--    <x-m>-18.919</x-m> -->
-			<x-m>1.521</x-m>
-			<y-m> 0.046</y-m>
-			<z-m> 0.887</z-m>
-		</offsets>
-	</model>
-
-	<model>
-		<name>n11</name>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/eng_control/n1_1.xml</path>
-		<offsets>
-			<!--    <x-m>-18.919</x-m> -->
-			<x-m>1.521</x-m>
-			<y-m>-0.08</y-m>
-			<z-m> 0.841</z-m>
-		</offsets>
-	</model>
-
-	<model>
-		<name>n12</name>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/eng_control/n1_2.xml</path>
-		<offsets>
-			<!--    <x-m>-18.919</x-m> -->
-			<x-m>1.521</x-m>
-			<y-m>-0.038</y-m>
-			<z-m> 0.841</z-m>
-		</offsets>
-	</model>
-
-	<model>
-		<name>n13</name>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/eng_control/n1_3.xml</path>
-		<offsets>
-			<!--    <x-m>-18.919</x-m> -->
-			<x-m>1.521</x-m>
-			<y-m> 0.004</y-m>
-			<z-m> 0.841</z-m>
-		</offsets>
-	</model>
-
-	<model>
-		<name>n14</name>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/eng_control/n1_4.xml</path>
-		<offsets>
-			<!--    <x-m>-18.919</x-m> -->
-			<x-m>1.521</x-m>
-			<y-m> 0.046</y-m>
-			<z-m> 0.841</z-m>
-		</offsets>
-	</model>
-
-	<model>
-		<name>ff1</name>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/eng_control/ffkgh_1.xml</path>
-		<offsets>
-			<!--    <x-m>-18.919</x-m> -->
-			<x-m>1.521</x-m>
-			<y-m>-0.08</y-m>
-			<z-m> 0.795</z-m>
-		</offsets>
-	</model>
-
-	<model>
-		<name>ff2</name>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/eng_control/ffkgh_2.xml</path>
-		<offsets>
-			<!--    <x-m>-18.919</x-m> -->
-			<x-m>1.521</x-m>
-			<y-m>-0.038</y-m>
-			<z-m> 0.795</z-m>
-		</offsets>
-	</model>
-
-	<model>
-		<name>ff3</name>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/eng_control/ffkgh_3.xml</path>
-		<offsets>
-			<!--    <x-m>-18.919</x-m> -->
-			<x-m>1.521</x-m>
-			<y-m> 0.004</y-m>
-			<z-m> 0.795</z-m>
-		</offsets>
-	</model>
-
-	<model>
-		<name>ff4</name>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/eng_control/ffkgh_4.xml</path>
-		<offsets>
-			<!--    <x-m>-18.919</x-m> -->
-			<x-m>1.521</x-m>
-			<y-m> 0.046</y-m>
-			<z-m> 0.795</z-m>
 		</offsets>
 	</model>
 

@@ -4,8 +4,8 @@ MATERIAL "vs" rgb 0.8 0.8 0.8  amb 1 1 1  emis 0 0 0  spec 1 1 1  shi 50  trans 
 OBJECT world
 kids 6
 OBJECT poly
-name "NeedleSmall"
-loc 0.000544169 0.0154916 0.012087
+name "Needle.001"
+loc 0.00058603 0.0154916 0.012087
 texture "EGT.png"
 crease 45.000000
 numvert 18

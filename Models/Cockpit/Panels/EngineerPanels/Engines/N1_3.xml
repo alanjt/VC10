@@ -26,12 +26,11 @@ if you contacted me before making any changes to this software.
 
 <path>RPM.ac</path>
 
-
-<!--	<animation>
+	<animation>
 		<type>material</type>
 		<object-name>Dial</object-name>
 		<object-name>Needle</object-name>
-		<object-name>NeedleCentre</object-name>
+		<object-name>Needle.001</object-name>
 		<condition>
 			<less-than><property>systems/electrical/outputs/cabin-dim</property><value>0.8</value></less-than>
 		</condition>
@@ -39,7 +38,7 @@ if you contacted me before making any changes to this software.
 			<red>0.6</red>
 			<green>0.4</green>
 			<blue>0.3</blue>
-			<factor-prop>systems/electrical/outputs/engineer-dim</factor-prop>
+			<factor-prop>systems/electrical/outputs/panel-dim</factor-prop>
 		</emission>
 	</animation>
 	
@@ -47,18 +46,19 @@ if you contacted me before making any changes to this software.
 		<type>material</type>
 		<object-name>Dial</object-name>
 		<object-name>Needle</object-name>
-		<object-name>NeedleCentre</object-name>
+		<object-name>Needle.001</object-name>
+		<object-name>shadow</object-name>
 		<condition>
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
-			<property>systems/electrical/outputs/engineer-dim</property>
+			<property>systems/electrical/outputs/cabin-dim</property>
 		</condition>
 		<emission>
 		  <red>0.8</red>
 		  <green>0.8</green>
 		  <blue>0.8</blue>
-		  <factor-prop>systems/electrical/outputs/engineer-dim</factor-prop>
+		  <factor-prop>systems/electrical/outputs/cabin-dim</factor-prop>
 		</emission>
-	</animation>	 -->
+	</animation>
 
 	<animation>
 		<type>rotate</type>
@@ -81,21 +81,22 @@ if you contacted me before making any changes to this software.
 		  <z>0</z>
 		</axis>
 	</animation>
-
+	
 	<animation>
-		<type>pick</type>
-			<object-name>Bezel2.25inch</object-name>
-			<object-name>Dial</object-name>
-		<visible>true</visible>
-		    <action>
-		      <name>show info</name>
-		      <button>0</button>
-		    	<repeatable>true</repeatable>			
-		      <binding>
-						<command>nasal</command>
-						<script>VC10.show_fuel_quantity(6)</script>
-					</binding>
-		    </action>
+		<type>rotate</type>
+		<object-name>Needle.001</object-name>
+		<property>engines/engine[2]/n1</property>
+		<factor>36.0</factor>
+		<center>
+			<x-m>0</x-m>
+			<y-m>-0.0122</y-m>
+			<z-m>0.0122</z-m>
+		</center>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
 	</animation>
 
 </PropertyList>
