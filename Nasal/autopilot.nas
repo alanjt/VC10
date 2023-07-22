@@ -37,9 +37,8 @@ print ("autopilot.nas");
 	props.globals.initNode("autopilot/controls/YD_2_engaged", 0,"BOOL");
 	props.globals.initNode("autopilot/controls/YD_3_engaged", 0,"BOOL");
 	props.globals.initNode("autopilot/settings/RollKnobInDetent",0,"BOOL");	
-	
 	 
-	props.globals.initNode("autopilot/switches/Mode","MAN","STRING");
+	props.globals.initNode("autopilot/mutex","","STRING");
 
 var initAFCS_FCSinputs = func() {
     print("initAFCS_FCSinputs");
@@ -106,12 +105,14 @@ setlistener("autopilot/switches/AP1orAP2-sw", listenerApActiveFunc);
 #
 # !!! BUG: when switching back from mode 2 or 3 to 1, 0 or -1 GS remains switched on instead of ALT (with the alt switch switched on) !!!
 var listenerApModeFunc = func {
-
+	print ("-> listenerApModeFunc -> Mode-selector=", getprop("autopilot/switches/mode-knob"));
 	if (	getprop("autopilot/mutex") == "" or
 		getprop("autopilot/mutex") == "MODE") {
 		ApMutexSet("MODE");
+		print ("->Mutex set =",getprop("autopilot/mutex"));													 
 	}
 	else {
+		print ("->return, Mutex =",getprop("autopilot/mutex"));														 
 		return;
 	}
 
@@ -224,8 +225,8 @@ var listenerApModeFunc = func {
 	}
 }
 ##setlistener("autopilot/switches/AP1orAP2-sw", listenerApModeFunc);
-print("setlistener(autopilot/switches/mode-knob)");
-setlistener("autopilot/switches/mode-knob", listenerApModeFunc, 1,0);
+##print("setlistener(autopilot/switches/mode-knob)");
+##setlistener("autopilot/switches/mode-knob", listenerApModeFunc, 1,0);
 
 # switches off 'altitude-hold' if GS is in range and all other conditions are satisfied
 var gsMANAltControl = func {
@@ -515,5 +516,6 @@ setlistener("sim/signals/fdm-initialized", func {
 
     settimer(update_autopilot,5);
     settimer(update_flight_controls,5);
+	setlistener("autopilot/switches/mode-knob", listenerApModeFunc, 1,0);																	  
 	}
 );
