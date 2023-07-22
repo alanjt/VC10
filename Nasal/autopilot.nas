@@ -105,7 +105,7 @@ setlistener("autopilot/switches/AP1orAP2-sw", listenerApActiveFunc);
 #
 # !!! BUG: when switching back from mode 2 or 3 to 1, 0 or -1 GS remains switched on instead of ALT (with the alt switch switched on) !!!
 var listenerApModeFunc = func {
-	print ("-> listenerApModeFunc -> Mode-selector=", getprop("autopilot/switches/mode-knob"));
+	print ("-> listenerApModeFunc -> Mode-selector = ", getprop("autopilot/switches/mode-knob"));
 	if (	getprop("autopilot/mutex") == "" or
 		getprop("autopilot/mutex") == "MODE") {
 		ApMutexSet("MODE");
@@ -117,21 +117,21 @@ var listenerApModeFunc = func {
 	}
 
 	if (getprop("autopilot/switches/AP1orAP2-sw") == 1) {
-		print ("-> listenerApModeFunc -> Mode-selector=", getprop("autopilot/switches/mode-knob"));
+		print ("-> listenerApModeFunc -> Mode-selector = ", getprop("autopilot/switches/mode-knob"));
 		
 		if (	getprop("autopilot/switches/NAV-sw") == 1) {
 			# NAV - Mode
 
-			if (getprop("autopilot/route-manager/active") == 1 and getprop("autopilot/route-manager/airborne") == 1) {
+##			if (getprop("autopilot/route-manager/active") == 1 and getprop("autopilot/route-manager/airborne") == 1) {
 ##				setprop("autopilot/locks/passive-mode", 1);
-
-				# resets
-				setprop("autopilot/locks/altitude", "");
-				setprop("autopilot/locks/heading", "");
-			}
-			else {
-				gui.popupTip("You must be airborne and a route must be active to activate this mode !");
-			}
+##
+##				# resets
+##				setprop("autopilot/locks/altitude", "");
+##				setprop("autopilot/locks/heading", "");
+##			}
+##			else {
+##				gui.popupTip("You must be airborne and a route must be active to activate this mode !");
+##			}
 		}
 		if (getprop("autopilot/switches/mode-knob") == -1) {  #HDG
 			# HDG - Mode
@@ -244,16 +244,19 @@ var gsMANAltControl = func {
 
 # MAN - Mode - roll-selector
 var listenerApMANRollFunc = func {
-    # if roll-knob-deg turn, the mode selector jump to mode 1
-	setprop("autopilot/switches/mode-knob", 0);   # MAN
+	if(getprop("autopilot/settings/RollKnobInDetent") == 0) {
+		print (" if roll-knob-deg turn, the mode selector jump to mode 0");
+		setprop("autopilot/switches/mode-knob", 0);   # MAN
+		}
 
 	if (	getprop("autopilot/switches/AP1orAP2-sw") == 1 and
+
 		getprop("autopilot/switches/mode-knob") == 0) {   # MAN
 
 		setprop("autopilot/internal/wing-leveler-target-roll-deg", getprop("autopilot/settings/roll-knob-deg"));
 	}
 }
-setlistener("autopilot/settings/roll-knob-deg", listenerApMANRollFunc);
+setlistener("autopilot/settings/TurnKnob", listenerApMANRollFunc);
 
 # MAN - Mode - pitch-selector
 var listenerApMANPitchFunc = func {
@@ -383,6 +386,7 @@ setlistener("autopilot/locks/altitude", listenerApSetAltitudeFunc);
 var menuSwitchAp = func {
 
 	if (getprop("autopilot/locks/heading") == "wing-leveler") {
+	    print (" if heading lock = win-leveler, the mode selector jump to mode 0");
 		setprop("autopilot/switches/AP1orAP2-sw", 1);
 		setprop("autopilot/switches/mode-knob", 0);  # MAN
 	}
@@ -406,6 +410,7 @@ var menuSwitchAp = func {
 			setprop("autopilot/switches/AP2-sw", 0);
 			setprop("autopilot/switches/AP1orAP2-sw", 0);
 			setprop("autopilot/switches/ALT-sw", 0);
+			print (" if heading lock and alt lock not set, the mode selector jump to mode 0");
 			setprop("autopilot/switches/mode-knob", 0);  # MAN
 		}
 	}
@@ -427,6 +432,7 @@ setlistener("controls/special/yoke-switch1", func (s1){
 		setprop("autopilot/switches/AP2-sw", 0);
 		setprop("autopilot/switches/AP1orAP2-sw", 0);
 		setprop("autopilot/switches/ALT-sw", 0);
+		print (" AP disconnect sw");
 		setprop("autopilot/switches/mode-knob", 0);   # MAN
 		setprop("autopilot/settings/pitch-wheel-deg", 0);
 		setprop("autopilot/settings/target-pitch-deg", 0);
