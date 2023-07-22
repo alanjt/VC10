@@ -15,10 +15,6 @@ print ("autopilot.nas");
 #--------------------------------------------------------------------	
 #AFCS initialise switch positions and settings	
 #--------------------------------------------------------------------
-
-
-
-
 	
 	props.globals.initNode("autopilot/switches/NAV-sw",0,"BOOL");			# true/false	
 	props.globals.initNode("autopilot/switches/AP1-sw",0,"BOOL");			# true/false
@@ -41,6 +37,9 @@ print ("autopilot.nas");
 	props.globals.initNode("autopilot/controls/YD_2_engaged", 0,"BOOL");
 	props.globals.initNode("autopilot/controls/YD_3_engaged", 0,"BOOL");
 	props.globals.initNode("autopilot/settings/RollKnobInDetent",0,"BOOL");	
+	
+	 
+	props.globals.initNode("autopilot/switches/Mode","MAN","STRING");
 
 var initAFCS_FCSinputs = func() {
     print("initAFCS_FCSinputs");
@@ -93,7 +92,7 @@ setlistener("autopilot/mutex", ApMutexResetFunc);
 var ApActivePrev = 0;
 var listenerApActiveFunc = func {
 	if (ApActivePrev == 0) {
-		if (getprop("autopilot/switches/AP1orAP2-sw") == -1) {  ## HDG
+		if (getprop("autopilot/switches/AP1orAP2-sw") == 1) { 
 			if (getprop("autopilot/mutex") == "") {
 				setprop("autopilot/switches/mode-knob", 0);     ## MAN
 			}
@@ -117,8 +116,8 @@ var listenerApModeFunc = func {
 	}
 
 	if (getprop("autopilot/switches/AP1orAP2-sw") == 1) {
-		#print ("-> listenerApModeFunc -> Mode-selector=", getprop("autopilot/switches/mode-knob"));
-
+		print ("-> listenerApModeFunc -> Mode-selector=", getprop("autopilot/switches/mode-knob"));
+		
 		if (	getprop("autopilot/switches/NAV-sw") == 1) {
 			# NAV - Mode
 
@@ -135,7 +134,7 @@ var listenerApModeFunc = func {
 		}
 		if (getprop("autopilot/switches/mode-knob") == -1) {  #HDG
 			# HDG - Mode
-
+			setprop("autopilot/switches/Mode", "HDG");
 			setprop("autopilot/locks/heading", "dg-heading-hold");
 
 			# resets
@@ -149,7 +148,7 @@ var listenerApModeFunc = func {
 		}
 		if (getprop("autopilot/switches/mode-knob") == 0) {
 			# MAN - Mode
-
+			setprop("autopilot/switches/Mode", "MAN");
 			#var rollKnobDeg = getprop("instrumentation/turn-indicator/indicated-turn-rate") * 36.63;
 			var rollKnobDeg = 0.0;
 			setprop("autopilot/settings/roll-knob-deg", rollKnobDeg);
@@ -172,7 +171,7 @@ var listenerApModeFunc = func {
 		}
 		if (getprop("autopilot/switches/mode-knob") == 1) {
 			# LOC VOR - Mode
-
+			setprop("autopilot/switches/Mode", "LOC VOR");
 			setprop("autopilot/locks/heading", "nav1-hold");
 
 			# resets
@@ -186,7 +185,7 @@ var listenerApModeFunc = func {
 		}
 		if (getprop("autopilot/switches/mode-knob") == 2) {
 			# GS AUTO - Mode
-
+			setprop("autopilot/switches/Mode", "GS AUTO");
 			setprop("autopilot/locks/heading", "nav1-hold");
 			setprop("autopilot/locks/altitude", "gs1-hold");
 
@@ -196,7 +195,7 @@ var listenerApModeFunc = func {
 		}
 		if (getprop("autopilot/switches/mode-knob") == 3) {
 			# GS MAN - Mode
-
+			setprop("autopilot/switches/Mode", "GS MAN");
 			setprop("autopilot/locks/heading", "nav1-hold");
 			if (getprop("autopilot/switches/ALT-sw") == 0) {
 				setprop("autopilot/locks/altitude", "");
@@ -210,6 +209,10 @@ var listenerApModeFunc = func {
 			# resets
 ##			setprop("autopilot/locks/passive-mode", 0);
 		}
+		if (getprop("autopilot/switches/mode-knob") == 4) {
+			# FLARE - Mode
+			setprop("autopilot/switches/Mode", "FLARE");
+			}
 	}
 	else {
 		# switched off
@@ -220,7 +223,8 @@ var listenerApModeFunc = func {
 		setprop("autopilot/locks/speed", "");
 	}
 }
-setlistener("autopilot/switches/AP1orAP2-sw", listenerApModeFunc);
+##setlistener("autopilot/switches/AP1orAP2-sw", listenerApModeFunc);
+print("setlistener(autopilot/switches/mode-knob)");
 setlistener("autopilot/switches/mode-knob", listenerApModeFunc, 1,0);
 
 # switches off 'altitude-hold' if GS is in range and all other conditions are satisfied
@@ -492,11 +496,8 @@ var update_autopilot = func {
 			or getprop("autopilot/switches/ALT-sw") 		
 			));
 
-
-##	var RollKnobInDetent  = 0;	
-##	if ((getprop("autopilot/settings/TurnKnob") < 0.11) and (getprop("autopilot/settings/TurnKnob") > -0.11)) RollKnobInDetent = 1;
-##	setprop("autopilot/settings/RollKnobInDetent",RollKnobInDetent);
-	setprop("autopilot/settings/RollKnobInDetent",(getprop("autopilot/settings/TurnKnob") < 0.11) and (getprop("autopilot/settings/TurnKnob") > -0.11));
+	setprop("autopilot/settings/RollKnobInDetent",
+			(getprop("autopilot/settings/TurnKnob") < 0.11) and (getprop("autopilot/settings/TurnKnob") > -0.11));
 
 	settimer(update_autopilot,0);   ## loop 
 };
