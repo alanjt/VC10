@@ -2,7 +2,7 @@
 <PropertyList>
 
 	<model>
-		<name>cockpit</name>
+		<name>cockpitfloor</name>
 		<path>CockpitFloor.ac</path>
 		<offsets>
 			<x-m>0.0</x-m>
@@ -10,5 +10,25 @@
 			<z-m>0.0</z-m>
 		</offsets>
 	</model>
-
-</PropertyList>	
+<!-- Hide cockpit floor plan which is only used to position cockpit items -->	
+	<animation>
+		<type>select</type>
+		<object-name>Cockpit_FloorPlan</object-name>
+		<condition>
+		<equals>
+			<value>1</value><value>0</value>
+		</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Cockpit_Floor</object-name>
+		<condition>
+		<equals>
+			<value>1</value><value>1</value>
+		</equals>
+		</condition>
+	</animation>
+	
+</PropertyList>

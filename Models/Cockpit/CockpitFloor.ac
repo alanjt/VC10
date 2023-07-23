@@ -4,13 +4,12 @@ MATERIAL "Material.004" rgb 1 1 1  amb 0.8 0.8 0.8  emis 0 0 0  spec 0.5 0.5 0.5
 OBJECT world
 kids 2
 OBJECT poly
-name "coclpitfloor"
+name "Cockpit_Floor"
 loc 0 -1.12299e-005 0
 data 10
 floor.mesh
 texture "cockpitMore.png"
 crease 40.000000
-locked
 numvert 20
 3.31112 0 -0.00659118
 3.31112 0 -1.63269
@@ -129,7 +128,7 @@ refs 3
 5 0.0845616 0.927152
 kids 0
 OBJECT poly
-name "rect"
+name "Cockpit_FloorPlan"
 loc 4.12485 0 -0.95975
 texture "CockpitPlan.jpg"
 crease 45.000000
