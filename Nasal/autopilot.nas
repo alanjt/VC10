@@ -110,10 +110,13 @@ var listenerApModeFunc = func {
 		getprop("autopilot/mutex") == "MODE") {
 		ApMutexSet("MODE");
 		print ("->Mutex set =",getprop("autopilot/mutex"));
+
 	}
 	else {
 		print ("->return, Mutex =",getprop("autopilot/mutex"));
+
 		return;
+}
 
 	if (getprop("autopilot/switches/AP1orAP2-sw") == 1) {
 		print ("-> listenerApModeFunc -> Mode-selector = ", getprop("autopilot/switches/mode-knob"));
@@ -505,6 +508,8 @@ var update_autopilot = func {
 	setprop("autopilot/settings/RollKnobInDetent",
 	(getprop("autopilot/settings/TurnKnob") < 0.11) and (getprop("autopilot/settings/TurnKnob") > -0.11));
 
+
+
 	settimer(update_autopilot,0);   ## loop 
 };
 ##############################################################################################
@@ -522,5 +527,6 @@ setlistener("sim/signals/fdm-initialized", func {
     settimer(update_autopilot,5);
     settimer(update_flight_controls,5);
 	setlistener("autopilot/switches/mode-knob", listenerApModeFunc, 1,0);
+
 	}
 );
