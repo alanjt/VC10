@@ -87,17 +87,17 @@ var ApMutexResetFunc = func {
 }
 setlistener("autopilot/mutex", ApMutexResetFunc);
 
-# Active-switch
-var ApActivePrev = 0;
+
 var listenerApActiveFunc = func {
-	if (ApActivePrev == 0) {
+	if (getprop("autopilot/switches/AP1orAP2Prev-sw") == 0) {
 		if (getprop("autopilot/switches/AP1orAP2-sw") == 1) { 
 			if (getprop("autopilot/mutex") == "") {
+				print(" mutex null");
 				setprop("autopilot/switches/mode-knob", 0);     ## MAN
 			}
 		}
 	}
-	ApActive = getprop("autopilot/switches/AP1orAP2-sw");
+	setprop("autopilot/switches/AP1orAP2Prev-sw", getprop("autopilot/switches/AP1orAP2-sw")); ## set for next iteration     
 }
 setlistener("autopilot/switches/AP1orAP2-sw", listenerApActiveFunc);
 
@@ -137,7 +137,7 @@ var listenerApModeFunc = func {
 		}
 		if (getprop("autopilot/switches/mode-knob") == -1) {  #HDG
 			# HDG - Mode
-			setprop("autopilot/switches/Mode", "HDG");
+			setprop("autopilot/settings/Mode", "HDG");
 			setprop("autopilot/locks/heading", "dg-heading-hold");
 
 			# resets
@@ -151,7 +151,7 @@ var listenerApModeFunc = func {
 		}
 		if (getprop("autopilot/switches/mode-knob") == 0) {
 			# MAN - Mode
-			setprop("autopilot/switches/Mode", "MAN");
+			setprop("autopilot/settings/Mode", "MAN");
 			#var rollKnobDeg = getprop("instrumentation/turn-indicator/indicated-turn-rate") * 36.63;
 			var rollKnobDeg = 0.0;
 			setprop("autopilot/settings/roll-knob-deg", rollKnobDeg);
@@ -174,7 +174,7 @@ var listenerApModeFunc = func {
 		}
 		if (getprop("autopilot/switches/mode-knob") == 1) {
 			# LOC VOR - Mode
-			setprop("autopilot/switches/Mode", "LOC VOR");
+			setprop("autopilot/settings/Mode", "LOC VOR");
 			setprop("autopilot/locks/heading", "nav1-hold");
 
 			# resets
@@ -188,7 +188,7 @@ var listenerApModeFunc = func {
 		}
 		if (getprop("autopilot/switches/mode-knob") == 2) {
 			# GS AUTO - Mode
-			setprop("autopilot/switches/Mode", "GS AUTO");
+			setprop("autopilot/settings/Mode", "GS AUTO");
 			setprop("autopilot/locks/heading", "nav1-hold");
 			setprop("autopilot/locks/altitude", "gs1-hold");
 
@@ -198,7 +198,7 @@ var listenerApModeFunc = func {
 		}
 		if (getprop("autopilot/switches/mode-knob") == 3) {
 			# GS MAN - Mode
-			setprop("autopilot/switches/Mode", "GS MAN");
+			setprop("autopilot/settings/Mode", "GS MAN");
 			setprop("autopilot/locks/heading", "nav1-hold");
 			if (getprop("autopilot/switches/ALT-sw") == 0) {
 				setprop("autopilot/locks/altitude", "");
@@ -214,7 +214,7 @@ var listenerApModeFunc = func {
 		}
 		if (getprop("autopilot/switches/mode-knob") == 4) {
 			# FLARE - Mode
-			setprop("autopilot/switches/Mode", "FLARE");
+			setprop("autopilot/settings/Mode", "FLARE");
 			}
 	}
 	else {

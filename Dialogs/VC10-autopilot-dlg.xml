@@ -176,6 +176,14 @@
 					<step>1</step>
 				</slider>
 				<text>
+					<row>4</row>
+					<col>0</col>
+					<label>mode</label>
+					<format>%s</format>
+					<property>autopilot/settings/Mode</property>
+					<live>true</live>
+				</text>
+				<text>
 					<row>5</row>
 					<col>0</col>
 					<label>-9.99</label>
