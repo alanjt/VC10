@@ -157,7 +157,7 @@ var listenerApModeFunc = func {
 			setprop("autopilot/settings/roll-knob-deg", rollKnobDeg);
 			listenerApMANRollFunc();
 
-			setprop("autopilot/locks/heading", "wing-leveler");
+##			setprop("autopilot/locks/heading", "wing-leveler");
 
 			if (getprop("autopilot/switches/ALT-sw") == 0) {
 				setprop("autopilot/settings/pitch-wheel-deg", getprop("orientation/pitch-deg"));
@@ -274,6 +274,7 @@ var listenerApMANPitchFunc = func {
 		}
 	}
 }
+
 setlistener("autopilot/settings/pitch-wheel-deg", listenerApMANPitchFunc);
 
 # ALT switch
@@ -418,12 +419,12 @@ var menuSwitchAp = func {
 	}
 }
 
-listenerApSetPitchFunc = func {
+##listenerApSetPitchFunc = func {
 
-	setprop("autopilot/settings/pitch-wheel-deg", getprop("autopilot/settings/target-pitch-deg"));
-}
-setlistener("autopilot/locks/altitude", listenerApSetPitchFunc);
-setlistener("autopilot/settings/pitch-hold", listenerApSetPitchFunc);
+##	setprop("autopilot/settings/pitch-wheel-deg", getprop("autopilot/settings/target-pitch-deg"));
+##}
+##setlistener("autopilot/locks/altitude", listenerApSetPitchFunc);
+##setlistener("autopilot/settings/pitch-hold", listenerApSetPitchFunc);
 
 ### Bendix PB 20 ###
 
@@ -442,7 +443,28 @@ setlistener("controls/special/yoke-switch1", func (s1){
 		setprop("autopilot/locks/speed", "");
     }
 });
-
+##############################################################################################
+listenerAltModeFunc = func {
+	if(getprop("autopilot/switches/ALT-sw") == 1){
+		setprop("autopilot/switches/IAS-sw", 0);
+		setprop("autopilot/switches/MACH-sw", 0);
+		}
+	}
+listenerIASModeFunc = func {
+	if(getprop("autopilot/switches/IAS-sw") == 1) {
+		setprop("autopilot/switches/ALT-sw", 0);
+		setprop("autopilot/switches/MACH-sw", 0);
+		}
+	}
+listenerMachModeFunc = func {
+	if(getprop("autopilot/switches/MACH-sw") == 1){
+		setprop("autopilot/switches/ALT-sw", 0);
+		setprop("autopilot/switches/IAS-sw", 0);
+		}
+	}
+	setlistener("autopilot/switches/ALT-sw", listenerAltModeFunc,1,0);
+	setlistener("autopilot/switches/IAS-sw", listenerIASModeFunc,1,0);
+	setlistener("autopilot/switches/MACH-sw",listenerMachModeFunc,1,0);
 ##############################################################################################
 var update_autopilot = func {
 ##	Autopilot main control loop
@@ -527,6 +549,8 @@ setlistener("sim/signals/fdm-initialized", func {
     settimer(update_autopilot,5);
     settimer(update_flight_controls,5);
 	setlistener("autopilot/switches/mode-knob", listenerApModeFunc, 1,0);
-
+	setlistener("autopilot/switches/ALT-sw", listenerAltModeFunc,1,0);
+	setlistener("autopilot/switches/IAS-sw", listenerIASModeFunc,1,0);
+	setlistener("autopilot/switches/MACH-sw",listenerMachModeFunc,1,0);
 	}
 );
