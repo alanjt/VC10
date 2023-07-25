@@ -490,7 +490,7 @@ Vickers VC10 for Flightgear
 	
 	<model>
 		<name>trim</name>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/trim/trim.xml</path>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/trim/Three_axis_trim.xml</path>
 		<offsets>
 			<x-m>0.0</x-m>
 			<y-m>-0.184</y-m>
@@ -647,7 +647,7 @@ Vickers VC10 for Flightgear
 	
 	<model>
 		<name>trim_cp</name>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/trim/trim.xml</path>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/trim/Three_axis_trim.xml</path>
 		<offsets>
 			<x-m>0.0</x-m>
 			<y-m>0.184</y-m>

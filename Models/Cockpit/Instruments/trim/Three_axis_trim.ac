@@ -7,7 +7,7 @@ name "Bezel"
 loc 0.000302345 0 0
 data 5
 Bezel
-texture "trim.png"
+texture "Three_axis_trim.png"
 crease 30.000002
 numvert 144
 -0.001047 -0.025996 -0.025996
@@ -665,7 +665,7 @@ name "Trim.Face"
 loc 0.000522345 0 0
 data 9
 Trim.Face
-texture "trim.png"
+texture "Three_axis_trim.png"
 crease 30.000002
 numvert 9
 0 0.025479 -0.025479
@@ -732,7 +732,7 @@ name "Trim.FaceBack"
 loc 0.000522345 0 0
 data 13
 Trim.FaceBack
-texture "trim.png"
+texture "Three_axis_trim.png"
 crease 30.000002
 numvert 9
 -0.001 0.025094 -0.025094
@@ -799,7 +799,7 @@ name "Trim.NeedleAil"
 loc 0.000522345 0 0.00012
 data 14
 Trim.NeedleAil
-texture "trim.png"
+texture "Three_axis_trim.png"
 crease 30.000002
 numvert 4
 0.000225 -0.00106 -0.011036
@@ -820,7 +820,7 @@ name "Trim.NeedleEl"
 loc 0.000522345 -0.00016 0
 data 13
 Trim.NeedleEl
-texture "trim.png"
+texture "Three_axis_trim.png"
 crease 30.000002
 numvert 4
 0.000225 -0.022747 -0.00386
@@ -841,7 +841,7 @@ name "Trim.NeedleEl2"
 loc 0.000522345 -0.00016 0
 data 14
 Trim.NeedleEl2
-texture "trim.png"
+texture "Three_axis_trim.png"
 crease 30.000002
 numvert 4
 0.00015 -0.022747 -0.00386
@@ -862,7 +862,7 @@ name "Trim.NeedleRud"
 loc 0.000522345 0.000141 0
 data 14
 Trim.NeedleRud
-texture "trim.png"
+texture "Three_axis_trim.png"
 crease 30.000002
 numvert 4
 0.000225 0.016973 0.00106
@@ -883,7 +883,7 @@ name "shadow"
 loc 0.00126934 0.000347 0
 data 6
 shadow
-texture "shadow.png"
+texture "noshadow.png"
 crease 30.000002
 numvert 4
 0.000521 0.046649 -0.049962

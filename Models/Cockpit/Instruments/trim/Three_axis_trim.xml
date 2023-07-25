@@ -8,7 +8,7 @@
 
 <PropertyList>
 
-<path>trim.ac</path>
+<path>Three_axis_trim.ac</path>
 
 <!-- Disable extra indicator, used in stand-alone control position version to indicate El trim -->
 <animation>
@@ -111,7 +111,7 @@
 </animation>
 
 <!-- all trim wheels to zero -->
-<animation>
+<!--<animation>
 	<type>pick</type>
 	<object-name>Trim.Face</object-name>
 	<action>
@@ -123,6 +123,6 @@
 	    <script>VC10.applyTrimWheels(0, 0);VC10.applyTrimWheels(0, 1);VC10.applyTrimWheels(0, 2)</script>
 	   </binding>
 	</action>
-</animation>
+</animation> -->
 
 </PropertyList>
