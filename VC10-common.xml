@@ -74,9 +74,9 @@ if you contacted me before making any changes to this software.
 <!--		<autopilot>
 				<path>Systems/autopilotMachIAS.xml</path>
 			</autopilot> -->
-			<autopilot>
+<!--			<autopilot>
 				<path>Systems/autopilotAttitudeData.xml</path>
-			</autopilot>
+			</autopilot> -->
 			<autopilot>
 				<path>Systems/autopilotAircraftStateFilters.xml</path>
 			</autopilot>

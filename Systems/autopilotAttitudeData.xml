@@ -71,7 +71,7 @@
 				</dif>
 			</expression>
 		</input>
-		<output>autopilot/internal/theta_thetaD1</output>
+		<output>autopilot/internal/theta-thetaD</output>
 	</filter>
 	
 <!--	<filter>

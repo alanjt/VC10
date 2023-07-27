@@ -11,6 +11,97 @@
    Pitch Modes - Pitch Hold, IAS Hold, Mach Hold, Alt Hold, G/S
     ============================================================
 -->
+
+	<!--
+    =====================
+    Primary Attitude Data
+    =====================
+    -->
+
+<!--	<logic>
+		<name>Theta Mach Switch</name>
+		<input>
+			<and>
+				<greater-than>
+					<property>fdm/jsbsim/velocities/mach</property>
+					<value>0.96</value>
+				</greater-than>
+				<less-than>>
+					<property>fdm/jsbsim/velocities/mach</property>
+					<value>1.06</value>
+				</less-than>>
+			</and>
+		</input>
+		<output><property>autopilot/internal/thetaMachSw</property></output>
+	</logic>   -->
+
+	<filter>
+		<name>pitch_feedback_demand </name>
+		<debug>false</debug>
+		<type>integrator</type>
+		<gain>1.0</gain>
+		<!-- integrator thetaD_deg tracks pitch angle theta-deg-->
+		<input> 
+			<condition>
+				<not><property>autopilot/switches/AP1orAP2-sw</property></not>
+			</condition>
+			<expression>
+				<product>
+					<value>1</value>  <!-- 1 sec time constant -->
+					<dif>
+						<property>fdm/jsbsim/attitude/theta-deg</property>
+						<property>autopilot/internal/thetaD_deg</property>
+					</dif>
+				</product>
+			</expression>
+		</input>
+		<output><property>autopilot/internal/thetaD_deg</property></output>
+		<u_min>-20</u_min>
+		<u_max>20</u_max>
+	</filter>
+
+	<filter>
+		<name>Pitch Error</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<expression>
+				<dif>
+					<property>fdm/jsbsim/attitude/theta-deg</property>
+					<property>autopilot/internal/thetaD_deg</property>
+				</dif>
+			</expression>
+		</input>
+		<output>autopilot/internal/theta-thetaD</output>
+	</filter>
+	
+<!--	<filter>
+		<name>Pitch Demand</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<expression>
+				<sum>
+					<property>autopilot/internal/theta_thetaD</property>
+					<property>autopilot/settings/pitch-wheel-deg</property>
+				</sum>
+			</expression>
+		</input>
+		<output>autopilot/internal/theta_thetaD</output>
+	</filter> -->
+
+	<filter>
+		<name>theta_washout</name>
+		<debug>false</debug>
+		<type>high-pass</type>
+		<filter-time>1.0</filter-time>
+		<input><property>fdm/jsbsim/attitude/theta</property></input>
+		<output><property>autopilot/internal/thetaWashout</property></output>
+		<u_min>-20</u_min>
+		<u_max>20</u_max>
+	</filter>
 	<!-- IAS Datum -->
 	<filter>
 		<name>IAS Datum</name>
@@ -296,10 +387,7 @@
 		<debug>false</debug>
 		<type>gain</type>
 		<gain><value>1.0</value></gain>
-		<input>
-			<property>autopilot/internal/qd-ap</property>
-		</input>
-		<input><property>autopilot/internal/qd-tf</property></input>
+		<input><property>autopilot/internal/qd-ap</property></input>
 		<output><property>autopilot/internal/qd</property></output>
 	</filter>
 
