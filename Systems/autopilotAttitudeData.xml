@@ -38,7 +38,7 @@
 		<debug>false</debug>
 		<type>integrator</type>
 		<gain>1.0</gain>
-		<!-- integrator thetaD1_deg tracks pitch angle theta-deg-->
+		<!-- integrator thetaD_deg tracks pitch angle theta-deg-->
 		<input> 
 			<condition>
 				<not><property>autopilot/switches/AP1orAP2-sw</property></not>
@@ -48,12 +48,12 @@
 					<value>1</value>  <!-- 1 sec time constant -->
 					<dif>
 						<property>fdm/jsbsim/attitude/theta-deg</property>
-						<property>autopilot/internal/thetaD1_deg</property>
+						<property>autopilot/internal/thetaD_deg</property>
 					</dif>
 				</product>
 			</expression>
 		</input>
-		<output><property>autopilot/internal/thetaD1_deg</property></output>
+		<output><property>autopilot/internal/thetaD_deg</property></output>
 		<u_min>-20</u_min>
 		<u_max>20</u_max>
 	</filter>
@@ -67,14 +67,14 @@
 			<expression>
 				<dif>
 					<property>fdm/jsbsim/attitude/theta-deg</property>
-					<property>autopilot/internal/thetaD1_deg</property>
+					<property>autopilot/internal/thetaD_deg</property>
 				</dif>
 			</expression>
 		</input>
 		<output>autopilot/internal/theta_thetaD1</output>
 	</filter>
 	
-	<filter>
+<!--	<filter>
 		<name>Pitch Demand</name>
 		<debug>false</debug>
 		<type>gain</type>
@@ -82,13 +82,13 @@
 		<input>
 			<expression>
 				<sum>
-					<property>autopilot/internal/theta_thetaD1</property>
+					<property>autopilot/internal/theta_thetaD</property>
 					<property>autopilot/settings/pitch-wheel-deg</property>
 				</sum>
 			</expression>
 		</input>
 		<output>autopilot/internal/theta_thetaD</output>
-	</filter>
+	</filter> -->
 
 	<filter>
 		<name>theta_washout</name>

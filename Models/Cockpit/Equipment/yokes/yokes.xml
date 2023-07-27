@@ -94,7 +94,7 @@ if you contacted me before making any changes to this software.
 		<object-name>plane.up.001</object-name>
 		<object-name>plane.down.001</object-name>
 		<object-name>plane.out.001</object-name>
-		<property>fdm/jsbsim/fcs/elevator-pos-norm</property>
+		<property>fdm/jsbsim/fcs/elevator-cmd-norm</property>
 		<factor> -8 </factor>
 		<center><x-m>0 </x-m><y-m>-0.462 </y-m><z-m> 0.352 </z-m></center>
 		<axis><x> 0 </x> <y> 1 </y> <z> 0 </z> </axis>

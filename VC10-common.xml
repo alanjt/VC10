@@ -80,9 +80,9 @@ if you contacted me before making any changes to this software.
 			<autopilot>
 				<path>Systems/autopilotAircraftStateFilters.xml</path>
 			</autopilot>
-			<autopilot>
+<!--			<autopilot>
 				<path>Systems/autopilotPitchInnerLoop.xml</path>
-			</autopilot>
+			</autopilot> -->
 			<autopilot>
 				<path>Systems/autopilotLateralModes.xml</path>
 			</autopilot>
