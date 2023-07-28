@@ -18,29 +18,12 @@
     =====================
     -->
 
-	<!--	<logic>
-		<name>Theta Mach Switch</name>
-		<input>
-			<and>
-				<greater-than>
-					<property>fdm/jsbsim/velocities/mach</property>
-					<value>0.96</value>
-				</greater-than>
-				<less-than>>
-					<property>fdm/jsbsim/velocities/mach</property>
-					<value>1.06</value>
-				</less-than>>
-			</and>
-		</input>
-		<output><property>autopilot/internal/thetaMachSw</property></output>
-	</logic>   -->
-
 	<filter>
 		<name>pitch_feedback_demand</name>
 		<debug>false</debug>
 		<type>integrator</type>
 		<gain>1.0</gain>
-		<!-- integrator thetaD_deg tracks pitch angle theta-deg-->
+		<!-- thetaD_deg tracks pitch angle theta-deg, until AP is engaged when it is locked-->
 		<input>
 			<condition>
 				<not><property>autopilot/switches/AP1orAP2-sw</property></not>
@@ -86,6 +69,7 @@
 		<u_min>-20</u_min>
 		<u_max>20</u_max>
 	</filter>
+	
 	<!-- IAS Datum -->
 	<filter>
 		<name>IAS Datum</name>
@@ -201,11 +185,6 @@
 		<input>
 			<expression>
 				<sum>
-					<!--<product>
-						<value>-1070</value>
-						<property>autopilot/gain/GStatic</property>
-						<property>autopilot/internal/s-sD-washout</property>
-					</product> -->
 					<product>
 						<property>autopilot/gain/Gh</property>
 						<property>autopilot/internal/h-hDlag</property>
@@ -711,9 +690,6 @@
 			</condition>
 			<property>autopilot/commands/APelevator-deg</property>
 		</input>
-		<!--		<input>
-			<property>autopilot/commands/elevator-stabiliser</property>
-		</input>-->
 		<output><property>autopilot/commands/afcs-elevator-deg</property></output>
 	</filter>
 	

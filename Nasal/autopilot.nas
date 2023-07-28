@@ -39,7 +39,10 @@ print ("autopilot.nas");
 	props.globals.initNode("autopilot/settings/RollKnobInDetent",0,"BOOL");	
 	 
 	props.globals.initNode("autopilot/mutex","","STRING");
-
+	
+	props.globals.initNode("autopilot/gain/Gtheta",-50,"DOUBLE");
+	props.globals.initNode("autopilot/gain/Gq",0.5,"DOUBLE");
+	
 var initAFCS_FCSinputs = func() {
     print("initAFCS_FCSinputs");
 	props.globals.getNode("/fdm/jsbsim/fcs/afcs-elevator-cmd-deg", 1).setDoubleValue(0);
