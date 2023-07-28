@@ -6,7 +6,7 @@
 
 <PropertyList>
 
-<!--
+	<!--
     ============================================================
    Pitch Modes - Pitch Hold, IAS Hold, Mach Hold, Alt Hold, G/S
     ============================================================
@@ -18,7 +18,7 @@
     =====================
     -->
 
-<!--	<logic>
+	<!--	<logic>
 		<name>Theta Mach Switch</name>
 		<input>
 			<and>
@@ -36,18 +36,18 @@
 	</logic>   -->
 
 	<filter>
-		<name>pitch_feedback_demand </name>
+		<name>pitch_feedback_demand</name>
 		<debug>false</debug>
 		<type>integrator</type>
 		<gain>1.0</gain>
 		<!-- integrator thetaD_deg tracks pitch angle theta-deg-->
-		<input> 
+		<input>
 			<condition>
 				<not><property>autopilot/switches/AP1orAP2-sw</property></not>
 			</condition>
 			<expression>
 				<product>
-					<value>1</value>  <!-- 1 sec time constant -->
+					<value>1</value><!-- 1 sec time constant -->
 					<dif>
 						<property>fdm/jsbsim/attitude/theta-deg</property>
 						<property>autopilot/internal/thetaD_deg</property>
@@ -75,22 +75,6 @@
 		</input>
 		<output>autopilot/internal/theta-thetaD</output>
 	</filter>
-	
-<!--	<filter>
-		<name>Pitch Demand</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input>
-			<expression>
-				<sum>
-					<property>autopilot/internal/theta_thetaD</property>
-					<property>autopilot/settings/pitch-wheel-deg</property>
-				</sum>
-			</expression>
-		</input>
-		<output>autopilot/internal/theta_thetaD</output>
-	</filter> -->
 
 	<filter>
 		<name>theta_washout</name>
@@ -127,7 +111,7 @@
 		<input><property>fdm/jsbsim/velocities/vc-kts</property></input>
 		<reference><property>autopilot/internal/Ud</property></reference>
 		<output><property>autopilot/internal/U-Ud</property></output>
-<!--	<u_min>-50</u_min>
+		<!--	<u_min>-50</u_min>
 		<u_max>50</u_max> -->
 	</filter>
 
@@ -168,7 +152,7 @@
 		<output><property>autopilot/internal/M-Mdkts</property></output>
 	</filter>
 
-<!--	
+	<!--	
 	==============================
 	ILS - Glide Slope mode
 	==============================
@@ -214,7 +198,7 @@
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
-		<input>	
+		<input>
 			<expression>
 				<sum>
 					<!--<product>
@@ -236,7 +220,7 @@
 		<output><property>autopilot/internal/qd-height</property></output>
 	</filter>
 
-<!--	
+	<!--	
 	==============================
 	Speed Hold modes
 	==============================
@@ -265,27 +249,20 @@
 	</filter>
 
 	<filter>
-		<name>q demand select</name> <!-- selects pitch rate command dependent upon mode -->
+		<name>q demand select</name><!-- selects pitch rate command dependent upon mode -->
 		<debug>false</debug>
 		<type>gain</type>
 		<gain><value>1.0</value></gain>
-		<input>   <!-- ILS command -->
-			<condition>
-				<property>autopilot/submode/ILS-GS-cap</property>
-			</condition>
+		<input><!-- ILS command -->
+			<condition><property>autopilot/submode/ILS-GS-cap</property></condition>
 			<property>autopilot/internal/q-demand-GS</property>
 		</input>
-		<input>   <!-- height error command -->	 	
-			<condition>
-					<property>autopilot/switches/ALT-sw</property>
-			</condition>
+		<input><!-- height error command -->
+			<condition><property>autopilot/switches/ALT-sw</property></condition>
 			<property>autopilot/internal/qd-height</property>
-		</input>		
-		<!-- If no active height error pitch command mode, fall through to IAS or MACH mode -->
+		</input>
 		<input>
-			<condition>
-				<property>autopilot/switches/IAS-sw</property>
-			</condition>
+			<condition><property>autopilot/switches/IAS-sw</property></condition>
 			<expression>
 				<product>
 					<property>autopilot/gain/Gu</property>
@@ -294,9 +271,7 @@
 			</expression>
 		</input>
 		<input>
-			<condition>
-				<property>autopilot/switches/MACH-sw</property>
-			</condition>
+			<condition><property>autopilot/switches/MACH-sw</property></condition>
 			<expression>
 				<product>
 					<property>autopilot/gain/Gu</property>
@@ -304,7 +279,8 @@
 				</product>
 			</expression>
 		</input>
-		<input>   <!-- default -->
+		<!-- If no pitch command mode, fall through to pitch angle hold mode -->
+		<input><!-- default -->
 			<value>0.0</value>
 		</input>
 		<output><property>autopilot/internal/qd-command</property></output>
@@ -317,27 +293,30 @@
 		<gain><value>1.0</value></gain>
 		<input>
 			<expression>
-				<sum>	
-					<product> <!-- pitch angle feedback -->
+				<sum>
+					<product><!-- pitch angle feedback -->
 						<property>autopilot/gain/Gtheta</property>
-						<property>autopilot/internal/theta_thetaD</property>
+						<sum>
+							<property>autopilot/internal/theta-thetaD</property>
+							<property>autopilot/settings/pitch-wheel-deg</property>
+						</sum>
 					</product>
 				</sum>
 			</expression>
 		</input>
-		<output><property>autopilot/internal/qd-theta-feedback</property></output>
+		<output><property>autopilot/internal/qd-theta</property></output>
 	</filter>
 
 	<filter>
-		<name>q demand sum</name>
+		<name>q demand sum</name>/
 		<debug>false</debug>
 		<type>gain</type>
 		<gain><value>1.0</value></gain>
 		<input>
 			<expression>
 				<sum>
-					<property>autopilot/internal/qd-command</property>		
-					<property>autopilot/internal/qd-theta-feedback</property>
+					<property>autopilot/internal/qd-command</property>
+					<property>autopilot/internal/qd-theta</property>
 				</sum>
 			</expression>
 		</input>
@@ -392,7 +371,7 @@
 	</filter>
 
 	<filter>
-		<name>autopilot qd sec-phi </name>
+		<name>autopilot qd sec-phi</name>
 		<debug>false</debug>
 		<type>gain</type>
 		<gain><value>1</value></gain>
@@ -400,7 +379,7 @@
 			<expression>
 				<product>
 					<property>autopilot/internal/sec-phi</property>
-					<property>autopilot/internal/qd</property>	
+					<property>autopilot/internal/qd</property>
 				</product>
 			</expression>
 		</input>
@@ -423,9 +402,9 @@
 		<input>
 			<expression><div>
 					<property>autopilot/internal/sintan-phi</property>
-					<property>fdm/jsbsim/velocities/vtrue-fps</property>	
+					<property>fdm/jsbsim/velocities/vtrue-fps</property>
 				</div></expression>
-		</input> 
+		</input>
 		<output><property>autopilot/internal/qr_bank</property></output>
 	</filter>
 
@@ -481,7 +460,7 @@
 	</filter>
 
 	<filter>
-		<name>q demand (height modes switch 10)</name> <!-- similar logic to q command above -->
+		<name>q demand (height modes switch 10)</name><!-- similar logic to q command above -->
 		<debug>false</debug>
 		<type>gain</type>
 		<gain><value>0.1</value></gain>
@@ -494,7 +473,7 @@
 					</or>
 					<or>
 						<not><property>autopilot/settings/height-aq</property></not>
-							<not><property>autopilot/internal/h-Acquired_flag</property></not>
+						<not><property>autopilot/internal/h-Acquired_flag</property></not>
 					</or>
 					<not><property>autopilot/switches/ALT-sw</property></not>
 				</and>
@@ -561,15 +540,15 @@
 						<property>autopilot/switches/IAS-sw</property>
 						<property>autopilot/switches/ALT-sw</property>
 						<and>
-								<property>autopilot/switches/ALT-sw</property>
+							<property>autopilot/switches/ALT-sw</property>
 							<or>
 								<property>autopilot/switches/MACH-sw</property>
 								<property>autopilot/switches/IAS-sw</property>
 							</or>
 						</and>
-<!--	<and> -->
+						<!--	<and> -->
 						<property>autopilot/switches/IAS-sw</property>
-<!--	<property>autopilot/submode/ILS-GS-cap</property>
+						<!--	<property>autopilot/submode/ILS-GS-cap</property>
 		</and> -->
 					</or>
 				</and>
@@ -579,7 +558,7 @@
 		<!-- no selection - integrator feedback -->
 		<input>
 			<expression><product>
-					<value>-10 </value>
+					<value>-10</value>
 					<property>autopilot/internal/qInt-e</property>
 				</product></expression>
 		</input>
@@ -650,13 +629,13 @@
 				</and>
 			</condition>
 			<expression><product>
-					<value>1.0 </value>
+					<value>1.0</value>
 					<property>autopilot/internal/qInt-e</property>
 				</product></expression>
 		</input>
 		<!-- no selection - default -->
 		<input>
-			<value>0 </value>
+			<value>0</value>
 		</input>
 		<output><property>autopilot/commands/APintegrator-deg</property></output>
 	</filter>
@@ -732,7 +711,7 @@
 			</condition>
 			<property>autopilot/commands/APelevator-deg</property>
 		</input>
-<!--		<input>
+		<!--		<input>
 			<property>autopilot/commands/elevator-stabiliser</property>
 		</input>-->
 		<output><property>autopilot/commands/afcs-elevator-deg</property></output>
