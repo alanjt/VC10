@@ -40,8 +40,32 @@ print ("autopilot.nas");
 	 
 	props.globals.initNode("autopilot/mutex","","STRING");
 	
-	props.globals.initNode("autopilot/gain/Gtheta",-50,"DOUBLE");
-	props.globals.initNode("autopilot/gain/Gq",0.5,"DOUBLE");
+	props.globals.initNode("autopilot/gain/GAy",0.05,"DOUBLE");
+	props.globals.initNode("autopilot/gain/GBetadot",0.25,"DOUBLE");
+	props.globals.initNode("autopilot/gain/GIASInt",-0.005,"DOUBLE");
+	props.globals.initNode("autopilot/gain/GStatic",0.1,"DOUBLE");
+	props.globals.initNode("autopilot/gain/Gh",-0.15,"DOUBLE");
+	props.globals.initNode("autopilot/gain/Ghint",-0.01,"DOUBLE");
+	props.globals.initNode("autopilot/gain/Ghdot",-1.5,"DOUBLE");
+	props.globals.initNode("autopilot/gain/Gq",0.5,"DOUBLE");	
+	props.globals.initNode("autopilot/gain/Gqe",0.02,"DOUBLE");		
+	props.globals.initNode("autopilot/gain/Gqr",2.25,"DOUBLE");
+	props.globals.initNode("autopilot/gain/Gtheta",-50.0,"DOUBLE");
+	props.globals.initNode("autopilot/gain/Gu",10.0,"DOUBLE");
+	props.globals.initNode("autopilot/gain/Khdg_phi",-1.5,"DOUBLE");	
+	props.globals.initNode("autopilot/gain/Kloc_Hdg",-0.75,"DOUBLE");
+	props.globals.initNode("autopilot/gain/Kloc_Loc",-5.0,"DOUBLE");		
+	props.globals.initNode("autopilot/gain/Kloc_Phi",0.,"DOUBLE");	
+	props.globals.initNode("autopilot/gain/Kp_r",0.25,"DOUBLE");
+	props.globals.initNode("autopilot/gain/Kp_s",0.1,"DOUBLE");
+	props.globals.initNode("autopilot/gain/Kphi",10.0,"DOUBLE");
+	props.globals.initNode("autopilot/gain/gs-q",1000.0,"DOUBLE");
+
+
+
+
+
+
 	
 var initAFCS_FCSinputs = func() {
     print("initAFCS_FCSinputs");
@@ -157,7 +181,7 @@ var listenerApModeFunc = func {
 			setprop("autopilot/settings/Mode", "MAN");
 			#var rollKnobDeg = getprop("instrumentation/turn-indicator/indicated-turn-rate") * 36.63;
 			var rollKnobDeg = 0.0;
-			setprop("autopilot/settings/roll-knob-deg", rollKnobDeg);
+			setprop("autopilot/settings/TurnKnob", rollKnobDeg);
 			listenerApMANRollFunc();
 
 ##			setprop("autopilot/locks/heading", "wing-leveler");
@@ -250,7 +274,7 @@ var gsMANAltControl = func {
 # MAN - Mode - roll-selector
 var listenerApMANRollFunc = func {
 	if(getprop("autopilot/settings/RollKnobInDetent") == 0) {
-		print (" if roll-knob-deg turn, the mode selector jump to mode 0");
+		print (" if TurnKnob turn, the mode selector jump to mode 0");
 		setprop("autopilot/switches/mode-knob", 0);   # MAN
 		}
 
@@ -258,7 +282,7 @@ var listenerApMANRollFunc = func {
 
 		getprop("autopilot/switches/mode-knob") == 0) {   # MAN
 
-		setprop("autopilot/internal/wing-leveler-target-roll-deg", getprop("autopilot/settings/roll-knob-deg"));
+		setprop("autopilot/internal/wing-leveler-target-roll-deg", getprop("autopilot/settings/TurnKnob"));
 	}
 }
 setlistener("autopilot/settings/TurnKnob", listenerApMANRollFunc);
