@@ -203,7 +203,7 @@ if you contacted me before making any changes to this software.
 		</action>
 	</animation>	
 	
-	<animation>
+<!--	<animation>
 		<type>rotate</type>
 		<object-name>AT_setknots</object-name>		
 		<property>autopilot/settings/AT_setknots</property>
@@ -214,45 +214,39 @@ if you contacted me before making any changes to this software.
 		<axis>
 			<x>1.0</x><y>0.0</y><z>0.0</z>
 		</axis>
-	</animation>
-	
-<animation>
-    <type>pick</type>
-    <object-name>AT_setknots</object-name>
-    <action>
-		<button>0</button>
-		<repeatable>true</repeatable>
-		<binding>
-			 <command>property-interpolate</command>
-			 <property>autopilot/settings/AT_setknots</property>
-			 <value>160</value>
-			 <time>0.5</time>
-		</binding>
-    </action>
-    <action>
-        <button>3</button>
-        <repeatable>true</repeatable>
-        <binding>
-            <command>property-adjust</command>
-            <property>autopilot/settings/AT_setknots</property>
-		        <step type="double">1.0</step>
-		        <min>100.0</min>
-		        <max>180.0</max>
-        </binding>
+	</animation> -->
 
-    </action>
-    <action>
-        <button>4</button>
-        <repeatable>true</repeatable>
-        <binding>
-            <command>property-adjust</command>
-            <property>autopilot/settings/AT_setknots</property>
-		        <step type="double">-1.0</step>
-		        <min>100.0</min>
-		        <max>180.0</max>
-        </binding>
-    </action>
-</animation>
+
+	<animation>
+		<type>knob</type>
+		<object-name>AT_setknots</object-name>
+		<property>autopilot/settings/AT_setknots</property>
+		<center>
+			<x-m> 0.0</x-m><y-m> 0.0395</y-m><z-m> 0.0370</z-m>
+		</center>
+		<axis>
+			<x>1.0</x><y>0.0</y><z>0.0</z>
+		</axis>
+		<drag-direction>horizontal</drag-direction>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>autopilot/settings/AT_setknots</property>
+				<factor>1</factor>
+				<min>100</min>
+				<max>180</max> 
+				<wrap>0</wrap>
+			</binding>
+		</action>
+		<hovered>
+			<binding>
+				<command>set-tooltip</command>
+				<label>Kts: %3d</label>
+				<tooltip-id>Heading</tooltip-id>
+				<property>autopilot/settings/AT_setknots</property>
+			</binding>
+		</hovered>
+	</animation>	
 
 	<animation>
 		<type>textranslate</type>

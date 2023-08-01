@@ -5,7 +5,111 @@
 <PropertyList>
 	<name>autopilot</name>
 	<layout>vbox</layout>
+	
+	<frame>
+		<layout>hbox</layout>
+		<empty><stretch>1</stretch></empty>
 
+		<text>
+			<label>VC10 Autothrottle</label>
+		</text>
+
+		<empty><stretch>1</stretch></empty>
+	</frame>
+	
+	<group>
+		<layout>hbox</layout>
+		<default-padding>8</default-padding>
+		<group>
+			<layout>vbox</layout>
+			<frame>
+				<layout>table</layout>
+				<checkbox>
+					<row>0</row>
+					<col>0</col>
+					<label>1</label>
+					<property>autopilot/switches/AT_1switch</property>
+					<live>true</live>
+					<binding>
+						<command>property-toggle</command>
+						<property>autopilot/switches/AT_1switch</property>
+					</binding>
+				</checkbox>
+				<checkbox>
+					<row>0</row>
+					<col>1</col>
+					<label>2</label>
+					<property>autopilot/switches/AT_2switch</property>
+					<live>true</live>
+					<binding>
+						<command>property-toggle</command>
+						<property>autopilot/switches/AT_2switch</property>
+					</binding>
+				</checkbox>
+				<checkbox>
+					<row>0</row>
+					<col>3</col>
+					<label>3</label>
+					<property>autopilot/switches/AT_3switch</property>
+					<live>true</live>
+					<binding>
+						<command>property-toggle</command>
+						<property>autopilot/switches/AT_3switch</property>
+					</binding>
+				</checkbox>
+				<checkbox>
+					<row>0</row>
+					<col>4</col>
+					<label>4</label>
+					<property>autopilot/switches/AT_4switch</property>
+					<live>true</live>
+					<binding>
+						<command>property-toggle</command>
+						<property>autopilot/switches/AT_4switch</property>
+					</binding>
+				</checkbox>
+				<text>
+					<label>THROTTLES</label>
+					<text>THROTTLES</text>
+					<halign>center</halign>
+					<row>1</row>
+					<col>2</col>
+				</text>
+						
+<!--				<text>
+					<row>2</row><col>1</col>
+					<halign>right</halign>
+					<label>Airspeed (kt):</label>
+				</text> -->
+				<input>
+					<row>2</row><col>2</col>
+					<label>Airspeed (kt):</label>
+					<halign>center</halign>
+					<property>autopilot/settings/AT_setknots</property>
+					<live>true</live>
+					<binding>
+						<command>dialog-apply</command>
+					</binding>
+				</input>
+				
+				<combo>
+					<row>3</row><col>2</col>
+					<label>Engage</label>
+					<halign>center</halign>
+					<property>autopilot/switches/AT_engageswitch</property>
+					<live>true</live>
+					<value>-1</value>
+					<value>0</value>
+					<value>1</value>
+					<binding>
+						<command>dialog-apply</command>
+					</binding>
+				</combo>
+			</frame>
+		</group>
+	</group>
+		
+		
 	<frame>
 		<layout>hbox</layout>
 		<empty><stretch>1</stretch></empty>
@@ -25,10 +129,7 @@
 			<border>2</border>
 			<binding>
 				<command>dialog-close</command>
-			</binding>
-			<binding>
-				<command>dialog-apply</command>
-			</binding>
+			</binding>>
 		</button>
 	</frame>
 	<hrule/>
@@ -151,10 +252,10 @@
 					</binding>
 				</checkbox>
 			</frame>
-			<hrule/> 
+			<hrule/>
 			
 			<frame>
-<!--				<layout>hbox</layout> -->
+				<!--				<layout>hbox</layout> -->
 				<layout>table</layout>
 				
 				<slider>
@@ -164,7 +265,7 @@
 					<row>1</row>
 					<col>0</col>
 					<width>10</width>
-<!--					<vertical>true</vertical> -->
+					<!--					<vertical>true</vertical> -->
 					<property>autopilot/switches/mode-knob</property>
 					<live>true</live>
 					<binding>
@@ -190,7 +291,7 @@
 					<format>%2d</format>
 					<property>autopilot/switches/mode-knob</property>
 					<live>true</live>
-				</text>	
+				</text>
 				
 				<slider>
 					<name>pitch</name>
