@@ -40,6 +40,8 @@ print ("autopilot.nas");
 	 
 	props.globals.initNode("autopilot/mutex","","STRING");
 	
+	props.globals.initNode("autopilot/settings/AT_setknots",140.0,"DOUBLE");
+	
 	props.globals.initNode("autopilot/gain/GAy",0.05,"DOUBLE");
 	props.globals.initNode("autopilot/gain/GBetadot",0.25,"DOUBLE");
 	props.globals.initNode("autopilot/gain/GIASInt",-0.005,"DOUBLE");
