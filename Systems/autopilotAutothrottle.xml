@@ -13,15 +13,26 @@
     ===============
     -->
 
-	<!-- Hold IAS by varying throttle  -->
+	<!-- Ias Error (U-Ud) -->
 	<filter>
-		<name>IAS Hold Throttle</name>
+		<name>U-Ud</name>
 		<debug>false</debug>
 		<type>gain</type>
-<!--		<gain>-5.0</gain>  -->
-		<gain>-4.0</gain>
-		<input><property>autopilot/internal/U-Ud-leadlag</property></input>
-		<output><property>autopilot/internal/throttlec-ias</property></output>
+		<gain>1.0</gain>
+		<input><property>fdm/jsbsim/velocities/vc-kts</property></input>
+		<reference><property>autopilot/settings/AT_setknots</property></reference>
+		<output><property>autopilot/internal/AT_U-Ud</property></output>
+		<u_min>-100</u_min>
+		<u_max>100</u_max>
+	</filter>
+	
+	<filter>
+		<name>IAS Demand Throttle</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>-10.0</gain>
+		<input><property>autopilot/internal/AT_U-Ud</property></input>
+		<output><property>autopilot/internal/throttlec-deg</property></output>
 	</filter>
 
 
@@ -29,41 +40,29 @@
 		<name>Autothrottle selector</name>
 		<debug>false</debug>
 		<type>gain</type>
-		<gain>1.0</gain>
+		<gain>0.025</gain>
 		<input>
 			<condition>
-				<and>
-					<or>
-						<property>autopilot/switches/ALT-sw</property>
-						<property>autopilot/switches/ILS_GS</property>
-					</or>
-					<property>autopilot/switches/IAS-sw</property>
-				</and>
+				<or>
+					<equals><property>autopilot/switches/AT_engageswitch</property><value>1</value></equals>
+					<equals><property>autopilot/switches/AT_engageswitch</property><value>-1</value></equals>
+				</or>
 			</condition>
-			<property>autopilot/internal/throttlec-ias</property>
-		</input>
-		<input>
-			<condition>
-					<or>
-						<property>autopilot/switches/ALT-sw</property>
-						<property>autopilot/switches/ILS_GS</property>
-					</or>
-			</condition>
-			<property>autopilot/internal/throttlec-mach</property>
+			<property>autopilot/internal/throttlec-deg</property>
 		</input>
 		<!-- no selection - default -->
 		<input><value>0.0</value></input>
-		<output><property>autopilot/commands/throttlec-deg</property></output>
-		<u_min>-25</u_min>
-		<u_max>25</u_max>
+		<output><property>autopilot/commands/throttlec-norm</property></output>
+		<u_min>0</u_min>
+		<u_max>1</u_max>
 	</filter>
 	
-<!--
+	<!--
     ===============
         Auto-throttle driver
     ===============
 -->
-	<filter>
+<!--	<filter>
 		<name>Throttle Cmd</name>
 		<debug>false</debug>
 		<type>gain</type>
@@ -74,6 +73,31 @@
 		<output><property>fdm/jsbsim/fcs/afcs-throttle-cmd-norm</property></output>
 		<u_min>-0.8</u_min>
 		<u_max>0.8</u_max>
-	</filter>
-	
+	</filter> -->
+  <!-- =============================================================== -->
+  <!-- throttle servo driver.                                          -->
+  <!-- =============================================================== -->
+
+	<filter>
+		<name>SERVO-DRIVER:throttle</name>
+		<debug>false</debug>
+		<feedback-if-disabled>true</feedback-if-disabled>
+		<enable>
+			<condition>
+				<or>
+					<equals><property>autopilot/switches/AT_engageswitch</property><value>1</value></equals>
+					<equals><property>autopilot/switches/AT_engageswitch</property><value>-1</value></equals>
+				</or>
+			</condition>
+		</enable>
+		<input>autopilot/commands/throttlec-norm</input>
+		<output>
+			<property>/controls/engines/engine[0]/throttle</property>
+			<property>/controls/engines/engine[1]/throttle</property>
+			<property>/controls/engines/engine[2]/throttle</property>
+			<property>/controls/engines/engine[3]/throttle</property>
+		</output>
+		<type>noise-spike</type>
+		<max-rate-of-change>0.1</max-rate-of-change>
+	</filter>	
 </PropertyList>
