@@ -40,8 +40,6 @@ print ("autopilot.nas");
 	 
 	props.globals.initNode("autopilot/mutex","","STRING");
 	
-	props.globals.initNode("autopilot/settings/AT_setknots",140.0,"DOUBLE");
-	
 	props.globals.initNode("autopilot/gain/GAy",0.05,"DOUBLE");
 	props.globals.initNode("autopilot/gain/GBetadot",0.25,"DOUBLE");
 	props.globals.initNode("autopilot/gain/GIASInt",-0.005,"DOUBLE");
@@ -62,12 +60,11 @@ print ("autopilot.nas");
 	props.globals.initNode("autopilot/gain/Kp_s",0.1,"DOUBLE");
 	props.globals.initNode("autopilot/gain/Kphi",10.0,"DOUBLE");
 	props.globals.initNode("autopilot/gain/gs-q",1000.0,"DOUBLE");
-
-
-
-
-
-
+	
+	props.globals.initNode("autopilot/settings/AT1_Datum",0.0,"DOUBLE");
+	props.globals.initNode("autopilot/settings/AT2_Datum",0.0,"DOUBLE");	
+	props.globals.initNode("autopilot/settings/AT3_Datum",0.0,"DOUBLE");	
+	props.globals.initNode("autopilot/settings/AT4_Datum",0.0,"DOUBLE");	
 	
 var initAFCS_FCSinputs = func() {
     print("initAFCS_FCSinputs");
@@ -93,6 +90,7 @@ var listenerApInitFunc = func {
 	setprop("autopilot/switches/AT_2switch", 0);
 	setprop("autopilot/switches/AT_3switch", 0);
 	setprop("autopilot/switches/AT_4switch", 0);
+	setprop("autopilot/settings/AT_setknots",140.0);
 
 	setprop("autopilot/switches/YDStby-sw", 1);
 	
@@ -558,9 +556,51 @@ var update_autopilot = func {
 
 	setprop("autopilot/settings/RollKnobInDetent",
 	(getprop("autopilot/settings/TurnKnob") < 0.11) and (getprop("autopilot/settings/TurnKnob") > -0.11));
-
-
-
+	
+	var AT_P = getprop("autopilot/switches/AT_powerswitch");
+	var AT_E = getprop("autopilot/switches/AT_engageswitch") != 0;
+	var AT_1sw = getprop("autopilot/switches/AT_1switch");
+	var AT_2sw = getprop("autopilot/switches/AT_2switch");
+	var AT_3sw = getprop("autopilot/switches/AT_3switch");
+	var AT_4sw = getprop("autopilot/switches/AT_4switch");
+	
+	var AT1 = AT_1sw and AT_P and AT_E;
+	var AT2 = AT_2sw and AT_P and AT_E;
+	var AT3 = AT_3sw and AT_P and AT_E;
+	var AT4 = AT_4sw and AT_P and AT_E;
+	
+	var APdemand = getprop("autopilot/commands/throttlec-norm");
+	
+	if (AT1) {
+		setprop("controls/engines/engine[0]/throttle", getprop("autopilot/settings/AT1_Datum")+ APdemand);
+			}
+	else {
+		setprop("autopilot/settings/AT1_Datum", getprop("controls/engines/engine[0]/throttle"));
+			}
+	if (AT2) {
+		setprop("controls/engines/engine[1]/throttle", getprop("autopilot/settings/AT2_Datum")+ APdemand);
+			}
+	else {
+		setprop("autopilot/settings/AT2_Datum", getprop("controls/engines/engine[1]/throttle"));
+		}
+	if (AT3) {
+		setprop("controls/engines/engine[2]/throttle", getprop("autopilot/settings/AT3_Datum")+ APdemand);
+			}
+	else {
+		setprop("autopilot/settings/AT3_Datum", getprop("controls/engines/engine[2]/throttle"));
+		}
+	if (AT4) {
+		setprop("controls/engines/engine[3]/throttle", getprop("autopilot/settings/AT4_Datum")+ APdemand);
+			}
+	else {
+		setprop("autopilot/settings/AT4_Datum", getprop("controls/engines/engine[3]/throttle"));
+		}
+	
+	setprop("autopilot/switches/AT1",AT1);
+	setprop("autopilot/switches/AT2",AT2);	
+	setprop("autopilot/switches/AT3",AT3);	
+	setprop("autopilot/switches/AT4",AT4);
+	
 	settimer(update_autopilot,0);   ## loop 
 };
 ##############################################################################################

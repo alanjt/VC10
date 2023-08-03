@@ -92,6 +92,18 @@
 					</binding>
 				</input>
 				
+				<checkbox>
+					<row>3</row>
+					<col>1</col>
+					<label>AT Power</label>
+					<property>autopilot/switches/AT_powerswitch</property>
+					<live>true</live>
+					<binding>
+						<command>property-toggle</command>
+						<property>autopilot/switches/AT_powerswitch</property>
+					</binding>
+				</checkbox>
+				
 				<combo>
 					<row>3</row><col>2</col>
 					<label>Engage</label>

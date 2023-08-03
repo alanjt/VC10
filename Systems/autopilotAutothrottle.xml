@@ -78,7 +78,7 @@
   <!-- throttle servo driver.                                          -->
   <!-- =============================================================== -->
 
-	<filter>
+<!--	<filter>
 		<name>SERVO-DRIVER:throttle</name>
 		<debug>false</debug>
 		<feedback-if-disabled>true</feedback-if-disabled>
@@ -99,5 +99,5 @@
 		</output>
 		<type>noise-spike</type>
 		<max-rate-of-change>0.1</max-rate-of-change>
-	</filter>	
+	</filter> -->	
 </PropertyList>
