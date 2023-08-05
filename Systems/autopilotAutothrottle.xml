@@ -35,6 +35,37 @@
 		<output><property>autopilot/internal/throttlec-deg</property></output>
 	</filter>
 
+	<filter>
+		<name>Throttle_integ</name>
+		<debug>false</debug>
+		<type>integrator</type>
+		<gain>0.1</gain>
+		<input>
+			<condition>
+				<or>
+					<equals><property>autopilot/switches/AT_engageswitch</property><value>1</value></equals>
+					<equals><property>autopilot/switches/AT_engageswitch</property><value>-1</value></equals>
+				</or>
+			</condition>
+			<expression>
+				<product>
+					<value>1</value>
+					<property>autopilot/internal/throttlec-deg</property>
+				</product>
+			</expression>
+		</input>
+		<input>  <!-- integrator output feedaback if AT not engaged -->
+			<expression>
+				<product>
+					<value>-10</value>
+					<property>autopilot/internal/throttlec-deg_integ</property>
+				</product>
+			</expression>
+		</input>
+		<output><property>autopilot/internal/throttlec-deg_integ</property></output>
+		<u_min>-10</u_min>
+		<u_max>10</u_max>
+	</filter>
 
 	<filter>
 		<name>Autothrottle selector</name>

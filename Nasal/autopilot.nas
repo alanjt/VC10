@@ -37,6 +37,7 @@ print ("autopilot.nas");
 	props.globals.initNode("autopilot/controls/YD_2_engaged", 0,"BOOL");
 	props.globals.initNode("autopilot/controls/YD_3_engaged", 0,"BOOL");
 	props.globals.initNode("autopilot/settings/RollKnobInDetent",0,"BOOL");	
+	props.globals.initNode("autopilot/internal/throttlec-deg_integ",0.0,"DOUBLE");
 	 
 	props.globals.initNode("autopilot/mutex","","STRING");
 	
