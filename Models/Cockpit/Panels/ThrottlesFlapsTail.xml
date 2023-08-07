@@ -60,7 +60,7 @@ if you contacted me before making any changes to this software.
 			<not><property>engines/engine[0]/reversed</property></not>
 		</condition>
 		<property>controls/engines/engine[0]/throttle</property>
-		<factor>-50</factor>
+		<factor>-80</factor>
 		<center>
 			<x-m>0.0</x-m>
 			<y-m>0.0</y-m>
@@ -94,7 +94,7 @@ if you contacted me before making any changes to this software.
 		<type>rotate</type>
 		<object-name>throttle.002</object-name>>
 		<property>controls/engines/engine[1]/throttle</property>
-		<factor>-50</factor>
+		<factor>-80</factor>
 		<center>
 			<x-m>0.0</x-m>
 			<y-m>0.0</y-m>
@@ -128,7 +128,7 @@ if you contacted me before making any changes to this software.
 		<type>rotate</type>
 		<object-name>throttle.003</object-name>
 		<property>controls/engines/engine[2]/throttle</property>
-		<factor>-50</factor>
+		<factor>-80</factor>
 		<center>
 			<x-m>0.0</x-m>
 			<y-m>0.0</y-m>
@@ -166,7 +166,7 @@ if you contacted me before making any changes to this software.
 			<not><property>engines/engine[3]/reversed</property></not>
 		</condition>
 		<property>controls/engines/engine[3]/throttle</property>
-		<factor>-50</factor>
+		<factor>-80</factor>
 		<center>
 			<x-m>0.0</x-m>
 			<y-m>0.0</y-m>

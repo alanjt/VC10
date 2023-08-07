@@ -27,7 +27,7 @@ print ("autopilot.nas");
 	
 	props.globals.initNode("autopilot/switches/mode-knob",0,"DOUBLE");      # -1 HEADING : 0 MAN : 1 LOC VOR : 2 GS AUTO : 3 GS MAN : 4 FLARE :
 #	autopilot/Bendix-PB-20/controls/mode-selector (switches/mode-knob          0 NAV     : 1 HDG : 2 MAN     : 3 LOC VOR : 4 GS AUTO: 5 GS MAN:
-	props.globals.initNode("autopilot/switches/pitch-wheel-deg",1,"DOUBLE");# -14 .. 0 .. +14
+	props.globals.initNode("autopilot/settings/pitch-wheel-deg",1,"DOUBLE");# -14 .. 0 .. +14
 	props.globals.initNode("autopilot/settings/TurnKnob",0,"DOUBLE");		# -25 .. 0 .. +25
 	props.globals.initNode("autopilot/switches/datum_norm",1,"DOUBLE");		#  -1 .. 0 .. +1
 
@@ -72,7 +72,7 @@ var initAFCS_FCSinputs = func() {
 	props.globals.getNode("/fdm/jsbsim/fcs/afcs-elevator-cmd-deg", 1).setDoubleValue(0);
 	props.globals.getNode("/fdm/jsbsim/fcs/afcs-aileron-cmd-deg", 1).setDoubleValue(0);
 	props.globals.getNode("/fdm/jsbsim/fcs/afcs-rudder-cmd-deg", 1).setDoubleValue(0);
-	props.globals.getNode("/fdm/jsbsim/fcs/afcs-throttle-cmd-norm", 1).setDoubleValue(0);
+#	props.globals.getNode("/fdm/jsbsim/fcs/afcs-throttle-cmd-norm", 1).setDoubleValue(0);
 	}
 
 
@@ -80,17 +80,17 @@ var initAFCS_FCSinputs = func() {
 # init
 var listenerApInitFunc = func {
 
-	props.globals.getNode("/fdm/jsbsim/fcs/afcs-elevator-cmd-deg", 1).setDoubleValue(0);
-	props.globals.getNode("/fdm/jsbsim/fcs/afcs-aileron-cmd-deg", 1).setDoubleValue(0);
-	props.globals.getNode("/fdm/jsbsim/fcs/afcs-rudder-cmd-deg", 1).setDoubleValue(0);
-	props.globals.getNode("/fdm/jsbsim/fcs/afcs-throttle-cmd-norm", 1).setDoubleValue(0);
+#	props.globals.getNode("/fdm/jsbsim/fcs/afcs-elevator-cmd-deg", 1).setDoubleValue(0);
+#	props.globals.getNode("/fdm/jsbsim/fcs/afcs-aileron-cmd-deg", 1).setDoubleValue(0);
+#	props.globals.getNode("/fdm/jsbsim/fcs/afcs-rudder-cmd-deg", 1).setDoubleValue(0);
+#	props.globals.getNode("/fdm/jsbsim/fcs/afcs-throttle-cmd-norm", 1).setDoubleValue(0);
 
-	setprop("autopilot/switches/AT_powerswitch", 0);
+	setprop("autopilot/switches/AT_powerswitch", 1);
 	setprop("autopilot/switches/AT_engageswitch", 0);
-	setprop("autopilot/switches/AT_1switch", 0);
-	setprop("autopilot/switches/AT_2switch", 0);
-	setprop("autopilot/switches/AT_3switch", 0);
-	setprop("autopilot/switches/AT_4switch", 0);
+	setprop("autopilot/switches/AT_1switch", 1);
+	setprop("autopilot/switches/AT_2switch", 1);
+	setprop("autopilot/switches/AT_3switch", 1);
+	setprop("autopilot/switches/AT_4switch", 1);
 	setprop("autopilot/settings/AT_setknots",140.0);
 
 	setprop("autopilot/switches/YDStby-sw", 1);
@@ -296,8 +296,8 @@ var listenerApMANPitchFunc = func {
 		if (getprop("autopilot/switches/ALT-sw") == 0) {
 
 			var pitchDeg = getprop("autopilot/settings/pitch-wheel-deg");
-			pitchDeg = (pitchDeg > 30 ? 30 : pitchDeg);
-			pitchDeg = (pitchDeg < -30 ? -30 : pitchDeg);
+			pitchDeg = (pitchDeg > 14 ? 14 : pitchDeg);
+			pitchDeg = (pitchDeg < -14 ? -14 : pitchDeg);
 			setprop("autopilot/settings/target-pitch-deg", pitchDeg);
 		}
 	}
@@ -570,38 +570,11 @@ var update_autopilot = func {
 	var AT3 = AT_3sw and AT_P and AT_E;
 	var AT4 = AT_4sw and AT_P and AT_E;
 	
-	var APdemand = getprop("autopilot/commands/throttlec-norm");
-	
-	if (AT1) {
-		setprop("controls/engines/engine[0]/throttle", getprop("autopilot/settings/AT1_Datum")+ APdemand);
-			}
-	else {
-		setprop("autopilot/settings/AT1_Datum", getprop("controls/engines/engine[0]/throttle"));
-			}
-	if (AT2) {
-		setprop("controls/engines/engine[1]/throttle", getprop("autopilot/settings/AT2_Datum")+ APdemand);
-			}
-	else {
-		setprop("autopilot/settings/AT2_Datum", getprop("controls/engines/engine[1]/throttle"));
-		}
-	if (AT3) {
-		setprop("controls/engines/engine[2]/throttle", getprop("autopilot/settings/AT3_Datum")+ APdemand);
-			}
-	else {
-		setprop("autopilot/settings/AT3_Datum", getprop("controls/engines/engine[2]/throttle"));
-		}
-	if (AT4) {
-		setprop("controls/engines/engine[3]/throttle", getprop("autopilot/settings/AT4_Datum")+ APdemand);
-			}
-	else {
-		setprop("autopilot/settings/AT4_Datum", getprop("controls/engines/engine[3]/throttle"));
-		}
-	
-	setprop("autopilot/switches/AT1",AT1);
-	setprop("autopilot/switches/AT2",AT2);	
-	setprop("autopilot/switches/AT3",AT3);	
-	setprop("autopilot/switches/AT4",AT4);
-	
+	setprop("autopilot/settings/AT1_engage",AT1);
+	setprop("autopilot/settings/AT2_engage",AT2);
+	setprop("autopilot/settings/AT3_engage",AT3);
+	setprop("autopilot/settings/AT4_engage",AT4);
+		
 	settimer(update_autopilot,0);   ## loop 
 };
 ##############################################################################################

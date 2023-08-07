@@ -68,19 +68,14 @@
 						<property>autopilot/switches/AT_4switch</property>
 					</binding>
 				</checkbox>
+				
 				<text>
 					<label>THROTTLES</label>
-					<text>THROTTLES</text>
 					<halign>center</halign>
 					<row>1</row>
 					<col>2</col>
 				</text>
 						
-<!--				<text>
-					<row>2</row><col>1</col>
-					<halign>right</halign>
-					<label>Airspeed (kt):</label>
-				</text> -->
 				<input>
 					<row>2</row><col>2</col>
 					<label>Airspeed (kt):</label>
@@ -104,23 +99,37 @@
 					</binding>
 				</checkbox>
 				
-				<combo>
-					<row>3</row><col>2</col>
-					<label>Engage</label>
-					<halign>center</halign>
+				<slider>
+					<name>Engage</name>
+					<label>AT Engage</label>
+					<halign>centre</halign>
+					<row>3</row>
+					<col>2</col>
+					<width>3</width>
 					<property>autopilot/switches/AT_engageswitch</property>
 					<live>true</live>
-					<value>-1</value>
-					<value>0</value>
-					<value>1</value>
+					<binding>
+						<command>dialog-apply</command>
+						<object-name>AT_Engage</object-name>
+					</binding>
+					<min>-1</min>
+					<max>1</max>
+					<step>1</step>
 					<binding>
 						<command>dialog-apply</command>
 					</binding>
-				</combo>
+				</slider>
+				
+				<text>
+					<label>AT1  OFF  AT2</label>
+					<halign>center</halign>
+					<row>4</row>
+					<col>2</col>
+				</text>
+				
 			</frame>
 		</group>
 	</group>
-		
 		
 	<frame>
 		<layout>hbox</layout>
@@ -267,7 +276,6 @@
 			<hrule/>
 			
 			<frame>
-				<!--				<layout>hbox</layout> -->
 				<layout>table</layout>
 				
 				<slider>
@@ -277,7 +285,6 @@
 					<row>1</row>
 					<col>0</col>
 					<width>10</width>
-					<!--					<vertical>true</vertical> -->
 					<property>autopilot/switches/mode-knob</property>
 					<live>true</live>
 					<binding>
@@ -289,7 +296,7 @@
 					<step>1</step>
 				</slider>
 				<text>
-					<row>4</row>
+					<row>2</row>
 					<col>0</col>
 					<label>mode</label>
 					<format>%s</format>
@@ -297,7 +304,7 @@
 					<live>true</live>
 				</text>
 				<text>
-					<row>5</row>
+					<row>3</row>
 					<col>0</col>
 					<label>-9.99</label>
 					<format>%2d</format>
@@ -323,7 +330,7 @@
 					<step>-0.1</step>
 				</slider>
 				<text>
-					<row>5</row>
+					<row>3</row>
 					<col>1</col>
 					<label>-9.99</label>
 					<format>%2d</format>
@@ -353,7 +360,7 @@
 					<step>1.0</step>
 				</dial>
 				<text>
-					<row>5</row>
+					<row>3</row>
 					<col>2</col>
 					<label>-9.99</label>
 					<format>%2.1f</format>
@@ -379,7 +386,7 @@
 					<step>0.1</step>
 				</slider>
 				<text>
-					<row>5</row>
+					<row>3</row>
 					<col>3</col>
 					<label>-9.99</label>
 					<format>%2d</format>
@@ -405,29 +412,13 @@
 					<step>0.05</step>
 				</slider>
 				<text>
-					<row>5</row>
+					<row>3</row>
 					<col>4</col>
 					<label>-9.99</label>
 					<format>% 1.2f</format>
 					<property>autopilot/settings/datum_norm</property>
 					<live>true</live>
 				</text>
-
-
-				<!--			<dial>
-					<name>Roll-deg</name>
-					<row>0</row>
-					<col>2</col>
-					<property>autopilot/settings/TurnKnob</property>
-					<min>-60</min>
-					<max>60</max>
-					<wrap>false</wrap>
-					<live>true</live>
-					<binding>
-						<command>dialog-apply</command>
-						<object-name>Roll-deg</object-name>
-					</binding>
-				</dial> -->
 			</frame>
 			<hrule/>
 		</group>

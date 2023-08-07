@@ -54,7 +54,7 @@
 				</product>
 			</expression>
 		</input>
-		<input>  <!-- integrator output feedaback if AT not engaged -->
+		<input><!-- integrator output feedaback if AT not engaged -->
 			<expression>
 				<product>
 					<value>-10</value>
@@ -84,7 +84,7 @@
 		<!-- no selection - default -->
 		<input><value>0.0</value></input>
 		<output><property>autopilot/commands/throttlec-norm</property></output>
-		<u_min>0</u_min>
+		<u_min>-1</u_min>
 		<u_max>1</u_max>
 	</filter>
 	
@@ -93,7 +93,7 @@
         Auto-throttle driver
     ===============
 -->
-<!--	<filter>
+	<!--	<filter>
 		<name>Throttle Cmd</name>
 		<debug>false</debug>
 		<type>gain</type>
@@ -105,11 +105,11 @@
 		<u_min>-0.8</u_min>
 		<u_max>0.8</u_max>
 	</filter> -->
-  <!-- =============================================================== -->
-  <!-- throttle servo driver.                                          -->
-  <!-- =============================================================== -->
+	<!-- =============================================================== -->
+	<!-- throttle servo driver.                                          -->
+	<!-- =============================================================== -->
 
-<!--	<filter>
+	<!--	<filter>
 		<name>SERVO-DRIVER:throttle</name>
 		<debug>false</debug>
 		<feedback-if-disabled>true</feedback-if-disabled>
@@ -130,5 +130,154 @@
 		</output>
 		<type>noise-spike</type>
 		<max-rate-of-change>0.1</max-rate-of-change>
-	</filter> -->	
+	</filter> -->
+	<filter>
+		<name>SERVO-Datum:throttle 1</name>
+		<type>gain</type>
+		<debug>false</debug>
+		<feedback-if-disabled>true</feedback-if-disabled>
+		<enable>
+			<condition><not><property>autopilot/settings/AT1_engage</property></not></condition>
+		</enable>
+		<input><property>controls/engines/engine[0]/throttle</property></input>
+		<output><property>autopilot/settings/AT1_Datum</property></output>
+	</filter>	
+	<filter>
+		<name>SERVO-Datum:throttle 2</name>
+		<type>gain</type>
+		<debug>false</debug>
+		<feedback-if-disabled>true</feedback-if-disabled>
+		<enable>
+			<condition><not><property>autopilot/settings/AT2_engage</property></not></condition>
+		</enable>
+		<input><property>controls/engines/engine[1]/throttle</property></input>
+		<output><property>autopilot/settings/AT2_Datum</property></output>
+	</filter>
+	<filter>
+		<name>SERVO-Datum:throttle 3</name>
+		<type>gain</type>
+		<debug>false</debug>
+		<feedback-if-disabled>true</feedback-if-disabled>
+		<enable>
+			<condition><not><property>autopilot/settings/AT3_engage</property></not></condition>
+		</enable>
+		<input><property>controls/engines/engine[2]/throttle</property></input>
+		<output><property>autopilot/settings/AT3_Datum</property></output>
+	</filter>
+	<filter>
+		<name>SERVO-Datum:throttle 4</name>
+		<type>gain</type>
+		<debug>false</debug>
+		<feedback-if-disabled>true</feedback-if-disabled>
+		<enable>
+			<condition><not><property>autopilot/settings/AT4_engage</property></not></condition>
+		</enable>
+		<input><property>controls/engines/engine[3]/throttle</property></input>
+		<output><property>autopilot/settings/AT4_Datum</property></output>
+	</filter>
+	<filter>
+		<name>SERVO-Datum:throttle 1</name>
+		<type>gain</type>
+		<debug>false</debug>
+		<feedback-if-disabled>true</feedback-if-disabled>
+		<enable>
+			<condition><not><property>autopilot/settings/AT1_engage</property></not></condition>
+		</enable>
+		<input><property>controls/engines/engine[0]/throttle</property></input>
+		<output><property>autopilot/settings/AT1_Datum</property></output>
+	</filter>
+
+	<filter>
+		<name>SERVO-DRIVER:throttle 1</name>
+		<debug>false</debug>
+		<feedback-if-disabled>true</feedback-if-disabled>
+		<enable>
+			<condition>
+				<property>autopilot/settings/AT1_engage</property>
+			</condition>
+		</enable>
+		<input>
+			<expression>
+				<sum>
+					<property>autopilot/settings/AT1_Datum</property>>
+					<property>autopilot/commands/throttlec-norm</property>
+				</sum>
+			</expression>
+		</input>
+		<output>
+			<property>/controls/engines/engine[0]/throttle</property>
+		</output>
+		<type>noise-spike</type>
+		<max-rate-of-change>0.1</max-rate-of-change>
+	</filter>
+	
+	<filter>
+		<name>SERVO-DRIVER:throttle 2</name>
+		<debug>false</debug>
+		<feedback-if-disabled>true</feedback-if-disabled>
+		<enable>
+			<condition>
+				<property>autopilot/settings/AT2_engage</property>
+			</condition>
+		</enable>
+		<input>
+			<expression>
+				<sum>
+					<property>autopilot/settings/AT2_Datum</property>>
+					<property>autopilot/commands/throttlec-norm</property>
+				</sum>
+			</expression>
+		</input>
+		<output>
+			<property>/controls/engines/engine[1]/throttle</property>
+		</output>
+		<type>noise-spike</type>
+		<max-rate-of-change>0.1</max-rate-of-change>
+	</filter>
+	<filter>
+		<name>SERVO-DRIVER:throttle 3</name>
+		<debug>false</debug>
+		<feedback-if-disabled>true</feedback-if-disabled>
+		<enable>
+			<condition>
+				<property>autopilot/settings/AT3_engage</property>
+			</condition>
+		</enable>
+		<input>
+			<expression>
+				<sum>
+					<property>autopilot/settings/AT3_Datum</property>>
+					<property>autopilot/commands/throttlec-norm</property>
+				</sum>
+			</expression>
+		</input>
+		<output>
+			<property>/controls/engines/engine[2]/throttle</property>
+		</output>
+		<type>noise-spike</type>
+		<max-rate-of-change>0.1</max-rate-of-change>
+	</filter>
+	<filter>
+		<name>SERVO-DRIVER:throttle 4</name>
+		<debug>false</debug>
+		<feedback-if-disabled>true</feedback-if-disabled>
+		<enable>
+			<condition>
+				<property>autopilot/settings/AT4_engage</property>
+			</condition>
+		</enable>
+		<input>
+			<expression>
+				<sum>
+					<property>autopilot/settings/AT4_Datum</property>>
+					<property>autopilot/commands/throttlec-norm</property>
+				</sum>
+			</expression>
+		</input>
+		<output>
+			<property>/controls/engines/engine[3]/throttle</property>
+		</output>
+		<type>noise-spike</type>
+		<max-rate-of-change>0.1</max-rate-of-change>
+	</filter>
 </PropertyList>
