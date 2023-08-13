@@ -43,6 +43,16 @@ RR Conway engines and the VC10´s Elliot autopilot is a Bendix PB20 built under 
 						</binding>
 					</item>
 					<item>
+                        <name>graph</name>
+                        <binding>
+                            <command>nasal</command>
+                            <script>
+                                 <!-- "var a" will be overwritten each call -->
+                                var a = plot.Fgp.new(600,201,0).init();
+                            </script>
+                        </binding>
+					</item>
+					<item>
 						<label>Checklists</label>
 						<binding>
 							<command>dialog-show</command>
@@ -343,6 +353,26 @@ _______________________________________________________
 		<dual_control>
 			<file>Nasal/DualControl/pilot-dual-control.nas</file>
 		</dual_control>
+		
+        <!-- Uncomment below to enable FGplot -->
+        <!-- -->
+        <plot>
+		
+			<!-- alternative as in JA37/Viggen-set-base.xml -->
+			<!-- <file>Aircraft/JA37/Nasal/plot/Pbutton.nas</file>-->
+            <file>Nasal/plot/Pbutton.nas</file>
+            <file>Nasal/plot/Pchooser.nas</file>
+            <file>Nasal/plot/Pgraph.nas</file>
+            <file>Nasal/plot/Phelper.nas</file>
+            <file>Nasal/plot/Plegend.nas</file>
+            <file>Nasal/plot/Plines.nas</file>
+            <file>Nasal/plot/Pload.nas</file>
+            <file>Nasal/plot/Pmarks.nas</file>
+            <file>Nasal/plot/Pmenu.nas</file>
+            <file>Nasal/plot/Psave.nas</file>
+            <file>Nasal/plot/Ptext.nas</file>
+        </plot>
+        <!-- -->
 	</nasal>
 	
 	<dual-control>
