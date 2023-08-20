@@ -52,7 +52,7 @@ Area.new = func (x){
       _t: 0,  # handle to timer/ timer until popup
    };
    me._cnt=x;
-   printf("Area.new with count %d",me._cnt);
+   #printf("Area.new with count %d",me._cnt);
    return me;
 };
 
@@ -143,11 +143,11 @@ Area.DragOrMove = func (X,Y,M) {
    # When resizing plotting has to be stopped, or FG will crash
    # almost immidiatly, but otherwise also when continues resizing
    var OldRun = me._Run;
-     # printf("Resizing ... X %d Y %d M %d ",X,Y,M);
+     # #printf("Resizing ... X %d Y %d M %d ",X,Y,M);
    if(M == 2){
    # resize ! linewidth is also resized ! ?
       me._Run = 0;
-      printf("Resizing ... X %d Y %d M %d ",X,Y,M);
+      #printf("Resizing ... X %d Y %d M %d ",X,Y,M);
       var cx = me._Dialog.get("content-size[0]") +X;
       var cy = me._Dialog.get("content-size[1]") +Y;
 #      var fx = me._w / cx;
@@ -168,22 +168,22 @@ Area.DragOrMove = func (X,Y,M) {
 #      me._Canvas.set("size[0]",cx*2);
 #      me._Canvas.set("size[1]",cy*2);
       for(var i = 0 ; i < 6 ; i += 1){
-         printf("Line i %d width %f",i,int(0.9+fx*me._Lns[i].GetWidth()));
+         #printf("Line i %d width %f",i,int(0.9+fx*me._Lns[i].GetWidth()));
          me._Lns[i]._Path.set("stroke-width",int(0.9+fx*me._Lns[i].GetWidth()));
       };
       me._Pctx.set("stroke-width", int(0.9+1*fx));
 #      me._Canvas.set("view[0]",cx);
 #      me._Canvas.set("view[1]",cy);
-##      printf("Schalen fertig");
-      printf("Set stroke width done");
+##      #printf("Schalen fertig");
+      #printf("Set stroke width done");
       # Plotting to old status.
       me._Run = OldRun;
    } else { 
    # just move
-      printf("Moving ... X %d Y %d M %d ",X,Y,M);
+      #printf("Moving ... X %d Y %d M %d ",X,Y,M);
       me._Dialog.move(X,Y);
-##      printf("Verschieben fertig");
-      printf("Move done");	
+##      #printf("Verschieben fertig");
+      #printf("Move done");	
    };
    me._Drag = 0;
    return me;
@@ -251,16 +251,16 @@ Area.LegendDelay = func {
    return me;
 };
 
-# Legent shows properties in use
+# Legend shows properties in use
 # maby it should remain in sight until leave ...
 Area.Legend = func (x) {
    if(x == 1){ # mousebutton 1
-     printf("Area.Legend popup");
+     #printf("Area.Legend popup");
      gui.popupTip("Area.ShowLegend
 popup",2);
      if(me._Legend == 0) # No double legend
         me._Legend = Legend.new(me).init().Setup();
-   } else printf("Area.Legend popdown");  
+   } else #printf("Area.Legend popdown");  
    return me;
 };
 
@@ -329,14 +329,14 @@ Area.Menu = func (bt,n) {
 # This starts the whole plotting loop for active lines
 Area.Run = func () {
    # Start loop, ploting all enabled lines with property
-   printf("Start plotting is called");
+   #printf("Start plotting is called");
    if(me._Run == 1){
       gui.popupTip("Plot already running",2);
       return me;
    };
    me._Run = 1;
    me.DoTick = func(){
-#        printf("Tick ... \n");
+#        #printf("Tick ... \n");
       if(me._TickC == 0){
       me._TickMark._Path.moveTo(me._Cur_x,-50);
       me._TickMark._Path.lineTo(me._Cur_x,50);
@@ -355,7 +355,7 @@ Area.Run = func () {
          if(me._Lns[i]._Plottable == 1){
 #            p = me._Lns[i].GetProperty();
 #            y = getprop(p);
-#            printf("prop %s == %d, %d %d ",p,y,me._Cur_x, y);
+#            #printf("prop %s == %d, %d %d ",p,y,me._Cur_x, y);
            if( me._Cur_x == 0 )
              me._Lns[i]._Path.moveTo(me._Cur_x,0+ getprop(me._Lns[i].GetProperty()));
            else 
@@ -424,7 +424,7 @@ Area.SetTop = func (l,v) {
 
 # Stop the plotting loop.
 Area.Stop = func () {
-   printf("Stop plotting is called");
+   #printf("Stop plotting is called");
    me._Run = 0;
    return me;
 };
@@ -440,8 +440,11 @@ Area.Save = func () {
 
 # cp properties back from xml
 Area.Load = func () {
-   if(me._MenuEnabled == 1)
+   if(me._MenuEnabled == 1){
+      printf("Call Load.new");
+	  printf("  me._cnt == %d ", me._cnt);
       Load.new(me,me._cnt).init().run();
+	  }
    return me;
 };
 ############################################################
@@ -469,8 +472,8 @@ Fgp.new = func (w,h,r) {
 };
 
 Fgp.init = func {
-   printf("Count == %d",me._cnt);
-   printf("instances started == %d",me._cnt+1);
+   #printf("Count == %d",me._cnt);
+   #printf("instances started == %d",me._cnt+1);
 # This creates the plotting area and set the center (0) line
 # at 5 points from the bottom
    me._Area=Area.new(me._cnt);

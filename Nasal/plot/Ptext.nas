@@ -16,6 +16,7 @@ Text.new = func () {
       _Light: "#FFFFFF",
       _Dark: "#000000",
    };
+   printf("Text.new called");
    return me;
 };
 
@@ -24,7 +25,7 @@ Text.Setup = func (r,x,y,w,h,t = "----") {
    var ox = x+2;
    var oy = y+(h-((h-9)/2));
    me._Field = r.createChild("path", "data")
-              .setColorFill("#FFA500")
+              .setColorFill("#FFA500")   # Orange
               .set("stroke-width", 1)
               .moveTo(x,y)
               .lineTo(x,h+y)
@@ -79,9 +80,11 @@ Text.Gettext = func () {
    return me._Contend;
 };
 
-# Give background the colr of the line
+# Give background the color of the line
 Text.SlotColor = func (c,x) {
-   printf("Text.SlotColor called == %d",x);
+   printf("Text.SlotColor called  c == %d  ",c);
+   printf("Text.SlotColor called  x == %d  ",x);
+   printf("  c._Lns[x].GetColor() == %d  ",c._Lns[x].GetColor());
    me._Field.setColorFill(c._Lns[x].GetColor());
    return me;
 };
@@ -89,9 +92,9 @@ Text.SlotColor = func (c,x) {
 # Highlight
 Text.SetColor = func (x) {
    printf("Text.SetColor called == %d",x);
-   if(x == 0) me._Field.setColorFill("#FFA500");
-   if(x == 1) me._Field.setColorFill("#00A500");
-   if(x == 2) me._Field.setColorFill("#555555");
+   if(x == 0) me._Field.setColorFill("#FFA500");      # Orange
+   if(x == 1) me._Field.setColorFill("#00A500");      # Light Green		
+   if(x == 2) me._Field.setColorFill("#555555");      # Light Grey
    return me;
 };
 

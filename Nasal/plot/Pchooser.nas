@@ -31,6 +31,7 @@ Chooser.new = func(x,l) {
    };
    me._Caller = x;
    me._Line = l;
+   printf("Chooser.new called with line %d",me._Line,"  me._Caller %d",me._Caller);
    return me;
 };
 
@@ -78,7 +79,7 @@ Chooser.init = func() {
    me._Path = me._Root.createChild("text","")
               .set("font","Helvetica.txf")
               .setFontSize(16, 1)
-              .setColor("#00FF00")
+              .setColor("#00FF00")      # Green
               .setText(me._Line ~":"~ me._Path)
               .setTranslation(10, 20);
 #              .setAlignment("center")
@@ -96,26 +97,26 @@ Chooser.init = func() {
    var th = 20;               # Height of textfield
    var ts = 2;                # Spacing textfields
    var tsh = th + ts;
-   printf("Expect textfields = %d ",h/tsh);
+   #printf("Expect textfields = %d ",h/tsh);
 ##
-## WARNING, When spacing is to small, colors become waterpaintcolor
+## WARNING, When spacing is too small, colors become waterpaintcolor
 ##          Strange artifacts.
    var j = 0;
    for( var i = 0 ; i < 16 ; i += 1 ){  # 10 ==border 30 ==border+header
       append(me._Txf, Text.new().Setup(me._Root,10,j*28+30,w,20));
       me._Txf[j].Settext("+");
       j += 1;
-      printf("textfields = %d",(i / tsh));
+      #printf("textfields = %d",(i / tsh));
    };
    return me;
 };
 
 Chooser.run = func(n) {
-   printf("Chooser.run called");
-   printf("size(me._Txf) == %d",size(me._Txf));
+   #printf("Chooser.run called");
+   #printf("size(me._Txf) == %d",size(me._Txf));
    # get children and put in list 
    me.Filllist(n);
-   printf("size(me._Txf) == %d",size(me._Txf));
+   #printf("size(me._Txf) == %d",size(me._Txf));
    # Clear textfields
    me.clr();
    # get items and put in Text 
@@ -125,7 +126,7 @@ Chooser.run = func(n) {
 
 # Interupt function on click
 Chooser.Chose = func(y,b) {
-   printf("Chooser.Chose called %d",y);
+   #printf("Chooser.Chose called %d",y);
    if( b == 0 ){     
       var selected = int((y-22) /28);
       var item = selected + me._Show;
@@ -134,8 +135,8 @@ Chooser.Chose = func(y,b) {
       if(me._List[item] != "..")
         var t = props.globals.getNode(me._List[item]).getType();
       gui.popupTip(sprintf("Chosen == %s type %s",me._List[item],t),1);
-      printf("Chosen == %s",t);
-      printf("Number shown %d Number in list %d",int((y-22) /28),item);
+      #printf("Chosen == %s",t);
+      #printf("Number shown %d Number in list %d",int((y-22) /28),item);
       if(t == "NONE"){ # must be a dir chosen
          var n = me._List[item];
          if(n == "..") n = io.dirname(me._Cur);
@@ -152,9 +153,9 @@ Chooser.Chose = func(y,b) {
 };
 
 Chooser.clr = func () {
-   printf("Chooser.clr called");
+   #printf("Chooser.clr called");
    # clear fields
-   #printf("size(me._Txf) == %d",size(me._Txf));
+   ##printf("size(me._Txf) == %d",size(me._Txf));
    me._Txf[0].Settext("..");
    for(i = 1 ; i < size(me._Txf) ; i += 1) me._Txf[i].Settext(" - ");
    return me;
@@ -162,15 +163,15 @@ Chooser.clr = func () {
 
 # Put a batch of items in the text-fields and scoll routine
 Chooser.Filltext = func (s) {
-   printf("Chooser.Filltext called, scroll %f",s);
-   printf("me._Txf[0] == %s",me._Txf[0]);
+   #printf("Chooser.Filltext called, scroll %f",s);
+   #printf("me._Txf[0] == %s",me._Txf[0]);
    var cnt = size(me._Txf);
    me._Show -= s;
    if(me._Show < 0)me._Show = 0;   # Up movement
    if(size(me._List) < (cnt+me._Show))me._Show += s;
    if(size(me._List) <= cnt)me._Show = 0;
    for( var i = 0 ; i < (cnt) ; i += 1){
-         printf("i %d cnt % d items %d",i,cnt,me._items);
+         #printf("i %d cnt % d items %d",i,cnt,me._items);
       if(i < me._items){
          me._Txf[i].SetColor(0);
          me._Txf[i].Settext(io.basename(me._List[me._Show+i]));
@@ -181,27 +182,27 @@ Chooser.Filltext = func (s) {
 
 # Get all item in this path into the list
 Chooser.Filllist = func (n) {
-   printf("Chooser.Filllist called");
+   #printf("Chooser.Filllist called");
    me._List = [];
    append(me._List,"..");
-   printf("New fill 1-e == %s",me._List[0]);
+   #printf("New fill 1-e == %s",me._List[0]);
    me._items = 1;
    # get node name of path
    if( n == nil ){
       var node = props.globals;
    }else {
       if(n == "..") n = io.dirname(me._Cur);
-      printf("Brows => %s ",n);
+      #printf("Brows => %s ",n);
       var node = props.globals.getNode(n);
    };
    # get children and put in list and on screen
    var children = node.getChildren();
    foreach(c; children) { 
      if( c != nil ) {
-       printf("type %s size %d ", typeof(c), size(c) ); 
+       #printf("type %s size %d ", typeof(c), size(c) ); 
        t = c.getType();
        # Only plottable values
-       printf("Type %s == ", t ); 
+       #printf("Type %s == ", t ); 
        if(t == "NONE"){
           append(me._List,c.getPath() ~ "/");
           me._items += 1;
@@ -214,13 +215,13 @@ Chooser.Filllist = func (n) {
      };
    };
    me._Show = 0;
-   printf("Items found == %d",me._items);
+   #printf("Items found == %d",me._items);
    return me;
 };
 
 ## Fitstring in 3 classes ! should be more general helper function
 #Chooser.FitString = func (s,n) {
-#   printf("Chooser.FitString called with %s",s);
+#   #printf("Chooser.FitString called with %s",s);
 #   if ( size(""~s~"") < n ) return s;
 #   var l = substr(s, 0, (n - 2) / 3);
 #   var r = substr(s, size(s) + size(l) + 3 - n);

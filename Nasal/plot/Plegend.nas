@@ -29,6 +29,7 @@ Legend.new = func (x) {
       _t: 0                      # handle to legend timer
    };
    me._Caller = x;
+   printf("Legend.new called with Caller %d",me._Caller);
    return me;
 }
 
@@ -82,8 +83,12 @@ Legend.Setup = func () {
       printf("creating slot %d for line %d",slot,slot);
       # Add a Factor field 
       var a = Text.new().Setup(me._Root,8,offset+(slot*24),10,15,slot);
-      if(me._Caller._Lns[slot].GetStatus() == 1)
+      if(me._Caller._Lns[slot].GetStatus() == 1){
+	  	 printf("Plegend Call Text.SlotColor me._Caller == %d  ",me._Caller,);
+		 printf("Plegend  slot == %d  ",slot);
+		 ##printf("  c._Lns[me._Caller] == %d  ",c._Lns[me._Caller]);
          a.SlotColor(me._Caller,slot);
+		 }
       else
          a.SetColor(2);
 #      a.SlotColor(me._Caller,slot);
@@ -115,7 +120,7 @@ Legend.Setup = func () {
    me._t = maketimer(5,Delete);
    me._t.singleShot = 1;
    me._t.start();
-   printf("Timerid %d",me._t);
+   #printf("Timerid %d",me._t);
    return me;
 };
 
@@ -125,8 +130,8 @@ Legend.EnaDisa = func (l) {
 };
 
 Legend.ChFactor = func (b,x,c,s) {
-   printf("line %d x %d c %d s %d",b,x,c,s);
-   printf("Current factor %f",me._Caller._Lns[b].GetFactor());
+   #printf("line %d x %d c %d s %d",b,x,c,s);
+   #printf("Current factor %f",me._Caller._Lns[b].GetFactor());
    var f = me._Caller._Lns[b].GetFactor();
    if(c == 1){
       if(x > 0) 
@@ -164,7 +169,7 @@ Legend.TextIn = func (but,l) {
                 var key = event.getNode("key");
                 var C = key.getValue();
                 key.setValue(-1);           # drop key event
-                printf("code %d == %s",C,chr(C));
+                #printf("code %d == %s",C,chr(C));
                 if(C == 8){
                    Number = "";
                    me._Ofact[l].Settext(sprintf("%8.2e",Number));
@@ -187,7 +192,7 @@ Legend.TextIn = func (but,l) {
                    Number = Number ~ chr(C);
                    #me._Ofact[l].Settext(Number);
                    me._Ofact[l].Settext(sprintf("%8.2e",Number));
-                   printf("code %d == %s result == %d",C,chr(C),Number);
+                   #printf("code %d == %s result == %d",C,chr(C),Number);
                    return me;
                 };
              });
@@ -217,7 +222,7 @@ Legend.SetProp = func (x,newprop) {
 };
 
 #Legend.FitString = func (s,n) {
-#   printf("Legend.FitString called with %s",s);    
+#   #printf("Legend.FitString called with %s",s);    
 #   if ( size(""~s~"") < n ) return s;
 #   var l = substr(s, 0, (n - 2) / 3);
 #   var r = substr(s, size(s) + size(l) + 3 - n);

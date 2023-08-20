@@ -1,0 +1,562 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+    <name>fgplot_selector</name>
+    <layout>vbox</layout>
+    <resizable>true</resizable>
+    <default-padding>3</default-padding>
+        <color>
+            <red>0.2</red>
+            <green>0.2</green>
+            <blue>0.2</blue>
+            <alpha>0.7</alpha>  <!-- a little bit of transparency -->
+        </color>
+
+    <group>
+       <layout>hbox</layout>
+       <default-padding>1</default-padding>
+
+       <button>
+          <legend>ReRead</legend>
+          <default>true</default>
+          <pref-width>60</pref-width>
+          <pref-height>15</pref-height>
+          <border>2</border>
+          <color>
+             <red>0.34</red>
+             <green>0.33</green>
+             <blue>0.35</blue>
+          </color>
+          <binding>
+             <command>nasal</command>
+             <script>Pre_set()</script>
+          </binding>
+       </button>
+
+       <empty><whatever/></empty>
+
+       <text>
+          <label>fgplot_selector : </label>
+       </text>
+
+       <text>
+         <label>/</label>
+           <property>/sim/gui/dialogs/fgplot_selector/title</property>
+           <live>true</live>
+       </text>
+
+       <empty><stretch>true</stretch></empty>
+
+       <button>
+       <legend>X</legend>
+       <key>Esc</key>
+       <pref-width>15</pref-width>
+       <pref-height>15</pref-height>
+       <border>2</border>
+       <binding>
+          <command>dialog-close</command>
+       </binding>
+       </button>
+    </group>
+
+    <hrule/>
+
+    <property-list>
+       <name>property-list</name>
+       <color>
+          <red>0.3</red>
+          <green>0.3</green>
+          <blue>0.3</blue>
+       </color>
+       <pref-height>250</pref-height>
+       <pref-width>410</pref-width>
+       <halign>fill</halign>
+       <valign>fill</valign>
+       <stretch>true</stretch>
+       <property>/sim/gui/dialogs/fgplot_selector/list</property>
+       <binding>
+          <command>dialog-apply</command>
+          <object-name>property-list</object-name>
+       </binding>
+       <binding>
+          <command>nasal</command>
+          <script>select()</script>
+       </binding>
+    </property-list>
+
+    <hrule/>
+
+    <group>
+       <layout>table</layout>
+       <default-padding>1</default-padding>
+       <radio>
+          <row>0</row>
+          <col>0</col>
+          <color>
+             <red>1.0</red>
+             <green>0.0</green>
+             <blue>0.0</blue>
+          </color>
+          <label>0</label>
+          <halign>left</halign>
+          <width>10</width>
+          <live>true</live>
+             <property>/sim/gui/dialogs/fgplot_selector/sel[0]</property>
+          <binding>
+             <command>property-assign</command>
+             <property>/sim/gui/dialogs/fgplot_selector/sel[0]</property>
+             <value>1</value>
+          </binding>
+          <binding>
+             <command>nasal</command>
+                 <script>Set_Select(0);</script>
+          </binding>
+       </radio>
+       <radio>
+          <row>1</row>
+          <col>0</col>
+          <color>
+             <red>0.0</red>
+             <green>1.0</green>
+             <blue>0.0</blue>
+          </color>
+          <label>1</label>
+          <halign>left</halign>
+            <width>10</width>
+            <height>10</height>
+            <live>true</live>
+               <property>/sim/gui/dialogs/fgplot_selector/sel[1]</property>
+            <binding>
+               <command>property-assign</command>
+               <property>/sim/gui/dialogs/fgplot_selector/sel[1]</property>
+               <value>1</value>
+            </binding>
+            <binding>
+               <command>nasal</command>
+                  <script>Set_Select(1);</script>
+            </binding>
+         </radio>
+         <radio>
+            <row>2</row>
+            <col>0</col>
+            <color>
+               <red>0.0</red>
+               <green>0.0</green>
+               <blue>1.0</blue>
+            </color>
+            <label>2</label>
+            <halign>left</halign>
+            <width>10</width>
+            <height>10</height>
+            <live>true</live>
+               <property>/sim/gui/dialogs/fgplot_selector/sel[2]</property>
+            <binding>
+               <command>property-assign</command>
+                  <property>/sim/gui/dialogs/fgplot_selector/sel[2]</property>
+                  <value>1</value>
+             </binding>
+             <binding>
+                 <command>nasal</command>
+                 <script>Set_Select(2);</script>
+             </binding>
+         </radio>
+         <radio>
+            <row>3</row>
+            <col>0</col>
+            <color>
+               <red>1.0</red>
+               <green>0.5</green>
+               <blue>0.5</blue>
+            </color>
+            <label>3</label>
+            <halign>left</halign>
+            <width>10</width>
+            <height>10</height>
+            <live>true</live>
+               <property>/sim/gui/dialogs/fgplot_selector/sel[3]</property>
+            <binding>
+               <command>property-assign</command>
+               <property>/sim/gui/dialogs/fgplot_selector/sel[3]</property>
+               <value>1</value>
+            </binding>
+            <binding>
+               <command>nasal</command>
+               <script>Set_Select(3);</script>
+            </binding>
+        </radio>
+        <radio>
+           <row>4</row>
+           <col>0</col>
+           <color>
+              <red>0.0</red>
+              <green>0.5</green>
+              <blue>0.5</blue>
+           </color>
+           <label>4</label>
+           <halign>left</halign>
+           <width>10</width>
+           <height>10</height>
+           <live>true</live>
+              <property>/sim/gui/dialogs/fgplot_selector/sel[4]</property>
+           <binding>
+              <command>property-assign</command>
+              <property>/sim/gui/dialogs/fgplot_selector/sel[4]</property>
+              <value>1</value>
+           </binding>
+           <binding>
+              <command>nasal</command>
+              <script>Set_Select(4);</script>
+           </binding>
+        </radio>
+        <radio>
+           <row>5</row>
+           <col>0</col>
+           <color>
+              <red>0.5</red>
+              <green>0.5</green>
+              <blue>1.0</blue>
+           </color>
+           <label>5</label>
+           <halign>left</halign>
+           <width>10</width>
+           <height>10</height>
+           <live>true</live>
+              <property>/sim/gui/dialogs/fgplot_selector/sel[5]</property>
+           <binding>
+           <command>property-assign</command>
+              <property>/sim/gui/dialogs/fgplot_selector/sel[5]</property>
+              <value>1</value>
+           </binding>
+           <binding>
+              <command>nasal</command>
+              <script>Set_Select(5);</script>
+           </binding>
+       </radio>
+
+       <text>
+          <label>--</label>
+          <row>0</row>
+          <col>1</col>
+          <col>2</col>
+          <col>3</col>
+          <col>4</col>
+          <col>5</col>
+          <col>6</col>
+          <live>true</live>
+          <halign>left</halign>
+             <property>/sim/gui/dialogs/fgplot_selector/label[0]</property>
+          <width>170</width>
+       </text>
+       <text>
+          <label>--</label>
+          <row>1</row>
+          <col>1</col>
+          <col>2</col>
+          <col>3</col>
+          <col>4</col>
+          <col>5</col>
+          <col>6</col>
+          <live>true</live>
+          <halign>left</halign>
+             <property>/sim/gui/dialogs/fgplot_selector/label[1]</property>
+          <pref-width>170</pref-width>
+      </text>
+      <text>
+          <label>--</label>
+          <row>2</row>
+          <col>1</col>
+          <col>2</col>
+          <col>3</col>
+          <col>4</col>
+          <col>5</col>
+          <col>6</col>
+          <live>true</live>
+          <halign>left</halign>
+             <property>/sim/gui/dialogs/fgplot_selector/label[2]</property>
+          <pref-width>170</pref-width>
+      </text>
+      <text>
+         <label>--</label>
+         <row>3</row>
+         <col>1</col>
+         <col>2</col>
+         <col>3</col>
+         <col>4</col>
+         <col>5</col>
+         <col>6</col>
+         <live>true</live>
+         <halign>left</halign>
+            <property>/sim/gui/dialogs/fgplot_selector/label[3]</property>
+         <pref-width>170</pref-width>
+     </text>
+     <text>
+         <label>--</label>
+         <row>4</row>
+         <col>1</col>
+         <col>2</col>
+         <col>3</col>
+         <col>4</col>
+         <col>5</col>
+         <col>6</col>
+         <live>true</live>
+         <halign>left</halign>
+            <property>/sim/gui/dialogs/fgplot_selector/label[4]</property>
+         <pref-width>170</pref-width>
+    </text>
+    <text>
+        <label>--</label>
+        <row>5</row>
+        <col>1</col>
+        <col>2</col>
+        <col>3</col>
+        <col>4</col>
+        <col>5</col>
+        <col>6</col>
+        <live>true</live>
+        <halign>left</halign>
+           <property>/sim/gui/dialogs/fgplot_selector/label[5]</property>
+        <pref-width>170</pref-width>
+    </text>
+
+    <input>
+       <row>0</row>
+       <col>7</col>
+       <width>50</width>
+       <name>f0</name>
+       <live>true</live>
+       <halign>right</halign>
+          <property>/sim/gui/dialogs/fgplot_selector/input[0]</property>
+       <binding>
+          <command>dialog-apply</command>
+       </binding>
+       <binding>
+          <command>nasal</command>
+          <script>Set_Select(0);</script>
+       </binding>
+       <editable>true</editable>
+    </input>
+    <input>
+       <row>1</row>
+       <col>7</col>
+       <width>50</width>
+       <name>f1</name>
+       <live>true</live>
+       <halign>right</halign>
+          <property>/sim/gui/dialogs/fgplot_selector/input[1]</property>
+       <binding>
+          <command>dialog-apply</command>
+       </binding>
+       <binding>
+          <command>nasal</command>
+          <script>Set_Select(1);</script>
+       </binding>
+       <editable>true</editable>
+    </input>
+    <input>
+       <row>2</row>
+       <col>7</col>
+       <width>50</width>
+       <name>f2</name>
+       <live>true</live>
+       <halign>right</halign>
+          <property>/sim/gui/dialogs/fgplot_selector/input[2]</property>
+       <binding>
+          <command>dialog-apply</command>
+       </binding>
+       <binding>
+          <command>nasal</command>
+          <script>Set_Select(2);</script>
+       </binding>
+       <editable>true</editable>
+    </input>
+    <input>
+       <row>3</row>
+       <col>7</col>
+       <width>50</width>
+       <name>f3</name>
+       <live>true</live>
+       <halign>right</halign>
+          <property>/sim/gui/dialogs/fgplot_selector/input[3]</property>
+       <binding>
+         <command>dialog-apply</command>
+       </binding>
+       <binding>
+          <command>nasal</command>
+          <script>Set_Select(3);</script>
+       </binding>
+       <editable>true</editable>
+    </input>
+    <input>
+       <row>4</row>
+       <col>7</col>
+       <width>50</width>
+       <name>f4</name>
+       <live>true</live>
+       <halign>right</halign>
+          <property>/sim/gui/dialogs/fgplot_selector/input[4]</property>
+       <binding>
+          <command>dialog-apply</command>
+       </binding>
+       <binding>
+          <command>nasal</command>
+          <script>Set_Select(4);</script>
+       </binding>
+       <editable>true</editable>
+    </input>
+    <input>
+       <row>5</row>
+       <col>7</col>
+       <width>50</width>
+       <name>f5</name>
+       <live>true</live>
+       <halign>right</halign>
+          <property>/sim/gui/dialogs/fgplot_selector/input[5]</property>
+       <binding>
+          <command>dialog-apply</command>
+       </binding>
+       <binding>
+          <command>nasal</command>
+          <script>Set_Select(5);</script>
+       </binding>
+       <editable>true</editable>
+    </input>
+
+    </group>
+
+    <hrule/>
+
+    <group>
+    <layout>hbox</layout>
+    <button>
+       <legend>Set</legend>
+       <pref-height>20</pref-height>
+       <pref-width>200</pref-width>
+       <binding>
+          <command>nasal</command>
+          <script>set()</script>
+       </binding>
+    </button>
+    </group>
+
+    <nasal>
+      <open>
+        var self = cmdarg();
+        var dlgname = self.getNode("name").getValue();
+        var dlg = props.globals.getNode("/sim/gui/dialogs/" ~ dlgname, 1);
+        var title = dlg.getNode("title", 1);
+        var Line_Selected=0;
+        var mname = nil;
+        var DidSelect = 0;
+        var label = {};
+        var input = {};
+        var sel = {};
+        for( var i = 0 ; 6 > i ; i += 1){
+           label[i] = dlg.getNode("label["~i~"]", 1);
+           input[i] = dlg.getNode("input["~i~"]", 1);
+           sel[i] = dlg.getNode("sel["~i~"]", 1);
+           if(sel[i] == 1)Line_Selected=i;
+        };
+        var list = dlg.getNode("list", 1);
+        var node = nil;         # selected node entry (props.Node)
+        var dir = nil;          # current directory (string)
+        var update_interval = 5;
+        var root_title = "Internal Properties";
+        var name = nil;
+
+    var update = func(w) {
+       self.setValues({ "dialog-name": dlgname, "object-name": w });
+       fgcommand("dialog-update", self);
+    }
+
+    var squeeze = func(s, n) {
+      if (n >= size(s) or 7 > n ) return s;
+      var l = substr(s, 0, (n - 2) / 2);
+      var r = substr(s, size(s) + size(l) + 3 - n);
+      return l ~ "." ~ r;
+    }
+
+    var basename = func(a) {
+        return ( split("/", a) );
+    }
+
+    var select = func {
+       var lst = list.getValue();
+       node = props.globals.getNode(lst);
+       if (node == nil) node = props.globals;
+
+       setprop("/sim/gui/dialogs/fgplot_selector/selected", node.getPath());
+
+       if (node.getAttribute("children")) {
+          dir = node.getPath();
+          title.setValue(node.getPath() == "" ? root_title : lst);
+          node = nil;
+       } else {
+          var name = node.getName();
+          mname = name;
+          var index = node.getIndex();
+          var type = node.getType();
+          if (index) name ~= "[" ~ index ~ "]";
+          var value = 0;
+          if((type == "INT") or (type == "DOUBLE") or (type == "BOOL") 
+                                                or (type == "FLOAT")){
+             label[Line_Selected].setValue(squeeze(dir ~"/"~ name, 80));
+             input[Line_Selected].setValue(150);
+             DidSelect = 1;
+          };
+       };
+    };
+
+    var set = func {
+        # set top value if editfield is selected.
+        var f=0;
+        f=input[Line_Selected].getValue();
+        setprop("/gui/fgplot/internal/top["~Line_Selected~"]",f);
+        setprop("/gui/fgplot/internal/factor["~Line_Selected~"]",(-150/f));
+        # set also line-property if selected.
+        if(DidSelect == 1){
+          setprop("/gui/fgplot/internal/prop["~Line_Selected~"]",
+                   label[Line_Selected].getValue() );
+          setprop("/gui/fgplot/internal/name["~Line_Selected~"]",squeeze(mname, 18));
+          DidSelect = 0;
+        };
+    };
+
+    var Pre_set = func {
+       var i = 0;
+       var f = 0;
+       for( i = 0 ; 6 > i ; i += 1 ){
+          setprop("/sim/gui/dialogs/fgplot_selector/sel["~i~"]",0);
+   	      label[i].setValue(getprop("/gui/fgplot/internal/prop["~i~"]"));
+          f=getprop("/gui/fgplot/internal/top["~i~"]");
+          setprop("/gui/fgplot/internal/factor["~i~"]",(-150/f));
+    	         input[i].setValue(f);
+       };
+       setprop("/sim/gui/dialogs/fgplot_selector/sel[0]",1);
+       Line_Selected=0;
+    };
+
+    dir = dlg.getNode("last") != nil ? dlg.getNode("last").getValue() : "/";
+    
+    var Set_Select = func(which) {
+       var i = 0;
+       for( i = 0 ; 6 > i ; i += 1 )
+          setprop("/sim/gui/dialogs/fgplot_selector/sel["~i~"]",0);
+
+       setprop("/sim/gui/dialogs/fgplot_selector/sel["~which~"]",1);
+     	    Line_Selected=which;
+    };
+
+    list.setValue(dir);
+    select();
+    Pre_set();
+  </open>
+
+  <close>
+    update_interval = 0;
+    if (find("fgplot_selector-", dlgname) >= 0)
+       dlg.getParent().removeChildren(dlgname);
+    else
+       dlg.getNode("last", 1).setValue(dir);
+  </close>
+ </nasal>
+</PropertyList>

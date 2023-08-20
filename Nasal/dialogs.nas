@@ -11,6 +11,9 @@ gui.menuBind("position-in-air", "dialogs.location_settings.open()");
 var ap_settings = gui.Dialog.new("/sim/gui/dialogs/VC10-autopilot/dialog","Aircraft/VC10/Dialogs/VC10-autopilot-dlg.xml");
 gui.menuBind("autopilot-settings", "dialogs.ap_settings.open()");
 
+##### FGPlot Dialog
 
+var fgplot_settings = gui.Dialog.new("/sim/gui/dialogs/fgplot/dialog","Aircraft/VC10/Dialogs/fgplot.xml");
+gui.menuBind("fgplot-settings", "dialogs.fgplot.open()");
 
 #

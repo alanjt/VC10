@@ -1,0 +1,577 @@
+<?xml version="1.0"?>
+<!--
+
+Set the multythreading to on when it is still off, in the 
+ $FG_ROOT/preferences.xml 
+for better performance.
+
+
+$FG_ROOT is where your fgdata is located.
+i.e. /.../.../fgdata/preferences.xml
+
+add to $FG_ROOT/Translations/en/menu.xml
+direct under 
+<equipment>Equipment</equipment>
+
+  <fgplot>Fgplot</fgplot>
+
+add to $FG_ROOT/gui/menubar.xml
+direct under
+<name>equipment</name>
+
+<item>
+  <name>fgplot</name>
+    <binding>
+      <command>dialog-show</command>
+         <dialog-name>fgplot</dialog-name>
+    </binding>
+</item>
+
+Also add this to <nasal> section of  $FG_ROOT/defaults.xml
+	<plot>
+      <enabled type="bool">true</enabled>	
+	</plot>
+
+Now you can choose from menubar in equipment fgplot.
+-->
+
+<PropertyList>
+  <name>fgplot</name>
+  <modal>false</modal>
+  <resizable>false</resizable>
+  <x>0</x> <!-- x runs to right -->
+  <y>0</y> <!-- y runs to up -->
+  <width>940</width>
+  <height>311</height>  <!-- 301 + 5*2 -->
+  <color>
+       <red>0.2</red>
+       <green>0.2</green>
+       <blue>0.2</blue>
+       <alpha>0.5</alpha>  <!-- a little bit of transparency -->
+  </color>
+
+  <group>
+
+   <!-- space for the butons and labels and the canvas -->
+   <layout>hbox</layout>
+   <default-padding>5</default-padding>
+   <color>
+      <red>0.2</red>
+      <green>0.2</green>
+      <blue>0.2</blue>
+   </color>
+ 
+   <text>
+      <label>fgplot</label>
+        <x>0</x>
+        <y>285</y>
+        <width>5</width>
+        <height>15</height>
+   </text>
+   
+<!-- Buttons for start-stop-quit -->
+   <button>
+      <legend>&gt;</legend>
+      <x>65</x>
+      <y>285</y>
+      <width>15</width>
+      <height>15</height>
+      <binding>
+        <command>nasal</command>
+          <script><![CDATA[
+              var a = getprop("/gui/fgplot/running") or 0;
+              if(a == 0){
+                 setprop("/gui/fgplot/running",1);
+                 Do_Plot();
+              };]]>
+         </script>
+      </binding>
+   </button>
+   <button>
+      <legend>-</legend>
+      <x>85</x>
+      <y>285</y>
+      <width>15</width>
+      <height>15</height>
+      <binding>
+        <command>nasal</command>
+          <script>setprop("/gui/fgplot/running",0);</script>
+      </binding>
+   </button>
+   <button>
+      <legend>X</legend>
+      <x>105</x>
+      <y>285</y>
+      <width>15</width>
+      <height>15</height>
+      <key>Esc</key>
+      <binding>
+        <command>nasal</command>
+          <script>setprop("/gui/fgplot/running",0);</script>
+      </binding>
+      <binding>
+        <command>dialog-close</command>
+      </binding>
+   </button>
+
+<!-- option to set transparency of the plot-area -->
+   <checkbox>
+     <label>transparent</label>
+     <x>10</x>
+     <y>265</y>
+     <width>12</width>
+     <height>12</height>
+     <property>/gui/fgplot/option/transparency</property>
+       <live>true</live>
+       <binding>
+         <command>nasal</command>
+            <script>
+               SetTransparency();
+         </script>
+       </binding>
+   </checkbox>
+
+<!-- options choose which of the 6 lines are visible -->
+   <checkbox>
+     <label></label>
+     <color>
+       <red>1.0</red>
+       <green>0.0</green>
+       <blue>0.0</blue>
+     </color>
+     <x>10</x>
+     <y>245</y>
+     <width>12</width>
+     <height>12</height>
+     <property>/gui/fgplot/internal/line[0]</property>
+       <live>true</live>
+       <binding>
+         <command>nasal</command>
+         <script>SetLine(0);</script>
+       </binding>
+   </checkbox>
+   <text> 
+     <label>.</label>
+        <property>/gui/fgplot/internal/name[0]</property>
+        <live>true</live>
+     <x>20</x>
+     <y>240</y>
+   </text>
+   <checkbox>
+     <label></label>
+     <color>
+       <red>0.0</red>
+       <green>1.0</green>
+       <blue>0.0</blue>
+     </color>
+     <x>10</x>
+     <y>225</y>
+     <width>12</width>
+     <height>12</height>
+     <property>/gui/fgplot/internal/line[1]</property>
+       <live>true</live>
+       <binding>
+         <command>nasal</command>
+         <script>SetLine(1);</script>
+       </binding>
+   </checkbox>
+   <text> 
+     <label>.</label>
+        <property>/gui/fgplot/internal/name[1]</property>
+        <live>true</live>
+     <x>20</x>
+     <y>220</y>
+   </text>
+   <checkbox>
+     <label></label>
+     <color>
+       <red>0.0</red>
+       <green>0.0</green>
+       <blue>1.0</blue>
+     </color>
+     <x>10</x>
+     <y>205</y>
+     <width>12</width>
+     <height>12</height>
+     <property>/gui/fgplot/internal/line[2]</property>
+       <live>true</live>
+       <binding>
+         <command>nasal</command>
+         <script>SetLine(2);</script>
+       </binding>
+   </checkbox>
+   <text> 
+     <label>.</label>
+        <property>/gui/fgplot/internal/name[2]</property>
+        <live>true</live>
+     <x>20</x>
+     <y>200</y>
+   </text>
+   <checkbox>
+     <label></label>
+     <color>
+       <red>1.0</red>
+       <green>0.5</green>
+       <blue>0.5</blue>
+     </color>
+     <x>10</x>
+     <y>185</y>
+     <width>10</width>
+     <height>10</height>
+     <property>/gui/fgplot/internal/line[3]</property>
+       <live>true</live>
+       <binding>
+         <command>nasal</command>
+         <script>SetLine(3);</script>
+       </binding>
+   </checkbox>
+   <text> 
+     <label>.</label>
+        <property>/gui/fgplot/internal/name[3]</property>
+        <live>true</live>
+     <x>20</x>
+     <y>180</y>
+   </text>
+   <checkbox>
+     <label></label>
+     <color>
+       <red>0.0</red>
+       <green>0.5</green>
+       <blue>0.5</blue>
+     </color>
+     <x>10</x>
+     <y>165</y>
+     <width>12</width>
+     <height>12</height>
+     <property>/gui/fgplot/internal/line[4]</property>
+       <live>true</live>
+       <binding>
+         <command>nasal</command>
+         <script>SetLine(4);</script>
+       </binding>
+   </checkbox>
+   <text> 
+     <label>.</label>
+        <property>/gui/fgplot/internal/name[4]</property>
+        <live>true</live>
+     <x>20</x>
+     <y>160</y>
+   </text>
+   <checkbox>
+     <label></label>
+     <color>
+       <red>0.5</red>
+       <green>0.5</green>
+       <blue>1.0</blue>
+     </color>
+     <x>10</x>
+     <y>145</y>
+     <width>12</width>
+     <height>12</height>
+     <property>/gui/fgplot/internal/line[5]</property>
+       <live>true</live>
+       <binding>
+         <command>nasal</command>
+         <script>SetLine(5);</script>
+       </binding>
+   </checkbox>
+   <text> 
+     <label>.</label>
+        <property>/gui/fgplot/internal/name[5]</property>
+        <live>true</live>
+     <x>20</x>
+     <y>140</y>
+   </text>
+
+<!-- Save / Load setting -->
+   <button>
+     <legend>Save</legend>
+     <x>10</x>
+     <y>60</y>
+     <width>52</width>
+     <height>20</height>
+       <binding>
+          <command>nasal</command>
+          <!-- save current property setings -->
+          <script>SaveProps()</script>
+       </binding>
+   </button>
+   <button>
+     <legend>Load</legend>
+     <x>68</x>
+     <y>60</y>
+     <width>52</width>
+     <height>20</height>
+       <binding>
+          <command>nasal</command>
+          <!-- load saved property setings -->
+          <script>LoadProps()</script>
+       </binding>
+   </button>
+
+<!-- Options menu -->
+   <button>
+     <legend>Options</legend>
+     <x>10</x>
+     <y>35</y>
+     <width>70</width>
+     <height>20</height>
+       <binding>
+          <command>dialog-show</command>
+          <dialog-name>fgplot_opt</dialog-name>
+       </binding>
+       <binding>
+          <command>nasal</command>
+          <!-- signal user-set properties -->
+          <script>setprop("/gui/fgplot/userdefined",1);</script>
+       </binding>
+   </button>
+
+<!-- Help text -->
+   <button>
+     <legend>Help</legend>
+     <x>85</x>
+     <y>35</y>
+     <width>35</width>
+     <height>20</height>
+       <binding>
+          <command>dialog-show</command>
+          <dialog-name>fgplot_help</dialog-name>
+       </binding>
+   </button>
+
+<!-- selector for property to plot -->
+   <button>
+     <legend>Properties</legend>
+     <x>10</x>
+     <y>10</y>
+     <width>110</width>
+     <height>20</height>
+       <binding>
+          <command>dialog-show</command>
+          <dialog-name>fgplot_selector</dialog-name>
+       </binding>
+       <binding>
+          <command>nasal</command>
+          <!-- signal user-set properties -->
+          <script>setprop("/gui/fgplot/userdefined",1);</script>
+       </binding>
+   </button>
+
+<!-- this is where we draw on -->
+<canvas>
+  <name>fgplot</name>
+  <x>135</x> <!-- save space for buttons on the left -->
+  <y>5</y>
+  <layout>hbox</layout>
+  <width>800</width>  <!-- will contain 800 positions (basicaly) -->
+  <height>301</height>  
+
+<!-- all the nasal coding below -->
+<nasal>      
+
+  <load> <!-- when the fgplot is loaded ?? == pressed equipment-fgplot -->
+  <![CDATA[
+  
+  var SaveProps = func () {
+     var FgHome = getprop("/sim/fg-home");
+     io.write_properties(FgHome~"/state/fgplot","/gui/fgplot/internal");
+  };
+
+  var LoadProps = func () {
+     var FgHome = getprop("/sim/fg-home");
+     var target = props.globals.getNode("/gui/fgplot/internal");
+     io.read_properties(FgHome~"/state/fgplot.xml",target);
+  };
+
+  # general values to have something at startup.
+  var setProps = func () {
+     var a = getprop("/gui/fgplot/running") or 0;
+     if(a == 0) {
+       setprop("/gui/fgplot/internal/name[0]","fdm-head.rror-deg");
+       setprop("/gui/fgplot/internal/name[1]","heading-.rror-deg");
+       setprop("/gui/fgplot/internal/name[2]","true-hea.rror-deg");
+       setprop("/gui/fgplot/internal/name[3]","nav1-course-error");
+       setprop("/gui/fgplot/internal/name[4]","nav1-hea.rror-deg");
+       setprop("/gui/fgplot/internal/name[5]","nav1-tra.rror-deg");
+       setprop("/gui/fgplot/internal/prop[0]","/autopilot/internal/fdm-heading-bug-error-deg");
+       setprop("/gui/fgplot/internal/prop[1]","/autopilot/internal/heading-bug-error-deg");
+       setprop("/gui/fgplot/internal/prop[2]","/autopilot/internal/true-heading-error-deg");
+       setprop("/gui/fgplot/internal/prop[3]","/autopilot/internal/nav1-course-error");
+       setprop("/gui/fgplot/internal/prop[4]","/autopilot/internal/nav1-heading-error-deg");
+       setprop("/gui/fgplot/internal/prop[5]","/autopilot/internal/nav1-track-error-deg");
+       for( var j = 0 ; 6 > j ; j += 1){
+         setprop("/gui/fgplot/internal/factor["~j~"]",-0.833334);
+         setprop("/gui/fgplot/internal/top["~j~"]",180);
+         setprop("/gui/fgplot/internal/line["~j~"]",1);
+       };
+       setprop("/gui/fgplot/internal/ticktype[0]",1);
+       setprop("/gui/fgplot/internal/ticktype[1]",0);
+       setprop("/gui/fgplot/internal/ticks",0);
+       setprop("/gui/fgplot/option/dx",1);
+       setprop("/gui/fgplot/option/max_x",399);
+       setprop("/gui/fgplot/running",0);
+       setprop("/gui/fgplot/version",1);
+       setprop("/gui/fgplot/option/transparency",0.0);
+     };
+  };
+ 
+  setProps();
+ 
+  var SetTransparency = func () {
+      if(getprop("/gui/fgplot/option/transparency")==1){
+         my_canvas.setColorBackground(0,0,0,1); # Transparancy == last 0
+         setprop("/gui/fgplot/option/transparency",0);
+      } else {
+         my_canvas.setColorBackground(0,0,0,0); # Transparancy == last 0
+         setprop("/gui/fgplot/option/transparency",1);
+      };
+  };
+
+  # Toggle line on/off
+  var SetLine = func(a)
+  {
+    setprop("/gui/fgplot/internal/line["~a~"]", 
+            !getprop("/gui/fgplot/internal/line["~a~"]"));
+  };
+
+  # canvas-specific code here
+  var my_canvas = canvas.get( cmdarg() ); # Handle to the my canvas
+  my_canvas.set("mipmapping", 1)
+           .setColorBackground(0,0,0,1); # Transparancy when last digit == 0
+
+  var root = my_canvas.createGroup();
+
+  var graph = root.createChild("group");
+
+  # center of the graph.
+  var x_axis = graph.createChild("path", "x-axis")
+         .moveTo(0, 151)        # start of centerline horizontaly
+         .lineTo(799, 151)      # end of centerline horizontaly 
+         .setColor(0.8,0.8,0.8)
+         .setStrokeLineWidth(1);
+
+  var colors = [
+    "#ff0000",
+    "#00ff00",
+    "#0000ff",
+    "#ff8000",
+    "#008080",
+    "#8080ff"
+  ];
+  var num_plots = size(colors);
+  var plots = setsize([], num_plots);
+  for(var i = 0; i< num_plots; i+=1)
+      plots[i] = graph.createChild("path", "data")
+                 .set("stroke", colors[i])
+                 .set("stroke-width", 1);  # was 2
+  TickMark = graph.createChild("path", "data")
+             .set("stroke", "#ffffff")
+             .set("stroke-width", 1);  
+
+  # set some variables before use.
+  var dx = 1;
+  var max_x = getprop("/gui/fgplot/option/max_x");
+  var cur_x = 0;
+  var x_offset = max_x;
+  var y = 0;
+  var x_tick = 0;
+
+  # Now we need the path-number in the texture[?] too correct size of canvas
+  var Txtr = 0;
+  for(i=0;i<10;i+=1){
+     if(getprop("/canvas/by-index/texture["~i~"]/name") == "fgplot"){
+     Txtr = i;
+  # then we can correct the view sizes. for correct pixel-value
+     setprop("/canvas/by-index/texture["~Txtr~"]/view[0]",max_x);
+     setprop("/canvas/by-index/texture["~Txtr~"]/view[1]",301);
+     };
+  };
+  if(Txtr == 0){
+     gui.popupTip("Texture.path for fgplot not found !",3);
+     setprop("/gui/fgplot/running",0);
+     dialog-close;
+  };
+
+  var dx = 1;
+  var max_x = getprop("/gui/fgplot/option/max_x");
+  var cur_max = max_x;
+  var cur_x = 0;
+  var x_offset = max_x;
+  var y = 0;
+
+  var Do_Plot = func(){
+    var MyTimeout = func(){
+      if(!getprop("/gui/fgplot/running"))
+        return;
+
+      dx = getprop("/gui/fgplot/option/dx");
+      max_x = getprop("/gui/fgplot/option/max_x");
+      # The calculation is very simple and is causing artifax
+      #  when going to higher amount of points. Density problem.
+      # We should take points already on screen take into account
+      #  but that make it a bit more complicated.
+      if(cur_max != max_x){
+         if(max_x < cur_max){gui.popupTip("Excessive points deleted",5);};
+         setprop("/canvas/by-index/texture["~Txtr~"]/view[0]",max_x);
+         x_offset = max_x - cur_x ;
+         cur_max = max_x;
+         for( var i = 0 ; i < 6; i += 1){
+            while( plots[i].getNumSegments() > (max_x+1) / dx )
+               plots[i].pop_front();
+         };
+      };
+
+      for(var i = 0; i < 6; i += 1){
+        var factor = getprop("/gui/fgplot/internal/factor[" ~ i ~ "]");
+        # we must keep scrolling so poke lines-off y = 0
+        if( getprop("/gui/fgplot/internal/line[" ~ i ~ "]") != 1 )
+           y = 0;
+        else
+           y = getprop(getprop("/gui/fgplot/internal/prop[" ~ i ~ "]"))*factor;
+
+        if( cur_x == 0 )
+          plots[i].moveTo(cur_x, y);
+        else
+          plots[i].lineTo(cur_x, y);
+
+        # Translation shift the x/y coordinates to an alternative position
+        # This saves adding 151 to each y value and makes the x-axe shifting.
+        plots[i].setTranslation(x_offset, 151);
+
+        if( plots[i].getNumSegments() > (max_x+1) / dx )
+          plots[i].pop_front();
+        
+      }; # End For-loop
+
+      TickMark.setTranslation(x_offset, 151);
+      var Tick = getprop("/gui/fgplot/internal/ticks");
+      if((Tick > 0) and (cur_x >= x_tick)){
+         TickMark.moveTo(cur_x,-150);
+         TickMark.lineTo(cur_x,-125);
+         TickMark.moveTo(cur_x,150);
+         TickMark.lineTo(cur_x,125);
+         x_tick += Tick;
+
+         # Keep this simple, no need for smarter calculation.
+         if(TickMark.getNumSegments() > 200)TickMark.pop_front();
+
+      };
+      
+      x_offset -= dx;
+      cur_x += dx;
+
+      settimer(MyTimeout,0.1);
+    };  # end Mytimeout
+
+    MyTimeout();
+  };   # end Dotplot
+  ]]>
+  </load>
+
+  </nasal>
+  </canvas>
+
+  </group>
+
+</PropertyList>

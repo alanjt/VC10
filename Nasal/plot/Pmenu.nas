@@ -37,12 +37,13 @@ Menu.new = func (x,cnt) {
    };
    me._Caller = x;
    me._Cnt = cnt;
-   printf("Menu.new called with number %d",me._Cnt);
+   printf("Menu.new called with me._Cnt %d",me._Cnt);
    return me;
 }
 
 # This does the mayor initializations
 Menu.init = func () {
+   printf("Menu.init");
    me._Width = 270;
    me._Height = 13*28+15;
    me._Helper = Helper.new();
@@ -90,6 +91,7 @@ Menu.init = func () {
 
 # This does some more initialization and could be concatenated to init()
 Menu.Setup = func () {
+   printf("Menu.Setup");
    var offset = 10; # border width
    # Start button
    me._Otbns[0] = Button.new().Setup(me._Root,30,offset,20,20,">");
@@ -150,11 +152,14 @@ Menu.Setup = func () {
    })();
    offset += 28;
    for( var slot = 0 ; slot < 6 ; slot += 1) { # Slots 0-5
-      printf("creating slot %d for line %d",slot,slot);
+      #printf("creating slot %d for line %d",slot,slot);
       # Add a Factor field 
       me._Oftxt[slot] = Text.new().Setup(me._Root,10,offset+(slot*28),10,20,slot);
-      if(me._Caller._Lns[slot].GetStatus() == 1)
+      if(me._Caller._Lns[slot].GetStatus() == 1){
+	     printf("Pmenu Call Text.SlotColor me._Caller == %d  ",me._Caller);
+		 printf("Pmenu  slot == %d  ",slot);
          me._Oftxt[slot].SlotColor(me._Caller,slot);
+		 }
       else
          me._Oftxt[slot].SetColor(2);
       me._Ofact[slot] = Text.new().Setup(me._Root,30,offset+(slot*28),60,20,"-1");
@@ -236,6 +241,9 @@ Menu.RePopulate = func () {
       me._Oprop[slot].Settext(me._Caller._Lns[slot]._Property);
       me._Otxt[slot].SetColor(me._Caller._Lns[slot]._Color);
       me._Ofact[slot].Settext(me._Caller._Lns[slot]._Factor);
+	  printf("Menu.Repopulate  property %s",me._Caller._Lns[b].GetProperty());
+	  printf("Menu.Repopulate  color %d",me._Caller._Lns[b].GetColor());
+	  printf("Menu.Repopulate  factor %f",me._Caller._Lns[b].GetFactor());
   };
    return me;
 };
@@ -261,8 +269,8 @@ Menu.ErDel = func (l) {
 # Old function for wheel-factor setting, can be deleted...
 # Now it is done by typing a number in the corresponding field
 Menu.ChFactor = func (b,x,c,s) {
-   printf("line %d x %d c %d s %d",b,x,c,s);
-   printf("Current factor %f",me._Caller._Lns[b].GetFactor());
+   #printf("line %d x %d c %d s %d",b,x,c,s);
+   #printf("Current factor %f",me._Caller._Lns[b].GetFactor());
    var f = me._Caller._Lns[b].GetFactor();
    if(c == 1){
       if(x > 0) 
@@ -300,7 +308,7 @@ Menu.TextIn = func (but,l) {
                 var key = event.getNode("key");
                 var C = key.getValue();
                 key.setValue(-1);           # drop key event
-                printf("code %d == %s",C,chr(C));
+                #printf("code %d == %s",C,chr(C));
                 if(C == 8){
                    Number = "";
                    me._Ofact[l].Settext(sprintf("%8.2e",Number));
@@ -323,7 +331,7 @@ Menu.TextIn = func (but,l) {
                    Number = Number ~ chr(C);
                    #me._Ofact[l].Settext(Number);
                    me._Ofact[l].Settext(sprintf("%8.2e",Number));
-                   printf("code %d == %s result == %d",C,chr(C),Number);
+                   #printf("code %d == %s result == %d",C,chr(C),Number);
                    return me;
                 };
              });

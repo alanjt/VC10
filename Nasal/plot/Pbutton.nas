@@ -21,6 +21,7 @@ Button.new = func () {
       _w: 0,
       _h: 0,
    };
+   printf("Button.new ");
    return me;
 };
  
@@ -35,12 +36,12 @@ Button.Setup = func (r,x,y,w,h,t) {
    me._Text = r.createChild("text", "")
               .set("font","Helvetica.txf")
               .setFontSize(16, 1)
-              .setColor("#FFFFFF")
+              .setColor("#FFFFFF")       # White
               .setTranslation(ox, oy)
               .setAlignment("center")
               .setText(t);
    me._Butt = r.createChild("path", "data")
-              .setColor("#999999")
+              .setColor("#999999")   ## Grey
               .set("stroke-width", 1)
               .moveTo(x,y)
               .lineTo(x,h+y)
@@ -99,7 +100,7 @@ Button.getGlass = func () {
 Button._Down = func () {
    me._Below.setColor(me._Light);
    me._Above.setColor(me._Dark);
-   if(me._Enabled)me._Text.setColor("#FFFF00");
+   if(me._Enabled)me._Text.setColor("#FFFF00");  #Yellow
 };
 
 Button._Up = func () {

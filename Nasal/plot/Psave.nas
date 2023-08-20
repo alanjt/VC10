@@ -35,7 +35,7 @@ Save.new = func (x,cnt) {
    };
    me._Caller = x;
    me._Cnt = cnt;
-   printf("Save.new called with number %d",me._Cnt);
+   printf("Save.new called with me._Cnt %d",me._Cnt);
    return me;
 }
 
@@ -107,7 +107,7 @@ Save.init = func () {
    })();
    # Box for filenames
    me._Box = me._Root.createChild("path", "data")
-              .setColorFill("#FFA500")
+              .setColorFill("#FFA500")   # Orange
               .set("stroke-width", 1)
               .moveTo(x+10,y+60)
               .lineTo(x+10,h-10)
@@ -178,17 +178,17 @@ Save.run = func () {
 #   var Files = directory(FgHome);  # just $FGHOME
    var pos =0;
    foreach(var a; Files){
-      printf("file: %s",a);
+      #printf("file: %s",a);
       pos = find(".xml",a);
       if(size(a)-4 == pos) {    # All with "\.xml$"
             append(me._ToRead, a);
       };
    };
-   printf("Found files == %d",size(me._ToRead));
+   #printf("Found files == %d",size(me._ToRead));
    me._Cnt = size(me._ToRead); # Double used...
    var i = 0;
    foreach(var a; me._ToRead){
-      printf("Valid file %s",a);
+      #printf("Valid file %s",a);
       me._Rtxt[i].setText(a);
       i +=1 ;
       if(i == 10)break;
@@ -214,14 +214,14 @@ Save.Scroll = func (y) {
 Save.Choice = func (y,b,X,Y) {
    if((Y != 0) or ( X != 0) or (b != 0))return;
    var i = int((y-60)/20);
-   printf("position %d y == %d",i,y);
+   #printf("position %d y == %d",i,y);
    me._Otxt[0].Settext(me._ToRead[i+me._Show]);
    return me;
 };
 
 #Save
 Save.Go = func () {
-   printf("Props will be saved in %s",me._Otxt[0].Gettext());
+   #printf("Props will be saved in %s",me._Otxt[0].Gettext());
    var FgHome = getprop("/sim/fg-home");
    var f = me._Otxt[0].Gettext();
    var filename = substr(f,0,size(f)-4);
@@ -243,7 +243,7 @@ Save.TextIn = func (but,x,y) {
                 var key = event.getNode("key");
                 var C = key.getValue();
                 key.setValue(-1);           # drop key event
-                printf("code %d == %s",C,chr(C));
+                #printf("code %d == %s",C,chr(C));
                 if(C == 8){
                    Number = "";
                    me._Otxt[0].Settext(sprintf("%s.xml",Number));
@@ -263,7 +263,7 @@ Save.TextIn = func (but,x,y) {
                    #if (handle_key(key.getValue(), shift))
                    Number = Number ~ chr(C);
                    me._Otxt[0].Settext(sprintf("%s.xml",Number));
-                   printf("code %d == %s result == %s",C,chr(C),Number);
+                   #printf("code %d == %s result == %s",C,chr(C),Number);
                    return me;
                 };
              });

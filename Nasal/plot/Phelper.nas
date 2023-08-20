@@ -16,7 +16,7 @@ Helper.new = func() {
 
 # Fitstring returns string s  of max-size n with ... at 1/3 of the string
 Helper.FitString = func (s,n) {
-   printf("Helper.FitString called with %s",s);
+   #printf("Helper.FitString called with %s",s);
    if ( size(""~s~"") < n ) return s;
    var l = substr(s, 0, (n - 2) / 3);
    var r = substr(s, size(s) + size(l) + 3 - n);

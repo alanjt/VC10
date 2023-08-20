@@ -1,0 +1,293 @@
+<?xml version="1.0"?>
+<!--
+ This file is part of FlightGear, the free flight simulator
+ http://www.flightgear.org/
+
+ This program is free software; you can redistribute it and/or
+ modify it under the terms of the GNU General Public License as
+ published by the Free Software Foundation; either version 2 of the
+ License, or (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful, but
+ WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ General Public License for more details.
+-->
+
+<PropertyList>
+  <name>fgplot_opt</name>
+  <modal>false</modal>
+  <resizable>false</resizable>
+  <width>140</width>
+  <height>200</height>
+  <color>
+     <red>0.2</red>
+     <green>0.2</green>
+     <blue>0.2</blue>
+     <alpha>0.7</alpha>
+  </color>
+
+  <group>
+
+     <text>
+        <label>fgplotoptions</label>
+        <y>175</y>
+     </text>
+   
+     <button>
+        <legend>X</legend>
+        <x>120</x>
+        <y>180</y>
+        <width>15</width>
+        <height>15</height>
+        <binding>
+           <command>dialog-close</command>
+        </binding>
+     </button>
+    
+     <layout>hbox</layout>
+
+<!-- section to set the tickmarks -->
+      <text>
+        <label>tickmark</label>
+        <x>35</x>
+        <y>155</y>
+      </text>
+      <radio>
+        <label>Pnts</label>
+        <x>9</x>
+        <y>140</y>
+        <width>12</width>
+        <height>12</height>
+        <live>true</live>
+            <property>/gui/fgplot/internal/ticktype[0] or 1</property>
+          <binding>
+            <command>nasal</command>
+            <script>
+                SetTickType(0);
+            </script>
+          </binding>
+      </radio>
+      <radio>
+        <label>Scnd</label>
+        <x>9</x>
+        <y>120</y>
+        <width>12</width>
+        <height>12</height>
+        <live>true</live>
+            <property>/gui/fgplot/internal/ticktype[1] or 0</property>
+          <binding>
+            <command>nasal</command>
+            <script>
+                SetTickType(1);
+            </script>
+          </binding>
+      </radio>
+      <input>
+        <x>75</x>
+        <y>125</y>
+        <height>20</height>
+        <width>40</width>
+        <name>Ticks</name>
+        <live>true</live>
+           <property>/gui/fgplot/internal/ticks</property>
+        <binding>
+          <command>dialog-apply</command>
+          <command>nasal</command>
+          <script>SetTicks();</script>
+        </binding>
+        <halign>right</halign>
+        <editable>true</editable>
+      </input>
+
+<!-- section to set the stepsize -->
+      <text>
+        <label>stepsize</label>
+        <x>35</x>
+        <y>90</y>
+      </text>
+      <radio>
+        <label>1</label>
+        <x>9</x>
+        <y>75</y>
+        <width>12</width>
+        <height>12</height>
+        <live>true</live>
+            <property>/gui/fgplot/internal/stepsize[0] or 1</property>
+          <binding>
+            <command>nasal</command>
+            <script>
+                SetStepsize(0);
+            </script>
+          </binding>
+      </radio>
+      <radio>
+        <label>2</label>
+        <x>39</x>
+        <y>75</y>
+        <width>12</width>
+        <height>12</height>
+        <live>true</live>
+            <property>/gui/fgplot/internal/stepsize[1] or 0</property>
+          <binding>
+            <command>nasal</command>
+            <script>
+                SetStepsize(1);
+            </script>
+          </binding>
+      </radio>
+      <radio>
+        <label>3</label>
+        <x>69</x>
+        <y>75</y>
+        <width>12</width>
+        <height>12</height>
+        <live>true</live>
+            <property>/gui/fgplot/internal/stepsize[2] or 0</property>
+          <binding>
+            <command>nasal</command>
+            <script>
+                SetStepsize(2);
+            </script>
+          </binding>
+      </radio>
+      <radio>
+        <label>4</label>
+        <x>99</x>
+        <y>75</y>
+        <width>12</width>
+        <height>12</height>
+        <live>true</live>
+            <property>/gui/fgplot/internal/stepsize[3] or 0</property>
+          <binding>
+            <command>nasal</command>
+            <script>
+                SetStepsize(3);
+            </script>
+          </binding>
+      </radio>
+
+<!-- section to set the resolution -->
+     <layout>hbox</layout>
+
+      <text>
+        <label>resolution</label>
+        <x>30</x>
+        <y>45</y>
+      </text>
+      <radio>
+        <label>400</label>
+        <x>9</x>
+        <y>30</y>
+        <width>12</width>
+        <height>12</height>
+        <live>true</live>
+            <property>/gui/fgplot/internal/resolution[0] or 1</property>
+          <binding>
+            <command>nasal</command>
+            <script>
+                SetResolution(0);
+            </script>
+          </binding>
+      </radio>
+      <radio>
+        <label>500</label>
+        <x>9</x>
+        <y>10</y>
+        <width>12</width>
+        <height>12</height>
+        <live>true</live>
+            <property>/gui/fgplot/internal/resolution[1] or 0</property>
+          <binding>
+            <command>nasal</command>
+            <script>
+                SetResolution(1);
+            </script>
+          </binding>
+      </radio>
+      <radio>
+        <label>600</label>
+        <x>69</x>
+        <y>30</y>
+        <width>12</width>
+        <height>12</height>
+        <live>true</live>
+            <property>/gui/fgplot/internal/resolution[2] or 0</property>
+          <binding>
+            <command>nasal</command>
+            <script>
+                SetResolution(2);
+            </script>
+          </binding>
+      </radio>
+      <radio>
+        <label>800</label>
+        <x>69</x>
+        <y>10</y>
+        <width>12</width>
+        <height>12</height>
+        <live>true</live>
+            <property>/gui/fgplot/internal/resolution[3] or 0</property>
+          <binding>
+            <command>nasal</command>
+            <script>
+                SetResolution(3);
+            </script>
+          </binding>
+      </radio>
+
+
+  </group>
+
+  <nasal>
+    <open><![CDATA[
+
+      var Dx = ['1','2','3','4'];
+      var Max = ['399','499','599','799'];
+
+      var SetStepsize = func (which) {
+          for( var i = 0 ; 4 > i ; i += 1 )
+             setprop("/gui/fgplot/internal/stepsize["~i~"]",0);
+          setprop("/gui/fgplot/internal/stepsize["~which~"]",1);
+
+          setprop("/gui/fgplot/option/dx",Dx[which]);
+          gui.popupTip("stepsize "~Dx[which],2);
+      };
+
+      var SetResolution = func (which) {
+          for( var i = 0 ; 4 > i ; i += 1 )
+             setprop("/gui/fgplot/internal/resolution["~i~"]",0);
+          setprop("/gui/fgplot/internal/resolution["~which~"]",1);
+
+          setprop("/gui/fgplot/option/max_x",Max[which]);
+          gui.popupTip("resolution "~(Max[which]+1),2);
+      };
+
+      var SetTickType = func (which) {
+          for( var i = 0 ; 2 > i ; i += 1 )
+             setprop("/gui/fgplot/internal/ticktype["~i~"]",0);
+          setprop("/gui/fgplot/internal/ticktype["~which~"]",1);
+      };
+
+      var OptSetup = func () {
+          var curr_dx = getprop("/gui/fgplot/option/dx"); # don't do 4 times...
+          var curr_max = getprop("/gui/fgplot/option/max_x");
+          for( var  i = 0 ; 4 > i ; i += 1){
+             if( curr_dx == Dx[i] ) SetStepsize(i);
+             if( curr_max == Max[i] ) SetResolution(i);
+          };
+      };
+  
+      OptSetup();
+
+    ]]></open>
+
+    <open><![CDATA[
+    ]]></open>
+
+    <close><![CDATA[
+    ]]></close>
+
+  </nasal>
+
+</PropertyList>

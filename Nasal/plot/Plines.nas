@@ -9,7 +9,7 @@ Lines = {};
 Lines.new = func (x) {
    var me = { parents : [Lines] ,
       _Caller: 0,
-      _Color: "#FF0000",
+      _Color: "#FF0000",     # Red
       _Width: 1,
       _Property: "/autopilot/settings/heading-bug-deg",
       _Factor: -1,
@@ -20,7 +20,7 @@ Lines.new = func (x) {
    };
    me._Caller = x;
    me._Max = (me._Caller.GetCpos());
-   printf("me._Max == %f",me._Max);
+   printf("Lines.new called with me._Max == %f",me._Max);
    me._Path = me._Caller._Root.createChild("path", "data");
    return me;
 };
@@ -78,7 +78,7 @@ Lines.GetFactor = func () {
 
 Lines.SetTop = func (x) {
    me._Factor = -1*(me._Max/x);
-   printf("Lines.SetTop me._Max %f me._Factor %f",me._Max,me._Factor);
+   #printf("Lines.SetTop me._Max %f me._Factor %f",me._Max,me._Factor);
    return me;
 };
 

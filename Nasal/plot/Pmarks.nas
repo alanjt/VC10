@@ -24,7 +24,7 @@ Mark.new = func (c) {
    _Listener: 0,
    };
    me._Caller = c;
-   printf("Mark.new called with number %d",me._Caller);
+   printf("Mark.new called with me._Caller %d",me._Caller);
    return me;
 }
 
@@ -133,7 +133,7 @@ Mark.TextIn = func (mb,f) {
                 var key = event.getNode("key");
                 var C = key.getValue();
                 key.setValue(-1);           # drop key event
-                printf("code %d == %s",C,chr(C));
+                #printf("code %d == %s",C,chr(C));
                 if(C == 8){
                    Number = "";
                    me._Txt[f].Settext(sprintf("%8.2e",Number));
@@ -159,7 +159,7 @@ Mark.TextIn = func (mb,f) {
 
                    #me._Ofact[l].Settext(Number);
                    me._Txt[f].Settext(sprintf("%8.2e",Number));
-                   printf("code %d == %s result == %d",C,chr(C),Number);
+                   #printf("code %d == %s result == %d",C,chr(C),Number);
                    return me;
                 };
              });

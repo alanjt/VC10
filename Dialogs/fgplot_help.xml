@@ -1,0 +1,152 @@
+<?xml version="1.0"?>
+<!--
+ This file is part of FlightGear, the free flight simulator
+ http://www.flightgear.org/
+
+ This program is free software; you can redistribute it and/or
+ modify it under the terms of the GNU General Public License as
+ published by the Free Software Foundation; either version 2 of the
+ License, or (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful, but
+ WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ General Public License for more details.
+-->
+
+<PropertyList>
+  <name>fgplot_help</name>
+  <modal>false</modal>
+  <layout>vbox</layout>
+  <resizable>false</resizable>
+  <default-padding>3</default-padding>
+
+  <group>
+    <layout>hbox</layout>
+    <default-padding>1</default-padding>
+
+    <empty>
+      <stretch>true</stretch>
+    </empty>
+
+    <text>
+      <label>FlightGear Fgplot</label>
+    </text>
+
+    <empty>
+      <stretch>true</stretch>
+    </empty>
+
+    <button>
+      <legend>X</legend>
+      <key>Esc</key>
+      <pref-width>16</pref-width>
+      <pref-height>16</pref-height>
+      <border>2</border>
+      <binding>
+        <command>dialog-close</command>
+      </binding>
+    </button>
+  </group>
+
+  <hrule/>
+  
+<!-- Contend -->
+  <group>
+    <layout>vbox</layout>
+    <default-padding>3</default-padding>
+      <text><label>Fgplot has the intention to be a universal plotter module.</label></text>
+      <text><label>plotting 6 lines with a user chosen step-size and resolution.</label></text>
+      <text><label>The plotted curve is plotted from a user-selectable proprty.</label></text>
+      <text><label></label></text>
+  </group>
+
+  <hrule/>
+
+  <group>
+    <layout>vbox</layout>
+    <default-padding>5</default-padding>
+      <halign>left</halign>
+      <text>
+      <halign>left</halign>
+      <label>The plotting of a line can be switched on/off by toggling</label></text>
+      <text>
+      <halign>left</halign>
+      <label>the colored selector in the main fgplot-screen.</label></text>
+      <text>
+      <halign>left</halign>
+      <label>Also transparency of the graph-field can be switched on/of this way.</label></text>
+      <text>
+      <halign>left</halign>
+      <label></label></text>
+      <text>
+      <halign>left</halign>
+      <label>Choose your curve from a proprty in the property-selector.</label></text>
+      <text>
+      <halign>left</halign>
+      <label>Only numbers will be plotted.</label></text>
+      <text>
+      <halign>left</halign>
+      <label>You can also choose the top-value of the graph.</label></text>
+      <text>
+      <halign>left</halign>
+      <label>Just select your line by pressing a radio-button</label></text>
+      <text>
+      <halign>left</halign>
+      <label>or selecting an editfield.</label></text>
+      <text>
+      <halign>left</halign>
+      <label>Then select your property to plot and set your desired</label></text>
+      <text>
+      <halign>left</halign>
+      <label>top value for the graph and press the set button.</label></text>
+      <text>
+      <halign>left</halign>
+      <label>Pressing ReRead reloads the current settings.</label></text>
+      <text>
+      <halign>left</halign>
+      <label></label></text>
+      <text>
+      <halign>left</halign>
+      <label>Choose the stepsize 1-4 from the options menu.</label></text>
+      <text>
+      <halign>left</halign>
+      <label>Bigger steps make less points in the curve.</label></text>
+      <text>
+      <halign>left</halign>
+      <label></label></text>
+      <text>
+      <halign>left</halign>
+      <label>Choose your resolution 400-800 point from the options menu.</label></text>
+      <text>
+      <halign>left</halign>
+      <label>When going from more to less point will delete exessive points.</label></text>
+      <text>
+      <halign>left</halign>
+      <label>Going to more points can sometimes produce artifacts at the start</label></text>
+      <text>
+      <halign>left</halign>
+      <label>of the curve which will roll of the sreen in a while.</label></text>
+      <text>
+      <halign>left</halign>
+      <label></label></text>
+      <text>
+      <halign>left</halign>
+      <label>For tickmarks, set above 0. 0 switches them off.</label></text>
+      <text>
+      <halign>left</halign>
+      <label>Currently only points are implemented.</label></text>
+      <text>
+      <halign>left</halign>
+      <label></label></text>
+      <text>
+      <halign>left</halign>
+      <label>Even a Save/Load button to save settings and get them back in</label></text>
+      <text>
+      <halign>left</halign>
+      <label>place fast, to save a lot of time searching for the right props.</label></text>
+  </group>
+  
+  <hrule/>
+  
+</PropertyList>
