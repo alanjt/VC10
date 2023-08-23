@@ -27,11 +27,6 @@ direct under
     </binding>
 </item>
 
-Also add this to <nasal> section of  $FG_ROOT/defaults.xml
-	<plot>
-      <enabled type="bool">true</enabled>	
-	</plot>
-
 Now you can choose from menubar in equipment fgplot.
 -->
 
@@ -372,15 +367,13 @@ Now you can choose from menubar in equipment fgplot.
 
   <load> <!-- when the fgplot is loaded ?? == pressed equipment-fgplot -->
   <![CDATA[
- 
+  
   var SaveProps = func () {
-print("fgplot SaveProps() - line 377"); 
      var FgHome = getprop("/sim/fg-home");
      io.write_properties(FgHome~"/state/fgplot","/gui/fgplot/internal");
   };
 
   var LoadProps = func () {
-print("fgplot LoadProps() - line 383");
      var FgHome = getprop("/sim/fg-home");
      var target = props.globals.getNode("/gui/fgplot/internal");
      io.read_properties(FgHome~"/state/fgplot.xml",target);
@@ -388,7 +381,6 @@ print("fgplot LoadProps() - line 383");
 
   # general values to have something at startup.
   var setProps = func () {
- print("fgplot setProps() - line 391");
      var a = getprop("/gui/fgplot/running") or 0;
      if(a == 0) {
        setprop("/gui/fgplot/internal/name[0]","fdm-head.rror-deg");
@@ -422,7 +414,6 @@ print("fgplot LoadProps() - line 383");
   setProps();
  
   var SetTransparency = func () {
-print("fgplot SetTransparency() - line 425");
       if(getprop("/gui/fgplot/option/transparency")==1){
          my_canvas.setColorBackground(0,0,0,1); # Transparancy == last 0
          setprop("/gui/fgplot/option/transparency",0);
@@ -435,11 +426,10 @@ print("fgplot SetTransparency() - line 425");
   # Toggle line on/off
   var SetLine = func(a)
   {
-print("fgplot SetLine() - line 438");
     setprop("/gui/fgplot/internal/line["~a~"]", 
             !getprop("/gui/fgplot/internal/line["~a~"]"));
   };
-print("fgplot Canvas Code - line 442");
+
   # canvas-specific code here
   var my_canvas = canvas.get( cmdarg() ); # Handle to the my canvas
   my_canvas.set("mipmapping", 1)
@@ -467,10 +457,9 @@ print("fgplot Canvas Code - line 442");
   var num_plots = size(colors);
   var plots = setsize([], num_plots);
   for(var i = 0; i< num_plots; i+=1)
-  {print("fgplot - line 470 init plot(i) i=  ",i);
       plots[i] = graph.createChild("path", "data")
                  .set("stroke", colors[i])
-                 .set("stroke-width", 1);}  # was 2
+                 .set("stroke-width", 1);  # was 2
   TickMark = graph.createChild("path", "data")
              .set("stroke", "#ffffff")
              .set("stroke-width", 1);  
@@ -529,21 +518,13 @@ print("fgplot Canvas Code - line 442");
       };
 
       for(var i = 0; i < 6; i += 1){
-	    print("fgplot line 532   i == ", i);
         var factor = getprop("/gui/fgplot/internal/factor[" ~ i ~ "]");
-		print("fgplot line 534   factor == ", factor);
-		var line = getprop("/gui/fgplot/internal/line[" ~ i ~ "]");
-		print("fgplot line 536   line == ", line);
-		var prop = getprop(getprop("/gui/fgplot/internal/prop[" ~ i ~ "]")) or 0;
-		print("fgplot line 538   prop == ", prop);
         # we must keep scrolling so poke lines-off y = 0
- #       if( getprop("/gui/fgplot/internal/line[" ~ i ~ "]") != 1 )
-		if( line != 1 )
+        if( getprop("/gui/fgplot/internal/line[" ~ i ~ "]") != 1 )
            y = 0;
         else
- #          y = getprop(getprop("/gui/fgplot/internal/prop[" ~ i ~ "]"))*factor;
-		    y = prop*factor;
-	    print("fgplot line 544");
+           y = getprop(getprop("/gui/fgplot/internal/prop[" ~ i ~ "]"))*factor;
+
         if( cur_x == 0 )
           plots[i].moveTo(cur_x, y);
         else
@@ -557,7 +538,7 @@ print("fgplot Canvas Code - line 442");
           plots[i].pop_front();
         
       }; # End For-loop
-	  print("fgplot line 558");
+
       TickMark.setTranslation(x_offset, 151);
       var Tick = getprop("/gui/fgplot/internal/ticks");
       if((Tick > 0) and (cur_x >= x_tick)){
