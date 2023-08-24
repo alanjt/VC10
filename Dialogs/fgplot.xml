@@ -383,21 +383,30 @@ Now you can choose from menubar in equipment fgplot.
   var setProps = func () {
      var a = getprop("/gui/fgplot/running") or 0;
      if(a == 0) {
-       setprop("/gui/fgplot/internal/name[0]","fdm-head.rror-deg");
-       setprop("/gui/fgplot/internal/name[1]","heading-.rror-deg");
-       setprop("/gui/fgplot/internal/name[2]","true-hea.rror-deg");
-       setprop("/gui/fgplot/internal/name[3]","nav1-course-error");
-       setprop("/gui/fgplot/internal/name[4]","nav1-hea.rror-deg");
-       setprop("/gui/fgplot/internal/name[5]","nav1-tra.rror-deg");
-       setprop("/gui/fgplot/internal/prop[0]","/autopilot/internal/fdm-heading-bug-error-deg");
-       setprop("/gui/fgplot/internal/prop[1]","/autopilot/internal/heading-bug-error-deg");
-       setprop("/gui/fgplot/internal/prop[2]","/autopilot/internal/true-heading-error-deg");
-       setprop("/gui/fgplot/internal/prop[3]","/autopilot/internal/nav1-course-error");
-       setprop("/gui/fgplot/internal/prop[4]","/autopilot/internal/nav1-heading-error-deg");
-       setprop("/gui/fgplot/internal/prop[5]","/autopilot/internal/nav1-track-error-deg");
+       setprop("/gui/fgplot/internal/name[0]","theta-deg");
+       setprop("/gui/fgplot/internal/name[1]","thetaD_deg");
+       setprop("/gui/fgplot/internal/name[2]","theta-thetaD2");
+       setprop("/gui/fgplot/internal/name[3]","qd");
+       setprop("/gui/fgplot/internal/name[4]","elevator-pos-deg");
+       setprop("/gui/fgplot/internal/name[5]","pitch-trim-pos-deg");
+       setprop("/gui/fgplot/internal/prop[0]","/fdm/jsbsim/attitude/theta-deg");
+       setprop("/gui/fgplot/internal/prop[1]","/autopilot/internal/thetaD_deg");
+       setprop("/gui/fgplot/internal/prop[2]","/autopilot/internal/theta-thetaD2");
+       setprop("/gui/fgplot/internal/prop[3]","/autopilot/internal/qd");
+       setprop("/gui/fgplot/internal/prop[4]","/fdm/jsbsim/fcs/elevator-pos-deg");
+       setprop("/gui/fgplot/internal/prop[5]","/fdm/jsbsim/fcs/pitch-trim-pos-deg");
+       setprop("/gui/fgplot/internal/top[0]",25); 
+       setprop("/gui/fgplot/internal/top[1]",25);
+       setprop("/gui/fgplot/internal/top[2]",25);
+       setprop("/gui/fgplot/internal/top[3]",25);
+       setprop("/gui/fgplot/internal/top[4]",25);
+       setprop("/gui/fgplot/internal/top[5]",15);	   
        for( var j = 0 ; 6 > j ; j += 1){
-         setprop("/gui/fgplot/internal/factor["~j~"]",-0.833334);
-         setprop("/gui/fgplot/internal/top["~j~"]",180);
+         ##setprop("/gui/fgplot/internal/factor["~j~"]",-0.833334);
+         ##setprop("/gui/fgplot/internal/top["~j~"]",180);
+		  var f=getprop("/gui/fgplot/internal/top["~j~"]");
+          setprop("/gui/fgplot/internal/factor["~j~"]",(-150/f));
+				 
          setprop("/gui/fgplot/internal/line["~j~"]",1);
        };
        setprop("/gui/fgplot/internal/ticktype[0]",1);
@@ -502,7 +511,7 @@ Now you can choose from menubar in equipment fgplot.
 
       dx = getprop("/gui/fgplot/option/dx");
       max_x = getprop("/gui/fgplot/option/max_x");
-      # The calculation is very simple and is causing artifax
+      # The calculation is very simple and is causing artifacts
       #  when going to higher amount of points. Density problem.
       # We should take points already on screen take into account
       #  but that make it a bit more complicated.
