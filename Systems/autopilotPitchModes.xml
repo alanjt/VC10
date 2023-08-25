@@ -97,212 +97,6 @@
 	<u_min>-20</u_min>
 	<u_max>20</u_max>
 </filter>
-
-<filter>
-	<name>theta_washout</name>
-	<debug>false</debug>
-	<type>high-pass</type>
-	<filter-time>1.0</filter-time>
-	<input><property>fdm/jsbsim/attitude/theta</property></input>
-	<output><property>autopilot/internal/thetaWashout</property></output>
-	<u_min>-20</u_min>
-	<u_max>20</u_max>
-</filter>
-	
-<!-- IAS Datum -->
-<filter>
-	<name>IAS Datum</name>
-	<debug>false</debug>
-	<type>gain</type>
-	<gain>1.0</gain>
-	<input>
-		<condition>
-/			<equals><property>autopilot/switches/IAS-sw</property><value>1</value></equals>
-		</condition>
-		<property>autopilot/internal/Ud</property>
-	</input>
-	<input><property>fdm/jsbsim/velocities/vc-kts</property></input>
-	<output><property>autopilot/internal/Ud</property></output>
-</filter>
-
-<!-- Ias Error (U-Ud) -->
-<filter>
-	<name>U-Ud</name>
-	<debug>false</debug>
-	<type>gain</type>
-	<gain>1.0</gain>
-	<input><property>fdm/jsbsim/velocities/vc-kts</property></input>
-	<reference><property>autopilot/internal/Ud</property></reference>
-	<output><property>autopilot/internal/U-Ud</property></output>
-	<!--	<u_min>-50</u_min>
-		<u_max>50</u_max> -->
-</filter>
-
-<!-- Mach Datum -->
-<filter>
-	<name>Mach Datum</name>
-	<debug>false</debug>
-	<type>gain</type>
-	<gain>1.0</gain>
-	<input>
-		<condition>
-			<equals><property>autopilot/switches/MACH-sw</property><value>1</value></equals>
-		</condition>
-		<property>autopilot/internal/Md</property>
-	</input>
-	<input><property>fdm/jsbsim/velocities/mach</property></input>
-	<output><property>autopilot/internal/Md</property></output>
-</filter>
-
-<!-- Mach Error (M-Md) -->
-<filter>
-	<name>M-Md</name>
-	<debug>false</debug>
-	<type>gain</type>
-	<gain>1.0</gain>
-	<input><property>fdm/jsbsim/velocities/mach</property></input>
-	<reference><property>autopilot/internal/Md</property></reference>
-	<output><property>autopilot/internal/M-Md</property></output>
-</filter>
-
-<!-- Mach error in kts -->
-<filter>
-	<name>Mach Error Kts</name>
-	<debug>false</debug>
-	<type>gain</type>
-	<gain><property>autopilot/internal/Mach1Kts</property></gain>
-	<input><property>autopilot/internal/M-Md</property></input>
-	<output><property>autopilot/internal/M-Mdkts</property></output>
-</filter>
-
-<!--	
-	==============================
-	ILS - Glide Slope mode
-	==============================
--->
-<filter>
-	<name>gs coupler</name>
-	<debug>false</debug>
-	<type>lead-lag</type>
-	<gain><value>5.0</value></gain>
-	<filter-time-a>5.0</filter-time-a>
-	<filter-time-b>0.5</filter-time-b>
-	<input>
-		<expression>
-			<product>
-				<property>autopilot/gain/gs-q</property>
-				<property>instrumentation/nav/gs-needle-deflection-deg</property>
-			</product>
-		</expression>
-	</input>
-	<output><property>autopilot/internal/q-demand-GS</property></output>
-</filter>
-
-<filter>
-	<name>s-sD washout</name>
-	<debug>false</debug>
-	<type>high-pass</type>
-	<filter-time>1.0</filter-time>
-	<input><property>autopilot/internal/s-sD</property></input>
-	<output><property>autopilot/internal/s-sD-washout</property></output>
-</filter>
-
-<filter>
-	<name>h-hDemand lag</name>
-	<debug>false</debug>
-	<type>exponential</type>
-	<filter-time>0.1</filter-time>
-	<input><property>autopilot/internal/h-hDemand</property></input>
-	<output><property>autopilot/internal/h-hDlag</property></output>
-</filter>
-
-<filter>
-	<name>height modes switch 1</name>
-	<debug>false</debug>
-	<type>gain</type>
-	<gain>1.0</gain>
-	<input>
-		<expression>
-			<sum>
-				<product>
-					<property>autopilot/gain/Gh</property>
-					<property>autopilot/internal/h-hDlag</property>
-				</product>
-				<product>
-					<property>autopilot/gain/Ghdot</property>
-					<property>fdm/jsbsim//velocities/h-dot-fps</property>
-				</product>
-			</sum>
-		</expression>
-	</input>
-	<output><property>autopilot/internal/qd-height</property></output>
-</filter>
-
-<!--	
-	==============================
-	Speed Hold modes
-	==============================
--->
-
-<filter>
-	<name>U-Ud leadlag</name>
-	<debug>false</debug>
-	<type>lead-lag</type>
-	<gain>1</gain>
-	<filter-time-a>5.0</filter-time-a>
-	<filter-time-b>1.0</filter-time-b>
-	<input><property>autopilot/internal/U-Ud</property></input>
-	<output><property>autopilot/internal/U-Ud-leadlag</property></output>
-</filter>
-
-<filter>
-	<name>M-Md leadlag</name>
-	<debug>false</debug>
-	<type>lead-lag</type>
-	<gain>1</gain>
-	<filter-time-a>2.0</filter-time-a>
-	<filter-time-b>0.5</filter-time-b>
-	<input><property>autopilot/internal/M-Mdkts</property></input>
-	<output><property>autopilot/internal/M-Md-Kts-leadlag</property></output>
-</filter>
-
-<filter>
-	<name>q demand select</name><!-- selects pitch rate command dependent upon mode -->
-	<debug>false</debug>
-	<type>gain</type>
-	<gain><value>1.0</value></gain>
-	<input><!-- ILS command -->
-		<condition><property>autopilot/submode/ILS-GS-cap</property></condition>
-		<property>autopilot/internal/q-demand-GS</property>
-	</input>
-	<input><!-- height error command -->
-		<condition><property>autopilot/switches/ALT-sw</property></condition>
-		<property>autopilot/internal/qd-height</property>
-	</input>
-	<input>
-		<condition><property>autopilot/switches/IAS-sw</property></condition>
-		<expression>
-			<product>
-				<property>autopilot/gain/Gu</property>
-				<property>autopilot/internal/U-Ud-leadlag</property>
-			</product>
-		</expression>
-	</input>
-	<input>
-		<condition><property>autopilot/switches/MACH-sw</property></condition>
-		<expression>
-			<product>
-				<property>autopilot/gain/Gu</property>
-				<property>autopilot/internal/M-Md-Kts-leadlag</property>
-			</product>
-		</expression>
-	</input>
-	<!-- If no pitch command mode, fall through to pitch angle hold mode -->
-	<input><!-- default -->
-		<value>0.0</value>
-	</input>
-	<output><property>autopilot/internal/qd-command</property></output>
-</filter>
 	
 <filter>
 	<name>pitch rate demand</name>
@@ -314,7 +108,6 @@
 			<sum>
 				<product>
 					<property>autopilot/gain/Gtheta</property>
-<!--					<property>autopilot/internal/theta-thetaD</property> -->
 					<property>autopilot/internal/theta-thetaD2</property>
 				</product>
 			</sum>
@@ -329,12 +122,7 @@
 	<type>gain</type>
 	<gain><value>1.0</value></gain>
 	<input>
-		<expression>
-			<sum>
-				<property>autopilot/internal/qd-command</property>
 				<property>autopilot/internal/qd-theta</property>
-			</sum>
-		</expression>
 	</input>
 	<output><property>autopilot/internal/qd-sum</property></output>
 </filter>
@@ -343,14 +131,9 @@
 	<name>q demand sw4</name>
 	<debug>false</debug>
 	<type>gain</type>
-	<gain><value>1.0</value></gain>
+	<gain><value>0.02</value></gain>
 	<input>
-		<expression>
-			<product>
 				<property>autopilot/internal/qd-sum</property>
-				<property>autopilot/gain/Gqe</property>
-			</product>
-		</expression>
 	</input>
 	<output><property>autopilot/internal/qd-sw4</property></output>
 </filter>
@@ -361,19 +144,8 @@
 	<type>gain</type>
 	<gain><value>1.0</value></gain>
 	<input>
-		<condition>
-			<or>
-				<property>autopilot/switches/AP1orAP2-sw</property>
-				<property>autopilot/switches/ALT-sw</property>
-				<property>autopilot/switches/MACH-sw</property>
-				<property>autopilot/switches/IAS-sw</property>
-				<property>autopilot/submode/ILS-GS-cap</property>
-			</or>
-		</condition>
 		<property>autopilot/internal/qd-sw4</property>
 	</input>
-	<!-- no selection - default -->
-	<input><value>-100000.0</value></input>
 	<output><property>autopilot/internal/qd-ap</property></output>
 </filter>
 
@@ -386,57 +158,19 @@
 	<output><property>autopilot/internal/qd</property></output>
 </filter>
 
-<!--	<filter>
-		<name>autopilot qd sec-phi</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain><value>1</value></gain>
-		<input>
-			<expression>
-				<product>
-					<property>autopilot/internal/sec-phi</property>
-					<property>autopilot/internal/qd</property>
-				</product>
-			</expression>
-		</input>
-		<output><property>autopilot/internal/qd_sec_phi</property></output>
-	</filter> -->
-
-<filter>
-	<name>autopilot qr bank</name>
-	<debug>false</debug>
-	<type>gain</type>
-	<gain><value>2500.0</value></gain>
-	<enable>
-		<condition>
-			<not-equals>
-				<property>fdm/jsbsim/velocities/vtrue-fps</property>
-				<value>0.0</value>
-			</not-equals>
-		</condition>
-	</enable>
-	<input>
-		<expression><div>
-				<property>autopilot/internal/sintan-phi</property>
-				<property>fdm/jsbsim/velocities/vtrue-fps</property>
-			</div></expression>
-	</input>
-	<output><property>autopilot/internal/qr_bank</property></output>
-</filter>
-
 <filter>
 	<name>autopilot qr demand limited</name>
 	<debug>false</debug>
 	<type>gain</type>
 	<gain><value>1.0</value></gain>
 	<input>
-		<expression>
-			<!--				<sum>
+		<!--<expression>
+							<sum>
 					<property>autopilot/internal/qd_sec_phi</property> -->
 			<property>autopilot/internal/qd</property>
-			<property>autopilot/internal/qr_bank</property>
-			<!--				</sum> -->
-		</expression>
+			<!--<property>autopilot/internal/qr_bank</property>
+							
+		</expression></sum> -->
 	</input>
 	<u_max><property>autopilot/internal/qd_max</property></u_max>
 	<u_min><property>autopilot/internal/qd_min</property></u_min>
@@ -444,224 +178,13 @@
 </filter>
 
 <filter>
-	<name>qr max nose up</name>
+	<name>qr</name>
 	<debug>false</debug>
 	<type>gain</type>
 	<gain><value>1.0</value></gain>
 	<input><property>autopilot/internal/qr_limited</property></input>
 	<output><property>autopilot/internal/qr</property></output>
 </filter>
-
-<!-- error integrator -->
-<filter>
-	<name>q demand (height modes switch 9)</name>
-	<debug>false</debug>
-	<type>gain</type>
-	<gain><value>0.1</value></gain>
-	<input>
-		<condition>
-			<property>autopilot/switches/IAS-sw</property>
-		</condition>
-		<property>autopilot/internal/U-Ud-leadlag</property>
-	</input>
-	<input>
-		<condition>
-			<property>autopilot/switches/MACH-sw</property>
-		</condition>
-		<property>autopilot/internal/M-Md-Kts-leadlag</property>
-	</input>
-	<input>
-		<value>0.0</value>
-	</input>
-	<output><property>autopilot/internal/qInt-sw9</property></output>
-</filter>
-
-<filter>
-	<name>q demand (height modes switch 10)</name><!-- similar logic to q command above -->
-	<debug>false</debug>
-	<type>gain</type>
-	<gain><value>0.1</value></gain>
-	<input>
-		<condition>
-			<and>
-				<or>
-					<property>autopilot/switches/MACH-sw</property>
-					<property>autopilot/switches/IAS-sw</property>
-				</or>
-				<or>
-					<not><property>autopilot/settings/height-aq</property></not>
-					<not><property>autopilot/internal/h-Acquired_flag</property></not>
-				</or>
-				<not><property>autopilot/switches/ALT-sw</property></not>
-			</and>
-		</condition>
-		<expression>
-			<product>
-				<property>autopilot/internal/qInt-sw9</property>
-				<property>autopilot/gain/GIASInt</property>
-			</product>
-		</expression>
-	</input>
-	<!-- no selection - default -->
-	<input>
-		<expression>
-			<product>
-				<property>autopilot/internal/h-hDemand</property>
-				<property>autopilot/gain/GhInt</property>
-			</product>
-		</expression>
-	</input>
-	<input>
-		<value>0.0</value>
-	</input>
-	<output><property>autopilot/internal/qInt-sw10</property></output>
-</filter>
-
-<filter>
-	<name>qd integrator input qInt-liveband</name>
-	<debug>false</debug>
-	<type>gain</type>
-	<gain><value>1.0</value></gain>
-	<input>
-		<condition>
-			<and>
-				<less-than>
-					<property>autopilot/internal/qInt-sw10</property>
-					<value>0.02</value>
-				</less-than>
-				<greater-than>
-					<property>autopilot/internal/qInt-sw10</property>
-					<value>-0.02</value>
-				</greater-than>
-			</and>
-		</condition>
-		<property>autopilot/internal/qInt-sw10</property>
-	</input>
-	<input>
-		<value>0.0</value>
-	</input>
-	<output><property>autopilot/internal/qInt-liveband</property></output>
-</filter>
-
-<filter>
-	<name>qd integrator input sw11</name>
-	<debug>false</debug>
-	<type>gain</type>
-	<gain><value>1.0</value></gain>
-	<input>
-		<condition>
-			<and>
-				<property>autopilot/switches/AP1orAP2-sw</property>
-				<or>
-					<property>autopilot/switches/MACH-sw</property>
-					<property>autopilot/switches/IAS-sw</property>
-					<property>autopilot/switches/ALT-sw</property>
-					<and>
-						<property>autopilot/switches/ALT-sw</property>
-						<or>
-							<property>autopilot/switches/MACH-sw</property>
-							<property>autopilot/switches/IAS-sw</property>
-						</or>
-					</and>
-					<!--	<and> -->
-					<property>autopilot/switches/IAS-sw</property>
-					<!--	<property>autopilot/submode/ILS-GS-cap</property>
-		</and> -->
-				</or>
-			</and>
-		</condition>
-		<property>autopilot/internal/qInt-liveband</property>
-	</input>
-	<!-- no selection - integrator feedback -->
-	<input>
-		<expression><product>
-				<value>-10</value>
-				<property>autopilot/internal/qInt-e</property>
-			</product></expression>
-	</input>
-	<output><property>autopilot/internal/qInt-sw11</property></output>
-</filter>
-
-<filter>
-	<name>qd integrator input sw12</name>
-	<debug>false</debug>
-	<type>gain</type>
-	<gain><value>1.0</value></gain>
-	<input>
-		<condition>
-			<!--<or> -->
-			<not><property>autopilot/submode/ILS-GS-cap</property></not>
-			<!--<greater-than>
-						<property>autopilot/internal/qd-tf</property>
-						<property>autopilot/internal/qd-ap</property>
-					</greater-than>
-				</or> -->
-		</condition>
-		<value>0.0</value>
-	</input>
-	<!-- no selection - enable output -->
-	<input>
-		<property>autopilot/internal/qInt-sw11</property>
-	</input>
-	<output><property>autopilot/internal/qInt-sw12</property></output>
-</filter>
-
-<filter>
-	<name>height demand hD integrator</name>
-	<debug>false</debug>
-	<type>integrator</type>
-	<gain>1.0</gain>
-	<input>
-		<property>autopilot/internal/qInt-sw12</property>
-	</input>
-	<output><property>autopilot/internal/qInt-e</property></output>
-	<u_min>-10</u_min>
-	<u_max>10</u_max>
-</filter>
-
-<filter>
-	<name>qe integrator output switch</name>
-	<debug>false</debug>
-	<type>gain</type>
-	<gain><value>1.0</value></gain>
-	<input>
-		<condition>
-			<and>
-				<property>autopilot/switches/AP1orAP2-sw</property>
-				<or>
-					<property>autopilot/switches/MACH-sw</property>
-					<property>autopilot/switches/IAS-sw</property>
-					<and>
-						<or>
-							<property>autopilot/switches/ALT-sw</property>
-							<property>autopilot/submode/ILS-GS-cap</property>
-						</or>
-						<or>
-							<property>autopilot/switches/MACH-sw</property>
-							<property>autopilot/switches/IAS-sw</property>
-						</or>
-					</and>
-					<property>autopilot/switches/ALT-sw</property>
-				</or>
-			</and>
-		</condition>
-		<expression><product>
-				<value>1.0</value>
-				<property>autopilot/internal/qInt-e</property>
-			</product></expression>
-	</input>
-	<!-- no selection - default -->
-	<input>
-		<value>0</value>
-	</input>
-	<output><property>autopilot/commands/APintegrator-deg</property></output>
-</filter>
-
-<!--
-    ===============
-    Pitch Short Period Damping.
-    ===============
-    -->
 
 <!-- Pitch rate error driver -->
 <filter>
@@ -680,24 +203,6 @@
 	<output><property>autopilot/internal/q-error</property></output>
 </filter>
 
-<!--	<filter>
-		<name>Pitch AutoStabiliser</name>
-		<debug>false</debug>
-		<type>high-pass</type>
-		<filter-time>1.0</filter-time>
-		<input>
-			<expression>
-				<product>
-					<property>autopilot/gain/Gq</property>
-					<property>autopilot/internal/q-error</property>
-				</product>
-			</expression>
-		</input>
-		<output><property>autopilot/commands/elevator-stabiliser</property></output>
-		<u_min>-20</u_min>
-		<u_max>20</u_max>
-	</filter> -->
-
 <filter>
 	<name>AFCS elevator</name>
 	<debug>false</debug>
@@ -705,13 +210,10 @@
 	<gain>1.0</gain>
 	<input>
 		<expression>
-			<!--<sum> -->
 			<product>
 				<property>autopilot/gain/Gqr</property>
 				<property>autopilot/internal/q-error</property>
 			</product>
-			<!--<property>autopilot/commands/APintegrator-deg</property>
-				</sum> -->
 		</expression>
 	</input>
 	<output><property>autopilot/commands/APelevator-deg</property></output>
