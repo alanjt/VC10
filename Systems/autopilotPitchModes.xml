@@ -172,8 +172,8 @@
 							
 		</expression></sum> -->
 	</input>
-	<u_max><property>autopilot/internal/qd_max</property></u_max>
-	<u_min><property>autopilot/internal/qd_min</property></u_min>
+	<!--<u_max><property>autopilot/internal/qd_max</property></u_max>
+	<u_min><property>autopilot/internal/qd_min</property></u_min>-->
 	<output><property>autopilot/internal/qr_limited</property></output>
 </filter>
 

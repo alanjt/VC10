@@ -98,8 +98,8 @@
 				</product>				
 			</expression>				
 		</input>
-		<u_min>-100</u_min>
-		<u_max>100</u_max>
+		<!--<u_min>-100</u_min>
+		<u_max>100</u_max> -->
 		<output><property>autopilot/internal/qd_max</property></output>
 	</filter>
 
