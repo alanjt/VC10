@@ -151,7 +151,7 @@ var Reset = func{
     setprop("/controls/flight/flaps", flaps);		
     setprop("fdm/jsbsim/fcs/flaps", flaps);
     setprop("controls/flight/rudder-trim", 0);
-    setprop("controls/flight/elevator-trim", 0);
+    setprop("fdm/jsbsim/fcs/pitch-trim-pos-deg", 0);
     setprop("controls/flight/aileron-trim", 0);
 	   
     setprop("instrumentation/weu/state/takeoff-mode",0);

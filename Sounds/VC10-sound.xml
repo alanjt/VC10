@@ -1898,15 +1898,6 @@ if you contacted me before making any changes to this software.
       </pitch>
     </hyd-pump>
     
-<!--		<trim-wheels>
-			<name>Trim Wheels</name>
-			<mode>in-transit</mode>
-			<path>Aircraft/VC10/Sounds/trimwheel.wav</path>
-			<property>VC10/trim/elevator-trim-turn</property>
-			<volume>
-				<property>sim/current-view/internal</property>
-			</volume>
-		</trim-wheels> -->
 		
 </fx>
 

@@ -9,6 +9,10 @@
 
 print ("autopilot.nas");
 
+var last_time = getprop("/sim/time/elapsed-sec");
+var current_time = getprop("/sim/time/elapsed-sec");
+var dt = 0.0;
+
 ### Bendix PB 20 ###
 # Switches and Knobs:
 
@@ -38,7 +42,9 @@ print ("autopilot.nas");
 	props.globals.initNode("autopilot/controls/YD_3_engaged", 0,"BOOL");
 	props.globals.initNode("autopilot/settings/RollKnobInDetent",0,"BOOL");	
 	props.globals.initNode("autopilot/internal/throttlec-deg_integ",0.0,"DOUBLE");
-	 
+
+	props.globals.initNode("autopilot/switches/auto-trim-cutout",0,"BOOL");
+	
 	props.globals.initNode("autopilot/mutex","","STRING");
 	
 	props.globals.initNode("autopilot/gain/GAy",0.05,"DOUBLE");
@@ -497,6 +503,11 @@ listenerMachModeFunc = func {
 var update_autopilot = func {
 ##	Autopilot main control loop
 
+    current_time = getprop("/sim/time/elapsed-sec");
+    dt = current_time - last_time;  # Note current_time is time in millisec since sim started.
+    last_time = current_time;
+
+
 	var AP_m_L_sw = getprop("autopilot/switches/AP_MasterL_switch") or 0;
 	var AP_m_R_sw = getprop("autopilot/switches/AP_MasterR_switch") or 0;
 	var No1GenBusVolts = getprop("VC10/electric/ac/No1GenBusbarVolts") or 0;
@@ -549,6 +560,8 @@ var update_autopilot = func {
 
 	setprop("autopilot/switches/AP1orAP2-sw", (getprop("autopilot/switches/AP1-sw") or getprop("autopilot/switches/AP2-sw")));
 	
+	var APengaged = getprop("autopilot/switches/AP1orAP2-sw");
+	
 	setprop("autopilot/internal/BarometricModeSelected",(
 			getprop("autopilot/settings/Mach-sw") 
 			or getprop("autopilot/switches/IAS-sw")
@@ -574,7 +587,15 @@ var update_autopilot = func {
 	setprop("autopilot/settings/AT2_engage",AT2);
 	setprop("autopilot/settings/AT3_engage",AT3);
 	setprop("autopilot/settings/AT4_engage",AT4);
-		
+	
+
+	
+	if (APengaged){
+		var APelevator_deg =  getprop("autopilot/commands/APelevator-deg");
+		if (APelevator_deg > -0.1) controls.slewProp("controls/flight/elevator-trim", dt*0.5);
+		if (APelevator_deg < 0.0)  controls.slewProp("controls/flight/elevator-trim", -dt*0.5);
+	}
+	
 	settimer(update_autopilot,0);   ## loop 
 };
 ##############################################################################################

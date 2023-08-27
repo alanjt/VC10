@@ -1201,37 +1201,7 @@ setlistener("VC10/pressurization/cabin-air-temp-selector", func(state){
 	}
 },1,0);
 
-################################  funny sound action for the old elevator trim wheel #################### 
 
-setlistener("controls/flight/elevator-trim", func(et){
-	var et = et.getValue();
-	var ap = getprop("autopilot/switches/AP1orAP2-sw") or 0;
-	if (!ap) {
-		setprop("VC10/trim/elevator-trim-turn", et);
-		lastTrimValue.setValue(et);
-	}
-},0,0);
-
-var trim_loop = func{
-	var et = getprop("controls/flight/elevator-trim") or 0;
-	var ap = getprop("autopilot/switches/AP1orAP2-sw") or 0;
-	var diff = abs(lastTrimValue.getValue() - et);
-	#print("Difference: "~diff);
-	if(ap and diff > 0.002){
-			if(diff < 0.05 ){
-				interpolate("VC10/trim/elevator-trim-turn", et, 2); 
-			}elsif(diff >= 0.05 and diff < 0.3){
-				interpolate("VC10/trim/elevator-trim-turn", et, 4); 			
-			}else{
-				interpolate("VC10/trim/elevator-trim-turn", et, 6); 			
-			}
-			lastTrimValue.setValue(et); # but we need the correct value
-	}
-	
-	settimer(trim_loop, 8.2);
-}
-
-trim_loop();  # fire it up
 
 ##################### rudder and spoiler hydraulic switches in overhead panel ###################
 

@@ -751,55 +751,6 @@ var listenerApNav1NearFarFunc = func {
 }
 setlistener("autopilot/locks/heading", listenerApNav1NearFarFunc);
 
-# adjust elevator-position to avoid elevator-trim getting to it's end-position: alt-/vspeed-modes are driven by elevator-trim
-var counterForElevatorMovement = 0.0;
-var elevatorTrimPosAverages = [0.0, 0.0, 0.0, 0.0, 0.0];
-var elevatorTrimPosMax = 0.9;
-var adjustElevatorPosition = func {
-	if (	getprop("autopilot/locks/altitude") == "altitude-hold" or
-		getprop("autopilot/locks/altitude") == "agl-hold" or
-		getprop("autopilot/locks/altitude") == "vertical-speed-hold" or
-		getprop("autopilot/locks/altitude") == "gs1-hold" or
-		getprop("autopilot/locks/altitude") == "pitch-hold" or
-		getprop("autopilot/locks/altitude") == "aoa-hold" or
-		getprop("autopilot/locks/altitude") == "speed-with-pitch-trim") {
-
-		# experimental - move elevator if elevator-trim reaches end-position
-		if (counterForElevatorMovement >= size(elevatorTrimPosAverages)) {	# each 5-th iteration
-			var elevatorTrimPosAverage = 0.0;
-			for (var i=0; i < size(elevatorTrimPosAverages); i=i+1) {
-				elevatorTrimPosAverage += elevatorTrimPosAverages[i];
-			}
-			elevatorTrimPosAverage = elevatorTrimPosAverage / size(elevatorTrimPosAverages);
-			var elevatorPos = getprop("autopilot/internal/elevator-position");
-			#print("adjustElevatorPosition=", elevatorTrimPosAverage);
-			if (elevatorTrimPosAverage < (elevatorTrimPosMax * (-1))) {
-				if (elevatorPos >= -0.99) {
-					interpolate("autopilot/internal/elevator-position", elevatorPos - 0.01, 0.9);
-					#print("adjustElevatorPosition=", getprop("autopilot/internal/elevator-position"));
-				}
-			}
-			elsif (elevatorTrimPosAverage > elevatorTrimPosMax) {
-				if (elevatorPos <= 0.99) {
-					interpolate("autopilot/internal/elevator-position", elevatorPos + 0.01, 0.9);
-					#print("adjustElevatorPosition=", getprop("autopilot/internal/elevator-positionr"));
-				}
-			}
-
-			counterForElevatorMovement = 0;
-		}
-		else {
-			if (counterForElevatorMovement < size(elevatorTrimPosAverages)) {
-				elevatorTrimPosAverages[counterForElevatorMovement] = getprop("controls/flight/elevator-trim");
-			}
-			counterForElevatorMovement += 1;
-		}
-
-		settimer(adjustElevatorPosition, 0.2);
-	}
-}
-setlistener("autopilot/locks/altitude", adjustElevatorPosition);
-
 
 ### speed with pitch
 
