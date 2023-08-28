@@ -66,7 +66,6 @@
 	<!-- Yaw rate, passed through a washout filter having a time constant of aprox 3 seconds.
 -->	
 
-
 	<filter>
 		<type>high-pass</type>
 		<debug>false</debug>
@@ -91,5 +90,28 @@
 		<output><property>fdm/jsbsim/fcs/afcs-yawdamper-deg</property></output>
 	</filter>
 
+	<filter>
+		<name>Rudder Cmd</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<expression>
+				<sum>
+					<property>autopilot/commands/rudderstab-Ay-deg</property>
+					<property>autopilot/commands/rudderstab-betadot-deg</property>
+<!--					<property>autopilot/commands/rudderstab-aileron-deg</property> -->
+				</sum>
+			</expression>
+		</input>
+		<output><property>fdm/jsbsim/fcs/afcs-rudder-cmd-deg</property></output>
+		<u_min>-6.0</u_min>
+		<u_max>6.0</u_max>
+	</filter>
 
 </PropertyList>
+<!--	The Rudder command summer is in the JSBSim FDM (VC10.xml)
+				<input>fcs/rudder-cmd-deg</input>
+				<input>fcs/rudder-trim-cmd-deg</input>
+				<input>fcs/afcs-rudder-cmd-deg</input>
+				<input>fcs/afcs-yawdamper-deg</input> -->

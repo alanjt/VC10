@@ -363,11 +363,11 @@ _______________________________________________________
 		
 		<!-- Uncomment below to enable FGplot -->
 		<!-- -->
-		<plot>
+		<!-- <plot>-->
 		
 			<!-- alternative as in JA37/Viggen-set-base.xml -->
 			<!-- <file>Aircraft/JA37/Nasal/plot/Pbutton.nas</file>-->
-			<file>Nasal/plot/Pbutton.nas</file>
+			<!--<file>Nasal/plot/Pbutton.nas</file>
 			<file>Nasal/plot/Pchooser.nas</file>
 			<file>Nasal/plot/Pgraph.nas</file>
 			<file>Nasal/plot/Phelper.nas</file>
@@ -378,7 +378,7 @@ _______________________________________________________
 			<file>Nasal/plot/Pmenu.nas</file>
 			<file>Nasal/plot/Psave.nas</file>
 			<file>Nasal/plot/Ptext.nas</file>
-		</plot>
+		</plot>-->
 		<!-- -->
 	</nasal>
 	
