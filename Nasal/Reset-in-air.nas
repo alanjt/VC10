@@ -94,6 +94,18 @@ var Reset = func{
         setprop("VC10/electric/ess-power-switch", 5);
 		setprop("VC10/electric/ac/ac-para-select", 6);
 		
+		setprop("systems/electrical/switches/RadioNav/CompassGyro1","true");
+		setprop("systems/electrical/switches/RadioNav/CompassGyro2","true");
+		setprop("systems/electrical/switches/RadioNav/VertGyro1","true");
+		setprop("systems/electrical/switches/RadioNav/VertGyro2","true");
+		setprop("systems/electrical/switches/RadioNav/radio1","true");
+		setprop("systems/electrical/switches/RadioNav/radio2","true");
+		setprop("systems/electrical/switches/RadioNav/radio1Emergency","true");
+		setprop("systems/electrical/switches/RadioNav/intercom","true");
+
+
+		
+		
 		setprop("VC10/hydraulic/ac-aux-pump[0]", 1);
 		setprop("VC10/hydraulic/ac-aux-pump[1]", 1);
 		setprop("VC10/hydraulic/brake-valve", 2);
