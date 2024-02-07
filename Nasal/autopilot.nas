@@ -31,6 +31,7 @@ var dt = 0.0;
 	
 	props.globals.initNode("autopilot/switches/mode-knob",0,"DOUBLE");      # -1 HEADING : 0 MAN : 1 LOC VOR : 2 GS AUTO : 3 GS MAN : 4 FLARE :
 #	autopilot/Bendix-PB-20/controls/mode-selector (switches/mode-knob          0 NAV     : 1 HDG : 2 MAN     : 3 LOC VOR : 4 GS AUTO: 5 GS MAN:
+	props.globals.initNode("autopilot/settings/Mode","MAN","STRING");
 	props.globals.initNode("autopilot/settings/pitch-wheel-deg",1,"DOUBLE");# -14 .. 0 .. +14
 	props.globals.initNode("autopilot/settings/TurnKnob",0,"DOUBLE");		# -25 .. 0 .. +25
 	props.globals.initNode("autopilot/switches/datum_norm",1,"DOUBLE");		#  -1 .. 0 .. +1
@@ -128,6 +129,7 @@ var listenerApActiveFunc = func {
 			if (getprop("autopilot/mutex") == "") {
 				print(" mutex null");
 				setprop("autopilot/switches/mode-knob", 0);     ## MAN
+				setprop("autopilot/settings/Mode", "MAN");
 			}
 		}
 	}
@@ -283,6 +285,7 @@ var listenerApMANRollFunc = func {
 	if(getprop("autopilot/settings/RollKnobInDetent") == 0) {
 		print (" if TurnKnob turn, the mode selector jump to mode 0");
 		setprop("autopilot/switches/mode-knob", 0);   # MAN
+		setprop("autopilot/settings/Mode", "MAN");
 		}
 
 	if (	getprop("autopilot/switches/AP1orAP2-sw") == 1 and
@@ -391,6 +394,7 @@ setlistener("autopilot/locks/heading", listenerApSetHeadingFunc);
 
 ##		setprop("autopilot/switches/AP1orAP2-sw", 1);
 ##		setprop("autopilot/switches/mode-knob", -1);
+##		setprop("autopilot/settings/Mode", "HDG");
 ##	}
 ##}
 ##setlistener("autopilot/locks/passive-mode", listenerApSetPassiveModeFunc);
@@ -426,19 +430,23 @@ var menuSwitchAp = func {
 	    print (" if heading lock = win-leveler, the mode selector jump to mode 0");
 		setprop("autopilot/switches/AP1orAP2-sw", 1);
 		setprop("autopilot/switches/mode-knob", 0);  # MAN
+		setprop("autopilot/settings/Mode", "MAN");
 	}
 	elsif (getprop("autopilot/locks/heading") == "dg-heading-hold") {
 ##		setprop("autopilot/switches/AP1orAP2-sw", 1);
 		setprop("autopilot/switches/mode-knob", -1);   # HDG
+		setprop("autopilot/settings/Mode", "HDG");
 	}
 	elsif (	getprop("autopilot/locks/heading") == "nav1-hold") {
 		if (getprop("autopilot/locks/altitude") == "gs1-hold") {
 ##			setprop("autopilot/switches/AP1orAP2-sw", 1);
 			setprop("autopilot/switches/mode-knob", 2);  # GS AUTO
+			setprop("autopilot/settings/Mode", "GS AUTO");
 		}
 		else {
 ##			setprop("autopilot/switches/AP1orAP2-sw", 1);
 			setprop("autopilot/switches/mode-knob", 1);  # LOC VOR
+			setprop("autopilot/settings/Mode", "LOC VOR");
 		}
 	}
 	elsif (getprop("autopilot/locks/heading") == "") {
@@ -449,6 +457,7 @@ var menuSwitchAp = func {
 			setprop("autopilot/switches/ALT-sw", 0);
 			print (" if heading lock and alt lock not set, the mode selector jump to mode 0");
 			setprop("autopilot/switches/mode-knob", 0);  # MAN
+			setprop("autopilot/settings/Mode", "MAN");
 		}
 	}
 }
@@ -471,6 +480,7 @@ setlistener("controls/special/yoke-switch1", func (s1){
 		setprop("autopilot/switches/ALT-sw", 0);
 		print (" AP disconnect sw");
 		setprop("autopilot/switches/mode-knob", 0);   # MAN
+		setprop("autopilot/settings/Mode", "MAN");
 		setprop("autopilot/settings/pitch-wheel-deg", 0);
 		setprop("autopilot/settings/target-pitch-deg", 0);
 		setprop("autopilot/locks/altitude", "");

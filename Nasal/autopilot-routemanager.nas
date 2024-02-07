@@ -64,11 +64,14 @@ var listenerApRouteManagerInitFunc = func {
 	# initialise autopilot control panel.
 
 	setprop("autopilot/switches/mode-knob", 0);
+	setprop("autopilot/settings/Mode", "MAN");
+	
 	setprop("autopilot/switches/ALT-sw", 0);
 	setprop("autopilot/switches/IAS-sw", 0);
 	setprop("autopilot/switches/MACH-sw", 0);
 	setprop("autopilot/switches/NAV-sw", 0);
 	setprop("autopilot/switches/mode-knob", 0);
+	setprop("autopilot/settings/Mode", "MAN");
 	
 	setprop("autopilot/switches/AP1-sw", 0);
 	setprop("autopilot/switches/AP2-sw", 0);
