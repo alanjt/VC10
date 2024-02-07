@@ -658,23 +658,6 @@ Copyright (C) 2019 Alan Teeder
 		</condition>	
 	</animation>  -->
 
-	<!-- shadow without rembrandt -->
-	<!--	<model>
-		<name>NewShadow</name>
-		<path>Aircraft/VC10/Models/shadow.xml</path>
-	</model>
-
-	<animation>
-		<type>select</type>
-		<object-name>NewShadow</object-name>
-		<condition>
-			<and>
-				<not><property>sim/multiplay/generic/int[19]</property></not>
-				<not><property>/sim/rendering/rembrandt/enabled</property></not>
-			</and>
-		</condition>
-	</animation> -->
-
 	<!-- animate the doors and the nose -->
 	<!--	<animation>
       <type>rotate</type>
