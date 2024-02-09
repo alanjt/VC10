@@ -27,7 +27,7 @@
 				<checkbox>
 					<row>0</row>
 					<col>0</col>
-					<label>1</label>
+					<label>AT-1</label>
 					<property>autopilot/switches/AT_1switch</property>
 					<live>true</live>
 					<binding>
@@ -38,7 +38,7 @@
 				<checkbox>
 					<row>0</row>
 					<col>1</col>
-					<label>2</label>
+					<label>AT-2</label>
 					<property>autopilot/switches/AT_2switch</property>
 					<live>true</live>
 					<binding>
@@ -49,7 +49,7 @@
 				<checkbox>
 					<row>0</row>
 					<col>3</col>
-					<label>3</label>
+					<label>AT-3</label>
 					<property>autopilot/switches/AT_3switch</property>
 					<live>true</live>
 					<binding>
@@ -60,7 +60,7 @@
 				<checkbox>
 					<row>0</row>
 					<col>4</col>
-					<label>4</label>
+					<label>AT-4</label>
 					<property>autopilot/switches/AT_4switch</property>
 					<live>true</live>
 					<binding>
@@ -445,7 +445,7 @@
 				<checkbox>
 					<row>0</row>
 					<col>0</col>
-					<label>1</label>
+					<label>AP-1 Power</label>
 					<property>autopilot/switches/AP_MasterL_switch</property>
 					<live>true</live>
 					<binding>
@@ -456,7 +456,7 @@
 				<checkbox>
 					<row>0</row>
 					<col>1</col>
-					<label>2</label>
+					<label>AP-2 Power</label>
 					<property>autopilot/switches/AP_MasterR_switch</property>
 					<live>true</live>
 					<binding>
