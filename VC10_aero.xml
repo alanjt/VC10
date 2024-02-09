@@ -21,7 +21,7 @@ AERODYNAMICS
 
 	<!-- The fuselage datum is that defined by Vickers and is 8" aft of the front of the radome.
     and is used for placing and animating objects in the top level model files.
-	(model.xml and VC10.ac).	-->
+	(VC10_model.xml and VC10.ac).	-->
 	
 	<!-- Reference 5 was used as the basis for the Digital Datcom and OpenVSP aero analysis, and for the 3d model VC10.ac. 	-->
 

@@ -20,7 +20,7 @@ RR Conway engines and the VC10´s Elliot autopilot is a Bendix PB20 built under 
 		</startup>
 	
 		<model n="0">
-			<path>Aircraft/VC10/Models/model.xml</path>
+			<path>Aircraft/VC10/Models/VC10_model.xml</path>
 			<livery>
 				<file type="string">RAF</file>
 			</livery>
