@@ -26,7 +26,7 @@ Copyright (C) 2019 Alan Teeder
 		<object-name>Engine3</object-name>
 		<object-name>Engine4</object-name>
 		<object-name>EnginePylon</object-name>
-<!--		<object-name>lhngdoor</object-name> -->
+		<!--		<object-name>lhngdoor</object-name> -->
 		<object-name>Wing</object-name>
 		<object-name>Elevator.L</object-name>
 		<object-name>Elevator.R</object-name>
@@ -86,16 +86,16 @@ Copyright (C) 2019 Alan Teeder
 
 	<sound><path>Aircraft/VC10/Sounds/mp-sound.xml</path></sound>
 
-	<!--
-	<nasal>
-	<load>
-      var livery_update = aircraft.livery_update.new("Aircraft/VC10/Models/Liveries", 10);
-    </load>
 
-    <unload>
+	<nasal>
+		<load>
+		var livery_update = aircraft.livery_update.new("Aircraft/VC10/Models/Liveries", 10);
+		</load>
+		
+		<unload>
       livery_update.stop();
-    </unload>
-  </nasal> -->
+		</unload>
+	</nasal>
 
 	<animation>
 		<object-name>Fuselage</object-name>
@@ -200,7 +200,7 @@ Copyright (C) 2019 Alan Teeder
 		<object-name>LeftGearForestay</object-name>
 		<property-base>sim/model/livery</property-base>
 		<texture-prop>texture</texture-prop>
-		<texture>VC10.png</texture>
+		<texture>Liveries/BOAC_1.png</texture>
 	</animation>
 
 	<animation>
@@ -285,16 +285,16 @@ Copyright (C) 2019 Alan Teeder
 	</model> -->
 	
 	<model>
-	 <name>ExternalPowerUnit</name>
-	 <path>Aircraft/VC10/Models/epu.xml</path>
+		<name>ExternalPowerUnit</name>
+		<path>Aircraft/VC10/Models/epu.xml</path>
 		<offsets>
- <!--     <x-m>-17.5</x-m>
+			<!--     <x-m>-17.5</x-m>
       <y-m>7.0</y-m>
       <z-m>-2.92</z-m> -->
-      <x-m>-2.5</x-m> 
-      <y-m>6.0</y-m>
-	  <z-m>-3.0</z-m> 
-      <heading-deg> 25 </heading-deg>
+			<x-m>-2.5</x-m>
+			<y-m>6.0</y-m>
+			<z-m>-3.0</z-m>
+			<heading-deg>25</heading-deg>
 		</offsets>
 	</model>
 	
@@ -302,24 +302,24 @@ Copyright (C) 2019 Alan Teeder
 		<type>select</type>
 		<object-name>ExternalPowerUnit</object-name>
 		<condition>
-		  <property>sim/multiplay/generic/int[14]</property>
-		  <not><property>sim/multiplay/generic/int[19]</property></not>
+			<property>sim/multiplay/generic/int[14]</property>
+			<not><property>sim/multiplay/generic/int[19]</property></not>
 		</condition>
 	</animation>
 	
-  <animation>
+	<animation>
 		<type>pick</type>
 		<object-name>ExternalPowerUnit</object-name>
 		<action>
-		  <button>0</button>
-		  <repeatable>true</repeatable>
-		  <interval-sec>0.2</interval-sec>
-		  <binding>
+			<button>0</button>
+			<repeatable>true</repeatable>
+			<interval-sec>0.2</interval-sec>
+			<binding>
 				<command>property-toggle</command>
-    		<property>VC10/electric/external-power-connected</property>
-		  </binding>
+				<property>VC10/electric/external-power-connected</property>
+			</binding>
 		</action>
-  </animation>
+	</animation>
 
 	<!-- Fuel Truck -->
 	<!--  <model>
@@ -877,7 +877,7 @@ Copyright (C) 2019 Alan Teeder
 		</condition>
 	</animation>
 
-<!--	<animation>
+	<!--	<animation>
 		<name>Frontgear</name>
 		<object-name>NGear</object-name>
 		<object-name>NGearStrut</object-name>
@@ -992,7 +992,7 @@ Copyright (C) 2019 Alan Teeder
 		</axis>
 	</animation>
 
-		<!--	<animation>
+	<!--	<animation>
 		<type>rotate</type>
 		<object-name>lhngdoor</object-name>
 		<property>gear/gear[0]/position-norm</property>
@@ -1066,7 +1066,7 @@ Copyright (C) 2019 Alan Teeder
 		</axis>
 	</animation> -->
 
-		<!--	<animation>
+	<!--	<animation>
 		<type>rotate</type>
 		<object-name>rhngdoor</object-name>
 		<property>gear/gear[0]/position-norm</property>
@@ -1134,7 +1134,7 @@ Copyright (C) 2019 Alan Teeder
 		</axis>
 	</animation> -->
  
-<!--	<model>
+	<!--	<model>
 		<name>RightGearBogey</name>
 		<path>Aircraft/VC10/Models/wheels.xml</path>
 		<offsets>
@@ -1267,7 +1267,7 @@ Copyright (C) 2019 Alan Teeder
 		</axis>
 	</animation>
  
-<!--	<animation>
+	<!--	<animation>
 		<type>rotate</type>
 		<object-name>mgdoora</object-name>
 		<object-name>mgdoorb</object-name>
@@ -1435,7 +1435,7 @@ Copyright (C) 2019 Alan Teeder
 		</axis>
 	</animation>
 
-<!--	<animation>
+	<!--	<animation>
 		<type>rotate</type>
 		<object-name>rhmgdoora</object-name>
 		<object-name>rhmgdoorb</object-name>
@@ -1651,7 +1651,7 @@ Copyright (C) 2019 Alan Teeder
 		</axis>
 	</animation> -->
  
-<!--	<animation>
+	<!--	<animation>
 		<type>rotate</type>
 		<object-name>LeftGearBogey</object-name>
 		<object-name>RightGearBogey</object-name>

@@ -10,7 +10,7 @@ name "blah.000"
 loc 0.963868 0.080789 0.709681
 data 8
 blah.000
-texture "VC10.png"
+texture "707bits.png"
 texrep 1 1
 crease 45.000001
 numvert 633
@@ -4397,7 +4397,7 @@ name "blah.002"
 loc 0.963868 0.080789 0.709681
 data 8
 blah.002
-texture "VC10.png"
+texture "707bits.png"
 texrep 1 1
 crease 45.000001
 numvert 626
@@ -8796,7 +8796,7 @@ name "blah.003"
 loc 0.963868 0.080789 0.709681
 data 8
 blah.003
-texture "VC10.png"
+texture "707bits.png"
 texrep 1 1
 crease 115.999999
 numvert 56
@@ -9343,7 +9343,7 @@ name "blah.004"
 loc 0.963868 0.080789 0.709681
 data 8
 blah.004
-texture "VC10.png"
+texture "707bits.png"
 texrep 1 1
 crease 45.000001
 numvert 58
@@ -9676,7 +9676,7 @@ name "blah.005"
 loc 0.963868 0.080789 0.709681
 data 8
 blah.005
-texture "VC10.png"
+texture "707bits.png"
 texrep 1 1
 crease 45.000001
 numvert 664
@@ -14869,7 +14869,7 @@ name "blah.006"
 loc 0.963868 0.080789 0.709681
 data 8
 blah.006
-texture "VC10.png"
+texture "707bits.png"
 texrep 1 1
 crease 45.000001
 numvert 576
@@ -20160,7 +20160,7 @@ name "blah.007"
 loc 0.963868 0.080789 0.709681
 data 8
 blah.007
-texture "VC10.png"
+texture "707bits.png"
 texrep 1 1
 crease 45.000001
 numvert 1483
@@ -32010,7 +32010,7 @@ name "blah.008"
 loc 0.963868 0.080789 0.709681
 data 8
 blah.008
-texture "VC10.png"
+texture "707bits.png"
 texrep 1 1
 crease 45.000001
 numvert 9
@@ -32072,7 +32072,7 @@ name "blah.009"
 loc 0.963868 0.080789 0.709681
 data 8
 blah.009
-texture "VC10.png"
+texture "707bits.png"
 texrep 1 1
 crease 45.000001
 numvert 1165
@@ -39932,7 +39932,7 @@ name "blah.010"
 loc 0.963868 0.080789 0.709681
 data 8
 blah.010
-texture "VC10.png"
+texture "707bits.png"
 texrep 1 1
 crease 96.000003
 numvert 64
@@ -40511,7 +40511,7 @@ name "blah.012"
 loc 0.963868 0.080789 0.709681
 data 8
 blah.012
-texture "VC10.png"
+texture "707bits.png"
 texrep 1 1
 crease 97.999998
 numvert 56
@@ -41058,7 +41058,7 @@ name "blah.013"
 loc 0.963868 0.080789 0.709681
 data 8
 blah.013
-texture "VC10.png"
+texture "707bits.png"
 texrep 1 1
 crease 97.999998
 numvert 20
@@ -41185,7 +41185,7 @@ name "rubber"
 loc 17.022408 2.970802 -1.352232
 data 6
 rubber
-texture "VC10.png"
+texture "707bits.png"
 texrep 1 1
 crease 45.000001
 numvert 66
@@ -41694,7 +41694,7 @@ name "stairs"
 loc 17.022408 2.970802 -1.352232
 data 6
 stairs
-texture "VC10.png"
+texture "707bits.png"
 texrep 1 1
 crease 45.000001
 numvert 44
@@ -41881,7 +41881,7 @@ name "stairsPaint"
 loc 17.022408 2.970802 -1.352232
 data 11
 stairsPaint
-texture "VC10.png"
+texture "707bits.png"
 texrep 1 1
 crease 45.000001
 numvert 20
@@ -42008,7 +42008,7 @@ name "stairsTop"
 loc 17.022408 2.970802 -1.352232
 data 9
 stairsTop
-texture "VC10.png"
+texture "707bits.png"
 texrep 1 1
 crease 45.000001
 numvert 48
@@ -42211,7 +42211,7 @@ name "stairsblock"
 loc 17.022408 2.970802 -1.352232
 data 11
 stairsblock
-texture "VC10.png"
+texture "707bits.png"
 texrep 1 1
 crease 45.000001
 numvert 96

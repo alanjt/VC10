@@ -12877,7 +12877,7 @@ kids 0
 OBJECT poly
 name "tube"
 loc 0.4551121 3.8552651 -22.6448002
-texture "VC10.png"
+texture "707bits.png"
 texrep 1 1
 numvert 64
 -1.3323991 -5.5763636 4.1871796

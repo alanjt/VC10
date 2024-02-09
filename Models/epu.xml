@@ -39,7 +39,7 @@ if you contacted me before making any changes to this software.
 		<object-name>blah.012</object-name>
     <property-base>sim/model/livery</property-base>
     <texture-prop>texture</texture-prop>
-    <texture>VC10.png</texture>
+    <texture>707bits.png</texture>
   </animation>
   
 	<animation>

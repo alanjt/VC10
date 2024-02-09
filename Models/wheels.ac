@@ -7,7 +7,7 @@ name "GearBaseRod"
 loc 3.29638 2.742843 -9.055871
 data 11
 GearBaseRod
-texture "VC10.png"
+texture "707bits.png"
 texrep 1 1
 crease 30.000001
 numvert 1578
@@ -7164,7 +7164,7 @@ name "WheelBack"
 loc 4.235548 0 -8.985721
 data 9
 WheelBack
-texture "VC10.png"
+texture "707bits.png"
 texrep 1 1
 crease 30.000001
 numvert 880
@@ -14895,7 +14895,7 @@ name "WheelFront"
 loc 2.707028 0 -8.985721
 data 10
 WheelFront
-texture "VC10.png"
+texture "707bits.png"
 texrep 1 1
 crease 30.000001
 numvert 880

@@ -7,7 +7,7 @@ name "engine"
 loc -0.751007 -0.023689 0.000028
 data 6
 engine
-texture "VC10.png"
+texture "707bits.png"
 texrep 1 1
 numvert 983
 -0.666912 -0.617128 -0
@@ -8782,7 +8782,7 @@ name "engineCone"
 loc -2.40841 -2.493981 1.186664
 data 10
 engineCone
-texture "VC10.png"
+texture "707bits.png"
 texrep 1 1
 numvert 98
 0.648865 2.494627 -1.231742
@@ -9642,7 +9642,7 @@ name "engineDisk"
 loc 1.009788 0.728141 -11.215694
 data 10
 engineDisk
-texture "VC10.png"
+texture "707bits.png"
 texrep 1 1
 crease 45.000001
 numvert 13
@@ -9738,7 +9738,7 @@ name "engineDiskFast"
 loc 1.009788 0.728141 -11.215694
 data 14
 engineDiskFast
-texture "VC10.png"
+texture "707bits.png"
 texrep 1 1
 crease 45.000001
 numvert 13
@@ -9834,7 +9834,7 @@ name "exhaust"
 loc 2.301212 -0.295499 -0.000116
 data 7
 exhaust
-texture "VC10.png"
+texture "707bits.png"
 texrep 1 1
 numvert 536
 -0.013918 0.639761 0.177686
@@ -13564,7 +13564,7 @@ name "exhaustHeat"
 loc -0.280673 -0.000637 0.000028
 data 11
 exhaustHeat
-texture "VC10.png"
+texture "707bits.png"
 texrep 1 1
 numvert 334
 2.949436 -0.178652 -0.00147

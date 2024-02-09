@@ -8,7 +8,7 @@ name "blah.002"
 loc -3.4496 0.080789 -0.979229
 data 8
 blah.002
-texture "VC10.png"
+texture "707bits.png"
 crease 98.000000
 numvert 807
 1.27937 0.735981 1.59493
@@ -5985,7 +5985,7 @@ name "blah.003"
 loc -3.45441 0.080789 -0.979229
 data 8
 blah.003
-texture "VC10.png"
+texture "707bits.png"
 crease 116.000000
 numvert 56
 5.50718 0.583969 1.58305
@@ -6531,7 +6531,7 @@ name "blah.004"
 loc -3.45441 0.080789 -0.979229
 data 8
 blah.004
-texture "VC10.png"
+texture "707bits.png"
 crease 45.000000
 numvert 200
 1.60546 1.32031 1.78848
@@ -7545,7 +7545,7 @@ name "blah.005"
 loc -3.45441 0.080789 -0.979229
 data 8
 blah.005
-texture "VC10.png"
+texture "707bits.png"
 crease 45.000000
 numvert 664
 5.49518 0.742617 0.978482
@@ -12737,7 +12737,7 @@ name "blah.006"
 loc -3.45441 0.080789 -0.979229
 data 8
 blah.006
-texture "VC10.png"
+texture "707bits.png"
 crease 45.000000
 numvert 576
 4.56689 0.05723 1.82848
@@ -18027,7 +18027,7 @@ name "blah.007"
 loc -3.45441 0.080789 -0.979229
 data 8
 blah.007
-texture "VC10.png"
+texture "707bits.png"
 crease 45.000000
 numvert 1672
 2.37824 1.30305 1.83885
@@ -31133,7 +31133,7 @@ name "blah.008"
 loc -3.45441 0.080789 -0.979229
 data 8
 blah.008
-texture "VC10.png"
+texture "707bits.png"
 crease 45.000000
 numvert 15
 5.44575 0.549937 0.978482
@@ -31224,7 +31224,7 @@ name "blah.009"
 loc -3.45441 0.080789 -0.979229
 data 8
 blah.009
-texture "VC10.png"
+texture "707bits.png"
 crease 45.000000
 numvert 1449
 2.49127 1.34035 1.83313
@@ -41071,7 +41071,7 @@ name "blah.010"
 loc -3.45441 0.080789 -0.979229
 data 8
 blah.010
-texture "VC10.png"
+texture "707bits.png"
 crease 96.000000
 numvert 64
 5.50718 0.675837 1.56838
@@ -41649,7 +41649,7 @@ name "blah.012"
 loc -3.45441 0.080789 -0.979229
 data 8
 blah.012
-texture "VC10.png"
+texture "707bits.png"
 crease 98.000000
 numvert 56
 1.27937 0.735981 1.59493
@@ -42195,7 +42195,7 @@ name "blah.013"
 loc 2.67532 2.99148 -1.55585
 data 8
 blah.013
-texture "VC10.png"
+texture "707bits.png"
 crease 45.000000
 numvert 80
 -0.628373 -1.96492 2.03482
@@ -42537,7 +42537,7 @@ name "blah.014"
 loc -3.44974 0.079706 -0.975072
 data 8
 blah.014
-texture "VC10.png"
+texture "707bits.png"
 crease 98.000000
 numvert 20
 1.65575 1.36959 1.82422

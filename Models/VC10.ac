@@ -6,7 +6,7 @@ OBJECT poly
 name "Aileron.L"
 data 12
 Cylinder.026
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 40.000000
 numvert 54
 33.0007 0.01711 19.2714
@@ -293,7 +293,7 @@ OBJECT poly
 name "Aileron.R"
 data 12
 Cylinder.006
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 40.000000
 numvert 54
 33.0007 0.01711 -19.2714
@@ -581,7 +581,7 @@ name "Elevator.L"
 loc 45.9384 7.51446 3.75284
 data 12
 Cylinder.033
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 40.000000
 numvert 153
 1.53475 0.0483251 2.9961
@@ -1336,7 +1336,7 @@ name "Elevator.R"
 loc 45.9384 7.51446 -3.75284
 data 12
 Cylinder.029
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 40.000000
 numvert 153
 1.53475 0.0483251 -2.9961
@@ -2101,7 +2101,7 @@ name "Fin"
 loc 4.95911e-005 0 -0.06792
 data 12
 Cylinder.002
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 40.000000
 numvert 203
 34.6763 1.84966 -0.36185
@@ -3427,7 +3427,7 @@ OBJECT poly
 name "FlapsInner.L"
 data 12
 Cylinder.031
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 40.000000
 numvert 92
 26.1501 -1.17216 2.07434
@@ -3876,7 +3876,7 @@ OBJECT poly
 name "FlapsInner.R"
 data 12
 Cylinder.012
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 40.000000
 numvert 92
 26.1501 -1.17216 -2.07434
@@ -4325,7 +4325,7 @@ OBJECT poly
 name "FlapsOuter.L"
 data 12
 Cylinder.032
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 40.000000
 numvert 138
 26.231 -0.92956 6.55902
@@ -4981,7 +4981,7 @@ OBJECT poly
 name "FlapsOuter.R"
 data 12
 Cylinder.004
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 40.000000
 numvert 138
 26.231 -0.92956 -6.55902
@@ -5637,7 +5637,7 @@ OBJECT poly
 name "FlapTrack1"
 data 12
 Cylinder.011
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 40.000000
 numvert 768
 28.0703 -1.32342 -1.93918
@@ -10964,7 +10964,7 @@ OBJECT poly
 name "FlapTrack2"
 data 8
 Cylinder
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 40.000000
 numvert 768
 28.233 -1.25792 -4.10239
@@ -16291,7 +16291,7 @@ OBJECT poly
 name "FlapTrack3"
 data 12
 Cylinder.015
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 40.000000
 numvert 768
 28.2492 -1.18436 -6.41199
@@ -21618,7 +21618,7 @@ OBJECT poly
 name "FlapTrack4"
 data 12
 Cylinder.017
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 40.000000
 numvert 768
 29.2902 -0.95704 -8.9005
@@ -26945,7 +26945,7 @@ OBJECT poly
 name "FlapTrack5"
 data 12
 Cylinder.019
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 40.000000
 numvert 768
 30.3474 -0.69814 -11.4541
@@ -32272,7 +32272,7 @@ OBJECT poly
 name "FlapTrack6"
 data 12
 Cylinder.021
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 40.000000
 numvert 768
 31.5672 -0.45983 -13.9914
@@ -37599,7 +37599,7 @@ OBJECT poly
 name "FlapTrackFairing1.L"
 data 12
 Cylinder.008
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 40.000000
 numvert 90
 27.3332 -1.26864 2.0815
@@ -38314,7 +38314,7 @@ OBJECT poly
 name "FlapTrackFairing1.R"
 data 12
 Cylinder.014
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 40.000000
 numvert 90
 27.3332 -1.26864 -2.0815
@@ -39029,7 +39029,7 @@ OBJECT poly
 name "FlapTrackFairing2.L"
 data 12
 Cylinder.009
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 40.000000
 numvert 170
 27.4958 -1.20313 4.24471
@@ -40384,7 +40384,7 @@ OBJECT poly
 name "FlapTrackFairing2.R"
 data 12
 Cylinder.013
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 40.000000
 numvert 170
 27.4958 -1.20313 -4.24471
@@ -41739,7 +41739,7 @@ OBJECT poly
 name "FlapTrackFairing3inner.L"
 data 12
 Cylinder.036
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 40.000000
 numvert 94
 27.5079 -1.48468 6.43423
@@ -42486,7 +42486,7 @@ OBJECT poly
 name "FlapTrackFairing3inner.R"
 data 12
 Cylinder.016
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 40.000000
 numvert 94
 27.5079 -1.49805 -6.43423
@@ -43233,7 +43233,7 @@ OBJECT poly
 name "FlapTrackFairing3outer.L"
 data 12
 Cylinder.037
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 40.000000
 numvert 88
 27.5119 -1.11895 6.55431
@@ -43932,7 +43932,7 @@ OBJECT poly
 name "FlapTrackFairing3outer.R"
 data 12
 Cylinder.023
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 40.000000
 numvert 88
 27.5121 -1.12958 -6.55431
@@ -44631,7 +44631,7 @@ OBJECT poly
 name "FlapTrackFairing4.L"
 data 12
 Cylinder.038
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 40.000000
 numvert 170
 28.5532 -0.90221 9.04281
@@ -45986,7 +45986,7 @@ OBJECT poly
 name "FlapTrackFairing4.R"
 data 12
 Cylinder.018
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 40.000000
 numvert 170
 28.553 -0.90225 -9.04281
@@ -47341,7 +47341,7 @@ OBJECT poly
 name "FlapTrackFairing5.L"
 data 12
 Cylinder.039
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 40.000000
 numvert 170
 29.6106 -0.64409 11.5964
@@ -48696,7 +48696,7 @@ OBJECT poly
 name "FlapTrackFairing5.R"
 data 12
 Cylinder.020
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 40.000000
 numvert 170
 29.6102 -0.64335 -11.5964
@@ -50051,7 +50051,7 @@ OBJECT poly
 name "FlapTrackFairing6.L"
 data 12
 Cylinder.040
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 40.000000
 numvert 170
 30.6965 -0.40342 14.1283
@@ -51406,7 +51406,7 @@ OBJECT poly
 name "FlapTrackFairing6.R"
 data 12
 Cylinder.024
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 40.000000
 numvert 170
 30.8372 -0.40468 -14.1283
@@ -52761,7 +52761,7 @@ OBJECT poly
 name "NGear"
 data 10
 NGear.mesh
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 45.000000
 numvert 1412
 5.17334 -1.50865 -0.22678
@@ -59768,7 +59768,7 @@ OBJECT poly
 name "NoseWheel"
 data 14
 NoseWheel.mesh
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 45.000000
 numvert 506
 5.43998 -2.80604 0.38591
@@ -66139,7 +66139,7 @@ OBJECT poly
 name "NGearStrut"
 data 15
 NGearStrut.mesh
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 45.000000
 numvert 616
 5.44644 -2.60207 -0.20787
@@ -69368,7 +69368,7 @@ OBJECT poly
 name "Fuselage"
 data 10
 Sphere.006
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 40.000000
 hidden
 numvert 2177
@@ -87384,7 +87384,7 @@ name "LeftGearStrut"
 loc 0.106033 0 0
 data 13
 LeftGear.mesh
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 45.000000
 numvert 324
 25.4372 -1.78851 3.01376
@@ -89398,7 +89398,7 @@ name "LeftSidestay"
 loc 0.106033 0 0
 data 17
 LeftGear.001.mesh
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 45.000000
 numvert 57
 25.3147 -0.41525 1.28988
@@ -89848,7 +89848,7 @@ OBJECT poly
 name "LeftGearStrutInner"
 data 23
 LeftGearCompressor.mesh
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 45.000000
 numvert 76
 25.5541 -2.72706 3.13964
@@ -90629,7 +90629,7 @@ OBJECT poly
 name "LeftGearForestay"
 data 24
 LeftGearCompressor1.mesh
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 45.000000
 numvert 162
 25.2151 -1.79831 3.4067
@@ -92370,7 +92370,7 @@ OBJECT poly
 name "LeftGearBogey"
 data 11
 GearBaseRod
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 30.000000
 numvert 1578
 24.8729 -2.89575 2.99466
@@ -99526,7 +99526,7 @@ name "RightGearStrut"
 loc 0.106033 0 0
 data 14
 RightGear.mesh
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 45.000000
 numvert 324
 25.4372 -1.78854 -2.95771
@@ -101540,7 +101540,7 @@ name "RightSidestay"
 loc 0.106033 0 0
 data 18
 RightGear.001.mesh
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 45.000000
 numvert 57
 25.3147 -0.30947 -1.22104
@@ -101990,7 +101990,7 @@ OBJECT poly
 name "RightGearStrutInner"
 data 24
 RightGearCompressor.mesh
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 45.000000
 numvert 80
 25.4318 -2.72709 -3.0648
@@ -102787,7 +102787,7 @@ OBJECT poly
 name "RightGearForestay"
 data 25
 RightGearCompressor1.mesh
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 45.000000
 numvert 158
 25.1928 -1.83557 -3.35984
@@ -104496,7 +104496,7 @@ OBJECT poly
 name "RightGearBogey"
 data 15
 GearBaseRod.001
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 30.000000
 numvert 1578
 24.5797 -3.01308 -3.23975
@@ -111651,7 +111651,7 @@ OBJECT poly
 name "LeftBackWheel"
 data 9
 WheelBack
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 30.000000
 numvert 880
 26.7751 -2.6017 2.65125
@@ -119380,7 +119380,7 @@ OBJECT poly
 name "LeftFrontWheel"
 data 10
 WheelFront
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 30.000000
 numvert 880
 25.2466 -2.6017 2.65125
@@ -127109,7 +127109,7 @@ OBJECT poly
 name "RightBackWheel"
 data 13
 WheelBack.001
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 30.000000
 numvert 880
 26.4153 -2.32562 -2.91625
@@ -134838,7 +134838,7 @@ OBJECT poly
 name "RightFrontWheel"
 data 14
 WheelFront.001
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 30.000000
 numvert 880
 24.8868 -2.32562 -2.91625
@@ -142567,7 +142567,7 @@ OBJECT poly
 name "handle"
 data 11
 handle.mesh
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 40.000000
 numvert 578
 1.75191 1.26579 0.5661
@@ -146066,7 +146066,7 @@ OBJECT poly
 name "immat.text"
 data 15
 immat.text.mesh
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 40.000000
 numvert 4
 1.51585 0.94164 0.44824
@@ -146087,7 +146087,7 @@ name "Rudder"
 loc 0 0 -0.0679
 data 12
 Cylinder.028
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 40.000000
 numvert 86
 38.2844 2.36517 -0.28641
@@ -146632,7 +146632,7 @@ OBJECT poly
 name "Slats.L"
 data 12
 Cylinder.034
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 40.000000
 numvert 70
 18.85 -0.59296 4.35665
@@ -147187,7 +147187,7 @@ OBJECT poly
 name "Slats.R"
 data 12
 Cylinder.007
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 40.000000
 numvert 70
 18.7908 -0.59295 -4.35665
@@ -147742,7 +147742,7 @@ OBJECT poly
 name "Spoilers.L"
 data 12
 Cylinder.035
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 40.000000
 numvert 36
 26.9939 -0.59146 8.67578
@@ -147997,7 +147997,7 @@ OBJECT poly
 name "Spoilers.R"
 data 12
 Cylinder.010
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 40.000000
 numvert 36
 26.9939 -0.59146 -8.67578
@@ -148252,7 +148252,7 @@ OBJECT poly
 name "Tailplane"
 data 12
 Cylinder.022
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 40.000000
 numvert 490
 41.0404 7.79066 -0.58414
@@ -151678,7 +151678,7 @@ name "TailplaneBullet"
 loc 0 4.76837e-006 -0.025955
 data 12
 Cylinder.003
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 40.000000
 numvert 320
 37.4393 7.7084 -0.07866
@@ -154093,7 +154093,7 @@ OBJECT poly
 name "WingFence."
 data 12
 Cylinder.005
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 40.000000
 numvert 64
 19.8689 0.2204 -4.25126
@@ -154466,7 +154466,7 @@ OBJECT poly
 name "Wings"
 data 12
 Cylinder.001
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 40.000000
 numvert 968
 20.9698 -1.62917 -1.94691
@@ -161153,7 +161153,7 @@ OBJECT poly
 name "Engine1"
 data 12
 Cylinder.042
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 40.000000
 numvert 256
 30.8657 0.69828 5.42635
@@ -162986,7 +162986,7 @@ OBJECT poly
 name "Engine2"
 data 12
 Cylinder.041
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 40.000000
 numvert 256
 30.8657 0.69828 3.92375
@@ -164819,7 +164819,7 @@ OBJECT poly
 name "Engine3"
 data 12
 Cylinder.030
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 40.000000
 numvert 256
 30.8657 0.69828 -3.92375
@@ -166652,7 +166652,7 @@ OBJECT poly
 name "Engine4"
 data 12
 Cylinder.025
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 40.736843
 numvert 256
 30.8657 0.69828 -5.42635
@@ -168485,7 +168485,7 @@ OBJECT poly
 name "Engine1"
 data 12
 Cylinder.042
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 40.000000
 numvert 192
 36.1388 0.453641 4.82551
@@ -169652,7 +169652,7 @@ OBJECT poly
 name "Engine2"
 data 12
 Cylinder.041
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 40.000000
 numvert 192
 36.1388 0.453641 3.25211
@@ -170819,7 +170819,7 @@ OBJECT poly
 name "Engine3"
 data 12
 Cylinder.030
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 40.000000
 numvert 192
 36.1388 0.35366 -3.23312
@@ -171986,7 +171986,7 @@ OBJECT poly
 name "Engine4"
 data 12
 Cylinder.025
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 40.000000
 numvert 192
 36.1388 0.35366 -4.80653
@@ -173153,7 +173153,7 @@ OBJECT poly
 name "EnginePylon"
 data 12
 Cylinder.027
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 40.000000
 numvert 384
 33.4942 1.23154 -2.64064
@@ -175478,7 +175478,7 @@ OBJECT poly
 name "Elevator.L"
 data 12
 Cylinder.033
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 40.000000
 numvert 4
 47.0352 7.45752 6.68229
@@ -175499,7 +175499,7 @@ name "Floor"
 loc 4.76837e-006 0 0.00482583
 data 10
 floor.mesh
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 40.000000
 numvert 20
 1.68124 0 1.20402
@@ -175623,7 +175623,7 @@ name "Door"
 loc 4.65 -0.0324126 4.29153e-005
 data 9
 door.mesh
-texture "Liveries/texMap.png"
+texture "Liveries/BOAC_1.png"
 crease 40.000000
 numvert 23
 0 1.77798 1.4449

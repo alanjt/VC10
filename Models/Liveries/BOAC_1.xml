@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+ 
+ <PropertyList>
+  <sim>
+   <model>
+    <livery>
+     <name type="string">BOAC_1</name>
+     <texture>Liveries/BOAC_1.png</texture>
+    </livery>
+   </model>
+  </sim>
+ </PropertyList>

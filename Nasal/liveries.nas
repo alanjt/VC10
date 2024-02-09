@@ -21,4 +21,5 @@
 #		if you contacted me before making any changes to this software. 		#
 #		<info (at) marc-kraus.de> April, 2017									#
 #################################################################################
+print ("liveries.nas");
 aircraft.livery.init("Aircraft/VC10/Models/Liveries");
