@@ -48,6 +48,9 @@ var dt = 0.0;
 	
 	props.globals.initNode("autopilot/mutex","","STRING");
 	
+	props.globals.initNode("autopilot/gain/Gtheta",2.0,"DOUBLE");
+	props.globals.initNode("autopilot/gain/Gq",-0.2,"DOUBLE");
+	
 	props.globals.initNode("autopilot/gain/GAy",0.05,"DOUBLE");
 	props.globals.initNode("autopilot/gain/GBetadot",0.25,"DOUBLE");
 	props.globals.initNode("autopilot/gain/GIASInt",-0.005,"DOUBLE");
@@ -55,10 +58,10 @@ var dt = 0.0;
 	props.globals.initNode("autopilot/gain/Gh",-0.15,"DOUBLE");
 	props.globals.initNode("autopilot/gain/Ghint",-0.01,"DOUBLE");
 	props.globals.initNode("autopilot/gain/Ghdot",-1.5,"DOUBLE");
-	props.globals.initNode("autopilot/gain/Gq",0.5,"DOUBLE");	
+	
 	props.globals.initNode("autopilot/gain/Gqe",0.02,"DOUBLE");		
 	props.globals.initNode("autopilot/gain/Gqr",2.25,"DOUBLE");
-	props.globals.initNode("autopilot/gain/Gtheta",-50.0,"DOUBLE");
+
 	props.globals.initNode("autopilot/gain/Gu",10.0,"DOUBLE");
 	props.globals.initNode("autopilot/gain/Khdg_phi",-1.5,"DOUBLE");	
 	props.globals.initNode("autopilot/gain/Kloc_Hdg",-0.75,"DOUBLE");

@@ -1,23 +1,18 @@
 <?xml version="1.0"?>
-
 <!--
     Autopilot Configuration for the VC10.
 -->
-
 <PropertyList>
-
 	<!--
     ============================================================
    Pitch Modes - Pitch Hold, IAS Hold, Mach Hold, Alt Hold, G/S
     ============================================================
 -->
-
 	<!--
     =====================
     Primary Attitude Data
     =====================
     -->
-
 	<filter>
 		<name>pitch_demand</name>
 		<debug>false</debug>
@@ -26,11 +21,14 @@
 		<!-- thetaD_deg tracks pitch angle theta-deg, until AP is engaged when it is locked-->
 		<input>
 			<condition>
-				<not><property>autopilot/switches/AP1orAP2-sw</property></not>
+				<not>
+					<property>autopilot/switches/AP1orAP2-sw</property>
+				</not>
 			</condition>
 			<expression>
 				<product>
-					<value>1</value><!-- 1 sec time constant -->
+					<value>1</value>
+					<!-- 1 sec time constant -->
 					<dif>
 						<property>fdm/jsbsim/attitude/theta-deg</property>
 						<property>autopilot/internal/thetaD_deg</property>
@@ -38,14 +36,15 @@
 				</product>
 			</expression>
 		</input>
-		<output><property>autopilot/internal/thetaD_deg</property></output>
+		<output>
+			<property>autopilot/internal/thetaD_deg</property>
+		</output>
 		<u_min>-20</u_min>
 		<u_max>20</u_max>
 	</filter>
-	
 	<!-- add pitch wheel demand to thetaD-->
 	<filter>
-		<name>pitch_demand</name>
+		<name>pitch_demand_wheel</name>
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
@@ -57,180 +56,11 @@
 				</sum>
 			</expression>
 		</input>
-		<output><property>autopilot/internal/thetaD2_deg</property></output>
+		<output>
+			<property>autopilot/internal/thetaD2_deg</property>
+		</output>
 		<u_min>-20</u_min>
 		<u_max>20</u_max>
-	</filter>
-	
-	<filter>
-		<name>Pitch Error</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input>
-			<expression>
-				<dif>
-					<property>fdm/jsbsim/attitude/theta-deg</property>
-					<property>autopilot/internal/thetaD_deg</property>
-				</dif>
-			</expression>
-		</input>
-		<output>autopilot/internal/theta-thetaD</output>
-		<u_min>-20</u_min>
-		<u_max>20</u_max>
-	</filter>
-
-	<filter>
-		<name>Pitch Error 2</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input>
-			<expression>
-				<dif>
-					<property>fdm/jsbsim/attitude/theta-deg</property>
-					<property>autopilot/internal/thetaD2_deg</property>
-				</dif>
-			</expression>
-		</input>
-		<output>autopilot/internal/theta-thetaD2</output>
-		<u_min>-20</u_min>
-		<u_max>20</u_max>
-	</filter>
-	
-	<filter>
-		<name>pitch rate demand</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain><value>5.0</value></gain><!-- pitch feedback - (damps phugoid) -->
-		<input>
-			<expression>
-				<sum>
-					<product>
-						<property>autopilot/gain/Gtheta</property>
-						<property>autopilot/internal/theta-thetaD2</property>
-					</product>
-				</sum>
-			</expression>
-		</input>
-		<output><property>autopilot/internal/qd-theta</property></output>
-	</filter>
-
-	<filter>
-		<name>q demand sum</name>/
-		<debug>false</debug>
-		<type>gain</type>
-		<gain><value>1.0</value></gain>
-		<input>
-			<property>autopilot/internal/qd-theta</property>
-		</input>
-		<output><property>autopilot/internal/qd-sum</property></output>
-	</filter>
-
-	<filter>
-		<name>q demand sw4</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain><value>0.02</value></gain><!-- pitch rate feedback gain (damps SPO) -->
-		<input>
-			<property>autopilot/internal/qd-sum</property>
-		</input>
-		<output><property>autopilot/internal/qd-sw4</property></output>
-	</filter>
-
-	<filter>
-		<name>autopilot q demand</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain><value>1.0</value></gain>
-		<input>
-			<property>autopilot/internal/qd-sw4</property>
-		</input>
-		<output><property>autopilot/internal/qd-ap</property></output>
-	</filter>
-
-	<filter>
-		<name>q demand</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain><value>1.0</value></gain>
-		<input><property>autopilot/internal/qd-ap</property></input>
-		<output><property>autopilot/internal/qd</property></output>
-	</filter>
-
-	<filter>
-		<name>autopilot qr demand limited</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain><value>1.0</value></gain>
-		<input>
-			<!--<expression>
-							<sum>
-					<property>autopilot/internal/qd_sec_phi</property> -->
-			<property>autopilot/internal/qd</property>
-			<!--<property>autopilot/internal/qr_bank</property>
-							
-		</expression></sum> -->
-		</input>
-		<!--<u_max><property>autopilot/internal/qd_max</property></u_max>
-	<u_min><property>autopilot/internal/qd_min</property></u_min>-->
-		<output><property>autopilot/internal/qr_limited</property></output>
-	</filter>
-
-	<filter>
-		<name>qr</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain><value>1.0</value></gain>
-		<input><property>autopilot/internal/qr_limited</property></input>
-		<output><property>autopilot/internal/qr</property></output>
-	</filter>
-
-	<!-- Pitch rate error driver -->
-	<filter>
-		<name>Pitch rate error</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input>
-			<expression>
-				<dif>
-					<property>autopilot/internal/q-deg_sec</property>
-					<property>autopilot/internal/qr</property>
-				</dif>
-			</expression>
-		</input>
-		<output><property>autopilot/internal/q-error</property></output>
-	</filter>
-
-	<filter>
-		<name>AFCS elevator</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input>
-			<expression>
-				<product>
-					<property>autopilot/gain/Gqr</property>
-					<property>autopilot/internal/q-error</property>
-				</product>
-			</expression>
-		</input>
-		<output><property>autopilot/commands/APelevator-deg</property></output>
-	</filter>
-
-	<filter>
-		<name>Pitch elevator Sum</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input>
-			<condition>
-				<property>autopilot/switches/AP1orAP2-sw</property>
-			</condition>
-			<property>autopilot/commands/APelevator-deg</property>
-		</input>
-		<output><property>autopilot/commands/afcs-elevator-deg</property></output>
 	</filter>
 	
 </PropertyList>

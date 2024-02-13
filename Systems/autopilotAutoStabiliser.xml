@@ -39,17 +39,17 @@
 			<expression>
 				<product>
 					<dif>
-						<property>fdm/jsbsim/velocities/r-aero-rad_sec</property>  <!-- should be from AFCS gyro system -->
-						<sum>
+						<property>fdm/jsbsim/velocities/r-aero-rad_sec</property>
+					<sum>
 							<property>autopilot/internal/pAlpha</property>
 							<product>
 								<property>fdm/jsbsim/accelerations/gravity-ft_sec2</property>
 								<property>autopilot/internal/OneOverV</property>
 								<sin><product><value>0.01745329251994329576923690768489</value>
-										<property>orientation/roll-deg</property> <!-- should be from AFCS gyro system -->
+										<property>orientation/roll-deg</property>
 									</product></sin>
 								<cos><product><value>0.01745329251994329576923690768489</value>
-										<property>orientation/pitch-deg</property>  <!-- should be from AFCS gyro system -->
+										<property>orientation/pitch-deg</property>
 									</product></cos>
 							</product>
 						</sum>

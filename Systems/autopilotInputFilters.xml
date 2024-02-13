@@ -29,8 +29,8 @@
 		<input>
 			<expression>
 				<product>
-					<property>fdm/jsbsim/velocities/p-aero-rad_sec</property>
-					<property>fdm/jsbsim/aero/alpha-rad</property>
+					<property>fdm/jsbsim/velocities/p-aero-rad_sec</property>  <!-- should come from gyro system -->
+					<property>fdm/jsbsim/aero/alpha-rad</property>			   <!-- should come air data system -->
 				</product>
 			</expression>
 		</input>
@@ -42,10 +42,18 @@
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>57.295779513082320876798154814105</gain>
-		<input><property>fdm/jsbsim/velocities/q-rad_sec</property></input>
+		<input><property>fdm/jsbsim/velocities/q-rad_sec</property></input>  <!-- should come from gyro system -->
 		<output><property>autopilot/internal/q-deg_sec</property></output>
 	</filter>
-
+	
+	<filter>
+		<name>pitch angle deg</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input><property>fdm/jsbsim/attitude/theta-deg</property></input>   <!-- should come from gyro system -->
+		<output><property>autopilot/internal/q-deg_sec</property></output>
+	</filter>
 
 	<!-- Roll Rate -->
 	<filter>

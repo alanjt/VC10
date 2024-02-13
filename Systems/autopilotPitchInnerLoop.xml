@@ -1,55 +1,41 @@
 <?xml version="1.0"?>
-
 <!--
     Autopilot Configuration for the VC10.
 -->
-
-
 <PropertyList>
-
 	<!--
-    ===============
-    Pitch Short Period Damping.
-    ===============
+    ============================================================
+   Pitch Modes - Pitch Hold, IAS Hold, Mach Hold, Alt Hold, G/S
+    ============================================================
+-->
+	<!--
+    =====================
+    Primary Attitude Data
+    =====================
     -->
-
-	<!-- Pitch rate error driver -->
+	
 	<filter>
-		<name>Pitch rate error</name>
+		<name>Pitch Error</name>
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
 		<input>
 			<expression>
 				<dif>
-					<property>autopilot/internal/q-deg_sec</property>
-					<property>autopilot/internal/qr</property>
+					<property>fdm/jsbsim/attitude/theta-deg</property>
+					<property>autopilot/internal/thetaD2_deg</property>
 				</dif>
 			</expression>
 		</input>
-		<output><property>autopilot/internal/q-error</property></output>
-	</filter>
-
-	<filter>
-		<name>Pitch AutoStabiliser</name>
-		<debug>false</debug>
-		<type>high-pass</type>
-		<filter-time>1.0</filter-time>
-		<input>
-			<expression>
-				<product>
-					<property>autopilot/gain/Gq</property>
-					<property>autopilot/internal/q-error</property>
-				</product>
-			</expression>
-		</input>
-		<output><property>autopilot/commands/elevator-stabiliser</property></output>
+		<output>
+			<property>autopilot/internal/thetaErr_deg</property>
+		</output>
 		<u_min>-20</u_min>
 		<u_max>20</u_max>
 	</filter>
-
+		
 	<filter>
-		<name>AFCS elevator</name>
+		<name>Pitch Inner Loop</name>
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
@@ -57,16 +43,21 @@
 			<expression>
 				<sum>
 					<product>
-						<property>autopilot/gain/Gqr</property>
-						<property>autopilot/internal/q-error</property>
+						<property>autopilot/gain/Gtheta</property>
+						<property>autopilot/internal/thetaErr_deg</property>
 					</product>
-					<property>autopilot/commands/APintegrator-deg</property>
+					<product>
+						<property>autopilot/gain/Gq</property>
+						<property>autopilot/internal/q-deg_sec</property>
+					</product>
 				</sum>
 			</expression>
 		</input>
-		<output><property>autopilot/commands/APelevator-deg</property></output>
+		<output>autopilot/commands/APelevator-deg</output>
+		<u_min>-20</u_min>
+		<u_max>20</u_max>
 	</filter>
-
+	
 	<filter>
 		<name>Pitch elevator Sum</name>
 		<debug>false</debug>
@@ -78,10 +69,8 @@
 			</condition>
 			<property>autopilot/commands/APelevator-deg</property>
 		</input>
-		<input>
-			<property>autopilot/commands/elevator-stabiliser</property>
-		</input>
-		<output><property>autopilot/commands/afcs-elevator-deg</property></output>
+		<output>
+			<property>autopilot/commands/afcs-elevator-deg</property>
+		</output>
 	</filter>
-
 </PropertyList>

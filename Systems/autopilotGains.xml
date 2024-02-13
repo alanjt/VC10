@@ -61,6 +61,140 @@
     Gain Schedulers and limits
     ===============
     -->
+	
+  <!-- pitch angle error gain -->
+<!--	<filter>
+		<name>Pitch angle feedback gain</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1</gain>
+		<input><value>-50.0</value></input>
+		<output><property>autopilot/gain/Gtheta</property></output>
+	</filter> -->
+
+  <!-- pitch rate feedback gain -->	
+<!--	<filter>
+		<name>Gq</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<input>
+			<expression>
+				<sum>
+					<value>0.43</value>
+					<product>
+						<value>-0.00033</value>
+						<property>fdm/jsbsim/aero/qbar-psf</property>
+					</product>
+				</sum>
+			</expression>
+		</input>
+		<u_min>0.1</u_min>
+		<u_max>1.0</u_max>
+		<output><property>autopilot/gain/Gq</property></output>
+	</filter> -->
+
+
+	<filter>
+		<name>Elevation error q gain</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<expression>
+				<sum>
+					<value>0.009</value>
+					<product>
+						<value>0.000005</value>
+						<property>fdm/jsbsim/atmosphere/pressure-altitude</property>
+					</product>
+				</sum>
+			</expression>
+		</input>
+		<output><property>autopilot/gain/Gqe</property></output>
+	</filter>	
+	
+	
+	<filter>
+		<name>Gu airspeed error gain</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<expression>
+				<table>
+					<property>instrumentation/altimeter/indicated-altitude-ft</property>
+					<entry><ind>1000.0</ind><dep>10</dep></entry>
+					<entry><ind>20000</ind><dep>5.0</dep></entry>
+				</table>
+			</expression>
+		</input>
+		<output><property>autopilot/gain/Gu</property></output>
+	</filter>
+
+	<filter>
+		<name>IAS/Mach error integrator gain</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input><value>-0.005</value></input>
+		<output><property>autopilot/gain/GIASInt</property></output>
+	</filter>
+
+
+	<filter>
+		<name>Gh height error gain</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input><value>-0.15</value></input>
+		<output><property>autopilot/gain/Gh</property></output>
+	</filter>
+
+	<filter>
+		<name>Ghdot height rate feedback gain</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input><value>-1.5</value></input>
+		<output><property>autopilot/gain/Ghdot</property></output>
+	</filter>
+
+	<filter>
+		<name>Static Pressure washout gain</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input><value>0.1</value></input>
+		<output><property>autopilot/gain/GStatic</property></output>
+	</filter>
+
+
+	<filter>
+		<name>Gh height error integrator gain</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input><value>-0.01</value></input>
+		<output><property>autopilot/gain/GhInt</property></output>
+	</filter>
+
+	<filter>
+		<name>Glideslope error gain</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<expression>
+				<table>
+					<property>instrumentation/altimeter/indicated-altitude-ft</property>
+					<entry><ind>0.0</ind><dep>100</dep></entry>
+					<entry><ind>2000</ind><dep>1000.0</dep></entry>
+				</table>
+			</expression>
+		</input>
+		<output><property>autopilot/gain/gs-q</property></output>
+	</filter>
+
 
 	<!-- limits -->
 	<filter>
@@ -111,27 +245,11 @@
 		</input>
 		<output><property>autopilot/internal/roll_driver_neg_limit</property></output>
 	</filter>	
+	
+
 
 	<!-- gains -->
-<!--	<filter>
-		<name>Gq</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<input>
-			<expression>
-				<sum>
-					<value>0.43</value>
-					<product>
-						<value>-0.00033</value>
-						<property>fdm/jsbsim/aero/qbar-psf</property>
-					</product>
-				</sum>
-			</expression>
-		</input>
-		<u_min>0.1</u_min>
-		<u_max>1.0</u_max>
-		<output><property>autopilot/gain/Gq</property></output>
-	</filter> -->
+
 
 	<filter>
 		<name> Gqr</name>
@@ -267,112 +385,6 @@
 		<output><property>autopilot/gain/GAy</property></output>
 	</filter>
 
-	<filter>
-		<name>Gu airspeed error gain</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input>
-			<expression>
-				<table>
-					<property>instrumentation/altimeter/indicated-altitude-ft</property>
-					<entry><ind>1000.0</ind><dep>10</dep></entry>
-					<entry><ind>20000</ind><dep>5.0</dep></entry>
-				</table>
-			</expression>
-		</input>
-		<output><property>autopilot/gain/Gu</property></output>
-	</filter>
-
-	<filter>
-		<name>Gh height error gain</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input><value>-0.15</value></input>
-		<output><property>autopilot/gain/Gh</property></output>
-	</filter>
-
-	<filter>
-		<name>Ghdot height rate feedback gain</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input><value>-1.5</value></input>
-		<output><property>autopilot/gain/Ghdot</property></output>
-	</filter>
-
-	<filter>
-		<name>Static Pressure washout gain</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input><value>0.1</value></input>
-		<output><property>autopilot/gain/GStatic</property></output>
-	</filter>
-
-	<filter>
-		<name>IAS/Mach error integrator gain</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input><value>-0.005</value></input>
-		<output><property>autopilot/gain/GIASInt</property></output>
-	</filter>
-
-	<filter>
-		<name>Gh height error integrator gain</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input><value>-0.01</value></input>
-		<output><property>autopilot/gain/GhInt</property></output>
-	</filter>
-
-	<filter>
-		<name>Glideslope error gain</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input>
-			<expression>
-				<table>
-					<property>instrumentation/altimeter/indicated-altitude-ft</property>
-					<entry><ind>0.0</ind><dep>100</dep></entry>
-					<entry><ind>2000</ind><dep>1000.0</dep></entry>
-				</table>
-			</expression>
-		</input>
-		<output><property>autopilot/gain/gs-q</property></output>
-	</filter>
-  <!-- pitch angle feedback -->
-<!--	<filter>
-		<name>Pitch angle feedback gain</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1</gain>
-		<input><value>-50.0</value></input>
-		<output><property>autopilot/gain/Gtheta</property></output>
-	</filter> -->
-
-	<filter>
-		<name>Elevation error q gain</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input>
-			<expression>
-				<sum>
-					<value>0.009</value>
-					<product>
-						<value>0.000005</value>
-						<property>fdm/jsbsim/atmosphere/pressure-altitude</property>
-					</product>
-				</sum>
-			</expression>
-		</input>
-		<output><property>autopilot/gain/Gqe</property></output>
-	</filter>
 
 	<filter>
 		<name>Heading error gain</name>
