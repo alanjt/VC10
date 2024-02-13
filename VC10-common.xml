@@ -100,6 +100,7 @@ if you contacted me before making any changes to this software.
 				<path>Systems/autopilotManoeverLimits.xml</path>
 			</autopilot>
 			<!--<autopilot>
+			    no longer used - see code in lines 606-610 of sutopilot.nas
 				<path>Systems/autopilotAutoTrim.xml</path>
 			</autopilot> -->
 		</systems>
