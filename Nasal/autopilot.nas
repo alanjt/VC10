@@ -19,6 +19,14 @@ var dt = 0.0;
 #--------------------------------------------------------------------	
 #AFCS initialise switch positions and settings	
 #--------------------------------------------------------------------
+
+##	props.globals.getNode("autopilot/internal/throttlec-deg_integ", 1).setDoubleValue(0);
+##	props.globals.getNode("autopilot/internal/AT_IAS_error", 1).setDoubleValue(0);
+##	props.globals.getNode("autopilot/internal/throttlec-deg", 1).setDoubleValue(0);
+
+	props.globals.initNode("autopilot/internal/AT_IAS_error",0.0,"DOUBLE");	
+	props.globals.initNode("autopilot/internal/AT_IAS_error_integ",0.0,"DOUBLE");
+	props.globals.initNode("autopilot/internal/AT_throttlec_deg",0.0,"DOUBLE");
 	
 	props.globals.initNode("autopilot/switches/NAV-sw",0,"BOOL");			# true/false	
 	props.globals.initNode("autopilot/switches/AP1-sw",0,"BOOL");			# true/false
@@ -42,7 +50,6 @@ var dt = 0.0;
 	props.globals.initNode("autopilot/controls/YD_2_engaged", 0,"BOOL");
 	props.globals.initNode("autopilot/controls/YD_3_engaged", 0,"BOOL");
 	props.globals.initNode("autopilot/settings/RollKnobInDetent",0,"BOOL");	
-	props.globals.initNode("autopilot/internal/throttlec-deg_integ",0.0,"DOUBLE");
 
 	props.globals.initNode("autopilot/switches/auto-trim-cutout",0,"BOOL");
 	
@@ -72,10 +79,13 @@ var dt = 0.0;
 	props.globals.initNode("autopilot/gain/Kphi",10.0,"DOUBLE");
 	props.globals.initNode("autopilot/gain/gs-q",1000.0,"DOUBLE");
 	
-	props.globals.initNode("autopilot/settings/AT1_Datum",0.0,"DOUBLE");
-	props.globals.initNode("autopilot/settings/AT2_Datum",0.0,"DOUBLE");	
-	props.globals.initNode("autopilot/settings/AT3_Datum",0.0,"DOUBLE");	
-	props.globals.initNode("autopilot/settings/AT4_Datum",0.0,"DOUBLE");	
+	props.globals.initNode("autopilot/internal/AT1_Datum",0.0,"DOUBLE");
+	props.globals.initNode("autopilot/internal/AT2_Datum",0.0,"DOUBLE");	
+	props.globals.initNode("autopilot/internal/AT3_Datum",0.0,"DOUBLE");	
+	props.globals.initNode("autopilot/internal/AT4_Datum",0.0,"DOUBLE");
+
+
+    print("Autopilot initialised");
 	
 var initAFCS_FCSinputs = func() {
     print("initAFCS_FCSinputs");
@@ -101,7 +111,7 @@ var listenerApInitFunc = func {
 	setprop("autopilot/switches/AT_2switch", 1);
 	setprop("autopilot/switches/AT_3switch", 1);
 	setprop("autopilot/switches/AT_4switch", 1);
-	setprop("autopilot/settings/AT_setknots",140.0);
+	setprop("autopilot/internal/AT_setknots",140.0);
 
 	setprop("autopilot/switches/YDStby-sw", 1);
 	
@@ -596,10 +606,10 @@ var update_autopilot = func {
 	var AT3 = AT_3sw and AT_P and AT_E;
 	var AT4 = AT_4sw and AT_P and AT_E;
 	
-	setprop("autopilot/settings/AT1_engage",AT1);
-	setprop("autopilot/settings/AT2_engage",AT2);
-	setprop("autopilot/settings/AT3_engage",AT3);
-	setprop("autopilot/settings/AT4_engage",AT4);
+	setprop("autopilot/internal/AT1_engage",AT1);
+	setprop("autopilot/internal/AT2_engage",AT2);
+	setprop("autopilot/internal/AT3_engage",AT3);
+	setprop("autopilot/internal/AT4_engage",AT4);
 	
 
 	

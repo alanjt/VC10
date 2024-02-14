@@ -20,8 +20,8 @@
 		<type>gain</type>
 		<gain>1.0</gain>
 		<input><property>fdm/jsbsim/velocities/vc-kts</property></input>
-		<reference><property>autopilot/settings/AT_setknots</property></reference>
-		<output><property>autopilot/internal/AT_U-Ud</property></output>
+		<reference><property>autopilot/internal/AT_setknots</property></reference>
+		<output><property>autopilot/internal/AT_IAS_error</property></output>
 		<u_min>-100</u_min>
 		<u_max>100</u_max>
 	</filter>
@@ -31,12 +31,12 @@
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>-10.0</gain>
-		<input><property>autopilot/internal/AT_U-Ud</property></input>
-		<output><property>autopilot/internal/throttlec-deg</property></output>
+		<input><property>autopilot/internal/AT_IAS_error</property></input>
+		<output><property>autopilot/internal/AT_throttlec_deg</property></output>
 	</filter>
 
 	<filter>
-		<name>Throttle_integ</name>
+		<name>IAS Error_integ</name>
 		<debug>false</debug>
 		<type>integrator</type>
 		<gain>0.1</gain>
@@ -50,19 +50,19 @@
 			<expression>
 				<product>
 					<value>1</value>
-					<property>autopilot/internal/throttlec-deg</property>
+					<property>autopilot/internal/AT_IAS_error</property>
 				</product>
 			</expression>
 		</input>
-		<input><!-- integrator output feedaback if AT not engaged -->
+		<input><!-- feedaback integrator output to input if AT not engaged -->
 			<expression>
 				<product>
 					<value>-10</value>
-					<property>autopilot/internal/throttlec-deg_integ</property>
+					<property>autopilot/internal/AT_IAS_error_integ</property>
 				</product>
 			</expression>
 		</input>
-		<output><property>autopilot/internal/throttlec-deg_integ</property></output>
+		<output><property>autopilot/internal/AT_IAS_error_integ</property></output>
 		<u_min>-10</u_min>
 		<u_max>10</u_max>
 	</filter>
@@ -79,7 +79,7 @@
 					<equals><property>autopilot/switches/AT_engageswitch</property><value>-1</value></equals>
 				</or>
 			</condition>
-			<property>autopilot/internal/throttlec-deg</property>
+			<property>autopilot/internal/AT_throttlec_deg</property>
 		</input>
 		<!-- no selection - default -->
 		<input><value>0.0</value></input>
@@ -99,7 +99,7 @@
 		<type>gain</type>
 		<gain>0.025</gain>
 		<input>
-			<property>autopilot/commands/throttlec-deg</property>
+			<property>autopilot/commands/AT_throttlec_deg</property>
 		</input>
 		<output><property>fdm/jsbsim/fcs/afcs-throttle-cmd-norm</property></output>
 		<u_min>-0.8</u_min>
@@ -137,10 +137,10 @@
 		<debug>false</debug>
 		<feedback-if-disabled>true</feedback-if-disabled>
 		<enable>
-			<condition><not><property>autopilot/settings/AT1_engage</property></not></condition>
+			<condition><not><property>autopilot/internal/AT1_engage</property></not></condition>
 		</enable>
 		<input><property>controls/engines/engine[0]/throttle</property></input>
-		<output><property>autopilot/settings/AT1_Datum</property></output>
+		<output><property>autopilot/internal/AT1_Datum</property></output>
 	</filter>	
 	<filter>
 		<name>SERVO-Datum:throttle 2</name>
@@ -148,10 +148,10 @@
 		<debug>false</debug>
 		<feedback-if-disabled>true</feedback-if-disabled>
 		<enable>
-			<condition><not><property>autopilot/settings/AT2_engage</property></not></condition>
+			<condition><not><property>autopilot/internal/AT2_engage</property></not></condition>
 		</enable>
 		<input><property>controls/engines/engine[1]/throttle</property></input>
-		<output><property>autopilot/settings/AT2_Datum</property></output>
+		<output><property>autopilot/internal/AT2_Datum</property></output>
 	</filter>
 	<filter>
 		<name>SERVO-Datum:throttle 3</name>
@@ -159,10 +159,10 @@
 		<debug>false</debug>
 		<feedback-if-disabled>true</feedback-if-disabled>
 		<enable>
-			<condition><not><property>autopilot/settings/AT3_engage</property></not></condition>
+			<condition><not><property>autopilot/internal/AT3_engage</property></not></condition>
 		</enable>
 		<input><property>controls/engines/engine[2]/throttle</property></input>
-		<output><property>autopilot/settings/AT3_Datum</property></output>
+		<output><property>autopilot/internal/AT3_Datum</property></output>
 	</filter>
 	<filter>
 		<name>SERVO-Datum:throttle 4</name>
@@ -170,10 +170,10 @@
 		<debug>false</debug>
 		<feedback-if-disabled>true</feedback-if-disabled>
 		<enable>
-			<condition><not><property>autopilot/settings/AT4_engage</property></not></condition>
+			<condition><not><property>autopilot/internal/AT4_engage</property></not></condition>
 		</enable>
 		<input><property>controls/engines/engine[3]/throttle</property></input>
-		<output><property>autopilot/settings/AT4_Datum</property></output>
+		<output><property>autopilot/internal/AT4_Datum</property></output>
 	</filter>
 	<filter>
 		<name>SERVO-Datum:throttle 1</name>
@@ -181,10 +181,10 @@
 		<debug>false</debug>
 		<feedback-if-disabled>true</feedback-if-disabled>
 		<enable>
-			<condition><not><property>autopilot/settings/AT1_engage</property></not></condition>
+			<condition><not><property>autopilot/internal/AT1_engage</property></not></condition>
 		</enable>
 		<input><property>controls/engines/engine[0]/throttle</property></input>
-		<output><property>autopilot/settings/AT1_Datum</property></output>
+		<output><property>autopilot/internal/AT1_Datum</property></output>
 	</filter>
 
 	<filter>
@@ -193,13 +193,13 @@
 		<feedback-if-disabled>true</feedback-if-disabled>
 		<enable>
 			<condition>
-				<property>autopilot/settings/AT1_engage</property>
+				<property>autopilot/internal/AT1_engage</property>
 			</condition>
 		</enable>
 		<input>
 			<expression>
 				<sum>
-					<property>autopilot/settings/AT1_Datum</property>>
+					<property>autopilot/internal/AT1_Datum</property>>
 					<property>autopilot/commands/throttlec-norm</property>
 				</sum>
 			</expression>
@@ -217,13 +217,13 @@
 		<feedback-if-disabled>true</feedback-if-disabled>
 		<enable>
 			<condition>
-				<property>autopilot/settings/AT2_engage</property>
+				<property>autopilot/internal/AT2_engage</property>
 			</condition>
 		</enable>
 		<input>
 			<expression>
 				<sum>
-					<property>autopilot/settings/AT2_Datum</property>>
+					<property>autopilot/internal/AT2_Datum</property>>
 					<property>autopilot/commands/throttlec-norm</property>
 				</sum>
 			</expression>
@@ -240,13 +240,13 @@
 		<feedback-if-disabled>true</feedback-if-disabled>
 		<enable>
 			<condition>
-				<property>autopilot/settings/AT3_engage</property>
+				<property>autopilot/internal/AT3_engage</property>
 			</condition>
 		</enable>
 		<input>
 			<expression>
 				<sum>
-					<property>autopilot/settings/AT3_Datum</property>>
+					<property>autopilot/internal/AT3_Datum</property>>
 					<property>autopilot/commands/throttlec-norm</property>
 				</sum>
 			</expression>
@@ -263,13 +263,13 @@
 		<feedback-if-disabled>true</feedback-if-disabled>
 		<enable>
 			<condition>
-				<property>autopilot/settings/AT4_engage</property>
+				<property>autopilot/internal/AT4_engage</property>
 			</condition>
 		</enable>
 		<input>
 			<expression>
 				<sum>
-					<property>autopilot/settings/AT4_Datum</property>>
+					<property>autopilot/internal/AT4_Datum</property>>
 					<property>autopilot/commands/throttlec-norm</property>
 				</sum>
 			</expression>

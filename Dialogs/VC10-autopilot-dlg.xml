@@ -80,7 +80,7 @@
 					<row>2</row><col>2</col>
 					<label>Airspeed (kt):</label>
 					<halign>center</halign>
-					<property>autopilot/settings/AT_setknots</property>
+					<property>autopilot/internal/AT_setknots</property>
 					<live>true</live>
 					<binding>
 						<command>dialog-apply</command>

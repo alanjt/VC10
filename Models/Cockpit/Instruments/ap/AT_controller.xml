@@ -206,7 +206,7 @@ if you contacted me before making any changes to this software.
 <!--	<animation>
 		<type>rotate</type>
 		<object-name>AT_setknots</object-name>		
-		<property>autopilot/settings/AT_setknots</property>
+		<property>autopilot/internal/AT_setknots</property>
 		<factor>-1</factor>  
 		<center>
 			<x-m> 0.0</x-m><y-m> 0.0395</y-m><z-m> 0.0370</z-m>
@@ -220,7 +220,7 @@ if you contacted me before making any changes to this software.
 	<animation>
 		<type>knob</type>
 		<object-name>AT_setknots</object-name>
-		<property>autopilot/settings/AT_setknots</property>
+		<property>autopilot/internal/AT_setknots</property>
 		<center>
 			<x-m> 0.0</x-m><y-m> 0.0395</y-m><z-m> 0.0370</z-m>
 		</center>
@@ -231,7 +231,7 @@ if you contacted me before making any changes to this software.
 		<action>
 			<binding>
 				<command>property-adjust</command>
-				<property>autopilot/settings/AT_setknots</property>
+				<property>autopilot/internal/AT_setknots</property>
 				<factor>1</factor>
 				<min>100</min>
 				<max>180</max> 
@@ -243,7 +243,7 @@ if you contacted me before making any changes to this software.
 				<command>set-tooltip</command>
 				<label>Kts: %3d</label>
 				<tooltip-id>Heading</tooltip-id>
-				<property>autopilot/settings/AT_setknots</property>
+				<property>autopilot/internal/AT_setknots</property>
 			</binding>
 		</hovered>
 	</animation>	
@@ -251,7 +251,7 @@ if you contacted me before making any changes to this software.
 	<animation>
 		<type>textranslate</type>
 		<object-name>AT_knots100</object-name>
-		<property>autopilot/settings/AT_setknots</property>
+		<property>autopilot/internal/AT_setknots</property>
 		<factor>0.001</factor>
 		<step>100</step>
 		<axis><x>0</x><y>1</y><z>0</z></axis>
@@ -259,7 +259,7 @@ if you contacted me before making any changes to this software.
 	<animation>
 		<type>textranslate</type>
 		<object-name>AT_knots10</object-name>
-		<property>autopilot/settings/AT_setknots</property>
+		<property>autopilot/internal/AT_setknots</property>
 		<factor>0.01</factor>
 		<step>10</step>
 		<axis><x>0</x><y>1</y><z>0</z></axis>
@@ -267,7 +267,7 @@ if you contacted me before making any changes to this software.
 	<animation>
 		<type>textranslate</type>
 		<object-name>AT_knots1</object-name>
-		<property>autopilot/settings/AT_setknots</property>
+		<property>autopilot/internal/AT_setknots</property>
 		<factor>0.1</factor>
 		<step>1</step>
 		<axis><x>0</x><y>1</y><z>0</z></axis>
