@@ -27,8 +27,8 @@
 			</condition>
 			<expression>
 				<product>
-					<value>1</value>
-					<!-- 1 sec time constant -->
+					<value>10</value>
+					<!-- 0.1 sec time constant -->
 					<dif>
 						<property>fdm/jsbsim/attitude/theta-deg</property>
 						<property>autopilot/internal/thetaD_deg</property>
