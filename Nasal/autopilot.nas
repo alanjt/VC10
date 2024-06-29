@@ -54,7 +54,11 @@ var dt = 0.0;
 	
 	props.globals.initNode("autopilot/gain/Gtheta",2.0,"DOUBLE");
 	props.globals.initNode("autopilot/gain/Gq",-0.2,"DOUBLE");
-	
+	props.globals.initNode("autopilot/gain/GqIAS",-0.2,"DOUBLE");
+	props.globals.initNode("autopilot/gain/GqMach",-0.2,"DOUBLE");
+	props.globals.initNode("autopilot/gain/GqALT",-0.2,"DOUBLE");
+	props.globals.initNode("autopilot/gain/GhdotALT",-10.0,"DOUBLE");
+
 	props.globals.initNode("autopilot/gain/GAy",0.05,"DOUBLE");
 	props.globals.initNode("autopilot/gain/GBetadot",0.25,"DOUBLE");
 	props.globals.initNode("autopilot/gain/GIASInt",-0.005,"DOUBLE");

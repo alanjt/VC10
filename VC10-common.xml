@@ -58,28 +58,34 @@ if you contacted me before making any changes to this software.
 		</rating>
 
 		<systems>
-<!--		<autopilot>
+			<!--		<autopilot>
 				<path>Systems/autopilot.xml</path>   No longer used
 			</autopilot>
 -->
-		<autopilot>
+			<autopilot>
 				<path>Systems/autopilotInputFilters.xml</path>
-		</autopilot>
+			</autopilot>
 			<autopilot>
 				<path>Systems/autopilotGains.xml</path>
 			</autopilot>
 			<autopilot>
-				<path>Systems/autopilotPitchModes.xml</path>
+				<path>Systems/autopilotPitchMode.xml</path>
 			</autopilot>
-<!--		<autopilot>
-				<path>Systems/autopilotMachIAS.xml</path>
-			</autopilot> -->
-<!--			<autopilot>
+			<autopilot>
+				<path>Systems/autopilotAltitudeMode.xml</path>
+			</autopilot>
+			<autopilot>
+				<path>Systems/autopilotMachMode.xml</path>
+			</autopilot>
+			<autopilot>
+				<path>Systems/autopilotIASMode.xml</path>
+			</autopilot>
+			<!--			<autopilot>
 				<path>Systems/autopilotAttitudeData.xml</path>
 			</autopilot> -->
-			<autopilot>
+			<!--<autopilot>
 				<path>Systems/autopilotPitchInnerLoop.xml</path>
-			</autopilot>
+			</autopilot> -->
 			<autopilot>
 				<path>Systems/autopilotAircraftStateFilters.xml</path>
 			</autopilot>
@@ -103,6 +109,10 @@ if you contacted me before making any changes to this software.
 			    no longer used - see code in lines 606-610 of sutopilot.nas
 				<path>Systems/autopilotAutoTrim.xml</path>
 			</autopilot> -->
+			
+			<autopilot>
+				<path>Systems/autopilotfiltertest.xml</path>
+			</autopilot>
 		</systems>
 
 		<instrumentation>
@@ -409,7 +419,7 @@ if you contacted me before making any changes to this software.
 			<kw type="double">0</kw>
 		</engine>
 		<engine n="3">
-	<!--		<on-fire type="bool">false</on-fire>
+			<!--		<on-fire type="bool">false</on-fire>
 			<reverser-pos-norm type="double">0</reverser-pos-norm>
 			<running type="bool">false</running>
 			<rpm type="double">0</rpm>
@@ -465,29 +475,29 @@ if you contacted me before making any changes to this software.
 		</APU>
 		
 		<engines>
-<!--			<engine-start-switch type="int">1</engine-start-switch> -->
+			<!--			<engine-start-switch type="int">1</engine-start-switch> -->
 			<engine n="0">
 				<cutoff type="bool">true</cutoff>
 				<starter type="bool">false</starter>
-<!--			<starter-switch type="bool">false</starter-switch>
+				<!--			<starter-switch type="bool">false</starter-switch>
 				<out-of-fuel type="bool">false</out-of-fuel>-->
 			</engine>
 			<engine n="1">
 				<cutoff type="bool">true</cutoff>
 				<starter type="bool">false</starter>
-<!--			<starter-switch type="bool">false</starter-switch>
+				<!--			<starter-switch type="bool">false</starter-switch>
 				<out-of-fuel type="bool">false</out-of-fuel>-->
 			</engine>
 			<engine n="2">
-<!--				<cutoff type="bool">true</cutoff>
+				<!--				<cutoff type="bool">true</cutoff>
 				<starter type="bool">false</starter> -->
-<!--			<starter-switch type="bool">false</starter-switch>
+				<!--			<starter-switch type="bool">false</starter-switch>
 				<out-of-fuel type="bool">false</out-of-fuel>-->
 			</engine>
 			<engine n="3">
-<!--				<cutoff type="bool">true</cutoff>
+				<!--				<cutoff type="bool">true</cutoff>
 				<starter type="bool">false</starter> -->
-<!--			<starter-switch type="bool">false</starter-switch>
+				<!--			<starter-switch type="bool">false</starter-switch>
 				<out-of-fuel type="bool">false</out-of-fuel>-->
 			</engine>
 		</engines>
@@ -638,11 +648,11 @@ if you contacted me before making any changes to this software.
 
 	<fdm>
 		<jsbsim>
-				<fcs>
-					<afcs-elevator-cmd-deg type="double">0.0</afcs-elevator-cmd-deg>
-					<afcs-aileron-cmd-deg type="double">0.0</afcs-aileron-cmd-deg>
-					<afcs-rudder-cmd-deg type="double">0.0</afcs-rudder-cmd-deg>
-				</fcs>
+			<fcs>
+				<afcs-elevator-cmd-deg type="double">0.0</afcs-elevator-cmd-deg>
+				<afcs-aileron-cmd-deg type="double">0.0</afcs-aileron-cmd-deg>
+				<afcs-rudder-cmd-deg type="double">0.0</afcs-rudder-cmd-deg>
+			</fcs>
 		</jsbsim>
 	</fdm>
 ~

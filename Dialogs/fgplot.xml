@@ -385,13 +385,13 @@ Now you can choose from menubar in equipment fgplot.
      if(a == 0) {
        setprop("/gui/fgplot/internal/name[0]","theta-deg");
        setprop("/gui/fgplot/internal/name[1]","thetaD2_deg");
-       setprop("/gui/fgplot/internal/name[2]","theta-thetaD2");
+       setprop("/gui/fgplot/internal/name[2]","thetaErr_deg");
        setprop("/gui/fgplot/internal/name[3]","qd");
        setprop("/gui/fgplot/internal/name[4]","elevator-pos-deg");
        setprop("/gui/fgplot/internal/name[5]","pitch-trim-pos-deg");
        setprop("/gui/fgplot/internal/prop[0]","/fdm/jsbsim/attitude/theta-deg");
        setprop("/gui/fgplot/internal/prop[1]","/autopilot/internal/thetaD2_deg");
-       setprop("/gui/fgplot/internal/prop[2]","/autopilot/internal/theta-thetaD2");
+       setprop("/gui/fgplot/internal/prop[2]","/autopilot/internal/thetaErr_deg");
        setprop("/gui/fgplot/internal/prop[3]","/autopilot/internal/qd");
        setprop("/gui/fgplot/internal/prop[4]","/fdm/jsbsim/fcs/elevator-pos-deg");
        setprop("/gui/fgplot/internal/prop[5]","/fdm/jsbsim/fcs/pitch-trim-pos-deg");

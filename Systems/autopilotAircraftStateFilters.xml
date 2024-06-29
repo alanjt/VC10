@@ -102,21 +102,7 @@
 
 
 
-	<filter>
-		<name>Height Error h-hDemand</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input>
-			<expression><dif>
-					<property>instrumentation/altimeter/indicated-altitude-ft</property>
-					<property>autopilot/internal/hDemandRL</property>
-				</dif></expression>
-		</input>
-		<output><property>autopilot/internal/h-hDemand</property></output>
-		<u_min>-2000</u_min>
-		<u_max>2000</u_max>
-	</filter>
+
 
 
 	<filter>
