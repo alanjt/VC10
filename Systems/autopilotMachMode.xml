@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<!--
+    Autopilot Configuration for the VC10.
+-->
+<PropertyList>
+	<!--
+    ============================================================
+   Pitch Modes - Mach Hold
+    ============================================================
+-->
+
+	<!-- Mach_D tracks Mach kts,  Mach mode is engaged, when it is locked-->
+	
+	<filter>
+		<name>Mach_leadlag</name>
+		<debug>false</debug>
+		<type>lead-lag</type>
+		<gain>1.2</gain>
+		<filter-time-a>0.2</filter-time-a>
+		<filter-time-b>2.0</filter-time-b>
+		<input>
+			<property>instrumentation/airspeed-indicator/indicated-mach</property>
+		</input>
+		<output>
+			<property>autopilot/internal/Mach_leadlag</property>
+		</output>
+	</filter>
+	
+	<filter>
+		<name>Mach_demand</name>
+		<debug>false</debug>
+		<type>integrator</type>
+		<gain>1.0</gain>
+		<input>
+			<condition>
+				<not>
+					<property>autopilot/switches/Mach-sw</property>
+				</not>
+			</condition>
+			<expression>
+				<product>
+					<value>100</value>
+					<dif>
+						<property>instrumentation/airspeed-indicator/indicated-mach</property>
+						<property>autopilot/internal/Mach_D</property>
+					</dif>
+				</product>
+			</expression>
+		</input>
+		<output>
+			<property>autopilot/internal/Mach_D</property>
+		</output>
+		<u_min>0</u_min>
+		<u_max>0.9</u_max>
+	</filter>
+		
+	<filter>
+		<name>Mach_Error</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<expression>
+				<dif>
+					<property>autopilot/internal/Mach_leadlag</property>
+					<property>autopilot/internal/Mach_D</property>
+				</dif>
+			</expression>
+		</input>
+		<output>
+			<property>autopilot/internal/Mach_D2</property>
+		</output>
+		<u_min>-0.3</u_min>
+		<u_max>0.3</u_max>
+	</filter>
+	
+	<filter>
+		<name>Mach_Mode_q_feedback</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<expression>
+				<product>
+					<property>autopilot/gain/Gq_Mach</property>
+					<property>autopilot/internal/q-deg_sec</property>
+				</product>
+			</expression>
+		</input>
+		<output>
+			<property>autopilot/internal/Mach_q_feedback</property>
+		</output>
+		<u_min>-20</u_min>
+		<u_max>20</u_max>
+	</filter>
+	
+	<filter>
+		<name>Mach_Mode_Elevator_demand</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<expression>
+				<sum>
+					<property>autopilot/internal/Mach_D</property>
+					<property>autopilot/internal/Mach_q_feedback</property>
+				</sum>
+			</expression>
+		</input>
+		<output>
+			<property>autopilot/internal/Mach_elevator-deg</property>
+		</output>
+		<u_min>-20</u_min>
+		<u_max>20</u_max>
+	</filter>
+	
+	
+</PropertyList>

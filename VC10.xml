@@ -98,7 +98,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				<z>0</z>
 			</location>
 		</pointmass>
-		<pointmass name="PASSENGER FIRST CLASS">
+		<pointmass name="PASSENGER FIRST CLASS FRONT">
 			<weight unit="LBS">0</weight><!-- passengers-->
 			<location name="POINTMASS" unit="IN">
 				<x>378</x>
@@ -106,7 +106,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				<z>0</z>
 			</location>
 		</pointmass>
-		<pointmass name="PASSENGER TOURIST CLASS">
+		<pointmass name="PASSENGER TOURIST CLASS MID">
 			<weight unit="LBS">0</weight><!-- passengers-->
 			<location name="POINTMASS" unit="IN">
 				<x>828</x>
@@ -114,7 +114,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				<z>0</z>
 			</location>
 		</pointmass>
-		<pointmass name="PASSENGER TOURIST CLASS">
+		<pointmass name="PASSENGER TOURIST CLASS AFT">
 			<weight unit="LBS">0</weight><!-- passengers-->
 			<location name="POINTMASS" unit="IN">
 				<x>988</x>

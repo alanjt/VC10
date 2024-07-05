@@ -4,8 +4,8 @@ AERODYNAMICS
 ***************************************************************************-->
 <aerodynamics>
 	<!-- References
-		1. Digital Datcom
-		2. OpenVSP
+		1. Digital Datcom  https://www.pdas.com/datcom.html , http://www.holycows.net/datcom/
+		2. OpenVSP  https://openvsp.org/
 		3. ARA paper C.P. No. 1199 - A Simulator Study of Direct Lift Control 1972.
 			A.G.Barnes, D.E.A. Houghton, C. Colclough. Flight Simulator Dept, BAC Warton
 			 https://reports.aerade.cranfield.ac.uk/handle/1826.2/1212 
@@ -13,22 +13,20 @@ AERODYNAMICS
 		5. VC10 Type 1106 model drawing A.A.P.Lloyd (Scale 1:192) May 1968 Aeromodeller.
 		6. VC10 C Mk1 Pilots Notes - Technical. AP 101B-0201-15A  May 1967.
 	-->
-	<!-- An aerodynamic reference point of 79.07 ft (948.9") aft of the manufacturer´s fuselage datum has been used.
-    This equates to 32% SMC. Roll, pitch and yaw moments are calculated about the aerodynamic reference point. -->
+	<!-- Reference 5 was used as the basis for the Digital Datcom and OpenVSP aero analysis, and for the 3d model VC10.ac. 	-->
+	<!-- An aerodynamic reference point of 79.07 ft (948.9") aft of the manufacturer´s fuselage datum has been used. This equates to 32% SMC.  Roll, pitch and yaw moments are calculated about the aerodynamic reference point. -->
 	<!-- The fuselage datum is that defined by Vickers and is 8" aft of the front of the radome.
     and is used for placing and animating objects in the top level model files.
 	(VC10_model.xml and VC10.ac).	-->
-	<!-- Reference 5 was used as the basis for the Digital Datcom and OpenVSP aero analysis, and for the 3d model VC10.ac. 	-->
+
 	<function name="inertia/cg-x-percent">
 		<description>cg, percentage of cbar</description>
 		<quotient>
 			<difference>
-				<property>inertia/cg-x-in</property>
-				<value>872.0</value>
-				<!-- SMC LE is 872 inches aft of fuselage datum-->
+				<property>inertia/cg-x-in</property><!-- aircraft cg position -->
+				<value>872.0</value>				<!-- SMC LE is 872 inches (72'8") aft of fuselage datum-->
 			</difference>
-			<value>2.402</value>
-			<!-- SMC is 240.2 inches, divide by 100 to get % -->
+			<value>2.402</value>       <!-- SMC is 240.2 inches, divide by (240.2/100) to get %chord -->
 		</quotient>
 	</function>
 	<axis name="LIFT">
