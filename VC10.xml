@@ -61,8 +61,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 		<!--  	 The datum origin is 8" behind the front of the radome, and level with the main cabin floor. -->
 
 		<location name="AERORP" unit="IN"><!--  DO NOT CHANGE !! All aerodynamics data
-		has been transformed to use this reference datum point.
-        79.07 ft aft of the datum origin corresponds to 32 %SMC		!! -->
+									has been transformed to use this reference datum point.
+        79.07ft, 948.84" aft of the datum origin corresponds to 32% SMC		!! -->
 			<x>948.84</x><!--79.07 ft -->
 			<y>0.00</y>
 			<z>0.00</z>
@@ -86,7 +86,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 		<izz unit="SLUG*FT2">6547000</izz>
 		<emptywt unit="LBS">137526</emptywt>
 		<location name="CG" unit="IN">
-			<x>940.0</x>
+<!--			<x>940.0</x> -->
+			<x>948.0</x>       <!--  Trim datum = 872"+76", where 872" is LE of SMC  -->
 			<y>0.0</y>
 			<z>-45.20</z>
 		</location>
@@ -894,6 +895,124 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				<output>systems/crash-detect/crash-on-ground</output>
 			</switch>
 		</channel>
+	</system>
+	
+	<system name="Fuel-CofG">
+	
+	<function name="Tank1a_CG">		
+			<table name="propulsion/tank[0]/New-x-position">
+				<independentVar lookup="row">propulsion/tank[0]/contents-lbs</independentVar>
+				<tableData>
+					0.00		1054.11
+					1168.65		1042.00
+					2494.02		1035.15
+					3223.40		1034.94
+					4600.89		1040.95
+					6625.27		1051.43
+					8867.13		1065.99
+					11153.41	1082.69
+					13355.30	1101.34
+					13398.06	1101.15
+				</tableData>
+			</table>
+		</function>
+		
+		<function name="Tank1_CG">		
+			<table name="propulsion/tank[1]/New-x-position">
+				<independentVar lookup="row">propulsion/tank[1]/contents-lbs</independentVar>
+				<tableData>
+					0.00		970.45
+					4465.88		957.68
+					8789.72		957.83
+					13199.17	957.98
+					17687.16	953.17
+				</tableData>
+			</table>
+		</function>
+	
+		<function name="Tank2_CG">		
+			<table name="propulsion/tank[2]/New-x-position">
+				<independentVar lookup="row">propulsion/tank[2]/contents-lbs</independentVar>
+				<tableData>
+					0.00		856.32
+					4373.66		858.27
+					8792.30		859.03
+					13294.98	859.40
+					17707.69	858.78
+					22072.47	856.97
+					26563.28	854.56
+					30922.04	851.37
+				</tableData>
+			</table>
+		</function>
+		
+		<function name="Tank3_CG">		
+			<table name="propulsion/tank[3]/New-x-position">
+				<independentVar lookup="row">propulsion/tank[3]/contents-lbs</independentVar>
+				<tableData>
+					0.00		856.32
+					4373.66		858.27
+					8792.30		859.03
+					13294.98	859.40
+					17707.69	858.78
+					22072.47	856.97
+					26563.28	854.56
+					30922.04	851.37
+				</tableData>
+			</table>
+		</function>
+		
+		<function name="Tank4_CG">		
+			<table name="propulsion/tank[4]/New-x-position">
+				<independentVar lookup="row">propulsion/tank[4]/contents-lbs</independentVar>
+				<tableData>
+					0.00		970.45
+					4465.88		957.68
+					8789.72		957.83
+					13199.17	957.98
+					17687.16	953.17
+				</tableData>
+			</table>
+		</function>
+		
+	<function name="Tank4a_CG">		
+			<table name="propulsion/tank[5]/New-x-position">
+				<independentVar lookup="row">propulsion/tank[5]/contents-lbs</independentVar>
+				<tableData>
+					0.00		1054.11
+					1168.65		1042.00
+					2494.02		1035.15
+					3223.40		1034.94
+					4600.89		1040.95
+					6625.27		1051.43
+					8867.13		1065.99
+					11153.41	1082.69
+					13355.30	1101.34
+					13398.06	1101.15
+				</tableData>
+			</table>
+		</function>
+
+		<function name="TankC_CG">		
+			<table name="propulsion/tank[6]/New-x-position">
+				<independentVar lookup="row">propulsion/tank[6]/contents-lbs</independentVar>
+				<tableData>
+					0.00		861.62
+					4409.25		847.84
+					6635.28		841.66
+					8861.31		836.42
+					11044.52	833.08
+					13227.74	830.91
+					17679.80	828.71
+					22046.23	825.09
+					26455.48	823.35
+					30821.95	821.39
+					35273.97	817.29
+					39683.21	809.89
+				</tableData>
+			</table>
+		</function>
+		
 	</system>
 
 </fdm_config>

@@ -110,9 +110,9 @@ if you contacted me before making any changes to this software.
 				<path>Systems/autopilotAutoTrim.xml</path>
 			</autopilot> -->
 			
-			<autopilot>
+<!--			<autopilot>
 				<path>Systems/autopilotfiltertest.xml</path>
-			</autopilot>
+			</autopilot>  -->
 		</systems>
 
 		<instrumentation>

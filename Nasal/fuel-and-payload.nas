@@ -889,8 +889,22 @@ var update_fuel = func {
 	setprop ("consumables/fuel/tank[7]/space-lbs", LP1SpaceLbs);
 	setprop ("consumables/fuel/tank[8]/space-lbs", LP2SpaceLbs);
 	setprop ("consumables/fuel/tank[9]/space-lbs", LP3SpaceLbs);
-	setprop ("consumables/fuel/tank[10]/space-lbs", LP4SpaceLbs);	
+	setprop ("consumables/fuel/tank[10]/space-lbs", LP4SpaceLbs);
 	
+
+# update fuel tank Centres of Gravity
+	setprop ("fdm/jsbsim/propulsion/tank[0]/x-position",getprop("fdm/jsbsim/propulsion/tank[0]/New-x-position"));
+	setprop ("fdm/jsbsim/propulsion/tank[1]/x-position",getprop("fdm/jsbsim/propulsion/tank[1]/New-x-position"));
+	setprop ("fdm/jsbsim/propulsion/tank[2]/x-position",getprop("fdm/jsbsim/propulsion/tank[2]/New-x-position"));
+	setprop ("fdm/jsbsim/propulsion/tank[3]/x-position",getprop("fdm/jsbsim/propulsion/tank[3]/New-x-position"));
+	setprop ("fdm/jsbsim/propulsion/tank[4]/x-position",getprop("fdm/jsbsim/propulsion/tank[4]/New-x-position"));
+	setprop ("fdm/jsbsim/propulsion/tank[5]/x-position",getprop("fdm/jsbsim/propulsion/tank[5]/New-x-position"));
+	setprop ("fdm/jsbsim/propulsion/tank[6]/x-position",getprop("fdm/jsbsim/propulsion/tank[6]/New-x-position"));
+	
+###
+# end of func update_fuel()
+###
+
 	settimer(func update_fuel(), 0.01);   ## loop 10 per second
 	}
 
@@ -1770,7 +1784,7 @@ var WeightFuelDialog = func {
 
 ########################################### Helper #################################
  var count_all = func{
- print ("count_all");
+## print ("count_all");
  var pass_weight = c0.getValue() + c1.getValue() + c2.getValue() + c3.getValue();
  var lug_weight = c4.getValue() + c5.getValue() + c6.getValue();
  var load = pass_weight + lug_weight;
