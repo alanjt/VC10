@@ -87,7 +87,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 		<emptywt unit="LBS">137526</emptywt>
 		<location name="CG" unit="IN">
 <!--			<x>940.0</x> -->
-			<x>948.0</x>       <!--  Trim datum = 872"+76", where 872" is LE of SMC  -->
+			<x>948.0</x>       <!--  Trim datum 948.0" = 872"+76", where 872" is LE of SMC  -->
 			<y>0.0</y>
 			<z>-45.20</z>
 		</location>
@@ -326,7 +326,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 		<!-- Tank 1A -->
 		<tank type="FUEL" number="0">
 			<location unit="IN">
-				<x>1110.2</x>
+				<x>1068.0</x>
 				<y>-669.7</y>
 				<z>-7.09</z>
 			</location>
@@ -336,7 +336,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 		<!-- Tank 1  -->
 		<tank type="FUEL" number="1">
 			<location unit="IN">
-				<x>984.25</x>
+				<x>958.0</x>
 				<y>-370.08</y>
 				<z>-18.90</z>
 			</location>
@@ -346,7 +346,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 		<!-- Tank 2  -->
 		<tank type="FUEL" number="2">
 			<location unit="IN">
-				<x>881.89</x>
+				<x>858.0</x>
 				<y>-165.35</y>
 				<z>-29.53</z>
 			</location>
@@ -356,7 +356,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 		<!-- Tank 3  -->
 		<tank type="FUEL" number="3">
 			<location unit="IN">
-				<x>881.89</x>
+				<x>858.0</x>
 				<y>165.35</y>
 				<z>-29.53</z>
 			</location>
@@ -366,7 +366,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 		<!-- Tank 4  -->
 		<tank type="FUEL" number="4">
 			<location unit="IN">
-				<x>984.25</x>
+				<x>958.0</x>
 				<y>370.08</y>
 				<z>-18.90</z>
 			</location>
@@ -376,7 +376,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 		<!-- Tank 4A  -->
 		<tank type="FUEL" number="5">
 			<location unit="IN">
-				<x>1110.2</x>
+				<x>1068.0</x>
 				<y>669.7</y>
 				<z>-7.09</z>
 			</location>
@@ -386,7 +386,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 		<!-- Centre Tank -->
 		<tank type="FUEL" number="6">
 			<location unit="IN">
-				<x>881.89</x>
+				<x>818.0</x>
 				<y>0.0</y>
 				<z>-29.53</z>
 			</location>
