@@ -3,8 +3,8 @@ print ("controls.nas");
 
 # ========================= Elevator Trim  =====================================
 controls.elevatorTrim = func(direction){
-	var volts = getprop("systems/electrical/outputs/control_pos_indicator");;
-	controls.slewProp("fdm/jsbsim/fcs/pitch-trim-pos-deg", direction * 0.09);
+	var volts = getprop("systems/electrical/outputs/control_pos_indicator");
+	controls.slewProp("controls/flight/elevator-trim", direction * 0.1);
 } # end 
 # ========================= Aileron Trim  =====================================
 controls.aileronTrim = func(direction){
