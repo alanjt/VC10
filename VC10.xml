@@ -81,13 +81,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 	<mass_balance>
 		<!-- Note. These inertias are for the empty aircraft -->
+		<!-- Structure weight	38088 kg, 83969.7lb  -->
+		<!-- Bare weight		54786 kg, 120782lb  -->
+		<!-- Basic weight		67315 kg, 148404.2lb  -->
+		<!-- Trim datum 948.0" = 872"+76", where 872" is LE of SMC  -->
+		
 		<ixx unit="SLUG*FT2">1131000</ixx>
 		<iyy unit="SLUG*FT2">6092000</iyy>
 		<izz unit="SLUG*FT2">6547000</izz>
-		<emptywt unit="LBS">137526</emptywt>
+		<emptywt unit="LBS">148404.2</emptywt> <!-- Basic weight 67315 kg  -->
 		<location name="CG" unit="IN">
-<!--			<x>940.0</x> -->
-			<x>948.0</x>       <!--  Trim datum 948.0" = 872"+76", where 872" is LE of SMC  -->
+			<x>978.4</x> <!--  Basic weight lever arm 948.0 + 30.4" --> 			
 			<y>0.0</y>
 			<z>-45.20</z>
 		</location>
