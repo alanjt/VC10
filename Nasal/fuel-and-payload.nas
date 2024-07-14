@@ -899,7 +899,7 @@ var update_fuel = func {
 	setprop ("fdm/jsbsim/propulsion/tank[3]/x-position",getprop("fdm/jsbsim/propulsion/tank[3]/New-x-position"));
 	setprop ("fdm/jsbsim/propulsion/tank[4]/x-position",getprop("fdm/jsbsim/propulsion/tank[4]/New-x-position"));
 	setprop ("fdm/jsbsim/propulsion/tank[5]/x-position",getprop("fdm/jsbsim/propulsion/tank[5]/New-x-position"));
-	setprop ("fdm/jsbsim/propulsion/tank[6]/x-position",getprop("fdm/jsbsim/propulsion/tank[6]/New-x-position"));
+##	setprop ("fdm/jsbsim/propulsion/tank[6]/x-position",getprop("fdm/jsbsim/propulsion/tank[6]/New-x-position"));
 	
 ###
 # end of func update_fuel()
@@ -1337,9 +1337,11 @@ var setWeight = func(wgt, opt) {
 # Checks the /sim/weight[n]/{selected|opt} values and sets the
 # appropriate weights therefrom.
 var setWeightOpts = func {
+	print("setWeightOps()");
     var tankchange = 0;
     foreach(var w; props.globals.getNode("sim").getChildren("weight")) {
         var selected = w.getNode("selected");
+
         if(selected != nil) {
             foreach(var opt; w.getChildren("opt")) {
                 if(opt.getNode("name", 1).getValue() == selected.getValue()) {
@@ -1349,6 +1351,7 @@ var setWeightOpts = func {
             }
         }
     }
+	print("setWeightOps(), tankchange = ", tankchange);
     return tankchange;
 }
 # Run it at startup and on reset to make sure the tank settings are correct
@@ -1358,8 +1361,10 @@ _setlistener("sim/signals/fdm-initialized", func { settimer(setWeightOpts, 0) })
 
 # Called from the F&W dialog when the user selects a weight option
 var weightChangeHandler = func {
-    var tankchanged = setWeightOpts();
 
+    var tankchanged = setWeightOpts();
+	print("weightChangeHandler(), tankchanged = ", tankchanged);
+	
     # This is unfortunate.  Changing tanks means that the list of
     # tanks selected and their slider bounds must change, but our GUI
     # isn't dynamic in that way.  The only way to get the changes on
@@ -1382,19 +1387,31 @@ var WeightFuelDialog = func {
     # rewrite the name of payload if cargo livery/aircraft selected
     if(cargo){
       var title = "VICKERS VC10 - CARGO Weight and Fuel Settings";
-    	setprop("payload/weight[1]/name", "Cargo upper 1");
-    	setprop("payload/weight[2]/name", "Cargo upper 2");
-    	setprop("payload/weight[3]/name", "Cargo upper 3");
-    	setprop("payload/weight[4]/name", "Cargo belly 1");
-    	setprop("payload/weight[5]/name", "Cargo belly 2");
-    	setprop("payload/weight[6]/name", "Cargo belly 3");
+    	setprop("payload/weight[1]/name", "Rows 1-3");
+    	setprop("payload/weight[2]/name", "Rows 4-7");
+    	setprop("payload/weight[3]/name", "Rows 8-11");
+    	setprop("payload/weight[4]/name", "Rows 12-15");
+    	setprop("payload/weight[5]/name", "Rows 16-19");
+    	setprop("payload/weight[6]/name", "Rows 20-23");
+    	setprop("payload/weight[7]/name", "Cargo 1");
+    	setprop("payload/weight[8]/name", "Cargo 2");
+    	setprop("payload/weight[9]/name", "Cargo 3");
+    	setprop("payload/weight[10]/name","Cargo 4");
+    	setprop("payload/weight[11]/name","Cargo 5");
+    	setprop("payload/weight[12]/name","Cargo 6");
     }else{
-    	setprop("payload/weight[1]/name", "First-class  - front");
-    	setprop("payload/weight[2]/name", "Tourist-class - centre");
-    	setprop("payload/weight[3]/name", "Tourist-class - rear");
-    	setprop("payload/weight[4]/name", "Luggage 1 - front");
-    	setprop("payload/weight[5]/name", "Luggage 2 - centre");
-    	setprop("payload/weight[6]/name", "Luggage 3 - rear");    
+    	setprop("payload/weight[1]/name", "Rows 1-3");
+    	setprop("payload/weight[2]/name", "Rows 4-7");
+    	setprop("payload/weight[3]/name", "Rows 8-11");
+    	setprop("payload/weight[4]/name", "Rows 12-15");
+    	setprop("payload/weight[5]/name", "Rows 16-19");
+    	setprop("payload/weight[6]/name", "Rows 20-23");
+    	setprop("payload/weight[7]/name", "Cargo 1");
+    	setprop("payload/weight[8]/name", "Cargo 2");
+    	setprop("payload/weight[9]/name", "Cargo 3");
+    	setprop("payload/weight[10]/name","Cargo 4");
+    	setprop("payload/weight[11]/name","Cargo 5");
+    	setprop("payload/weight[12]/name","Cargo 6");		
     }
     #
     # General Dialog Structure
@@ -1419,14 +1436,14 @@ var WeightFuelDialog = func {
 
     dialog[name].addChild("hrule");
 
-    var fdmdata = {
-        grosswgt : "fdm/jsbsim/inertia/weight-lbs",
-        grosskg  : "VC10/weight-kg",
-        payload  : "payload",
-            cg_x_in       : "fdm/jsbsim/inertia/cg-x-in",
-			cg_x_pcent    : "fdm/jsbsim/inertia/cg-x-percent",
-	        cg_z_in       : "fdm/jsbsim/inertia/cg-z-in"
-    };
+ ##   var fdmdata = {
+##        grosswgt 	: "fdm/jsbsim/inertia/weight-lbs",
+##        grosskg  	: "VC10/weight-kg",
+##        payload  	: "payload",
+##        cg_x_in		: "fdm/jsbsim/inertia/cg-x-in",
+##		cg_x_pcent	: "fdm/jsbsim/inertia/cg-x-percent",
+##	    cg_z_in		: "fdm/jsbsim/inertia/cg-z-in"
+ ##   };
 
     var contentArea = dialog[name].addChild("group");
     contentArea.set("layout", "hbox");
@@ -1464,7 +1481,8 @@ var WeightFuelDialog = func {
         row += 1;
     }
 
-    var grossWgt = props.globals.getNode(fdmdata.grosswgt);
+    ##var grossWgt = props.globals.getNode(fdmdata.grosswgt);
+    var grossWgt = props.globals.getNode("fdm/jsbsim/inertia/weight-lbs");
     var grosskg = props.globals.getNode("VC10/weight-kg");
     if(grossWgt != nil) {
         tablerow("Gross Weight", grossWgt, "%.0f lbs");
@@ -1483,19 +1501,20 @@ var WeightFuelDialog = func {
     #    tablerow("Centre of Gravity", props.globals.getNode(fdmdata.cg), "%.1f " ~ (n == nil ? "in" : n.getValue()));
     #}
 	
-   if( fdmdata.cg_x_in != nil ) { 
-        var n = props.globals.getNode("limits/mass-and-balance/cg/dimension");
-        tablerow("Centre of Gravity", props.globals.getNode(fdmdata.cg_x_in), "%.1f " ~ (n == nil ? "in" : n.getValue()));
-    }
+##   if( fdmdata.cg_x_in != nil ) { 
+        var cg_x_in = props.globals.getNode("fdm/jsbsim/inertia/cg-x-in");
+##        tablerow("Centre of Gravity", props.globals.getNode(fdmdata.cg_x_in), "%.1f " ~ (n == nil ? "in" : n.getValue()));
+        tablerow("Centre of Gravity", cg_x_in, "%.1f  in");
+##    }
 	
-    if( fdmdata.cg_x_pcent != nil ) {
-	var cg_x_percent = props.globals.getNode(fdmdata.cg_x_pcent);
+ ##   if( fdmdata.cg_x_pcent != nil ) {
+	var cg_x_percent = props.globals.getNode("fdm/jsbsim/inertia/cg-x-percent");
         tablerow("Centre of Gravity", cg_x_percent, "%.1f %%SMC");
-    }
-    if( fdmdata.cg_z_in != nil ) { 
-	var cg_z_in = props.globals.getNode(fdmdata.cg_z_in);
-        tablerow("Vertical Centre of Gravity", props.globals.getNode(fdmdata.cg_z_in), "%.1f  in");
-    } 	
+ ##   }
+ ##   if( fdmdata.cg_z_in != nil ) { 
+	var cg_z_in = props.globals.getNode("fdm/jsbsim/inertia/cg-z-in");
+        tablerow("Vertical Centre of Gravity", cg_z_in, "%.1f  in");
+ ##   } 	
 	
 
 
@@ -1650,7 +1669,8 @@ var WeightFuelDialog = func {
 		  pers.set("halign", "left");
 		}
 		
-    var payload_base = props.globals.getNode(fdmdata.payload);
+##    var payload_base = props.globals.getNode(fdmdata.payload);
+    var payload_base = props.globals.getNode("payload");
     if (payload_base != nil)
         var wgts = payload_base.getChildren("weight");
     else
@@ -1658,15 +1678,17 @@ var WeightFuelDialog = func {
     for(var i=0; i<size(wgts); i+=1) {
         var w = wgts[i];
         var wname = w.getNode("name", 1).getValue();
-        var wprop = fdmdata.payload ~ "/weight[" ~ i ~ "]";
-
+ ##       var wprop = fdmdata.payload ~ "/weight[" ~ i ~ "]";
+ ##       var wprop = "payload/weight[" ~ i ~ "]";
+		
         var title = tcell(weightTable, "text", i+1, 0);
         title.set("label", wname);
         title.set("halign", "left");
 
         if(w.getNode("opt") != nil) {
             var combo = tcell(weightTable, "combo", i+1, 1);
-            combo.set("property", wprop ~ "/selected");
+ ##           combo.set("property", wprop ~ "/selected");
+            combo.set("property", "payload/weight[" ~ i ~ "]/selected");
 
             # Simple code we'd like to use:
             #foreach(opt; w.getChildren("opt")) {
@@ -1698,9 +1720,10 @@ var WeightFuelDialog = func {
             combo.setBinding("dialog-apply");
             combo.setBinding("nasal", "VC10.weightChangeHandler()");
         } else {
-		print("wprop  ", wprop ~ "/weight-lb");
+##		print("wprop  ", wprop ~ "/weight-lb"); ## payload/weight[0-6]/weight-lb
             var slider = tcell(weightTable, "slider", i+1, 1);
-          slider.set("property", wprop ~ "/weight-lb");
+##          slider.set("property", wprop ~ "/weight-lb");
+		    slider.set("property", "payload/weight[" ~ i ~ "]/weight-lb");
 ##			slider.set("property","fdm/jsbsim/inertia/pointmass-weight-lbs[0]");
 ##			slider.set("property","payload/weight[0]/weight-lb");
             var min = w.getNode("min-lb", 1).getValue();
@@ -1712,7 +1735,8 @@ var WeightFuelDialog = func {
         }
 
         var lbs = tcell(weightTable, "text", i+1, 2);
-        lbs.set("property", wprop ~ "/weight-lb");
+##        lbs.set("property", wprop ~ "/weight-lb");
+        lbs.set("property", "payload/weight[" ~ i ~ "]/weight-lb");
         lbs.set("label", "0123456");
         lbs.set("format", "%.0f");
         lbs.set("halign", "right");
@@ -1835,58 +1859,58 @@ var standard_load = func{
 	}
 }
 
-# the passengers quantity
+# passengers and crew quantity
 setlistener("fdm/jsbsim/inertia/pointmass-weight-lbs[0]", func(wlbs){
 ##setlistener("payload/weight/weight-lb[0]", func(wlbs){
 	var pers = wlbs.getValue() or 0;
 	var kg = pers*0.45359237;
-	print ("kg  ", kg);
-	setprop("VC10/passengers/weight-kg[0]", pers*0.45359237);
-	pers = (pers > 0) ? pers/180 : 0;  # 180lbs per crew member
-	setprop("VC10/passengers/count[0]", pers);  
+##	print ("kg  ", kg);
+##	setprop("VC10/passengers/weight-kg[0]", pers*0.45359237);
+##	pers = (pers > 0) ? pers/180 : 0;  # 180lbs per crew member
+##	setprop("VC10/passengers/count[0]", pers);  
 	count_all();
 	},1,0);
 
 setlistener("fdm/jsbsim/inertia/pointmass-weight-lbs[1]", func(wlbs){
 ##setlistener("payload/weight[1]/weight-lb", func(wlbs){
 	var pers = wlbs.getValue() or 0;
-	setprop("VC10/passengers/weight-kg[1]", pers*0.45359237);
-	pers = (pers > 0) ? pers/180 : 0;  # 180lbs per passanger
-	setprop("VC10/passengers/count[1]", pers);
+##	setprop("VC10/passengers/weight-kg[1]", pers*0.45359237);
+##	pers = (pers > 0) ? pers/180 : 0;  # 180lbs per passanger
+##	setprop("VC10/passengers/count[1]", pers);
 	count_all();
 	},1,0);
 setlistener("fdm/jsbsim/inertia/pointmass-weight-lbs[2]", func(wlbs){
 ##setlistener("payload/weight[2]/weight-lb", func(wlbs){
 	var pers = wlbs.getValue() or 0;
-	setprop("VC10/passengers/weight-kg[2]", pers*0.45359237);
-	pers = (pers > 0) ? pers/180 : 0;  # 180lbs per passanger
-	setprop("VC10/passengers/count[2]", pers);
+##	setprop("VC10/passengers/weight-kg[2]", pers*0.45359237);
+##	pers = (pers > 0) ? pers/180 : 0;  # 180lbs per passanger
+##	setprop("VC10/passengers/count[2]", pers);
 	count_all();
 	},1,0);
 setlistener("fdm/jsbsim/inertia/pointmass-weight-lbs[3]", func(wlbs){
 ##setlistener("payload/weight[3]/weight-lb", func(wlbs){
 	var pers = wlbs.getValue() or 0;
-	setprop("VC10/passengers/weight-kg[3]", pers*0.45359237);
-	pers = (pers > 0) ? pers/180 : 0;  # 180lbs per passanger
-	setprop("VC10/passengers/count[3]", pers);
+##	setprop("VC10/passengers/weight-kg[3]", pers*0.45359237);
+##	pers = (pers > 0) ? pers/180 : 0;  # 180lbs per passanger
+##	setprop("VC10/passengers/count[3]", pers);
 	count_all();
 	},1,0);
 setlistener("fdm/jsbsim/inertia/pointmass-weight-lbs[4]", func(wlbs){
 ##setlistener("payload/weight[4]/weight-lb", func(wlbs){
 	var lag = wlbs.getValue() or 0;
-	setprop("VC10/passengers/weight-kg[4]", lag*0.45359237);
+##	setprop("VC10/passengers/weight-kg[4]", lag*0.45359237);
 	count_all();
 	},1,0);
 setlistener("fdm/jsbsim/inertia/pointmass-weight-lbs[5]", func(wlbs){
 ##setlistener("payload/weight[5]/weight-lb", func(wlbs){
 	var lag = wlbs.getValue() or 0;
-	setprop("VC10/passengers/weight-kg[5]", lag*0.45359237);
+##	setprop("VC10/passengers/weight-kg[5]", lag*0.45359237);
 	count_all();
 	},1,0);
 setlistener("fdm/jsbsim/inertia/pointmass-weight-lbs[6]", func(wlbs){
 ##setlistener("payload/weight[6]/weight-lb", func(wlbs){
 	var lag = wlbs.getValue() or 0;
-	setprop("VC10/passengers/weight-kg[6]", lag*0.45359237);
+##	setprop("VC10/passengers/weight-kg[6]", lag*0.45359237);
 	count_all();
 	},1,0);
 

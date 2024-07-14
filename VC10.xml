@@ -103,50 +103,50 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				<z>0</z>
 			</location>
 		</pointmass>
-		<pointmass name="PASSENGER FIRST CLASS FRONT">
-			<weight unit="LBS">0</weight><!-- passengers-->
-			<location name="POINTMASS" unit="IN">
-				<x>378</x>
+		<pointmass name="Rows 1-3">
+			<weight unit="LBS">0</weight>     <!-- passengers + hand luggage -->
+			<location name="Passengers row 1-3" unit="IN">
+				<x>393</x>
 				<y>0</y>
 				<z>0</z>
 			</location>
 		</pointmass>
-		<pointmass name="PASSENGER TOURIST CLASS MID">
-			<weight unit="LBS">0</weight><!-- passengers-->
-			<location name="POINTMASS" unit="IN">
-				<x>828</x>
+		<pointmass name="ROWS 4-7">
+			<weight unit="LBS">0</weight>     <!-- passengers + hand luggage -->
+			<location name="Passengers rows 4-7" unit="IN">
+				<x>525</x>
 				<y>0</y>
 				<z>0</z>
 			</location>
 		</pointmass>
-		<pointmass name="PASSENGER TOURIST CLASS AFT">
-			<weight unit="LBS">0</weight><!-- passengers-->
-			<location name="POINTMASS" unit="IN">
-				<x>988</x>
+		<pointmass name="ROWS 8-11">
+			<weight unit="LBS">0</weight>     <!-- passengers + hand luggage -->
+			<location name="Passengers rows 8-11" unit="IN">
+				<x>657</x>
 				<y>0</y>
 				<z>0</z>
 			</location>
 		</pointmass>
-		<pointmass name="LUGGAGE 1">
-			<weight unit="LBS">0</weight><!-- cargo or more passengers -->
-			<location name="POINTMASS" unit="IN">
-				<x>378</x>
+		<pointmass name="ROWS 12-15">
+			<weight unit="LBS">0</weight>     <!-- passengers + hand luggage -->
+			<location name="Passengers rows 12-15" unit="IN">
+				<x>789</x>
 				<y>0</y>
 				<z>0</z>
 			</location>
 		</pointmass>
-		<pointmass name="LUGGAGE 2">
-			<weight unit="LBS">0</weight><!-- cargo or more passengers -->
-			<location name="POINTMASS" unit="IN">
-				<x>828</x>
+		<pointmass name="ROWS 16-19">
+			<weight unit="LBS">0</weight>     <!-- passengers + hand luggage -->
+			<location name="Passengers rows 16-19" unit="IN">
+				<x>921</x>
 				<y>0</y>
 				<z>0</z>
 			</location>
 		</pointmass>
-		<pointmass name="LUGGAGE 3">
-			<weight unit="LBS">0</weight><!-- cargo or more passengers -->
-			<location name="POINTMASS" unit="IN">
-				<x>988</x>
+		<pointmass name="ROWS 20-23">
+			<weight unit="LBS">0</weight>     <!-- passengers + hand luggage -->
+			<location name="Passengers rows 20-23" unit="IN">
+				<x>1053</x>
 				<y>0</y>
 				<z>0</z>
 			</location>
@@ -1015,7 +1015,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 					39683.21	809.89
 				</tableData>
 			</table>
+
 		</function>
+		
+
 		
 	</system>
 
