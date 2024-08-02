@@ -103,50 +103,90 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				<z>0</z>
 			</location>
 		</pointmass>
-		<pointmass name="Rows 1-3">
+		<pointmass name="Cabin_C1">
 			<weight unit="LBS">0</weight>     <!-- passengers + hand luggage -->
-			<location name="Passengers row 1-3" unit="IN">
-				<x>393</x>
+			<location name="Seats rows 1-4" unit="IN">
+				<x>277.3</x>
 				<y>0</y>
 				<z>0</z>
 			</location>
 		</pointmass>
-		<pointmass name="ROWS 4-7">
+		<pointmass name="Cabin_C2">
 			<weight unit="LBS">0</weight>     <!-- passengers + hand luggage -->
-			<location name="Passengers rows 4-7" unit="IN">
-				<x>525</x>
+			<location name="Seats rows 5-9" unit="IN">
+				<x>409.1</x>
 				<y>0</y>
 				<z>0</z>
 			</location>
 		</pointmass>
-		<pointmass name="ROWS 8-11">
+		<pointmass name="Cabin_C3">
 			<weight unit="LBS">0</weight>     <!-- passengers + hand luggage -->
-			<location name="Passengers rows 8-11" unit="IN">
-				<x>657</x>
+			<location name="Seats rows 10-13" unit="IN">
+				<x>549.1</x>
 				<y>0</y>
 				<z>0</z>
 			</location>
 		</pointmass>
-		<pointmass name="ROWS 12-15">
+		<pointmass name="Cabin_C4">
 			<weight unit="LBS">0</weight>     <!-- passengers + hand luggage -->
-			<location name="Passengers rows 12-15" unit="IN">
-				<x>789</x>
+			<location name="Seats rows 14-16" unit="IN">
+				<x>669.1</x>
 				<y>0</y>
 				<z>0</z>
 			</location>
 		</pointmass>
-		<pointmass name="ROWS 16-19">
+		<pointmass name="Cabin_C5">
 			<weight unit="LBS">0</weight>     <!-- passengers + hand luggage -->
-			<location name="Passengers rows 16-19" unit="IN">
-				<x>921</x>
+			<location name="Seats rows 17-20" unit="IN">
+				<x>779.1</x>
 				<y>0</y>
 				<z>0</z>
 			</location>
 		</pointmass>
-		<pointmass name="ROWS 20-23">
+		<pointmass name="Cabin_C6">
 			<weight unit="LBS">0</weight>     <!-- passengers + hand luggage -->
-			<location name="Passengers rows 20-23" unit="IN">
-				<x>1053</x>
+			<location name="Seats rows 21-26" unit="IN">
+				<x>949.1</x>
+				<y>0</y>
+				<z>0</z>
+			</location>
+		</pointmass>
+		<pointmass name="Cabin_C7">
+			<weight unit="LBS">0</weight>     <!-- passengers + hand luggage -->
+			<location name="Seats rows 27-30" unit="IN">
+				<x>1131.1</x>
+				<y>0</y>
+				<z>0</z>
+			</location>
+		</pointmass>
+		<pointmass name="Hold_H8">
+			<weight unit="LBS">0</weight>     <!-- Cargo Hold -->
+			<location name="HoldH8" unit="IN">
+				<x>429.6</x>
+				<y>0</y>
+				<z>0</z>
+			</location>
+		</pointmass>
+		<pointmass name="Hold_H9">
+			<weight unit="LBS">0</weight>     <!-- Cargo Hold -->
+			<location name="HoldH9" unit="IN">
+				<x>549.1</x>
+				<y>0</y>
+				<z>0</z>
+			</location>
+		</pointmass>
+		<pointmass name="Hold_H10">
+			<weight unit="LBS">0</weight>     <!-- Cargo Hold -->
+			<location name="HoldH10" unit="IN">
+				<x>1131.1</x>
+				<y>0</y>
+				<z>0</z>
+			</location>
+		</pointmass>
+		<pointmass name="Hold_H11">
+			<weight unit="LBS">0</weight>     <!-- Cargo Hold -->
+			<location name="HoldH11" unit="IN">
+				<x>1322.0</x>
 				<y>0</y>
 				<z>0</z>
 			</location>
