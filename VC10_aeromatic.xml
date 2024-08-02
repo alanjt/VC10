@@ -64,6 +64,15 @@
 			<!-- SMC is 240.2 inches, divide by 100 to get % -->
 		</quotient>
 	</function>
+	
+	<function name="inertia/cg-x-datum-in">
+		<description>cg , percentage of cbar</description>
+			<difference>
+				<property>inertia/cg-x-in</property>
+				<value>948.0</value><!-- Trim datum is 948 inches aft of fuselage datum-->
+			</difference>
+	</function>
+
 
   <axis name="LIFT">
 

@@ -585,46 +585,100 @@ if you contacted me before making any changes to this software.
 
 	<payload>
 		<weight>
-			<name type="string">Crew</name>
+			<name type="string">FlightDeck</name>
 			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[0]"/>
 			<min-lb type="double">540.0</min-lb>
 			<max-lb type="double">1810.0</max-lb>
+			<min-pers type ="double"> 3</min-pers>
+			<max-pers type ="double"> 5</max-pers>
+			<pers type ="double"> 3</pers>
 		</weight>
 		<weight>
-			<name type="string">First-class</name>
+			<name type="string">Cabin_C1</name>
 			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[1]"/>
 			<min-lb type="double">0.0</min-lb>
 			<max-lb type="double">6000.0</max-lb>
+			<min-pers type ="double"> 0</min-pers>
+			<max-pers type ="double"> 24</max-pers>
+			<pers type ="double"> 3</pers>
 		</weight>
 		<weight>
-			<name type="string">Tourist-class / wing</name>
+			<name type="string">Cabin_C2</name>
 			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[2]"/>
 			<min-lb type="double">0.0</min-lb>
 			<max-lb type="double">9940.0</max-lb>
+			<min-pers type ="double"> 0</min-pers>
+			<max-pers type ="double">30</max-pers>
+			<pers type ="double"> 20</pers>
 		</weight>
 		<weight>
-			<name type="string">Tourist-class / rear</name>
+			<name type="string">Cabin_C3</name>
 			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[3]"/>
 			<min-lb type="double">0.0</min-lb>
 			<max-lb type="double">13250.0</max-lb>
+			<min-pers type ="double"> 0</min-pers>
+			<max-pers type ="double">24</max-pers>
+			<pers type ="double"> 20</pers>
 		</weight>
 		<weight>
-			<name type="string">Luggage 1 - front</name>
+			<name type="string">Cabin_C4</name>
 			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[4]"/>
 			<min-lb type="double">0.0</min-lb>
 			<max-lb type="double">6000.0</max-lb>
+			<min-pers type ="double"> 0</min-pers>
+			<max-pers type ="double">18</max-pers>
+			<pers type ="double"> 10</pers>
 		</weight>
 		<weight>
-			<name type="string">Luggage 2 - centre</name>
+			<name type="string">Cabin_C5</name>
 			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[5]"/>
 			<min-lb type="double">0.0</min-lb>
 			<max-lb type="double">10000.0</max-lb>
+			<min-pers type ="double"> 0</min-pers>
+			<max-pers type ="double">24</max-pers>
+			<pers type ="double"> 20</pers>
 		</weight>
 		<weight>
-			<name type="string">Luggage 3 - rear</name>
+			<name type="string">Cabin_C6</name>
 			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[6]"/>
 			<min-lb type="double">0.0</min-lb>
 			<max-lb type="double">10000.0</max-lb>
+			<min-pers type ="double"> 0</min-pers>
+			<max-pers type ="double">36</max-pers>
+			<pers type ="double"> 30</pers>
+		</weight>
+		<weight>
+			<name type="string">Cabin_C7</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[7]"/>
+			<min-lb type="double">0.0</min-lb>
+			<max-lb type="double">10000.0</max-lb>
+			<min-pers type ="double"> 0</min-pers>
+			<max-pers type ="double">24</max-pers>
+			<pers type ="double"> 20</pers>
+		</weight>
+		<weight>
+			<name type="string">Hold_H8</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[8]"/>
+			<min-lb type="double">0.0</min-lb>
+			<max-lb type="double">3990.0</max-lb>
+		</weight>
+		<weight>
+			<name type="string">Hold_H9</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[9]"/>
+			<min-lb type="double">0.0</min-lb>
+			<max-lb type="double">5092.0</max-lb>
+		</weight>
+		<weight>
+			<name type="string">Hold_H10</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[10]"/>
+			<min-lb type="double">0.0</min-lb>
+			<max-lb type="double">6636.0</max-lb>
+		</weight>
+		<weight>
+			<name type="string">Hold_H11</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[11]"/>
+			<min-lb type="double">0.0</min-lb>
+			<max-lb type="double">7209.0</max-lb>
 		</weight>
 	</payload>
 
