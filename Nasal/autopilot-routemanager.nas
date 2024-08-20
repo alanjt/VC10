@@ -27,6 +27,8 @@ var sinus = func(angle) {
 	var rad = 0.01745 * angle;
 	return (rad - ((rad * rad * rad) / 6) + ((rad * rad * rad * rad * rad) / 120));
 }
+var sunu = math.sin(rad);
+print("angle , sinus , math.sin ", angle,"  ", sinus,"  ",sunu);
 var cosinus = func(angle) {
 	var rad = 0.01745 * angle;
 	return (rad - ((rad * rad) / 2) + ((rad * rad * rad * rad) / 24) - ((rad * rad * rad * rad * rad * rad) / 720));
@@ -112,7 +114,13 @@ var getTotalLbs = func {
 		getprop("payload/weight[3]/weight-lb") +
 		getprop("payload/weight[4]/weight-lb") +
 		getprop("payload/weight[5]/weight-lb") +
-		getprop("payload/weight[6]/weight-lb") );
+		getprop("payload/weight[6]/weight-lb") +
+		getprop("payload/weight[7]/weight-lb") +
+		getprop("payload/weight[8]/weight-lb") +
+		getprop("payload/weight[9]/weight-lb") +
+		getprop("payload/weight[10]/weight-lb") +
+		getprop("payload/weight[11]/weight-lb")
+		);
 }
 
 # yaw damper

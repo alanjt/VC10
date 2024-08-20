@@ -379,16 +379,6 @@
 			</binding>	  
 		</checkbox>
 
-<!--		<checkbox>
-			<row>2</row><col>1</col>
-			<label>Brake Chute Arm:</label>
-			<property>sim/presets/brake_chute</property>
-			<live>true</live>
-			<binding>
-				<command>dialog-apply</command>
-			</binding>	  
-		</checkbox> -->
-
 		<checkbox>
 			<row>3</row><col>0</col>
 			<label>Gear Down</label>
