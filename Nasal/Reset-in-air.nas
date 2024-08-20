@@ -40,6 +40,7 @@ var Reset = func{
 	var gear_down = getprop("/sim/presets/gear_down");
 	var flaps = getprop("/sim/presets/flaps") or 0;
 ##	var airbrakes = getprop("/sim/presets/airbrakes") or 0;
+
 	
 	if (engines_running) { 
 		print ("set engines running");
@@ -102,10 +103,7 @@ var Reset = func{
 		setprop("systems/electrical/switches/RadioNav/radio2","true");
 		setprop("systems/electrical/switches/RadioNav/radio1Emergency","true");
 		setprop("systems/electrical/switches/RadioNav/intercom","true");
-
-
-		
-		
+	
 		setprop("VC10/hydraulic/ac-aux-pump[0]", 1);
 		setprop("VC10/hydraulic/ac-aux-pump[1]", 1);
 		setprop("VC10/hydraulic/brake-valve", 2);
@@ -165,6 +163,15 @@ var Reset = func{
     setprop("controls/flight/rudder-trim", 0);
     setprop("fdm/jsbsim/fcs/pitch-trim-pos-deg", 0);
     setprop("controls/flight/aileron-trim", 0);
+	
+	for(var ci=0; ci<12; ci+=1) {
+			var pers = getprop("sim/presets/payload/weight[" ~ ci ~ "]/pers");
+			var lb = getprop("sim/presets/payload/weight[" ~ ci ~ "]/weight-lb");
+			var kg = getprop("sim/presets/payload/weight[" ~ ci ~ "]/weight-kg");
+			setprop("payload/weight[" ~ ci ~ "]/pers", pers);			
+			setprop("payload/weight[" ~ ci ~ "]/weight-lb", lb);
+			setprop("payload/weight[" ~ ci ~ "]/weight-kg", kg)
+	  }
 	   
     setprop("instrumentation/weu/state/takeoff-mode",0);
     if(var vbaro = getprop("environment/metar/pressure-inhg"))

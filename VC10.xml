@@ -104,56 +104,56 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			</location>
 		</pointmass>
 		<pointmass name="Cabin_C1">
-			<weight unit="LBS">0</weight>     <!-- passengers + hand luggage -->
-			<location name="Seats rows 1-4" unit="IN">
+			<weight unit="LBS">0</weight>     <!-- Passengers/Cabin Crew + hand luggage -->
+			<location name="CabinC1" unit="IN">
 				<x>277.3</x>
 				<y>0</y>
 				<z>0</z>
 			</location>
 		</pointmass>
 		<pointmass name="Cabin_C2">
-			<weight unit="LBS">0</weight>     <!-- passengers + hand luggage -->
-			<location name="Seats rows 5-9" unit="IN">
+			<weight unit="LBS">0</weight>     <!-- Passengers/Cabin Crew + hand luggage -->
+			<location name="CabinC2" unit="IN">
 				<x>409.1</x>
 				<y>0</y>
 				<z>0</z>
 			</location>
 		</pointmass>
 		<pointmass name="Cabin_C3">
-			<weight unit="LBS">0</weight>     <!-- passengers + hand luggage -->
-			<location name="Seats rows 10-13" unit="IN">
+			<weight unit="LBS">0</weight>     <!-- Passengers/Cabin Crew + hand luggage -->
+			<location name="CabinC3" unit="IN">
 				<x>549.1</x>
 				<y>0</y>
 				<z>0</z>
 			</location>
 		</pointmass>
 		<pointmass name="Cabin_C4">
-			<weight unit="LBS">0</weight>     <!-- passengers + hand luggage -->
-			<location name="Seats rows 14-16" unit="IN">
+			<weight unit="LBS">0</weight>     <!-- Passengers/Cabin Crew  + hand luggage -->
+			<location name="CabinC4" unit="IN">
 				<x>669.1</x>
 				<y>0</y>
 				<z>0</z>
 			</location>
 		</pointmass>
 		<pointmass name="Cabin_C5">
-			<weight unit="LBS">0</weight>     <!-- passengers + hand luggage -->
-			<location name="Seats rows 17-20" unit="IN">
+			<weight unit="LBS">0</weight>     <!-- Passengers/Cabin Crew + hand luggage -->
+			<location name="CabinC5" unit="IN">
 				<x>779.1</x>
 				<y>0</y>
 				<z>0</z>
 			</location>
 		</pointmass>
 		<pointmass name="Cabin_C6">
-			<weight unit="LBS">0</weight>     <!-- passengers + hand luggage -->
-			<location name="Seats rows 21-26" unit="IN">
+			<weight unit="LBS">0</weight>     <!-- Passengers/Cabin Crew  + hand luggage -->
+			<location name="CabinC7" unit="IN">
 				<x>949.1</x>
 				<y>0</y>
 				<z>0</z>
 			</location>
 		</pointmass>
 		<pointmass name="Cabin_C7">
-			<weight unit="LBS">0</weight>     <!-- passengers + hand luggage -->
-			<location name="Seats rows 27-30" unit="IN">
+			<weight unit="LBS">0</weight>     <!-- Passengers/Cabin Crew + hand luggage -->
+			<location name="CabinC7" unit="IN">
 				<x>1131.1</x>
 				<y>0</y>
 				<z>0</z>
@@ -164,7 +164,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			<location name="HoldH8" unit="IN">
 				<x>429.6</x>
 				<y>0</y>
-				<z>0</z>
+				<z>-20</z>
 			</location>
 		</pointmass>
 		<pointmass name="Hold_H9">
@@ -172,7 +172,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			<location name="HoldH9" unit="IN">
 				<x>549.1</x>
 				<y>0</y>
-				<z>0</z>
+				<z>-20</z>
 			</location>
 		</pointmass>
 		<pointmass name="Hold_H10">
@@ -180,7 +180,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			<location name="HoldH10" unit="IN">
 				<x>1131.1</x>
 				<y>0</y>
-				<z>0</z>
+				<z>-20</z>
 			</location>
 		</pointmass>
 		<pointmass name="Hold_H11">
@@ -188,7 +188,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			<location name="HoldH11" unit="IN">
 				<x>1322.0</x>
 				<y>0</y>
-				<z>0</z>
+				<z>-20</z>
 			</location>
 		</pointmass>
 	</mass_balance>
