@@ -345,7 +345,7 @@ _______________________________________________________
 			<file>Nasal/Reset-in-air.nas</file>
 			<file>Nasal/controls.nas</file>
 			<file>Nasal/engines.nas</file>
-<!--			<file>Nasal/autopilotfiltertest.nas</file> -->
+			<!--			<file>Nasal/autopilotfiltertest.nas</file> -->
 		</VC10>
 		
 		<dialogs>
@@ -366,9 +366,9 @@ _______________________________________________________
 		<!-- -->
 		<!-- <plot>-->
 		
-			<!-- alternative as in JA37/Viggen-set-base.xml -->
-			<!-- <file>Aircraft/JA37/Nasal/plot/Pbutton.nas</file>-->
-			<!--<file>Nasal/plot/Pbutton.nas</file>
+		<!-- alternative as in JA37/Viggen-set-base.xml -->
+		<!-- <file>Aircraft/JA37/Nasal/plot/Pbutton.nas</file>-->
+		<!--<file>Nasal/plot/Pbutton.nas</file>
 			<file>Nasal/plot/Pchooser.nas</file>
 			<file>Nasal/plot/Pgraph.nas</file>
 			<file>Nasal/plot/Phelper.nas</file>
@@ -390,6 +390,16 @@ _______________________________________________________
 	<!-- **********************************************************************
         JSBsim interface
      ********************************************************************** -->
+	 <!-- init some jsbsim properties -->
+	<fdm>
+		<jsbsim>
+			<inertia>
+				<cg-x-in type="double">0.0</cg-x-in>
+				<cg-x-datum-in type="double">0.0</cg-x-datum-in>
+				<cg-x-percent type="double">0.0</cg-x-percent>
+			</inertia>
+		</jsbsim>
+	</fdm>
 
 	<!-- Set up aliased properties for jsbsim use-->
 	<!--
