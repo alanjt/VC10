@@ -768,19 +768,23 @@ var update_fuel_and_weight = func {
 	var Tank3SpaceLbs = Tank3CapacityLbs - Tank3Lbs;
 	var Tank4SpaceLbs = Tank4CapacityLbs - Tank4Lbs;
 
-#Calculate depth of fuel in outer wing tanks. This is the depth used by the fuel contents sensors, and is measured from the lowest part of each tank.
+#Calculate depth of fuel in outer pairs of wing tanks 1,1a and 4,4a. 
+# This is the depth used by the fuel contents sensors, and is measured from the lowest part of each tank.
 
 	var Tank1gal = getprop("consumables/fuel/tank[1]/level-gal_imp");
 	var Tank4gal = getprop("consumables/fuel/tank[4]/level-gal_imp");
 	var Tank1agal = getprop("consumables/fuel/tank[0]/level-gal_imp");
 	var Tank4agal = getprop("consumables/fuel/tank[5]/level-gal_imp");
+	
+# These formulae are aproximate polynomials describing the relationship between tank contents in gallons and the fuel depth in inches.
 	var Tank1inch  = -5.3833E-012*math.pow(Tank1gal,4) + 2.8875E-008*math.pow(Tank1gal,3) - 5.409E-005*math.pow(Tank1gal,2)  + 0.04680*Tank1gal; 
 	var Tank4inch  = -5.3833E-012*math.pow(Tank4gal,4) + 2.8875E-008*math.pow(Tank4gal,3) - 5.409E-005*math.pow(Tank4gal,2)  + 0.04680*Tank4gal;
 	var Tank1ainch = -7.015E-012*math.pow(Tank1agal,4) + 3.432E-008*math.pow(Tank1agal,3) - 5.409E-005*math.pow(Tank1agal,2) + 0.04680*Tank1agal; 
 	var Tank4ainch = -7.015E-012*math.pow(Tank4agal,4) + 3.432E-008*math.pow(Tank4agal,3) - 5.409E-005*math.pow(Tank4agal,2) + 0.04680*Tank4agal;
-# The lowest point of outboard tanks 1a and 4a are 18 inches higher than tanks 1 and 2, due to dihedral.
-
-# Therefore add this distance to these tanks when calculating fuel flow from the outboard to inboard tanks due to gravity.
+	
+# The lowest point of the outboard wing tanks 1a and 4a is 18 inches higher than the respective inboard wing tanks 1 and tank 2, due to dihedral.
+# So we must add this height to the outboard tanks when calculating fuel head between the outboard to inboard tanks.
+# If the fuel head is +ve, and the outboard tank contains fuel, then fuel can flow from the outoard to the inboard tank when the transfer valve is open.
 
 	var XfrRate = getprop("VC10/fuel/XferRate")*dt;
 
