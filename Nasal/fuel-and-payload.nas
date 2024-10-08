@@ -383,8 +383,9 @@ var update_fuel_and_weight = func {
 	var LP1SpaceLbs = LP1CapacityLbs - LP1Lbs;
 	var LP2SpaceLbs = LP2CapacityLbs - LP2Lbs;
 	var LP3SpaceLbs = LP3CapacityLbs - LP3Lbs;
-	var LP4SpaceLbs = LP4CapacityLbs - LP4Lbs;	
+	var LP4SpaceLbs = LP4CapacityLbs - LP4Lbs;
 
+	
 #fill space in LP pipework from main tanks
 	
 	if (IELv == 0 and IERv == 0 and IEXv == 0){
@@ -427,8 +428,8 @@ var update_fuel_and_weight = func {
 # 2. With left engines cross feed valve open
 			
 		var NBP12 = BP1a + BP1f + BP2a + BP2f;        # number of Boost pumps running
-		var LP12Space = LP1SpaceLbs + LP2SpaceLbs;  # fuel required to fill LP1, LP2 pipework
-		var QBP12 = LP12Space / NBP12; 					# amount of fuel to be supplied by each Boost pump
+		var LP12Space = LP1SpaceLbs + LP2SpaceLbs;    # fuel required to fill LP1, LP2 pipework
+		var QBP12 = LP12Space / NBP12; 				  # amount of fuel to be supplied by each Boost pump
 		var QBP1 = QBP12*(BP1a+BP1f);
 		var QBP2 = QBP12*(BP2a+BP2f);
 		
@@ -721,7 +722,7 @@ var update_fuel_and_weight = func {
 				}
 			}
 		}else{
-		print ("ToDo: IELv ",IELv," IERv ",IERv," IEXv ",IEXv);
+		print ("Engine cross feed combination error: IELv ",IELv," IERv ",IERv," IEXv ",IEXv);
 		if (getprop("VC10/fuel/switches/LPCock1Sw") == 1) {
 			if (Tank1Lbs > LP1SpaceLbs) {
 				Tank1Lbs = Tank1Lbs - LP1SpaceLbs;
@@ -753,7 +754,17 @@ var update_fuel_and_weight = func {
 				}else{
 				Tank4Lbs = 0.0;
 				}
-			}		
+			}
+# Calculate LP flow rates, lb/sec			
+		var LP1_flowrate = LP1SpaceLbs*dt; 
+		var LP2_flowrate = LP2SpaceLbs*dt;	
+		var LP3_flowrate = LP3SpaceLbs*dt;
+		var LP4_flowrate = LP4SpaceLbs*dt;
+# Calculate LP flow rates, lb/hour
+		setprop("engines/engine[0]/fuel-flow_pph", 	LP1_flowrate*3600);
+		setprop("engines/engine[1]/fuel-flow_pph", 	LP2_flowrate*3600);
+		setprop("engines/engine[2]/fuel-flow_pph", 	LP3_flowrate*3600);
+		setprop("engines/engine[3]/fuel-flow_pph", 	LP4_flowrate*3600);
 		}
 
 	
