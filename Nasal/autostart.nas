@@ -1429,7 +1429,7 @@ setlistener("controls/engines/engine[3]/starter", func
 
 setlistener("engines/engine[0]/running", func
  {
-  print (" listener engine 1 running");
+  ##print (" listener engine 1 running");
  	if(run1.getBoolValue()){
 	 setprop("controls/engines/msg", 2);
 	}else{

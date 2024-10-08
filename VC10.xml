@@ -376,7 +376,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				<z>-7.09</z>
 			</location>
 			<capacity unit="LBS">11440.00</capacity>
-			<contents unit="LBS">1400.00</contents>
+			<contents unit="LBS">2500.00</contents>
 		</tank>
 		<!-- Tank 1  -->
 		<tank type="FUEL" number="1">
@@ -386,7 +386,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				<z>-18.90</z>
 			</location>
 			<capacity unit="LBS">15240.00</capacity>
-			<contents unit="LBS">7500.00</contents>
+			<contents unit="LBS">10000.00</contents>
 		</tank>
 		<!-- Tank 2  -->
 		<tank type="FUEL" number="2">
@@ -416,7 +416,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				<z>-18.90</z>
 			</location>
 			<capacity unit="LBS">15240.00</capacity>
-			<contents unit="LBS">7500.00</contents>
+			<contents unit="LBS">10000.00</contents>
 		</tank>
 		<!-- Tank 4A  -->
 		<tank type="FUEL" number="5">
@@ -426,7 +426,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				<z>-7.09</z>
 			</location>
 			<capacity unit="LBS">11440.00</capacity>
-			<contents unit="LBS">1400.00</contents>
+			<contents unit="LBS">2500.00</contents>
 		</tank>
 		<!-- Centre Tank -->
 		<tank type="FUEL" number="6">

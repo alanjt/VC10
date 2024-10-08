@@ -1510,7 +1510,7 @@ var WeightFuelDialog = func {
 
     var tablerow = func(name, node, format ) {
 	
-		print ("tablerow row ", row, " name ", name);
+		##print ("tablerow row ", row, " name ", name);
 		
         var n = isa( node, props.Node ) ? node : massLimits.getNode( node );
         if( n == nil ) {
