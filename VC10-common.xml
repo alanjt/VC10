@@ -599,7 +599,7 @@ if you contacted me before making any changes to this software.
 			<min-lb type="double">0.0</min-lb>
 			<max-lb type="double">6000.0</max-lb>
 			<min-pers type ="double"> 0</min-pers>
-			<max-pers type ="double"> 24</max-pers>
+			<max-pers type ="double"> 12</max-pers>
 			<pers type ="double"> 3</pers>
 		</weight>
 		<weight>
@@ -608,8 +608,8 @@ if you contacted me before making any changes to this software.
 			<min-lb type="double">0.0</min-lb>
 			<max-lb type="double">9940.0</max-lb>
 			<min-pers type ="double"> 0</min-pers>
-			<max-pers type ="double">30</max-pers>
-			<pers type ="double"> 20</pers>
+			<max-pers type ="double">18</max-pers>
+			<pers type ="double"> 18</pers>
 		</weight>
 		<weight>
 			<name type="string">Cabin_C3</name>
@@ -618,7 +618,7 @@ if you contacted me before making any changes to this software.
 			<max-lb type="double">13250.0</max-lb>
 			<min-pers type ="double"> 0</min-pers>
 			<max-pers type ="double">24</max-pers>
-			<pers type ="double"> 20</pers>
+			<pers type ="double"> 18</pers>
 		</weight>
 		<weight>
 			<name type="string">Cabin_C4</name>
@@ -635,8 +635,8 @@ if you contacted me before making any changes to this software.
 			<min-lb type="double">0.0</min-lb>
 			<max-lb type="double">10000.0</max-lb>
 			<min-pers type ="double"> 0</min-pers>
-			<max-pers type ="double">24</max-pers>
-			<pers type ="double"> 20</pers>
+			<max-pers type ="double">18</max-pers>
+			<pers type ="double"> 18</pers>
 		</weight>
 		<weight>
 			<name type="string">Cabin_C6</name>
@@ -653,8 +653,8 @@ if you contacted me before making any changes to this software.
 			<min-lb type="double">0.0</min-lb>
 			<max-lb type="double">10000.0</max-lb>
 			<min-pers type ="double"> 0</min-pers>
-			<max-pers type ="double">24</max-pers>
-			<pers type ="double"> 20</pers>
+			<max-pers type ="double">18</max-pers>
+			<pers type ="double"> 18</pers>
 		</weight>
 		<weight>
 			<name type="string">Hold_H8</name>
