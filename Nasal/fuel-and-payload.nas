@@ -348,33 +348,34 @@ var update_fuel_and_weight = func {
 	var density =  getprop("consumables/fuel/tank[7]/density-ppg") or 6.6;
 	
 	var Tank1aCapacityLbs = getprop("consumables/fuel/tank[0]/capacity-gal_us") * density;	
-	var Tank1CapacityLbs = getprop("consumables/fuel/tank[1]/capacity-gal_us") * density;
-	var Tank2CapacityLbs = getprop("consumables/fuel/tank[2]/capacity-gal_us") * density;
-	var Tank3CapacityLbs = getprop("consumables/fuel/tank[3]/capacity-gal_us") * density;
-	var Tank4CapacityLbs = getprop("consumables/fuel/tank[4]/capacity-gal_us") * density;
+	var Tank1CapacityLbs  = getprop("consumables/fuel/tank[1]/capacity-gal_us") * density;
+	var Tank2CapacityLbs  = getprop("consumables/fuel/tank[2]/capacity-gal_us") * density;
+	var Tank3CapacityLbs  = getprop("consumables/fuel/tank[3]/capacity-gal_us") * density;
+	var Tank4CapacityLbs  = getprop("consumables/fuel/tank[4]/capacity-gal_us") * density;
 	var Tank4aCapacityLbs = getprop("consumables/fuel/tank[5]/capacity-gal_us") * density;
-	var TankCCapacityLbs = getprop("consumables/fuel/tank[6]/capacity-gal_us") * density;
+	var TankCCapacityLbs  = getprop("consumables/fuel/tank[6]/capacity-gal_us") * density;
 
 	var Tank1aLbs = getprop("consumables/fuel/tank[0]/level-lbs");
-	var Tank1Lbs = getprop("consumables/fuel/tank[1]/level-lbs");
-	var Tank2Lbs = getprop("consumables/fuel/tank[2]/level-lbs");
-	var Tank3Lbs = getprop("consumables/fuel/tank[3]/level-lbs");
-	var Tank4Lbs = getprop("consumables/fuel/tank[4]/level-lbs");
+	var Tank1Lbs  = getprop("consumables/fuel/tank[1]/level-lbs");
+	var Tank2Lbs  = getprop("consumables/fuel/tank[2]/level-lbs");
+	var Tank3Lbs  = getprop("consumables/fuel/tank[3]/level-lbs");
+	var Tank4Lbs  = getprop("consumables/fuel/tank[4]/level-lbs");
 	var Tank4aLbs = getprop("consumables/fuel/tank[5]/level-lbs");
-	var TankCLbs = getprop("consumables/fuel/tank[6]/level-lbs");
+	var TankCLbs  = getprop("consumables/fuel/tank[6]/level-lbs");
 	
 	var Tank1aSpaceLbs = Tank1aCapacityLbs - Tank1aLbs;
-	var Tank1SpaceLbs = Tank1CapacityLbs - Tank1Lbs;
-	var Tank2SpaceLbs = Tank2CapacityLbs - Tank2Lbs;
-	var Tank3SpaceLbs = Tank3CapacityLbs - Tank3Lbs;
-	var Tank4SpaceLbs = Tank4CapacityLbs - Tank4Lbs;
+	var Tank1SpaceLbs  = Tank1CapacityLbs - Tank1Lbs;
+	var Tank2SpaceLbs  = Tank2CapacityLbs - Tank2Lbs;
+	var Tank3SpaceLbs  = Tank3CapacityLbs - Tank3Lbs;
+	var Tank4SpaceLbs  = Tank4CapacityLbs - Tank4Lbs;
 	var Tank4aSpaceLbs = Tank4aCapacityLbs - Tank4aLbs;	
-	var TankCSpaceLbs = TankCCapacityLbs - TankCLbs;	
+	var TankCSpaceLbs  = TankCCapacityLbs - TankCLbs;	
 	
 	var LP1CapacityLbs = getprop("consumables/fuel/tank[7]/capacity-gal_us") * density;
 	var LP2CapacityLbs = getprop("consumables/fuel/tank[8]/capacity-gal_us") * density;
 	var LP3CapacityLbs = getprop("consumables/fuel/tank[9]/capacity-gal_us") * density;
-	var LP4CapacityLbs = getprop("consumables/fuel/tank[10]/capacity-gal_us") * density;	
+	var LP4CapacityLbs = getprop("consumables/fuel/tank[10]/capacity-gal_us") * density;
+	
 	var LP1Lbs = getprop("consumables/fuel/tank[7]/level-lbs");
 	var LP2Lbs = getprop("consumables/fuel/tank[8]/level-lbs");
 	var LP3Lbs = getprop("consumables/fuel/tank[9]/level-lbs");
@@ -1316,12 +1317,12 @@ var h11 = props.globals.getNode("fdm/jsbsim/inertia/pointmass-weight-lbs[11]");
 
 # the tanks
 var tf1a = props.globals.getNode("consumables/fuel/tank[0]/level-lbs");
-var tf1 = props.globals.getNode("consumables/fuel/tank[1]/level-lbs");
-var tf2 = props.globals.getNode("consumables/fuel/tank[2]/level-lbs");
+var tf1  = props.globals.getNode("consumables/fuel/tank[1]/level-lbs");
+var tf2  = props.globals.getNode("consumables/fuel/tank[2]/level-lbs");
 var tf3  = props.globals.getNode("consumables/fuel/tank[3]/level-lbs");
-var tf4 = props.globals.getNode("consumables/fuel/tank[4]/level-lbs");
+var tf4  = props.globals.getNode("consumables/fuel/tank[4]/level-lbs");
 var tf4a = props.globals.getNode("consumables/fuel/tank[5]/level-lbs");
-var tfC = props.globals.getNode("consumables/fuel/tank[6]/level-lbs");
+var tfC  = props.globals.getNode("consumables/fuel/tank[6]/level-lbs");
 
 var bp0 = props.globals.initNode("VC10/fuel/switches/BoostPump1_fwdSw",0,"BOOL");
 var bp1 = props.globals.initNode("VC10/fuel/switches/BoostPump1_aftSw",0,"BOOL");
@@ -1674,7 +1675,7 @@ var WeightFuelDialog = func {
     total_label.set("label", "Total");
     total_label.set("halign", "left");
     
-    # set each pair (Port and Stbd) of tanks to the same fraction
+	# distribute fuel as per Flying Manual
     var balanceFuel = tcell(fuelTable, "button", size(tanks)+2, 2);  
     balanceFuel.set("pref-width", 70);
     balanceFuel.set("pref-height", 20);
@@ -1854,18 +1855,86 @@ var WeightFuelDialog = func {
 	}
 
 var balance_fuel = func{
+## distribute fuel load as per BOAC VC10 Flying Manual 
+## This is for the Standard VC10, without the fin tank fitted to the Super VC10 and RAF C mk1.
 ##	print ("balance_fuel");
+    print("consumables/fuel/total-fuel-lbs  ", getprop("consumables/fuel/total-fuel-lbs"));
+	var tfTotal = tf1a.getValue() + tf1.getValue() + tf2.getValue() 
+	            + tf3.getValue() + tf4.getValue() + tf4a.getValue()
+				+ tfC.getValue();
+    print("tfTotal  ", tfTotal);
+				
+	var density =  getprop("consumables/fuel/tank[7]/density-ppg") or 6.6;
+	var Tank1aCapacityLbs = getprop("consumables/fuel/tank[0]/capacity-gal_us") * density;	
+	var Tank1CapacityLbs  = getprop("consumables/fuel/tank[1]/capacity-gal_us") * density;
+	var Tank2CapacityLbs  = getprop("consumables/fuel/tank[2]/capacity-gal_us") * density;
+	var Tank3CapacityLbs  = getprop("consumables/fuel/tank[3]/capacity-gal_us") * density;
+	var Tank4CapacityLbs  = getprop("consumables/fuel/tank[4]/capacity-gal_us") * density;
+	var Tank4aCapacityLbs = getprop("consumables/fuel/tank[5]/capacity-gal_us") * density;
+	var TankCCapacityLbs  = getprop("consumables/fuel/tank[6]/capacity-gal_us") * density;
 	
-  var cfuel = (tf1a.getValue() + tf4a.getValue() )/ 2.0;
-  tf1a.setValue(cfuel);
-  tf4a.setValue(cfuel);  
-  cfuel = (tf1.getValue() + tf4.getValue() )/ 2.0;
-  tf1.setValue(cfuel);
-  tf4.setValue(cfuel);
-  cfuel = (tf2.getValue() + tf3.getValue() )/ 2.0;
-  tf2.setValue(cfuel);
-  tf3.setValue(cfuel);
+	var WingTanksCapacityLbs  = (Tank1aCapacityLbs + Tank1CapacityLbs + Tank2CapacityLbs
+							  + Tank3CapacityLbs + Tank4CapacityLbs + Tank4aCapacityLbs);
+							  
+	var CapacityA = 38801;
+	var CapacityB = (Tank1aCapacityLbs*2 + Tank2CapacityLbs + Tank3CapacityLbs + Tank4aCapacityLbs*2);
+	var cfuel = tfTotal/4;
+	if (tfTotal <= CapacityA)
+		{ 
+		## Case A fuel load < 17600 kg, 38801 lb
+		##	Fill wing tanks 1,2,3,4 equally.
+		print ("Fill wing tanks 1,2,3 and 4 only - cfuel ",cfuel);
+		tf1a.setValue(0);
+		tf1.setValue(cfuel);
+		tf2.setValue(cfuel);
+		tf3.setValue(cfuel);
+		tf4.setValue(cfuel);
+		tf4a.setValue(0);
+		tfC.setValue(0);
+		}
+	elsif (tfTotal <= CapacityB)
+		{## Case B fuel load > 17600 kg, 38801 lbif
+		print ("Part Fill all wing tanks - cfuel ",cfuel);
+		tf1a.setValue(cfuel/2);		
+		tf1.setValue(cfuel/2);
+		tf2.setValue(cfuel);
+		tf3.setValue(cfuel);
+		tf4.setValue(cfuel/2);
+		tf4a.setValue(cfuel/2);
+		tfC.setValue(0);
+		}		
+	elsif (tfTotal <= WingTanksCapacityLbs)
+		{
+		## When inner sections 1,4 are full, fill outer sections 1a,4a
+		print ("Fill outer wing tanks - cfuel ",cfuel);
+		tf1a.setValue(Tank1aCapacityLbs);
+		tf1.setValue(cfuel - Tank1aCapacityLbs);
+		tf2.setValue(cfuel);
+		tf3.setValue(cfuel);
+		tf4.setValue(cfuel - Tank4aCapacityLbs);
+		tf4a.setValue(Tank4aCapacityLbs);
+		tfC.setValue(0);	
+		}
+	else
+		{
+# When wing tanks are full, add remaining fuel to centre tank
+		print ("Fill all tanks - cfuel ",cfuel);
+		tf1a.setValue(Tank1aCapacityLbs);
+		tf1.setValue(Tank1CapacityLbs);
+		tf2.setValue(Tank2CapacityLbs);
+		tf3.setValue(Tank3CapacityLbs);	
+		tf4.setValue(Tank4CapacityLbs);
+		tf4a.setValue(Tank4aCapacityLbs);
+		tfC.setValue(tfTotal - WingTanksCapacityLbs);			
+		}
+ # var cfuel = (tf1a.getValue() + tf4a.getValue() )/ 2.0;
+ # tf1a.setValue(cfuel);
+ # tf4a.setValue(cfuel);  
+ # cfuel = (tf1.getValue() + tf4.getValue() )/ 2.0;
+ # tf1.setValue(cfuel);
+ # tf4.setValue(cfuel);
+ # cfuel = (tf2.getValue() + tf3.getValue() )/ 2.0;
+ # tf2.setValue(cfuel);
+ # tf3.setValue(cfuel);
 }
-
-
 
