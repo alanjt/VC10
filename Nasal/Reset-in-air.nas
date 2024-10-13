@@ -49,7 +49,8 @@ var Reset = func{
 	   	setprop("engines/engine[1]/running","true");
 	   	setprop("engines/engine[2]/running","true");
 	   	setprop("engines/engine[3]/running","true");
-		 ## print ("reset in air - set cutoff false");		
+		
+		 ## print ("reset in air - set cutoff false");	 
 		setprop("controls/engines/engine[0]/cutoff", "false");
 		setprop("controls/engines/engine[1]/cutoff", "false");
 		setprop("controls/engines/engine[2]/cutoff", "false");
@@ -120,6 +121,12 @@ var Reset = func{
 		setprop("VC10/fuel/switches/BoostPump3_aftSw", 1);	
 		setprop("VC10/fuel/switches/BoostPump4_fwdSw", 1);
 		setprop("VC10/fuel/switches/BoostPump4_aftSw", 1);
+		
+		setprop("VC10/engines/HPcock[0]",1);
+		setprop("VC10/engines/HPcock[1]",1);
+		setprop("VC10/engines/HPcock[2]",1);
+		setprop("VC10/engines/HPcock[3]",1);		
+		
 		setprop("VC10/fuel/switches/LPCock1Sw", 1);		
 		setprop("VC10/fuel/valves/LPCock1", 1);
 		setprop("VC10/fuel/switches/LPCock2Sw", 1);	
@@ -150,7 +157,7 @@ var Reset = func{
 		setprop("VC10/air-conditioning/cabin-temp-selector[1]",4);
 		setprop("VC10/emergency/oxygen-sw",2);
 		setprop("VC10/pressurization/safety-valve", 1);
-		VC10.safety_valv_pos();
+		#####VC10.safety_valv_pos();
 		setprop("VC10/pressurization/manual-mode-switch", 1);
 		setprop("VC10/pressurization/mode-switch", 1);
 		}

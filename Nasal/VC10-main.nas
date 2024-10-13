@@ -920,7 +920,7 @@ var nacelle_deicing = func {
 		  if(tat <= -10) iceAlertEngines = 1;
 		  if(tat <= -30) {
 		  print ("mk_VC10 - tat <30 set cutoff true");
-		  setprop("controls/engines/engine["~e.getIndex()~"]/cutoff", 1);
+#####		  setprop("controls/engines/engine["~e.getIndex()~"]/cutoff", 1);
 		  }
 		}
 		
@@ -996,7 +996,8 @@ var nacelle_deicing = func {
 	  if(newfuelTemp <  -8)  iceAlertFuel = 1;
 	  if(newfuelTemp < -25) {
 	  		  print ("mk_VC10 - tfuelTemp < -25 set cutoff true");	  
-	  setprop("controls/engines/engine["~hnr~"]/cutoff", 1); }
+####	  setprop("controls/engines/engine["~hnr~"]/cutoff", 1); 
+}
 	  
 		setprop("VC10/fuel/temp["~tnr~"]", newfuelTemp);
   	if (sel == tnr) interpolate("VC10/fuel/temperature", newfuelTemp, 15);
