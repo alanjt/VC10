@@ -78,7 +78,7 @@ if you contacted me before making any changes to this software.
 			<inner-angle>180</inner-angle>
 			<outer-angle>360</outer-angle>
 			<outer-gain>0.5</outer-gain>
-			<reference-dist>20</reference-dist>
+			<reference-dist>20.0</reference-dist>
 		</orientation>
   </engine>
  
@@ -134,7 +134,7 @@ if you contacted me before making any changes to this software.
 			<inner-angle>180</inner-angle>
 			<outer-angle>360</outer-angle>
 			<outer-gain>0.5</outer-gain>
-			<reference-dist>20</reference-dist>
+			<reference-dist>20.0</reference-dist>
 		</orientation>
   </engine>
  
@@ -190,7 +190,7 @@ if you contacted me before making any changes to this software.
 			<inner-angle>180</inner-angle>
 			<outer-angle>360</outer-angle>
 			<outer-gain>0.5</outer-gain>
-			<reference-dist>20</reference-dist>
+			<reference-dist>20.0</reference-dist>
 		</orientation>
   </engine>
 
@@ -246,7 +246,7 @@ if you contacted me before making any changes to this software.
 			<inner-angle>180</inner-angle>
 			<outer-angle>360</outer-angle>
 			<outer-gain>0.5</outer-gain>
-			<reference-dist>20</reference-dist>
+			<reference-dist>20.0</reference-dist>
 		</orientation>
   </engine>
 
@@ -289,7 +289,7 @@ if you contacted me before making any changes to this software.
 			<inner-angle>180</inner-angle>
 			<outer-angle>360</outer-angle>
 			<outer-gain>0.5</outer-gain>
-			<reference-dist>20</reference-dist>
+			<reference-dist>20.0</reference-dist>
 		</orientation>
   </engine>
   
@@ -331,7 +331,7 @@ if you contacted me before making any changes to this software.
 			<inner-angle>180</inner-angle>
 			<outer-angle>360</outer-angle>
 			<outer-gain>0.5</outer-gain>
-			<reference-dist>20</reference-dist>
+			<reference-dist>20.0</reference-dist>
 		</orientation>
   </engine>
   
@@ -373,7 +373,7 @@ if you contacted me before making any changes to this software.
 			<inner-angle>180</inner-angle>
 			<outer-angle>360</outer-angle>
 			<outer-gain>0.5</outer-gain>
-			<reference-dist>20</reference-dist>
+			<reference-dist>20.0</reference-dist>
 		</orientation>
   </engine>
   
@@ -415,13 +415,15 @@ if you contacted me before making any changes to this software.
 			<inner-angle>180</inner-angle>
 			<outer-angle>360</outer-angle>
 			<outer-gain>0.5</outer-gain>
-			<reference-dist>20</reference-dist>
+			<reference-dist>20.0</reference-dist>
 		</orientation>
   </engine>
 
 <!-- engines on work -->
 
 	<engine>
+	
+	
 		<name>leftengine</name>
 		<path>Sounds/jet.wav</path>
 		<mode>looped</mode>
@@ -461,6 +463,15 @@ if you contacted me before making any changes to this software.
 			<y>4.57</y>
 			<z>0.38</z>
 		</position>
+		<orientation>
+			<x>-1 </x>
+			<y> 0 </y>
+			<z> 0 </z>
+			<inner-angle>180</inner-angle>
+			<outer-angle>360</outer-angle>
+			<outer-gain>0.5</outer-gain>
+			<reference-dist>20.0</reference-dist>
+		</orientation>
 	</engine>
 
 	<engine>
@@ -505,6 +516,15 @@ if you contacted me before making any changes to this software.
 			<y>4.57</y>
 			<z>0.38</z>
 		</position>
+		<orientation>
+			<x>-1 </x>
+			<y> 0 </y>
+			<z> 0 </z>
+			<inner-angle>180</inner-angle>
+			<outer-angle>360</outer-angle>
+			<outer-gain>0.5</outer-gain>
+			<reference-dist>20.0</reference-dist>
+		</orientation>
 	</engine>
 
 	<engine>
@@ -551,6 +571,15 @@ if you contacted me before making any changes to this software.
 			<y>4.57</y>
 			<z>0.38</z>
 		</position>
+		<orientation>
+			<x>-1 </x>
+			<y> 0 </y>
+			<z> 0 </z>
+			<inner-angle>180</inner-angle>
+			<outer-angle>360</outer-angle>
+			<outer-gain>0.5</outer-gain>
+			<reference-dist>20.0</reference-dist>
+		</orientation>
 	</engine>
 
 	<engine>
@@ -597,6 +626,15 @@ if you contacted me before making any changes to this software.
 			<y>-4.57</y>
 			<z>0.38</z>
 		</position>
+		<orientation>
+			<x>-1 </x>
+			<y> 0 </y>
+			<z> 0 </z>
+			<inner-angle>180</inner-angle>
+			<outer-angle>360</outer-angle>
+			<outer-gain>0.5</outer-gain>
+			<reference-dist>20.0</reference-dist>
+		</orientation>
 	</engine>
 	
 	<engine>
@@ -641,6 +679,15 @@ if you contacted me before making any changes to this software.
 			<y>-4.57</y>
 			<z>0.38</z>
 		</position>
+		<orientation>
+			<x>-1 </x>
+			<y> 0 </y>
+			<z> 0 </z>
+			<inner-angle>180</inner-angle>
+			<outer-angle>360</outer-angle>
+			<outer-gain>0.5</outer-gain>
+			<reference-dist>20.0</reference-dist>
+		</orientation>
 	</engine>
 
 	<engine>
@@ -687,6 +734,15 @@ if you contacted me before making any changes to this software.
 			<y>-4.57</y>
 			<z>0.38</z>
 		</position>
+		<orientation>
+			<x>-1 </x>
+			<y> 0 </y>
+			<z> 0 </z>
+			<inner-angle>180</inner-angle>
+			<outer-angle>360</outer-angle>
+			<outer-gain>0.5</outer-gain>
+			<reference-dist>20.0</reference-dist>
+		</orientation>
 	</engine>
 
 	<rumble>
@@ -857,6 +913,20 @@ if you contacted me before making any changes to this software.
 			<property>controls/engines/engine[0]/throttle</property>
 			<factor>1</factor>
 		</volume>
+		<position>
+			<x>36.0</x>
+			<y>0.0</y>
+			<z>0.38</z>
+		</position>
+		<orientation>
+			<x>-1 </x>
+			<y> 0 </y>
+			<z> 0 </z>
+			<inner-angle>180</inner-angle>
+			<outer-angle>360</outer-angle>
+			<outer-gain>0.5</outer-gain>
+			<reference-dist>20.0</reference-dist>
+		</orientation>
 	</reverser>	
 
 	<wind>
