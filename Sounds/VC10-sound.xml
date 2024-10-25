@@ -78,7 +78,7 @@ if you contacted me before making any changes to this software.
 			<inner-angle>180</inner-angle>
 			<outer-angle>360</outer-angle>
 			<outer-gain>0.5</outer-gain>
-			<reference-dist>20.0</reference-dist>
+			<reference-dist>0.2</reference-dist>
 		</orientation>
   </engine>
  
@@ -134,7 +134,7 @@ if you contacted me before making any changes to this software.
 			<inner-angle>180</inner-angle>
 			<outer-angle>360</outer-angle>
 			<outer-gain>0.5</outer-gain>
-			<reference-dist>20.0</reference-dist>
+			<reference-dist>0.2</reference-dist>
 		</orientation>
   </engine>
  
@@ -190,7 +190,7 @@ if you contacted me before making any changes to this software.
 			<inner-angle>180</inner-angle>
 			<outer-angle>360</outer-angle>
 			<outer-gain>0.5</outer-gain>
-			<reference-dist>20.0</reference-dist>
+			<reference-dist>0.2</reference-dist>
 		</orientation>
   </engine>
 
@@ -246,7 +246,7 @@ if you contacted me before making any changes to this software.
 			<inner-angle>180</inner-angle>
 			<outer-angle>360</outer-angle>
 			<outer-gain>0.5</outer-gain>
-			<reference-dist>20.0</reference-dist>
+			<reference-dist>0.2</reference-dist>
 		</orientation>
   </engine>
 
@@ -289,7 +289,7 @@ if you contacted me before making any changes to this software.
 			<inner-angle>180</inner-angle>
 			<outer-angle>360</outer-angle>
 			<outer-gain>0.5</outer-gain>
-			<reference-dist>20.0</reference-dist>
+			<reference-dist>0.2</reference-dist>
 		</orientation>
   </engine>
   
@@ -331,7 +331,7 @@ if you contacted me before making any changes to this software.
 			<inner-angle>180</inner-angle>
 			<outer-angle>360</outer-angle>
 			<outer-gain>0.5</outer-gain>
-			<reference-dist>20.0</reference-dist>
+			<reference-dist>0.2</reference-dist>
 		</orientation>
   </engine>
   
@@ -373,7 +373,7 @@ if you contacted me before making any changes to this software.
 			<inner-angle>180</inner-angle>
 			<outer-angle>360</outer-angle>
 			<outer-gain>0.5</outer-gain>
-			<reference-dist>20.0</reference-dist>
+			<reference-dist>0.2</reference-dist>
 		</orientation>
   </engine>
   
@@ -415,7 +415,7 @@ if you contacted me before making any changes to this software.
 			<inner-angle>180</inner-angle>
 			<outer-angle>360</outer-angle>
 			<outer-gain>0.5</outer-gain>
-			<reference-dist>20.0</reference-dist>
+			<reference-dist>0.2</reference-dist>
 		</orientation>
   </engine>
 
@@ -470,7 +470,7 @@ if you contacted me before making any changes to this software.
 			<inner-angle>180</inner-angle>
 			<outer-angle>360</outer-angle>
 			<outer-gain>0.5</outer-gain>
-			<reference-dist>20.0</reference-dist>
+			<reference-dist>0.2</reference-dist>
 		</orientation>
 	</engine>
 
@@ -523,7 +523,7 @@ if you contacted me before making any changes to this software.
 			<inner-angle>180</inner-angle>
 			<outer-angle>360</outer-angle>
 			<outer-gain>0.5</outer-gain>
-			<reference-dist>20.0</reference-dist>
+			<reference-dist>0.2</reference-dist>
 		</orientation>
 	</engine>
 
@@ -578,7 +578,7 @@ if you contacted me before making any changes to this software.
 			<inner-angle>180</inner-angle>
 			<outer-angle>360</outer-angle>
 			<outer-gain>0.5</outer-gain>
-			<reference-dist>20.0</reference-dist>
+			<reference-dist>0.2</reference-dist>
 		</orientation>
 	</engine>
 
@@ -633,7 +633,7 @@ if you contacted me before making any changes to this software.
 			<inner-angle>180</inner-angle>
 			<outer-angle>360</outer-angle>
 			<outer-gain>0.5</outer-gain>
-			<reference-dist>20.0</reference-dist>
+			<reference-dist>0.2</reference-dist>
 		</orientation>
 	</engine>
 	
@@ -686,7 +686,7 @@ if you contacted me before making any changes to this software.
 			<inner-angle>180</inner-angle>
 			<outer-angle>360</outer-angle>
 			<outer-gain>0.5</outer-gain>
-			<reference-dist>20.0</reference-dist>
+			<reference-dist>0.2</reference-dist>
 		</orientation>
 	</engine>
 
@@ -741,7 +741,7 @@ if you contacted me before making any changes to this software.
 			<inner-angle>180</inner-angle>
 			<outer-angle>360</outer-angle>
 			<outer-gain>0.5</outer-gain>
-			<reference-dist>20.0</reference-dist>
+			<reference-dist>0.2</reference-dist>
 		</orientation>
 	</engine>
 
@@ -925,7 +925,7 @@ if you contacted me before making any changes to this software.
 			<inner-angle>180</inner-angle>
 			<outer-angle>360</outer-angle>
 			<outer-gain>0.5</outer-gain>
-			<reference-dist>20.0</reference-dist>
+			<reference-dist>0.2</reference-dist>
 		</orientation>
 	</reverser>	
 
