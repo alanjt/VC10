@@ -34,7 +34,7 @@
 		<input>
 			<condition>
 				<not>
-					<property>autopilot/switches/Mach-sw</property>
+					<property>autopilot/switches/MACH-sw</property>
 				</not>
 			</condition>
 			<expression>

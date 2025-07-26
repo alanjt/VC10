@@ -863,7 +863,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				<tableData>
 					0	336.9
 				20000	316.5
-				31000	329.6					<!-- above altitude 31000ft Vm0 is limited by Mm0 -->
+				31000	329.6	<!-- above altitude 31000ft Vm0 is limited by Mm0 (Mach 0.886 ) -->
 				34839	300.4
 				38700	275.3
 				43000	250.2

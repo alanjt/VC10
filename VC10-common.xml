@@ -76,10 +76,12 @@ if you contacted me before making any changes to this software.
 				<path>Systems/autopilotAltHold.xml</path>
 			</autopilot>
 			<autopilot>
-				<path>Systems/autopilotMachMode.xml</path>
+<!--			<path>Systems/autopilotMachMode.xml</path> -->
+				<path>Systems/autopilotMachHold.xml</path>
 			</autopilot>
 			<autopilot>
-				<path>Systems/autopilotIASMode.xml</path>
+<!--			<path>Systems/autopilotIASMode.xml</path> -->
+				<path>Systems/autopilotIASHold.xml</path>					
 			</autopilot>
 			<autopilot>
 				<path>Systems/autopilotAircraftStateFilters.xml</path>

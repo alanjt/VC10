@@ -92,6 +92,31 @@
 			</expression>
 		</input>
 		
+		<input>
+			<condition><property>autopilot/switches/IAS-sw</property></condition>
+			<expression>
+				<dif>
+					<property>fdm/jsbsim/attitude/theta-deg</property>
+					<sum>
+						<property>autopilot/IASHold/THECOM</property>
+						<property>autopilot/IASHold/thetaRef_deg</property>
+					</sum>
+				</dif>
+			</expression>
+		</input>
+		
+		<input>
+			<condition><property>autopilot/switches/MACH-sw</property></condition>
+			<expression>
+				<dif>
+					<property>fdm/jsbsim/attitude/theta-deg</property>
+					<sum>
+						<property>autopilot/MachHold/THECOM</property>
+						<property>autopilot/MachHold/thetaRef_deg</property>
+					</sum>
+				</dif>
+			</expression>
+		</input>		
 		<output>
 			<property>autopilot/PitchStab/thetaErr_deg</property>
 		</output>
