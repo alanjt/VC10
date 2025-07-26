@@ -114,7 +114,7 @@ Vickers VC10 for Flightgear
 	<animation>
 		<type>rotate</type>
 		<object-name>Damper-1Select</object-name>
-		<property>autopilot/switches/YawDamper1-sw</property>
+		<property>autopilot/switches/YD1-sw</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0</dep></entry>
 			<entry><ind>1</ind><dep>-25</dep></entry>
@@ -132,22 +132,22 @@ Vickers VC10 for Flightgear
 			<!--			<binding>
 				<command>nasal</command>
 				<script>
-					#var bt = getprop("autopilot/switches/YawDamper1-sw") or 0;
+					#var bt = getprop("autopilot/switches/YD1-sw") or 0;
 					#var bat = getprop("VC10/electric/ess-bus") or 0;
 					#if(bt){
 					#	if(bt or bat &lt; 20){
-					###### setprop("autopilot/switches/YawDamper1-sw", 0);
+					###### setprop("autopilot/switches/YD1-sw", 0);
 					###### setprop("autopilot/switches/ALT-sw", 0);
 					###### setprop("autopilot/switches/IAS-sw", 0);
 					###### setprop("autopilot/switches/MACH-sw", 0);
 					#}else{
-					#setprop("autopilot/switches/YawDamper1-sw", 1);
+					#setprop("autopilot/switches/YD1-sw", 1);
 					#}
 				</script> 
 			</binding> -->
 			<binding>
 				<command>property-toggle</command>
-				<property>autopilot/switches/YawDamper1-sw</property>
+				<property>autopilot/switches/YD1-sw</property>
 			</binding>
 			<binding>
 				<command>property-toggle</command>
@@ -160,7 +160,7 @@ Vickers VC10 for Flightgear
 	<animation>
 		<type>rotate</type>
 		<object-name>Damper-2Select</object-name>
-		<property>autopilot/switches/YawDamper2-sw</property>
+		<property>autopilot/switches/YD2-sw</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0</dep></entry>
 			<entry><ind>1</ind><dep>-25</dep></entry>
@@ -178,22 +178,22 @@ Vickers VC10 for Flightgear
 			<!--			<binding>
 				<command>nasal</command>
 				<script>
-					var bt = getprop("autopilot/switches/YawDamper2-sw") or 0;
+					var bt = getprop("autopilot/switches/YD2-sw") or 0;
 					var bat = getprop("VC10/electric/ess-bus") or 0;
 					if(bt){
 					#	if(bt or bat &lt; 20){
-					###### setprop("autopilot/switches/YawDamper2-sw", 0);
+					###### setprop("autopilot/switches/YD2-sw", 0);
 					###### setprop("autopilot/switches/ALT-sw", 0);
 					###### setprop("autopilot/switches/IAS-sw", 0);
 					###### setprop("autopilot/switches/MACH-sw", 0);
 					}else{
-					setprop("autopilot/switches/YawDamper2-sw", 1);
+					setprop("autopilot/switches/YD2-sw", 1);
 					}
 				</script>
 			</binding> -->
 			<binding>
 				<command>property-toggle</command>
-				<property>autopilot/switches/YawDamper2-sw</property>
+				<property>autopilot/switches/YD2-sw</property>
 			</binding>
 			<binding>
 				<command>property-toggle</command>

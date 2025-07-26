@@ -69370,7 +69370,6 @@ data 10
 Sphere.006
 texture "Liveries/BOAC_1.png"
 crease 40.000000
-hidden
 numvert 2177
 40.5104 0.74234 -0.05645
 40.4989 0.74234 -0.11322

@@ -55,65 +55,7 @@
 		<output><property>autopilot/internal/q-deg_sec</property></output>
 	</filter>
 
-	<!-- Roll Rate -->
-	<filter>
-		<name>Roll rate deg-per-sec</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>57.295779513082320876798154814105</gain>
-		<input>
-			<property>fdm/jsbsim/velocities/p-rad_sec</property>
-		</input>
-		<output><property>autopilot/internal/p-deg_sec</property></output>
-	</filter>
 
-	<!-- Magnetic heading -->
-	<filter>
-		<name>mag-heading</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input><property>orientation/heading-magnetic-deg</property></input>
-		<output><property>autopilot/internal/heading-magnetic-deg</property></output>
-	</filter>
-
-	<!-- Track -->
-	<filter>
-		<name>track</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input><property>orientation/track-magnetic-deg</property></input>
-		<output><property>autopilot/internal/track-magnetic-deg</property></output>
-	</filter>
-
-	<filter>
-		<name>heading bug error</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input><property>autopilot/internal/heading-magnetic-deg</property></input>
-		<reference><property>autopilot/settings/heading-bug-deg</property></reference>
-		<output><property>autopilot/internal/hdg-hdgD</property></output>
-		<period>
-			<min>-180</min>
-			<max>180</max>
-		</period>
-	</filter>
-
-	<filter>
-		<name>track (vor-loc) error</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input><property>instrumentation/gps/indicated-track-magnetic-deg</property></input>
-		<reference><property>autopilot/settings/heading-bug-deg</property></reference>
-		<output><property>autopilot/internal/track-hdgD</property></output>
-		<period>
-			<min>-180</min>
-			<max>180</max>
-		</period>
-	</filter>
 
 
 </PropertyList>

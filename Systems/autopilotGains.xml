@@ -72,27 +72,6 @@
 		<output><property>autopilot/gain/Gtheta</property></output>
 	</filter> -->
 
-  <!-- pitch rate feedback gain -->	
-<!--	<filter>
-		<name>Gq</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<input>
-			<expression>
-				<sum>
-					<value>0.43</value>
-					<product>
-						<value>-0.00033</value>
-						<property>fdm/jsbsim/aero/qbar-psf</property>
-					</product>
-				</sum>
-			</expression>
-		</input>
-		<u_min>0.1</u_min>
-		<u_max>1.0</u_max>
-		<output><property>autopilot/gain/Gq</property></output>
-	</filter> -->
-
 
 	<filter>
 		<name>Elevation error q gain</name>

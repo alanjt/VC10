@@ -448,7 +448,7 @@
 	
 	<model>
 		<name>pedestal</name>
-		<path>Aircraft/VC10/Models/Cockpit/Panels/CentreConsole.xml</path>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/Pedestal/CentreConsole.xml</path>
 		<offsets>
 			<x-m>1.698</x-m>
 			<y-m>0.0</y-m>
@@ -536,7 +536,7 @@
 	
 	<model>
 		<name>engineer-station</name>
-		<path>Aircraft/VC10/Models/Cockpit/EngineerStation.xml</path>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/EngineerPanels/EngineerStation.xml</path>
 		<offsets>
 <!--			<x-m> 3.476</x-m>
             <z-m> 0.755</z-m> -->

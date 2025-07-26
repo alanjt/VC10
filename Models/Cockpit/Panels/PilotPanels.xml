@@ -290,17 +290,6 @@ Vickers VC10 for Flightgear
 			<z-m> 0.985</z-m>
 		</offsets>
 	</model>
-
-	<model>
-		<name>ALT-Setting</name>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/alt-set/alt-set.xml</path>
-		<offsets>
-			<!--    <x-m>-18.92</x-m> -->
-			<x-m>1.52</x-m>
-			<y-m>-0.141</y-m>
-			<z-m> 0.993</z-m>
-		</offsets>
-	</model>
 	
 	<model>
 		<name>Standby Horizon</name>
@@ -710,7 +699,7 @@ Vickers VC10 for Flightgear
 
 <!--	<model>
 		<name>Autopilot Helper</name>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/ap/ap-fg.xml</path>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/Autopilot/ap-fg.xml</path>
 		<offsets> -->
 			<!--      <x-m>-18.812</x-m> -->
 <!--			<x-m>-18.812</x-m>

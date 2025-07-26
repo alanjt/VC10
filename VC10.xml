@@ -18,6 +18,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ########################################################################-->
 <?xml-stylesheet type="text/xsl" href="http://jsbsim.sourceforge.net/JSBSim.xsl"?>
+
+
 <fdm_config name="VC10" version="2.0" release="ALPHA"
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
             xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
@@ -28,13 +30,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 		<version>1.0.0</version>
 		<description>Vickers VC10</description>
 	</fileheader>
-
-	<!--
+	
+<!--
   File:     VC10.xml
 
   Inputs:
     name:          VC10
-    type:          four-engine subsonic transport
+    type:          four-engine subsonic jet transport
     max weight:    333795.105 lb
     wing span:     140.167 ft
     length:        158.833 ft
@@ -47,6 +49,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   Outputs:
     payload:       40420.0 lbs
  -->
+
 
 	<metrics>
 		<wingarea unit="FT2">2851.0</wingarea>
@@ -90,9 +93,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 		<ixx unit="SLUG*FT2">1131000</ixx>
 		<iyy unit="SLUG*FT2">6092000</iyy>
 		<izz unit="SLUG*FT2">6547000</izz>
-		<emptywt unit="LBS">148404.2</emptywt> <!-- Basic weight 67315 kg  -->
+		<emptywt unit="LBS">148404.2</emptywt><!-- Basic weight 67315 kg  -->
 		<location name="CG" unit="IN">
-			<x>978.4</x> <!--  Basic weight CG position 948.0 + 30.4" --> 			
+			<x>978.4</x><!--  Basic weight CG position 948.0 + 30.4" -->
 			<y>0.0</y>
 			<z>-45.20</z>
 		</location>
@@ -105,7 +108,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			</location>
 		</pointmass>
 		<pointmass name="Cabin_C1">
-			<weight unit="LBS">0</weight>     <!-- Passengers/Cabin Crew + hand luggage -->
+			<weight unit="LBS">0</weight><!-- Passengers/Cabin Crew + hand luggage -->
 			<location name="CabinC1" unit="IN">
 				<x>277.3</x>
 				<y>0</y>
@@ -113,7 +116,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			</location>
 		</pointmass>
 		<pointmass name="Cabin_C2">
-			<weight unit="LBS">0</weight>     <!-- Passengers/Cabin Crew + hand luggage -->
+			<weight unit="LBS">0</weight><!-- Passengers/Cabin Crew + hand luggage -->
 			<location name="CabinC2" unit="IN">
 				<x>409.1</x>
 				<y>0</y>
@@ -121,7 +124,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			</location>
 		</pointmass>
 		<pointmass name="Cabin_C3">
-			<weight unit="LBS">0</weight>     <!-- Passengers/Cabin Crew + hand luggage -->
+			<weight unit="LBS">0</weight><!-- Passengers/Cabin Crew + hand luggage -->
 			<location name="CabinC3" unit="IN">
 				<x>549.1</x>
 				<y>0</y>
@@ -129,7 +132,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			</location>
 		</pointmass>
 		<pointmass name="Cabin_C4">
-			<weight unit="LBS">0</weight>     <!-- Passengers/Cabin Crew  + hand luggage -->
+			<weight unit="LBS">0</weight><!-- Passengers/Cabin Crew  + hand luggage -->
 			<location name="CabinC4" unit="IN">
 				<x>669.1</x>
 				<y>0</y>
@@ -137,7 +140,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			</location>
 		</pointmass>
 		<pointmass name="Cabin_C5">
-			<weight unit="LBS">0</weight>     <!-- Passengers/Cabin Crew + hand luggage -->
+			<weight unit="LBS">0</weight><!-- Passengers/Cabin Crew + hand luggage -->
 			<location name="CabinC5" unit="IN">
 				<x>779.1</x>
 				<y>0</y>
@@ -145,7 +148,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			</location>
 		</pointmass>
 		<pointmass name="Cabin_C6">
-			<weight unit="LBS">0</weight>     <!-- Passengers/Cabin Crew  + hand luggage -->
+			<weight unit="LBS">0</weight><!-- Passengers/Cabin Crew  + hand luggage -->
 			<location name="CabinC7" unit="IN">
 				<x>949.1</x>
 				<y>0</y>
@@ -153,7 +156,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			</location>
 		</pointmass>
 		<pointmass name="Cabin_C7">
-			<weight unit="LBS">0</weight>     <!-- Passengers/Cabin Crew + hand luggage -->
+			<weight unit="LBS">0</weight><!-- Passengers/Cabin Crew + hand luggage -->
 			<location name="CabinC7" unit="IN">
 				<x>1131.1</x>
 				<y>0</y>
@@ -161,7 +164,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			</location>
 		</pointmass>
 		<pointmass name="Hold_H8">
-			<weight unit="LBS">0</weight>     <!-- Cargo Hold -->
+			<weight unit="LBS">0</weight><!-- Cargo Hold -->
 			<location name="HoldH8" unit="IN">
 				<x>429.6</x>
 				<y>0</y>
@@ -169,7 +172,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			</location>
 		</pointmass>
 		<pointmass name="Hold_H9">
-			<weight unit="LBS">0</weight>     <!-- Cargo Hold -->
+			<weight unit="LBS">0</weight><!-- Cargo Hold -->
 			<location name="HoldH9" unit="IN">
 				<x>549.1</x>
 				<y>0</y>
@@ -177,7 +180,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			</location>
 		</pointmass>
 		<pointmass name="Hold_H10">
-			<weight unit="LBS">0</weight>     <!-- Cargo Hold -->
+			<weight unit="LBS">0</weight><!-- Cargo Hold -->
 			<location name="HoldH10" unit="IN">
 				<x>1131.1</x>
 				<y>0</y>
@@ -185,7 +188,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			</location>
 		</pointmass>
 		<pointmass name="Hold_H11">
-			<weight unit="LBS">0</weight>     <!-- Cargo Hold -->
+			<weight unit="LBS">0</weight><!-- Cargo Hold -->
 			<location name="HoldH11" unit="IN">
 				<x>1322.0</x>
 				<y>0</y>
@@ -828,6 +831,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	<!--	<aerodynamics file="VC10_aeroOpenVSP.xml"/> -->
 	<aerodynamics file="VC10_aeroDatcom.xml"/>
 	<!--<aerodynamics file="VC10_aeromatic.xml"/> -->
+	
+	
+	
+	
 	<!-- **********************************************************************
         FUEL
      **********************************************************************
@@ -944,7 +951,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	
 	<system name="Fuel-CofG">
 	
-	<function name="Tank1a_CG">		
+		<function name="Tank1a_CG">
 			<table name="propulsion/tank[0]/New-x-position">
 				<independentVar lookup="row">propulsion/tank[0]/contents-lbs</independentVar>
 				<tableData>
@@ -962,7 +969,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			</table>
 		</function>
 		
-		<function name="Tank1_CG">		
+		<function name="Tank1_CG">
 			<table name="propulsion/tank[1]/New-x-position">
 				<independentVar lookup="row">propulsion/tank[1]/contents-lbs</independentVar>
 				<tableData>
@@ -975,7 +982,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			</table>
 		</function>
 	
-		<function name="Tank2_CG">		
+		<function name="Tank2_CG">
 			<table name="propulsion/tank[2]/New-x-position">
 				<independentVar lookup="row">propulsion/tank[2]/contents-lbs</independentVar>
 				<tableData>
@@ -991,7 +998,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			</table>
 		</function>
 		
-		<function name="Tank3_CG">		
+		<function name="Tank3_CG">
 			<table name="propulsion/tank[3]/New-x-position">
 				<independentVar lookup="row">propulsion/tank[3]/contents-lbs</independentVar>
 				<tableData>
@@ -1007,7 +1014,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			</table>
 		</function>
 		
-		<function name="Tank4_CG">		
+		<function name="Tank4_CG">
 			<table name="propulsion/tank[4]/New-x-position">
 				<independentVar lookup="row">propulsion/tank[4]/contents-lbs</independentVar>
 				<tableData>
@@ -1020,7 +1027,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			</table>
 		</function>
 		
-	<function name="Tank4a_CG">		
+		<function name="Tank4a_CG">
 			<table name="propulsion/tank[5]/New-x-position">
 				<independentVar lookup="row">propulsion/tank[5]/contents-lbs</independentVar>
 				<tableData>
@@ -1038,7 +1045,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			</table>
 		</function>
 
-		<function name="TankC_CG">		
+		<function name="TankC_CG">
 			<table name="propulsion/tank[6]/New-x-position">
 				<independentVar lookup="row">propulsion/tank[6]/contents-lbs</independentVar>
 				<tableData>
@@ -1056,10 +1063,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 					39683.21	809.89
 				</tableData>
 			</table>
-
 		</function>
-		
-
 		
 	</system>
 

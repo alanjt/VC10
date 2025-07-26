@@ -237,11 +237,11 @@
 					<row>0</row>
 					<col>3</col>
 					<label>DAMPER-1</label>
-					<property>autopilot/switches/YawDamper1-sw</property>
+					<property>autopilot/switches/YD1-sw</property>
 					<live>true</live>
 					<binding>
 						<command>property-toggle</command>
-						<property>autopilot/switches/YawDamper1-sw</property>
+						<property>autopilot/switches/YD1-sw</property>
 					</binding>
 				</checkbox>
 
@@ -249,11 +249,11 @@
 					<row>0</row>
 					<col>4</col>
 					<label>DAMPER-2</label>
-					<property>autopilot/switches/YawDamper2-sw</property>
+					<property>autopilot/switches/YD2-sw</property>
 					<live>true</live>
 					<binding>
 						<command>property-toggle</command>
-						<property>autopilot/switches/YawDamper2-sw</property>
+						<property>autopilot/switches/YD2-sw</property>
 					</binding>
 				</checkbox>
 

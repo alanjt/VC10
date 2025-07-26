@@ -10,7 +10,7 @@ Vickers VC10 for Flightgear
 	
 	<model>
 		<name>Pilot Throttles</name>
-		<path>Aircraft/VC10/Models/Cockpit/Panels/ThrottlesFlapsTail.xml</path>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/Pedestal/ThrottlesFlapsTail.xml</path>
 		<offsets>
 			<x-m>0.111</x-m>
 			<y-m>0.0</y-m>
@@ -20,27 +20,16 @@ Vickers VC10 for Flightgear
 	
 	<model>
 		<name>HP Cocks</name>
-		<path>Aircraft/VC10/Models/Cockpit/Panels/HPcocks.xml</path>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/Pedestal/HPcocks.xml</path>
 		<offsets>
 			<x-m>0.750</x-m>
 			<y-m>0.0</y-m>
 			<z-m>0.0</z-m>
 		</offsets>
 	</model>
-
-<!--	<model>
-		<name>Autopilot Helper</name>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/ap/ap-fg.xml</path>
-		<offsets>
-			<x-m>0.38</x-m>
-			<y-m>0.0</y-m>
-			<z-m>0.0</z-m>
-			<pitch-deg>-90</pitch-deg>
-		</offsets>
-	</model> -->
 	
 	 <model>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/ap/StbyYawdamper.xml</path>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/Autopilot/StbyYawdamper.xml</path>
 		<name>StbyYawdamper</name>
 		<offsets>   
 			<x-m>0.355</x-m>
@@ -65,7 +54,7 @@ Vickers VC10 for Flightgear
 
 
 	 <model>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/ap/AT_controller.xml</path>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/Autopilot/AT_controller.xml</path>
 		<name>AT_controller</name>
 		<offsets>   
 			<x-m>0.355</x-m>
@@ -76,7 +65,7 @@ Vickers VC10 for Flightgear
 	 </model>
 
 	 <model>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/ap/AP_controller.xml</path>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/Autopilot/AP_controller.xml</path>
 		<name>AP_controller</name>
 		<offsets>   
 			<x-m>0.358</x-m>
@@ -87,7 +76,7 @@ Vickers VC10 for Flightgear
 	 </model>
 	 
 	 <model>
-		<path>Aircraft/VC10/Models/Cockpit/Panels/TrimPanel.xml</path>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/Pedestal/TrimPanel.xml</path>
 		<name>AP_controller</name>
 		<offsets>   
 			<x-m>0.4863</x-m>
@@ -96,17 +85,6 @@ Vickers VC10 for Flightgear
 			<pitch-deg>-90</pitch-deg>
 		</offsets>
 	 </model>
-	<!--
-	 <model>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/ap/AP_controller707.xml</path>
-		<name>AP_controller</name>
-		<offsets>   
-			<x-m>0.44</x-m>
-			<y-m>-0.0</y-m>
-			<z-m>0.0</z-m>
-			<pitch-deg>-90</pitch-deg>
-		</offsets>
-	 </model>  -->
 
 	<model>
 		<path>Aircraft/VC10/Models/Cockpit/Instruments/radio/NAV_COMcontroller.xml</path>

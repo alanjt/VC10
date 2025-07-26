@@ -1,0 +1,187 @@
+<?xml version="1.0"?>
+
+<!--
+    Autopilot Filter tests.
+	autopilotfiltertest.xml
+-->
+
+<PropertyList>
+
+	
+	<filter>
+		<name>exponential test0p5</name>
+		<type>exponential</type>
+		<debug>false</debug>
+		<gain>1.0</gain>
+		<filter-time>0.5</filter-time>
+		<input>autopilot/test/input</input>
+		<output>autopilot/test/exponential0p5</output>
+	</filter>
+	
+	<filter>
+		<name>exponential test1p0</name>
+		<type>exponential</type>
+		<debug>false</debug>
+		<gain>1.0</gain>
+		<filter-time>1.0</filter-time>
+		<input>autopilot/test/input</input>
+		<output>autopilot/test/exponential1p0</output>
+	</filter>
+	
+	<filter>
+		<name>exponential test1p5</name>
+		<type>exponential</type>
+		<debug>false</debug>
+		<gain>1.0</gain>
+		<filter-time>1.5</filter-time>
+		<input>autopilot/test/input</input>
+		<output>autopilot/test/exponential1p5</output>
+	</filter>
+	
+	<filter>
+		<name>high-pass test0p5</name>
+		<type>high-pass</type>
+		<debug>false</debug>
+		<gain>1.0</gain>
+		<filter-time>0.5</filter-time>
+		<input>autopilot/test/input</input>
+		<output>autopilot/test/high-pass0p5</output>
+	</filter>
+	
+	<filter>
+		<name>high-pass test1p0</name>
+		<type>high-pass</type>
+		<debug>false</debug>
+		<gain>1.0</gain>
+		<filter-time>1.0</filter-time>
+		<input>autopilot/test/input</input>
+		<output>autopilot/test/high-pass1p0</output>
+	</filter>
+	
+	<filter>
+		<name>high-pass test1p5</name>
+		<type>high-pass</type>
+		<debug>false</debug>
+		<gain>1.0</gain>
+		<filter-time>1.5</filter-time>
+		<input>autopilot/test/input</input>
+		<output>autopilot/test/high-pass1p5</output>
+	</filter>
+
+	<filter>
+		<name>lag test 0p5</name>
+		<type>lag</type>
+		<debug>false</debug>
+		<gain>1.0</gain>
+		<filter-time>0.5</filter-time>
+		<input>autopilot/test/input</input>
+		<output>autopilot/test/lag0p5</output>
+	</filter>
+	
+	<filter>
+		<name>lag test 1p5</name>
+		<type>lag</type>
+		<debug>false</debug>
+		<gain>1.0</gain>
+		<filter-time>1.5</filter-time>
+		<input>autopilot/test/input</input>
+		<output>autopilot/test/lag1p5</output>
+	</filter>
+	
+	<filter>
+		<name>high-pass test 0p5</name>
+		<type>high-pass</type>
+		<debug>false</debug>
+		<gain>1.0</gain>
+		<filter-time>0.5</filter-time>
+		<input>autopilot/test/input</input>
+		<output>autopilot/test/high-pass0p5</output>
+	</filter>
+	
+	<filter>
+		<name>high-pass test 1p5</name>
+		<type>high-pass</type>
+		<debug>false</debug>
+		<gain>1.0</gain>
+		<filter-time>1.5</filter-time>
+		<input>autopilot/test/input</input>
+		<output>autopilot/test/high-pass1p5</output>
+	</filter>
+	
+	<filter>
+		<name>lead test</name>
+		<debug>false</debug>
+		<type>lead</type>
+		<gain>1.0</gain>
+		<filter-time>0.5</filter-time>
+		<input>autopilot/test/input</input>
+		<output>autopilot/test/lead</output>
+	</filter>
+	
+	<filter>
+		<name>lead lag</name>
+		<debug>false</debug>
+		<type>lead-lag</type>
+		<gain>1.0</gain>
+		<filter-time-a>1.0</filter-time-a>
+		<filter-time-b>1.0</filter-time-b>
+		<input>autopilot/test/input</input>
+		<output>autopilot/test/leadlag1.0_1.0</output>
+	</filter>
+		
+	<filter>
+		<name>lead lag</name>
+		<debug>false</debug>
+		<type>lead-lag</type>
+		<gain>1.0</gain>
+		<filter-time-a>1.0</filter-time-a>
+		<filter-time-b>0.5</filter-time-b>
+		<input>autopilot/test/input</input>
+		<output>autopilot/test/leadlag1.0_0.5</output>
+	</filter>
+
+	<filter>
+		<name>lead lag</name>
+		<debug>false</debug>
+		<type>lead-lag</type>
+		<gain>1.0</gain>
+		<filter-time-a>1.0</filter-time-a>
+		<filter-time-b>1.5</filter-time-b>
+		<input>autopilot/test/input</input>
+		<output>autopilot/test/leadlag1.0_1.5</output>
+	</filter>
+	
+	<filter>
+		<name>lead lag</name>
+		<debug>false</debug>
+		<type>lead-lag</type>
+		<gain>1.0</gain>
+		<filter-time-a>0.5</filter-time-a>
+		<filter-time-b>1.0</filter-time-b>
+		<input>autopilot/test/input</input>
+		<output>autopilot/test/leadlag0.5_1.0</output>
+	</filter>
+
+	<filter>
+		<name>lead lag</name>
+		<debug>false</debug>
+		<type>lead-lag</type>
+		<gain>autopilot/test/gain</gain>
+		<filter-time-a>1.5</filter-time-a>
+		<filter-time-b>1.0</filter-time-b>
+		<input>autopilot/test/input</input>
+		<output>autopilot/test/leadlag1.5_1.0</output>
+	</filter>
+	
+	<filter>
+		<name>lead lag with gain</name>
+		<debug>false</debug>
+		<type>lead-lag</type>
+		<gain>2.0</gain>
+		<filter-time-a>1.5</filter-time-a>
+		<filter-time-b>1.0</filter-time-b>
+		<input>autopilot/test/input</input>
+		<output>autopilot/test/leadlag1.5_1.0gain2</output>
+	</filter>
+
+</PropertyList>

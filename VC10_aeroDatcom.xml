@@ -24,9 +24,11 @@ AERODYNAMICS
 		<quotient>
 			<difference>
 				<property>inertia/cg-x-in</property><!-- aircraft cg position -->
-				<value>872.0</value>				<!-- SMC LE is 872 inches (72'8") aft of fuselage datum-->
-			</difference>
-			<value>2.402</value>       <!-- SMC is 240.2 inches, divide by (240.2/100) to get %chord -->
+				<value>872.0</value>
+				<!-- SMC LE is 872 inches (72'8") aft of fuselage datum-->
+			</difference>				   
+			<value>2.402</value>   
+			<!-- SMC is 240.2 inches, divide by (240.2/100) to get %chord -->
 		</quotient>
 	</function>
 	
@@ -499,7 +501,7 @@ AERODYNAMICS
 		<function name="aero/moment/Pitch_alpha_rate">
 			<description>Pitch_moment_due_to_alpha_rate</description>
 			<product>
-				<property>aero/qbar-psf</property>
+				<property>aero/qbarUW-psf</property>
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/cbarw-ft</property>
 				<property>aero/ci2vel</property>

@@ -32,6 +32,10 @@ var lastTrimValue  = props.globals.initNode("VC10/trim/last-elev-trim-turn", 0,"
 
 var airplaneCrashed  = props.globals.initNode("VC10/crashed", 0,"BOOL");
 
+setprop("controls/flight/elevator",0.0);
+setprop("controls/flight/aileron",0.0);
+setprop("controls/flight/rudder",0.0);
+
 ################################ Reverser ####################################
 
 var togglereverser = func {
@@ -179,7 +183,7 @@ var h_mis = func {
 }
 
 var h_set_target_alt = func{
-	var set_alt = getprop("autopilot/settings/target-altitude-ft");
+	var set_alt = getprop("autopilot/settings/AltRef");
 	if(  set_alt == nil ) set_alt = 0.0;
 	help_win.write(sprintf("Target altitude: %.0f ", set_alt) );
 
@@ -196,7 +200,7 @@ setlistener( "instrumentation/nav/radials/selected-deg", h_course );
 setlistener( "instrumentation/nav[1]/radials/selected-deg", h_course_two );
 setlistener( "autopilot/settings/target-speed-kt", h_tas );
 setlistener( "autopilot/settings/vertical-speed-fpm", h_vs);
-setlistener( "autopilot/settings/target-altitude-ft", h_set_target_alt );
+setlistener( "autopilot/settings/AltRef", h_set_target_alt );
 setlistener( "instrumentation/rmi/face-offset", h_mis);
 
 

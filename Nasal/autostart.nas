@@ -1142,7 +1142,7 @@ var startup = func
 		 		setprop("VC10/pressurization/mode-switch", 1);
 				click_switch3();
 				
-				#for pilots without knowledge of the compass control system the the compass controler here
+				#for pilots without knowledge of the compass control system set the the compass controler here
 				setprop("instrumentation/compass-control/mag/", 0);
 				setprop("instrumentation/compass-control/lat-turn/", math.round(getprop("/position/latitude-deg")));
 

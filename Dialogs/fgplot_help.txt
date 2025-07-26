@@ -1,0 +1,38 @@
+FlightGear Fgplot
+Contents
+
+Fgplot has the intention to be a universal plotter module.
+Plotting 6 lines with a user chosen step-size and resolution.
+The curves are plotted from a set of 6 user-selectable properties.
+      
+The plotting of a line can be switched on/off by toggling the colored selector in the main fgplot-screen.   
+      
+Also transparency of the graph-field can be switched on/off this way.
+
+Choose your curve from a property in the property-selector.
+
+Only numbers will be plotted.
+      
+You can also choose the top-value of the graph.
+      
+Just select your line by pressing a radio-button or selecting an editfield.
+      
+Then select your property to plot and set your desired top value for the graph and press the set button.
+       
+Pressing ReRead reloads the current settings.
+     
+Choose the stepsize 1-4 from the options menu.
+         
+Bigger steps make less points in the curve.
+ 
+Choose your resolution 400-800 points from the options menu.      
+      
+When going from more to less points will delete exessive points.
+  
+Going to more points can sometimes produce artifacts at the start of the curve which will roll of the sreen in a while.
+
+For tickmarks, set above 0. A setting of 0 switches them off.
+      
+Currently only points are implemented.
+      
+Even a Save/Load button to save settings and get them back in place fast, to save a lot of time searching for the right props.

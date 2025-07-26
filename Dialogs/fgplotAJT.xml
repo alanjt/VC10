@@ -27,6 +27,11 @@ direct under
     </binding>
 </item>
 
+Also add this to <nasal> section of  $FG_ROOT/defaults.xml
+	<plot>
+      <enabled type="bool">true</enabled>	
+	</plot>
+
 Now you can choose from menubar in equipment fgplot.
 -->
 
@@ -367,13 +372,15 @@ Now you can choose from menubar in equipment fgplot.
 
   <load> <!-- when the fgplot is loaded ?? == pressed equipment-fgplot -->
   <![CDATA[
-  
+ 
   var SaveProps = func () {
+print("fgplot SaveProps() - line 377"); 
      var FgHome = getprop("/sim/fg-home");
      io.write_properties(FgHome~"/state/fgplot","/gui/fgplot/internal");
   };
 
   var LoadProps = func () {
+print("fgplot LoadProps() - line 383");
      var FgHome = getprop("/sim/fg-home");
      var target = props.globals.getNode("/gui/fgplot/internal");
      io.read_properties(FgHome~"/state/fgplot.xml",target);
@@ -381,32 +388,24 @@ Now you can choose from menubar in equipment fgplot.
 
   # general values to have something at startup.
   var setProps = func () {
+ print("fgplot setProps() - line 391");
      var a = getprop("/gui/fgplot/running") or 0;
      if(a == 0) {
-       setprop("/gui/fgplot/internal/name[0]","theta-deg");
-       setprop("/gui/fgplot/internal/name[1]","THECOM");
-       setprop("/gui/fgplot/internal/name[2]","thetaErr_deg");
-       setprop("/gui/fgplot/internal/name[3]","qd");
-       setprop("/gui/fgplot/internal/name[4]","elevator-pos-deg");
-       setprop("/gui/fgplot/internal/name[5]","pitch-trim-pos-deg");
-       setprop("/gui/fgplot/internal/prop[0]","/fdm/jsbsim/attitude/theta-deg");
-       setprop("/gui/fgplot/internal/prop[1]","/autopilot/PitchHold/THECOM");
-       setprop("/gui/fgplot/internal/prop[2]","/autopilot/PitchStab/thetaErr_deg");
-       setprop("/gui/fgplot/internal/prop[3]","/autopilot/internal/qd");
-       setprop("/gui/fgplot/internal/prop[4]","/fdm/jsbsim/fcs/elevator-pos-deg");
-       setprop("/gui/fgplot/internal/prop[5]","/fdm/jsbsim/fcs/pitch-trim-pos-deg");
-       setprop("/gui/fgplot/internal/top[0]",25); 
-       setprop("/gui/fgplot/internal/top[1]",25);
-       setprop("/gui/fgplot/internal/top[2]",25);
-       setprop("/gui/fgplot/internal/top[3]",25);
-       setprop("/gui/fgplot/internal/top[4]",25);
-       setprop("/gui/fgplot/internal/top[5]",15);	   
+       setprop("/gui/fgplot/internal/name[0]","fdm-head.rror-deg");
+       setprop("/gui/fgplot/internal/name[1]","heading-.rror-deg");
+       setprop("/gui/fgplot/internal/name[2]","true-hea.rror-deg");
+       setprop("/gui/fgplot/internal/name[3]","nav1-course-error");
+       setprop("/gui/fgplot/internal/name[4]","nav1-hea.rror-deg");
+       setprop("/gui/fgplot/internal/name[5]","nav1-tra.rror-deg");
+       setprop("/gui/fgplot/internal/prop[0]","/autopilot/internal/fdm-heading-bug-error-deg");
+       setprop("/gui/fgplot/internal/prop[1]","/autopilot/internal/heading-bug-error-deg");
+       setprop("/gui/fgplot/internal/prop[2]","/autopilot/internal/true-heading-error-deg");
+       setprop("/gui/fgplot/internal/prop[3]","/autopilot/internal/nav1-course-error");
+       setprop("/gui/fgplot/internal/prop[4]","/autopilot/internal/nav1-heading-error-deg");
+       setprop("/gui/fgplot/internal/prop[5]","/autopilot/internal/nav1-track-error-deg");
        for( var j = 0 ; 6 > j ; j += 1){
-         ##setprop("/gui/fgplot/internal/factor["~j~"]",-0.833334);
-         ##setprop("/gui/fgplot/internal/top["~j~"]",180);
-		  var f=getprop("/gui/fgplot/internal/top["~j~"]");
-          setprop("/gui/fgplot/internal/factor["~j~"]",(-150/f));
-				 
+         setprop("/gui/fgplot/internal/factor["~j~"]",-0.833334);
+         setprop("/gui/fgplot/internal/top["~j~"]",180);
          setprop("/gui/fgplot/internal/line["~j~"]",1);
        };
        setprop("/gui/fgplot/internal/ticktype[0]",1);
@@ -423,6 +422,7 @@ Now you can choose from menubar in equipment fgplot.
   setProps();
  
   var SetTransparency = func () {
+print("fgplot SetTransparency() - line 425");
       if(getprop("/gui/fgplot/option/transparency")==1){
          my_canvas.setColorBackground(0,0,0,1); # Transparancy == last 0
          setprop("/gui/fgplot/option/transparency",0);
@@ -435,10 +435,11 @@ Now you can choose from menubar in equipment fgplot.
   # Toggle line on/off
   var SetLine = func(a)
   {
+print("fgplot SetLine() - line 438");
     setprop("/gui/fgplot/internal/line["~a~"]", 
             !getprop("/gui/fgplot/internal/line["~a~"]"));
   };
-
+print("fgplot Canvas Code - line 442");
   # canvas-specific code here
   var my_canvas = canvas.get( cmdarg() ); # Handle to the my canvas
   my_canvas.set("mipmapping", 1)
@@ -466,9 +467,10 @@ Now you can choose from menubar in equipment fgplot.
   var num_plots = size(colors);
   var plots = setsize([], num_plots);
   for(var i = 0; i< num_plots; i+=1)
+  {print("fgplot - line 470 init plot(i) i=  ",i);
       plots[i] = graph.createChild("path", "data")
                  .set("stroke", colors[i])
-                 .set("stroke-width", 1);  # was 2
+                 .set("stroke-width", 1);}  # was 2
   TickMark = graph.createChild("path", "data")
              .set("stroke", "#ffffff")
              .set("stroke-width", 1);  
@@ -511,7 +513,7 @@ Now you can choose from menubar in equipment fgplot.
 
       dx = getprop("/gui/fgplot/option/dx");
       max_x = getprop("/gui/fgplot/option/max_x");
-      # The calculation is very simple and is causing artifacts
+      # The calculation is very simple and is causing artifax
       #  when going to higher amount of points. Density problem.
       # We should take points already on screen take into account
       #  but that make it a bit more complicated.
@@ -527,13 +529,21 @@ Now you can choose from menubar in equipment fgplot.
       };
 
       for(var i = 0; i < 6; i += 1){
+	    print("fgplot line 532   i == ", i);
         var factor = getprop("/gui/fgplot/internal/factor[" ~ i ~ "]");
+		print("fgplot line 534   factor == ", factor);
+		var line = getprop("/gui/fgplot/internal/line[" ~ i ~ "]");
+		print("fgplot line 536   line == ", line);
+		var prop = getprop(getprop("/gui/fgplot/internal/prop[" ~ i ~ "]")) or 0;
+		print("fgplot line 538   prop == ", prop);
         # we must keep scrolling so poke lines-off y = 0
-        if( getprop("/gui/fgplot/internal/line[" ~ i ~ "]") != 1 )
+ #       if( getprop("/gui/fgplot/internal/line[" ~ i ~ "]") != 1 )
+		if( line != 1 )
            y = 0;
         else
-           y = getprop(getprop("/gui/fgplot/internal/prop[" ~ i ~ "]"))*factor;
-
+ #          y = getprop(getprop("/gui/fgplot/internal/prop[" ~ i ~ "]"))*factor;
+		    y = prop*factor;
+	    print("fgplot line 544");
         if( cur_x == 0 )
           plots[i].moveTo(cur_x, y);
         else
@@ -547,7 +557,7 @@ Now you can choose from menubar in equipment fgplot.
           plots[i].pop_front();
         
       }; # End For-loop
-
+	  print("fgplot line 558");
       TickMark.setTranslation(x_offset, 151);
       var Tick = getprop("/gui/fgplot/internal/ticks");
       if((Tick > 0) and (cur_x >= x_tick)){

@@ -69,10 +69,11 @@ if you contacted me before making any changes to this software.
 				<path>Systems/autopilotGains.xml</path>
 			</autopilot>
 			<autopilot>
-				<path>Systems/autopilotPitchMode.xml</path>
+				<path>Systems/autopilotPitchHold.xml</path>
 			</autopilot>
 			<autopilot>
-				<path>Systems/autopilotAltitudeMode.xml</path>
+<!--			<path>Systems/autopilotAltitudeMode.xml</path> -->
+				<path>Systems/autopilotAltHold.xml</path>
 			</autopilot>
 			<autopilot>
 				<path>Systems/autopilotMachMode.xml</path>
@@ -80,12 +81,6 @@ if you contacted me before making any changes to this software.
 			<autopilot>
 				<path>Systems/autopilotIASMode.xml</path>
 			</autopilot>
-			<!--			<autopilot>
-				<path>Systems/autopilotAttitudeData.xml</path>
-			</autopilot> -->
-			<!--<autopilot>
-				<path>Systems/autopilotPitchInnerLoop.xml</path>
-			</autopilot> -->
 			<autopilot>
 				<path>Systems/autopilotAircraftStateFilters.xml</path>
 			</autopilot>
@@ -94,25 +89,41 @@ if you contacted me before making any changes to this software.
 				<path>Systems/autopilotLateralModes.xml</path>
 			</autopilot>
 			<autopilot>
-				<path>Systems/autopilotAutoStabiliser.xml</path>
+				<path>Systems/autopilotLatStab.xml</path>
+			</autopilot>
+			<autopilot>
+				<path>Systems/autopilotPitchStab.xml</path>
 			</autopilot>
 			<autopilot>
 				<path>Systems/autopilotAutothrottle.xml</path>
 			</autopilot>
+			
+			
+			
+			
+			
+			
+			<!--			<autopilot>
+				<path>Systems/autopilotAttitudeData.xml</path>
+			</autopilot> -->
+			<!--<autopilot>
+				<path>Systems/autopilotPitchStab.xml</path>
+			</autopilot> -->
+
 			<!--<autopilot>
 				<path>Systems/autopilotFlightDirector.xml</path>
 			</autopilot> -->
-			<autopilot>
+			<!--<autopilot>
 				<path>Systems/autopilotManoeverLimits.xml</path>
-			</autopilot>
+			</autopilot> -->
 			<!--<autopilot>
 			    no longer used - see code in lines 606-610 of sutopilot.nas
 				<path>Systems/autopilotAutoTrim.xml</path>
 			</autopilot> -->
 			
-<!--			<autopilot>
+			<autopilot>
 				<path>Systems/autopilotfiltertest.xml</path>
-			</autopilot>  -->
+			</autopilot>
 		</systems>
 
 		<instrumentation>
@@ -419,13 +430,13 @@ if you contacted me before making any changes to this software.
 			<kw type="double">0</kw>
 		</engine>
 		<engine n="3">
-			<!--		<on-fire type="bool">false</on-fire>
+			<on-fire type="bool">false</on-fire>
 			<reverser-pos-norm type="double">0</reverser-pos-norm>
 			<running type="bool">false</running>
 			<rpm type="double">0</rpm>
 			<started type="bool">false</started>
 			<failed type="bool">false</failed>
-			<kw type="double">0</kw> -->
+			<kw type="double">0</kw> 
 		</engine>
 	</engines>
 
@@ -437,7 +448,7 @@ if you contacted me before making any changes to this software.
 		<settings>
 			<target-speed-kt type="double">220</target-speed-kt>
 			<target-pitch-deg type="double">0</target-pitch-deg>
-			<target-altitude-ft type="int">0</target-altitude-ft>
+			<AltRef type="double">0</AltRef>
 			<vertical-speed-fpm type="int">0</vertical-speed-fpm>
 			<heading-bug-deg type="int">0</heading-bug-deg>
 		</settings>
@@ -709,5 +720,24 @@ if you contacted me before making any changes to this software.
 			</fcs>
 		</jsbsim>
 	</fdm>
-~
+	
+<!-- <logging>
+  <log>
+   <filename>"C:/Users/ajtee/AppData/Roaming/flightgear.org/Export/filters.csv"</filename>
+   <enabled>true</enabled>
+   <interval-ms>1000</interval-ms>
+   <delimiter>,</delimiter>
+   <entry>
+    <enabled>true</enabled>
+    <title>Rudder</title>
+    <property>/controls/rudder</property>
+   </entry>
+   <entry>
+    <enabled>true</enabled><ref></ref>
+    <title>Ailerons</title>
+    <property>/controls/aileron</property>
+   </entry>
+  </log>
+ </logging> -->
+
 </PropertyList>

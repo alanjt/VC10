@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!--
+    Autopilot Configuration for the VC10.
+-->
+<PropertyList>
+	<!--
+    ============================================================
+   Pitch Modes - Pitch Hold
+    ============================================================
+-->
+	<!-- integrator thetaRef_deg tracks pitch angle theta-deg while Autopilot is not in pitch hold mode-->
+
+	<filter>
+		<name>pitch_feedback_demand </name>
+		<debug>false</debug>
+		<type>integrator</type>
+		<gain>1.0</gain>
+		<!-- integrator thetaRef_deg tracks pitch angle theta-deg while Autopilot is not in pitch hold mode-->
+		<input> 
+			<condition>
+				<or>
+					<not><property>autopilot/settings/PITCH-HOLD</property></not>
+					<not><property>autopilot/switches/AP1orAP2-sw</property></not>
+				</or>
+			</condition>
+			<expression>
+				<product>
+					<value>1</value>  <!-- 1 sec time constant -->
+					<dif>
+						<property>fdm/jsbsim/attitude/theta-deg</property>
+						<property>autopilot/PitchHold/thetaRef_deg</property>
+					</dif>
+				</product>
+			</expression>
+		</input>
+		<output><property>autopilot/PitchHold/thetaRef_deg</property></output>
+		<u_min>-20</u_min>
+		<u_max>20</u_max>
+	</filter>
+	
+	
+	<!-- Pitch demand is from pitch wheel -->
+	<filter>
+		<name>pitch_demand_wheel</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input><property>autopilot/settings/pitch-wheel-deg</property></input>
+		<output><property>autopilot/PitchHold/THECOM</property></output>
+		<u_min>-20</u_min>
+		<u_max>20</u_max>
+	</filter>
+	
+</PropertyList>

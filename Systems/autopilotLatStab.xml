@@ -12,7 +12,7 @@
     ===============
     -->
 
-	<filter>
+<!--	<filter>
 		<name>rudderstab Ay</name>
 		<debug>false</debug>
 		<type>gain</type>
@@ -28,9 +28,9 @@
 		<output><property>autopilot/commands/rudderstab-Ay-deg</property></output>
 		<u_min>-6</u_min>
 		<u_max>6</u_max>
-	</filter>
+	</filter> -->
 
-	<filter>
+<!--	<filter>
 		<name>rudderstab Betadot</name>
 		<debug>false</debug>
 		<type>gain</type>
@@ -61,13 +61,15 @@
 		<output><property>autopilot/commands/rudderstab-betadot-deg</property></output>
 		<u_min>-6</u_min>
 		<u_max>6</u_max>
-	</filter>
+	</filter> -->
+	
+	
 	<!-- Yaw Damper -->
-	<!-- Yaw rate, passed through a washout filter having a time constant of aprox 3 seconds.
--->	
+	<!-- Yaw rate, passed through a washout filter having a time constant of 2.4 seconds -->
+	<!-- The wash-out filter is used to block steady state yaw rate during a turn -->	
 
 	<filter>
-		<type>high-pass</type>
+		<type>high-pass</type>  <!-- The high-pass filter is also known as a wash-out filter -->
 		<debug>false</debug>
 		<enable>
 			<condition>
@@ -78,12 +80,13 @@
 				</or>
 			</condition>
 		</enable>
-		<filter-time>2.0</filter-time>
+		<filter-time>2.4</filter-time>
 		<input>
 			<expression>
 				<product>
 					<property>fdm/jsbsim/velocities/r-aero-rad_sec</property>
-					<value> 100.0 </value>
+					<value> 2.0 </value>
+					<value> 57.295779513082320876798154814105 </value>
 				</product>
 			</expression>
 		</input>
@@ -98,9 +101,10 @@
 		<input>
 			<expression>
 				<sum>
-					<property>autopilot/commands/rudderstab-Ay-deg</property>
-					<property>autopilot/commands/rudderstab-betadot-deg</property>
+<!--					<property>autopilot/commands/rudderstab-Ay-deg</property>     -->
+<!--					<property>autopilot/commands/rudderstab-betadot-deg</property> -->
 <!--					<property>autopilot/commands/rudderstab-aileron-deg</property> -->
+				<value>0</value>
 				</sum>
 			</expression>
 		</input>

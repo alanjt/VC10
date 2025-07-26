@@ -90,8 +90,8 @@ var listenerApRouteManagerInitFunc = func {
 	setprop("autopilot/switches/AT_powerswitch", 0);
 	setprop("autopilot/switches/AT_engageswitch", 0);
 
-	setprop("autopilot/switches/YawDamper1-sw", 0);
-	setprop("autopilot/switches/YawDamper2-sw", 0);
+	setprop("autopilot/switches/YD1-sw", 0);
+	setprop("autopilot/switches/YD2-sw", 0);
 	setprop("autopilot/switches/YDStby-sw", 1);
 	
 }
@@ -139,39 +139,39 @@ setlistener("autopilot/internal/yaw-damper", yawDamperFunc);
 # switch-functions
 var listenerApAltHoldSwitchFunc = func {
 
-	if (	getprop("autopilot/locks/altitude") == "altitude-hold" or
-		getprop("autopilot/locks/altitude") == "agl-hold" or
-		getprop("autopilot/locks/altitude") == "vertical-speed-hold") {
+	if (	getprop("autopilot/locks/pitch") == "altitude-hold" or
+		getprop("autopilot/locks/pitch") == "agl-hold" or
+		getprop("autopilot/locks/pitch") == "vertical-speed-hold") {
 
 		#print ("-> listenerApAltHoldSwitchFunc -> installed");
 		setprop("autopilot/internal/target-kp-for-alt-hold", (kpForAltHold * 0.05));
 		interpolate("autopilot/internal/target-kp-for-alt-hold", kpForAltHold, 2);
 	}
 }
-setlistener("autopilot/locks/altitude", listenerApAltHoldSwitchFunc);
+setlistener("autopilot/locks/pitch", listenerApAltHoldSwitchFunc);
 setlistener("autopilot/settings/vertical-speed-fpm", listenerApAltHoldSwitchFunc);
 setlistener("autopilot/settings/target-agl-ft", listenerApAltHoldSwitchFunc);
 
 var listenerApPitchHoldSwitchFunc = func {
 
-	if (getprop("autopilot/locks/altitude") == "pitch-hold") {
+	if (getprop("autopilot/locks/pitch") == "pitch-hold") {
 
 		#print ("-> listenerApPitchHoldSwitchFunc -> installed");
 		setprop("autopilot/internal/target-kp-for-pitch-hold", (kpForPitchHold * 0.05));
 		interpolate("autopilot/internal/target-kp-for-pitch-hold", kpForPitchHold, 8);
 	}
 }
-setlistener("autopilot/locks/altitude", listenerApPitchHoldSwitchFunc);
+setlistener("autopilot/locks/pitch", listenerApPitchHoldSwitchFunc);
 
 var kpForHeadingInterpolationIncrement = kpForHeading;
 var kpForHeadingActual = kpForHeading;
 var kpForHeadingCurrent = kpForHeading;
 var listenerApHeadingSwitchFunc = func {
 
-	if (	getprop("autopilot/locks/heading") == "wing-leveler" or
-		getprop("autopilot/locks/heading") == "nav1-hold" or
-		getprop("autopilot/locks/heading") == "dg-heading-hold" or
-		((getprop("autopilot/locks/heading") == "true-heading-hold") and (getprop("/autopilot/route-manager/active") == 0))) {
+	if (	getprop("autopilot/locks/lateral") == "wing-leveler" or
+		getprop("autopilot/locks/lateral") == "nav1-hold" or
+		getprop("autopilot/locks/lateral") == "dg-heading-hold" or
+		((getprop("autopilot/locks/lateral") == "true-heading-hold") and (getprop("/autopilot/route-manager/active") == 0))) {
 
 		#print ("-> listenerApHeadingSwitchFunc -> installed");
 		setprop("autopilot/internal/target-kp-for-heading-hold", (kpForHeadingCurrent * 0.1));
@@ -189,11 +189,11 @@ var listenerApHeadingChangeFunc = func {
 setlistener("autopilot/internal/wing-leveler-target-roll-deg", listenerApHeadingChangeFunc);
 setlistener("autopilot/settings/heading-bug-deg", listenerApHeadingChangeFunc);
 setlistener("instrumentation/nav[0]/radials/selected-deg", listenerApHeadingChangeFunc);
-setlistener("autopilot/locks/heading", listenerApHeadingSwitchFunc);
+setlistener("autopilot/locks/lateral", listenerApHeadingSwitchFunc);
 
 var listenerApHeadingPassiveModeFunc = func {
 
-	if (	getprop("autopilot/locks/heading") == "true-heading-hold" and
+	if (	getprop("autopilot/locks/lateral") == "true-heading-hold" and
 		getprop("autopilot/route-manager/active") == 1) {
 
 		#print ("-> listenerApHeadingPassiveModeFunc -> installed");
@@ -207,10 +207,10 @@ var listenerApHeadingPassiveModeFunc = func {
 
 # switch-functions
 var listenerApHeadingFunc = func {
-	if (	getprop("autopilot/locks/heading") == "wing-leveler" or
-		getprop("autopilot/locks/heading") == "nav1-hold" or
-		getprop("autopilot/locks/heading") == "dg-heading-hold" or
-		getprop("autopilot/locks/heading") == "true-heading-hold") {
+	if (	getprop("autopilot/locks/lateral") == "wing-leveler" or
+		getprop("autopilot/locks/lateral") == "nav1-hold" or
+		getprop("autopilot/locks/lateral") == "dg-heading-hold" or
+		getprop("autopilot/locks/lateral") == "true-heading-hold") {
 
 		#print ("-> listenerApHeadingFunc -> installed");
 		var timerGap = 0.05;
@@ -284,10 +284,10 @@ var listenerApHeadingFunc = func {
 		settimer(listenerApHeadingFunc, timerGap);
 	}
 }
-setlistener("autopilot/locks/heading", listenerApHeadingFunc);
+setlistener("autopilot/locks/lateral", listenerApHeadingFunc);
 
 var listenerApGsNearFarInitFunc = func {
-	if (getprop("autopilot/locks/altitude") == "gs1-hold") {
+	if (getprop("autopilot/locks/pitch") == "gs1-hold") {
 		setprop("autopilot/internal/gs-rate-of-climb-near-far-filtered",
 			getprop("velocities/vertical-speed-fps"));
 
@@ -295,7 +295,7 @@ var listenerApGsNearFarInitFunc = func {
 	}
 }
 var listenerApGsNearFarFunc = func {
-	if (getprop("autopilot/locks/altitude") == "gs1-hold") {
+	if (getprop("autopilot/locks/pitch") == "gs1-hold") {
 
 		#print ("-> listenerApGsNearFarFunc -> installed");
 		#print ("-> listenerApGsNearFarFunc -> gs-rate-of-climb=", getprop("instrumentation/nav[0]/gs-rate-of-climb"));
@@ -350,7 +350,7 @@ var listenerApGsNearFarFunc = func {
 		settimer(listenerApGsNearFarFunc, 0.05);
 	}
 }
-setlistener("autopilot/locks/altitude", listenerApGsNearFarInitFunc);
+setlistener("autopilot/locks/pitch", listenerApGsNearFarInitFunc);
 
 
 # avoid flipping on 'gs-in-range'
@@ -358,7 +358,7 @@ setlistener("autopilot/locks/altitude", listenerApGsNearFarInitFunc);
 # create own 'gs-in-range' property ("instrumentation/nav[0]/gs-in-range" seems to be set permanently), cannot be used
 var gsInRangePrev = 0;
 var listenerApGSHasChangedFunc = func {
-	if (getprop("autopilot/locks/altitude") == "gs1-hold") {
+	if (getprop("autopilot/locks/pitch") == "gs1-hold") {
 		if (gsInRangePrev != getprop("instrumentation/nav[0]/gs-in-range")) {
 			setprop("autopilot/internal/gs-in-range", getprop("/instrumentation/nav[0]/gs-in-range"));
 			gsInRangePrev = getprop("instrumentation/nav[0]/gs-in-range");
@@ -367,10 +367,10 @@ var listenerApGSHasChangedFunc = func {
 		settimer(listenerApGSHasChangedFunc, 0.01);
 	}
 }
-# cannot trigger on "instrumentation/nav[0]/gs-in-range", because it seems to be set permanently -> so use "/autopilot/locks/altitude" instead
-setlistener("autopilot/locks/altitude", listenerApGSHasChangedFunc);
+# cannot trigger on "instrumentation/nav[0]/gs-in-range", because it seems to be set permanently -> so use "/autopilot/locks/pitch" instead
+setlistener("autopilot/locks/pitch", listenerApGSHasChangedFunc);
 var listenerApGSClambFunc = func {
-	if (getprop("autopilot/locks/altitude") == "gs1-hold" and getprop("/autopilot/internal/gs-in-range") == 1) {
+	if (getprop("autopilot/locks/pitch") == "gs1-hold" and getprop("/autopilot/internal/gs-in-range") == 1) {
 		setprop("autopilot/internal/target-kp-for-gs-hold", kpForGSHold * 0.05);
 		#print ("-> listenerApGSClambFunc -> triggers: gs-in-range=", getprop("autopilot/internal/gs-in-range"));
 		interpolate("autopilot/internal/target-kp-for-gs-hold", kpForGSHold, 6);
@@ -421,7 +421,7 @@ var apHeadingWaypointSetVSpeed = func {
 			var currentWaypointIndex = getprop("autopilot/route-manager/current-wp");
 			#print("apHeadingWaypointSetVSpeed: currentWaypointIndex=", currentWaypointIndex);
 			var altitudeFt = getprop("position/altitude-ft");
-			var autopilotSettingAltitudeFt = getprop("autopilot/settings/target-altitude-ft");
+			var autopilotSettingAltitudeFt = getprop("autopilot/settings/AltRef");
 			var waypointAlt = getprop("autopilot/route-manager/route/wp["~currentWaypointIndex~"]/altitude-ft");
 
 			if (autopilotSettingAltitudeFt == nil or autopilotSettingAltitudeFt < 0) {
@@ -478,9 +478,9 @@ var apHeadingWaypointSetVSpeed = func {
 			 	waypointVspeedPrev = vspeed;
 			 }
 
-			if (getprop("autopilot/locks/altitude") != "vertical-speed-hold" and
-				getprop("autopilot/locks/altitude") != "altitude-hold") {
-				setprop("autopilot/locks/altitude", "vertical-speed-hold");
+			if (getprop("autopilot/locks/pitch") != "vertical-speed-hold" and
+				getprop("autopilot/locks/pitch") != "altitude-hold") {
+				setprop("autopilot/locks/pitch", "vertical-speed-hold");
 			}
 
 			setprop("autopilot/settings/altitude-ft", autopilotSettingAltitudeFt);
@@ -498,7 +498,7 @@ var apHeadingWaypointSetVSpeedRepeat = func() {
 		apHeadingWaypointSetVSpeed();
 
 		# settimer for corretion of vspeed each 30 seconds
-		if (waypointVspeedChangedManually == 0 and getprop("autopilot/locks/altitude") == "vertical-speed-hold") {
+		if (waypointVspeedChangedManually == 0 and getprop("autopilot/locks/pitch") == "vertical-speed-hold") {
 			settimer(apHeadingWaypointSetVSpeedRepeat, 15.0);
 		}
 	}
@@ -550,8 +550,8 @@ var listenerApPassiveMode = func {
 
 			if (waypointId != nil and waypointId != "" and waypointDistanceNm != nil and waypointDistanceNmIsReal == 1) {
 
-				if (getprop("autopilot/locks/heading") != "true-heading-hold") {
-					setprop("autopilot/locks/heading", "true-heading-hold");
+				if (getprop("autopilot/locks/lateral") != "true-heading-hold") {
+					setprop("autopilot/locks/lateral", "true-heading-hold");
 				}
 
 				if (waypointId == waypointIdPrev) {
@@ -579,14 +579,14 @@ var listenerApPassiveMode = func {
 					waypointVspeedPrev = waypointVspeedMaxValue;
 					waypointVspeedChangedManually = 0;
 
-					setprop("autopilot/locks/altitude", "");
+					setprop("autopilot/locks/pitch", "");
 
 					routeManagerWaypointNearBy = 1;
 					settimer(apHeadingWaypointSetVSpeedStart , 1.0);
 				}
 
 				var altitudeFt = getprop("instrumentation/altimeter/indicated-altitude-ft");
-				var autopilotSettingAltitudeFt = getprop("autopilot/settings/target-altitude-ft");
+				var autopilotSettingAltitudeFt = getprop("autopilot/settings/AltRef");
 				var waypointAlt = getprop("autopilot/route-manager/route/wp["~currentWaypointIndex~"]/altitude-ft");
 				if (autopilotSettingAltitudeFt == nil or autopilotSettingAltitudeFt < 0) {
 					if (waypointAlt != nil) {
@@ -605,8 +605,8 @@ var listenerApPassiveMode = func {
 				}
 				var waypointDistanceNmSwitch = 0.5 + (groundspeedKt * 0.001);
 				if (abs(altitudeDistFt) < altitudeDistFtSwitch or waypointDistanceNm < waypointDistanceNmSwitch) {
-					if (switchedToAltHold == 0 and getprop("autopilot/locks/altitude") == "vertical-speed-hold") {
-						setprop("autopilot/locks/altitude", "altitude-hold");
+					if (switchedToAltHold == 0 and getprop("autopilot/locks/pitch") == "vertical-speed-hold") {
+						setprop("autopilot/locks/pitch", "altitude-hold");
 						switchedToAltHold = 1;
 					}
 				}
@@ -699,8 +699,8 @@ var listenerApPassiveMode = func {
 ##	else {
 		# we are switched off -> cleanup
 
-##		if (getprop("autopilot/locks/heading") == "true-heading-hold") {
-##			setprop("autopilot/locks/heading", "");
+##		if (getprop("autopilot/locks/lateral") == "true-heading-hold") {
+##			setprop("autopilot/locks/lateral", "");
 ##		}
 ##		setprop("autopilot/internal/route-manager-waypoint-near-by", 0);
 
@@ -716,18 +716,18 @@ var listenerApPassiveMode = func {
 ##setlistener("autopilot/locks/passive-mode", listenerApPassiveMode);
 
 var listenerApAltitudeClambFunc = func {
-	if (getprop("autopilot/locks/altitude") == "gs1-hold") {
+	if (getprop("autopilot/locks/pitch") == "gs1-hold") {
 
 		#print("listenerApAltitudeClambFunc -> triggered");
 
 		setprop("autopilot/internal/gs-rate-of-climb-near-far-filtered", getprop("/velocities/vertical-speed-fps"));
 	}
 }
-setlistener("autopilot/locks/altitude", listenerApAltitudeClambFunc);
+setlistener("autopilot/locks/pitch", listenerApAltitudeClambFunc);
 
 
 var listenerApNav1NearFarFunc = func {
-	if (getprop("autopilot/locks/heading") == "nav1-hold") {
+	if (getprop("autopilot/locks/lateral") == "nav1-hold") {
 
 		#print ("-> listenerApNav1NearFarFunc -> installed");
 
@@ -760,7 +760,7 @@ var listenerApNav1NearFarFunc = func {
 		setprop("autopilot/internal/target-roll-deg-for-VOR-near-by", 0.0);
 	}
 }
-setlistener("autopilot/locks/heading", listenerApNav1NearFarFunc);
+setlistener("autopilot/locks/lateral", listenerApNav1NearFarFunc);
 
 
 ### speed with pitch
@@ -779,9 +779,9 @@ var listenerApSpeedWithPitchClambFunc = func {
 var listenerApSpeedWithPitchSwitchFunc = func {
 	if (getprop("autopilot/locks/speed") == "speed-with-pitch-trim") {
 		# disable pitch-/AoA-hold (makes no sence together with speed-with-pitch-hold)
-		if (	getprop("autopilot/locks/altitude") == "pitch-hold" or
-			getprop("autopilot/locks/altitude") == "aoa-hold") {
-			setprop("autopilot/locks/altitude", "");
+		if (	getprop("autopilot/locks/pitch") == "pitch-hold" or
+			getprop("autopilot/locks/pitch") == "aoa-hold") {
+			setprop("autopilot/locks/pitch", "");
 		}
 	}
 }

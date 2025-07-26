@@ -33,32 +33,32 @@
 		<output><property>autopilot/internal/thetaMachSw</property></output>
 	</logic> 
 
-	<filter>
+<!--	<filter>
 		<name>pitch_feedback_demand </name>
 		<debug>false</debug>
 		<type>integrator</type>
-		<gain>1.0</gain>
-		<!-- integrator thetaD_deg tracks pitch angle theta-deg-->
-		<input> 
+		<gain>1.0</gain> -->
+		<!-- integrator thetaRef_deg tracks pitch angle theta-deg while Autopilot is not in pitch hold mode-->
+<!--		<input> 
 			<condition>
-				<not><property>autopilot/switches/AP1orAP2-sw</property></not>
+				<not><property>autopilot/settings/PITCH-HOLD</property></not>
 			</condition>
 			<expression>
 				<product>
-					<value>1</value>  <!-- 1 sec time constant -->
-					<dif>
+					<value>1</value> -->  <!-- 1 sec time constant -->
+<!--					<dif>
 						<property>fdm/jsbsim/attitude/theta-deg</property>
-						<property>autopilot/internal/thetaD_deg</property>
+						<property>autopilot/PitchHold/thetaRef_deg</property>
 					</dif>
 				</product>
 			</expression>
 		</input>
-		<output><property>autopilot/internal/thetaD_deg</property></output>
+		<output><property>autopilot/PitchHold/thetaRef_deg</property></output>
 		<u_min>-20</u_min>
 		<u_max>20</u_max>
-	</filter>
+	</filter> -->
 
-	<filter>
+<!--	<filter>
 		<name>Pitch Error</name>
 		<debug>false</debug>
 		<type>gain</type>
@@ -67,12 +67,12 @@
 			<expression>
 				<dif>
 					<property>fdm/jsbsim/attitude/theta-deg</property>
-					<property>autopilot/internal/thetaD_deg</property>
+					<property>autopilot/PitchHold/thetaRef_deg</property>
 				</dif>
 			</expression>
 		</input>
 		<output>autopilot/internal/theta-thetaD</output>
-	</filter>
+	</filter> -->
 	
 <!--	<filter>
 		<name>Pitch Demand</name>

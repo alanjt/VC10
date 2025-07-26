@@ -12,42 +12,28 @@
     Azimuth Control System and Roll Autostabiliser. 
     ===============
     -->
-	<!-- Roll Rate -->
+
 	<filter>
-		<name>Roll rate deg-per-sec</name>
+		<name>RollHeading</name>
 		<debug>false</debug>
 		<type>gain</type>
-		<gain>57.295779513082320876798154814105</gain>
+		<gain>1.0</gain>
 		<input>
-			<property>fdm/jsbsim/velocities/p-rad_sec</property>
+			<condition>
+				<property>autopilot/switches/heading</property>
+			</condition>
+			<property>autopilot/internal/hdg-hdgD</property>
 		</input>
-		<output><property>autopilot/internal/p-deg_sec</property></output>
-	</filter>
-
-	<!-- Magnetic heading -->
-	<filter>
-		<name>mag-heading</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input><property>orientation/heading-magnetic-deg</property></input>
-		<output><property>autopilot/internal/heading-magnetic-deg</property></output>
-	</filter>
-
-	<filter>
-		<name>heading bug error</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input><property>autopilot/internal/heading-magnetic-deg</property></input>
-		<reference><property>autopilot/settings/heading-bug-deg</property></reference>
-		<output><property>autopilot/internal/hdg-hdgD</property></output>
+		<input>
+			<value>0</value>
+		</input>
+		<output><property>autopilot/internal/RollHeading</property></output>
+		<output><property>autopilot/internal/RollFD1</property></output>
 		<period>
 			<min>-180</min>
 			<max>180</max>
 		</period>
 	</filter>
-
 
 	<!-- Bank demand from AFCS panel roll knob -->
 
@@ -66,65 +52,51 @@
 	<!--  ============================== -->
 	<!-- VOR/LOC Mode  -->
 	<!--  ============================== -->
-	
-	<!-- course error -->
-	<filter>
-		<name>course bug error</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input><property>autopilot/internal/heading-magnetic-deg</property></input>
-		<reference><property>instrumentation/nav[0]/radials/selected-deg</property></reference>
-		<output><property>autopilot/internal/hdg-courseD</property></output>
-		<period>
-			<min>-180</min>
-			<max>180</max>
-		</period>
-	</filter>
 
-	<!-- washed-out course error -->	
-	<filter>
-		<name>hdg-courseD washout</name>
-		<debug>false</debug>
-		<type>high-pass</type>
-		<filter-time>1.0</filter-time>
-		<input><property>autopilot/internal/hdg-courseD</property></input>
-		<output><property>autopilot/internal/hdg-courseD_washout</property></output>
-	</filter>
 
-	<!-- beam error -->
 	<filter>
-		<name>VOR/LOC Beam Error degrees</name>
+		<name>VOR/Loc Error degrees</name>
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>-1.0</gain>
+	
 		<input>
-			<condition><!-- ILS - Full scale 2 dots = 2.5 deg -->
+			<condition>		<!-- ILS - Full scale 2 dots = 2.5 deg -->
 				<property>instrumentation/nav/frequencies/is-localizer-frequency</property>
 			</condition>
 			<expression>
 				<prod>
 					<property>instrumentation/nav/heading-needle-deflection</property>
-					<value>2.5</value>
+					<value>2.5</value> 
 				</prod>
 			</expression>
 		</input>
+		
 		<!-- not an ILS frequency - assume VOR -->
-		<input><!-- VOR - Full scale 2 dots = 10 deg -->
+		<input>				<!-- VOR - Full scale 2 dots = 10 deg -->
 			<expression>
 				<product>
 					<property>instrumentation/nav/heading-needle-deflection</property>
-					<value>10.0</value>
+					<value>10.0</value>			
 				</product>
 			</expression>
-		</input>
+		</input> 
 		<output><property>autopilot/internal/VOR_LOC-deg</property></output>
 		<u_min>-10</u_min>
 		<u_max>10</u_max>
 	</filter>
 
 	<filter>
-		<name>VOR/LOC Heading (QDM) Error degrees</name>
+		<name>hdg-hdgD washout</name>
+		<debug>false</debug>
+		<type>high-pass</type>
+		<filter-time>1.0</filter-time>
+		<input><property>autopilot/internal/hdg-hdgD</property></input>
+		<output><property>autopilot/internal/hdg-hdgD_washout</property></output>
+	</filter>
+
+	<filter>
+		<name>VOR/Loc Heading (QDM) Error degrees</name>
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
@@ -132,9 +104,10 @@
 			<condition>
 				<property>autopilot/switches/ILS_GS</property>
 			</condition>
-			<property>autopilot/internal/hdg-courseD_washout</property> <!-- switch to washed-out error when GS is captured -->
+			<property>autopilot/internal/hdg-hdgD_washout</property>
 		</input>
-		<input><property>autopilot/internal/hdg-courseD</property></input>
+		<input><property>autopilot/internal/hdg-hdgD</property>
+		</input>
 		<output><property>autopilot/internal/loc_hdg-hdgD</property></output>
 	</filter>
 
@@ -158,22 +131,23 @@
 			<expression>
 				<sum>
 					<product>
-						<property>autopilot/internal/hdg-VLhdgD</property>   <!-- VOR radial / Loc beam heading -->
+						<!--<property>autopilot/internal/track-hdgD</property> -->
+						<property>autopilot/internal/loc_hdg-hdgD</property>
 						<property>autopilot/gain/Kloc_Hdg</property>
 					</product>
 					<product>
-						<property>autopilot/internal/VOR_LOC-deg</property>
-						<!-- <property>autopilot/internal/VOR_LOC-deg-leadlag</property> -->
+						<!-- <property>autopilot/internal/VOR_LOC-deg</property> -->
+						<property>autopilot/internal/VOR_LOC-deg-leadlag</property>
 						<property>autopilot/gain/Kloc_Loc</property>
 					</product>
 					<product>
-						<property>fdm/jsbsim/attitude/phi-deg</property>  <!-- bank angle feedback -->
+						<property>fdm/jsbsim/attitude/phi-deg</property>
 						<property>autopilot/gain/Kloc_Phi</property>
 					</product>
 				</sum>
 			</expression>
 		</input>
-		<output><property>autopilot/internal/phid_VOR-loc</property></output>
+		<output><property>autopilot/internal/phid_loc</property></output>
 		<period>
 			<min>-180</min>
 			<max>180</max>
@@ -185,59 +159,72 @@
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
-		
+		<!--		
+		<input>
+			<condition>
+				<or>
+					<less-than>
+						<property>fdm/jsbsim/attitude/theta-deg</property>
+						<value>-10.0</value>
+					</less-than>
+					<less-than>
+						<property>fdm/jsbsim/attitude/phi-deg</property>
+						<value>-90.0</value>
+					</less-than>
+					<greater-than>
+						<property>fdm/jsbsim/attitude/phi-deg</property>
+						<value>90.0</value>
+					</greater-than>
+				</or>
+			</condition>
+			<value>0.0</value>
+		</input>  -->
 		<input>
 			<condition>
 				<and>
 					<equals>
 						<property>autopilot/switches/mode-knob</property>
-						<value>0</value><!-- MAN -->
+						<value>0</value>         <!-- MAN -->
 					</equals>
 					<or>
 						<greater-than>
 							<property>autopilot/settings/TurnKnob-deg-filtered</property>
-							<value>1.0</value><!-- MAN, out of detent +ve -->
+							<value>1.0</value>         <!-- MAN, out of detent +ve -->
 						</greater-than>
 						<less-than>
 							<property>autopilot/settings/TurnKnob-deg-filtered</property>
-							<value>-1.0</value><!-- MAN, out of detent -ve -->
+							<value>-1.0</value>         <!-- MAN, out of detent -ve -->
 						</less-than>
 					</or>
 				</and>
 			</condition>
 			<property>autopilot/settings/TurnKnob-deg-filtered</property>
 		</input>
-
 		<input>
 			<condition>
-				<equals>
-					<property>autopilot/switches/mode-knob</property>
-					<value>-1.0</value>					<!-- HDG -->
-				</equals>
+						<greater-than>
+							<property>autopilot/settings/TurnKnob-deg-filtered</property>
+							<value>0.0</value>         <!-- VOR,LOC,FLARE modes-->
+						</greater-than>
 			</condition>
-		<expression>
+			<expression>
 				<product>
 					<property>autopilot/gain/Khdg_phi</property>
 					<property>autopilot/internal/hdg-hdgD</property>
 				</product>
 			</expression>
 		</input>
-		
+
 		<input>
 			<condition>
-				<greater-than>
-					<property>autopilot/switches/mode-knob</property>
-					<value>0.0</value><!-- VOR,LOC,FLARE modes-->
-				</greater-than>
+				<property>autopilot/switches/ILS-LOC</property>
 			</condition>
-			<property>autopilot/internal/phid_VOR-loc</property>
+			<property>autopilot/internal/phid_loc</property>
 		</input>
-		
 		<input>
 			<value>0.0</value>
 		</input>
-
-		<output><property>autopilot/internal/phi_r</property></output> <!--  commanded bank angle -->
+		<output><property>autopilot/internal/phi_r</property></output>
 		<u_min><property>autopilot/internal/Phi_r_neglimit</property></u_min>
 		<u_max><property>autopilot/internal/Phi_r_limit</property></u_max>
 	</filter>
@@ -264,8 +251,8 @@
 		<reference>
 			<property>autopilot/internal/phi-deg</property>
 		</reference>
-		<output><property>autopilot/internal/p_d</property></output>
-		<output><property>autopilot/internal/PsiFD2</property></output>
+		<output><property>autopilot/internal/p-demand</property></output>
+		<output><property>autopilot/internal/p_deg_FD2</property></output>
 		<u_min>-15</u_min>
 		<u_max>15</u_max>
 	</filter>
@@ -282,7 +269,7 @@
 			</condition>
 			<expression>
 				<dif>
-					<property>autopilot/internal/p_d</property>
+					<property>autopilot/internal/p_demand</property>
 					<property>autopilot/internal/p-deg_sec</property>
 				</dif>
 			</expression>

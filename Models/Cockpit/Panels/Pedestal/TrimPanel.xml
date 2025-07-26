@@ -5,7 +5,7 @@
 
 <path>TrimPanel.ac</path>
 	 <model>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/ap/AP_master_sw.xml</path>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/Autopilot/AP_master_sw.xml</path>
 		<name>AP_master_sw</name>
 		<offsets>   
 			<x-m>0.0</x-m>
@@ -15,7 +15,7 @@
 	 </model>
 	 
 	 <model>
-		<path>Aircraft/VC10/Models/Cockpit/Panels/RudderTrim.xml</path>
+		<path>Aircraft/VC10/Models/Cockpit/Panels/Pedestal/RudderTrim.xml</path>
 		<name>RudderTrim</name>
 		<offsets>   
 			<x-m>0.0</x-m>
@@ -23,8 +23,6 @@
 			<z-m>-0.155</z-m>
 		</offsets>
 	 </model>
- 
-
 
 <!--***LoD***-->
 

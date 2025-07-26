@@ -1,0 +1,183 @@
+<?xml version="1.0"?>
+<!--
+    Autopilot Configuration for the VC10.
+-->
+<PropertyList>
+	<!--
+    ============================================================
+   Pitch Modes - Alt Hold
+    ============================================================
+-->
+
+	
+	<!-- integrator thetaRef_deg tracks pitch angle theta-deg while Autopilot is not in altitude hold mode-->
+	<filter>
+		<name>pitch_reference</name>
+		<debug>false</debug>
+		<type>integrator</type>
+		<gain>1.0</gain>
+		<input>
+			<condition><not><property>autopilot/switches/ALT-sw</property></not></condition>
+			<expression>
+				<dif>
+					<property>fdm/jsbsim/attitude/theta-deg</property>
+					<property>autopilot/AltHold/thetaRef_deg</property>
+				</dif>
+			</expression>
+		</input>
+		<output><property>autopilot/AltHold/thetaRef_deg</property></output>
+		<u_min>-20</u_min>
+		<u_max>20</u_max>
+	</filter>
+
+	<!-- integrator AltRef tracks Altitude while Autopilot is not in altitude hold mode-->
+	<filter>
+		<name>Altitude_Reference</name>
+		<debug>false</debug>
+		<type>integrator</type>
+		<gain>1.0</gain>
+		<input>
+			<condition><not><property>autopilot/switches/ALT-sw</property></not></condition>
+			<expression>
+				<dif>
+					<property>instrumentation/altimeter/indicated-altitude-ft</property>
+					<property>autopilot/AltHold/AltRef</property>
+				</dif>
+			</expression>
+		</input>
+		<output><property>autopilot/AltHold/AltRef</property></output>
+		<u_min>-20</u_min>
+		<u_max>40000</u_max>
+	</filter>
+
+	<filter>
+		<name>ALT hold gain</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input><value>-0.01</value></input>
+		<output><property>autopilot/AltHold/KH</property></output>
+	</filter>
+	
+	<filter><!-- datum knob changes altitude reference by + or minus 17% -->
+		<name>AltRef2</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<expression>
+				<product>
+					<property>autopilot/AltHold/AltRef</property>
+					<sum>
+						<product>
+							<property>autopilot/settings/datum_norm</property>
+							<value>0.17</value>
+						</product>
+						<value>1.0</value>
+					</sum>
+				</product>
+			</expression>
+		</input>
+		<output><property>autopilot/AltHold/AltRef2</property></output>
+	</filter>
+	
+	<filter>
+		<name>ALT Error</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<expression>
+				<dif>
+					<property>instrumentation/altimeter/indicated-altitude-ft</property>
+					<property>autopilot/AltHold/AltRef2</property>
+				</dif>
+			</expression>
+		</input>
+		<output><property>autopilot/AltHold/ALTERR</property></output>
+	</filter>
+	
+	<filter>
+		<name>ALT Error Limit</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input><property>autopilot/AltHold/ALTERR</property></input>
+		<output><property>autopilot/AltHold/ALTOUT</property></output>
+		<u_min>-200</u_min><!-- limit L3 -->
+		<u_max>200</u_max>
+	</filter>
+	
+	<filter>
+		<type>exponential</type><!-- The exponential filter is more commonly known as a 1st order lag filter -->
+		<debug>false</debug>
+		<enable>
+			<condition>
+				<property>autopilot/switches/AP1orAP2-sw</property>
+			</condition>
+		</enable>
+		<filter-time>0.5</filter-time><!-- TV3 -->
+		<input><property>autopilot/AltHold/ALTOUT</property></input>
+		<output><property>autopilot/AltHold/ALTOUTlag</property></output>
+	</filter>
+	
+	<filter>
+		<name>Alt error integrator</name>
+		<debug>false</debug>
+		<type>integrator</type>
+		<gain>0.05</gain><!-- integrator gain -->
+
+		<input>
+			<condition><property>autopilot/switches/ALT-sw</property></condition>
+			<property>autopilot/AltHold/ALTOUT</property>
+		</input>
+		
+		<input>
+			<expression>
+				<product>
+					<value>-100.0</value><!-- negative feeback to reduce output towards zero -->
+					<property>autopilot/AltHold/ALTOTInt</property>
+				</product>
+			</expression>
+		</input>
+		
+		<output><property>autopilot/AltHold/ALTOTInt</property></output>
+		<u_min>-100</u_min>
+		<u_max>100</u_max>
+	</filter>
+
+	<filter>
+		<name>Altitude Mode hdot feedback</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain><!-- A3 -->
+		<input>
+			<property>fdm/jsbsim/velocities/h-dot-fps</property>
+		</input>
+		<output>
+			<property>autopilot/AltHold/ALThdot</property>
+		</output>
+	</filter>
+	
+	<filter>
+		<name>Altitude Mode pitch demand</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain><property>autopilot/AltHold/KH</property></gain>
+		<input>
+			<expression>
+				<sum>-->
+					<property>autopilot/AltHold/ALTOUTlag</property>
+					<property>autopilot/AltHold/ALTOTInt</property>
+					<property>autopilot/AltHold/ALThdot</property>
+					<value>0.0</value>
+				</sum>
+			</expression>
+		</input>
+		<output>autopilot/AltHold/THECOM</output>
+		<u_min>-20</u_min>
+		<u_max>20</u_max>
+	</filter>
+	
+
+</PropertyList>
