@@ -1007,29 +1007,29 @@ var nacelle_deicing = func {
   	if (sel == tnr) interpolate("VC10/fuel/temperature", newfuelTemp, 15);
 	}
 	
-	if(iceAlertWings) {
-		screen.log.write("WINGS - ICE ALERT: Switch on the WING ANTI-ICE System", 1, 0, 0);
-		iceAlertWings = 0;
-		setprop("VC10/warning/ice", 1);
-		settimer(func{ setprop("VC10/warning/ice", 0)}, 14.5);
-	}
-	if(iceAlertEngines) {
-		screen.log.write("ENGINES - ICE ALERT: Switch on the NACELLE ANTI-ICE System", 1, 0, 0);
-		iceAlertEngines = 0;
-		setprop("VC10/warning/ice", 1);
-		settimer(func{ setprop("VC10/warning/ice", 0)}, 14.5);
-	}
-	if(iceAlertFuel) {
-		screen.log.write("FUEL - ICE ALERT: Switch on the FUEL HEATER System", 1, 0, 0);
-		iceAlertFuel = 0;
-		setprop("VC10/warning/ice", 1);
-		settimer(func{ setprop("VC10/warning/ice", 0)}, 14.5);
-	}
+######	if(iceAlertWings) {
+######		screen.log.write("WINGS - ICE ALERT: Switch on the WING ANTI-ICE System", 1, 0, 0);
+######		iceAlertWings = 0;
+######		setprop("VC10/warning/ice", 1);
+######		settimer(func{ setprop("VC10/warning/ice", 0)}, 14.5);
+######	}
+######	if(iceAlertEngines) {
+######		screen.log.write("ENGINES - ICE ALERT: Switch on the NACELLE ANTI-ICE System", 1, 0, 0);
+######		iceAlertEngines = 0;
+######		setprop("VC10/warning/ice", 1);
+######		settimer(func{ setprop("VC10/warning/ice", 0)}, 14.5);
+######	}
+######	if(iceAlertFuel) {
+######		screen.log.write("FUEL - ICE ALERT: Switch on the FUEL HEATER System", 1, 0, 0);
+######		iceAlertFuel = 0;
+######		setprop("VC10/warning/ice", 1);
+######		settimer(func{ setprop("VC10/warning/ice", 0)}, 14.5);
+######	}
 
-	settimer( nacelle_deicing, 15);
+######	settimer( nacelle_deicing, 15);
 }
 
-settimer( nacelle_deicing, 12); # start first after 12 sec
+#######settimer( nacelle_deicing, 12); # start first after 12 sec
 
 ####################### COOLING AND PRESSURIZATION LOOP ###########################
 var safety_valv_pos = func {
@@ -1132,7 +1132,7 @@ var calc_pressurization	= func{
 		interpolate("VC10/pressurization/cabin-altitude", alt, t);
 		interpolate("VC10/pressurization/climb-rate", vs, t);
 		var ra = getprop("position/altitude-agl-ft") or 0;
-		if(ra > 2000) screen.log.write(sprintf("ATTENTION! No pressurisation!"), 1.0, 0.0, 0.0);
+######		if(ra > 2000) screen.log.write(sprintf("ATTENTION! No pressurisation!"), 1.0, 0.0, 0.0);
 	}
 	
 	# cabin differential pressure
@@ -1142,17 +1142,17 @@ var calc_pressurization	= func{
 	psi = (psi < 0) ? 0 : psi;
 	interpolate("VC10/pressurization/cabin-differential-pressure", psi, t);
 	
-	if(calt > 8000){
-		 screen.log.write(sprintf("ATTENTION! Increase cabin pressure imediately!"), 1.0, 0.0, 0.0);
-	}else{
-		if(svp) setprop("VC10/pressurization/alt-cutout-horn", 0); # reset if it was pushed during depressurization
-	}
+########	if(calt > 8000){
+########		 screen.log.write(sprintf("ATTENTION! Increase cabin pressure imediately!"), 1.0, 0.0, 0.0);
+########	}else{
+########		if(svp) setprop("VC10/pressurization/alt-cutout-horn", 0); # reset if it was pushed during depressurization
+########	}
 	
-	settimer(calc_pressurization, t);
+########	settimer(calc_pressurization, t);
 	
 }
 
-settimer( calc_pressurization, 9); # start first after 10 sec.
+#######settimer( calc_pressurization, 9); # start first after 10 sec.
 
 ############################### Air Conditioning and Temperature #######################################
 var air_cond_cover = func {

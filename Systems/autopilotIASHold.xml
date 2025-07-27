@@ -55,7 +55,7 @@
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
-		<input><value>1.0</value></input>
+		<input><value>0.5</value></input>
 		<output><property>autopilot/IASHold/K_IAS</property></output>
 	</filter>
 	
