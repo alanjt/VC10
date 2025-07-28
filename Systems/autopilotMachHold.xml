@@ -72,7 +72,7 @@
 					<sum>
 						<product>
 							<property>autopilot/settings/datum_norm</property>
-							<value>0.17</value>
+							<value>0.15</value>
 						</product>
 						<value>1.0</value>
 					</sum>
