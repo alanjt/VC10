@@ -46,8 +46,8 @@ Vickers VC10 for Flightgear
 	<animation>
 		<type>material</type>
 		<object-name>mount</object-name>
-		<object-name>dir-knob</object-name>
-		<object-name>hdi-knob</object-name>
+<!--		<object-name>dir-knob</object-name>
+		<object-name>hdi-knob</object-name> -->
 		<condition>
 			<less-than><property>systems/electrical/outputs/cabin-dim</property><value>0.8</value></less-than>
 		</condition>
@@ -86,8 +86,8 @@ Vickers VC10 for Flightgear
 	
 	<animation>
 		<type>material</type>
-		<object-name>dir-knob</object-name>
-		<object-name>hdi-knob</object-name>
+<!--		<object-name>dir-knob</object-name>
+		<object-name>hdi-knob</object-name> -->
 		<condition>
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
 			<property>systems/electrical/outputs/cabin-dim</property>
@@ -299,7 +299,7 @@ Vickers VC10 for Flightgear
 			</axis>
 		</animation>
 
-		<animation>
+<!--		<animation>
 			<type>rotate</type>
 			<object-name>hdi-knob</object-name>
 			<property>instrumentation/attitude-indicator-electric[0]/horizon-offset-deg</property>
@@ -314,9 +314,9 @@ Vickers VC10 for Flightgear
 				<y>0</y>
 				<z>0</z>
 			</axis>
-		</animation>
+		</animation> -->
 
-		<animation>
+<!--		<animation>
 			<type>pick</type>
 			<object-name>hdi-knob</object-name>
 			<visible>true</visible>
@@ -356,7 +356,7 @@ Vickers VC10 for Flightgear
 					<wrap>false</wrap>
 				</binding>
 			</action>
-		</animation>
+		</animation> -->
 	
 		<!-- dir -->
 		<animation>
@@ -371,7 +371,7 @@ Vickers VC10 for Flightgear
 			</axis>
 		</animation>
 
-		<animation>
+<!--		<animation>
 			<type>rotate</type>
 			<object-name>dir-knob</object-name>
 			<property>instrumentation/attitude-indicator-electric[0]/dir-offset-deg</property>
@@ -386,9 +386,9 @@ Vickers VC10 for Flightgear
 				<y>0</y>
 				<z>0</z>
 			</axis>
-		</animation>
+		</animation> -->
 
-		<animation>
+<!--		<animation>
 			<type>pick</type>
 			<object-name>dir-knob</object-name>
 			<visible>true</visible>
@@ -428,7 +428,7 @@ Vickers VC10 for Flightgear
 					<wrap>false</wrap>
 				</binding>
 			</action>
-		</animation>
+		</animation> -->
 
 		<animation>
 			<type>range</type>
