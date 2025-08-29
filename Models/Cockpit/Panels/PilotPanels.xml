@@ -7,6 +7,9 @@ Vickers VC10 for Flightgear
 <PropertyList>
 
 	<path>PilotPanels.ac</path>
+	
+<!--  ########################################################################################## -->
+	<!-- Captain Panel -->
 
 	<model>
 		<name>testwarn</name>
@@ -248,7 +251,7 @@ Vickers VC10 for Flightgear
 		</offsets>
 	</model>
 
-
+<!--  ########################################################################################## -->
 	<!-- Centre Panel -->
 	<model>
 		<name>gear_handle</name>
@@ -467,6 +470,16 @@ Vickers VC10 for Flightgear
 	</model>
 	
 	<model>
+		<name>FD</name>
+		<path>FlightDirectorSW.xml</path>
+		<offsets>
+			<x-m>0.0</x-m>
+			<y-m>-0.2052</y-m>
+			<z-m>-0.2916</z-m>
+		</offsets>
+	</model>
+	
+	<model>
 		<name>trim</name>
 		<path>Aircraft/VC10/Models/Cockpit/Instruments/trim/Three_axis_trim.xml</path>
 		<offsets>
@@ -476,8 +489,19 @@ Vickers VC10 for Flightgear
 		</offsets>
 	</model>
 	
-
-
+	<model>
+		<name>CompassXover</name>
+		<path>CompassXoverSW.xml</path>
+		<offsets>
+			<x-m>0.0</x-m>
+			<y-m>-0.0901</y-m>
+			<z-m>-0.2822</z-m>
+			<roll-deg>45.0</roll-deg>
+		</offsets>
+	</model>
+	
+	
+<!--  ########################################################################################## -->
 	<!-- Copilot Panel -->
 
 	<model>
