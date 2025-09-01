@@ -14125,7 +14125,7 @@ refs 4
 3 0.950875 0.0491547
 kids 0
 OBJECT poly
-name "CMPRflag"
+name "CMPTRflag"
 loc -0.0049663 -0.0157268 0.0232272
 texture "hdi.png"
 crease 45.000000
