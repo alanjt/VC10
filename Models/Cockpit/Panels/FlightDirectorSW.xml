@@ -28,19 +28,19 @@ if you contacted me before making any changes to this software.
 	<animation>
 		<type>knob</type>
 		<object-name>knob</object-name>
-		<property>VC10/FD/FD_modesw</property>
+		<property>Autopilot/Director/ModeSW</property>
 		<factor>45</factor>
 		<center><x-m>0</x-m><y-m>0</y-m><z-m>0</z-m></center>
 		<axis><x>-1</x></axis>
 		<action>
 			<binding>
 				<command>property-cycle</command>
-				<property>VC10/FD/FD_modesw</property>
-				<value>-1</value>
-				<value>0</value>
-				<value>1</value>
-				<value>2</value>
-				<value>3</value>
+				<property>Autopilot/Director/ModeSW</property>
+				<value>-1</value> <!-- Back Beam -->
+				<value>0</value>  <!-- OFF       -->
+				<value>1</value>  <!-- HDG       -->
+				<value>2</value>  <!-- OVOR LOC  -->
+				<value>3</value>  <!-- GS        -->
 				<wrap>false</wrap>
 			</binding>
 		</action>
@@ -49,7 +49,7 @@ if you contacted me before making any changes to this software.
 				<command>set-tooltip</command>
 				<label>FVselect: %d</label>
 				<tooltip-id>no</tooltip-id>
-				<property>VC10/FD/FD_modesw</property>
+				<property>Autopilot/Director/ModeSW</property>
 			</binding>
 		</hovered>
 	</animation>

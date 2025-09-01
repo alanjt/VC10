@@ -28,16 +28,16 @@ if you contacted me before making any changes to this software.
 	<animation>
 		<type>knob</type>
 		<object-name>knob</object-name>
-		<property>VC10/Compass/CompassXoverSw</property>
+		<property>instrumentation/compass_system/CompassXoverSw</property>
 		<factor>90</factor>
 		<center><x-m>0</x-m><y-m>0</y-m><z-m>0</z-m></center>
 		<axis><x>-1</x></axis>
 		<action>
 			<binding>
 				<command>property-cycle</command>
-				<property>VC10/Compass/CompassXoverSw</property>
-				<value>0</value>
-				<value>1</value>
+				<property>instrumentation/compass_system/CompassXoverSw</property>
+				<value>0</value>    <!-- True       -->
+				<value>1</value>    <!-- Magnetic   -->
 				<wrap>false</wrap>
 			</binding>
 		</action>
@@ -46,7 +46,7 @@ if you contacted me before making any changes to this software.
 				<command>set-tooltip</command>
 				<label>FVselect: %d</label>
 				<tooltip-id>no</tooltip-id>
-				<property>VC10/Compass/CompassXoverSw</property>
+				<property>instrumentation/compass_system/CompassXoverSw</property>
 			</binding>
 		</hovered>
 	</animation>
