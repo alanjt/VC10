@@ -12,7 +12,6 @@ Vickers VC10 for Flightgear
 		<type>material</type>
 		<object-name>bank-index</object-name>
 		<object-name>CMPTRflag</object-name>
-		<object-name>off-nav</object-name>
 		<object-name>ACwing</object-name>
 		<object-name>ACtailfin</object-name>		
 		<object-name>DirectorBar</object-name>
@@ -60,7 +59,6 @@ Vickers VC10 for Flightgear
 		<type>material</type>
 		<object-name>bank-index</object-name>
 		<object-name>CMPTRflag</object-name>
-		<object-name>off-nav</object-name>
 		<object-name>ACwing</object-name>
 		<object-name>ACtailfin</object-name>
 		<object-name>DirectorBar</object-name>
@@ -175,20 +173,6 @@ Vickers VC10 for Flightgear
 			<z-m>0.0</z-m>
 		</center>
 		<axis><x>1</x></axis>
-	</animation>
-  
-	<animation>
-		<type>select</type>
-		<object-name>off-nav</object-name>
-		<condition>
-			<or>
-				<not><property>instrumentation/nav[0]/nav-loc</property></not>
-				<and>
-					<property>instrumentation/nav[0]/nav-loc</property>
-					<not><property>instrumentation/nav[0]/in-range</property></not>
-				</and>
-			</or>
-		</condition>
 	</animation>
 
 	<animation>
