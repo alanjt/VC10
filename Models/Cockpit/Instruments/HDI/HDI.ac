@@ -11530,12 +11530,11 @@ refs 4
 kids 0
 OBJECT poly
 name "shadow"
-loc 0.0095079 0.000752502 -0.0012394
+loc -0.110127 0.000752502 -0.0012394
 data 6
 shadow
 texture "shadow.png"
 crease 45.000000
-hidden
 numvert 4
 0 -0.058348 -0.0568761
 0 -0.058348 0.0593549
@@ -14109,10 +14108,8 @@ refs 3
 kids 0
 OBJECT poly
 name "rect"
-loc 0.00291307 0.000497264 -0.000167519
-texture "C0565_(front).jpg"
+loc -0.0986948 0.000497264 -0.000167519
 crease 45.000000
-hidden
 numvert 4
 0 0.0516029 -0.0509787
 0 0.0516029 0.0509787
