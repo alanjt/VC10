@@ -221,6 +221,7 @@ AERODYNAMICS
 			<description>
 				Lift due to speedbrakes
 			</description>
+			<product>
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
 				<product name="aero/coefficient/CL_speedbrakes">
@@ -396,6 +397,7 @@ AERODYNAMICS
 			<description>
 				Drag due to speedbrakes
 			</description>
+			<product>
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
 				<product name="aero/coefficient/CD_speedbrakes">
@@ -453,6 +455,7 @@ AERODYNAMICS
 				<table name="aero/coefficient/CM_Alpha">
 					<!-- OpenVSP using Peakey wing section -->
 					<independentVar lookup="row">aero/alpha-deg</independentVar>
+					<tableData>
 					-10	0.23942
 					-8	0.19559
 					-6	0.15096
