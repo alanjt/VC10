@@ -147,10 +147,11 @@ Vickers VC10 for Flightgear
 		<type>rotate</type>
 		<object-name>bank-index</object-name>
 		<property>instrumentation/attitude-indicator-electric[0]/indicated-roll-deg</property>
-		<center><x-m>0.0</x-m><y-m>0.0</y-m><z-m>0.0</z-m></center>
+		<center><x-m>0.0444</x-m><y-m>0.0</y-m><z-m>0.0</z-m></center>
 		<axis><x>1</x></axis>
 	</animation>
 	
+<!-- Flight Director -->	
 	<animation>
 		<type>rotate</type>
 		<object-name>DirectorBar</object-name>
@@ -180,6 +181,20 @@ Vickers VC10 for Flightgear
 		<center><x-m>0.0444</x-m><y-m>0.0</y-m><z-m>0.0</z-m></center>
 		<axis><y>1</y></axis>
 	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>DirectorBar</object-name>
+		<condition>
+			<not>
+				<equals><property>Autopilot/FlightDirector/ModeSW</property>
+					<value>0</value>
+				</equals>
+			</not>
+		</condition>
+	</animation>
+	
+<!-- Flags -->
 
 	<animation>
 		<type>select</type>
@@ -195,75 +210,11 @@ Vickers VC10 for Flightgear
 		</condition>
 	</animation>
 
-	<animation>
-		<type>select</type>
-		<object-name>DirectorBar</object-name>
-		<condition>
-			<!--				<or>
-					<and>
-						<not><property>instrumentation/nav[0]/nav-loc</property></not>
-						<property>instrumentation/nav[0]/in-range</property>
-						<less-than>
-							<property>instrumentation/nav[0]/nav-distance</property>
-							<value>45000</value>
-						</less-than>
-					</and>
-					<and>
-						<property>instrumentation/nav[0]/nav-loc</property>
-						<property>instrumentation/nav[0]/in-range</property>
-					</and>
-				</or> -->
-			<not>
-				<equals><property>Autopilot/FlightDirector/ModeSW</property>
-					<value>0</value>
-				</equals>
-			</not>
-		</condition>
-	</animation>
 
-<!--		<animation>
-			<type>rotate</type>
-			<object-name>DirectorBar</object-name>
-			<property>Autopilot/FlightDirector/RollDemand</property>
-			<interpolation>
-				<entry><ind>-10</ind><dep>-30</dep></entry>
-				<entry><ind>0</ind><dep>0</dep></entry>
-				<entry><ind>10</ind><dep>30</dep></entry>
-			</interpolation>
-		<center>
-	<animation>
-		<type>rotate</type>
-		<object-name>sphere</object-name>
-		<property>instrumentation/attitude-indicator-electric[0]/indicated-roll-deg</property>
-		<center><x-m>0.0</x-m><y-m>0.0</y-m><z-m>0.0</z-m></center>
-		<axis><x>1</x></axis>
-	</animation>
-		<axis><y>1</y></axis>
-		</animation>
-		<animation>
-			<type>rotate</type>
-			<object-name>DirectorBar</object-name>
-			<property>instrumentation/attitude-indicator-electric[0]/indicated-roll-deg</property>
-			<interpolation>
-				<entry><ind>-10</ind><dep>-30</dep></entry>
-				<entry><ind>0</ind><dep>0</dep></entry>
-				<entry><ind>10</ind><dep>30</dep></entry>
-			</interpolation>
-	<animation>
-		<type>rotate</type>
-		<object-name>sphere</object-name>
-		<property>instrumentation/attitude-indicator-electric[0]/indicated-roll-deg</property>
-		<center><x-m>0.0</x-m><y-m>0.0</y-m><z-m>0.0</z-m></center>
-		<axis><x>1</x></axis>
-	</animation>
-		<axis><y>-1</y></axis>
-		</animation> -->
-	
-
-	<animation>
+<!--	<animation>
 		<type>range</type>
 		<min-m>0</min-m>
 		<max-m>15</max-m>
-	</animation>
+	</animation> -->
 
 </PropertyList>
