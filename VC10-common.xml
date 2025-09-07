@@ -112,9 +112,9 @@ if you contacted me before making any changes to this software.
 				<path>Systems/autopilotPitchStab.xml</path>
 			</autopilot> -->
 
-			<!--<autopilot>
+			<autopilot>
 				<path>Systems/autopilotFlightDirector.xml</path>
-			</autopilot> -->
+			</autopilot>
 			<!--<autopilot>
 				<path>Systems/autopilotManoeverLimits.xml</path>
 			</autopilot> -->

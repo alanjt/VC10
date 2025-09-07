@@ -162,7 +162,7 @@ Vickers VC10 for Flightgear
 	<animation>
 		<type>rotate</type>
 		<object-name>DirectorBar</object-name>
-		<property>Autopilot/FlightDirector/RollDemand</property>
+		<property>autopilot/FlightDirector/RollDemand</property>
 		<center><x-m>0.0444</x-m><y-m>0.0</y-m><z-m>0.0</z-m></center>
 		<axis><x>-1</x></axis>
 	</animation>

@@ -7,32 +7,8 @@
 
 <PropertyList>
 
-	<!--
-    ===============
-    Flight Director Control Circuits. Elliott Sec3 Fig9
-    ===============
-    -->		
 
-	<!--	<filter>
-		<name>Flight director pitch command</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0 </gain>
-		<input>
-			<expression>
-				<dif>
-					<product>
-						<property>autopilot/internal/qd</property>
-						<value>0.05</value>
-					</product>
-					<property>fdm/jsbsim/attitude/theta-deg</property>
-				</dif>
-			</expression>
-		</input>
-		<output><property>autopilot/commands/FD-pitch-deg</property></output>
-	</filter>  -->
-
-	<filter>
+<!--	<filter>
 		<name>q-qdb_swRelayA</name>
 		<debug>false</debug>
 		<type>gain</type>
@@ -131,52 +107,40 @@
 		</input>
 		<output><property>autopilot/internal/PsiFD_sw2</property></output>
 	</filter>
+ -->
+<!-- Heading mode --> 
 
 	<filter>
-		<name>Flight director roll command PsiFD_sw3</name>
+		<name>heading bug error</name>
 		<debug>false</debug>
 		<type>gain</type>
-		<gain>1.0 </gain>
-		<input>
-			<condition>
-				<or>
-					<property>autopilot/switches/ILS-LOC</property>
-					<and>
-						<less_than>
-							<property>autopilot/internal/phi_r</property>
-							<value>0.5</value>
-						</less_than>
-						<greater_than>
-							<property>autopilot/internal/phi_r</property>
-							<value>-0.5</value>
-						</greater_than>
-					</and>
-				</or>
-			</condition>
-			<property>autopilot/internal/PsiFD_sw1</property>
-		</input>
-		<input>
-			<property>autopilot/internal/PsiFD_sw2</property>
-		</input>
-		<output><property>autopilot/internal/PsiFD_sw3</property></output>
+		<gain>1.0</gain>
+		<input><property>autopilot/internal/heading-magnetic-deg</property></input>
+		<reference><property>autopilot/settings/heading-bug-deg</property></reference>
+		<output><property>autopilot/FlightDirector/hdg-hdgD</property></output>
+		<period>
+			<min>-180</min>
+			<max>180</max>
+		</period>
 	</filter>
-
+	
 	<filter>
-		<name>Flight director roll command</name>
+		<name>roll demand</name>
 		<debug>false</debug>
 		<type>gain</type>
-		<gain>1.0 </gain>
+		<gain>1.0</gain>	
 		<input>
-			<condition>
-				<property>autopilot/internal/BarometricModeSelected</property>
-			</condition>
-			<property>autopilot/internal/PsiFD_sw3</property>
+		<expression>
+				<product>
+					<property>autopilot/gain/Khdg_phi</property>
+					<property>autopilot/FlightDirector/hdg-hdgD</property>
+				</product>
+			</expression>
 		</input>
-		<input>
-			<value>0</value>
-		</input>
-		<output><property>autopilot/internal/PsiFD</property></output>
-		<output><property>autopilot/commands/FD-roll-deg</property></output>
+		<output><property>autopilot/FlightDirector/RollDemand</property></output> <!--  commanded bank angle -->
+		<u_min><property>autopilot/internal/Phi_r_neglimit</property></u_min>
+		<u_max><property>autopilot/internal/Phi_r_limit</property></u_max>
 	</filter>
+	
 
 </PropertyList>

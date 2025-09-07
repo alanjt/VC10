@@ -12,56 +12,6 @@
     ===============
     -->
 
-<!--	<filter>
-		<name>rudderstab Ay</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain><property>autopilot/gain/GAy</property></gain>
-		<input>
-			<expression>
-				<product>
-					<property>fdm/jsbsim/accelerations/Ny</property>
-					<value>57.295779513082320876798154814105</value>
-				</product>
-			</expression>
-		</input>
-		<output><property>autopilot/commands/rudderstab-Ay-deg</property></output>
-		<u_min>-6</u_min>
-		<u_max>6</u_max>
-	</filter> -->
-
-<!--	<filter>
-		<name>rudderstab Betadot</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain><property>autopilot/gain/GBetadot</property></gain>
-		<input>
-			<expression>
-				<product>
-					<dif>
-						<property>fdm/jsbsim/velocities/r-aero-rad_sec</property>
-					<sum>
-							<property>autopilot/internal/pAlpha</property>
-							<product>
-								<property>fdm/jsbsim/accelerations/gravity-ft_sec2</property>
-								<property>autopilot/internal/OneOverV</property>
-								<sin><product><value>0.01745329251994329576923690768489</value>
-										<property>orientation/roll-deg</property>
-									</product></sin>
-								<cos><product><value>0.01745329251994329576923690768489</value>
-										<property>orientation/pitch-deg</property>
-									</product></cos>
-							</product>
-						</sum>
-					</dif>
-					<value>57.295779513082320876798154814105</value>
-				</product>
-			</expression>
-		</input>
-		<output><property>autopilot/commands/rudderstab-betadot-deg</property></output>
-		<u_min>-6</u_min>
-		<u_max>6</u_max>
-	</filter> -->
 	
 	
 	<!-- Yaw Damper -->
@@ -85,7 +35,8 @@
 			<expression>
 				<product>
 					<property>fdm/jsbsim/velocities/r-aero-rad_sec</property>
-					<value> 2.0 </value>
+					<!--<value> 2.0 </value> -->
+					<value> 20.0 </value>
 					<value> 57.295779513082320876798154814105 </value>
 				</product>
 			</expression>
