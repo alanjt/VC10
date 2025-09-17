@@ -8,106 +8,6 @@
 <PropertyList>
 
 
-<!--	<filter>
-		<name>q-qdb_swRelayA</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0 </gain>
-		<input>
-			<condition>
-				<property>autopilot/internal/RelayA</property>
-			</condition>
-			<property>autopilot/internal/q-qdb</property>
-		</input>
-		<input>
-			<value>-100000</value>
-		</input>
-		<output><property>autopilot/internal/q-qdb_swRelayA</property></output>
-	</filter>
-
-	<filter>
-		<name>qfd_sw</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0 </gain>
-		<input>
-			<condition>
-				<property>autopilot/internal/BarometricModeSelected</property>
-			</condition>
-			<property>autopilot/internal/qd</property>
-		</input>
-		<input>
-			<value>-100000</value>
-		</input>
-		<output><property>autopilot/internal/qdsw</property></output>
-	</filter>
-
-	<filter>
-		<name>qfd_mnu</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0 </gain>
-		<input>
-			<condition>
-				<greater-than>
-					<property>autopilot/internal/q-qdb_swRelayA</property>
-					<property>autopilot/internal/qdsw</property>
-				</greater-than>
-			</condition>
-			<property>autopilot/internal/q-qdb_swRelayA</property>
-		</input>
-		<input>
-			<property>autopilot/internal/qdsw</property>
-		</input>
-		<output><property>autopilot/internal/qfd_mnu</property></output>
-	</filter>
-
-	<filter>
-		<name>qfd_output</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0 </gain>
-		<input>
-			<condition>
-				<property>autopilot/internal/BarometricModeSelected</property>
-			</condition>
-			<property>autopilot/internal/qfd_mnu</property>
-		</input>
-		<input>
-			<value>0</value>
-		</input>
-		<output><property>autopilot/internal/qfd</property></output>
-		<output><property>autopilot/commands/FD-pitch-deg</property></output>
-	</filter>
-
-	<filter>
-		<name>Flight director roll command PsiFD_sw1</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0 </gain>
-		<input>
-			<condition>
-				<property>autopilot/switches/heading</property>				
-			</condition>
-			<property>autopilot/internal/hdg-hdgD</property>
-		</input>
-		<input>
-			<property>autopilot/internal/PsiFD2</property>
-		</input>
-		<output><property>autopilot/internal/PsiFD_sw1</property></output>
-	</filter>
-
-	<filter>
-		<name>Flight director roll command PsiFD_sw2</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0 </gain>
-		<input>
-			<property>autopilot/internal/PsiFD_sw1</property>
-		</input>
-		<output><property>autopilot/internal/PsiFD_sw2</property></output>
-	</filter>
- -->
 <!-- Heading mode --> 
 
 	<filter>
@@ -124,12 +24,135 @@
 		</period>
 	</filter>
 	
+	<!--  ============================== -->
+	<!-- VOR/LOC Mode  -->
+	<!--  ============================== -->
+	
+	<!-- course error -->
+	<filter>
+		<name>course bug error</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input><property>autopilot/internal/heading-magnetic-deg</property></input>
+		<reference><property>instrumentation/nav[0]/radials/selected-deg</property></reference>
+		<output><property>autopilot/FlightDirector/hdg-courseD</property></output>
+		<period>
+			<min>-180</min>
+			<max>180</max>
+		</period>
+	</filter>
+
+	<!-- washed-out course error -->	
+	<filter>
+		<name>hdg-courseD washout</name>
+		<debug>false</debug>
+		<type>high-pass</type>
+		<filter-time>1.0</filter-time>
+		<input><property>autopilot/FlightDirector/hdg-courseD</property></input>
+		<output><property>autopilot/FlightDirector/hdg-courseD_washout</property></output>
+	</filter>
+
+	<!-- beam error -->
+	<filter>
+		<name>VOR/LOC Beam Error degrees</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>-1.0</gain>
+		<input>
+			<condition><!-- ILS - Full scale 2 dots = 2.5 deg -->
+				<property>instrumentation/nav/frequencies/is-localizer-frequency</property>
+			</condition>
+			<expression>
+				<prod>
+					<property>instrumentation/nav/heading-needle-deflection</property>
+					<value>2.5</value>
+				</prod>
+			</expression>
+		</input>
+		<!-- not an ILS frequency - assume VOR -->
+		<input><!-- VOR - Full scale 2 dots = 10 deg -->
+			<expression>
+				<product>
+					<property>instrumentation/nav/heading-needle-deflection</property>
+					<value>10.0</value>
+				</product>
+			</expression>
+		</input>
+		<output><property>autopilot/FlightDirector/VOR_LOC-deg</property></output>
+		<u_min>-10</u_min>
+		<u_max>10</u_max>
+	</filter>
+
+	<filter>
+		<name>VOR/LOC Heading (QDM) Error degrees</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<condition>
+				<property>autopilot/switches/ILS_GS</property>
+			</condition>
+			<property>autopilot/FlightDirector/hdg-courseD_washout</property> <!-- switch to washed-out error when GS is captured -->
+		</input>
+		<input><property>autopilot/FlightDirector/hdg-courseD</property></input>
+		<output><property>autopilot/FlightDirector/loc_hdg-hdgD</property></output>
+	</filter>
+
+	<filter>
+		<name>VOR_LOC-deg leadlag</name>
+		<debug>false</debug>
+		<type>lead-lag</type>
+		<gain>5.0</gain>
+		<filter-time-a>5.0</filter-time-a>
+		<filter-time-b>1.0</filter-time-b>
+		<input><property>autopilot/FlightDirector/VOR_LOC-deg</property></input>
+		<output><property>autopilot/FlightDirector/VOR_LOC-deg-leadlag</property></output>
+	</filter>
+
+	<filter>
+		<name>VOR/LOC Bank Command Computer</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<expression>
+				<sum>
+					<product>
+						<property>autopilot/FlightDirector/hdg-VLhdgD</property>   <!-- VOR radial / Loc beam heading -->
+						<property>autopilot/gain/Kloc_Hdg</property>
+					</product>
+					<product>
+						<property>autopilot/FlightDirector/VOR_LOC-deg</property>
+						<!-- <property>autopilot/FlightDirector/VOR_LOC-deg-leadlag</property> -->
+						<property>autopilot/gain/Kloc_Loc</property>
+					</product>
+					<product>
+						<property>fdm/jsbsim/attitude/phi-deg</property>  <!-- bank angle feedback -->
+						<property>autopilot/gain/Kloc_Phi</property>
+					</product>
+				</sum>
+			</expression>
+		</input>
+		<output><property>autopilot/FlightDirector/phid_VOR-loc</property></output>
+		<period>
+			<min>-15</min>
+			<max>15</max>
+		</period>
+	</filter>
+	
 	<filter>
 		<name>roll demand</name>
 		<debug>false</debug>
 		<type>gain</type>
-		<gain>1.0</gain>	
+		<gain>1.0</gain>
 		<input>
+		<condition>
+			<equals>
+				<property>autopilot/FlightDirector/ModeSW</property>
+				<value>1</value><!-- HDG -->
+			</equals>
+		</condition>
 		<expression>
 				<product>
 					<property>autopilot/gain/Khdg_phi</property>
@@ -137,9 +160,24 @@
 				</product>
 			</expression>
 		</input>
+		
+		<input>
+		<condition>
+			<equals>
+				<property>autopilot/FlightDirector/ModeSW</property>
+				<value>0</value><!-- OFF -->
+			</equals>
+		</condition>
+			<value>0.0</value>
+		</input>
+		
+		<input>  <!-- all other switch postions (Back-Beam, VOR, GS) have vor/loc mode -->
+			<property>autopilot/FlightDirector/phid_VOR-loc</property>
+		</input>
+		
 		<output><property>autopilot/FlightDirector/RollDemand</property></output> <!--  commanded bank angle -->
-		<u_min><property>autopilot/internal/Phi_r_neglimit</property></u_min>
-		<u_max><property>autopilot/internal/Phi_r_limit</property></u_max>
+		<u_min>-15</u_min>
+		<u_max>15</u_max>
 	</filter>
 	
 

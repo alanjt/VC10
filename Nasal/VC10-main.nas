@@ -3,6 +3,10 @@
 #		Vickers VC10 for Flightgear												#
 #									#
 #################################################################################
+
+## test parameters
+props.globals.initNode("instrumentation/indicated-roll-deg",0,"DOUBLE");
+props.globals.initNode("instrumentation/indicated-pitch-deg",0,"DOUBLE");
 ##################### init ENGINE START AIR PRESSURE ##################################
 # used in the autostarts.nas  var starter()
 var stAirRight = props.globals.initNode("VC10/start-air-bottle-press[0]",2810,"DOUBLE");

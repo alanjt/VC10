@@ -28,14 +28,14 @@ if you contacted me before making any changes to this software.
 	<animation>
 		<type>knob</type>
 		<object-name>knob</object-name>
-		<property>Autopilot/FlightDirector/ModeSW</property>
+		<property>autopilot/FlightDirector/ModeSW</property>
 		<factor>45</factor>
 		<center><x-m>0</x-m><y-m>0</y-m><z-m>0</z-m></center>
 		<axis><x>-1</x></axis>
 		<action>
 			<binding>
 				<command>property-cycle</command>
-				<property>Autopilot/FlightDirector/ModeSW</property>
+				<property>autopilot/FlightDirector/ModeSW</property>
 				<value>-1</value> <!-- Back Beam -->
 				<value>0</value>  <!-- OFF       -->
 				<value>1</value>  <!-- HDG       -->
@@ -49,7 +49,7 @@ if you contacted me before making any changes to this software.
 				<command>set-tooltip</command>
 				<label>FVselect: %d</label>
 				<tooltip-id>no</tooltip-id>
-				<property>Autopilot/FlightDirector/ModeSW</property>
+				<property>autopilot/FlightDirector/ModeSW</property>
 			</binding>
 		</hovered>
 	</animation>

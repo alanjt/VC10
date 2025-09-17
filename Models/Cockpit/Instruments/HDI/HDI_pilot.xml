@@ -131,23 +131,26 @@ Vickers VC10 for Flightgear
 	<animation>
 		<type>rotate</type>
 		<object-name>sphere</object-name>
+<!--		<property>instrumentation/indicated-roll-deg</property> -->
 		<property>instrumentation/attitude-indicator-electric[0]/indicated-roll-deg</property>
-		<center><x-m>0.0444</x-m><y-m>0.0</y-m><z-m>0.0</z-m></center>
+		<center><x-m>0.0</x-m><y-m>0.0</y-m><z-m>0.0</z-m></center>
 		<axis><x>1</x></axis>
-	</animation>
-	<animation>
-		<type>rotate</type>
-		<object-name>sphere</object-name>
-		<property>instrumentation/attitude-indicator-electric[0]/indicated-pitch-deg</property>
-		<center><x-m>0.0444</x-m><y-m>0.0</y-m><z-m>0.0</z-m></center>
-		<axis><y>-1</y></axis>
 	</animation>
 	
 	<animation>
 		<type>rotate</type>
+		<object-name>sphere</object-name>
+<!--		<property>instrumentation/indicated-pitch-deg</property> -->
+		<property>instrumentation/attitude-indicator-electric[0]/indicated-pitch-deg</property>
+		<center><x-m>-0.0447</x-m><y-m>0.0</y-m><z-m>0.0</z-m></center>
+		<axis><y>1</y></axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
 		<object-name>bank-index</object-name>
 		<property>instrumentation/attitude-indicator-electric[0]/indicated-roll-deg</property>
-		<center><x-m>0.0444</x-m><y-m>0.0</y-m><z-m>0.0</z-m></center>
+		<center><x-m>0.0</x-m><y-m>0.0</y-m><z-m>0.0</z-m></center>
 		<axis><x>1</x></axis>
 	</animation>
 	
@@ -156,14 +159,14 @@ Vickers VC10 for Flightgear
 		<type>rotate</type>
 		<object-name>DirectorBar</object-name>
 		<property>instrumentation/attitude-indicator-electric[0]/indicated-roll-deg</property>
-		<center><x-m>0.0444</x-m><y-m>0.0</y-m><z-m>0.0</z-m></center>
+		<center><x-m>0.0</x-m><y-m>0.0</y-m><z-m>0.0</z-m></center>
 		<axis><x>1</x></axis>
 	</animation>
 	<animation>
 		<type>rotate</type>
 		<object-name>DirectorBar</object-name>
 		<property>autopilot/FlightDirector/RollDemand</property>
-		<center><x-m>0.0444</x-m><y-m>0.0</y-m><z-m>0.0</z-m></center>
+		<center><x-m>0.0</x-m><y-m>0.0</y-m><z-m>0.0</z-m></center>
 		<axis><x>-1</x></axis>
 	</animation>
 	
@@ -171,14 +174,14 @@ Vickers VC10 for Flightgear
 		<type>rotate</type>
 		<object-name>DirectorBar</object-name>
 		<property>instrumentation/attitude-indicator-electric[0]/indicated-pitch-deg</property>
-		<center><x-m>0.0444</x-m><y-m>0.0</y-m><z-m>0.0</z-m></center>
+		<center><x-m>0.0447</x-m><y-m>0.0</y-m><z-m>0.0</z-m></center>
 		<axis><y>-1</y></axis>
 	</animation>
 	<animation>
 		<type>rotate</type>
 		<object-name>DirectorBar</object-name>
-		<property>Autopilot/FlightDirector/PitchDemand</property>
-		<center><x-m>0.0444</x-m><y-m>0.0</y-m><z-m>0.0</z-m></center>
+		<property>autopilot/FlightDirector/PitchDemand</property>
+		<center><x-m>0.0447</x-m><y-m>0.0</y-m><z-m>0.0</z-m></center>
 		<axis><y>1</y></axis>
 	</animation>
 	
@@ -187,7 +190,7 @@ Vickers VC10 for Flightgear
 		<object-name>DirectorBar</object-name>
 		<condition>
 			<not>
-				<equals><property>Autopilot/FlightDirector/ModeSW</property>
+				<equals><property>autopilot/FlightDirector/ModeSW</property>
 					<value>0</value>
 				</equals>
 			</not>
