@@ -345,7 +345,7 @@ _______________________________________________________
 			<file>Nasal/Reset-in-air.nas</file>
 			<file>Nasal/controls.nas</file>
 			<file>Nasal/engines.nas</file>
-			<file>Nasal/autopilotfiltertest.nas</file>
+<!--			<file>Nasal/autopilotfiltertest.nas</file> -->
 		</VC10>
 		
 		<dialogs>

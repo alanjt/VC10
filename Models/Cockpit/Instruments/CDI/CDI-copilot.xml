@@ -45,7 +45,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>hdg-arrow</object-name>
-		<property>autopilot/settings/heading-bug-deg</property>
+		<property>autopilot/settings/heading-bug-deg</property>  <!-- HDG knob -->
 		<axis>
 			<x>-1</x>
 			<y>0</y>
@@ -56,7 +56,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>hdg_knob</object-name>
-		<property>autopilot/settings/heading-bug-deg</property>        
+		<property>autopilot/settings/heading-bug-deg</property>   <!-- HDG knob -->       
 		<center>
       <x-m>0.0</x-m>
       <y-m>0.0389</y-m>
@@ -76,7 +76,7 @@
 		<object-name>noNav</object-name>
 		<object-name>VorLocDeviationBar</object-name>
 		<object-name>VOR_LOC_dots</object-name>
-		<property>instrumentation/nav[1]/radials/selected-deg</property>
+		<property>instrumentation/nav[1]/radials/selected-deg</property> <!-- CRS knob -->
 		<axis>
 			<x>-1.0</x>
 			<y>0.0</y>
@@ -87,7 +87,7 @@
 	<animation>
 		<type>knob</type>
 		<object-name>hdg_knob</object-name>
-		<property>autopilot/settings/heading-bug-deg</property>
+		<property>autopilot/settings/heading-bug-deg</property>   <!-- HDG knob -->
 		<center>
 			<x-m>0.0</x-m><y-m>0.03968</y-m><z-m>-0.03968</z-m>
 		</center>
@@ -98,7 +98,7 @@
 		<action>
 			<binding>
 				<command>property-adjust</command>
-				<property>autopilot/settings/heading-bug-deg</property>
+				<property>autopilot/settings/heading-bug-deg</property>    <!-- HDG knob -->
 				<factor>1</factor>
 				<min>0</min>
 				<max>360</max> 
@@ -110,7 +110,7 @@
 				<command>set-tooltip</command>
 				<label>Heading: %3d</label>
 				<tooltip-id>Heading</tooltip-id>
-				<property>autopilot/settings/heading-bug-deg</property>
+				<property>autopilot/settings/heading-bug-deg</property>  <!-- HDG knob -->
 			</binding>
 		</hovered>
 	</animation>
@@ -118,7 +118,7 @@
 	<animation>
 		<type>knob</type>
 		<object-name>course_knob</object-name>
-		<property>instrumentation/nav[1]/radials/selected-deg</property>
+		<property>instrumentation/nav[1]/radials/selected-deg</property>  <!-- CRS knob -->
 		<center>
 			<x-m>0.0</x-m><y-m>-0.03968</y-m><z-m>-0.03968</z-m>
 		</center>
@@ -129,7 +129,7 @@
 		<action>
 			<binding>
 				<command>property-adjust</command>
-				<property>instrumentation/nav[1]/radials/selected-deg</property>
+				<property>instrumentation/nav[1]/radials/selected-deg</property>  <!-- CRS knob -->
 				<factor>1</factor>
 				<min>0</min>
 				<max>360</max> 
@@ -141,7 +141,7 @@
 				<command>set-tooltip</command>
 				<label>Course: %3d</label>
 				<tooltip-id>Course</tooltip-id>
-				<property>instrumentation/nav[1]/radials/selected-deg</property>
+				<property>instrumentation/nav[1]/radials/selected-deg</property>  <!-- CRS knob -->
 			</binding>
 		</hovered>
 	</animation>
@@ -230,7 +230,7 @@
 		<animation>
 				<type>textranslate</type>
 				<object-name>CrsNum.1</object-name>
-				<property>instrumentation/nav[1]/radials/selected-deg</property>
+				<property>instrumentation/nav[1]/radials/selected-deg</property>   <!-- CRS knob -->
 				<factor>0.001</factor>
 				<step>100</step>
 				<scroll>1</scroll>
@@ -244,7 +244,7 @@
 		<animation>
 				<type>textranslate</type>
 				<object-name>CrsNum.2</object-name>
-				<property>instrumentation/nav[1]/radials/selected-deg</property>
+				<property>instrumentation/nav[1]/radials/selected-deg</property>   <!-- CRS knob -->
 				<factor>0.01</factor>
 				<step>10</step>
 				<scroll>1</scroll>
@@ -258,7 +258,7 @@
 		<animation>
 				<type>textranslate</type>
 				<object-name>CrsNum.3</object-name>
-				<property>instrumentation/nav[1]/radials/selected-deg</property>
+				<property>instrumentation/nav[1]/radials/selected-deg</property>   <!-- CRS knob -->
 				<factor>0.1</factor>
 				<step>1</step>
 				<scroll>1</scroll>

@@ -67,7 +67,7 @@
 		<gain>1.0</gain>
 		<input>
 		
-			<condition><property>autopilot/settings/PITCH-HOLD</property></condition>
+			<condition><property>autopilot/logic/PITCH-HOLD</property></condition>
 			<expression>
 				<dif>
 					<property>fdm/jsbsim/attitude/theta-deg</property>
@@ -80,7 +80,7 @@
 		</input>
 		
 		<input>
-			<condition><property>autopilot/switches/ALT-sw</property></condition>
+			<condition><property>autopilot/logic/ALT-sw</property></condition>
 			<expression>
 				<dif>
 					<property>fdm/jsbsim/attitude/theta-deg</property>
@@ -93,7 +93,7 @@
 		</input>
 		
 		<input>
-			<condition><property>autopilot/switches/IAS-sw</property></condition>
+			<condition><property>autopilot/logic/IAS-sw</property></condition>
 			<expression>
 				<dif>
 					<property>fdm/jsbsim/attitude/theta-deg</property>
@@ -106,7 +106,7 @@
 		</input>
 		
 		<input>
-			<condition><property>autopilot/switches/MACH-sw</property></condition>
+			<condition><property>autopilot/logic/MACH-sw</property></condition>
 			<expression>
 				<dif>
 					<property>fdm/jsbsim/attitude/theta-deg</property>

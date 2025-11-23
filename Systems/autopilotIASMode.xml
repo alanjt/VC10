@@ -34,7 +34,7 @@
 		<input>
 			<condition>
 				<not>
-					<property>autopilot/switches/IAS-sw</property>
+					<property>autopilot/logic/IAS-sw</property>
 				</not>
 			</condition>
 			<expression>
