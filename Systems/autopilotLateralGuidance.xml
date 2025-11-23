@@ -1,0 +1,345 @@
+<?xml version="1.0"?>
+
+<!--
+    Autopilot Configuration for the VC10.
+-->
+
+
+<PropertyList>
+
+	<!--
+    ===============
+    Azimuth Control System and Roll Autostabiliser. 
+    ===============
+    -->
+	
+	<!-- Gains -->
+	<!-- A1 * vfps/200   (A1=1.0) -->
+	<filter>
+		<name>KPSI</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>0.005</gain> <!-- 1/200 -->
+		<input>
+			<property>fdm/jsbsim/velocities/u-aero-fps</property>	
+		</input>
+		<output><property>autopilot/LGUIDE/K_phi</property></output>
+	</filter>
+	
+
+
+	<!-- Magnetic heading -->
+	<filter>
+		<name>mag-heading</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input><property>orientation/heading-magnetic-deg</property></input>
+		<output><property>autopilot/LGUIDE/heading-magnetic-deg</property></output>
+	</filter>
+
+	<filter>
+		<name>heading bug error</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input><property>autopilot/LGUIDE/heading-magnetic-deg</property></input>
+		<reference><property>autopilot/settings/heading-bug-deg</property></reference><!-- HDG knob -->
+		<output><property>autopilot/LGUIDE/hdg-hdgD</property></output>
+		<period>
+			<min>-180</min>
+			<max>180</max>
+		</period>
+	</filter>
+	
+<!-- VOR-LOC -->
+	<filter>
+		<name>VOR/LOC Heading (QDM) Error degrees</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<condition>
+				<property>autopilot/switches/ILS_GS</property>
+			</condition>
+			<property>autopilot/LGUIDE/hdg-courseD_washout</property> <!-- switch to washed-out error when GS is captured -->
+		</input>
+		<input><property>autopilot/LGUIDE/hdg-courseD</property></input>
+		<output><property>autopilot/LGUIDE/loc_hdg-hdgD</property></output>
+	</filter>
+
+<!-- VOR/LOC course (runway heading) filter -->	
+<!--	<filter>
+		<name>VOR_LOC-course error low pass filter</name>
+		<debug>false</debug>
+		<type>exponential</type>
+		<gain>5.0</gain>
+		<filter-time>5.0</filter-time>
+		<input><property>autopilot/LGUIDE/VOR_LOC-deg</property></input>
+		<output><property>autopilot/LGUIDE/EPLF</property></output>
+	</filter>  -->
+
+<!-- beam error -->
+	<filter>
+		<name>VOR/LOC Beam Error degrees</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>-1.0</gain>
+		<input>
+			<condition><!-- ILS - Full scale 2 dots = 2.5 deg -->
+				<property>instrumentation/nav/frequencies/is-localizer-frequency</property>
+			</condition>
+			<expression>
+				<prod>
+					<property>instrumentation/nav/heading-needle-deflection</property>
+					<value>2.5</value>
+				</prod>
+			</expression>
+		</input>
+		<!-- not an ILS frequency - assume VOR -->
+		<input><!-- VOR - Full scale 2 dots = 10 deg -->
+			<expression>
+				<product>
+					<property>instrumentation/nav/heading-needle-deflection</property>
+					<value>10.0</value>
+				</product>
+			</expression>
+		</input>
+		<output><property>autopilot/LGUIDE/EPSLOC</property></output>
+		<u_min>-10</u_min>
+		<u_max>10</u_max>
+	</filter>
+
+<!-- VOR/LOC beam synthetic rate -->	
+	<filter>
+		<name>VOR_LOC-beam rate filter part 1 - washout (diferentiation + intial smoothing)</name>
+		<debug>false</debug>
+		<type>high-pass</type>
+		<gain>1.0</gain>
+		<filter-time>1.5</filter-time> <!-- TLG2-->
+		<input><property>autopilot/LGUIDE/EPSLOC</property></input>
+		<output><property>autopilot/LGUIDE/EPLDOT1</property></output>
+	</filter>
+	
+	<filter>
+		<name>VOR_LOC-beam rate filter part 2 - low pass (more smoothing)</name>
+		<debug>false</debug>
+		<type>exponential</type>
+		<gain>1.0</gain>
+		<filter-time>0.2</filter-time>  <!-- TLG3-->
+		<input><property>autopilot/LGUIDE/EPLDOT1</property></input>
+		<output><property>autopilot/LGUIDE/EPLDOT</property></output>
+	</filter>
+	
+	<filter>
+		<name>VOR_LOC-beam lowpass filter></name>
+		<debug>false</debug>
+		<type>exponential</type>
+		<gain>1.0</gain>
+		<filter-time>0.25</filter-time>  <!-- TLG4-->
+		<input><property>autopilot/LGUIDE/EPSLOC</property></input>
+		<output><property>autopilot/LGUIDE/EPLF</property></output>
+	</filter>
+
+	<filter>
+		<name>VOR/LOC Bank Command Computer</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<expression>
+				<sum>
+					<product>
+						<property>autopilot/LGUIDE/hdg-VLhdgD</property>   <!-- VOR radial / Loc beam heading -->
+						<property>autopilot/LGUIDE/KPSI</property>
+					</product>
+					<product>
+						<property>autopilot/LGUIDE/VOR_LOC-deg</property>
+						<!-- <property>autopilot/internal/VOR_LOC-deg-leadlag</property> -->
+						<property>autopilot/LGUIDE/Kloc_Loc</property>
+					</product>
+					<product>
+						<property>fdm/jsbsim/attitude/phi-deg</property>  <!-- bank angle feedback -->
+						<property>autopilot/LGUIDE/Kloc_Phi</property>
+					</product>
+				</sum>
+			</expression>
+		</input>
+		<output><property>autopilot/LGUIDE/PHICOM-VL</property></output>
+		<period>
+			<min>-180</min>
+			<max>180</max>
+		</period>
+	</filter>
+	
+	<!-- There are 2 MAN modes 
+			HDG-Hold  - if Turn knob is less than 3 degrees
+			Turn mode - if Turn knob is over 3 degrees      -->
+	<logic>
+		<name>HDG hold mode</name>
+		<input>
+			<and>
+				<equals>
+					<property>autopilot/switches/mode-knob</property>
+					<value>0</value><!-- MAN mode -->
+				</equals>
+				<greater-than>
+					<property>autopilot/settings/TurnKnob</property>
+					<value>-3.0</value><!-- MAN, knob in detent -ve -->
+				</greater-than>
+				<less-than>
+					<property>autopilot/settings/TurnKnob/</property>
+					<value>3.0</value><!-- MAN, turn knob in  detent +ve -->
+				</less-than>
+			</and>
+		</input>
+		<output><property>autopilot/logic/HdgHold</property></output>
+	</logic>
+	
+	<logic>
+		<name>Turn mode</name>
+		<input>
+			<and>
+				<equals>
+					<property>autopilot/switches/mode-knob</property>
+					<value>0</value><!-- MAN mode -->
+				</equals>
+				<or>
+					<less-than>
+						<property>autopilot/settings/TurnKnob</property>
+						<value>-3.0</value><!-- MAN, knob out of detent -ve -->
+					</less-than>
+					<greater-than>
+						<property>autopilot/settings/TurnKnob/</property>
+						<value>3.0</value><!-- MAN, turn knob out of detent +ve -->
+					</greater-than>
+				</or>
+			</and>
+		</input>
+		<output><property>autopilot/logic/TurnKnob</property></output>
+	</logic>
+	
+	<filter>
+		<name>heading hold command</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<condition>
+				<equals>
+					<property>autopilot/logic/HdgHold</property>
+					<value>0</value>
+				</equals>
+			</condition>
+			<property>autopilot/LGUIDE/heading-magnetic-deg</property>
+		</input>
+		
+ <!-- make sure that heading-hold-deg is set to current heading when AP is not engaged.-->
+		<input>
+			<condition>
+				<equals>
+					<property>autopilot/switches/AP1orAP2-sw</property>
+					<value>0</value>
+				</equals>
+			</condition>
+			<property>autopilot/LGUIDE/heading-magnetic-deg</property>
+		</input>
+		<input><property>autopilot/LGUIDE/heading-hold-deg</property></input>
+		<output><property>autopilot/LGUIDE/heading-hold-deg</property></output>
+	</filter>
+	
+	<filter>
+		<name>heading hold deg error</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input><property>autopilot/LGUIDE/heading-magnetic-deg</property></input>
+		<reference><property>autopilot/LGUIDE/heading-hold-deg</property></reference>
+		<output><property>autopilot/LGUIDE/hdg-hdgholdD</property></output>
+		<period>
+			<min>-180</min>
+			<max>180</max>
+		</period>
+	</filter>
+
+
+	<!-- Bank demand from AFCS panel turn knob -->
+
+	<filter>
+		<name>Target Roll Filter</name>
+		<debug>false</debug>
+		<type>rate-limit</type>
+		<input><property>autopilot/settings/TurnKnob</property></input>
+		<output><property>autopilot/settings/TurnKnob-deg-filtered</property></output>
+		<max-rate-of-change>10.0</max-rate-of-change>
+		<min-rate-of-change>-10.0</min-rate-of-change>
+		<feedback-if-disabled>true</feedback-if-disabled>
+		<initialize-to>output</initialize-to>
+	</filter>
+
+
+	<filter>
+		<name>Bank angle command</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		
+		<input>
+			<condition>
+				<equals>
+					<property>autopilot/logic/HdgHold</property>
+					<value>1</value>
+				</equals>
+			</condition>
+			<expression>
+				<product>
+					<property>autopilot/LGUIDE/KPSI</property>
+					<property>autopilot/LGUIDE/hdg-hdgholdD</property>
+				</product>
+			</expression>
+		</input>
+		
+		<input>
+			<condition>
+				<equals>
+					<property>autopilot/logic/TurnKnob</property>
+					<value>1</value>
+				</equals>
+			</condition>
+			<property>autopilot/settings/TurnKnob-deg-filtered</property>
+		</input>
+
+		<input>
+			<condition>
+				<equals>
+					<property>autopilot/switches/mode-knob</property>
+					<value>-1.0</value>
+				</equals>
+			</condition>
+			<expression>
+				<product>
+					<property>autopilot/LGUIDE/KPSI</property>
+					<property>autopilot/LGUIDE/hdg-hdgD</property>
+				</product>
+			</expression>
+		</input>
+		
+		<input>
+			<condition>
+				<greater-than>
+					<property>autopilot/switches/mode-knob</property>
+					<value>0.0</value><!-- VOR,LOC,FLARE modes-->
+				</greater-than>
+			</condition>
+		</input>
+		
+		<input>
+			<value>0.0</value>
+		</input>
+<!--  commanded bank angle -->
+		<u_min><property>autopilot/LGUIDE/Phi_r_neglimit</property></u_min>
+		<u_max><property>autopilot/LGUIDE/Phi_r_limit</property></u_max>
+		<output><property>autopilot/LGUIDE/PHICOM</property> </output>
+	</filter>
+
+</PropertyList>
