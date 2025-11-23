@@ -58,13 +58,13 @@ if you contacted me before making any changes to this software.
 		</rating>
 
 		<systems>
-			<!--		<autopilot>
+<!--		<autopilot>
 				<path>Systems/autopilot.xml</path>   No longer used
 			</autopilot>
 -->
-			<autopilot>
+<!--		<autopilot>
 				<path>Systems/autopilotInputFilters.xml</path>
-			</autopilot>
+			</autopilot> -->
 			<autopilot>
 				<path>Systems/autopilotGains.xml</path>
 			</autopilot>
@@ -83,16 +83,18 @@ if you contacted me before making any changes to this software.
 <!--			<path>Systems/autopilotIASMode.xml</path> -->
 				<path>Systems/autopilotIASHold.xml</path>					
 			</autopilot>
-			<autopilot>
+<!--			<autopilot>
 				<path>Systems/autopilotAircraftStateFilters.xml</path>
-			</autopilot>
-
+			</autopilot> -->
 			<autopilot>
-				<path>Systems/autopilotLateralModes.xml</path>
+				<path>Systems/autopilotLateralGuidance.xml</path>
 			</autopilot>
 			<autopilot>
 				<path>Systems/autopilotLatStab.xml</path>
 			</autopilot>
+<!--		<autopilot>
+				<path>Systems/autopilotVOR_LOCMode.xml</path>
+			</autopilot> -->
 			<autopilot>
 				<path>Systems/autopilotPitchStab.xml</path>
 			</autopilot>
@@ -123,9 +125,9 @@ if you contacted me before making any changes to this software.
 				<path>Systems/autopilotAutoTrim.xml</path>
 			</autopilot> -->
 			
-			<autopilot>
+			<!--<autopilot>
 				<path>Systems/autopilotfiltertest.xml</path>
-			</autopilot>
+			</autopilot> -->
 		</systems>
 
 		<instrumentation>
@@ -452,7 +454,7 @@ if you contacted me before making any changes to this software.
 			<target-pitch-deg type="double">0</target-pitch-deg>
 			<AltRef type="double">0</AltRef>
 			<vertical-speed-fpm type="int">0</vertical-speed-fpm>
-			<heading-bug-deg type="int">0</heading-bug-deg>
+			<heading-bug-deg type="int">0</heading-bug-deg>     <!-- HDG knob -->
 		</settings>
 		<switches>
 			<ap type="bool">0</ap>

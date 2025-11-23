@@ -188,9 +188,9 @@
 			<value>30.0</value>
 		</input>
 		<input>   <!-- default for other modes -->
-			<value>60.0</value>
+			<value>30.0</value>
 		</input>
-		<output><property>autopilot/internal/Phi_r_limit</property></output>
+		<output><property>autopilot/LGUIDE/Phi_r_limit</property></output>
 	</filter>
 
 	<filter>
@@ -199,9 +199,9 @@
 		<type>gain</type>
 		<gain>-1</gain>
 		<input>
-			<property>autopilot/internal/Phi_r_limit</property>
+			<property>autopilot/LGUIDE/Phi_r_limit</property>
 		</input>
-		<output><property>autopilot/internal/Phi_r_neglimit</property></output>
+		<output><property>autopilot/LGUIDE/Phi_r_neglimit</property></output>
 	</filter>
 
 	<filter>
@@ -211,7 +211,7 @@
 		<input>
 			<value>23.25</value>
 		</input>
-		<output><property>autopilot/internal/roll_driver_limit</property></output>
+		<output><property>autopilot/LGUIDE/roll_driver_limit</property></output>
 	</filter>
 
 	<filter>
@@ -220,9 +220,9 @@
 		<type>gain</type>
 		<gain><value>-1.0</value></gain>
 		<input>
-			<property>autopilot/internal/roll_driver_limit</property>
+			<property>autopilot/LGUIDE/roll_driver_limit</property>
 		</input>
-		<output><property>autopilot/internal/roll_driver_neg_limit</property></output>
+		<output><property>autopilot/LGUIDE/roll_driver_neg_limit</property></output>
 	</filter>	
 	
 
@@ -406,7 +406,7 @@
 		<type>gain</type>
 		<gain>-0.0025</gain> <!-- gain = -.5 at uBody = 200fps -->
 		<input><property>velocities/uBody-fps</property></input>
-		<output><property>autopilot/gain/Kloc_Hdg</property></output>
+		<output><property>autopilot/LGUIDE/KPSI</property></output>
 	</filter>
 
 	<filter>

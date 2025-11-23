@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--####################################################################
+Bristol Britannia for Flightgear
+Copyright (C) 2020 Alan Teeder
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+########################################################################-->
+
+	<flight_control name="FCS:VC10">
+
+		<channel name="Pitch">
+			
+			<aerosurface_scale name="fcs/elevator-cmd-deg">
+				<input>fcs/elevator-cmd-norm</input>     <!-- from Flightgear Joystick, Keypad or Mouse --> 
+				<zero_centered>true</zero_centered>
+				<domain><min>-1.0</min><max>1.0</max></domain>
+				<range><min>-26.55</min><max>17.683</max></range>
+<!--				<output>fcs/elevator-cmd-deg</output> -->
+			</aerosurface_scale>
+			
+			<summer name="fcs/elevator-pos-deg">
+				<input>fcs/elevator-cmd-deg</input>
+				<input>fcs/afcs-elevator-cmd-deg</input>     <!-- from AFCS -->
+				<clipto>
+					<min>-26.55</min>
+					<max>17.683</max>
+				</clipto>
+<!--				<output>fcs/elevator-pos-deg</output> -->
+			</summer>
+			
+			<pure_gain name="fcs/elevator-pos-rad">
+				<input>fcs/elevator-pos-deg</input>
+				<gain>0.0174533</gain>
+<!--				<output>fcs/elevator-pos-rad</output>  -->
+			</pure_gain>
+			
+
+			<aerosurface_scale name="fcs/pitch-trim-pos-deg">
+				<input>fcs/pitch-trim-cmd-norm</input>     <!-- from Flightgear Joystick, Keypad or Mouse -->
+				<zero_centered>false</zero_centered>
+				<domain><min>-1.0</min><max>1.0</max></domain>
+				<range><min>-14</min><max>3</max></range>
+<!--				<output>fcs/pitch-trim-pos-deg</output> -->
+			</aerosurface_scale>
+
+		</channel>
+
+		<channel name="Roll">
+			<!-- positive is left aileron TE down -->
+			<pure_gain name="fcs/aileron-cmd-deg">
+				<input>fcs/aileron-cmd-norm</input>     <!-- from Flightgear Joystick, Keypad or Mouse -->
+				<gain>23.25</gain>
+<!--				<output>fcs/aileron-cmd-deg</output> -->
+			</pure_gain>
+
+			<pure_gain name="fcs/aileron-trim-cmd-deg">
+				<input>fcs/roll-trim-cmd-norm</input>
+				<gain>23.25</gain>
+<!--				<output>fcs/aileron-trim-cmd-deg</output> -->
+			</pure_gain>
+			
+			<summer name="fcs/aileron-pos-deg">
+				<input>fcs/aileron-cmd-deg</input>
+				<input>fcs/aileron-trim-cmd-deg</input>
+				<input>fcs/afcs-aileron-cmd-deg</input>     <!-- from AFCS -->
+				<clipto>
+					<min>-23.25</min>
+					<max>23.25</max>
+				</clipto>
+<!--				<output>fcs/aileron-pos-deg</output> -->
+			</summer>
+			
+			<pure_gain name="fcs/aileron-pos-rad">
+				<input>fcs/aileron-pos-deg</input>
+				<gain>0.0174533</gain>
+<!--				<output>fcs/aileron-pos-rad</output> -->
+			</pure_gain>
+
+			<aerosurface_scale name="fcs/aileron-pos-norm">
+				<input>fcs/aileron-pos-deg</input>
+				<domain>
+					<min>-23.25</min>
+					<max>23.25</max>
+				</domain>
+				<range>
+					<min>-1</min>
+					<max>1</max>
+				</range>
+<!--				<output>fcs/aileron-pos-norm</output> -->
+			</aerosurface_scale>
+				
+			<!-- Set left and right aileron positions separately -->
+			
+			<!-- right aileron -->
+			<!-- positive is TE down -->
+			<pure_gain name="fcs/aileron-right-deg">
+				<input>fcs/aileron-pos-deg</input>
+				<gain>-1.0</gain>
+<!--				<output>fcs/aileron-right-deg</output> -->
+			</pure_gain>
+			
+			<!-- left  aileron -->
+			<!-- positive is TE down -->
+			<pure_gain name="fcs/aileron-left-deg">
+				<input>fcs/aileron-pos-deg</input>
+				<gain>1.0</gain>
+<!--				<output>fcs/aileron-left-deg</output> -->
+			</pure_gain>
+		</channel>
+		
+		<channel name="SpeedbrakeSpoilers">   
+<!-- Can be operated differentially as spoilers, or together as speedbrake/lift dump -->
+			<kinematic name="fcs/speedbrake-pos-deg">
+				<input>fcs/speedbrake-cmd-norm</input>
+				<traverse>
+					<setting>
+						<position>0</position><time>0</time>
+					</setting>
+					<setting>
+						<position>10</position><time>0.5</time>
+					</setting>
+					<setting>
+						<position>20</position><time>0.5</time>
+					</setting>
+					<setting>
+						<position>30</position><time>0.5</time>
+					</setting>
+					<setting>
+						<position>40</position><time>0.5</time>
+					</setting>
+					<setting>
+						<position>50</position><time>0.5</time>
+					</setting>
+				</traverse>
+<!--				<output>fcs/speedbrake-pos-deg</output> -->
+			</kinematic>
+		
+			<!-- right spoiler -->
+			<!-- positive is TE up -->
+
+			<pure_gain name="fcs/spoiler-right-cmd-deg">
+				<input>fcs/aileron-pos-deg</input>
+				<gain>2.1505</gain>
+<!--				<output>fcs/spoiler-right-cmd-deg</output> -->
+			</pure_gain>
+			
+			<summer name="fcs/spoiler-right-pos-deg">
+				<input>fcs/spoiler-right-cmd-deg</input>
+				<input>fcs/speedbrake-pos-deg</input>
+				<clipto><min>0</min><max>50</max></clipto>
+<!--				<output>fcs/spoiler-right-pos-deg</output> -->
+			</summer>
+			
+			<!-- left  spoiler -->
+			<!-- positive is TE up -->
+			
+			<pure_gain name="fcs/spoiler-left-cmd-deg">
+				<input>fcs/aileron-pos-deg</input>
+				<gain>-2.1505</gain>
+<!--				<output>fcs/spoiler-left-cmd-deg</output>  -->
+			</pure_gain>
+
+			<summer name="fcs/spoiler-left-pos-deg">
+				<input>fcs/spoiler-left-cmd-deg</input>
+				<input>fcs/speedbrake-pos-deg</input>
+				<clipto><min>0</min><max>50</max></clipto>
+<!--				<output>fcs/spoiler-left-pos-deg</output> -->
+			</summer>
+			<!-- speedbrakes -->
+			<summer name="fcs/speedbrake-pos-sum-deg">
+				<input>fcs/spoiler-right-pos-deg</input>
+				<input>fcs/spoiler-left-pos-deg</input>
+<!--				<output>fcs/speedbrake-pos-sum-deg</output> -->
+			</summer>
+			<pure_gain name="fcs/speedbrake-pos-sum-norm">
+				<input>fcs/speedbrake-pos-sum-deg</input>
+				<gain>0.01</gain>
+<!--				<output>fcs/speedbrake-pos-sum-norm</output> -->
+			</pure_gain>
+		</channel>
+
+		<channel name="Yaw">
+
+			<pure_gain name="fcs/rudder-cmd-deg">
+				<input>fcs/rudder-cmd-norm</input>		<!-- from Flightgear Joystick, Keypad or Mouse -->
+				<gain>30.0</gain>
+<!--				<output>fcs/rudder-cmd-deg</output> -->
+			</pure_gain>
+
+			<pure_gain name="fcs/rudder-trim-cmd-deg">
+				<input>fcs/yaw-trim-cmd-norm</input>	<!-- from Flightgear Joystick, Keypad or Mouse -->
+				<gain>30.0</gain>
+<!--				<output>fcs/rudder-trim-cmd-deg</output> -->
+			</pure_gain>
+
+			<summer name="fcs/rudder-pos-deg">
+				<input>fcs/rudder-cmd-deg</input>     	
+				<input>fcs/rudder-trim-cmd-deg</input>     
+				<input>fcs/afcs-rudder-cmd-deg</input>     <!-- from AFCS -->
+				<input>fcs/afcs-yawdamper-deg</input>      <!-- from AFCS -->
+				<clipto>
+					<min>-30</min>
+					<max>30</max>
+				</clipto>
+<!--				<output>fcs/rudder-pos-deg</output> -->
+			</summer>
+			
+			<pure_gain name="fcs/rudder-pos-rad">
+				<input>fcs/rudder-pos-deg</input>
+				<gain>0.0174533</gain>
+			</pure_gain>
+
+			<aerosurface_scale name="fcs/rudder-pos-norm">
+				<input>fcs/rudder-pos-deg</input>
+				<domain>
+					<min>-30.0</min>
+					<max>30.0</max>
+				</domain>
+				<range>
+					<min>-1</min>
+					<max>1</max>
+				</range>
+<!--				<output>fcs/rudder-pos-norm</output> -->
+			</aerosurface_scale>
+		</channel>
+		
+		<channel name="Aeromechanical">
+
+			<kinematic name="fcs/flap-pos-deg">
+				<input>fcs/flap-cmd-norm</input>
+				<traverse>
+					<setting>
+						<position>0</position>
+						<time>0</time>
+					</setting>
+					<setting>
+						<position>20</position>
+						<time>3</time>
+					</setting>
+					<setting>
+						<position>35</position>
+						<time>3</time>
+					</setting>
+					<setting>
+						<position>45</position>
+						<time>3</time>
+					</setting>
+				</traverse>
+<!--				<output>fcs/flap-pos-deg</output> -->
+			</kinematic>
+
+			<aerosurface_scale name="fcs/flap-pos-norm">
+				<input>fcs/flap-pos-deg</input>
+				<domain>
+					<min>0</min>
+					<max>45</max>
+				</domain>
+				<range>
+					<min>0</min>
+					<max>1</max>
+				</range>
+<!--				<output>fcs/flap-pos-norm</output> -->
+			</aerosurface_scale>
+			
+			<pure_gain name="fcs/slat-pos-deg">
+				<input>fcs/flap-pos-deg</input>
+				<gain>0.75</gain>
+				<clipto><min>0.0</min><max>15.0</max></clipto>
+			</pure_gain>
+			
+			<pure_gain name="fcs/slat-pos-norm">
+				<input>fcs/slat-pos-deg</input>
+				<gain>0.066666666667</gain> <!-- 1/15 -->
+			</pure_gain>
+			
+<!--		<switch name="fcs/LE-flap-cmd-norm">
+				<default value="0"/>
+				<test logic="AND" value="1.0000">
+					fcs/flap-cmd-norm GT 0.1
+					/controls/special/slats-switch == 1
+				</test>
+			</switch> -->
+
+<!--			<kinematic name="fcs/slat-pos-deg">
+				<input>fcs/slat-pos-deg</input>
+				<traverse>
+					<setting>
+						<position>0</position>
+						<time>0</time>
+					</setting>
+					<setting>
+						<position>1</position>
+						<time>10</time>
+					</setting>
+				</traverse>
+			</kinematic> -->
+
+	<!--		<aerosurface_scale name="fcs/slat-pos-deg">
+				<input>fcs/slat-pos-deg</input>
+				<domain>
+					<min>0</min>
+					<max>5</max>
+				</domain>
+				<range>
+					<min>0</min>
+					<max>1</max>
+				</range>
+			</aerosurface_scale> -->
+
+			<kinematic name="gear/gear-pos-norm">
+				<input>gear/gear-cmd-norm</input>
+				<traverse>
+					<setting>
+						<position>0</position>
+						<time>0</time>
+					</setting>
+					<setting>
+						<position>1</position>
+						<time>15</time>
+					</setting>
+				</traverse>
+			</kinematic>
+
+<!--			<switch name="fcs/LE-flap-cmd-norm">
+				<default value="0"/>
+				<test logic="AND" value="1.0000">
+					fcs/flap-cmd-norm GT 0.1
+					/controls/special/slats-switch == 1
+				</test>
+			</switch> -->
+
+		</channel>
+
+	</flight_control>		
+

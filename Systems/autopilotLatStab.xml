@@ -5,21 +5,137 @@
 -->
 
 <PropertyList>
+	<!--
+    ===============
+    Roll Stabiliser.
+    ===============
+    -->
 
+	<!-- Gains -->
+
+	<filter>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input><value>0.5</value></input>
+		<output><property>autopilot/LATSTB/LA1</property></output>
+	</filter>
+	
+	<filter>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+<!--		<input><value>3.0</value></input> -->
+		<input><value>1.0</value></input>
+		<output><property>autopilot/LATSTB/ULK7</property></output>
+	</filter>
+	
+	<filter><!-- Qbar limited -->
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input><property>fdm/jsbsim/aero/qbar-psf</property></input>
+		<output><property>autopilot/LATSTB/qbark</property></output>
+		<u_min>60.0</u_min>
+		<u_max>450.0</u_max>
+	</filter>
+	
+	<!-- Roll Rate -->
+	
+	<filter>
+		<name>Roll rate filter</name>
+		<debug>false</debug>
+		<type>exponential</type>
+		<filter-time>0.1</filter-time>
+		<gain>1.0</gain>
+		<input>
+			<expression>
+				<product>
+					<property>autopilot/LATSTB/LA1</property>    <!-- 0.5 -->
+					<value>57.295779513082320876798154814105</value>
+					<property>fdm/jsbsim/velocities/p-rad_sec</property>
+				</product>
+			</expression>
+		</input>
+		<output><property>autopilot/LATSTB/PBOUT</property></output>
+	</filter>
+	
+	<filter>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<expression>
+				<difference>
+					<property>autopilot/LGUIDE/PHICOM</property>
+					<sum>
+						<property>autopilot/LATSTB/PBOUT</property>
+						<property>orientation/roll-deg</property>
+					</sum>
+				</difference>
+			</expression>
+		</input>
+		<output><property>autopilot/LATSTB/PBSUM</property></output>
+	</filter>
+
+	<filter>
+		<debug>false</debug>
+		<type>gain</type>
+		<input>
+			<expression>
+				<product>
+					<property>autopilot/LATSTB/PBSUM</property>
+					<property>autopilot/LATSTB/ULK7</property>   <!-- 3.0 -->
+					<difference>
+						<value>1.174</value>
+						<product>
+							<value>0.00267</value>
+							<property>autopilot/LATSTB/qbark</property>
+						</product>
+					</difference>
+				</product>
+			</expression>
+		</input>
+		<output><property>autopilot/LATSTB/P1LIN</property></output>
+	</filter>
+	
+	<filter>
+		<type>noise-spike</type><!-- Aileron rate limit and position limit-->
+		<input><property>autopilot/LATSTB/P1LIN</property></input>
+		<max-rate-of-change>25.0</max-rate-of-change>
+		<u_min>-15.0</u_min>
+		<u_max>15.0</u_max>
+		<output><property>autopilot/LATSTB/DELTAP</property></output>
+	</filter>
+	
+	<filter>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<condition>
+				<property>autopilot/switches/AP1orAP2-sw</property>
+			</condition>
+			<property>autopilot/LATSTB/DELTAP</property>
+		</input>
+		<input><value>0.0</value></input>
+		<output><property>autopilot/commands/afcs-aileron-deg</property></output>
+
+	</filter>
+	
+	
 	<!--
     ===============
     Yaw Autostabiliser and Autostiffening.
     ===============
     -->
 
-	
-	
 	<!-- Yaw Damper -->
 	<!-- Yaw rate, passed through a washout filter having a time constant of 2.4 seconds -->
-	<!-- The wash-out filter is used to block steady state yaw rate during a turn -->	
+	<!-- The wash-out filter is used to block steady state yaw rate during a turn -->
 
 	<filter>
-		<type>high-pass</type>  <!-- The high-pass filter is also known as a wash-out filter -->
+		<type>high-pass</type><!-- The high-pass filter is also known as a wash-out filter -->
 		<debug>false</debug>
 		<enable>
 			<condition>
@@ -36,8 +152,8 @@
 				<product>
 					<property>fdm/jsbsim/velocities/r-aero-rad_sec</property>
 					<!--<value> 2.0 </value> -->
-					<value> 20.0 </value>
-					<value> 57.295779513082320876798154814105 </value>
+					<value>20.0</value>
+					<value>57.295779513082320876798154814105</value>
 				</product>
 			</expression>
 		</input>
@@ -52,10 +168,10 @@
 		<input>
 			<expression>
 				<sum>
-<!--					<property>autopilot/commands/rudderstab-Ay-deg</property>     -->
-<!--					<property>autopilot/commands/rudderstab-betadot-deg</property> -->
-<!--					<property>autopilot/commands/rudderstab-aileron-deg</property> -->
-				<value>0</value>
+					<!--					<property>autopilot/commands/rudderstab-Ay-deg</property>     -->
+					<!--					<property>autopilot/commands/rudderstab-betadot-deg</property> -->
+					<!--					<property>autopilot/commands/rudderstab-aileron-deg</property> -->
+					<value>0</value>
 				</sum>
 			</expression>
 		</input>

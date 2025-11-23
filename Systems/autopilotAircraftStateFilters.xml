@@ -20,7 +20,7 @@
 		<gain>1.0</gain>
 		<input>
 			<condition>
-					<property>autopilot/switches/ALT-sw</property>
+					<property>autopilot/logic/ALT-sw</property>
 			</condition>
 			<property>autopilot/internal/sD</property>
 		</input>

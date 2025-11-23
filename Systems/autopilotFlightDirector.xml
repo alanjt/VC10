@@ -15,8 +15,8 @@
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
-		<input><property>autopilot/internal/heading-magnetic-deg</property></input>
-		<reference><property>autopilot/settings/heading-bug-deg</property></reference>
+		<input><property>autopilot/LGUIDE/heading-magnetic-deg</property></input>
+		<reference><property>autopilot/settings/heading-bug-deg</property></reference>  <!-- HDG knob -->
 		<output><property>autopilot/FlightDirector/hdg-hdgD</property></output>
 		<period>
 			<min>-180</min>
@@ -34,8 +34,8 @@
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
-		<input><property>autopilot/internal/heading-magnetic-deg</property></input>
-		<reference><property>instrumentation/nav[0]/radials/selected-deg</property></reference>
+		<input><property>autopilot/LGUIDE/heading-magnetic-deg</property></input>
+		<reference><property>instrumentation/nav[0]/radials/selected-deg</property></reference>  <!-- CRS knob -->
 		<output><property>autopilot/FlightDirector/hdg-courseD</property></output>
 		<period>
 			<min>-180</min>
@@ -120,7 +120,7 @@
 				<sum>
 					<product>
 						<property>autopilot/FlightDirector/hdg-VLhdgD</property>   <!-- VOR radial / Loc beam heading -->
-						<property>autopilot/gain/Kloc_Hdg</property>
+						<property>autopilot/LGUIDE/KPSI</property>
 					</product>
 					<product>
 						<property>autopilot/FlightDirector/VOR_LOC-deg</property>
