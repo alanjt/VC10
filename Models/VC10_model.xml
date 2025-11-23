@@ -1781,12 +1781,31 @@ Copyright (C) 2019 Alan Teeder
 	<!-- slats / also called leading edge flaps LE FLAPS -->
 	<!-- Normal operation is with the Flaps Lever and the Slats Lever interconnected
 	     , but the linkage can be opened and the levers operated independantly -->
+
 	<animation>
 		<type>rotate</type>
 		<object-name>Slats.R</object-name>
+<<<<<<< HEAD
 		<property>fdm/jsbsim/fcs/slat-pos-deg</property>
 		<factor>1</factor>
 		<offset-deg>0</offset-deg>
+=======
+		<property>fdm/jsbsim/fcs/slat-pos-norm</property>
+		<interpolation>
+			<entry>
+				<ind>0.0</ind>
+				<dep>0.0</dep>
+			</entry>
+			<entry>
+				<ind>0.10</ind>
+				<dep>-1.0</dep>
+			</entry>
+			<entry>
+				<ind>1.0</ind>
+				<dep>-15.0</dep>
+			</entry>
+		</interpolation>
+>>>>>>> 95c65552d1202dc3e54c3ddbc43db8a9d4c5c64d
 		<axis>
 			<x2-m>19.3</x2-m><y2-m>4.356</y2-m><z2-m>-3</z2-m>
 			<x1-m>31.015</x1-m><y1-m>20.936</y1-m><z1-m>-1.5</z1-m>
@@ -1796,9 +1815,27 @@ Copyright (C) 2019 Alan Teeder
 	<animation>
 		<type>rotate</type>
 		<object-name>Slats.L</object-name>
+<<<<<<< HEAD
 		<property>fdm/jsbsim/fcs/slat-pos-deg</property>
 		<factor>1</factor>
 		<offset-deg>0</offset-deg>
+=======
+		<property>fdm/jsbsim/fcs/slat-pos-norm</property>
+		<interpolation>
+			<entry>
+				<ind>0.0</ind>
+				<dep>0.0</dep>
+			</entry>
+			<entry>
+				<ind>0.10</ind>
+				<dep>15.0</dep>
+			</entry>
+			<entry>
+				<ind>1.0</ind>
+				<dep>15.0</dep>
+			</entry>
+		</interpolation>
+>>>>>>> 95c65552d1202dc3e54c3ddbc43db8a9d4c5c64d
 		<axis>
 			<x1-m>19.3</x1-m><y1-m>-4.356</y1-m><z1-m>-3</z1-m>
 			<x2-m>31.015</x2-m><y2-m>-20.936</y2-m><z2-m>-1.5</z2-m>
