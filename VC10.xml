@@ -488,15 +488,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			<contents unit="LBS">10.0</contents>
 		</tank>
 	</propulsion>
-
-	<!--	<system file="pushback"/> -->
-<<<<<<< HEAD
+	
+	<!--	<system file="pushback"/> -->		
 
 	<!-- **********************************************************************
-=======
-	
-<!-- **********************************************************************
->>>>>>> 95c65552d1202dc3e54c3ddbc43db8a9d4c5c64d
+	   
+																		 											
         FLIGHT CONTROL
      **********************************************************************
 -->

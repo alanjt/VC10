@@ -88,12 +88,6 @@ if you contacted me before making any changes to this software.
 			</autopilot> -->
 			<autopilot>
 				<path>Systems/autopilotLateralGuidance.xml</path>
-<<<<<<< HEAD
-=======
-			</autopilot>
-			<autopilot>
-				<path>Systems/autopilotLateralModes.xml</path>
->>>>>>> 95c65552d1202dc3e54c3ddbc43db8a9d4c5c64d
 			</autopilot>
 			<autopilot>
 				<path>Systems/autopilotLatStab.xml</path>
