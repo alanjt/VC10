@@ -488,21 +488,22 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			<contents unit="LBS">10.0</contents>
 		</tank>
 	</propulsion>
+	
+	<!--	<system file="pushback"/> -->		
 
-	<!--	<system file="pushback"/> -->
-
-	<!-- **********************************************************************
+	<!-- ******************************************************************
+	   
+																		 											
         FLIGHT CONTROL
      **********************************************************************
 -->
 	<flight_control file="VC10_FCS.xml"/>
 	
-
-	<!-- **********************************************************************
+		<!-- **************************************************************
         AERODYNAMICS
      **********************************************************************
 -->
-	<!--	<aerodynamics file="VC10_aeroOpenVSP.xml"/> -->
+	<!--<aerodynamics file="VC10_aeroOpenVSP.xml"/> -->
 	<aerodynamics file="VC10_aeroDatcom.xml"/>
 	<!--<aerodynamics file="VC10_aeromatic.xml"/> -->
 	
