@@ -491,7 +491,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	
 	<!--	<system file="pushback"/> -->		
 
-	<!-- **********************************************************************
+	<!-- ******************************************************************
 	   
 																		 											
         FLIGHT CONTROL
@@ -499,12 +499,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 	<flight_control file="VC10_FCS.xml"/>
 	
-
-	<!-- **********************************************************************
+		<!-- **************************************************************
         AERODYNAMICS
      **********************************************************************
 -->
-	<!--	<aerodynamics file="VC10_aeroOpenVSP.xml"/> -->
+	<!--<aerodynamics file="VC10_aeroOpenVSP.xml"/> -->
 	<aerodynamics file="VC10_aeroDatcom.xml"/>
 	<!--<aerodynamics file="VC10_aeromatic.xml"/> -->
 	
