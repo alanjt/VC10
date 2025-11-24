@@ -83,18 +83,13 @@ if you contacted me before making any changes to this software.
 <!--			<path>Systems/autopilotIASMode.xml</path> -->
 				<path>Systems/autopilotIASHold.xml</path>					
 			</autopilot>
-<!--			<autopilot>
-				<path>Systems/autopilotAircraftStateFilters.xml</path>
-			</autopilot> -->
+
 			<autopilot>
 				<path>Systems/autopilotLateralGuidance.xml</path>
 			</autopilot>
 			<autopilot>
 				<path>Systems/autopilotLatStab.xml</path>
 			</autopilot>
-<!--		<autopilot>
-				<path>Systems/autopilotVOR_LOCMode.xml</path>
-			</autopilot> -->
 			<autopilot>
 				<path>Systems/autopilotPitchStab.xml</path>
 			</autopilot>

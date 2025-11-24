@@ -40,14 +40,18 @@ var dt = 0.0;
 
 	props.globals.initNode("autopilot/gain/Gu",10.0,"DOUBLE");
 	props.globals.initNode("autopilot/gain/Khdg_phi",-1.5,"DOUBLE");	
-	props.globals.initNode("autopilot/LGUIDE/KPSI",-0.75,"DOUBLE");
+
 	props.globals.initNode("autopilot/gain/Kloc_Loc",-5.0,"DOUBLE");		
 	props.globals.initNode("autopilot/gain/Kloc_Phi",0.,"DOUBLE");	
 	props.globals.initNode("autopilot/gain/Kp_r",0.25,"DOUBLE");
 	props.globals.initNode("autopilot/gain/Kp_s",0.1,"DOUBLE");
 	props.globals.initNode("autopilot/gain/Kphi",10.0,"DOUBLE");
 	props.globals.initNode("autopilot/gain/gs-q",1000.0,"DOUBLE");
+	
+	props.globals.initNode("autopilot/LGUIDE/KPSI",-0.75,"DOUBLE");
 	props.globals.initNode("autopilot/LGUIDE/PHICOM",0.0,"DOUBLE");
+	props.globals.initNode("autopilot/LGUIDE/Kloc_Loc",-5.0,"DOUBLE");
+	props.globals.initNode("autopilot/LGUIDE/Kloc_Phi",0.,"DOUBLE");	
 	
 	props.globals.initNode("autopilot/logic/CB",0,"BOOL");   # capture localiser beam
 	props.globals.initNode("autopilot/logic/HH",0,"BOOL");   # heading hold

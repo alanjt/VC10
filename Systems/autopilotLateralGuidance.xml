@@ -154,7 +154,7 @@
 						<property>autopilot/LGUIDE/KPSI</property>
 					</product>
 					<product>
-						<property>autopilot/LGUIDE/VOR_LOC-deg</property>
+						<property>autopilot/LGUIDE/EPLF</property>
 						<!-- <property>autopilot/internal/VOR_LOC-deg-leadlag</property> -->
 						<property>autopilot/LGUIDE/Kloc_Loc</property>
 					</product>
@@ -165,7 +165,7 @@
 				</sum>
 			</expression>
 		</input>
-		<output><property>autopilot/LGUIDE/PHICOM-VL</property></output>
+		<output><property>autopilot/LGUIDE/PSILOC</property></output>
 		<period>
 			<min>-180</min>
 			<max>180</max>
@@ -318,7 +318,8 @@
 			</condition>
 			<expression>
 				<product>
-					<property>autopilot/LGUIDE/KPSI</property>
+<!--					<property>autopilot/LGUIDE/KPSI</property> -->
+					<value>-1.0</value>
 					<property>autopilot/LGUIDE/hdg-hdgD</property>
 				</product>
 			</expression>
@@ -328,7 +329,7 @@
 			<condition>
 				<greater-than>
 					<property>autopilot/switches/mode-knob</property>
-					<value>0.0</value><!-- VOR,LOC,FLARE modes-->
+					<property>autopilot/LGUIDE/PHICOM-VL</property><!-- VOR,LOC,FLARE modes-->
 				</greater-than>
 			</condition>
 		</input>
