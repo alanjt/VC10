@@ -48,14 +48,18 @@ var dt = 0.0;
 	props.globals.initNode("autopilot/gain/Kphi",10.0,"DOUBLE");
 	props.globals.initNode("autopilot/gain/gs-q",1000.0,"DOUBLE");
 	
-	props.globals.initNode("autopilot/LGUIDE/KPSI",-0.75,"DOUBLE");
 	props.globals.initNode("autopilot/LGUIDE/PHICOM",0.0,"DOUBLE");
-	props.globals.initNode("autopilot/LGUIDE/Kloc_Loc",-5.0,"DOUBLE");
-	props.globals.initNode("autopilot/LGUIDE/Kloc_Phi",0.,"DOUBLE");	
+	props.globals.initNode("autopilot/LGUIDE/EPLI",0.0,"DOUBLE");
+
+	props.globals.initNode("autopilot/LGUIDE/KPSI",-0.75,"DOUBLE");
+	props.globals.initNode("autopilot/LGUIDE/ALG1",5.0,"DOUBLE");	
+	props.globals.initNode("autopilot/LGUIDE/ALG2",2.0,"DOUBLE");
+	props.globals.initNode("autopilot/LGUIDE/ALG3",0.3,"DOUBLE");
+	props.globals.initNode("autopilot/LGUIDE/KLOCT",0.3,"DOUBLE");
 	
-	props.globals.initNode("autopilot/logic/CB",0,"BOOL");   # capture localiser beam
-	props.globals.initNode("autopilot/logic/HH",0,"BOOL");   # heading hold
-	props.globals.initNode("autopilot/logic/ONC",0,"BOOL");  # on course
+	props.globals.initNode("autopilot/LGUIDE/CB",0,"BOOL");   # capture VOR radial or localiser beam
+	props.globals.initNode("autopilot/LGUIDE/HH",0,"BOOL");   # heading hold
+	props.globals.initNode("autopilot/LGUIDE/ONC",0,"BOOL");  # on course
 	
 	props.globals.initNode("autopilot/switches/mode-knob",0,"DOUBLE");      # -1 HEADING : 0 MAN : 1 LOC VOR : 2 GS AUTO : 3 GS MAN : 4 FLARE :
 	props.globals.initNode("autopilot/settings/Mode","MAN","STRING");
