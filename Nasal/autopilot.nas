@@ -38,67 +38,81 @@ var dt = 0.0;
 	props.globals.initNode("autopilot/logic/GS-CAPT",0,"BOOL");
 	props.globals.initNode("autopilot/logic/HdgHold",0,"BOOL");
 
-	props.globals.initNode("autopilot/gain/Gu",10.0,"DOUBLE");
-	props.globals.initNode("autopilot/gain/Khdg_phi",-1.5,"DOUBLE");	
+	props.globals.initNode("autopilot/gain/Khdg_phi",-1.5,"DOUBLE");		## used in Flight director	
 
-	props.globals.initNode("autopilot/gain/Kloc_Loc",-5.0,"DOUBLE");		
-	props.globals.initNode("autopilot/gain/Kloc_Phi",0.,"DOUBLE");	
-	props.globals.initNode("autopilot/gain/Kp_r",0.25,"DOUBLE");
-	props.globals.initNode("autopilot/gain/Kp_s",0.1,"DOUBLE");
-	props.globals.initNode("autopilot/gain/Kphi",10.0,"DOUBLE");
-	props.globals.initNode("autopilot/gain/gs-q",1000.0,"DOUBLE");
+	props.globals.initNode("autopilot/gain/Kloc_Loc",-5.0,"DOUBLE");		## used in Flight director
+	props.globals.initNode("autopilot/gain/Kloc_Phi",0.,"DOUBLE");		## used in Flight director	
 	
 	props.globals.initNode("autopilot/LGUIDE/PHICOM",0.0,"DOUBLE");
-	props.globals.initNode("autopilot/LGUIDE/EPLI",0.0,"DOUBLE");
+	props.globals.initNode("autopilot/LGUIDE/Beta_Integ",0.0,"DOUBLE");
 
-	props.globals.initNode("autopilot/LGUIDE/KPSI",-0.75,"DOUBLE");
-	props.globals.initNode("autopilot/LGUIDE/ALG1",5.0,"DOUBLE");	
-	props.globals.initNode("autopilot/LGUIDE/ALG2",2.0,"DOUBLE");
-	props.globals.initNode("autopilot/LGUIDE/ALG3",0.3,"DOUBLE");
+#	props.globals.initNode("autopilot/LGUIDE/a_psi",1.0,"DOUBLE");
+#	props.globals.initNode("autopilot/LGUIDE/ALG1",5.0,"DOUBLE");	
+#	props.globals.initNode("autopilot/LGUIDE/ALG2",2.0,"DOUBLE");
+##	props.globals.initNode("autopilot/LGUIDE/ALG3",0.3,"DOUBLE");
 	props.globals.initNode("autopilot/LGUIDE/KLOCT",0.3,"DOUBLE");
+	
+	props.globals.initNode("autopilot/LGUIDE/a1",5.0,"DOUBLE");
+	props.globals.initNode("autopilot/LGUIDE/a2",18.0,"DOUBLE");
+	props.globals.initNode("autopilot/LGUIDE/a3",0.5,"DOUBLE");
+	props.globals.initNode("autopilot/LGUIDE/b1",1.5,"DOUBLE");	
+	props.globals.initNode("autopilot/LGUIDE/c1",2.5,"DOUBLE");
+	props.globals.initNode("autopilot/LGUIDE/a1",5.0,"DOUBLE");
+	props.globals.initNode("autopilot/LGUIDE/c2",7.0,"DOUBLE");
+	props.globals.initNode("autopilot/LGUIDE/c3",1.0,"DOUBLE");
+	props.globals.initNode("autopilot/LGUIDE/c1",2.5,"DOUBLE");
+	props.globals.initNode("autopilot/LGUIDE/e1",0.25,"DOUBLE");
+	props.globals.initNode("autopilot/LGUIDE/e2",0.013,"DOUBLE");
+	props.globals.initNode("autopilot/LGUIDE/e3",3.0,"DOUBLE");
+	props.globals.initNode("autopilot/LGUIDE/t1",30.0,"DOUBLE");
+	props.globals.initNode("autopilot/LGUIDE/t2",1.0,"DOUBLE");
+	props.globals.initNode("autopilot/LGUIDE/t3",0.2,"DOUBLE");
+	props.globals.initNode("autopilot/LGUIDE/t4",0.25,"DOUBLE");	
+	props.globals.initNode("autopilot/LGUIDE/k",0.5,"DOUBLE");
+	props.globals.initNode("autopilot/LGUIDE/L1",1.5,"DOUBLE");
+	props.globals.initNode("autopilot/LGUIDE/L2",0.2,"DOUBLE");
+	props.globals.initNode("autopilot/LGUIDE/L3",25.0,"DOUBLE");	
+	props.globals.initNode("autopilot/LGUIDE/L4",10.0,"DOUBLE");
+	props.globals.initNode("autopilot/LGUIDE/L4R",7.0,"DOUBLE");
+	
+	props.globals.initNode("autopilot/LGUIDE/TESTI",0,"INT");
+	props.globals.initNode("autopilot/LGUIDE/TESTD",0.0,"DOUBLE");
 	
 	props.globals.initNode("autopilot/LGUIDE/CB",0,"BOOL");   # capture VOR radial or localiser beam
 	props.globals.initNode("autopilot/LGUIDE/HH",0,"BOOL");   # heading hold
 	props.globals.initNode("autopilot/LGUIDE/ONC",0,"BOOL");  # on course
+	props.globals.initNode("autopilot/LGUIDE/ONC_test",0,"BOOL");  # test on course		
+
+##	props.globals.initNode("autopilot/LGUIDE/EPLB1",0.25,"DOUBLE"); # ONC test thresholds
+##	props.globals.initNode("autopilot/LGUIDE/EPLB2",0.013,"DOUBLE"); 
+##  props.globals.initNode("autopilot/LGUIDE/EPLB3",3.6,"DOUBLE"); 
+
+	
+	props.globals.initNode("autopilot/LGUIDE/LOClimited",0,"BOOL");  # Localiser off scale
 	
 	props.globals.initNode("autopilot/switches/mode-knob",0,"DOUBLE");      # -1 HEADING : 0 MAN : 1 LOC VOR : 2 GS AUTO : 3 GS MAN : 4 FLARE :
 	props.globals.initNode("autopilot/settings/Mode","MAN","STRING");
 	props.globals.initNode("autopilot/settings/pitch-wheel-deg",1,"DOUBLE");# -14 .. 0 .. +14
 	props.globals.initNode("autopilot/settings/TurnKnob",0,"DOUBLE");		# -25 .. 0 .. +25
 	props.globals.initNode("autopilot/switches/datum_norm",1,"DOUBLE");		#  -1 .. 0 .. +1
-
+	props.globals.initNode("autopilot/settings/heading-knob",0,"DOUBLE");
+	props.globals.initNode("instrumentation/nav[0]/radials/selected-deg",0,"DOUBLE");
+	
 	props.globals.initNode("autopilot/controls/AP1_haspower", 0,"BOOL");
 	props.globals.initNode("autopilot/controls/AP2_haspower", 0,"BOOL");
 	props.globals.initNode("autopilot/controls/YD1_engaged", 0,"BOOL");
 	props.globals.initNode("autopilot/controls/YD2_engaged", 0,"BOOL");
 	props.globals.initNode("autopilot/controls/YDStby_engaged", 0,"BOOL");
+	
 	props.globals.initNode("autopilot/settings/RollKnobInDetent",0,"BOOL");	
 
-	props.globals.initNode("autopilot/switches/auto-trim-cutout",0,"BOOL");
-	
 	props.globals.initNode("autopilot/gain/Gtheta",2.0,"DOUBLE");
 	props.globals.initNode("autopilot/gain/Gq",-0.2,"DOUBLE");
-	props.globals.initNode("autopilot/gain/GqIAS",-0.2,"DOUBLE");
-	props.globals.initNode("autopilot/gain/GqMach",-0.2,"DOUBLE");
-	props.globals.initNode("autopilot/gain/GqALT",-0.2,"DOUBLE");
-	props.globals.initNode("autopilot/gain/GhdotALT",-10.0,"DOUBLE");
-
-	props.globals.initNode("autopilot/gain/GAy",0.05,"DOUBLE");
-	props.globals.initNode("autopilot/gain/GBetadot",0.25,"DOUBLE");
-	props.globals.initNode("autopilot/gain/GIASInt",-0.005,"DOUBLE");
-	props.globals.initNode("autopilot/gain/GStatic",0.1,"DOUBLE");
-	props.globals.initNode("autopilot/gain/Gh",-0.15,"DOUBLE");
-	props.globals.initNode("autopilot/gain/Ghint",-0.01,"DOUBLE");
-	props.globals.initNode("autopilot/gain/Ghdot",-1.5,"DOUBLE");
-	
-	props.globals.initNode("autopilot/gain/Gqe",0.02,"DOUBLE");		
-	props.globals.initNode("autopilot/gain/Gqr",2.25,"DOUBLE");
-
+		
 	props.globals.initNode("autopilot/internal/AT1_Datum",0.0,"DOUBLE");
 	props.globals.initNode("autopilot/internal/AT2_Datum",0.0,"DOUBLE");	
 	props.globals.initNode("autopilot/internal/AT3_Datum",0.0,"DOUBLE");	
 	props.globals.initNode("autopilot/internal/AT4_Datum",0.0,"DOUBLE");
-
 	
 var initAFCS_FCSinputs = func() {
     print("initAFCS_FCSinputs");
@@ -131,17 +145,6 @@ var listenerApInitFunc = func {
 setlistener("sim/signals/fdm-initialized", listenerApInitFunc);
 
 
-######var listenerApActiveFunc = func {
-##	if (getprop("autopilot/switches/AP1orAP2Prev-sw") == 0) {
-######	if (getprop("autopilot/switches/AP1orAP2-sw") == 1) { 
-	# Autopilot has just been activated.
-	# set autopilot to basic pitch hold and bank zero mode
-######		setprop("autopilot/switches/mode-knob", 0);     ## MAN
-######			}
-##		}
-######	}
-######setlistener("autopilot/switches/AP1orAP2-sw", listenerApActiveFunc);
-
 # Mode-selector
 #
 # !!! BUG: when switching back from mode 2 or 3 to 1, 0 or -1 GS remains switched on instead of ALT (with the alt switch switched on) !!!
@@ -151,20 +154,6 @@ var listenerApModeFunc = func {
 	if (getprop("autopilot/switches/AP1orAP2-sw") == 1) {
 		print ("-> listenerApModeFunc -> Mode-selector = ", getprop("autopilot/switches/mode-knob"));
 		
-		if (	getprop("autopilot/logic/NAV-sw") == 1) {
-			# NAV - Mode
-
-##			if (getprop("autopilot/route-manager/active") == 1 and getprop("autopilot/route-manager/airborne") == 1) {
-##				setprop("autopilot/locks/passive-mode", 1);
-##
-##				# resets
-##				setprop("autopilot/locks/pitch", "");
-##				setprop("autopilot/locks/lateral", "");
-##			}
-##			else {
-##				gui.popupTip("You must be airborne and a route must be active to activate this mode !");
-##			}
-		}
 		if (getprop("autopilot/switches/mode-knob") == -1) {  #HDG
 			# HDG - Mode
 			setprop("autopilot/locks/lateral", "dg-heading-hold");
@@ -173,17 +162,12 @@ var listenerApModeFunc = func {
 			if (getprop("autopilot/logic/ALT-sw") == 0) {
 				setprop("autopilot/locks/pitch", "");
 			}
-##			else {setprop("autopilot/locks/pitch", "altitude-hold");}
-##			setprop("autopilot/locks/passive-mode", 0);
 		}
 		if (getprop("autopilot/switches/mode-knob") == 0) {
 			# MAN - Mode
-			#var rollKnobDeg = getprop("instrumentation/turn-indicator/indicated-turn-rate") * 36.63;
 			var rollKnobDeg = 0.0;
 			setprop("autopilot/settings/TurnKnob", rollKnobDeg);
 			listenerApMANRollFunc();
-
-##			setprop("autopilot/locks/lateral", "wing-leveler");
 
 			if (getprop("autopilot/logic/ALT-sw") == 0) {
 				setprop("autopilot/settings/pitch-wheel-deg", getprop("orientation/pitch-deg"));
@@ -191,10 +175,6 @@ var listenerApModeFunc = func {
 
 				setprop("autopilot/locks/pitch", "pitch-hold");
 			}
-##			else {setprop("autopilot/locks/pitch", "altitude-hold");}
-
-			# resets
-##			setprop("autopilot/locks/passive-mode", 0);
 		}
 		if (getprop("autopilot/switches/mode-knob") == 1) {
 			# LOC VOR - Mode
@@ -204,16 +184,12 @@ var listenerApModeFunc = func {
 			if (getprop("autopilot/logic/ALT-sw") == 0) {
 				setprop("autopilot/locks/pitch", "");
 			}
-##			else {setprop("autopilot/locks/pitch", "altitude-hold");}
-##			setprop("autopilot/locks/passive-mode", 0);
 		}
 		if (getprop("autopilot/switches/mode-knob") == 2) {
 			# GS AUTO - Mode
 			setprop("autopilot/locks/lateral", "nav1-hold");
 			setprop("autopilot/locks/pitch", "gs1-hold");
 
-			# resets
-##			setprop("autopilot/locks/passive-mode", 0);
 			setprop("autopilot/logic/ALT-sw", 0);
 		}
 		if (getprop("autopilot/switches/mode-knob") == 3) {
@@ -222,12 +198,9 @@ var listenerApModeFunc = func {
 			if (getprop("autopilot/logic/ALT-sw") == 0) {
 				setprop("autopilot/locks/pitch", "");
 			}
-##			else {setprop("autopilot/locks/pitch", "altitude-hold");}
 
 			gsMANAltControl();
 
-			# resets
-##			setprop("autopilot/locks/passive-mode", 0);
 		}
 		if (getprop("autopilot/switches/mode-knob") == 4) {
 			# FLARE - Mode
@@ -237,28 +210,9 @@ var listenerApModeFunc = func {
 		# switched off
 		setprop("autopilot/locks/lateral", "");
 		setprop("autopilot/locks/pitch", "");
-##		setprop("autopilot/internal/wing-leveler-target-roll-deg", 0.0);
-##		setprop("autopilot/locks/passive-mode", 0);
-##		setprop("autopilot/locks/speed", "");
+
 	}
 }
-##setlistener("autopilot/switches/AP1orAP2-sw", listenerApModeFunc);
-##print("setlistener(autopilot/switches/mode-knob)");
-##setlistener("autopilot/switches/mode-knob", listenerApModeFunc, 1,0);
-
-# switches off 'altitude-hold' if GS is in range and all other conditions are satisfied
-######var gsMANAltControl = func {
-######	if (	getprop("autopilot/switches/AP1orAP2-sw") == 1 and
-######		getprop("autopilot/switches/mode-knob") == 3) {      # GS-MAN
-######		if (getprop("instrumentation/nav[0]/gs-in-range") == 0) {
-######			settimer(gsMANAltControl, 0.2);
-######		}
-######		else {
-######			setprop("autopilot/locks/pitch", "");
-######		}
-######	}
-######}
-
 
 # MAN - Mode - roll-selector
 var listenerApMANRollFunc = func {
@@ -289,56 +243,7 @@ var listenerApMANPitchFunc = func {
 			}
 		}
 	}
-######setlistener("autopilot/settings/pitch-wheel-deg", listenerApMANPitchFunc);
 
-# ALT switch
-#####var listenerApAltFunc = func {
-#####	if (getprop("autopilot/switches/AP1orAP2-sw") == 1) {
-#####		if (getprop("autopilot/logic/ALT-sw") == 1) {
-
-#####			# set altitude-hold-value to the actual altitude plus an offset dependent on vspeed
-
-#####			var vspeed = getprop("velocities/vertical-speed-fps");
-#####			var altOffset = vspeed * 5;	# aircraft altitude change in 5 seconds
-
-#####			var altitudeFt = getprop("instrumentation/altimeter/indicated-altitude-ft") + altOffset;
-#####			setprop("autopilot/settings/AltRef", altitudeFt);
-
-##			setprop("autopilot/locks/pitch", "altitude-hold");
-#####		}
-#####		else {
-#####			if (getprop("autopilot/switches/mode-knob") == 0) {   # MAN
-#####				setprop("autopilot/locks/pitch", "pitch-hold");
-#####			}
-###			else {if (getprop("autopilot/locks/pitch") == "altitude-hold") #####{setprop("autopilot/locks/pitch", "");}}
-#####		}
-#####	}
-#####	else {
-#####		setprop("autopilot/locks/pitch", "");
-#####	}
-#####}
-######setlistener("autopilot/logic/ALT-sw", listenerApAltFunc);
-
-
-# settings from FG-menu (shift-F11)
-
-######listenerApSetHeadingFunc = func {
-######	menuSwitchAp();
-#####}
-##setlistener("autopilot/locks/lateral", listenerApSetHeadingFunc);
-
-######listenerApSetAltitudeFunc = func {
-######	if (getprop("autopilot/locks/pitch") == "altitude-hold") {
-##		setprop("autopilot/switches/AP1orAP2-sw", 1);
-######		setprop("autopilot/logic/ALT-sw", 1);
-######		if (getprop("autopilot/switches/mode-knob") == 0) {  # MAN
-######			setprop("autopilot/locks/lateral", "wing-leveler");
-######		}
-######	}
-######	else {setprop("autopilot/logic/ALT-sw", 0);}
-######	menuSwitchAp();
-######}
-#####setlistener("autopilot/locks/pitch", listenerApSetAltitudeFunc);
 
 var menuSwitchAp = func {
 
@@ -368,14 +273,6 @@ var menuSwitchAp = func {
 	}
 }
 
-##listenerApSetPitchFunc = func {
-
-##	setprop("autopilot/settings/pitch-wheel-deg", getprop("autopilot/settings/target-pitch-deg"));
-##}
-##setlistener("autopilot/locks/pitch", listenerApSetPitchFunc);
-##setlistener("autopilot/settings/pitch-hold", listenerApSetPitchFunc);
-
-### Bendix PB 20 ###
 
 setlistener("controls/special/yoke-switch1", func (s1){
     var s1 = s1.getBoolValue();
@@ -523,9 +420,11 @@ var update_autopilot = func {
 	var No2GenBusLive  = 0;
 	if( No1GenBusVolts > 100.0) No1GenBusLive  = 1;
 	if( No2GenBusVolts > 100.0) No2GenBusLive  = 1;	
-	
-	var AP1_haspower  = 0;
-	var AP2_haspower  = 0;		
+
+	var AP1_haspower  = getprop("Autopilot/controls/AP1_haspower") or 0;
+	var AP2_haspower  = getprop("Autopilot/controls/AP2_haspower") or 0;	
+##	var AP1_haspower  = 0;
+##	var AP2_haspower  = 0;		
 	if (AP_m_L_sw and No1GenBusLive) AP1_haspower = 1;
 	if (AP_m_R_sw and No1GenBusLive) AP2_haspower = 1;
 	setprop("autopilot/controls/AP1_haspower", AP1_haspower);

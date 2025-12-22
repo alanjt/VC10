@@ -151,7 +151,7 @@ var h_altimeter = func {
 }
 
 var h_heading = func {
-	var press_hdg = getprop("autopilot/settings/heading-bug-deg");
+	var press_hdg = getprop("autopilot/settings/heading-knob");
 	if(  press_hdg == nil ) press_hdg = 0.0;
 	help_win.write(sprintf("Heading bug: %.0f ", press_hdg) );
 }
@@ -199,7 +199,7 @@ setlistener( "instrumentation/aglradar/alt-offset-ft", func(v){
 },0,1);
 
 setlistener( "instrumentation/altimeter/setting-inhg", h_altimeter );
-setlistener( "autopilot/settings/heading-bug-deg", h_heading );
+setlistener( "autopilot/settings/heading-knob", h_heading );
 setlistener( "instrumentation/nav/radials/selected-deg", h_course );
 setlistener( "instrumentation/nav[1]/radials/selected-deg", h_course_two );
 setlistener( "autopilot/settings/target-speed-kt", h_tas );

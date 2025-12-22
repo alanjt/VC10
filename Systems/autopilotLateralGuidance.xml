@@ -1,64 +1,213 @@
 <?xml version="1.0"?>
-
 <!--
     Autopilot Configuration for the VC10.
 -->
-
-
 <PropertyList>
-
 	<!--
     ===============
     Azimuth Control System and Roll Autostabiliser. 
     ===============
     -->
-	
 	<!-- Gains -->
-	<!-- A1 * vfps/200   (A1=1.0) -->
+
 	<filter>
 		<name>KPSI</name>
 		<debug>false</debug>
 		<type>gain</type>
-		<gain>0.005</gain><!-- 1/200 -->
+		<gain>1.0</gain>
 		<input>
-			<property>fdm/jsbsim/velocities/u-aero-fps</property>
+			<expression>
+				<product>
+					<value>0.005</value>
+					<!-- 1/Uo = 1/200 for Uo = 200ft/sec -->
+					<property>autopilot/LGUIDE/a_psi</property>
+					<property>fdm/jsbsim/velocities/u-aero-fps</property>
+				</product>
+			</expression>
 		</input>
-		<output><property>autopilot/LGUIDE/KPSI</property></output>
+		<output>
+			<property>autopilot/LGUIDE/KPSI</property>
+		</output>
 	</filter>
-
+	
+<!-- gain correction correction factor due to distance from localiser tranmitter -->
+<!--	
+instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
+<filter>
+		<name>Krange</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<expression>
+				<product>
+					<value>0.005</value>
+					<property>autopilot/LGUIDE/a_psi</property>
+					<property>fdm/jsbsim/velocities/u-aero-fps</property>
+				</product>
+			</expression>
+		</input>
+		<output>
+			<property>autopilot/LGUIDE/Krange</property>
+		</output>
+	</filter> -->
+	
 	<!-- Limits -->
-
 	<!-- Magnetic heading -->
 	<filter>
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
-		<input><property>orientation/heading-magnetic-deg</property></input>
-		<output><property>autopilot/LGUIDE/PSI</property></output>
+		<input>
+			<property>orientation/heading-magnetic-deg</property>
+		</input>
+		<output>
+			<property>autopilot/LGUIDE/PSI</property>
+		</output>
 	</filter>
+	<!-- Inputs from FG -->
 	
 	<!-- Course (OBD) Knob -->
 	<filter>
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
-		<input><property>instrumentation/nav[0]/radials/selected-deg</property></input>
-		<output><property>autopilot/LGUIDE/PSIREF</property></output>
+		<input>
+			<property>instrumentation/nav[0]/radials/selected-deg</property>
+		</input>
+		<output>
+			<property>autopilot/LGUIDE/PSI_S</property>
+		</output>
 	</filter>
-
+	
+	<!-- HDG Knob -->
 	<filter>
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
-		<input><property>autopilot/LGUIDE/PSI</property></input>
-		<reference><property>autopilot/LGUIDE/PSIREF</property></reference>
-		<output><property>autopilot/LGUIDE/PSIERP</property></output>
-		<period>
-			<min>-180</min>
-			<max>180</max>
-		</period>
+		<input>
+			<property>autopilot/settings/heading-knob</property>
+		</input>
+		<output>
+			<property>autopilot/LGUIDE/PSI_R</property>
+		</output>
 	</filter>
 	
+	<!-- beam error -->
+	<filter>
+		<name>VOR/LOC Beam Error degrees</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<condition>
+				<!-- ILS - Full scale 2 dots = 2.5 deg -->
+				<property>instrumentation/nav/frequencies/is-localizer-frequency</property>
+			</condition>
+			<expression>
+				<product>
+					<property>instrumentation/nav/heading-needle-deflection</property>
+					<value>-2.5</value>
+				</product>
+			</expression>
+		</input>
+		<!-- not an ILS frequency - assume VOR -->
+		<input>
+			<!-- VOR - Full scale 2 dots = 10 deg -->
+			<expression>
+				<product>
+					<property>instrumentation/nav/heading-needle-deflection</property>
+					<value>-10.0</value>
+				</product>
+			</expression>
+		</input>
+		<output>
+			<property>autopilot/LGUIDE/Beta_Deg</property>
+		</output>
+		<!--		<u_min>-10</u_min><u_max>10</u_max> -->
+	</filter>
+	
+	<!-- ######################################################################################## -->
+	<!-- ILS/VOR radial error (Compass Course Knob - compass magnetic heading) -->
+	<!-- Used for VOR radial tracking, LOC beam tracking and runway decrab control -->
+	<filter>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<property>autopilot/LGUIDE/PSI</property>
+		</input>
+		<!-- magnetic heading -->
+		<reference>
+			<property>autopilot/LGUIDE/PSI_R</property>
+		</reference>
+		<!-- CRS knob -->
+		<output>
+			<property>autopilot/LGUIDE/PSI_E</property>
+		</output>
+		<period><min>-180</min><max>180</max></period>
+		<u_min>-25</u_min><u_max>25</u_max>
+		<!-- L3 -->
+	</filter>
+	
+	<!-- Heading demand error (Compass Heading Knob - compass magnetic heading) -->
+	<!-- Used during beam intercept -->
+	<filter>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<property>autopilot/LGUIDE/PSI</property>
+		</input>
+		<!-- magnetic heading -->
+		<reference>
+			<property>autopilot/LGUIDE/PSI_S</property>
+		</reference>
+		<!-- HDG knob -->
+		<output>
+			<property>autopilot/LGUIDE/PSI_C</property>
+		</output>
+		<period><min>-180</min><max>180</max></period>
+		<u_min>-25</u_min><u_max>25</u_max>
+		<!-- limit  LGL3 -->
+	</filter>
+	
+	<filter>
+		<name>Heading error washout (synthetic diferentiation)</name>
+		<debug>false</debug>
+		<type>high-pass</type>
+		<gain>1.0</gain>
+		<filter-time><property>autopilot/LGUIDE/t1</property></filter-time>
+		<input>
+			<property>autopilot/LGUIDE/PSI_E</property>
+		</input>
+		<output>
+			<property>autopilot/LGUIDE/PSI_E_washout</property>
+		</output>
+	</filter>
+	
+	<!-- After beam capture use washed out course error in place of course error -->
+	<filter>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<condition>
+				<property>autopilot/LGUIDE/ONC</property>
+			</condition>
+			<property>autopilot/LGUIDE/PSI_E_washout</property>
+			<!-- ONC set -->
+		</input>
+		<input>
+			<property>autopilot/LGUIDE/PSI_E</property>
+			<!-- ONC not set -->
+		</input>
+		<output>
+			<property>autopilot/LGUIDE/PSI_E_F</property>
+		</output>
+	</filter>
+	
+	<!-- course error signal for roll command output -->
 	<filter>
 		<debug>false</debug>
 		<type>gain</type>
@@ -66,14 +215,231 @@
 		<input>
 			<expression>
 				<product>
-					<property>autopilot/LGUIDE/PSEIRP</property>
-					<property>autopilot/LGUIDE/KPSI</property>
-					<property>fdm/jsbsim/velocities/u-aero-fps</property>					
+					<property>autopilot/LGUIDE/PSI_E_F</property>
+					<property>autopilot/LGUIDE/b1</property>
 				</product>
 			</expression>
 		</input>
-		<output><property>autopilot/LGUIDE/PHICMP</property></output>
+		<output>
+			<property>autopilot/LGUIDE/PSI_E_B1</property>
+		</output>
 	</filter>
+	<!-- VOR/LOC beam error filters -->
+	<filter>
+		<name>VOR_LOC-beam lowpass filter></name>
+		<type>exponential</type>
+		<debug>false</debug>
+		<initialize-to>output</initialize-to>
+		<gain>1.0</gain>
+		<filter-time><property>autopilot/LGUIDE/t4</property></filter-time>
+		<input>
+			<expression>
+				<product>
+					<property>autopilot/LGUIDE/a2</property>
+					<property>autopilot/LGUIDE/Beta_Deg</property>
+				</product>
+			</expression>
+		</input>
+		<output>
+			<property>autopilot/LGUIDE/Beta_Lag</property>
+		</output>
+	</filter>
+	<!-- VOR/LOC beam synthetic rate -->
+	<filter>
+		<name>VOR_LOC-beam rate filter part 1 - washout (diferentiation + intial smoothing)</name>
+		<debug>false</debug>
+		<type>high-pass</type>
+		<gain>1.0</gain>
+		<filter-time><property>autopilot/LGUIDE/t2</property></filter-time>
+		<input>
+			<expression>
+				<product>
+					<property>autopilot/LGUIDE/Beta_Deg</property>
+					<property>autopilot/LGUIDE/a1</property>
+				</product>
+			</expression>
+		</input>
+		<output>
+			<property>autopilot/LGUIDE/Beta_washout</property>
+		</output>
+	</filter>
+	<filter>
+		<name>VOR_LOC-beam rate filter part 2 - low pass (more smoothing)</name>
+		<debug>false</debug>
+		<type>exponential</type>
+		<gain>1.0</gain>
+		<filter-time><property>autopilot/LGUIDE/t3</property></filter-time>
+		<!-- t3-->
+		<input>
+			<property>autopilot/LGUIDE/Beta_washout</property>
+		</input>-->
+		<output>
+			<property>autopilot/LGUIDE/Beta_dot</property>
+		</output>
+	</filter>
+	<filter>
+		<name>VOR_LOC-beam error limited</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<expression>
+				<product>
+					<property>autopilot/LGUIDE/Beta_Lag</property>
+					<property>autopilot/LGUIDE/a2</property>
+				</product>
+			</expression>
+		</input>
+		<output>
+			<property>autopilot/LGUIDE/Beta_Lag_limited</property>
+		</output><u_min>-1.5</u_min><u_max>1.5</u_max>
+		<!-- L1 -->
+	</filter>
+	<filter>
+		<name>VOR_LOC-beam integrator filter></name>
+		<debug>false</debug>
+		<type>integrator</type>
+		<gain>1.0</gain>
+		<input>
+			<!-- run integrator when Beam Error less than +- 0.2 degrees and ONC is set -->
+			<condition>
+				<and>
+					<less-than>
+						<property>autopilot/LGUIDE/Beta_Deg_abs</property>
+						<property>autopilot/LGUIDE/L2</property>
+					</less-than>
+					<property>autopilot/LGUIDE/ONC</property>
+				</and>
+			</condition>
+			<property>autopilot/LGUIDE/Beta_Deg</property>
+		</input>
+		<input>
+			<!-- otherwise, apply fedback to zero integrator -->
+			<expression>
+				<product>
+					<property>autopilot/LGUIDE/Beta_Integ</property>
+					<value>-10</value>
+				</product>
+			</expression>
+		</input>
+		<output>
+			<property>autopilot/LGUIDE/Beta_Integ</property>
+		</output>
+	</filter>
+	<!-- sum of beam error , beam error washout and beam error integrator -->
+	<filter>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<expression>
+				<sum>
+					<property>autopilot/LGUIDE/Beta_Lag_limited</property>
+					<product>
+						<property>autopilot/LGUIDE/Beta_Integ</property>
+						<property>autopilot/LGUIDE/a3</property>
+					</product>
+					<property>autopilot/LGUIDE/Beta_dot</property>
+				</sum>
+			</expression>
+		</input>
+		<output>
+			<property>autopilot/LGUIDE/Beta_E_sum</property>
+		</output>
+	</filter>
+
+	<!--  ################################################################ -->
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<!-- page 220 -->
+	<filter>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<property>autopilot/LGUIDE/PSI</property>
+		</input>
+		<reference>
+			<property>autopilot/LGUIDE/THETRR</property>
+		</reference>
+		<output>
+			<property>autopilot/LGUIDE/CPER</property>
+		</output>
+		<period><min>-180</min><max>180</max></period>
+	</filter>
+	<filter>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<property>autopilot/LGUIDE/CPER</property>
+		</input>
+		<output>
+			<property>autopilot/LGUIDE/CPERLIM</property>
+		</output>
+		<u_min>-25</u_min><u_max>25</u_max>
+		<!-- limit  LGL3 -->
+	</filter>
+	<filter>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<expression>
+				<abs>
+					<property>autopilot/LGUIDE/Beta_Lag</property>
+				</abs>
+			</expression>
+		</input>
+		<output>
+			<property>autopilot/LGUIDE/Beta_Lag_abs</property>
+		</output>
+	</filter>
+	<filter>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<expression>
+				<abs>
+					<property>autopilot/LGUIDE/Beta_Deg</property>
+				</abs>
+			</expression>
+		</input>
+		<output>
+			<property>autopilot/LGUIDE/Beta_Deg_abs</property>
+		</output>
+	</filter>
+	<!-- LOC signal at max limit -->
+	<!-- beam error -->
+	<logic>
+		<debug>false</debug>
+		<input>
+			<greater-than>
+				<property>autopilot/LGUIDE/Beta_Deg_abs</property>
+				<value>9.9</value>
+			</greater-than>
+		</input>
+		<output>
+			<property>autopilot/LGUIDE/LOClimited</property>
+		</output>
+	</logic>
 	
 	<filter>
 		<debug>false</debug>
@@ -82,340 +448,36 @@
 		<input>
 			<expression>
 				<difference>
-					<property>autopilot/LGUIDE/PHICMP</property>
-					<property>autopilot/LGUIDE/PSIERU</property>					
-				</differencet>
+					<sum>
+						<product>
+							<property>autopilot/LGUIDE/KCL1</property>
+							<sum>
+								<difference>
+									<value>1.0</value>
+									<cos>
+										<property>autopilot/LGUIDE/CPER</property>
+									</cos>
+								</difference>
+							</sum>
+						</product>
+						<product>
+							<property>autopilot/LGUIDE/KCL2</property>
+							<property>autopilot/LGUIDE/Beta_Deg_abs</property>
+						</product>
+					</sum>
+					<sum>
+						<product>
+							<!-- should be scaled by DME/72690 (ft) -->
+							<property>autopilot/LGUIDE/KCL3</property>
+							<property>autopilot/LGUIDE/Beta_Lag_abs</property>
+						</product>
+					</sum>
+				</difference>
 			</expression>
 		</input>
-		<output><property>autopilot/LGUIDE/DVCI</property></output>
+		<output>
+			<property>autopilot/LGUIDE/CBTEST</property>
+		</output>
 	</filter>
-	
-	
-	<!-- HDG Knob -->
-	<filter>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input><property>autopilot/settings/heading-bug-deg</property></input>
-		<output><property>autopilot/LGUIDE/THETRR</property></output>
-	</filter>	
-	
-	<filter>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input><property>autopilot/LGUIDE/PSI</property></input>
-		<reference><property>autopilot/LGUIDE/THETRR</property></reference>
-		<output><property>autopilot/LGUIDE/CPER</property></output>
-		<period>
-			<min>-180</min>
-			<max>180</max>
-		</period>
-	</filter>
-	
-	<filter>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input><property>autopilot/LGUIDE/CPER</property></input>
-		<output><property>autopilot/LGUIDE/CPERLIM</property></output>
-		<u_min>-25</u_min><u_max>25</u_max>
-	</filter>	
-	
-
-	<!-- VOR/LOC course (runway heading) filter -->
-	<!--	<filter>
-		<name>VOR_LOC-course error low pass filter</name>
-		<debug>false</debug>
-		<type>exponential</type>
-		<gain>5.0</gain>
-		<filter-time>5.0</filter-time>
-		<input><property>autopilot/LGUIDE/VOR_LOC-deg</property></input>
-		<output><property>autopilot/LGUIDE/EPLF</property></output>
-	</filter>  -->
-
-	<!-- beam error -->
-	<filter>
-		<name>VOR/LOC Beam Error degrees</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>-1.0</gain>
-		<input>
-			<condition><!-- ILS - Full scale 2 dots = 2.5 deg -->
-				<property>instrumentation/nav/frequencies/is-localizer-frequency</property>
-			</condition>
-			<expression>
-				<prod>
-					<property>instrumentation/nav/heading-needle-deflection</property>
-					<value>2.5</value>
-				</prod>
-			</expression>
-		</input>
-		<!-- not an ILS frequency - assume VOR -->
-		<input><!-- VOR - Full scale 2 dots = 10 deg -->
-			<expression>
-				<product>
-					<property>instrumentation/nav/heading-needle-deflection</property>
-					<value>10.0</value>
-				</product>
-			</expression>
-		</input>
-		<output><property>autopilot/LGUIDE/EPSLOC</property></output>
-		<u_min>-10</u_min><u_max>10</u_max>
-	</filter>
-
-	<!-- VOR/LOC beam synthetic rate -->
-	<filter>
-		<name>VOR_LOC-beam rate filter part 1 - washout (diferentiation + intial smoothing)</name>
-		<debug>false</debug>
-		<type>high-pass</type>
-		<gain>1.0</gain>
-		<filter-time>1.5</filter-time><!-- TLG2-->
-		<input><property>autopilot/LGUIDE/EPSLOC</property></input>
-		<output><property>autopilot/LGUIDE/EPLDOT1</property></output>
-	</filter>
-	
-	<filter>
-		<name>VOR_LOC-beam rate filter part 2 - low pass (more smoothing)</name>
-		<debug>false</debug>
-		<type>exponential</type>
-		<gain>1.0</gain>
-		<filter-time>0.2</filter-time><!-- TLG3-->
-		<input><property>autopilot/LGUIDE/EPLDOT1</property></input>
-		<output><property>autopilot/LGUIDE/EPLDOT</property></output>
-	</filter>
-	
-	<filter>
-		<name>VOR_LOC-beam lowpass filter></name>
-		<debug>false</debug>
-		<type>exponential</type>
-		<gain>1.0</gain>
-		<filter-time>0.25</filter-time><!-- TLG4-->
-		<input><property>autopilot/LGUIDE/EPSLOC</property></input>
-		<output><property>autopilot/LGUIDE/EPLF</property></output>
-	</filter>
-	
-	<filter>
-		<name>VOR_LOC-beam integrator filter></name>
-		<debug>false</debug>
-		<type>integraor</type>
-		<gain>1.0</gain>
-		<input><!-- run integrator when input less than 0.2 degrees and ONC is set -->
-			<condition>
-				<expression>
-					<less-than>
-						<abs><property>autopilot/LGUIDE/EPSLOC</property></abs>
-						<value>0.2</value>
-					</less-than>
-				</expression>
-				<property>autopilot/LGUIDE/EPSLOC</property>
-			</condition>
-			<input><!-- otherwise, zero integrator -->
-				<expression>
-					<product>
-						<value>-10</value>
-					</product>
-				</expression>
-			</input>
-			<property>autopilot/LGUIDE/EPSLOC</property></input>
-		<output><property>autopilot/LGUIDE/EPLI</property></output>
-	</filter>
-
-	<filter>
-		<name>VOR/LOC Heading Command Computer</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>  <!-- KLOCT -->
-		<input>
-			<expression>
-				<sum>
-					<product>
-						<property>autopilot/LGUIDE/EPLDOT</property>
-						<property>autopilot/LGUIDE/ALG1</property>
-					</product>
-					<product>
-						<property>autopilot/LGUIDE/EPLF</property>
-						<property>autopilot/LGUIDE/ALG2</property>
-					</product>
-					<product>
-						<property>autopilot/LGUIDE/EPLI</property>
-						<property>autopilot/LGUIDE/ALG3</property>
-					</product>
-				</sum>
-			</expression>
-		</input>
-		<output><property>autopilot/LGUIDE/PSILOC</property></output>
-	</filter>
-	
-	<!-- There are 2 MAN modes 
-			HDG-Hold  - if Turn knob is less than 3 degrees
-			Turn mode - if Turn knob is over 3 degrees      -->
-	<logic>
-		<name>HDG hold mode</name>
-		<input>
-			<and>
-				<equals>
-					<property>autopilot/switches/mode-knob</property>
-					<value>0</value><!-- MAN mode -->
-				</equals>
-				<greater-than>
-					<property>autopilot/settings/TurnKnob</property>
-					<value>-3.0</value><!-- MAN, knob in detent -ve -->
-				</greater-than>
-				<less-than>
-					<property>autopilot/settings/TurnKnob/</property>
-					<value>3.0</value><!-- MAN, turn knob in  detent +ve -->
-				</less-than>
-			</and>
-		</input>
-		<output><property>autopilot/logic/HdgHold</property></output>
-	</logic>
-	
-	<logic>
-		<name>Turn mode</name>
-		<input>
-			<and>
-				<equals>
-					<property>autopilot/switches/mode-knob</property>
-					<value>0</value><!-- MAN mode -->
-				</equals>
-				<or>
-					<less-than>
-						<property>autopilot/settings/TurnKnob</property>
-						<value>-3.0</value><!-- MAN, knob out of detent -ve -->
-					</less-than>
-					<greater-than>
-						<property>autopilot/settings/TurnKnob/</property>
-						<value>3.0</value><!-- MAN, turn knob out of detent +ve -->
-					</greater-than>
-				</or>
-			</and>
-		</input>
-		<output><property>autopilot/logic/TurnKnob</property></output>
-	</logic>
-	
-	<filter>
-		<name>heading hold command</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input>
-			<condition>
-				<equals>
-					<property>autopilot/logic/HdgHold</property>
-					<value>0</value>
-				</equals>
-			</condition>
-			<property>autopilot/LGUIDE/heading-magnetic-deg</property>
-		</input>
-		
-		<!-- make sure that heading-hold-deg is set to current heading when AP is not engaged.-->
-		<input>
-			<condition>
-				<equals>
-					<property>autopilot/switches/AP1orAP2-sw</property>
-					<value>0</value>
-				</equals>
-			</condition>
-			<property>autopilot/LGUIDE/heading-magnetic-deg</property>
-		</input>
-		<input><property>autopilot/LGUIDE/heading-hold-deg</property></input>
-		<output><property>autopilot/LGUIDE/heading-hold-deg</property></output>
-	</filter>
-	
-	<filter>
-		<name>heading hold deg error</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input><property>autopilot/LGUIDE/heading-magnetic-deg</property></input>
-		<reference><property>autopilot/LGUIDE/heading-hold-deg</property></reference>
-		<output><property>autopilot/LGUIDE/hdg-hdgholdD</property></output>
-		<period>
-			<min>-180</min>
-			<max>180</max>
-		</period>
-	</filter>
-
-
-	<!-- Bank demand from AFCS panel turn knob -->
-
-	<filter>
-		<name>Target Roll Filter</name>
-		<debug>false</debug>
-		<type>rate-limit</type>
-		<input><property>autopilot/settings/TurnKnob</property></input>
-		<output><property>autopilot/settings/TurnKnob-deg-filtered</property></output>
-		<max-rate-of-change>10.0</max-rate-of-change>
-		<min-rate-of-change>-10.0</min-rate-of-change>
-		<feedback-if-disabled>true</feedback-if-disabled>
-		<initialize-to>output</initialize-to>
-	</filter>
-
-
-	<filter>
-		<name>Bank angle command</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
-		
-		<input>
-			<condition>
-				<equals>
-					<property>autopilot/logic/HdgHold</property>
-					<value>1</value>
-				</equals>
-			</condition>
-			<expression>
-				<product>
-					<property>autopilot/LGUIDE/KPSI</property>
-					<property>autopilot/LGUIDE/hdg-hdgholdD</property>
-				</product>
-			</expression>
-		</input>
-		
-		<input>
-			<condition>
-				<equals>
-					<property>autopilot/logic/TurnKnob</property>
-					<value>1</value>
-				</equals>
-			</condition>
-			<property>autopilot/settings/TurnKnob-deg-filtered</property>
-		</input>
-
-		<input>
-			<condition>
-				<equals>
-					<property>autopilot/switches/mode-knob</property>
-					<value>-1.0</value>
-				</equals>
-			</condition>
-			<expression>
-				<product>
-					<!--					<property>autopilot/LGUIDE/KPSI</property> -->
-					<value>-1.0</value>
-					<property>autopilot/LGUIDE/hdg-hdgD</property>
-				</product>
-			</expression>
-		</input>
-		
-		<input>
-			<condition>
-				<greater-than>
-					<property>autopilot/switches/mode-knob</property>
-					<property>autopilot/LGUIDE/PHICOM-VL</property><!-- VOR,LOC,FLARE modes-->
-				</greater-than>
-			</condition>
-		</input>
-		
-		<input>
-			<value>0.0</value>
-		</input>
-		<!--  commanded bank angle -->
-		<u_min><property>autopilot/LGUIDE/Phi_r_neglimit</property></u_min>
-		<u_max><property>autopilot/LGUIDE/Phi_r_limit</property></u_max>
-		<output><property>autopilot/LGUIDE/PHICOM</property></output>
-	</filter>
-
+	<!-- page 221 -->
 </PropertyList>

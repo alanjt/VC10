@@ -5,7 +5,7 @@
 -->
 <PropertyList>
 
-  <path>CDI.ac</path>
+	<path>CDI.ac</path>
 
 	<animation>
 		<type>select</type>
@@ -19,7 +19,7 @@
 		</condition>
 	</animation>
 	
-<!-- compass with hdg function -->
+	<!-- compass with hdg function -->
 	<animation>
 		<type>rotate</type>
 		<object-name>CDI-ring</object-name>
@@ -32,73 +32,50 @@
 		<object-name>VOR_LOC_dots</object-name>
 		<property>instrumentation/heading-indicator-dg[0]/indicated-heading-deg</property>
 		<factor>-1</factor>
-		<axis>
-			<x>-1</x>
-			<y>0</y>
-			<z>0</z>
+		<axis><x>-1</x><y>0</y><z>0</z>
 		</axis>
 	</animation>
 	
 	<animation>
 		<type>rotate</type>
 		<object-name>hdg-arrow</object-name>
-		<property>autopilot/settings/heading-bug-deg</property>   <!-- HDG knob -->
-		<axis>
-			<x>-1</x>
-			<y>0</y>
-			<z>0</z>
-		</axis>
+		<property>autopilot/settings/heading-knob</property><!-- HDG knob -->
+		<axis><x>-1</x><y>0</y><z>0</z></axis>
 	</animation>
 
-<!--	<animation>
+	<animation>
 		<type>rotate</type>
 		<object-name>hdg_knob</object-name>
-		<property>autopilot/settings/heading-bug-deg</property>        
-		<center>
-      <x-m>0.0</x-m>
-      <y-m>0.0389</y-m>
-      <z-m>-0.0396</z-m>
-    </center>
-		<axis>
-			<x>-1</x>
-			<y>0</y>
-			<z>0</z>
-		</axis>
-	</animation> -->
+		<property>autopilot/settings/heading-knob</property><!-- HDG knob -->
+		<center><x-m>0.0</x-m><y-m>0.03898</y-m><z-m>-0.03968</z-m></center>
+		<axis><x>-1</x><y>0</y><z>0</z></axis>
+	</animation>
 	 
-  <animation>
+	<animation>
 		<type>rotate</type>
 		<object-name>To</object-name>
 		<object-name>From</object-name>
 		<object-name>noNav</object-name>
 		<object-name>VorLocDeviationBar</object-name>
 		<object-name>VOR_LOC_dots</object-name>
-		<property>instrumentation/nav[0]/radials/selected-deg</property>   <!-- CRS knob -->
-		<axis>
-			<x>-1.0</x>
-			<y>0.0</y>
-			<z>0.0</z>
-		</axis>
-  </animation>
+		<property>instrumentation/nav[0]/radials/selected-deg</property><!-- CRS knob -->
+		<axis><x>-1.0</x><y>0.0</y><z>0.0</z></axis>
+	</animation>
 
 	<animation>
 		<type>knob</type>
 		<object-name>hdg_knob</object-name>
-		<property>autopilot/settings/heading-bug-deg</property>   <!-- HDG knob -->
-		<center>
-			<x-m>0.0</x-m><y-m>0.03968</y-m><z-m>-0.03968</z-m>
-		</center>
-		<axis>
-			<x>-1</x><y>0</y><z>0</z>
-		</axis>
+		<property>autopilot/settings/heading-knob</property><!-- HDG knob -->
+		<center><x-m>0.0</x-m><y-m>0.03898</y-m><z-m>-0.03968</z-m></center>
+		<axis><x>-1</x><y>0</y><z>0</z></axis>
 		<drag-direction>horizontal</drag-direction>
 		<action>
 			<binding>
 				<command>property-adjust</command>
-				<property>autopilot/settings/heading-bug-deg</property>   <!-- HDG knob -->
+				<property>autopilot/settings/heading-knob</property><!-- HDG knob -->
 				<factor>1</factor>
 				<min>0</min>
-				<max>360</max> 
+				<max>360</max>
 				<wrap>1</wrap>
 			</binding>
 		</action>
@@ -107,7 +84,7 @@
 				<command>set-tooltip</command>
 				<label>Heading: %3d</label>
 				<tooltip-id>Heading</tooltip-id>
-				<property>autopilot/settings/heading-bug-deg</property>   <!-- HDG knob -->
+				<property>autopilot/settings/heading-knob</property><!-- HDG knob -->
 			</binding>
 		</hovered>
 	</animation>
@@ -115,21 +92,17 @@
 	<animation>
 		<type>knob</type>
 		<object-name>course_knob</object-name>
-		<property>instrumentation/nav[0]/radials/selected-deg</property>   <!-- CRS knob -->
-		<center>
-			<x-m>0.0</x-m><y-m>-0.03968</y-m><z-m>-0.03968</z-m>
-		</center>
-		<axis>
-			<x>-1</x><y>0</y><z>0</z>
-		</axis>
+		<property>instrumentation/nav[0]/radials/selected-deg</property><!-- CRS knob -->
+		<center><x-m>0.0</x-m><y-m>-0.03732</y-m><z-m>-0.03968</z-m></center>
+		<axis><x>-1</x><y>0</y><z>0</z></axis>
 		<drag-direction>horizontal</drag-direction>
 		<action>
 			<binding>
 				<command>property-adjust</command>
-				<property>instrumentation/nav[0]/radials/selected-deg</property>   <!-- CRS knob -->
+				<property>instrumentation/nav[0]/radials/selected-deg</property><!-- CRS knob -->
 				<factor>1</factor>
 				<min>0</min>
-				<max>360</max> 
+				<max>360</max>
 				<wrap>1</wrap>
 			</binding>
 		</action>
@@ -138,136 +111,116 @@
 				<command>set-tooltip</command>
 				<label>Course: %3d</label>
 				<tooltip-id>Course</tooltip-id>
-				<property>instrumentation/nav[0]/radials/selected-deg</property>   <!-- CRS knob -->
+				<property>instrumentation/nav[0]/radials/selected-deg</property><!-- CRS knob -->
 			</binding>
 		</hovered>
 	</animation>
 		
  
-<!-- action for nav -->
+	<!-- action for nav -->
 
-    <animation>
-        <type>select</type>
-        <object-name>noNav</object-name>
-        <condition>
-            <or>
-		          <not>
-		              <property>instrumentation/nav[0]/data-is-valid</property>
-		          </not>
-		          <and>
-				        <not>
-				            <property>instrumentation/nav[0]/from-flag</property>
-				        </not>
-				        <not>
-				            <property>instrumentation/nav[0]/to-flag</property>
-				        </not>
-				      </and>	          
-		        </or>
-        </condition>
-    </animation>
+	<animation>
+		<type>select</type>
+		<object-name>noNav</object-name>
+		<condition>
+			<or>
+				<not>
+					<property>instrumentation/nav[0]/data-is-valid</property>
+				</not>
+				<and>
+					<not>
+						<property>instrumentation/nav[0]/from-flag</property>
+					</not>
+					<not>
+						<property>instrumentation/nav[0]/to-flag</property>
+					</not>
+				</and>
+			</or>
+		</condition>
+	</animation>
 
-    <animation>
-        <type>select</type>
-        <object-name>To</object-name>
-        <condition>
-            <property>instrumentation/nav[0]/to-flag</property>
-        </condition>
-    </animation>
+	<animation>
+		<type>select</type>
+		<object-name>To</object-name>
+		<condition>
+			<property>instrumentation/nav[0]/to-flag</property>
+		</condition>
+	</animation>
 
-    <animation>
-        <type>select</type>
-        <object-name>From</object-name>
-        <condition>
-            <property>instrumentation/nav[0]/from-flag</property>
-        </condition>
-    </animation>
+	<animation>
+		<type>select</type>
+		<object-name>From</object-name>
+		<condition>
+			<property>instrumentation/nav[0]/from-flag</property>
+		</condition>
+	</animation>
     
-    <animation>
-        <type>translate</type>
-        <object-name>VorLocDeviationBar</object-name>
-        <property>instrumentation/nav[0]/heading-needle-deflection</property>
-        <interpolation>
-        <entry><ind>-10.0</ind><dep>-0.025</dep></entry>
-		<entry><ind>0.0</ind><dep>0.0</dep></entry>
-        <entry><ind>10.0</ind><dep>0.025</dep></entry>
-    </interpolation>
-        <axis>
-            <x>0.0</x>
-            <y>1.0</y>
-            <z>0.0</z>
-        </axis>
- <!--        <center>
+	<animation>
+		<type>translate</type>
+		<object-name>VorLocDeviationBar</object-name>
+		<property>instrumentation/nav[0]/heading-needle-deflection</property>
+		<interpolation>
+			<entry><ind>-10.0</ind><dep>-0.025</dep></entry>
+			<entry><ind>0.0</ind><dep>0.0</dep></entry>
+			<entry><ind>10.0</ind><dep>0.025</dep></entry>
+		</interpolation>
+		<axis><x>0.0</x><y>1.0</y><z>0.0</z></axis>
+		<!--        <center>
            <x-m>0.0</x-m>
             <y-m>0.0</y-m>
             <z-m>-0.006</z-m>
         </center> -->
-    </animation>
+	</animation>
 	
-    <animation>
-        <type>translate</type>
-        <object-name>GS_DeviationBar</object-name>
-        <property>instrumentation/nav[0]/gs-needle-deflection-norm</property>
-        <interpolation>
-        <entry><ind>-0.7</ind><dep>-0.025</dep></entry>
-		<entry><ind>0.0</ind><dep>0.0</dep></entry>
-        <entry><ind>0.7</ind><dep>0.025</dep></entry>
-    </interpolation>
-        <axis>
-            <x>0.0</x>
-            <y>0.0</y>
-            <z>1.0</z>
-        </axis>
-<!--        <center>
+	<animation>
+		<type>translate</type>
+		<object-name>GS_DeviationBar</object-name>
+		<property>instrumentation/nav[0]/gs-needle-deflection-norm</property>
+		<interpolation>
+			<entry><ind>-0.7</ind><dep>-0.025</dep></entry>
+			<entry><ind>0.0</ind><dep>0.0</dep></entry>
+			<entry><ind>0.7</ind><dep>0.025</dep></entry>
+		</interpolation>
+		<axis><x>0.0</x><y>0.0</y><z>1.0</z></axis>
+		<!--        <center>
             <x-m>0.0</x-m>
             <y-m>0.0</y-m>
             <z-m>-0.006</z-m>
         </center> -->
-    </animation>
+	</animation>
 
-		<animation>
-				<type>textranslate</type>
-				<object-name>CrsNum.1</object-name>
-				<property>instrumentation/nav[0]/radials/selected-deg</property>   <!-- CRS knob -->
-				<factor>0.001</factor>
-				<step>100</step>
-				<scroll>1</scroll>
-				<axis>
-				    <x>0</x>
-				    <y>1</y>
-				    <z>0</z>
-				</axis>
-		</animation>
+	<animation>
+		<type>textranslate</type>
+		<object-name>CrsNum.1</object-name>
+		<property>instrumentation/nav[0]/radials/selected-deg</property><!-- CRS knob -->
+		<factor>0.001</factor>
+		<step>100</step>
+		<scroll>1</scroll>
+		<axis><x>0</x><y>1</y><z>0</z></axis>
+	</animation>
 
-		<animation>
-				<type>textranslate</type>
-				<object-name>CrsNum.2</object-name>
-				<property>instrumentation/nav[0]/radials/selected-deg</property>   <!-- CRS knob -->
-				<factor>0.01</factor>
-				<step>10</step>
-				<scroll>1</scroll>
-				<axis>
-				    <x>0</x>
-				    <y>1</y>
-				    <z>0</z>
-				</axis>
-		</animation>
+	<animation>
+		<type>textranslate</type>
+		<object-name>CrsNum.2</object-name>
+		<property>instrumentation/nav[0]/radials/selected-deg</property><!-- CRS knob -->
+		<factor>0.01</factor>
+		<step>10</step>
+		<scroll>1</scroll>
+		<axis><x>0</x><y>1</y><z>0</z></axis>
+	</animation>
 
-		<animation>
-				<type>textranslate</type>
-				<object-name>CrsNum.3</object-name>
-				<property>instrumentation/nav[0]/radials/selected-deg</property>   <!-- CRS knob -->
-				<factor>0.1</factor>
-				<step>1</step>
-				<scroll>1</scroll>
-				<axis>
-				    <x>0</x>
-				    <y>1</y>
-				    <z>0</z>
-				</axis>
-		</animation>
+	<animation>
+		<type>textranslate</type>
+		<object-name>CrsNum.3</object-name>
+		<property>instrumentation/nav[0]/radials/selected-deg</property><!-- CRS knob -->
+		<factor>0.1</factor>
+		<step>1</step>
+		<scroll>1</scroll>
+		<axis><x>0</x><y>1</y><z>0</z></axis>
+	</animation>
 
   
- <!-- 	<animation>
+	<!-- 	<animation>
 		<type>material</type>
 			<object-name>off-flag</object-name>
 			<object-name>DialCentre</object-name>
@@ -294,7 +247,7 @@
 		</emission>
 	</animation> -->
 	
-<!--	<animation>
+	<!--	<animation>
 		<type>material</type>
 			<object-name>off-flag</object-name>
 			<object-name>DialCentre</object-name>
@@ -310,8 +263,8 @@
 			<object-name>From</object-name>
 			<object-name>To</object-name>
 			<object-name>noNav</object-name> -->
-<!--			<object-name>shadow</object-name> -->
-<!--		<condition>
+	<!--			<object-name>shadow</object-name> -->
+	<!--		<condition>
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
 			<property>systems/electrical/outputs/cabin-dim</property>
 		</condition>
@@ -349,17 +302,17 @@
 			<property>systems/electrical/outputs/cabin-dim</property>
 		</condition>
 		<emission>
-		  <red>0.3</red>
-		  <green>0.3</green>
-		  <blue>0.3</blue>
-		  <factor-prop>systems/electrical/outputs/cabin-dim</factor-prop>
+			<red>0.3</red>
+			<green>0.3</green>
+			<blue>0.3</blue>
+			<factor-prop>systems/electrical/outputs/cabin-dim</factor-prop>
 		</emission>
 	</animation>
 
-  <animation>
-    <type>range</type>
-    <min-m>0</min-m>
-    <max-m>15</max-m>
-  </animation>
+	<animation>
+		<type>range</type>
+		<min-m>0</min-m>
+		<max-m>15</max-m>
+	</animation>
 
 </PropertyList>

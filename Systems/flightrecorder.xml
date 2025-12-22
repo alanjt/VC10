@@ -140,7 +140,7 @@ if you contacted me before making any changes to this software.
                 <type>double</type><property type="string">/systems/electrical/outputs/panel-dim</property>
             </signal>
             <signal>
-                <type>int</type><property type="string">/autopilot/settings/heading-bug-deg</property>
+                <type>double</type><property type="string">autopilot/settings/heading-knob</property>
             </signal>
             <signal>
                 <type>float</type><property type="string">/gear/brake-thermal-energy</property>

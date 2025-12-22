@@ -83,7 +83,6 @@ if you contacted me before making any changes to this software.
 <!--			<path>Systems/autopilotIASMode.xml</path> -->
 				<path>Systems/autopilotIASHold.xml</path>					
 			</autopilot>
-
 			<autopilot>
 				<path>Systems/autopilotLateralGuidance.xml</path>
 			</autopilot>
@@ -96,11 +95,6 @@ if you contacted me before making any changes to this software.
 			<autopilot>
 				<path>Systems/autopilotAutothrottle.xml</path>
 			</autopilot>
-			
-			
-			
-			
-			
 			
 			<!--			<autopilot>
 				<path>Systems/autopilotAttitudeData.xml</path>
@@ -449,7 +443,7 @@ if you contacted me before making any changes to this software.
 			<target-pitch-deg type="double">0</target-pitch-deg>
 			<AltRef type="double">0</AltRef>
 			<vertical-speed-fpm type="int">0</vertical-speed-fpm>
-			<heading-bug-deg type="int">0</heading-bug-deg>     <!-- HDG knob -->
+			<heading-knob type="int">0</heading-knob>     <!-- HDG knob -->
 		</settings>
 		<switches>
 			<ap type="bool">0</ap>

@@ -11,7 +11,7 @@ Lines.new = func (x) {
       _Caller: 0,
       _Color: "#FF0000",     # Red
       _Width: 1,
-      _Property: "/autopilot/settings/heading-bug-deg",
+      _Property: "/autopilot/settings/heading-knob",
       _Factor: -1,
       _Max: 10,
       _Enabled: 1,
