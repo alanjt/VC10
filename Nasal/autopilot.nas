@@ -82,7 +82,7 @@ var dt = 0.0;
 	props.globals.initNode("autopilot/LGUIDE/t2",1.0,"DOUBLE");
 	props.globals.initNode("autopilot/LGUIDE/t3",0.2,"DOUBLE");
 	props.globals.initNode("autopilot/LGUIDE/t4",0.25,"DOUBLE");	
-	props.globals.initNode("autopilot/LGUIDE/K",1.0,"DOUBLE");
+	props.globals.initNode("autopilot/LGUIDE/KPSI",1.0,"DOUBLE");
 	props.globals.initNode("autopilot/LGUIDE/L1",1.5,"DOUBLE");
 	props.globals.initNode("autopilot/LGUIDE/L2",0.2,"DOUBLE");
 	props.globals.initNode("autopilot/LGUIDE/L3",25.0,"DOUBLE");	
@@ -523,6 +523,10 @@ var update_autopilot = func {
 	if (getprop("autopilot/switches/mode-knob") == -1)
 		{
 		setprop("autopilot/settings/Mode", "HDG");
+		setprop("autopilot/logic/HdgHold", false);
+		setprop("autopilot/logic/TurnMode", false);
+		setprop("autopilot/logic/ONC", false);
+		setprop("autopilot/logic/ONCtest", false);
 		}
  	elsif (getprop("autopilot/switches/mode-knob") ==  0)
 		{
@@ -531,11 +535,15 @@ var update_autopilot = func {
 			{
 			setprop("autopilot/logic/HdgHold", true);
 			setprop("autopilot/logic/TurnMode", false);
+			setprop("autopilot/logic/ONC", false);
+			setprop("autopilot/logic/ONCtest", false);
 			}
 			else 
 			{
 			setprop("autopilot/logic/HdgHold", false);
 			setprop("autopilot/logic/TurnMode", true);
+			setprop("autopilot/logic/ONC", false);
+			setprop("autopilot/logic/ONCtest", false);
 			}
 ##		}	
 ##		else
@@ -546,18 +554,26 @@ var update_autopilot = func {
  	elsif (getprop("autopilot/switches/mode-knob") ==  1)
 		{
 		setprop("autopilot/settings/Mode", "LOC VOR");
+		setprop("autopilot/logic/HdgHold", false);
+		setprop("autopilot/logic/TurnMode", false);
 		}
   	elsif (getprop("autopilot/switches/mode-knob") ==  2)
 		{
 		setprop("autopilot/settings/Mode", "GS AUTO");
+		setprop("autopilot/logic/HdgHold", false);
+		setprop("autopilot/logic/TurnMode", false);
 		}
   	elsif (getprop("autopilot/switches/mode-knob") ==  3)
 		{
 		setprop("autopilot/settings/Mode", "GS MAN");
+		setprop("autopilot/logic/HdgHold", false);
+		setprop("autopilot/logic/TurnMode", false);
 		}
   	elsif (getprop("autopilot/switches/mode-knob") ==  4)
 		{
 		setprop("autopilot/settings/Mode", "FLARE");
+		setprop("autopilot/logic/HdgHold", false);
+		setprop("autopilot/logic/TurnMode", false);
 		}
   	else{
 		setprop("autopilot/settings/Mode", "");

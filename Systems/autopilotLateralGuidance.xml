@@ -8,25 +8,6 @@
     Azimuth Control System and Roll Autostabiliser. 
     ===============
     -->
-	<!-- Gains -->
-
-	<filter>
-		<name>KPSI</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input>
-			<expression>
-				<product>
-					<value>-0.005</value><!-- = 1/Uo, Uo = 200ft/sec -->
-					<property>fdm/jsbsim/velocities/u-aero-fps</property>
-				</product>
-			</expression>
-		</input>
-		<output>
-			<property>autopilot/LGUIDE/KPSI</property>
-		</output>
-	</filter>
 	
 	<!-- gain correction correction factor due to distance from localiser tranmitter -->
 	<!--	
@@ -59,7 +40,7 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 		<type>gain</type>
 		<gain>1.0</gain>
 		<input><property>orientation/heading-magnetic-deg</property></input>
-		<output><property>autopilot/LGUIDE/heading-magnetic-deg</property></output>
+		<output><property>autopilot/LGUIDE/Heading-magnetic-deg</property></output>
 	</filter>
 	<!-- Inputs from FG -->
 	
@@ -126,7 +107,7 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
-		<input><property>autopilot/LGUIDE/heading-magnetic-deg</property></input>
+		<input><property>autopilot/LGUIDE/Heading-magnetic-deg</property></input>
 		<reference>
 			<property>autopilot/LGUIDE/COURSE_Knob</property>
 		</reference>
@@ -143,7 +124,7 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
-		<input><property>autopilot/LGUIDE/heading-magnetic-deg</property></input>
+		<input><property>autopilot/LGUIDE/Heading-magnetic-deg</property></input>
 		<reference>
 			<property>autopilot/LGUIDE/HDG_Knob</property>
 		</reference>
@@ -375,7 +356,7 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 		<type>gain</type>
 		<gain>1.0</gain>
 		<input>
-			<property>autopilot/LGUIDE/heading-magnetic-deg</property>
+			<property>autopilot/LGUIDE/Heading-magnetic-deg</property>
 		</input>
 		<reference>
 			<property>autopilot/LGUIDE/THETRR</property>
@@ -490,11 +471,11 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 					<not><property>autopilot/logic/HdgHold</property></not>
 				</or>
 			</condition>
-			<property>autopilot/LGUIDE/heading-magnetic-deg</property>
+			<property>autopilot/LGUIDE/Heading-magnetic-deg</property>
 		</input>
 		<!-- otherwise hold current value -->
-		<input><property>autopilot/LGUIDE/heading-hold-deg</property></input>
-		<output><property>autopilot/LGUIDE/heading-hold-deg</property></output>
+		<input><property>autopilot/LGUIDE/Heading-hold-deg</property></input>
+		<output><property>autopilot/LGUIDE/Heading-hold-deg</property></output>
 	</filter>
 	
 	<filter>
@@ -502,11 +483,11 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
-		<input><property>autopilot/LGUIDE/heading-magnetic-deg</property></input>
+		<input><property>autopilot/LGUIDE/Heading-magnetic-deg</property></input>
 		<reference>
-			<property>autopilot/LGUIDE/heading-hold-deg</property>
+			<property>autopilot/LGUIDE/Heading-hold-deg</property>
 		</reference>
-		<output><property>autopilot/LGUIDE/hdg-hdgholdD</property></output>
+		<output><property>autopilot/LGUIDE/HDG-hdgholdD</property></output>
 		<period><min>-180</min><max>180</max></period>
 <!--		<u_min>-27.0</u_min><u_max>27.0</u_max> -->
 	</filter>
@@ -539,7 +520,7 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 			<expression>
 				<product>
 					<property>autopilot/LGUIDE/KPSI</property>
-					<property>autopilot/LGUIDE/hdg-hdgholdD</property>
+					<property>autopilot/LGUIDE/HDG-hdgholdD</property>
 				</product>
 			</expression>
 		</input>

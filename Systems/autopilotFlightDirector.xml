@@ -7,6 +7,14 @@
 
 <PropertyList>
 
+	<filter>
+		<name>Heading error gain</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>0.005</gain><!-- gain = -1 at uBody=200fps -->
+		<input><property>velocities/uBody-fps</property></input>
+		<output><property>autopilot/gain/Khdg_phi</property></output>
+	</filter>
 
 	<!-- Heading mode -->
 
