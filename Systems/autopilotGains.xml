@@ -75,7 +75,7 @@
 			</condition>
 			<value>30.0</value>
 		</input>
-		<input>   <!-- default for other modes -->
+		<input><!-- default for other modes -->
 			<value>30.0</value>
 		</input>
 		<output><property>autopilot/LGUIDE/Phi_r_limit</property></output>
@@ -111,7 +111,7 @@
 			<property>autopilot/LGUIDE/roll_driver_limit</property>
 		</input>
 		<output><property>autopilot/LGUIDE/roll_driver_neg_limit</property></output>
-	</filter>	
+	</filter>
 	
 
 
@@ -134,7 +134,7 @@
 		<name>Heading error gain</name>
 		<debug>false</debug>
 		<type>gain</type>
-		<gain>-0.005</gain>  <!-- gain = -1 at uBody=200fps -->
+		<gain>-0.005</gain><!-- gain = -1 at uBody=200fps -->
 		<input><property>velocities/uBody-fps</property></input>
 		<output><property>autopilot/gain/Khdg_phi</property></output>
 	</filter>
@@ -161,8 +161,15 @@
 		<name>Localiser QDM error gain</name>
 		<debug>false</debug>
 		<type>gain</type>
-		<gain>-0.0025</gain> <!-- gain = -.5 at uBody = 200fps -->
-		<input><property>velocities/uBody-fps</property></input>
+		<gain>1.0</gain>
+		<input>
+			<expression>
+				<product>
+					<property>velocities/uBody-fps</property>
+					<value>-0.0025</value><!-- gain = -.5 at uBody = 200fps -->
+				</product>
+			</expression>
+		</input>
 		<output><property>autopilot/LGUIDE/KPSI</property></output>
 	</filter>
 
@@ -173,6 +180,6 @@
 		<gain>1.0</gain>
 		<input><value>0.0</value></input>
 		<output><property>autopilot/gain/Kloc_Phi</property></output>
-	</filter>	
+	</filter>
 
 </PropertyList>

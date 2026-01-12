@@ -8,7 +8,7 @@
 <PropertyList>
 
 
-<!-- Heading mode --> 
+	<!-- Heading mode -->
 
 	<filter>
 		<name>heading bug error</name>
@@ -16,7 +16,8 @@
 		<type>gain</type>
 		<gain>1.0</gain>
 		<input><property>orientation/heading-magnetic-deg</property></input>
-		<reference><property>autopilot/settings/heading-knob</property></reference>  <!-- HDG knob -->
+		<reference><property>autopilot/settings/heading-knob</property>
+		</reference><!-- HDG knob -->
 		<output><property>autopilot/FlightDirector/hdg-hdgD</property></output>
 		<period>
 			<min>-180</min>
@@ -35,7 +36,9 @@
 		<type>gain</type>
 		<gain>1.0</gain>
 		<input><property>orientation/heading-magnetic-deg</property></input>
-		<reference><property>instrumentation/nav[0]/radials/selected-deg</property></reference>  <!-- CRS knob -->
+		<reference>
+			<property>instrumentation/nav[0]/radials/selected-deg</property>
+		</reference><!-- CRS knob -->
 		<output><property>autopilot/FlightDirector/hdg-courseD</property></output>
 		<period>
 			<min>-180</min>
@@ -43,7 +46,7 @@
 		</period>
 	</filter>
 
-	<!-- washed-out course error -->	
+	<!-- washed-out course error -->
 	<filter>
 		<name>hdg-courseD washout</name>
 		<debug>false</debug>
@@ -93,7 +96,7 @@
 			<condition>
 				<property>autopilot/switches/ILS_GS</property>
 			</condition>
-			<property>autopilot/FlightDirector/hdg-courseD_washout</property> <!-- switch to washed-out error when GS is captured -->
+			<property>autopilot/FlightDirector/hdg-courseD_washout</property><!-- switch to washed-out error when GS is captured -->
 		</input>
 		<input><property>autopilot/FlightDirector/hdg-courseD</property></input>
 		<output><property>autopilot/FlightDirector/loc_hdg-hdgD</property></output>
@@ -119,7 +122,7 @@
 			<expression>
 				<sum>
 					<product>
-						<property>autopilot/FlightDirector/hdg-VLhdgD</property>   <!-- VOR radial / Loc beam heading -->
+						<property>autopilot/FlightDirector/hdg-VLhdgD</property><!-- VOR radial / Loc beam heading -->
 						<property>autopilot/LGUIDE/KPSI</property>
 					</product>
 					<product>
@@ -128,7 +131,7 @@
 						<property>autopilot/gain/Kloc_Loc</property>
 					</product>
 					<product>
-						<property>fdm/jsbsim/attitude/phi-deg</property>  <!-- bank angle feedback -->
+						<property>fdm/jsbsim/attitude/phi-deg</property><!-- bank angle feedback -->
 						<property>autopilot/gain/Kloc_Phi</property>
 					</product>
 				</sum>
@@ -136,8 +139,8 @@
 		</input>
 		<output><property>autopilot/FlightDirector/phid_VOR-loc</property></output>
 		<period>
-			<min>-15</min>
-			<max>15</max>
+			<min>-180</min>
+			<max>180</max>
 		</period>
 	</filter>
 	
@@ -147,13 +150,13 @@
 		<type>gain</type>
 		<gain>1.0</gain>
 		<input>
-		<condition>
-			<equals>
-				<property>autopilot/FlightDirector/ModeSW</property>
-				<value>1</value><!-- HDG -->
-			</equals>
-		</condition>
-		<expression>
+			<condition>
+				<equals>
+					<property>autopilot/FlightDirector/ModeSW</property>
+					<value>1</value><!-- HDG -->
+				</equals>
+			</condition>
+			<expression>
 				<product>
 					<property>autopilot/gain/Khdg_phi</property>
 					<property>autopilot/FlightDirector/hdg-hdgD</property>
@@ -162,20 +165,20 @@
 		</input>
 		
 		<input>
-		<condition>
-			<equals>
-				<property>autopilot/FlightDirector/ModeSW</property>
-				<value>0</value><!-- OFF -->
-			</equals>
-		</condition>
+			<condition>
+				<equals>
+					<property>autopilot/FlightDirector/ModeSW</property>
+					<value>0</value><!-- OFF -->
+				</equals>
+			</condition>
 			<value>0.0</value>
 		</input>
 		
-		<input>  <!-- all other switch postions (Back-Beam, VOR, GS) have vor/loc mode -->
+		<input><!-- all other switch postions (Back-Beam, VOR, GS) have vor/loc mode -->
 			<property>autopilot/FlightDirector/phid_VOR-loc</property>
 		</input>
 		
-		<output><property>autopilot/FlightDirector/RollDemand</property></output> <!--  commanded bank angle -->
+		<output><property>autopilot/FlightDirector/RollDemand</property></output><!--  commanded bank angle -->
 		<u_min>-15</u_min>
 		<u_max>15</u_max>
 	</filter>

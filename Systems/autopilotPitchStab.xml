@@ -129,7 +129,7 @@
 		<debug>false</debug>
 		<enable>
 			<condition>
-				<property>autopilot/switches/AP1orAP2-sw</property>
+				<property>autopilot/logic/AP1orAP2-sw</property>
 			</condition>
 		</enable>
 		<filter-time>4.0</filter-time>
@@ -173,7 +173,7 @@
 		<gain>1.0</gain>
 		<input>
 			<condition>
-				<property>autopilot/switches/AP1orAP2-sw</property>
+				<property>autopilot/logic/AP1orAP2-sw</property>
 			</condition>
 			<property>autopilot/commands/APelevator-deg</property>
 		</input>

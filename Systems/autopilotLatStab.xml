@@ -11,24 +11,6 @@
     ===============
     -->
 
-	<!-- Gains -->
-
-	<filter>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input><value>0.5</value></input>
-		<output><property>autopilot/LATSTB/LA1</property></output>
-	</filter>
-	
-	<filter>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
-<!--		<input><value>3.0</value></input> -->
-		<input><value>1.0</value></input>
-		<output><property>autopilot/LATSTB/ULK7</property></output>
-	</filter>
 	
 	<filter><!-- Qbar limited -->
 		<debug>false</debug>
@@ -114,7 +96,7 @@
 		<gain>1.0</gain>
 		<input>
 			<condition>
-				<property>autopilot/switches/AP1orAP2-sw</property>
+				<property>autopilot/logic/AP1orAP2-sw</property>
 			</condition>
 			<property>autopilot/LATSTB/DELTAP</property>
 		</input>

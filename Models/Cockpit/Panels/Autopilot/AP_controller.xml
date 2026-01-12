@@ -285,7 +285,7 @@ Vickers VC10 for Flightgear
 			<!--			<binding>
 				<command>nasal</command>
 				<script>
-					var apa = getprop("autopilot/switches/AP1orAP2-sw") or 0;
+					var apa = getprop("autopilot/logic/AP1orAP2-sw") or 0;
 					if(!apa){
 					settimer(func{ setprop("autopilot/logic/ALT-sw", 0);}, 0.2);
 					}
@@ -335,7 +335,7 @@ Vickers VC10 for Flightgear
 			<!--			<binding>
 				<command>nasal</command>
 				<script>
-					var iaspa = getprop("autopilot/switches/AP1orAP2-sw") or 0;
+					var iaspa = getprop("autopilot/logic/AP1orAP2-sw") or 0;
 					if(!iaspa){
 					settimer(func{ setprop("autopilot/logic/IAS-sw", 0);}, 0.2);
 					}
@@ -386,7 +386,7 @@ Vickers VC10 for Flightgear
 			<!--			<binding>
 				<command>nasal</command>
 				<script>
-					var machpa = getprop("autopilot/switches/AP1orAP2-sw") or 0;
+					var machpa = getprop("autopilot/logic/AP1orAP2-sw") or 0;
 					if(!machpa){
 					settimer(func{ setprop("autopilot/logic/MACH-sw", 0);}, 0.2);
 					}

@@ -13,7 +13,7 @@
 		</offsets>
 	</model>
 
-	<model>
+<!--	<model>
 		<name>Avcu1</name>
 		<path>Avcu1.xml</path>
 		<offsets>
@@ -31,7 +31,7 @@
 			<y-m>0.6318</y-m>
 			<z-m>0.4790</z-m>
 		</offsets>
-	</model>
+	</model> -->
 	
 	<model>
 		<name>ADF_rmi_nav</name>
