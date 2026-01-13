@@ -148,7 +148,7 @@
 		<output><property>autopilot/gain/Kloc_Loc</property></output>
 	</filter>
 
-<!--	<filter>
+	<filter>
 		<name>Localiser bank command due to heading error error gain</name>
 		<debug>false</debug>
 		<type>gain</type>
@@ -157,12 +157,12 @@
 			<expression>
 				<product>
 					<property>velocities/uBody-fps</property>
-					<value>-0.0025</value>
+					<value>-0.007</value>
 				</product>
 			</expression>
 		</input>
 		<output><property>autopilot/LGUIDE/KPSI</property></output>
-	</filter> -->
+	</filter>
 
 	<filter>
 		<name>Localiser bank feedback gain</name>
