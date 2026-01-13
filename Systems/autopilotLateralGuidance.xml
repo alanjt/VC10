@@ -285,7 +285,7 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 			<expression>
 				<product>
 					<property>autopilot/LGUIDE/Beta_E_sum</property>
-					<property>autopilot/LGUIDE/K</property><!-- function of range -->
+					<property>autopilot/LGUIDE/KBeta</property><!-- function of range -->
 				</product>
 			</expression>
 		</input>

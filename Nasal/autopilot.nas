@@ -83,6 +83,7 @@ var dt = 0.0;
 	props.globals.initNode("autopilot/LGUIDE/t3",0.2,"DOUBLE");
 	props.globals.initNode("autopilot/LGUIDE/t4",0.25,"DOUBLE");	
 	props.globals.initNode("autopilot/LGUIDE/KPSI",-0.5,"DOUBLE");
+	props.globals.initNode("autopilot/LGUIDE/KBeta",0.0,"DOUBLE");
 	props.globals.initNode("autopilot/LGUIDE/L1",1.5,"DOUBLE");
 	props.globals.initNode("autopilot/LGUIDE/L2",0.2,"DOUBLE");
 	props.globals.initNode("autopilot/LGUIDE/L3",25.0,"DOUBLE");	
