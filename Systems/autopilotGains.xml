@@ -157,7 +157,7 @@
 			<expression>
 				<product>
 					<property>velocities/uBody-fps</property>
-					<value>-0.007</value>
+					<value>0.007</value>
 				</product>
 			</expression>
 		</input>

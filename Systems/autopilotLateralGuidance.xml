@@ -115,7 +115,7 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 			<property>autopilot/LGUIDE/COURSE_Error</property>
 		</output>
 		<period><min>-180</min><max>180</max></period>
- <!--		<u_min>-25</u_min><u_max>25</u_max> -->
+		<!--		<u_min>-25</u_min><u_max>25</u_max> -->
 	</filter>
 	
 	<!-- Heading demand error (Compass Heading Knob - compass magnetic heading) -->
@@ -132,7 +132,7 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 			<property>autopilot/LGUIDE/HDG_Error</property>
 		</output>
 		<period><min>-180</min><max>180</max></period>
-<!--		<u_min>-24</u_min><u_max>24</u_max> -->
+		<!--		<u_min>-24</u_min><u_max>24</u_max> -->
 	</filter>
 	
 	<filter>
@@ -301,10 +301,13 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 		<gain>1.0</gain>
 		<input>
 			<expression>
-				<sum>
-					<property>autopilot/LGUIDE/COURSE_Error_scaled</property>
-					<property>autopilot/LGUIDE/Beta_E_scaled</property>
-				</sum>
+				<product>
+					<value>-1</value>
+					<sum>
+						<property>autopilot/LGUIDE/COURSE_Error_scaled</property>
+						<property>autopilot/LGUIDE/Beta_E_scaled</property>
+					</sum>
+				</product>
 			</expression>
 		</input>
 		<!-- bank command -->
@@ -489,7 +492,7 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 		</reference>
 		<output><property>autopilot/LGUIDE/HDG-hdgholdD</property></output>
 		<period><min>-180</min><max>180</max></period>
-<!--		<u_min>-27.0</u_min><u_max>27.0</u_max> -->
+		<!--		<u_min>-27.0</u_min><u_max>27.0</u_max> -->
 	</filter>
 
 	<filter>

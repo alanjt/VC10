@@ -22,8 +22,8 @@
 		<input><property>fdm/jsbsim/velocities/vc-kts</property></input>
 		<reference><property>autopilot/internal/AT_setknots</property></reference>
 		<output><property>autopilot/internal/AT_IAS_error</property></output>
-		<u_min>-100</u_min>
-		<u_max>100</u_max>
+		<u_min>-10</u_min>
+		<u_max>10</u_max>
 	</filter>
 	
 	<filter>
@@ -111,6 +111,7 @@
 
 	<!--	<filter>
 		<name>SERVO-DRIVER:throttle</name>
+		<type>noise-spike</type>
 		<debug>false</debug>
 		<feedback-if-disabled>true</feedback-if-disabled>
 		<enable>
@@ -128,7 +129,6 @@
 			<property>/controls/engines/engine[2]/throttle</property>
 			<property>/controls/engines/engine[3]/throttle</property>
 		</output>
-		<type>noise-spike</type>
 		<max-rate-of-change>0.1</max-rate-of-change>
 	</filter> -->
 	<filter>
@@ -189,6 +189,7 @@
 
 	<filter>
 		<name>SERVO-DRIVER:throttle 1</name>
+		<type>noise-spike</type>
 		<debug>false</debug>
 		<feedback-if-disabled>true</feedback-if-disabled>
 		<enable>
@@ -207,12 +208,12 @@
 		<output>
 			<property>/controls/engines/engine[0]/throttle</property>
 		</output>
-		<type>noise-spike</type>
 		<max-rate-of-change>0.1</max-rate-of-change>
 	</filter>
 	
 	<filter>
 		<name>SERVO-DRIVER:throttle 2</name>
+		<type>noise-spike</type>
 		<debug>false</debug>
 		<feedback-if-disabled>true</feedback-if-disabled>
 		<enable>
@@ -231,11 +232,11 @@
 		<output>
 			<property>/controls/engines/engine[1]/throttle</property>
 		</output>
-		<type>noise-spike</type>
 		<max-rate-of-change>0.1</max-rate-of-change>
 	</filter>
 	<filter>
 		<name>SERVO-DRIVER:throttle 3</name>
+		<type>noise-spike</type>
 		<debug>false</debug>
 		<feedback-if-disabled>true</feedback-if-disabled>
 		<enable>
@@ -254,11 +255,11 @@
 		<output>
 			<property>/controls/engines/engine[2]/throttle</property>
 		</output>
-		<type>noise-spike</type>
 		<max-rate-of-change>0.1</max-rate-of-change>
 	</filter>
 	<filter>
 		<name>SERVO-DRIVER:throttle 4</name>
+		<type>noise-spike</type>
 		<debug>false</debug>
 		<feedback-if-disabled>true</feedback-if-disabled>
 		<enable>
@@ -277,7 +278,6 @@
 		<output>
 			<property>/controls/engines/engine[3]/throttle</property>
 		</output>
-		<type>noise-spike</type>
 		<max-rate-of-change>0.1</max-rate-of-change>
 	</filter>
 </PropertyList>
