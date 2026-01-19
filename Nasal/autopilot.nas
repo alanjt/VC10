@@ -58,7 +58,7 @@ var dt = 0.0;
 	props.globals.initNode("autopilot/LGUIDE/Beta_Deg_Lag_limited",0.0,"DOUBLE");
 	props.globals.initNode("autopilot/LGUIDE/Beta_Deg_Washout",0.0,"DOUBLE");
 	props.globals.initNode("autopilot/LGUIDE/Beta_Deg_Washout_abs",0.0,"DOUBLE");
-	props.globals.initNode("autopilot/LGUIDE/Beta_Integ",0.0,"DOUBLE");
+	props.globals.initNode("autopilot/LGUIDE/Beta_Deg_Integ",0.0,"DOUBLE");
 	props.globals.initNode("autopilot/LGUIDE/Beta_E_sum",0.0,"DOUBLE");
 #	props.globals.initNode("autopilot/LGUIDE/a_psi",1.0,"DOUBLE");
 #	props.globals.initNode("autopilot/LGUIDE/ALG1",5.0,"DOUBLE");	
@@ -422,7 +422,12 @@ listenerAP_EngageFunc = func {
 	
 listenerONCtestFunc = func {
 	if (getprop("autopilot/logic/AP1orAP2-sw")){
-		if (getprop("autopilot/logic/ONCtest")){
+		var ONC = getprop("autopilot/logic/ONC");
+		var ONCtest = getprop("autopilot/logic/ONCtest");
+		var modesw = getprop("autopilot/switches/mode-knob");
+        var VORLOC = (modesw > 0);		
+		print("ONC ",ONC, " ONCtest ",ONCtest, " Modesw ",modesw," VORLOC ", VORLOC);
+		if (ONCtest and !ONC and VORLOC){
 			print ("Localiser On course, set ONC");
 			setprop("autopilot/logic/ONC",true );
 			}
@@ -609,9 +614,10 @@ var update_autopilot = func {
 		var eBetadot = abs(betadot/betamax);
 		var ePhi = abs(phi);
 		var apengaged = getprop("autopilot/logic/AP1orAP2-sw");
-		var ONCtest = (eBeta < e1) and (eBetadot < e2) and (ePhi < e3) and apengaged;
+		var VLmode = (getprop("autopilot/switches/mode-knob") >  0);
+		var ONCtest = (eBeta < e1) and (eBetadot < e2) and (ePhi < e3) and apengaged and VLmode;
 		
-##		print ("ONCtest ", ONCtest, " eBeta ",eBeta , " eBetadot ", eBetadot, " ePhi ", ePhi);
+##		print ("ONCtest ", ONCtest, " eBeta ",eBeta , " eBetadot ", eBetadot, " ePhi ", ePhi, " VLmode ", VLmode);
 		setprop ("autopilot/logic/ONCtest", ONCtest);
 
 		

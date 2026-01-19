@@ -18,7 +18,7 @@
 		<gain>1.0</gain>
 		<input><property>fdm/jsbsim/aero/qbar-psf</property></input>
 		<output><property>autopilot/LATSTB/qbark</property></output>
-		<u_min>60.0</u_min>
+		<u_min>60.0</u_min> 
 		<u_max>450.0</u_max>
 	</filter>
 	
@@ -85,8 +85,7 @@
 		<type>noise-spike</type><!-- Aileron rate limit and position limit-->
 		<input><property>autopilot/LATSTB/P1LIN</property></input>
 		<max-rate-of-change>25.0</max-rate-of-change>
-		<u_min>-15.0</u_min>
-		<u_max>15.0</u_max>
+		<u_min>-15.0</u_min><u_max>15.0</u_max>
 		<output><property>autopilot/LATSTB/DELTAP</property></output>
 	</filter>
 	

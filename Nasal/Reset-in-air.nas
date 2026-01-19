@@ -41,15 +41,25 @@ var Reset = func{
 	var flaps = getprop("/sim/presets/flaps") or 0;
 ##	var airbrakes = getprop("/sim/presets/airbrakes") or 0;
 
-	
-	if (engines_running) { 
-		print ("set engines running");
+	print ("disconnect autopilot");
 
+	setprop("autopilot/switches/AT_engageswitch",0);
+	setprop("autopilot/switches/AT_1switch",0);		
+	setprop("autopilot/switches/AT_2switch",0);	
+	setprop("autopilot/switches/AT_3switch",0);	
+	setprop("autopilot/switches/AT_4switch",0);
+	setprop("autopilot/logic/AP1-sw",0);		
+	setprop("autopilot/logic/AP2-sw",0);
+	setprop("autopilot/logic/YD1-sw",0);
+	setprop("autopilot/logic/YD2-sw",0);
+		
+	if (engines_running) { 
+
+		print ("set engines running");	
 	   	setprop("engines/engine[0]/running","true");
 	   	setprop("engines/engine[1]/running","true");
 	   	setprop("engines/engine[2]/running","true");
-	   	setprop("engines/engine[3]/running","true");
-		
+	   	setprop("engines/engine[3]/running","true");		
 		 ## print ("reset in air - set cutoff false");	 
 		setprop("controls/engines/engine[0]/cutoff", "false");
 		setprop("controls/engines/engine[1]/cutoff", "false");

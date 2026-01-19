@@ -94,10 +94,8 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 				</product>
 			</expression>
 		</input>
-		<output>
-			<property>autopilot/LGUIDE/Beta_Deg</property>
-		</output>
-		<!--		<u_min>-10</u_min><u_max>10</u_max> -->
+		<output><property>autopilot/LGUIDE/Beta_Deg</property></output>
+		<u_min>-15</u_min><u_max>15</u_max>
 	</filter>
 	
 	<!-- ######################################################################################## -->
@@ -124,12 +122,12 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
-		<input><property>autopilot/LGUIDE/Heading-magnetic-deg</property></input>
+		<input><property>autopilot/LGUIDE/HDG_Knob</property></input>
 		<reference>
-			<property>autopilot/LGUIDE/HDG_Knob</property>
+			<property>autopilot/LGUIDE/Heading-magnetic-deg</property>
 		</reference>
 		<output>
-			<property>autopilot/LGUIDE/HDG_Error</property>
+			<property>autopilot/LGUIDE/HdgKnob-Hdg</property>
 		</output>
 		<period><min>-180</min><max>180</max></period>
 		<!--		<u_min>-24</u_min><u_max>24</u_max> -->
@@ -214,41 +212,33 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 		</input>
 		<output>
 			<property>autopilot/LGUIDE/Beta_Deg_Lag_limited</property>
-		</output><u_min>-1.5</u_min><u_max>1.5</u_max>
+		</output><u_min>-4.5</u_min><u_max>4.5</u_max>
 		<!-- L1 -->
 	</filter>
 	
 	<filter>
-		<name>VOR_LOC-beam integrator filter></name>
-		<debug>false</debug>
-		<type>integrator</type>
-		<gain>1.0</gain>
-		<input>
-			<!-- run integrator when Beam Error less than +- 0.2 degrees and ONC is set -->
-			<condition>
-				<and>
-					<less-than>
-						<property>autopilot/LGUIDE/Beta_Deg_abs</property>
-						<property>autopilot/LGUIDE/L2</property>
-					</less-than>
-					<property>autopilot/logic/ONC</property>
-				</and>
-			</condition>
-			<property>autopilot/LGUIDE/Beta_Deg</property>
-		</input>
-		<input>
-			<!-- otherwise, apply fedback to zero integrator -->
-			<expression>
-				<product>
-					<property>autopilot/LGUIDE/Beta_Integ</property>
-					<value>-10</value>
-				</product>
-			</expression>
-		</input>
-		<output><property>autopilot/LGUIDE/Beta_Integ</property></output>
-	</filter>
-	
-	
+  <name>beam error integrator</name>
+  <debug>false</debug>
+  <type>integrator</type>
+  <gain>1.0</gain>
+  <input>
+    <condition>
+      <property>autopilot/logic/ONC</property> <!-- Start integrator when ONC is set-->
+    </condition>
+    <property>autopilot/LGUIDE/Beta_Deg</property>
+  </input>
+  <input> <!-- reset integrator output to zero when ONC is not set -->
+    <expression>
+      <product>
+        <value>-10.0</value>
+        <property>autopilot/LGUIDE/Beta_Deg_Integ</property>
+      </product>
+    </expression>
+  </input>
+  <output><property>autopilot/LGUIDE/Beta_Deg_Integ</property></output>
+  <u_min>-30</u_min>
+  <u_max>30</u_max>
+</filter>
 	<!-- sum of beam error , beam error washout and beam error integrator -->
 	<filter>
 		<debug>false</debug>
@@ -266,7 +256,7 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 						<property>autopilot/LGUIDE/a2</property>
 					</product>
 					<product>
-						<property>autopilot/LGUIDE/Beta_Integ</property>
+						<property>autopilot/LGUIDE/Beta_Deg_Integ</property>
 						<property>autopilot/LGUIDE/a3</property>
 					</product>
 				</sum>
@@ -341,47 +331,6 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 		<output>autopilot/logic/CBtest</output>
 	</filter>
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<!-- page 220 -->
-	<!--	<filter>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input>
-			<property>autopilot/LGUIDE/Heading-magnetic-deg</property>
-		</input>
-		<reference>
-			<property>autopilot/LGUIDE/THETRR</property>
-		</reference>
-		<output>
-			<property>autopilot/LGUIDE/CPER</property>
-		</output>
-		<period><min>-180</min><max>180</max></period>
-	</filter> -->
-	
-	<!--	<filter>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input>
-			<property>autopilot/LGUIDE/CPER</property>
-		</input>
-		<output>
-			<property>autopilot/LGUIDE/CPERLIM</property>
-		</output>
-		<u_min>-25</u_min><u_max>25</u_max>
-	</filter> -->
 	<filter>
 		<debug>false</debug>
 		<type>gain</type>
@@ -486,11 +435,9 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
-		<input><property>autopilot/LGUIDE/Heading-magnetic-deg</property></input>
-		<reference>
-			<property>autopilot/LGUIDE/Heading-hold-deg</property>
-		</reference>
-		<output><property>autopilot/LGUIDE/HDG-hdgholdD</property></output>
+		<input><property>autopilot/LGUIDE/heading-magnetic-deg</property></input>
+		<reference><property>autopilot/LGUIDE/heading-hold-deg</property></reference>
+		<output><property>autopilot/LGUIDE/HdgHold-Hdg</property></output>
 		<period><min>-180</min><max>180</max></period>
 		<!--		<u_min>-27.0</u_min><u_max>27.0</u_max> -->
 	</filter>
@@ -523,7 +470,7 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 			<expression>
 				<product>
 					<property>autopilot/LGUIDE/KPSI</property>
-					<property>autopilot/LGUIDE/HDG-hdgholdD</property>
+					<property>autopilot/LGUIDE/HdgHold-Hdg</property>
 				</product>
 			</expression>
 		</input>
@@ -547,7 +494,7 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 			<expression>
 				<product>
 					<property>autopilot/LGUIDE/KPSI</property>
-					<property>autopilot/LGUIDE/HDG_Error</property>
+					<property>autopilot/LGUIDE/HdgKnob-Hdg</property>
 				</product>
 			</expression>
 		</input>

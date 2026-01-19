@@ -127,17 +127,22 @@
 		<name>IAS error integrator</name>
 		<debug>false</debug>
 		<type>integrator</type>
-		<gain>0.05</gain><!-- integrator gain -->
+		<gain>1.0</gain><!-- integrator gain -->
 
 		<input>
 			<condition><property>autopilot/logic/IAS-sw</property></condition>
-			<property>autopilot/IASHold/IASOUT</property>
+			<expression>
+				<product>
+					<value>0.05</value>
+					<property>autopilot/IASHold/IASOUT</property>
+				</product>
+			</expression>
 		</input>
 		
 		<input>
 			<expression>
 				<product>
-					<value>-100.0</value><!-- negative feeback to reduce output towards zero -->
+					<value>-1.0</value><!-- negative feeback to reduce output towards zero -->
 					<property>autopilot/IASHold/IASOTInt</property>
 				</product>
 			</expression>
@@ -165,15 +170,18 @@
 		<name>IAS Mode pitch demand</name>
 		<debug>false</debug>
 		<type>gain</type>
-		<gain><property>autopilot/IASHold/K_IAS</property></gain>
+		<gain>1.0</gain>
 		<input>
 			<expression>
-				<sum>-->
+			<product>
+				<sum>
 					<property>autopilot/IASHold/IASOUTlag</property>
 					<property>autopilot/IASHold/IASOTInt</property>
 					<property>autopilot/IASHold/IASdot</property>
 					<value>0.0</value>
 				</sum>
+				<property>autopilot/IASHold/K_IAS</property>
+				</product>
 			</expression>
 		</input>
 		<output>autopilot/IASHold/THECOM</output>
