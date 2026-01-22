@@ -40,6 +40,7 @@ var dt = 0.0;
 	props.globals.initNode("autopilot/logic/HdgHold",0,"BOOL");
 	props.globals.initNode("autopilot/logic/TurnMode",0,"BOOL");
 	
+	
 
 	props.globals.initNode("autopilot/gain/Khdg_phi",-1.5,"DOUBLE");		## used in Flight director	
 
@@ -102,7 +103,8 @@ var dt = 0.0;
 	props.globals.initNode("autopilot/logic/ONCtest",0,"BOOL");  # test on course		
 
 	props.globals.initNode("autopilot/logic/AP1orAP2-sw",0,"BOOL");
-
+	
+	props.globals.initNode("autopilot/GlideSlope/Mode",0,"INT");
 	
 	props.globals.initNode("autopilot/logic/LOClimited",0,"BOOL");  # Localiser off scale
 	
@@ -620,7 +622,35 @@ var update_autopilot = func {
 ##		print ("ONCtest ", ONCtest, " eBeta ",eBeta , " eBetadot ", eBetadot, " ePhi ", ePhi, " VLmode ", VLmode);
 		setprop ("autopilot/logic/ONCtest", ONCtest);
 
-		
+## Glideslope mode selection
+		var mode_sw = getprop("autopilot/switches/mode-knob") or 0;
+		var GS_mode = getprop("autopilot/GlideSlope/Mode") or 0;
+		var GS_capture_angle = 0.5;
+	    var GS_error_deg = getprop("autopilot/GS/gs_error_deg") or 0.0;
+		var GS_hflare = 200.0;
+		var GS_alt_ft = getprop("instrumentation/altimeter/indicated-altitude-ft") or 0.0; ## should be radio altimter 
+		var GS_in_range = getprop("instrumentation/nav[0]/gs-in-range") or 0;
+		if (mode_sw < 2){ 
+			GS_mode = 0; # glide slope mode not selected
+		}
+		elsif (GS_mode == 0){
+			GS_mode = 1; # start with mode 1 -- capture
+		}
+		elsif (GS_mode == 1){
+			if ((GS_error_deg < GS_capture_angle) and (GS_in_range))
+				{GS_mode = 2; # beam captured, change to GS mode
+				}
+		}
+		elsif (GS_mode == 2){
+			if (GS_alt_ft < GS_hflare) 
+				{GS_mode = 3; # flare mode
+			}
+		}
+
+		print ("GS mode ", GS_mode, " GS in range ",GS_in_range);
+		setprop("autopilot/GlideSlope/Mode",GS_mode);
+#		}
+
 		
 ## Autothrottle
 	

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+    Autopilot Configuration for the VC10.
+-->
+<PropertyList>
+	<!--
+    ============================================================
+   Pitch Modes -  Glideslope and Flare
+    ============================================================
+-->
+	<filter>
+		<name>Glideslope error degrees</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<expression>
+				<div>
+					<property>instrumentation/nav[0]/gs-needle-deflection-norm</property>
+					<value>0.7</value>  <!-- GS beam is +- 0.7 degrees -->
+				</div>
+			</expression>
+		</input>
+		<output><property>autopilot/GS/gs_error_deg</property></output>
+	</filter>
+
+</PropertyList>

@@ -166,7 +166,7 @@
 		<gain><property>autopilot/AltHold/KH</property></gain>
 		<input>
 			<expression>
-				<sum>-->
+				<sum>
 					<property>autopilot/AltHold/ALTOUTlag</property>
 					<property>autopilot/AltHold/ALTOTInt</property>
 					<property>autopilot/AltHold/ALThdot</property>

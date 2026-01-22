@@ -58,13 +58,6 @@ if you contacted me before making any changes to this software.
 		</rating>
 
 		<systems>
-<!--		<autopilot>
-				<path>Systems/autopilot.xml</path>   No longer used
-			</autopilot>
--->
-<!--		<autopilot>
-				<path>Systems/autopilotInputFilters.xml</path>
-			</autopilot> -->
 			<autopilot>
 				<path>Systems/autopilotGains.xml</path>
 			</autopilot>
@@ -72,15 +65,15 @@ if you contacted me before making any changes to this software.
 				<path>Systems/autopilotPitchHold.xml</path>
 			</autopilot>
 			<autopilot>
-<!--			<path>Systems/autopilotAltitudeMode.xml</path> -->
 				<path>Systems/autopilotAltHold.xml</path>
 			</autopilot>
 			<autopilot>
-<!--			<path>Systems/autopilotMachMode.xml</path> -->
+				<path>Systems/autopilotGlideSlope.xml</path>
+			</autopilot>
+			<autopilot>
 				<path>Systems/autopilotMachHold.xml</path>
 			</autopilot>
 			<autopilot>
-<!--			<path>Systems/autopilotIASMode.xml</path> -->
 				<path>Systems/autopilotIASHold.xml</path>					
 			</autopilot>
 			<autopilot>
@@ -95,28 +88,9 @@ if you contacted me before making any changes to this software.
 			<autopilot>
 				<path>Systems/autopilotAutothrottle.xml</path>
 			</autopilot>
-			
-			<!--			<autopilot>
-				<path>Systems/autopilotAttitudeData.xml</path>
-			</autopilot> -->
-			<!--<autopilot>
-				<path>Systems/autopilotPitchStab.xml</path>
-			</autopilot> -->
-
 			<autopilot>
 				<path>Systems/autopilotFlightDirector.xml</path>
 			</autopilot>
-			<!--<autopilot>
-				<path>Systems/autopilotManoeverLimits.xml</path>
-			</autopilot> -->
-			<!--<autopilot>
-			    no longer used - see code in lines 606-610 of sutopilot.nas
-				<path>Systems/autopilotAutoTrim.xml</path>
-			</autopilot> -->
-			
-			<!--<autopilot>
-				<path>Systems/autopilotfiltertest.xml</path>
-			</autopilot> -->
 		</systems>
 
 		<instrumentation>

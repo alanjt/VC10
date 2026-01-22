@@ -164,6 +164,12 @@ The only reason it's here is to specify aditional instruments.
 		<range-factor type="double" archive="n">20</range-factor>
 		<minimized type="bool" archive="y">false</minimized>
 	</radar>
+	
+	<radar-altimeter>
+		<name>radar-altimeter</name>
+		<number>0</number>
+		<update-interval-sec>0.1</update-interval-sec>
+	</radar-altimeter>
 
 	<mk-viii>
 		<name>mk-viii</name>
