@@ -17,11 +17,74 @@
 			<expression>
 				<div>
 					<property>instrumentation/nav[0]/gs-needle-deflection-norm</property>
-					<value>0.7</value>  <!-- GS beam is +- 0.7 degrees -->
+					<value>0.7</value><!-- GS beam is +- 0.7 degrees -->
 				</div>
 			</expression>
 		</input>
 		<output><property>autopilot/GS/gs_error_deg</property></output>
 	</filter>
+	
+	<filter>
+		<type>exponential</type>
+		<gain>1.0</gain>
+		<time>0.1</time>
+		<input><property>autopilot/GS/gs_error_deg</property></input>
+		<output><property>autopilot/GS/gs_deg_lag</property></output>
+	</filter>
+	
 
+	<filter>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<expression>
+				<product>
+					<property>autopilot/GS/gs_deg_lag</property>
+					<property>autopilot/GlideSlope/K_GS</property>
+				</product>
+			</expression>
+		</input>
+		<output><property>autopilot/GS/gs_deg_scaled</property></output>
+	</filter>
+	
+	<filter>
+		<name>GS error integrator</name>
+		<debug>false</debug>
+		<type>integrator</type>
+		<gain>0.05</gain><!-- integrator gain -->
+
+		<input>
+			<condition>
+				<equals>
+					<property>autopilot/GlideSlope/Mode</property>
+					<value>2</value>
+				</equals>
+			</condition>
+			<property>autopilot/GS/gs_deg_lag</property>
+		</input>
+		<input>
+			<expression>
+				<product>
+					<value>-100.0</value><!-- negative feeback to reduce output towards zero -->
+					<property>autopilot/GS/gs_deg_Int</property>
+				</product>
+			</expression>
+		</input>
+		<output><property>autopilot/GS/gs_deg_Int</property></output>
+		<u_min>-100</u_min>
+		<u_max>100</u_max>
+	</filter>
+	
+	<filter>
+		<type>noise-spike</type><!-- rate limit -->
+		<max-rate-of-change>0.5</max-rate-of-change>
+		<input>
+			<expression><sum>
+					<property>autopilot/GS/gs_deg_Int</property>
+					<property>autopilot/GS/gs_deg_lag</property>
+				</sum></expression>
+		</input>
+	</filter>
+	<output><property>autopilot/GS/THECOM</property></output>
+	<!-- autopilot/GlideSlope/Mode -->
 </PropertyList>

@@ -116,7 +116,26 @@
 					</sum>
 				</dif>
 			</expression>
-		</input>		
+		</input>
+
+		<input>
+			<condition>
+				<equals>
+					<property>autopilot/GlideSlope/Mode</property>
+					<value>2</value>
+				</equals>
+			</condition>
+			<expression>
+				<dif>
+					<property>fdm/jsbsim/attitude/theta-deg</property>
+					<sum>
+						<property>autopilot/GS/THECOM</property>
+						<property>autopilot/GS/thetaRef_deg</property>
+					</sum>
+				</dif>
+			</expression>
+		</input>
+		
 		<output>
 			<property>autopilot/PitchStab/thetaErr_deg</property>
 		</output>

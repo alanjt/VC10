@@ -105,6 +105,7 @@ var dt = 0.0;
 	props.globals.initNode("autopilot/logic/AP1orAP2-sw",0,"BOOL");
 	
 	props.globals.initNode("autopilot/GlideSlope/Mode",0,"INT");
+	props.globals.initNode("autopilot/GlideSlope/K_GS",0.03,"DOUBLE");  # Glideslope gain (degrees pitch demand per degree beam_error)
 	
 	props.globals.initNode("autopilot/logic/LOClimited",0,"BOOL");  # Localiser off scale
 	
@@ -631,19 +632,29 @@ var update_autopilot = func {
 		var GS_alt_ft = getprop("instrumentation/altimeter/indicated-altitude-ft") or 0.0; ## should be radio altimter 
 		var GS_in_range = getprop("instrumentation/nav[0]/gs-in-range") or 0;
 		if (mode_sw < 2){ 
-			GS_mode = 0; # glide slope mode not selected
+			GS_mode = 0; # clear gs mode
 		}
-		elsif (GS_mode == 0){
-			GS_mode = 1; # start with mode 1 -- capture
+		elsif (GS_mode == 0){ # mode_sw is 2 or greater, so set GS mode 1 . altitude hold
+			GS_mode = 1; 
 		}
-		elsif (GS_mode == 1){
+		elsif (GS_mode == 1){  # mode 1, altitude hold
 			if ((GS_error_deg < GS_capture_angle) and (GS_in_range))
-				{GS_mode = 2; # beam captured, change to GS mode
+				{GS_mode = 2; 
 				}
 		}
-		elsif (GS_mode == 2){
+		elsif (GS_mode == 2){  # mode 2, GS capture
 			if (GS_alt_ft < GS_hflare) 
-				{GS_mode = 3; # flare mode
+				{GS_mode = 3;
+			}
+		}
+		elsif (GS_mode == 3){# mode 3,S tracking
+			if (GS_alt_ft < GS_flare) 
+				{GS_mode = 5;
+			}
+		}
+		elsif (GS_mode == 4{ # mode 4, landing flare
+			if (GS_alt_ft < GS_hflare) 
+				{GS_mode = 5;
 			}
 		}
 
