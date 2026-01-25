@@ -8,6 +8,152 @@
    Pitch Modes -  Glideslope and Flare
     ============================================================
 -->
+
+	<!-- integrator thetaRef_deg tracks pitch angle theta-deg while Autopilot is not in Glideslope-altitude hold mode-->
+	<filter>
+		<name>pitch_reference</name>
+		<debug>false</debug>
+		<type>integrator</type>
+		<gain>1.0</gain>
+		<input>
+			<condition>
+				<property><not-equals>autopilot/Glideslope/AltMode</not-equals></property>
+				<value>1</value>
+			</condition>
+			<expression>
+				<dif>
+					<property>fdm/jsbsim/attitude/theta-deg</property>
+					<property>autopilot/Glideslope/thetaRef_deg</property>
+				</dif>
+			</expression>
+		</input>
+		<output><property>autopilot/Glideslope/thetaRef_deg</property></output>
+		<u_min>-20</u_min>
+		<u_max>20</u_max>
+	</filter>
+
+	<!-- integrator GS/AltRef tracks Altitude while Autopilot is not in Glideslope-altitude hold mode-->
+	<filter>
+		<name>Altitude_Reference</name>
+		<debug>false</debug>
+		<type>integrator</type>
+		<gain>1.0</gain>
+		<input>
+			<condition>
+				<property><not-equals>autopilot/Glideslope/AltMode</not-equals></property>
+				<value>1</value>
+			</condition>
+			<expression>
+				<dif>
+					<property>instrumentation/altimeter/indicated-altitude-ft</property>
+					<property>autopilot/Glideslope/AltRef</property>
+				</dif>
+			</expression>
+		</input>
+		<output><property>autopilot/Glideslope/AltRef</property></output>
+		<u_min>-20</u_min>
+		<u_max>40000</u_max>
+	</filter>
+	
+	<filter>
+		<name>ALT Error</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<expression>
+				<dif>
+					<property>instrumentation/altimeter/indicated-altitude-ft</property>
+					<property>autopilot/Glideslope/AltRef</property>
+				</dif>
+			</expression>
+		</input>
+		<output><property>autopilot/Glideslope/ALTERR</property></output>
+	</filter>
+	
+	<filter>
+		<name>ALT Error Limit</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input><property>autopilot/Glideslope/ALTERR</property></input>
+		<output><property>autopilot/Glideslope/ALTOUT</property></output>
+		<u_min>-200</u_min><!-- limit L3 -->
+		<u_max>200</u_max>
+	</filter>
+	
+	<filter>
+		<type>exponential</type><!-- The exponential filter is more commonly known as a 1st order lag filter -->
+		<debug>false</debug>
+		<enable>
+			<condition>
+				<property>autopilot/logic/AP1orAP2-sw</property>
+			</condition>
+		</enable>
+		<filter-time>0.5</filter-time><!-- TV3 -->
+		<input><property>autopilot/Glideslope/ALTOUT</property></input>
+		<output><property>autopilot/Glideslope/ALTOUTlag</property></output>
+	</filter>
+	
+	<filter>
+		<name>Alt error integrator</name>
+		<debug>false</debug>
+		<type>integrator</type>
+		<gain>0.05</gain><!-- integrator gain -->
+
+		<input>
+			<condition><property>autopilot/logic/ALT-sw</property></condition>
+			<property>autopilot/Glideslope/ALTOUT</property>
+		</input>
+		
+		<input>
+			<expression>
+				<product>
+					<value>-100.0</value><!-- negative feeback to reduce output towards zero -->
+					<property>autopilot/Glideslope/ALTOTInt</property>
+				</product>
+			</expression>
+		</input>
+		
+		<output><property>autopilot/Glideslope/ALTOTInt</property></output>
+		<u_min>-100</u_min>
+		<u_max>100</u_max>
+	</filter>
+
+	<filter>
+		<name>Altitude Mode hdot feedback</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain><!-- A3 -->
+		<input>
+			<property>fdm/jsbsim/velocities/h-dot-fps</property>
+		</input>
+		<output>
+			<property>autopilot/Glideslope/ALThdot</property>
+		</output>
+	</filter>
+	
+	<filter>
+		<name>Altitude Mode pitch demand</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain><property>autopilot/Glideslope/KH</property></gain>
+		<input>
+			<expression>
+				<sum>
+					<property>autopilot/Glideslope/ALTOUTlag</property>
+					<property>autopilot/Glideslope/ALTOTInt</property>
+					<property>autopilot/Glideslope/ALThdot</property>
+					<value>0.0</value>
+				</sum>
+			</expression>
+		</input>
+		<output>autopilot/Glideslope/THECOM_alt</output>
+		<u_min>-20</u_min>
+		<u_max>20</u_max>
+	</filter>	
+
+	
 	<filter>
 		<name>Glideslope error degrees</name>
 		<debug>false</debug>
@@ -21,15 +167,15 @@
 				</div>
 			</expression>
 		</input>
-		<output><property>autopilot/GS/gs_error_deg</property></output>
+		<output><property>autopilot/Glideslope/gs_error_deg</property></output>
 	</filter>
 	
 	<filter>
 		<type>exponential</type>
 		<gain>1.0</gain>
-		<time>0.1</time>
-		<input><property>autopilot/GS/gs_error_deg</property></input>
-		<output><property>autopilot/GS/gs_deg_lag</property></output>
+		<filter-time>0.1</filter-time>
+		<input><property>autopilot/Glideslope/gs_error_deg</property></input>
+		<output><property>autopilot/Glideslope/gs_deg_lag</property></output>
 	</filter>
 	
 
@@ -39,12 +185,12 @@
 		<input>
 			<expression>
 				<product>
-					<property>autopilot/GS/gs_deg_lag</property>
-					<property>autopilot/GlideSlope/K_GS</property>
+					<property>autopilot/Glideslope/gs_deg_lag</property>
+					<property>autopilot/Glideslope/K_GS</property>
 				</product>
 			</expression>
 		</input>
-		<output><property>autopilot/GS/gs_deg_scaled</property></output>
+		<output><property>autopilot/Glideslope/gs_deg_scaled</property></output>
 	</filter>
 	
 	<filter>
@@ -56,21 +202,21 @@
 		<input>
 			<condition>
 				<equals>
-					<property>autopilot/GlideSlope/Mode</property>
+					<property>autopilot/Glideslope/Mode</property>
 					<value>2</value>
 				</equals>
 			</condition>
-			<property>autopilot/GS/gs_deg_lag</property>
+			<property>autopilot/Glideslope/gs_deg_lag</property>
 		</input>
 		<input>
 			<expression>
 				<product>
 					<value>-100.0</value><!-- negative feeback to reduce output towards zero -->
-					<property>autopilot/GS/gs_deg_Int</property>
+					<property>autopilot/Glideslope/gs_deg_Int</property>
 				</product>
 			</expression>
 		</input>
-		<output><property>autopilot/GS/gs_deg_Int</property></output>
+		<output><property>autopilot/Glideslope/gs_deg_Int</property></output>
 		<u_min>-100</u_min>
 		<u_max>100</u_max>
 	</filter>
@@ -80,11 +226,11 @@
 		<max-rate-of-change>0.5</max-rate-of-change>
 		<input>
 			<expression><sum>
-					<property>autopilot/GS/gs_deg_Int</property>
-					<property>autopilot/GS/gs_deg_lag</property>
+					<property>autopilot/Glideslope/gs_deg_Int</property>
+					<property>autopilot/Glideslope/gs_deg_lag</property>
 				</sum></expression>
 		</input>
 	</filter>
-	<output><property>autopilot/GS/THECOM</property></output>
-	<!-- autopilot/GlideSlope/Mode -->
+	<output><property>autopilot/Glideslope/THECOM_gs</property></output>
+	<!-- autopilot/Glideslope/Mode -->
 </PropertyList>

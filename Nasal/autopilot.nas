@@ -104,8 +104,8 @@ var dt = 0.0;
 
 	props.globals.initNode("autopilot/logic/AP1orAP2-sw",0,"BOOL");
 	
-	props.globals.initNode("autopilot/GlideSlope/Mode",0,"INT");
-	props.globals.initNode("autopilot/GlideSlope/K_GS",0.03,"DOUBLE");  # Glideslope gain (degrees pitch demand per degree beam_error)
+	props.globals.initNode("autopilot/Glideslope/Mode",0,"INT");
+	props.globals.initNode("autopilot/Glideslope/K_GS",0.03,"DOUBLE");  # Glideslope gain (degrees pitch demand per degree beam_error)
 	
 	props.globals.initNode("autopilot/logic/LOClimited",0,"BOOL");  # Localiser off scale
 	
@@ -404,7 +404,7 @@ listenerGSCaptFunc = func {
 		setprop("autopilot/logic/PITCH-HOLD", 0);
 		setprop("autopilot/settings/pitch-wheel-deg", 0);
 		setprop("autopilot/settings/datum_norm", 0);
-		setprop("autopilot/GS/thetaRef_deg",getprop("fdm/jsbsim/attitude/theta-deg"));
+		setprop("autopilot/Glideslope/thetaRef_deg",getprop("fdm/jsbsim/attitude/theta-deg"));
 		}
 	PitchSwCommon();
 	}
@@ -618,6 +618,7 @@ var update_autopilot = func {
 		var ePhi = abs(phi);
 		var apengaged = getprop("autopilot/logic/AP1orAP2-sw");
 		var VLmode = (getprop("autopilot/switches/mode-knob") >  0);
+		var GSmode = (getprop("autopilot/switches/mode-knob") >  1);		
 		var ONCtest = (eBeta < e1) and (eBetadot < e2) and (ePhi < e3) and apengaged and VLmode;
 		
 ##		print ("ONCtest ", ONCtest, " eBeta ",eBeta , " eBetadot ", eBetadot, " ePhi ", ePhi, " VLmode ", VLmode);
@@ -625,12 +626,14 @@ var update_autopilot = func {
 
 ## Glideslope mode selection
 		var mode_sw = getprop("autopilot/switches/mode-knob") or 0;
-		var GS_mode = getprop("autopilot/GlideSlope/Mode") or 0;
+		var GS_mode = getprop("autopilot/Glideslope/Mode") or 0;
 		var GS_capture_angle = 0.5;
-	    var GS_error_deg = getprop("autopilot/GS/gs_error_deg") or 0.0;
+	    var GS_error_deg = getprop("autopilot/Glideslope/gs_error_deg") or 0.0;
 		var GS_hflare = 200.0;
 		var GS_alt_ft = getprop("instrumentation/altimeter/indicated-altitude-ft") or 0.0; ## should be radio altimter 
 		var GS_in_range = getprop("instrumentation/nav[0]/gs-in-range") or 0;
+		setprop("autopilot/Glideslope/gs-in-range",GS_in_range);
+		
 		if (mode_sw < 2){ 
 			GS_mode = 0; # clear gs mode
 		}
@@ -640,7 +643,7 @@ var update_autopilot = func {
 		elsif (GS_mode == 1){  # mode 1, altitude hold
 			if ((GS_error_deg < GS_capture_angle) and (GS_in_range))
 				{GS_mode = 2; 
-				}
+			}
 		}
 		elsif (GS_mode == 2){  # mode 2, GS capture
 			if (GS_alt_ft < GS_hflare) 
@@ -652,15 +655,15 @@ var update_autopilot = func {
 				{GS_mode = 5;
 			}
 		}
-		elsif (GS_mode == 4{ # mode 4, landing flare
+		elsif (GS_mode == 4){ # mode 4, landing flare
 			if (GS_alt_ft < GS_hflare) 
 				{GS_mode = 5;
 			}
 		}
 
-		print ("GS mode ", GS_mode, " GS in range ",GS_in_range);
-		setprop("autopilot/GlideSlope/Mode",GS_mode);
-#		}
+		if (GS_mode > 0){
+##		print ("GS mode ", GS_mode, " GS in range ",GS_in_range);
+		setprop("autopilot/Glideslope/Mode",GS_mode);}
 
 		
 ## Autothrottle
