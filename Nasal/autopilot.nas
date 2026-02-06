@@ -27,18 +27,18 @@ var dt = 0.0;
 	props.globals.initNode("autopilot/internal/AT_IAS_error_integ",0.0,"DOUBLE");
 	props.globals.initNode("autopilot/internal/AT_throttlec_deg",0.0,"DOUBLE");
 	
-	props.globals.initNode("autopilot/logic/NAV-sw",0,"BOOL");			# true/false	
-	props.globals.initNode("autopilot/logic/AP1-sw",0,"BOOL");			# true/false
-	props.globals.initNode("autopilot/logic/YD1-sw",0,"BOOL");			# true/false	
-	props.globals.initNode("autopilot/logic/YD2-sw",0,"BOOL");			# true/false	
-	props.globals.initNode("autopilot/logic/AP2-sw",0,"BOOL");			# true/false
-	props.globals.initNode("autopilot/logic/ALT-sw",0,"BOOL");			# true/false
-	props.globals.initNode("autopilot/logic/IAS-sw",0,"BOOL");			# true/false
-	props.globals.initNode("autopilot/logic/MACH-sw",0,"BOOL");			# true/false
-	props.globals.initNode("autopilot/logic/PITCH-HOLD",0,"BOOL");
-	props.globals.initNode("autopilot/logic/GS-CAPT",0,"BOOL");
-	props.globals.initNode("autopilot/logic/HdgHold",0,"BOOL");
-	props.globals.initNode("autopilot/logic/TurnMode",0,"BOOL");
+	props.globals.initNode("autopilot/Logic//NAV-sw",0,"BOOL");			# true/false	
+	props.globals.initNode("autopilot/Logic//AP1-sw",0,"BOOL");			# true/false
+	props.globals.initNode("autopilot/Logic//YD1-sw",0,"BOOL");			# true/false	
+	props.globals.initNode("autopilot/Logic//YD2-sw",0,"BOOL");			# true/false	
+	props.globals.initNode("autopilot/Logic//AP2-sw",0,"BOOL");			# true/false
+	props.globals.initNode("autopilot/Logic//ALT-sw",0,"BOOL");			# true/false
+	props.globals.initNode("autopilot/Logic//IAS-sw",0,"BOOL");			# true/false
+	props.globals.initNode("autopilot/Logic//MACH-sw",0,"BOOL");			# true/false
+	props.globals.initNode("autopilot/Logic//PITCH-HOLD",0,"BOOL");
+	props.globals.initNode("autopilot/Logic//GS_Cap",0,"BOOL");
+	props.globals.initNode("autopilot/Logic//HdgHold",0,"BOOL");
+	props.globals.initNode("autopilot/Logic//TurnMode",0,"BOOL");
 	
 	
 
@@ -95,19 +95,21 @@ var dt = 0.0;
 	props.globals.initNode("autopilot/LGUIDE/TESTI",0,"INT");
 	props.globals.initNode("autopilot/LGUIDE/TESTD",0.0,"DOUBLE");
 	
-	props.globals.initNode("autopilot/logic/CB",0,"BOOL");   # capture VOR radial or localiser beam
-	props.globals.initNode("autopilot/logic/CBtest",0,"BOOL");
-	props.globals.initNode("autopilot/logic/HH",0,"BOOL");   # VOR/LOC intercept Course hold
-	props.globals.initNode("autopilot/logic/HHtest",0,"BOOL");
-	props.globals.initNode("autopilot/logic/ONC",0,"BOOL");  # on course
-	props.globals.initNode("autopilot/logic/ONCtest",0,"BOOL");  # test on course		
+	props.globals.initNode("autopilot/Logic//CB",0,"BOOL");   # capture VOR radial or localiser beam
+	props.globals.initNode("autopilot/Logic//CBtest",0,"BOOL");
+	props.globals.initNode("autopilot/Logic//HH",0,"BOOL");   # VOR/LOC intercept Course hold
+	props.globals.initNode("autopilot/Logic//HHtest",0,"BOOL");
+	props.globals.initNode("autopilot/Logic//ONC",0,"BOOL");  # on course
+	props.globals.initNode("autopilot/Logic//ONCtest",0,"BOOL");  # test on course		
 
-	props.globals.initNode("autopilot/logic/AP1orAP2-sw",0,"BOOL");
+	props.globals.initNode("autopilot/Logic//AP1orAP2-sw",0,"BOOL");
 	
 	props.globals.initNode("autopilot/Glideslope/Mode",0,"INT");
 	props.globals.initNode("autopilot/Glideslope/K_GS",0.03,"DOUBLE");  # Glideslope gain (degrees pitch demand per degree beam_error)
 	
-	props.globals.initNode("autopilot/logic/LOClimited",0,"BOOL");  # Localiser off scale
+	props.globals.initNode("autopilot/Logic//LOClimited",0,"BOOL");  # Localiser off scale
+	props.globals.initNode("autopilot/Logic//BarometricModeSelected",0,"BOOL");
+
 	
 	props.globals.initNode("autopilot/switches/mode-knob",0,"DOUBLE");      # -1 HDG : 0 MAN : 1 VOR/LOC : 2 GS AUTO : 3 GS MAN : 4 FLARE :
 	props.globals.initNode("autopilot/settings/Mode","MAN","STRING");
@@ -161,12 +163,12 @@ var listenerApInitFunc = func {
 	setprop("autopilot/switches/AP_MasterR_switch", 1);
 	setprop("autopilot/switches/AP_MasterNuisance_bar", 0);
 	
-	setprop("autopilot/logic/CB", false);
-	setprop("autopilot/logic/HH", false);
-	setprop("autopilot/logic/ONC", false);
-	setprop("autopilot/logic/CBtest", false);
-	setprop("autopilot/logic/HHtest", false);
-	setprop("autopilot/logic/ONCtest", false);
+	setprop("autopilot/Logic//CB", false);
+	setprop("autopilot/Logic//HH", false);
+	setprop("autopilot/Logic//ONC", false);
+	setprop("autopilot/Logic//CBtest", false);
+	setprop("autopilot/Logic//HHtest", false);
+	setprop("autopilot/Logic//ONCtest", false);
 }
 setlistener("sim/signals/fdm-initialized", listenerApInitFunc);
 
@@ -177,69 +179,14 @@ setlistener("sim/signals/fdm-initialized", listenerApInitFunc);
 var listenerModeKnobFunc = func {
 	print ("-> listenerModeKnobFunc -> Mode-selector = ", getprop("autopilot/switches/mode-knob"));
 
-	if (getprop("autopilot/logic/AP1orAP2-sw")) {
+	if (getprop("autopilot/Logic//AP1orAP2-sw")) {
 		print ("-> listenerModeKnobFunc -> Mode-selector = ", getprop("autopilot/switches/mode-knob"));
 		}
-
-		
-		#if (getprop("autopilot/switches/mode-knob") == -1) {  #HDG
-			# HDG - Mode
-			#setprop("autopilot/locks/lateral", "HDG");
-
-			# resets
-			#if (getprop("autopilot/logic/ALT-sw") == 0) {
-			#	setprop("autopilot/locks/pitch", "");
-			#}
-		#}
 		if (getprop("autopilot/switches/mode-knob") == 0) {
 			# MAN - Mode
 			var TurnKnobDeg = 0.0;
 			setprop("autopilot/settings/TurnKnob", TurnKnobDeg);
-			#listenerTurnKnobFunc();
-
-			#if (getprop("autopilot/logic/ALT-sw") == 0) {
-			#	setprop("autopilot/settings/pitch-wheel-deg", getprop("orientation/pitch-deg"));
-			#	listenerApMANPitchFunc();
-			#	setprop("autopilot/locks/pitch", "pitch-hold");
-			#}
 		}
-		#if (getprop("autopilot/switches/mode-knob") == 1) {
-			# LOC VOR - Mode
-			#setprop("autopilot/locks/lateral", "nav1-hold");
-
-			# resets
-			#if (getprop("autopilot/logic/ALT-sw") == 0) {
-			#	setprop("autopilot/locks/pitch", "");
-		#	}
-		#}
-		#if (getprop("autopilot/switches/mode-knob") == 2) {
-			# GS AUTO - Mode
-			#setprop("autopilot/locks/lateral", "nav1-hold");
-			#setprop("autopilot/locks/pitch", "gs1-hold");
-
-			#setprop("autopilot/logic/ALT-sw", 0);
-		#}
-		#if (getprop("autopilot/switches/mode-knob") == 3) {
-			# GS MAN - Mode
-			#setprop("autopilot/locks/lateral", "nav1-hold");
-			#if (getprop("autopilot/logic/ALT-sw") == 0) {
-			#	setprop("autopilot/locks/pitch", "");
-			#}
-
-			#gsMANAltControl();
-
-		#}
-		#if (getprop("autopilot/switches/mode-knob") == 4) {
-			# FLARE - Mode
-			#}
-	#}
-	#else {
-		# switched off
-		#setprop("autopilot/locks/lateral", "");
-		#setprop("autopilot/locks/pitch", "");
-
-	#}
-#}
 
 # MAN - Mode - roll-selector
 var listenerTurnKnobFunc = func {
@@ -248,20 +195,19 @@ var listenerTurnKnobFunc = func {
 		setprop("autopilot/switches/mode-knob", 0);   # MAN
 		}
 
-	if (getprop("autopilot/logic/AP1orAP2-sw") and
+	if (getprop("autopilot/Logic//AP1orAP2-sw") and
 
 		(getprop("autopilot/switches/mode-knob") == 0) ){   # MAN
 
-##		setprop("autopilot/internal/wing-leveler-target-roll-deg", getprop("autopilot/settings/TurnKnob"));
 	}
 }
 setlistener("autopilot/settings/TurnKnob", listenerTurnKnobFunc);
 
 # MAN - Mode - pitch-wheel selector
 var listenerApMANPitchFunc = func {
-	if (getprop("autopilot/logic/AP1orAP2-sw") and (getprop("autopilot/switches/mode-knob") == 0) )
+	if (getprop("autopilot/Logic//AP1orAP2-sw") and (getprop("autopilot/switches/mode-knob") == 0) )
 		{   # MAN
-		if (getprop("autopilot/logic/ALT-sw") == 0) 
+		if (getprop("autopilot/Logic//ALT-sw") == 0) 
 			{
 			var pitchDeg = getprop("autopilot/settings/pitch-wheel-deg");
 			pitchDeg = (pitchDeg > 14 ? 14 : pitchDeg);   # limit +14deg
@@ -270,53 +216,25 @@ var listenerApMANPitchFunc = func {
 			}
 		}
 	}
-
-
-var menuSwitchAp = func {
-
-	#if (getprop("autopilot/locks/lateral") == "wing-leveler") {
-	#    print (" if heading lock = wing-leveler, the mode selector springs back to mode 0");
-	#	setprop("autopilot/logic/AP1orAP2-sw", true);
-	#	setprop("autopilot/switches/mode-knob", 0);  # MAN
-	#}
-	#elsif (getprop("autopilot/locks/lateral") == "dg-heading-hold") {
-##		setprop("autopilot/logic/AP1orAP2-sw", true);
-	#}
-	#elsif (	getprop("autopilot/locks/lateral") == "nav1-hold") {
-	#	if (getprop("autopilot/locks/pitch") == "gs1-hold") {
-##			setprop("autopilot/logic/AP1orAP2-sw", true);
-	#		setprop("autopilot/switches/mode-knob", 2);  # GS AUTO
-	#	}
-##		else {setprop("autopilot/logic/AP1orAP2-sw", true);}
-	#}
-	#elsif (getprop("autopilot/locks/lateral") == "") {
-	#	if (getprop("autopilot/locks/pitch") == "") {
-	#		setprop("autopilot/logic/AP1-sw", 0);
-	#		setprop("autopilot/logic/AP2-sw", 0);
-	#		setprop("autopilot/logic/AP1orAP2-sw", 0);
-	#		setprop("autopilot/logic/ALT-sw", 0);
-	#		setprop("autopilot/switches/mode-knob", 0);  # MAN
-	#	}
-	}
 }
+
+
+
 
 
 setlistener("controls/special/yoke-switch1", func (s1){
     var s1 = s1.getBoolValue();
     if (s1 == 1){
-		setprop("autopilot/logic/AP1-sw", 0);
-		setprop("autopilot/logic/AP2-sw", 0);
-		setprop("autopilot/logic/AP1orAP2-sw", 0);
-		setprop("autopilot/logic/ALT-sw", 0);
-		setprop("autopilot/logic/IAS-sw", 0);
-		setprop("autopilot/logic/MACH-sw", 0);
+		setprop("autopilot/Logic//AP1-sw", 0);
+		setprop("autopilot/Logic//AP2-sw", 0);
+		setprop("autopilot/Logic//AP1orAP2-sw", 0);
+		setprop("autopilot/Logic//ALT-sw", 0);
+		setprop("autopilot/Logic//IAS-sw", 0);
+		setprop("autopilot/Logic//MACH-sw", 0);
 		print (" AP disconnect sw");
 		setprop("autopilot/switches/mode-knob", 0);   # MAN
 		setprop("autopilot/settings/pitch-wheel-deg", 0);
 		setprop("autopilot/settings/target-pitch-deg", 0);
-	#	setprop("autopilot/locks/pitch", "");
-	#	setprop("autopilot/locks/lateral", "");
-##		setprop("autopilot/locks/speed", "");
 		setprop("autopilot/settings/TurnKnob",0);
 		setprop("autopilot/settings/datum_norm", 0);
     }
@@ -326,26 +244,26 @@ setlistener("controls/special/yoke-switch1", func (s1){
 ## Basic Pitch modes (Attitude, IAS, MACH and Altitude hold) selection
 	
 PitchSwCommon = func {
-	var  altsw = getprop("autopilot/logic/ALT-sw") != 0;
-	var  iassw = getprop("autopilot/logic/IAS-sw") != 0;
-	var  machsw = getprop("autopilot/logic/MACH-sw") != 0;
-	var  pitchsw = getprop("autopilot/logic/PITCH-HOLD") != 0;
+	var  altsw = getprop("autopilot/Logic//ALT-sw") != 0;
+	var  iassw = getprop("autopilot/Logic//IAS-sw") != 0;
+	var  machsw = getprop("autopilot/Logic//MACH-sw") != 0;
+	var  pitchsw = getprop("autopilot/Logic//PITCH-HOLD") != 0;
 	##print ("altsw ", altsw,"  iassw ", iassw,"  machsw ", machsw,"  pitchsw ", pitchsw);
 	if (!altsw and !iassw and !machsw)(
-		setprop("autopilot/logic/PITCH-HOLD", 1)
+		setprop("autopilot/Logic//PITCH-HOLD", 1)
 		);
-	pitchsw = getprop("autopilot/logic/PITCH-HOLD") != 0;
+	pitchsw = getprop("autopilot/Logic//PITCH-HOLD") != 0;
 	##print ("altsw ", altsw,"  iassw ", iassw,"  machsw ", machsw,"  pitchsw ", pitchsw);
 	}
 
 	
 
 listenerPitchhHoldFunc = func {
-	if(getprop("autopilot/logic/PITCH-HOLD") == 1){
+	if(getprop("autopilot/Logic//PITCH-HOLD") == 1){
 		print ("Pitch Hold mode");
-		setprop("autopilot/logic/ALT-sw", 0);
-		setprop("autopilot/logic/IAS-sw", 0);
-		setprop("autopilot/logic/MACH-sw", 0);
+		setprop("autopilot/Logic//ALT-sw", 0);
+		setprop("autopilot/Logic//IAS-sw", 0);
+		setprop("autopilot/Logic//MACH-sw", 0);
 		setprop("autopilot/settings/pitch-wheel-deg", 0);
 		setprop("autopilot/settings/datum_norm", 0);
 ##		setprop("autopilot/PitchHold/thetaRef_deg",getprop("fdm/jsbsim/attitude/theta-deg"));
@@ -354,11 +272,11 @@ listenerPitchhHoldFunc = func {
 	}
 	
 listenerAltSwFunc = func {
-	if(getprop("autopilot/logic/ALT-sw") == 1){
+	if(getprop("autopilot/Logic//ALT-sw") == 1){
 		print ("ALT mode");
-		setprop("autopilot/logic/IAS-sw", 0);
-		setprop("autopilot/logic/MACH-sw", 0);
-		setprop("autopilot/logic/PITCH-HOLD", 0);
+		setprop("autopilot/Logic//IAS-sw", 0);
+		setprop("autopilot/Logic//MACH-sw", 0);
+		setprop("autopilot/Logic//PITCH-HOLD", 0);
 		setprop("autopilot/settings/pitch-wheel-deg", 0);
 		setprop("autopilot/settings/datum_norm", 0);
 ##		setprop("autopilot/AltHold/thetaRef_deg",getprop("fdm/jsbsim/attitude/theta-deg"));
@@ -368,11 +286,11 @@ listenerAltSwFunc = func {
 	}
 	
 listenerIasSwFunc = func {
-	if(getprop("autopilot/logic/IAS-sw") == 1) {
+	if(getprop("autopilot/Logic//IAS-sw") == 1) {
 		print ("IAS mode");
-		setprop("autopilot/logic/ALT-sw", 0);
-		setprop("autopilot/logic/MACH-sw", 0);
-		setprop("autopilot/logic/PITCH-HOLD", 0);
+		setprop("autopilot/Logic//ALT-sw", 0);
+		setprop("autopilot/Logic//MACH-sw", 0);
+		setprop("autopilot/Logic//PITCH-HOLD", 0);
 		setprop("autopilot/settings/pitch-wheel-deg", 0);
 		setprop("autopilot/settings/datum_norm", 0);
 ##		setprop("autopilot/IAS/thetaRef_deg",getprop("fdm/jsbsim/attitude/theta-deg"));
@@ -382,11 +300,11 @@ listenerIasSwFunc = func {
 	}
 	
 listenerMachSwFunc = func {
-	if(getprop("autopilot/logic/MACH-sw") == 1){
+	if(getprop("autopilot/Logic//MACH-sw") == 1){
 		print ("Mach mode");
-		setprop("autopilot/logic/ALT-sw", 0);
-		setprop("autopilot/logic/IAS-sw", 0);
-		setprop("autopilot/logic/PITCH-HOLD", 0);
+		setprop("autopilot/Logic//ALT-sw", 0);
+		setprop("autopilot/Logic//IAS-sw", 0);
+		setprop("autopilot/Logic//PITCH-HOLD", 0);
 		setprop("autopilot/settings/pitch-wheel-deg", 0);
 		setprop("autopilot/settings/datum_norm", 0);
 ##		setprop("autopilot/Mach/thetaRef_deg",getprop("fdm/jsbsim/attitude/theta-deg"));
@@ -395,27 +313,27 @@ listenerMachSwFunc = func {
 	PitchSwCommon();
 	}
 	
-listenerGSCaptFunc = func {
-	if(getprop("autopilot/logic/GS-CAPT") == 1){
+listenerGSCapFunc = func {
+	if(getprop("autopilot/Logic//GS-Cap") == 1){
 		print ("GS capture");
-		setprop("autopilot/logic/ALT-sw", 0);
-		setprop("autopilot/logic/IAS-sw", 0);
-		setprop("autopilot/logic/MACH-sw", 0);
-		setprop("autopilot/logic/PITCH-HOLD", 0);
+		setprop("autopilot/Logic//ALT-sw", 0);
+		setprop("autopilot/Logic//IAS-sw", 0);
+		setprop("autopilot/Logic//MACH-sw", 0);
+		setprop("autopilot/Logic//PITCH-HOLD", 0);
 		setprop("autopilot/settings/pitch-wheel-deg", 0);
 		setprop("autopilot/settings/datum_norm", 0);
-		setprop("autopilot/Glideslope/thetaRef_deg",getprop("fdm/jsbsim/attitude/theta-deg"));
+##		setprop("autopilot/Glideslope/thetaRef_deg",getprop("fdm/jsbsim/attitude/theta-deg"));
 		}
 	PitchSwCommon();
 	}
 	
 listenerAP_EngageFunc = func {
-	if (getprop("autopilot/logic/AP1orAP2-sw")){
+	if (getprop("autopilot/Logic//AP1orAP2-sw")){
 	print ("AP engage - set Pitch hold");
-		setprop("autopilot/logic/ALT-sw", 0);
-		setprop("autopilot/logic/IAS-sw", 0);
-		setprop("autopilot/logic/MACH-sw", 0);
-		setprop("autopilot/logic/PITCH-HOLD", 1);
+		setprop("autopilot/Logic//ALT-sw", 0);
+		setprop("autopilot/Logic//IAS-sw", 0);
+		setprop("autopilot/Logic//MACH-sw", 0);
+		setprop("autopilot/Logic//PITCH-HOLD", 1);
 		setprop("autopilot/settings/pitch-wheel-deg", 0);
 		setprop("autopilot/settings/datum_norm", 0);
 ##		setprop("autopilot/PitchHold/thetaRef_deg",getprop("fdm/jsbsim/attitude/theta-deg"));
@@ -424,26 +342,29 @@ listenerAP_EngageFunc = func {
 	}
 	
 listenerONCtestFunc = func {
-	if (getprop("autopilot/logic/AP1orAP2-sw")){
-		var ONC = getprop("autopilot/logic/ONC");
-		var ONCtest = getprop("autopilot/logic/ONCtest");
+	if (getprop("autopilot/Logic//AP1orAP2-sw")){
+		var ONC = getprop("autopilot/Logic//ONC");
+		var ONCtest = getprop("autopilot/Logic//ONCtest");
 		var modesw = getprop("autopilot/switches/mode-knob");
         var VORLOC = (modesw > 0);		
 		print("ONC ",ONC, " ONCtest ",ONCtest, " Modesw ",modesw," VORLOC ", VORLOC);
 		if (ONCtest and !ONC and VORLOC){
 			print ("Localiser On course, set ONC");
-			setprop("autopilot/logic/ONC",true );
+			setprop("autopilot/Logic//ONC",true );
 			}
 		}
 ##	PitchSwCommon();
 	}
+	
+var clearmanometricmodes = func {
+}
 
-	setlistener("autopilot/logic/PITCH-HOLD", listenerPitchhHoldFunc,1,0); 	
-	setlistener("autopilot/logic/ALT-sw", listenerAltSwFunc,1,0);
-	setlistener("autopilot/logic/IAS-sw", listenerIasSwFunc,1,0);
-	setlistener("autopilot/logic/MACH-sw",listenerMachSwFunc,1,0);
-	setlistener("autopilot/logic/GS-CAPT",listenerGSCaptFunc,1,0);
-	setlistener("autopilot/logic/AP1orAP2-sw",listenerAP_EngageFunc,1,0);
+	setlistener("autopilot/Logic//PITCH-HOLD", listenerPitchhHoldFunc,1,0); 	
+	setlistener("autopilot/Logic//ALT-sw", listenerAltSwFunc,1,0);
+	setlistener("autopilot/Logic//IAS-sw", listenerIasSwFunc,1,0);
+	setlistener("autopilot/Logic//MACH-sw",listenerMachSwFunc,1,0);
+	setlistener("autopilot/Logic//GS_Cap",listenerGSCapFunc,1,0);
+	setlistener("autopilot/Logic//AP1orAP2-sw",listenerAP_EngageFunc,1,0);
 	
 ##############################################################################################
 
@@ -476,8 +397,8 @@ var update_autopilot = func {
 	var YD1_engaged  = 0;
 	var YD2_engaged  = 0;
 	var YDStby_engaged  = 0;
-	if (AP1_haspower and getprop("autopilot/logic/YD1-sw")) YD1_engaged  = 1;
-	if (AP2_haspower and getprop("autopilot/logic/YD2-sw")) YD2_engaged  = 1;
+	if (AP1_haspower and getprop("autopilot/Logic//YD1-sw")) YD1_engaged  = 1;
+	if (AP2_haspower and getprop("autopilot/Logic//YD2-sw")) YD2_engaged  = 1;
 	setprop("autopilot/controls/YD1_engaged", YD1_engaged);
 	setprop("autopilot/controls/YD2_engaged", YD2_engaged);
 
@@ -489,36 +410,43 @@ var update_autopilot = func {
 
 ## disconect Autopilot no1 or no2 if the associated power is lost	
 	if (AP1_haspower == 0){
-		setprop("autopilot/logic/AP1-sw",0);
-		setprop("autopilot/logic/YD1-sw",0);
+		setprop("autopilot/Logic//AP1-sw",0);
+		setprop("autopilot/Logic//YD1-sw",0);
 		}	
 
 	if (AP2_haspower == 0){
-		setprop("autopilot/logic/AP2-sw",0);
-		setprop("autopilot/logic/YD2-sw",0);
+		setprop("autopilot/Logic//AP2-sw",0);
+		setprop("autopilot/Logic//YD2-sw",0);
 		}
 
 ## disconect Autopilot no1 or no2 if the associated Yawdamper is not engaged.	
 	if (YD1_engaged == 0){
-		setprop("autopilot/logic/AP1-sw",0);
+		setprop("autopilot/Logic//AP1-sw",0);
 		}	
 
 	if (YD2_engaged == 0){
-		setprop("autopilot/logic/AP2-sw",0);
+		setprop("autopilot/Logic//AP2-sw",0);
 		}		
 
-	setprop("autopilot/logic/AP1orAP2-sw", (getprop("autopilot/logic/AP1-sw") or getprop("autopilot/logic/AP2-sw")));
+	setprop("autopilot/Logic//AP1orAP2-sw", (getprop("autopilot/Logic//AP1-sw") or getprop("autopilot/Logic//AP2-sw")));
 	
 	## both Autopilots are needed for autoland
-	setprop("autopilot/switches/AP1andAP2-sw", (getprop("autopilot/logic/AP1-sw") and getprop("autopilot/logic/AP2-sw")));
+	setprop("autopilot/switches/AP1andAP2-sw", (getprop("autopilot/Logic//AP1-sw") and getprop("autopilot/Logic//AP2-sw")));
 	
-	var APengaged = getprop("autopilot/logic/AP1orAP2-sw");
+	var APengaged = getprop("autopilot/Logic//AP1orAP2-sw");
 	
-	setprop("autopilot/internal/BarometricModeSelected",(
-			getprop("autopilot/logic/Mach-sw") 
-			or getprop("autopilot/logic/IAS-sw")
-			or getprop("autopilot/logic/ALT-sw") 		
+	setprop("autopilot/Logic//BarometricModeSelected",(
+			getprop("autopilot/Logic//Mach-sw") 
+			or getprop("autopilot/Logic//IAS-sw")
+			or getprop("autopilot/Logic//ALT-sw") 		
 			));
+	## disable pitch knob if any barometric mode is engaged.
+	
+	##  TODO disable if ILS mode is 
+	
+	if (getprop("autopilot/Logic//BarometricModeSelected") == 1) {
+		setprop("autopilot/settings/pitch-wheel-deg",0.0);
+		}
 
 ##	setprop("autopilot/settings/TurnKnobInDetent",
 ##	(getprop("autopilot/settings/TurnKnob") < 0.11) and (getprop("autopilot/settings/TurnKnob") > -0.11));
@@ -532,68 +460,72 @@ var update_autopilot = func {
 	if (getprop("autopilot/switches/mode-knob") == -1)
 		{
 		setprop("autopilot/settings/Mode", "HDG");
-		setprop("autopilot/logic/HdgHold", false);
-		setprop("autopilot/logic/TurnMode", false);
-		setprop("autopilot/logic/ONC", false);
-		setprop("autopilot/logic/ONCtest", false);
+		setprop("autopilot/Logic//HdgHold", false);
+		setprop("autopilot/Logic//TurnMode", false);
+		setprop("autopilot/Logic//ONC", false);
+		setprop("autopilot/Logic//ONCtest", false);
 		}
  	elsif (getprop("autopilot/switches/mode-knob") ==  0)
 		{
 		setprop("autopilot/settings/Mode", "MAN");
 		if (abs(getprop("autopilot/settings/TurnKnob")) < 3.0)
 			{
-			setprop("autopilot/logic/HdgHold", true);
-			setprop("autopilot/logic/TurnMode", false);
-			setprop("autopilot/logic/ONC", false);
-			setprop("autopilot/logic/ONCtest", false);
+			setprop("autopilot/Logic//HdgHold", true);
+			setprop("autopilot/Logic//TurnMode", false);
+			setprop("autopilot/Logic//ONC", false);
+			setprop("autopilot/Logic//ONCtest", false);
 			}
 			else 
 			{
-			setprop("autopilot/logic/HdgHold", false);
-			setprop("autopilot/logic/TurnMode", true);
-			setprop("autopilot/logic/ONC", false);
-			setprop("autopilot/logic/ONCtest", false);
+			setprop("autopilot/Logic//HdgHold", false);
+			setprop("autopilot/Logic//TurnMode", true);
+			setprop("autopilot/Logic//ONC", false);
+			setprop("autopilot/Logic//ONCtest", false);
 			}
 ##		}	
 ##		else
 ##		{
-##		setprop("autopilot/logic/HdgHold", false);
-##		setprop("autopilot/logic/TurnMode", false);
+##		setprop("autopilot/Logic//HdgHold", false);
+##		setprop("autopilot/Logic//TurnMode", false);
 		}
  	elsif (getprop("autopilot/switches/mode-knob") ==  1)
 		{
 		setprop("autopilot/settings/Mode", "LOC VOR");
-		setprop("autopilot/logic/HdgHold", false);
-		setprop("autopilot/logic/TurnMode", false);
+		setprop("autopilot/Logic//HdgHold", false);
+		setprop("autopilot/Logic//TurnMode", false);
 		}
   	elsif (getprop("autopilot/switches/mode-knob") ==  2)
 		{
 		setprop("autopilot/settings/Mode", "GS AUTO");
-		setprop("autopilot/logic/HdgHold", false);
-		setprop("autopilot/logic/TurnMode", false);
+		setprop("autopilot/Logic//HdgHold", false);
+		setprop("autopilot/Logic//TurnMode", false);
 		}
   	elsif (getprop("autopilot/switches/mode-knob") ==  3)
 		{
 		setprop("autopilot/settings/Mode", "GS MAN");
-		setprop("autopilot/logic/HdgHold", false);
-		setprop("autopilot/logic/TurnMode", false);
+		setprop("autopilot/Logic//HdgHold", false);
+		setprop("autopilot/Logic//TurnMode", false);
 		}
   	elsif (getprop("autopilot/switches/mode-knob") ==  4)
 		{
 		setprop("autopilot/settings/Mode", "FLARE");
-		setprop("autopilot/logic/HdgHold", false);
-		setprop("autopilot/logic/TurnMode", false);
+		setprop("autopilot/Logic//HdgHold", false);
+		setprop("autopilot/Logic//TurnMode", false);
 		}
   	else{
 		setprop("autopilot/settings/Mode", "");
 		}
+		
+
+
+		
 ## disable all modes if autopilot is not engaged		
 	if (APengaged == 0) { 
 		setprop("autopilot/settings/TurnKnob",0);
 		setprop("autopilot/settings/Mode", "");
-		setprop("autopilot/logic/ALT-sw", 0);
-		setprop("autopilot/logic/IAS-sw", 0);
-		setprop("autopilot/logic/MACH-sw", 0);
+		setprop("autopilot/Logic//ALT-sw", 0);
+		setprop("autopilot/Logic//IAS-sw", 0);
+		setprop("autopilot/Logic//MACH-sw", 0);
 		setprop("autopilot/switches/mode-knob", 0);
 		setprop("autopilot/settings/pitch-wheel-deg", 0);
 		setprop("autopilot/settings/target-pitch-deg", 0);
@@ -604,6 +536,7 @@ var update_autopilot = func {
 
 
 ## TURN mode
+
 
 ## Localiser On-Course Test
 		var beta = getprop("autopilot/LGUIDE/Beta_Deg");
@@ -616,27 +549,29 @@ var update_autopilot = func {
 		var eBeta = abs(beta/betamax);
 		var eBetadot = abs(betadot/betamax);
 		var ePhi = abs(phi);
-		var apengaged = getprop("autopilot/logic/AP1orAP2-sw");
+		var apengaged = getprop("autopilot/Logic//AP1orAP2-sw");
 		var VLmode = (getprop("autopilot/switches/mode-knob") >  0);
 		var GSmode = (getprop("autopilot/switches/mode-knob") >  1);		
 		var ONCtest = (eBeta < e1) and (eBetadot < e2) and (ePhi < e3) and apengaged and VLmode;
 		
 ##		print ("ONCtest ", ONCtest, " eBeta ",eBeta , " eBetadot ", eBetadot, " ePhi ", ePhi, " VLmode ", VLmode);
-		setprop ("autopilot/logic/ONCtest", ONCtest);
+		setprop ("autopilot/Logic//ONCtest", ONCtest);
 
 ## Glideslope mode selection
 		var mode_sw = getprop("autopilot/switches/mode-knob") or 0;
 		var GS_mode = getprop("autopilot/Glideslope/Mode") or 0;
+		var GS_Cap = getprop("autopilot/Logic//GS-Cap") or 0;
 		var GS_capture_angle = 0.5;
 	    var GS_error_deg = getprop("autopilot/Glideslope/gs_error_deg") or 0.0;
 		var GS_hflare = 200.0;
 		var GS_alt_ft = getprop("instrumentation/altimeter/indicated-altitude-ft") or 0.0; ## should be radio altimter 
 		var GS_in_range = getprop("instrumentation/nav[0]/gs-in-range") or 0;
 		setprop("autopilot/Glideslope/gs-in-range",GS_in_range);
-		
 		if (mode_sw < 2){ 
-			GS_mode = 0; # clear gs mode
+			GS_mode = 0; 
 		}
+##Start in GS intercept mode
+		
 		elsif (GS_mode == 0){ # mode_sw is 2 or greater, so set GS mode 1 . altitude hold
 			GS_mode = 1; 
 		}
@@ -660,10 +595,32 @@ var update_autopilot = func {
 				{GS_mode = 5;
 			}
 		}
+###		elsif ((mode_sw == 2) and (GS_mode == 0)) { 
+##	print ("GS AUTO mode ", " GS in range ",GS_in_range);
+			# GS AUTO mode, but not yet activated
+###			if ((GS_error_deg < GS_capture_angle) and (GS_in_range)) {
+###					print ("GS Capture ", " GS in range ",GS_in_range);
+###					GS_mode = 1; # Set GS capture mode
+###					GS_Cap = 1;
+				# clear manometric modes
+###					setprop("autopilot/Logic//ManometricModeSelected",0);
+###					setprop("autopilot/Logic//Mach-sw",0);				
+###					setprop("autopilot/Logic//IAS-sw",0);				
+###					setprop("autopilot/Logic//ALT-sw",0);						
+###				}
+###		}
+###		elsif (mode_sw == 3){
+###			GS_mode = 2;  # set GS MAN mode 
+###		}
+###		elsif (mode_sw == 4){ 
+###			GS_mode = 3;  # set GS FLARE (auto land) mode 
+###		}
+
 
 		if (GS_mode > 0){
-##		print ("GS mode ", GS_mode, " GS in range ",GS_in_range);
-		setprop("autopilot/Glideslope/Mode",GS_mode);}
+##		print ("GS mode ", GS_mode, " GS in range ",GS_in_range)};
+		setprop("autopilot/Glideslope/Mode",GS_mode);
+		setprop("autopilot/Logic//GS-Cap",GS_Cap);}
 
 		
 ## Autothrottle
@@ -700,13 +657,9 @@ var update_flight_controls = func {
 ##############################################################################################
 
 setlistener("sim/signals/fdm-initialized", func {
-
     settimer(update_autopilot,5);
     settimer(update_flight_controls,5);
 	setlistener("autopilot/switches/mode-knob", listenerModeKnobFunc, 1,0);
-	setlistener("autopilot/logic/ONCtest",listenerONCtestFunc,1,0);
-##	setlistener("autopilot/logic/ALT-sw", listenerAltSwFunc,1,0);
-##	setlistener("autopilot/logic/IAS-sw", listenerIasSwFunc,1,0);
-##	setlistener("autopilot/logic/MACH-sw",listenerMachSwFunc,1,0);
+	setlistener("autopilot/Logic//ONCtest",listenerONCtestFunc,1,0);
 	}
 );

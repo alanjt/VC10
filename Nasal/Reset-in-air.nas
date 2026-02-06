@@ -48,10 +48,10 @@ var Reset = func{
 	setprop("autopilot/switches/AT_2switch",0);	
 	setprop("autopilot/switches/AT_3switch",0);	
 	setprop("autopilot/switches/AT_4switch",0);
-	setprop("autopilot/logic/AP1-sw",0);		
-	setprop("autopilot/logic/AP2-sw",0);
-	setprop("autopilot/logic/YD1-sw",0);
-	setprop("autopilot/logic/YD2-sw",0);
+	setprop("autopilot/Logic//AP1-sw",0);		
+	setprop("autopilot/Logic//AP2-sw",0);
+	setprop("autopilot/Logic//YD1-sw",0);
+	setprop("autopilot/Logic//YD2-sw",0);
 		
 	if (engines_running) { 
 

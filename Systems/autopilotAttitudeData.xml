@@ -30,7 +30,7 @@
 				</less-than>>
 			</and>
 		</input>
-		<output><property>autopilot/logic/thetaMachSw</property></output>
+		<output><property>autopilot/Logic//thetaMachSw</property></output>
 	</logic> 
 
 <!--	<filter>
@@ -41,7 +41,7 @@
 		<!-- integrator thetaRef_deg tracks pitch angle theta-deg while Autopilot is not in pitch hold mode-->
 <!--		<input> 
 			<condition>
-				<not><property>autopilot/logic/PITCH-HOLD</property></not>
+				<not><property>autopilot/Logic//PITCH-HOLD</property></not>
 			</condition>
 			<expression>
 				<product>

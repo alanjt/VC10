@@ -206,11 +206,11 @@
 					<row>0</row>
 					<col>0</col>
 					<label>NAV</label>
-					<property>autopilot/logic/NAV-sw</property>
+					<property>autopilot/Logic//NAV-sw</property>
 					<live>true</live>
 					<binding>
 						<command>property-toggle</command>
-						<property>autopilot/logic/NAV-sw</property>
+						<property>autopilot/Logic//NAV-sw</property>
 					</binding>
 				</checkbox>
 				
@@ -225,11 +225,11 @@
 					<row>0</row>
 					<col>2</col>
 					<label>AP-1</label>
-					<property>autopilot/logic/AP1-sw</property>
+					<property>autopilot/Logic//AP1-sw</property>
 					<live>true</live>
 					<binding>
 						<command>property-toggle</command>
-						<property>autopilot/logic/AP1-sw</property>
+						<property>autopilot/Logic//AP1-sw</property>
 					</binding>
 				</checkbox>
 
@@ -237,11 +237,11 @@
 					<row>0</row>
 					<col>3</col>
 					<label>DAMPER-1</label>
-					<property>autopilot/logic/YD1-sw</property>
+					<property>autopilot/Logic//YD1-sw</property>
 					<live>true</live>
 					<binding>
 						<command>property-toggle</command>
-						<property>autopilot/logic/YD1-sw</property>
+						<property>autopilot/Logic//YD1-sw</property>
 					</binding>
 				</checkbox>
 
@@ -249,11 +249,11 @@
 					<row>0</row>
 					<col>4</col>
 					<label>DAMPER-2</label>
-					<property>autopilot/logic/YD2-sw</property>
+					<property>autopilot/Logic//YD2-sw</property>
 					<live>true</live>
 					<binding>
 						<command>property-toggle</command>
-						<property>autopilot/logic/YD2-sw</property>
+						<property>autopilot/Logic//YD2-sw</property>
 					</binding>
 				</checkbox>
 
@@ -261,11 +261,11 @@
 					<row>0</row>
 					<col>5</col>
 					<label>AP-2</label>
-					<property>autopilot/logic/AP2-sw</property>
+					<property>autopilot/Logic//AP2-sw</property>
 					<live>true</live>
 					<binding>
 						<command>property-toggle</command>
-						<property>autopilot/logic/AP2-sw</property>
+						<property>autopilot/Logic//AP2-sw</property>
 					</binding>
 				</checkbox>
 				
@@ -280,11 +280,11 @@
 					<row>0</row>
 					<col>9</col>
 					<label>ALT</label>
-					<property>autopilot/logic/ALT-sw</property>
+					<property>autopilot/Logic//ALT-sw</property>
 					<live>true</live>
 					<binding>
 						<command>property-toggle</command>
-						<property>autopilot/logic/ALT-sw</property>
+						<property>autopilot/Logic//ALT-sw</property>
 					</binding>
 				</checkbox>
 
@@ -292,11 +292,11 @@
 					<row>0</row>
 					<col>10</col>
 					<label>IAS</label>
-					<property>autopilot/logic/IAS-sw</property>
+					<property>autopilot/Logic//IAS-sw</property>
 					<live>true</live>
 					<binding>
 						<command>property-toggle</command>
-						<property>autopilot/logic/IAS-sw</property>
+						<property>autopilot/Logic//IAS-sw</property>
 					</binding>
 				</checkbox>
 				
@@ -304,11 +304,11 @@
 					<row>0</row>
 					<col>11</col>
 					<label>MACH</label>
-					<property>autopilot/logic/MACH-sw</property>
+					<property>autopilot/Logic//MACH-sw</property>
 					<live>true</live>
 					<binding>
 						<command>property-toggle</command>
-						<property>autopilot/logic/MACH-sw</property>
+						<property>autopilot/Logic//MACH-sw</property>
 					</binding>
 				</checkbox>
 			</frame>

@@ -150,7 +150,7 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 		<gain>1.0</gain>
 		<input>
 			<condition>
-				<property>autopilot/logic/ONC</property><!-- ONC set -->
+				<property>autopilot/Logic//ONC</property><!-- ONC set -->
 			</condition>
 			<property>autopilot/LGUIDE/COURSE_Error_washout</property>
 		</input>
@@ -223,7 +223,7 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
   <gain>1.0</gain>
   <input>
     <condition>
-      <property>autopilot/logic/ONC</property> <!-- Start integrator when ONC is set-->
+      <property>autopilot/Logic//ONC</property> <!-- Start integrator when ONC is set-->
     </condition>
     <property>autopilot/LGUIDE/Beta_Deg</property>
   </input>
@@ -328,7 +328,7 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 				</sum>
 			</expression>
 		</input>
-		<output>autopilot/logic/CBtest</output>
+		<output>autopilot/Logic//CBtest</output>
 	</filter>
 	
 	<filter>
@@ -391,7 +391,7 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 			</greater-than>
 		</input>
 		<output>
-			<property>autopilot/logic/LOClimited</property>
+			<property>autopilot/Logic//LOClimited</property>
 		</output>
 	</logic>
 	
@@ -419,8 +419,8 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 		<input>
 			<condition>
 				<or>
-					<not><property>autopilot/logic/AP1orAP2-sw</property></not>
-					<not><property>autopilot/logic/HdgHold</property></not>
+					<not><property>autopilot/Logic//AP1orAP2-sw</property></not>
+					<not><property>autopilot/Logic//HdgHold</property></not>
 				</or>
 			</condition>
 			<property>autopilot/LGUIDE/Heading-magnetic-deg</property>
@@ -464,7 +464,7 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 		
 		<input>
 			<condition>
-				<property>autopilot/logic/HdgHold</property>
+				<property>autopilot/Logic//HdgHold</property>
 			</condition>
 			<!-- Heading hold mode -->
 			<expression>
@@ -477,7 +477,7 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 		
 		<input>
 			<condition>
-				<property>autopilot/logic/TurnMode</property>
+				<property>autopilot/Logic//TurnMode</property>
 			</condition>
 			<!-- Bank angle (from Turn Knob) mode -->
 			<property>autopilot/settings/TurnKnob-deg-filtered</property>
