@@ -17,7 +17,7 @@
 		<type>integrator</type>
 		<gain>1.0</gain>
 		<input>
-			<condition><not><property>autopilot/Logic//ALT-sw</property></not></condition>
+			<condition><not><property>autopilot/Logic/ALT-sw</property></not></condition>
 			<expression>
 				<dif>
 					<property>fdm/jsbsim/attitude/theta-deg</property>
@@ -37,7 +37,7 @@
 		<type>integrator</type>
 		<gain>1.0</gain>
 		<input>
-			<condition><not><property>autopilot/Logic//ALT-sw</property></not></condition>
+			<condition><not><property>autopilot/Logic/ALT-sw</property></not></condition>
 			<expression>
 				<dif>
 					<property>instrumentation/altimeter/indicated-altitude-ft</property>
@@ -113,7 +113,7 @@
 		<debug>false</debug>
 		<enable>
 			<condition>
-				<property>autopilot/Logic//AP1orAP2-sw</property>
+				<property>autopilot/Logic/AP1orAP2-sw</property>
 			</condition>
 		</enable>
 		<filter-time>0.5</filter-time><!-- TV3 -->
@@ -128,7 +128,7 @@
 		<gain>0.05</gain><!-- integrator gain -->
 
 		<input>
-			<condition><property>autopilot/Logic//ALT-sw</property></condition>
+			<condition><property>autopilot/Logic/ALT-sw</property></condition>
 			<property>autopilot/AltHold/ALTOUT</property>
 		</input>
 		

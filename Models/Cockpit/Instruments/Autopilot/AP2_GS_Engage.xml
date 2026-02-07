@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--###################################################################################
+		Alan Teeder
+		Feb 2026
+		This file is licenced under the terms of the GNU General Public Licence V2 or later
+		###################################################################################
+-->
+
+<PropertyList>
+
+<path>Aircraft/VC10/Models/Cockpit/SwitchesLamps/indicator_amber.ac</path>
+
+	<animation>
+		<type>material</type>
+		<object-name>lens</object-name>
+		<emission>
+			<factor-prop>autopilot/Logic/AP2_GS_Engage</factor-prop>
+			<red>1</red>
+			<green>1</green>
+			<blue>1</blue>
+		</emission>
+	</animation>
+
+</PropertyList>
+

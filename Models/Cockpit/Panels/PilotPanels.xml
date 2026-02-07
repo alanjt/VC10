@@ -480,16 +480,6 @@ Vickers VC10 for Flightgear
 	</model>
 	
 	<model>
-		<name>trim</name>
-		<path>Aircraft/VC10/Models/Cockpit/Instruments/trim/Three_axis_trim.xml</path>
-		<offsets>
-			<x-m>0.0</x-m>
-			<y-m>-0.184</y-m>
-			<z-m>-0.40</z-m>
-		</offsets>
-	</model>
-	
-	<model>
 		<name>CompassXover</name>
 		<path>CompassXoverSW.xml</path>
 		<offsets>
@@ -645,17 +635,57 @@ Vickers VC10 for Flightgear
 			<z-m>-0.291</z-m>
 		</offsets>
 	</model>
-
+	
+	<model>
+		<name>AP1_Fail</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/Autopilot/AP1_Fail.xml</path>
+		<offsets><x-m>0.0</x-m><y-m>-0.224</y-m><z-m>-0.37</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>AP1_GS_arm</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/Autopilot/AP1_GS_arm.xml</path>
+		<offsets><x-m>0.0</x-m><y-m>-0.224</y-m><z-m>-0.40</z-m></offsets>
+	</model>
+	
+	<model>
+		<name>AP1_GS_engage</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/Autopilot/AP1_GS_engage.xml</path>
+		<offsets><x-m>0.0</x-m><y-m>-0.224</y-m><z-m>-0.43</z-m></offsets>
+	</model>
+	
+	<model>
+		<name>trim</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/trim/Three_axis_trim.xml</path>
+		<offsets><x-m>0.0</x-m><y-m>-0.164</y-m><z-m>-0.40</z-m></offsets>
+	</model>
 	
 	<model>
 		<name>trim_cp</name>
 		<path>Aircraft/VC10/Models/Cockpit/Instruments/trim/Three_axis_trim.xml</path>
-		<offsets>
-			<x-m>0.0</x-m>
-			<y-m>0.184</y-m>
-			<z-m>-0.40</z-m>
-		</offsets>
+		<offsets><x-m>0.0</x-m><y-m>0.164</y-m><z-m>-0.40</z-m></offsets>
 	</model>
+	
+	<model>
+		<name>AP2_Fail</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/Autopilot/AP2_Fail.xml</path>
+		<offsets><x-m>0.0</x-m><y-m>0.224</y-m><z-m>-0.37</z-m></offsets>
+	</model>
+	
+	<model>
+		<name>AP2_GS_arm</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/Autopilot/AP2_GS_arm.xml</path>
+		<offsets><x-m>0.0</x-m><y-m>0.224</y-m><z-m>-0.40</z-m></offsets>
+	</model>
+	
+	<model>
+		<name>AP2_GS_engage</name>
+		<path>Aircraft/VC10/Models/Cockpit/Instruments/Autopilot/AP2_GS_engage.xml</path>
+		<offsets><x-m>0.0</x-m><y-m>0.224</y-m><z-m>-0.43</z-m></offsets>
+	</model>
+
+
 
 
 	<!-- centre top panel -->

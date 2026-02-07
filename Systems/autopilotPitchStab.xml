@@ -79,7 +79,7 @@
 		</input>
 		
 		<input>
-			<condition><property>autopilot/Logic//ALT-sw</property></condition>
+			<condition><property>autopilot/Logic/ALT-sw</property></condition>
 			<expression>
 				<dif>
 					<property>fdm/jsbsim/attitude/theta-deg</property>
@@ -92,7 +92,7 @@
 		</input>
 		
 		<input>
-			<condition><property>autopilot/Logic//IAS-sw</property></condition>
+			<condition><property>autopilot/Logic/IAS-sw</property></condition>
 			<expression>
 				<dif>
 					<property>fdm/jsbsim/attitude/theta-deg</property>
@@ -105,7 +105,7 @@
 		</input>
 		
 		<input>
-			<condition><property>autopilot/Logic//MACH-sw</property></condition>
+			<condition><property>autopilot/Logic/MACH-sw</property></condition>
 			<expression>
 				<dif>
 					<property>fdm/jsbsim/attitude/theta-deg</property>
@@ -147,7 +147,7 @@
 		<debug>false</debug>
 		<enable>
 			<condition>
-				<property>autopilot/Logic//AP1orAP2-sw</property>
+				<property>autopilot/Logic/AP1orAP2-sw</property>
 			</condition>
 		</enable>
 		<filter-time>4.0</filter-time>
@@ -191,7 +191,7 @@
 		<gain>1.0</gain>
 		<input>
 			<condition>
-				<property>autopilot/Logic//AP1orAP2-sw</property>
+				<property>autopilot/Logic/AP1orAP2-sw</property>
 			</condition>
 			<property>autopilot/commands/APelevator-deg</property>
 		</input>

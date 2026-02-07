@@ -39,7 +39,7 @@ Vickers VC10 for Flightgear
 	<animation>
 		<type>rotate</type>
 		<object-name>NAV_Select</object-name>
-		<property>autopilot/Logic//NAV-sw</property>
+		<property>autopilot/Logic/NAV-sw</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0</dep></entry>
 			<entry><ind>1</ind><dep>-25</dep></entry>
@@ -56,7 +56,7 @@ Vickers VC10 for Flightgear
 			<button>0</button>
 			<binding>
 				<command>property-toggle</command>
-				<property>autopilot/Logic//NAV-sw</property>
+				<property>autopilot/Logic/NAV-sw</property>
 			</binding>
 		</action>
 	</animation>
@@ -66,7 +66,7 @@ Vickers VC10 for Flightgear
 	<animation>
 		<type>rotate</type>
 		<object-name>AP-1Select</object-name>
-		<property>autopilot/Logic//AP1-sw</property>
+		<property>autopilot/Logic/AP1-sw</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0</dep></entry>
 			<entry><ind>1</ind><dep>-25</dep></entry>
@@ -84,24 +84,24 @@ Vickers VC10 for Flightgear
 			<!--<binding>
 				<command>nasal</command>
 				<script>
-					var bt = getprop("autopilot/Logic//AP1-sw") or 0;
+					var bt = getprop("autopilot/Logic/AP1-sw") or 0;
 					var bat = getprop("VC10/electric/ess-bus") or 0;
 					print ("bt ",bt,"  bat ", bat);
 					if(bt){
 					#	if(bt or bat &lt; 20){
-					###### setprop("autopilot/Logic//AP1-sw", 0);
-					###### setprop("autopilot/Logic//ALT-sw", 0);
-					###### setprop("autopilot/Logic//IAS-sw", 0);
-					###### setprop("autopilot/Logic//MACH-sw", 0);
-					setprop("autopilot/Logic//AP1-sw", 0);
+					###### setprop("autopilot/Logic/AP1-sw", 0);
+					###### setprop("autopilot/Logic/ALT-sw", 0);
+					###### setprop("autopilot/Logic/IAS-sw", 0);
+					###### setprop("autopilot/Logic/MACH-sw", 0);
+					setprop("autopilot/Logic/AP1-sw", 0);
 					}else{
-					setprop("autopilot/Logic//AP1-sw", 1);
+					setprop("autopilot/Logic/AP1-sw", 1);
 					}
 				</script>
 			</binding> -->
 			<binding>
 				<command>property-toggle</command>
-				<property>autopilot/Logic//AP1-sw</property>
+				<property>autopilot/Logic/AP1-sw</property>
 			</binding>
 			<binding>
 				<command>property-toggle</command>
@@ -114,7 +114,7 @@ Vickers VC10 for Flightgear
 	<animation>
 		<type>rotate</type>
 		<object-name>Damper-1Select</object-name>
-		<property>autopilot/Logic//YD1-sw</property>
+		<property>autopilot/Logic/YD1-sw</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0</dep></entry>
 			<entry><ind>1</ind><dep>-25</dep></entry>
@@ -132,22 +132,22 @@ Vickers VC10 for Flightgear
 			<!--			<binding>
 				<command>nasal</command>
 				<script>
-					#var bt = getprop("autopilot/Logic//YD1-sw") or 0;
+					#var bt = getprop("autopilot/Logic/YD1-sw") or 0;
 					#var bat = getprop("VC10/electric/ess-bus") or 0;
 					#if(bt){
 					#	if(bt or bat &lt; 20){
-					###### setprop("autopilot/Logic//YD1-sw", 0);
-					###### setprop("autopilot/Logic//ALT-sw", 0);
-					###### setprop("autopilot/Logic//IAS-sw", 0);
-					###### setprop("autopilot/Logic//MACH-sw", 0);
+					###### setprop("autopilot/Logic/YD1-sw", 0);
+					###### setprop("autopilot/Logic/ALT-sw", 0);
+					###### setprop("autopilot/Logic/IAS-sw", 0);
+					###### setprop("autopilot/Logic/MACH-sw", 0);
 					#}else{
-					#setprop("autopilot/Logic//YD1-sw", 1);
+					#setprop("autopilot/Logic/YD1-sw", 1);
 					#}
 				</script> 
 			</binding> -->
 			<binding>
 				<command>property-toggle</command>
-				<property>autopilot/Logic//YD1-sw</property>
+				<property>autopilot/Logic/YD1-sw</property>
 			</binding>
 			<binding>
 				<command>property-toggle</command>
@@ -160,7 +160,7 @@ Vickers VC10 for Flightgear
 	<animation>
 		<type>rotate</type>
 		<object-name>Damper-2Select</object-name>
-		<property>autopilot/Logic//YD2-sw</property>
+		<property>autopilot/Logic/YD2-sw</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0</dep></entry>
 			<entry><ind>1</ind><dep>-25</dep></entry>
@@ -178,22 +178,22 @@ Vickers VC10 for Flightgear
 			<!--			<binding>
 				<command>nasal</command>
 				<script>
-					var bt = getprop("autopilot/Logic//YD2-sw") or 0;
+					var bt = getprop("autopilot/Logic/YD2-sw") or 0;
 					var bat = getprop("VC10/electric/ess-bus") or 0;
 					if(bt){
 					#	if(bt or bat &lt; 20){
-					###### setprop("autopilot/Logic//YD2-sw", 0);
-					###### setprop("autopilot/Logic//ALT-sw", 0);
-					###### setprop("autopilot/Logic//IAS-sw", 0);
-					###### setprop("autopilot/Logic//MACH-sw", 0);
+					###### setprop("autopilot/Logic/YD2-sw", 0);
+					###### setprop("autopilot/Logic/ALT-sw", 0);
+					###### setprop("autopilot/Logic/IAS-sw", 0);
+					###### setprop("autopilot/Logic/MACH-sw", 0);
 					}else{
-					setprop("autopilot/Logic//YD2-sw", 1);
+					setprop("autopilot/Logic/YD2-sw", 1);
 					}
 				</script>
 			</binding> -->
 			<binding>
 				<command>property-toggle</command>
-				<property>autopilot/Logic//YD2-sw</property>
+				<property>autopilot/Logic/YD2-sw</property>
 			</binding>
 			<binding>
 				<command>property-toggle</command>
@@ -207,7 +207,7 @@ Vickers VC10 for Flightgear
 	<animation>
 		<type>rotate</type>
 		<object-name>AP-2Select</object-name>
-		<property>autopilot/Logic//AP2-sw</property>
+		<property>autopilot/Logic/AP2-sw</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0</dep></entry>
 			<entry><ind>1</ind><dep>-25</dep></entry>
@@ -225,23 +225,23 @@ Vickers VC10 for Flightgear
 			<!--<binding>
 				<command>nasal</command>
 				<script>
-					var bt = getprop("autopilot/Logic//AP2-sw") or 0;
+					var bt = getprop("autopilot/Logic/AP2-sw") or 0;
 					var bat = getprop("VC10/electric/ess-bus") or 0;
 					if(bt){
 					#	if(bt or bat &lt; 20){
-					###### setprop("autopilot/Logic//AP2-sw", 0);
-					###### setprop("autopilot/Logic//ALT-sw", 0);
-					###### setprop("autopilot/Logic//IAS-sw", 0);
-					###### setprop("autopilot/Logic//MACH-sw", 0);
-					setprop("autopilot/Logic//AP2-sw", 0);
+					###### setprop("autopilot/Logic/AP2-sw", 0);
+					###### setprop("autopilot/Logic/ALT-sw", 0);
+					###### setprop("autopilot/Logic/IAS-sw", 0);
+					###### setprop("autopilot/Logic/MACH-sw", 0);
+					setprop("autopilot/Logic/AP2-sw", 0);
 					}else{
-					setprop("autopilot/Logic//AP2-sw", 1);
+					setprop("autopilot/Logic/AP2-sw", 1);
 					}
 				</script>
 			</binding>  -->
 			<binding>
 				<command>property-toggle</command>
-				<property>autopilot/Logic//AP2-sw</property>
+				<property>autopilot/Logic/AP2-sw</property>
 			</binding>
 			<binding>
 				<command>property-toggle</command>
@@ -253,7 +253,7 @@ Vickers VC10 for Flightgear
 	<animation>
 		<type>rotate</type>
 		<object-name>ALT_Select</object-name>
-		<property>autopilot/Logic//ALT-sw</property>
+		<property>autopilot/Logic/ALT-sw</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0</dep></entry>
 			<entry><ind>1</ind><dep>-25</dep></entry>
@@ -270,24 +270,24 @@ Vickers VC10 for Flightgear
 			<button>0</button>
 			<binding>
 				<command>property-toggle</command>
-				<property>autopilot/Logic//ALT-sw</property>
+				<property>autopilot/Logic/ALT-sw</property>
 			</binding>
 			<!-- <binding>
 				<command>property-assign</command>
-				<property>autopilot/Logic//IAS-sw</property>
+				<property>autopilot/Logic/IAS-sw</property>
 				<value>0</value>
 			</binding>
 			<binding>
 				<command>property-assign</command>
-				<property>autopilot/Logic//MACH-sw</property>
+				<property>autopilot/Logic/MACH-sw</property>
 				<value>0</value>
 			</binding> -->
 			<!--			<binding>
 				<command>nasal</command>
 				<script>
-					var apa = getprop("autopilot/Logic//AP1orAP2-sw") or 0;
+					var apa = getprop("autopilot/Logic/AP1orAP2-sw") or 0;
 					if(!apa){
-					settimer(func{ setprop("autopilot/Logic//ALT-sw", 0);}, 0.2);
+					settimer(func{ setprop("autopilot/Logic/ALT-sw", 0);}, 0.2);
 					}
 				</script>
 			</binding> -->
@@ -303,7 +303,7 @@ Vickers VC10 for Flightgear
 	<animation>
 		<type>rotate</type>
 		<object-name>IAS_Select</object-name>
-		<property>autopilot/Logic//IAS-sw</property>
+		<property>autopilot/Logic/IAS-sw</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0</dep></entry>
 			<entry><ind>1</ind><dep>-25</dep></entry>
@@ -320,24 +320,24 @@ Vickers VC10 for Flightgear
 			<button>0</button>
 			<!--<binding>
 				<command>property-assign</command>
-				<property>autopilot/Logic//ALT-sw</property>
+				<property>autopilot/Logic/ALT-sw</property>
 				<value>0</value>
 			</binding> -->
 			<binding>
 				<command>property-toggle</command>
-				<property>autopilot/Logic//IAS-sw</property>
+				<property>autopilot/Logic/IAS-sw</property>
 			</binding>
 			<!-- <binding>
 				<command>property-assign</command>
-				<property>autopilot/Logic//MACH-sw</property>
+				<property>autopilot/Logic/MACH-sw</property>
 				<value>0</value>
 			</binding> -->
 			<!--			<binding>
 				<command>nasal</command>
 				<script>
-					var iaspa = getprop("autopilot/Logic//AP1orAP2-sw") or 0;
+					var iaspa = getprop("autopilot/Logic/AP1orAP2-sw") or 0;
 					if(!iaspa){
-					settimer(func{ setprop("autopilot/Logic//IAS-sw", 0);}, 0.2);
+					settimer(func{ setprop("autopilot/Logic/IAS-sw", 0);}, 0.2);
 					}
 				</script>
 			</binding> -->
@@ -353,7 +353,7 @@ Vickers VC10 for Flightgear
 	<animation>
 		<type>rotate</type>
 		<object-name>MACH_Select</object-name>
-		<property>autopilot/Logic//MACH-sw</property>
+		<property>autopilot/Logic/MACH-sw</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0</dep></entry>
 			<entry><ind>1</ind><dep>-25</dep></entry>
@@ -370,25 +370,25 @@ Vickers VC10 for Flightgear
 			<button>0</button>
 			<!-- <binding>
 				<command>property-assign</command>
-				<property>autopilot/Logic//ALT-sw</property>
+				<property>autopilot/Logic/ALT-sw</property>
 				<value>0</value>
 			</binding>			
 			<binding>
 				<command>property-assign</command>
-				<property>autopilot/Logic//IAS-sw</property>
+				<property>autopilot/Logic/IAS-sw</property>
 				<value>0</value>
 			</binding> -->
 			<binding>
 				<command>property-toggle</command>
-				<property>autopilot/Logic//MACH-sw</property>
+				<property>autopilot/Logic/MACH-sw</property>
 			</binding>
 
 			<!--			<binding>
 				<command>nasal</command>
 				<script>
-					var machpa = getprop("autopilot/Logic//AP1orAP2-sw") or 0;
+					var machpa = getprop("autopilot/Logic/AP1orAP2-sw") or 0;
 					if(!machpa){
-					settimer(func{ setprop("autopilot/Logic//MACH-sw", 0);}, 0.2);
+					settimer(func{ setprop("autopilot/Logic/MACH-sw", 0);}, 0.2);
 					}
 				</script>
 			</binding>  -->
