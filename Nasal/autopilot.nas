@@ -134,6 +134,8 @@ var dt = 0.0;
 
 	props.globals.initNode("autopilot/gain/Gtheta",2.0,"DOUBLE");
 	props.globals.initNode("autopilot/gain/Gq",-0.2,"DOUBLE");
+	
+	props.globals.initNode("autopilot/AltHold/KH",-0.02,"DOUBLE");
 		
 	props.globals.initNode("autopilot/internal/AT1_Datum",0.0,"DOUBLE");
 	props.globals.initNode("autopilot/internal/AT2_Datum",0.0,"DOUBLE");	
