@@ -41,7 +41,7 @@
 		<!-- integrator thetaRef_deg tracks pitch angle theta-deg while Autopilot is not in pitch hold mode-->
 <!--		<input> 
 			<condition>
-				<not><property>autopilot/Logic/PITCH-HOLD</property></not>
+				<not><property>autopilot/Logic/Pitch_hold</property></not>
 			</condition>
 			<expression>
 				<product>

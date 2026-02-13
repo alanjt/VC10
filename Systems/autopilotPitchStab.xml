@@ -66,7 +66,7 @@
 		<type>gain</type>
 		<gain>1.0</gain>
 		<input>
-			<condition><property>autopilot/Logic/PITCH-HOLD</property></condition>
+			<condition><property>autopilot/Logic/Pitch_hold</property></condition>
 			<expression>
 				<dif>
 					<property>fdm/jsbsim/attitude/theta-deg</property>
@@ -120,8 +120,8 @@
 		<input>
 			<condition>
 				<equals>
-					<property>autopilot/Glideslope/Mode</property>
-					<value>2</value>
+					<property>autopilot/Glideslope/Active</property>
+					<value>1</value>
 				</equals>
 			</condition>
 			<expression>

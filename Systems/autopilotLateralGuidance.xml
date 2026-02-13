@@ -134,7 +134,7 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 	</filter>
 	
 	<filter>
-		<name>Heading error washout (synthetic diferentiation)</name>
+		<name>Heading error washout</name>
 		<debug>false</debug>
 		<type>high-pass</type>
 		<gain>1.0</gain>
@@ -150,7 +150,7 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 		<gain>1.0</gain>
 		<input>
 			<condition>
-				<property>autopilot/Logic/ONC</property><!-- ONC set -->
+				<property>autopilot/Logic/VLOC_ONC</property><!-- ONC set -->
 			</condition>
 			<property>autopilot/LGUIDE/COURSE_Error_washout</property>
 		</input>
@@ -223,7 +223,7 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
   <gain>1.0</gain>
   <input>
     <condition>
-      <property>autopilot/Logic/ONC</property> <!-- Start integrator when ONC is set-->
+      <property>autopilot/Logic/VLOC_ONC</property> <!-- Start integrator when ONC is set-->
     </condition>
     <property>autopilot/LGUIDE/Beta_Deg</property>
   </input>
@@ -328,7 +328,7 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 				</sum>
 			</expression>
 		</input>
-		<output>autopilot/Logic/CBtest</output>
+		<output>autopilot/Logic/VLOC_test</output>
 	</filter>
 	
 	<filter>

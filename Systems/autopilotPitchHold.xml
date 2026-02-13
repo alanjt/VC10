@@ -19,7 +19,7 @@
 		<input> 
 			<condition>
 				<or>
-					<not><property>autopilot/Logic/PITCH-HOLD</property></not>
+					<not><property>autopilot/Logic/Pitch_hold</property></not>
 					<not><property>autopilot/Logic/AP1orAP2-sw</property></not>
 				</or>
 			</condition>
