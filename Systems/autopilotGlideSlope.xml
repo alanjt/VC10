@@ -200,7 +200,7 @@
 			<condition>
 				<equals>
 					<property>autopilot/Logic/GS_sw</property>
-					<value>2</value>
+					<value>1</value>
 				</equals>
 			</condition>
 	<!-- 	<property>autopilot/Glideslope/gs_deg_scaled</property>  -->

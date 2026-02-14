@@ -256,9 +256,9 @@ PitchSwCommon = func {
 	var  iassw = getprop("autopilot/Logic/IAS-sw") != 0;
 	var  machsw = getprop("autopilot/Logic/MACH-sw") != 0;
 	var  pitchsw = getprop("autopilot/Logic/Pitch_hold") != 0;
-	var  gs_sw = getprop("autopilot/Logic/GS_sw") != 0; 
-	print ("PitchSwCommon  altsw ", altsw,"  iassw ", iassw,"  machsw ", machsw,"  gs_sw ", gs_sw, " Pitch_hold ", pitchsw );
-	if (!altsw and !iassw and !machsw and !gs_sw) 
+	var  GS_sw = getprop("autopilot/Logic/GS_sw") != 0; 
+	print ("PitchSwCommon  altsw ", altsw,"  iassw ", iassw,"  machsw ", machsw,"  GS_sw ", GS_sw, " Pitch_hold ", pitchsw );
+	if (!altsw and !iassw and !machsw and !GS_sw) 
 		{
 			setprop("autopilot/Logic/Pitch_hold", 1);
 			print ("PitchSwCommon  Set Pitch_hold ", pitchsw);
@@ -617,7 +617,8 @@ var update_autopilot = func {
 			#	GS_Track();
 				GS_sw = true;
 #				print ("GS_sw ", GS_sw);
-#				setprop("autopilot/Logic/GS_sw",1);
+				setprop("autopilot/Logic/GS_sw",GS_sw);
+#				print ("GS_sw ", getprop("autopilot/Glideslope/GS_sw");
 			}
 		}
 		elsif (mode_sw == 4){ #GS flare mode
@@ -633,9 +634,9 @@ var update_autopilot = func {
 		# save any updated logic and control variables
 		if (mode_sw > 0){
 #			print ("GS mode ", GS_mode, " mode_sw ",mode_sw, " GS in range ",GS_in_range, " GS_sw ", GS_sw);
-			setprop("autopilot/Glideslope/Mode",mode_sw);
-			setprop("autopilot/Logic/GS_sw",GS_sw);
-			setprop("autopilot/Logic/GS_Cap",GS_Cap);
+#			setprop("autopilot/Glideslope/Mode",mode_sw);
+#			setprop("autopilot/Logic/GS_sw",GS_sw);
+#			setprop("autopilot/Logic/GS_Cap",GS_Cap);
 #			setprop("autopilot/Logic/GS_Arm",GS_Arm);
 			setprop("autopilot/Glideslope/gs-in-range",GS_in_range);
 		}
