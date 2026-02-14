@@ -120,7 +120,7 @@
 		<input>
 			<condition>
 				<equals>
-					<property>autopilot/Glideslope/Active</property>
+					<property>autopilot/Logic/GS_sw</property>
 					<value>1</value>
 				</equals>
 			</condition>

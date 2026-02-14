@@ -391,7 +391,6 @@ listenerVLOC_ONC_testFunc = func {
 	
 var clearmanometricmodes = func {
 }
-
 	setlistener("autopilot/Logic/Pitch_hold", listenerPitchhHoldFunc,1,0); 	
 	setlistener("autopilot/Logic/ALT-sw", listenerAltSwFunc,1,0);
 	setlistener("autopilot/Logic/IAS-sw", listenerIasSwFunc,1,0);
@@ -400,8 +399,6 @@ var clearmanometricmodes = func {
 	setlistener("autopilot/Logic/AP1orAP2-sw",listenerAP_EngageFunc,1,0);
 	setlistener("autopilot/Logic/GS_sw",listenerGS_swFunc,1,0);
 	
-
-
 var GS_flare = func {
 	print (" Set GS_Flare ");
 };
@@ -479,8 +476,8 @@ var update_autopilot = func {
 			or getprop("autopilot/Logic/IAS-sw")
 			or getprop("autopilot/Logic/ALT-sw") 		
 			));
+			
 	## disable pitch knob if any barometric mode is engaged.
-	
 	##  TODO disable if ILS mode is 
 	
 	if (getprop("autopilot/Logic/BarometricModeSelected") == 1) {
@@ -529,26 +526,26 @@ var update_autopilot = func {
 		}
  	elsif (getprop("autopilot/switches/mode-knob") ==  1)
 		{
-		setprop("autopilot/settings/Mode", "LOC VOR");
+		setprop("autopilot/settings/Mode", "LOC_VOR");
 		setprop("autopilot/Logic/HdgHold", false);
 		setprop("autopilot/Logic/TurnMode", false);
 		}
   	elsif (getprop("autopilot/switches/mode-knob") ==  2)
 		{
-		setprop("autopilot/settings/Mode", "GS AUTO");
-		setprop("autopilot/Logic/HdgHold", false);
+		setprop("autopilot/settings/Mode", "GS_AUTO");
+		setprop("autopilot/Logic/HdgHold", false);   # replaced by LOC_VOR
 		setprop("autopilot/Logic/TurnMode", false);
 		}
   	elsif (getprop("autopilot/switches/mode-knob") ==  3)
 		{
-		setprop("autopilot/settings/Mode", "GS MAN");
-		setprop("autopilot/Logic/HdgHold", false);
+		setprop("autopilot/settings/Mode", "GS_MAN");
+		setprop("autopilot/Logic/HdgHold", false);   # replaced by LOC_VOR
 		setprop("autopilot/Logic/TurnMode", false);
 		}
   	elsif (getprop("autopilot/switches/mode-knob") ==  4)
 		{
 		setprop("autopilot/settings/Mode", "FLARE");
-		setprop("autopilot/Logic/HdgHold", false);
+		setprop("autopilot/Logic/HdgHold", false);   # replaced by LOC_VOR
 		setprop("autopilot/Logic/TurnMode", false);
 		}
   	else{
@@ -596,7 +593,9 @@ var update_autopilot = func {
 ## Glideslope mode selection
 		var mode_sw = getprop("autopilot/switches/mode-knob") or 0;
 		var GS_mode = getprop("autopilot/Glideslope/Mode") or 0;
+		var GS_sw = getprop("autopilot/Glideslope/GS_sw") or 0;
 		var GS_Cap = getprop("autopilot/Logic/GS_Cap") or 0;
+		var GS_Arm = getprop("autopilot/Logic/GS_Arm") or 0;
 		var GS_capture_angle = getprop("autopilot/Glideslope/capture_angle") or 0.0;
 		var GS_hflare = getprop("autopilot/Glideslope/hflare") or 0.0;
 	    var GS_error_deg = getprop("autopilot/Glideslope/gs_error_deg") or 0.0;
@@ -614,9 +613,11 @@ var update_autopilot = func {
 		}
 		elsif (mode_sw == 3){ #GS man mode
 			# GS manual mode logic 
-			if ((GS_error_deg < GS_capture_angle) and (GS_in_range)) {
+			if ((GS_error_deg < GS_capture_angle) and (GS_in_range) and (!GS_sw) ) {
 			#	GS_Track();
-			setprop("autopilot/Logic/GS_Cap",1);
+				GS_sw = true;
+#				print ("GS_sw ", GS_sw);
+#				setprop("autopilot/Logic/GS_sw",1);
 			}
 		}
 		elsif (mode_sw == 4){ #GS flare mode
@@ -630,12 +631,13 @@ var update_autopilot = func {
 
 
 		# save any updated logic and control variables
-		if (GS_mode > 0){
-##		print ("GS mode ", GS_mode, " GS in range ",GS_in_range)};
-		setprop("autopilot/Glideslope/Mode",GS_mode);
-		setprop("autopilot/Logic/GS_Cap",GS_Cap);
-		setprop("autopilot/Logic/GS_Arm",GS_Arm);
-		setprop("autopilot/Glideslope/gs-in-range",GS_in_range);
+		if (mode_sw > 0){
+#			print ("GS mode ", GS_mode, " mode_sw ",mode_sw, " GS in range ",GS_in_range, " GS_sw ", GS_sw);
+			setprop("autopilot/Glideslope/Mode",mode_sw);
+			setprop("autopilot/Logic/GS_sw",GS_sw);
+			setprop("autopilot/Logic/GS_Cap",GS_Cap);
+#			setprop("autopilot/Logic/GS_Arm",GS_Arm);
+			setprop("autopilot/Glideslope/gs-in-range",GS_in_range);
 		}
 
 		
