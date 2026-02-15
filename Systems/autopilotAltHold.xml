@@ -92,9 +92,7 @@
 		<type>exponential</type><!-- The exponential filter is more commonly known as a 1st order lag filter -->
 		<debug>false</debug>
 		<enable>
-			<condition>
-				<property>autopilot/Logic/AP1orAP2-sw</property>
-			</condition>
+			<condition><property>autopilot/Logic/AP1orAP2-sw</property></condition>
 		</enable>
 		<filter-time>0.5</filter-time><!-- TV3 -->
 		<input><property>autopilot/AltHold/AltErr</property></input>

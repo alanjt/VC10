@@ -94,9 +94,7 @@
 		<type>gain</type>
 		<gain>1.0</gain>
 		<input>
-			<condition>
-				<property>autopilot/Logic/AP1orAP2-sw</property>
-			</condition>
+			<condition><property>autopilot/Logic/AP1orAP2-sw</property></condition>
 			<property>autopilot/LATSTB/DELTAP</property>
 		</input>
 		<input><value>0.0</value></input>

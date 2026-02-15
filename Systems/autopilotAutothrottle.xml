@@ -193,9 +193,7 @@
 		<debug>false</debug>
 		<feedback-if-disabled>true</feedback-if-disabled>
 		<enable>
-			<condition>
-				<property>autopilot/internal/AT1_engage</property>
-			</condition>
+			<condition><property>autopilot/internal/AT1_engage</property></condition>
 		</enable>
 		<input>
 			<expression>
@@ -217,9 +215,7 @@
 		<debug>false</debug>
 		<feedback-if-disabled>true</feedback-if-disabled>
 		<enable>
-			<condition>
-				<property>autopilot/internal/AT2_engage</property>
-			</condition>
+			<condition><property>autopilot/internal/AT2_engage</property></condition>
 		</enable>
 		<input>
 			<expression>
@@ -240,9 +236,7 @@
 		<debug>false</debug>
 		<feedback-if-disabled>true</feedback-if-disabled>
 		<enable>
-			<condition>
-				<property>autopilot/internal/AT3_engage</property>
-			</condition>
+			<condition><property>autopilot/internal/AT3_engage</property></condition>
 		</enable>
 		<input>
 			<expression>
@@ -263,9 +257,7 @@
 		<debug>false</debug>
 		<feedback-if-disabled>true</feedback-if-disabled>
 		<enable>
-			<condition>
-				<property>autopilot/internal/AT4_engage</property>
-			</condition>
+			<condition><property>autopilot/internal/AT4_engage</property></condition>
 		</enable>
 		<input>
 			<expression>

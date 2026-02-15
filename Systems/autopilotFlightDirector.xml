@@ -70,10 +70,8 @@
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>-1.0</gain>
-		<input>
-			<condition><!-- ILS - Full scale 2 dots = 2.5 deg -->
-				<property>instrumentation/nav/frequencies/is-localizer-frequency</property>
-			</condition>
+		<input>				<!-- ILS - Full scale 2 dots = 2.5 deg -->
+			<condition><property>instrumentation/nav/frequencies/is-localizer-frequency</property></condition>
 			<expression>
 				<prod>
 					<property>instrumentation/nav/heading-needle-deflection</property>
@@ -101,9 +99,7 @@
 		<type>gain</type>
 		<gain>1.0</gain>
 		<input>
-			<condition>
-				<property>autopilot/switches/ILS_GS</property>
-			</condition>
+			<condition><property>autopilot/switches/ILS_GS</property></condition>
 			<property>autopilot/FlightDirector/hdg-courseD_washout</property><!-- switch to washed-out error when GS is captured -->
 		</input>
 		<input><property>autopilot/FlightDirector/hdg-courseD</property></input>

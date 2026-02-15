@@ -70,9 +70,7 @@
 		<type>gain</type>
 		<gain>1</gain>
 		<input>
-			<condition>
-				<property>autopilot/switches/ILS-LOC</property>
-			</condition>
+			<condition><property>autopilot/switches/ILS-LOC</property></condition>
 			<value>30.0</value>
 		</input>
 		<input><!-- default for other modes -->
