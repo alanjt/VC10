@@ -118,12 +118,7 @@
 		</input>
 
 		<input>
-			<condition>
-				<equals>
-					<property>autopilot/Logic/GS_sw</property>
-					<value>1</value>
-				</equals>
-			</condition>
+			<condition><property>autopilot/Logic/GS_sw</property></condition>
 			<expression>
 				<dif>
 					<property>fdm/jsbsim/attitude/theta-deg</property>
@@ -146,9 +141,7 @@
 		<type>high-pass</type><!-- The high-pass filter is also known as a 1st order wash-out filter -->
 		<debug>false</debug>
 		<enable>
-			<condition>
-				<property>autopilot/Logic/AP1orAP2-sw</property>
-			</condition>
+			<condition><property>autopilot/Logic/AP1orAP2-sw</property></condition>
 		</enable>
 		<filter-time>4.0</filter-time>
 		<input>
@@ -190,9 +183,7 @@
 		<type>gain</type>
 		<gain>1.0</gain>
 		<input>
-			<condition>
-				<property>autopilot/Logic/AP1orAP2-sw</property>
-			</condition>
+			<condition><property>autopilot/Logic/AP1orAP2-sw</property></condition>
 			<property>autopilot/commands/APelevator-deg</property>
 		</input>
 		<output>

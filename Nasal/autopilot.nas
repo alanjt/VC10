@@ -125,6 +125,7 @@ var dt = 0.0;
 	props.globals.initNode("autopilot/Glideslope/K_GS",0.03,"DOUBLE");  # Glideslope gain (degrees pitch demand per degree beam_error)
 	props.globals.initNode("autopilot/Glideslope/capture_angle",0.5,"DOUBLE");
 	props.globals.initNode("autopilot/Glideslope/hflare",200.0,"DOUBLE");
+	props.globals.initNode("autopilot/Glideslope/THECOM",0.0,"DOUBLE");
 	
 	props.globals.initNode("autopilot/switches/mode-knob",0,"DOUBLE");      # -1 HDG : 0 MAN : 1 VOR/LOC : 2 GS AUTO : 3 GS MAN : 4 FLARE :
 	props.globals.initNode("autopilot/settings/Mode","MAN","STRING");

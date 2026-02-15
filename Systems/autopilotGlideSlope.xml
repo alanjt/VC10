@@ -17,10 +17,7 @@
 		<type>integrator</type>
 		<gain>1.0</gain>
 		<input>
-			<condition>
-				<property><not-equals>autopilot/Logic/GS_sw</not-equals></property>
-				<value>1</value>
-			</condition>
+			<condition><property><not>autopilot/Logic/GS_sw</not></property></condition>
 			<expression>
 				<dif>
 					<property>fdm/jsbsim/attitude/theta-deg</property>
@@ -33,7 +30,7 @@
 		<u_max>20</u_max>
 	</filter>
 																								 
-<!--	<filter>
+	<!--	<filter>
 		<name>Altitude_Reference</name>
 		<debug>false</debug>
 		<type>integrator</type>
@@ -41,8 +38,8 @@
 		<input>
 			<condition>
 				<property><not-equals>autopilot/Glideslope/InterceptMode</not-equals></property> -->
-			 <!--autopilot/Glideslope/GS_CaptMode</not-equals></property> -->
-<!--				<value>1</value>
+	<!--autopilot/Glideslope/GS_CaptMode</not-equals></property> -->
+	<!--				<value>1</value>
 			</condition>
 			<expression>
 				<dif>
@@ -55,7 +52,7 @@
 		<u_min>-20</u_min><u_max>40000</u_max>
 	</filter> -->
 	
-<!--	<filter>
+	<!--	<filter>
 		<name>ALT Error</name>
 		<debug>false</debug>
 		<type>gain</type>
@@ -119,7 +116,7 @@
 		<u_max>100</u_max>
 	</filter>  -->
 
-<!--	<filter>
+	<!--	<filter>
 		<name>Altitude Mode hdot feedback</name>
 		<debug>false</debug>
 		<type>gain</type>
@@ -176,7 +173,7 @@
 	</filter>
 	
 
-	<filter>
+	<!--	<filter>
 		<type>gain</type>
 		<gain>1.0</gain>
 		<input>
@@ -188,25 +185,18 @@
 			</expression>
 		</input>
 		<output><property>autopilot/Glideslope/gs_deg_scaled</property></output>
-	</filter>
+	</filter> -->
 	
 	<filter>
 		<name>GS error integrator</name>
 		<debug>false</debug>
 		<type>integrator</type>
 		<gain>0.05</gain><!-- 20 seconds -->
-
 		<input>
-			<condition>
-				<equals>
-					<property>autopilot/Logic/GS_sw</property>
-					<value>1</value>
-				</equals>
-			</condition>
-	<!-- 	<property>autopilot/Glideslope/gs_deg_scaled</property>  -->
+			<condition><property>autopilot/Logic/GS_sw</property></condition>
 			<property>autopilot/Glideslope/gs_deg_lag</property>>
 		</input>
-		<input> <!-- otherwise reset integrator to zero with negative feedback-->
+		<input><!-- otherwise reset integrator to zero with negative feedback-->
 			<expression>
 				<product>
 					<value>-100.0</value>
@@ -215,19 +205,40 @@
 			</expression>
 		</input>
 		<output><property>autopilot/Glideslope/gs_deg_Int</property></output>
-		<u_min>-100</u_min><u_max>100</u_max>
+		<u_min>-2</u_min><u_max>2</u_max>
 	</filter>
 	
 	<filter>
-		<type>noise-spike</type>			<!-- rate limit -->
+		<type>noise-spike</type><!-- rate limit -->
 		<max-rate-of-change>0.5</max-rate-of-change>
 		<input>
-			<expression><sum>
-					<property>autopilot/Glideslope/gs_deg_Int</property>
-					<property>autopilot/Glideslope/gs_deg_lag</property>
-				</sum></expression>
+			<expression>
+				<product>
+					<property>autopilot/Glideslope/K_GS</property>
+					<sum>
+						<property>autopilot/Glideslope/gs_deg_Int</property>
+						<property>autopilot/Glideslope/gs_deg_lag</property>
+					</sum>
+				</product>
+			</expression>
 		</input>
+	<output><property>autopilot/Glideslope/THECOM1</property></output>
 	</filter>
-	<output><property>autopilot/Glideslope/THECOM_gs</property></output>
-	<!-- autopilot/Glideslope/Mode -->
+	
+	<filter>
+		<type>noise-spike</type><!-- rate limit -->
+		<max-rate-of-change>0.5</max-rate-of-change>
+		<input>
+			<expression>
+				<product>
+					<property>autopilot/Glideslope/K_GS</property>
+					<sum>
+						<property>autopilot/Glideslope/gs_deg_Int</property>
+						<property>autopilot/Glideslope/gs_deg_lag</property>
+					</sum>
+				</product>
+			</expression>
+		</input>
+	<output><property>autopilot/Glideslope/THECOM</property></output>
+	</filter>
 </PropertyList>
