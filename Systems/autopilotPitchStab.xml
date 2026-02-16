@@ -5,7 +5,7 @@
 <PropertyList>
 	<!--
     ============================================================
-   Pitch Modes - Pitch Hold, IAS Hold, Mach Hold, Alt Hold, G/S
+   Pitch Modes - Pitch Hold, IAS Hold, Mach Hold, Alt Hold, GlideSlope, Flare
     ============================================================
 -->
 	<!--
@@ -116,7 +116,6 @@
 				</dif>
 			</expression>
 		</input>
-
 		<input>
 			<condition><property>autopilot/Logic/GS_sw</property></condition>
 			<expression>
@@ -129,7 +128,6 @@
 				</dif>
 			</expression>
 		</input>
-		
 		<output>
 			<property>autopilot/PitchStab/thetaErr_deg</property>
 		</output>
@@ -137,8 +135,10 @@
 		<u_max>20</u_max>
 	</filter>
 	
-	<filter>
+	<filter> 
 		<type>high-pass</type><!-- The high-pass filter is also known as a 1st order wash-out filter -->
+		<!-- pitch rate feedbck is required for stability, but needs to be washed out to allow sustained 
+		pitch rate during turns -->
 		<debug>false</debug>
 		<enable>
 			<condition><property>autopilot/Logic/AP1orAP2-sw</property></condition>
@@ -149,11 +149,10 @@
 				<product>
 					<property>fdm/jsbsim/velocities/q-aero-rad_sec</property>
 					<value>57.295779513082320876798154814105</value>
-					<property>autopilot/PitchStab/Gq</property>
 				</product>
 			</expression>
 		</input>
-		<output><property>autopilot/PitchStab/QBW</property></output>
+		<output><property>autopilot/PitchStab/Qwash_out</property></output>
 	</filter>
 		
 	<filter>
@@ -168,7 +167,10 @@
 						<property>autopilot/PitchStab/Gtheta</property>
 						<property>autopilot/PitchStab/thetaErr_deg</property>
 					</product>
-					<property>autopilot/PitchStab/QBW</property>
+					<product>
+						<property>autopilot/PitchStab/Gq</property>
+						<property>autopilot/PitchStab/Qwash_out</property>
+					</product>
 				</sum>
 			</expression>
 		</input>

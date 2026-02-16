@@ -209,8 +209,7 @@
 	</filter>
 	
 	<filter>
-		<type>noise-spike</type><!-- rate limit -->
-		<max-rate-of-change>0.5</max-rate-of-change>
+		<type>gain</type>
 		<input>
 			<expression>
 				<product>

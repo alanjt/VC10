@@ -122,7 +122,7 @@ var dt = 0.0;
 	props.globals.initNode("autopilot/Logic/GS_sw",0,"BOOL");  # set true when GS mode is active
 	
 	props.globals.initNode("autopilot/Glideslope/Mode",0,"INT");
-	props.globals.initNode("autopilot/Glideslope/K_GS",0.03,"DOUBLE");  # Glideslope gain (degrees pitch demand per degree beam_error)
+	props.globals.initNode("autopilot/Glideslope/K_GS",2.0,"DOUBLE");  # Glideslope gain (degrees pitch demand per degree beam_error)
 	props.globals.initNode("autopilot/Glideslope/capture_angle",0.5,"DOUBLE");
 	props.globals.initNode("autopilot/Glideslope/hflare",200.0,"DOUBLE");
 	props.globals.initNode("autopilot/Glideslope/THECOM",0.0,"DOUBLE");
