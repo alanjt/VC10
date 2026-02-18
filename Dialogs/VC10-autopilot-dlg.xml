@@ -76,38 +76,27 @@
 					<col>2</col>
 				</text>
 						
-<!--				<input>
-					<row>2</row><col>2</col>
-					<label>Airspeed (kt):</label>
-					<halign>center</halign>
-					<property>autopilot/internal/AT_setknots</property>
-					<live>true</live>
-					<binding>
-						<command>dialog-apply</command>
-					</binding>
-				</input> -->
 				<slider>
 					<name>Knots</name>
-					<label>Airspeed (kt):</label>
+					<label>Airspeed</label>
 					<halign>centre</halign>
-					<row>2</row><col>1</col>
-					<width>3</width>
+					<row>2</row>
+					<col>2</col>
+					<width>10</width>
 					<property>autopilot/internal/AT_setknots</property>
 					<live>true</live>
 					<binding>
 						<command>dialog-apply</command>
-						<object-name>AT_setknots</object-name>
+						<object-name>Knots</object-name>
 					</binding>
 					<min>100</min>
 					<max>180</max>
 					<step>1</step>
-					<binding>
-						<command>dialog-apply</command>
-					</binding>
-				</slider>
+				</slider>			
+
 				<text>
-					<row>3</row><col>1</col>
-					<label>mode</label>
+					<row>3</row><col>2</col>
+					<label>knots</label>
 					<format>%3d</format>
 					<property>autopilot/internal/AT_setknots</property>
 					<live>true</live>
@@ -124,40 +113,23 @@
 					</binding>
 				</checkbox>
 				
-				<select>
-					<name>Engage</name>
-					<label>AT Engage</label>
-					<halign>centre</halign>
-					<row>4</row><col>2</col>
-					<property>autopilot/switches/AT_engageswitch</property>
-					<live>true</live>
-					<value>-1</value>
-					<value>0</value>
-					<value>1</value>
-					<binding>
-						<command>dialog-apply</command>
-					</binding>					
-				</select>
-				<!--
 				<slider>
 					<name>Engage</name>
 					<label>AT Engage</label>
 					<halign>centre</halign>
 					<row>4</row><col>2</col>
-					<width>3</width>
+					<width>5</width>
+					<height>5</height>
 					<property>autopilot/switches/AT_engageswitch</property>
 					<live>true</live>
 					<binding>
 						<command>dialog-apply</command>
-						<object-name>AT_Engage</object-name>
+						<object-name>Engage</object-name>
 					</binding>
 					<min>-1</min>
 					<max>1</max>
 					<step>1</step>
-					<binding>
-						<command>dialog-apply</command>
-					</binding>
-				</slider>   -->
+				</slider>				
 				
 				<text>
 					<label>AT1  OFF  AT2</label>
@@ -316,7 +288,6 @@
 			
 			<frame>
 				<layout>table</layout>
-				
 				<slider>
 					<name>Mode</name>
 					<label>Mode</label>
