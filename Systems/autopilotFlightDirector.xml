@@ -8,7 +8,7 @@
 <PropertyList>
 
 	<filter>
-		<name>Heading error gain</name>
+<!--		<name>Heading error gain</name> -->
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>0.005</gain><!-- gain = -1 at uBody=200fps -->
@@ -19,7 +19,7 @@
 	<!-- Heading mode -->
 
 	<filter>
-		<name>heading bug error</name>
+<!--		<name>heading bug error</name> -->
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
@@ -39,7 +39,7 @@
 	
 	<!-- course error -->
 	<filter>
-		<name>course bug error</name>
+<!--		<name>course bug error</name> -->
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
@@ -56,7 +56,7 @@
 
 	<!-- washed-out course error -->
 	<filter>
-		<name>hdg-courseD washout</name>
+<!--		<name>hdg-courseD washout</name> -->
 		<debug>false</debug>
 		<type>high-pass</type>
 		<filter-time>1.0</filter-time>
@@ -66,7 +66,7 @@
 
 	<!-- beam error -->
 	<filter>
-		<name>VOR/LOC Beam Error degrees</name>
+<!--		<name>VOR/LOC Beam Error degrees</name> -->
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>-1.0</gain>
@@ -94,7 +94,7 @@
 	</filter>
 
 	<filter>
-		<name>VOR/LOC Heading (QDM) Error degrees</name>
+<!--		<name>VOR/LOC Heading (QDM) Error degrees</name> -->
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
@@ -107,8 +107,8 @@
 	</filter>
 
 	<filter>
-		<name>VOR_LOC-deg leadlag</name>
-		<debug>false</debug>
+<!--		<name>VOR_LOC-deg leadlag</name>
+		<debug>false</debug> -->
 		<type>lead-lag</type>
 		<gain>5.0</gain>
 		<filter-time-a>5.0</filter-time-a>
@@ -118,8 +118,8 @@
 	</filter>
 
 	<filter>
-		<name>VOR/LOC Bank Command Computer</name>
-		<debug>false</debug>
+<!--		<name>VOR/LOC Bank Command Computer</name>
+		<debug>false</debug> -->
 		<type>gain</type>
 		<gain>1.0</gain>
 		<input>
@@ -149,8 +149,8 @@
 	</filter>
 	
 	<filter>
-		<name>roll demand</name>
-		<debug>false</debug>
+<!--		<name>roll demand</name>
+		<debug>false</debug> -->
 		<type>gain</type>
 		<gain>1.0</gain>
 		<input>

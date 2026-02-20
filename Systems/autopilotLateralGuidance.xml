@@ -68,7 +68,7 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 	
 	<!-- beam error -->
 	<filter>
-		<name>VOR/LOC Beam Error degrees</name>
+<!--		<name>VOR/LOC Beam Error degrees</name> -->
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
@@ -134,7 +134,7 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 	</filter>
 	
 	<filter>
-		<name>Heading error washout</name>
+<!--		<name>Heading error washout</name> -->
 		<debug>false</debug>
 		<type>high-pass</type>
 		<gain>1.0</gain>
@@ -181,7 +181,7 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 	</filter>
 	<!-- VOR/LOC beam error filters -->
 	<filter>
-		<name>VOR_LOC-beam lowpass filter</name>
+<!--		<name>VOR_LOC-beam lowpass filter</name> -->
 		<type>exponential</type>
 		<debug>false</debug>
 		<initialize-to>output</initialize-to>
@@ -193,7 +193,7 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 	
 	<!-- VOR/LOC beam synthetic rate -->
 	<filter>
-		<name>VOR_LOC-beam rate washout (diferentiation)</name>
+<!--		<name>VOR_LOC-beam rate washout (diferentiation)</name> -->
 		<debug>false</debug>
 		<type>high-pass</type>
 		<gain>1.0</gain>
@@ -203,7 +203,7 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 	</filter>
 	
 	<filter>
-		<name>VOR_LOC-beam lag limited</name>
+<!--		<name>VOR_LOC-beam lag limited</name> -->
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
@@ -217,7 +217,7 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 	</filter>
 	
 	<filter>
-  <name>beam error integrator</name>
+<!--  <name>beam error integrator</name> -->
   <debug>false</debug>
   <type>integrator</type>
   <gain>1.0</gain>
@@ -410,7 +410,7 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 
 	
 	<filter>
-		<name>heading hold command</name>
+<!--		<name>heading hold command</name> -->
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
@@ -431,7 +431,7 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 	</filter>
 	
 	<filter>
-		<name>heading hold deg error</name>
+<!--		<name>heading hold deg error</name> -->
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
@@ -443,21 +443,19 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 	</filter>
 
 	<filter>
-		<name>Target Roll Filter</name>
+<!--		<name>Target Roll Filter</name> -->
 		<debug>false</debug>
 		<type>rate-limit</type>
 		<input><property>autopilot/settings/TurnKnob</property></input>
 		<output><property>autopilot/settings/TurnKnob-deg-filtered</property></output>
 		<max-rate-of-change>10.0</max-rate-of-change>
 		<min-rate-of-change>-10.0</min-rate-of-change>
-		<!--		<feedback-if-disabled>true</feedback-if-disabled>
-		<initialize-to>output</initialize-to> -->
 	</filter>
 	
 	<!-- ############################################################################################ -->
 	<!-- Set property autopilot/LGUIDE/PHICOM (bank angle command) acccording to selected lateral mode -->
 	<filter>
-		<name>Bank angle command</name>
+<!--		<name>Bank angle command</name> -->
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
@@ -486,7 +484,7 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 		<input>
 			<condition>
 				<equals>
-					<property>autopilot/switches/mode-knob</property>
+					<property>autopilot/switches/mode_knob</property>
 					<value>-1.0</value>
 				</equals>
 			</condition>
@@ -502,7 +500,7 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 		<input>
 			<condition>
 				<greater-than>
-					<property>autopilot/switches/mode-knob</property>
+					<property>autopilot/switches/mode_knob</property>
 					<value>0</value>
 				</greater-than>
 			</condition>

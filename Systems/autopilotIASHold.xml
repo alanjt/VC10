@@ -12,7 +12,7 @@
 	
 	<!-- integrator thetaRef_deg tracks pitch angle theta-deg while Autopilot is not in IAS hold mode-->
 	<filter>
-		<name>pitch_reference</name>
+<!--		<name>pitch_reference</name> -->
 		<debug>false</debug>
 		<type>integrator</type>
 		<gain>1.0</gain>
@@ -32,7 +32,7 @@
 
 	<!-- integrator IASRef tracks IAS while Autopilot is not in IAS hold mode-->
 	<filter>
-		<name>IAS_Reference</name>
+<!--		<name>IAS_Reference</name> -->
 		<debug>false</debug>
 		<type>integrator</type>
 		<gain>1.0</gain>
@@ -51,7 +51,7 @@
 	</filter>
 
 	<filter>
-		<name>IAS hold gain</name>
+<!--<name>IAS hold gain</name> -->
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
@@ -60,7 +60,7 @@
 	</filter>
 	
 	<filter><!-- datum knob changes IAS reference by + or minus 17% -->
-		<name>IASRef2</name>
+<!--		<name>IASRef2</name> -->
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
@@ -84,7 +84,7 @@
 	</filter>
 	
 	<filter>
-		<name>IAS Error</name>
+<!--		<name>IAS Error</name> -->
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
@@ -100,7 +100,7 @@
 	</filter>
 	
 	<filter>
-		<name>IAS Error Limit</name>
+<!--		<name>IAS Error Limit</name> -->
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
@@ -122,7 +122,7 @@
 	</filter>
 	
 	<filter>
-		<name>IAS error integrator</name>
+<!--		<name>IAS error integrator</name> -->
 		<debug>false</debug>
 		<type>integrator</type>
 		<gain>1.0</gain><!-- integrator gain -->
@@ -152,7 +152,7 @@
 	</filter>
 
 	<filter>
-		<name>IAS Mode IASdot feedback</name>
+<!--		<name>IAS Mode IASdot feedback</name> -->
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain><!-- A3 -->
@@ -165,7 +165,7 @@
 	</filter>
 	
 	<filter>
-		<name>IAS Mode pitch demand</name>
+<!--		<name>IAS Mode pitch demand</name> -->
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>

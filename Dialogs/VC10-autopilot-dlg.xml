@@ -295,7 +295,7 @@
 					<row>1</row>
 					<col>0</col>
 					<width>10</width>
-					<property>autopilot/switches/mode-knob</property>
+					<property>autopilot/switches/mode_knob</property>
 					<live>true</live>
 					<binding>
 						<command>dialog-apply</command>
@@ -318,7 +318,7 @@
 					<col>0</col>
 					<label>-9.99</label>
 					<format>%2d</format>
-					<property>autopilot/switches/mode-knob</property>
+					<property>autopilot/switches/mode_knob</property>
 					<live>true</live>
 				</text>
 				

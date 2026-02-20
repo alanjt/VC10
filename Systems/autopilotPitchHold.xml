@@ -11,7 +11,7 @@
 	<!-- integrator thetaRef_deg tracks pitch angle theta-deg while Autopilot is not in pitch hold mode-->
 
 	<filter>
-		<name>pitch_feedback_demand </name>
+<!--		<name>pitch_feedback_demand </name> -->
 		<debug>false</debug>
 		<type>integrator</type>
 		<gain>1.0</gain>
@@ -41,7 +41,7 @@
 	
 	<!-- Pitch demand is from pitch wheel -->
 	<filter>
-		<name>pitch_demand_wheel</name>
+<!--		<name>pitch_demand_wheel</name> -->
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>

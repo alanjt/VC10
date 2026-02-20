@@ -12,8 +12,8 @@
 	
 	<!-- integrator thetaRef_deg tracks pitch angle theta-deg while Autopilot is not in Mach hold mode-->
 	<filter>
-		<name>pitch_reference</name>
-		<debug>false</debug>
+<!--		<name>pitch_reference</name> 
+		<debug>false</debug>-->
 		<type>integrator</type>
 		<gain>1.0</gain>
 		<input>
@@ -32,8 +32,8 @@
 
 	<!-- integrator MachRef tracks Mach while Autopilot is not in Mach hold mode-->
 	<filter>
-		<name>Mach_Reference</name>
-		<debug>false</debug>
+<!--		<name>Mach_Reference</name> 
+		<debug>false</debug> -->
 		<type>integrator</type>
 		<gain>1.0</gain>
 		<input>
@@ -52,8 +52,8 @@
 	</filter>
 
 	<filter>
-		<name>Mach hold gain</name>
-		<debug>false</debug>
+<!--		<name>Mach hold gain</name> 
+		<debug>false</debug> -->
 		<type>gain</type>
 		<gain>0.5</gain>
 		<input><value>-1.0</value></input>
@@ -61,8 +61,8 @@
 	</filter>
 	
 	<filter><!-- datum knob changes Mach reference by + or minus 17% -->
-		<name>MachRef2</name>
-		<debug>false</debug>
+<!--		<name>MachRef2</name>
+		<debug>false</debug>  -->
 		<type>gain</type>
 		<gain>1.0</gain>
 		<input>
@@ -85,8 +85,8 @@
 	</filter>
 	
 	<filter>
-		<name>Mach Error</name>
-		<debug>false</debug>
+<!--		<name>Mach Error</name>
+		<debug>false</debug> -->
 		<type>gain</type>
 		<gain>1.0</gain>
 		<input>
@@ -101,8 +101,8 @@
 	</filter>
 	
 	<filter>
-		<name>Mach Error Limit</name>
-		<debug>false</debug>
+<!--		<name>Mach Error Limit</name>
+		<debug>false</debug> -->
 		<type>gain</type>
 		<gain>1.0</gain>
 		<input><property>autopilot/MachHold/MachERR</property></input>
@@ -123,8 +123,8 @@
 	</filter>
 	
 	<filter>
-		<name>Mach error integrator</name>
-		<debug>false</debug>
+<!--		<name>Mach error integrator</name>
+		<debug>false</debug> -->
 		<type>integrator</type>
 		<gain>0.05</gain><!-- integrator gain -->
 
@@ -148,8 +148,8 @@
 	</filter>
 
 	<filter>
-		<name>Mach Mode hdot feedback</name>
-		<debug>false</debug>
+<!--		<name>Mach Mode hdot feedback</name> 
+		<debug>false</debug>-->
 		<type>gain</type>
 		<gain>1.0</gain><!-- A3 -->
 		<input>
@@ -161,8 +161,8 @@
 	</filter>
 	
 	<filter>
-		<name>Mach Mode pitch demand</name>
-		<debug>false</debug>
+<!--		<name>Mach Mode pitch demand</name>
+		<debug>false</debug> -->
 		<type>gain</type>
 		<gain><property>autopilot/MachHold/KMach</property></gain>
 		<input>

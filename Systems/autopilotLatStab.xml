@@ -25,7 +25,7 @@
 	<!-- Roll Rate -->
 	
 	<filter>
-		<name>Roll rate filter</name>
+<!--		<name>Roll rate filter</name> -->
 		<debug>false</debug>
 		<type>exponential</type>
 		<filter-time>0.1</filter-time>
@@ -140,7 +140,7 @@
 	</filter>
 
 	<filter>
-		<name>Rudder Cmd</name>
+<!--		<name>Rudder Cmd</name> -->
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>

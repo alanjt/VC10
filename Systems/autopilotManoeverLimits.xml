@@ -13,7 +13,7 @@
     -->
 
 	<filter>
-		<name>CL max aero</name>
+<!--		<name>CL max aero</name> -->
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
@@ -32,7 +32,7 @@
 	</filter>
 
 	<filter>
-		<name>n max aero</name>
+<!--		<name>n max aero</name> -->
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
@@ -54,7 +54,7 @@
 	</filter>
 
 	<filter>
-		<name>n max</name>
+<!--		<name>n max</name> -->
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
@@ -72,7 +72,7 @@
 	</filter>
 
 	<filter>
-		<name>q max</name>
+<!--		<name>q max</name> -->
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
@@ -104,7 +104,7 @@
 	</filter>
 
 	<filter>
-		<name>n min</name>
+<!--		<name>n min</name> -->
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
@@ -124,7 +124,7 @@
 	</filter>
 
 	<filter>
-		<name>q min</name>
+<!--		<name>q min</name> -->
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
@@ -156,7 +156,7 @@
 	</filter>
 
 	<filter>
-		<name>sec-phi</name>
+<!--		<name>sec-phi</name> -->
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
@@ -182,7 +182,7 @@
 	</filter>
 
 	<filter>
-		<name>sintan-phi</name>
+<!--		<name>sintan-phi</name> -->
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>

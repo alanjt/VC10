@@ -12,8 +12,8 @@
 	
 	<!-- integrator thetaRef_deg tracks pitch angle theta-deg while Autopilot is not in altitude hold mode-->
 	<filter>
-		<name>pitch_reference</name>
-		<debug>false</debug>
+<!--		<name>pitch_reference</name>
+		<debug>false</debug> -->
 		<type>integrator</type>
 		<gain>1.0</gain>
 		<input>
@@ -31,8 +31,8 @@
 
 	<!-- integrator AltRef tracks Altitude while Autopilot is not in altitude hold mode-->
 	<filter>
-		<name>Altitude_Reference</name>
-		<debug>false</debug>
+<!--		<name>Altitude_Reference</name>
+		<debug>false</debug> -->
 		<type>integrator</type>
 		<gain>1.0</gain>
 		<input>
@@ -49,8 +49,8 @@
 	</filter>
 	
 	<filter><!-- datum knob changes altitude reference by + or minus 17% -->
-		<name>AltRef2</name>
-		<debug>false</debug>
+<!--		<name>AltRef2</name>
+		<debug>false</debug> -->
 		<type>gain</type>
 		<gain>1.0</gain>
 		<input>
@@ -71,8 +71,8 @@
 	</filter>
 	
 	<filter>
-		<name>ALT Error</name>
-		<debug>false</debug>
+<!--		<name>ALT Error</name>
+		<debug>false</debug> -->
 		<type>gain</type>
 		<gain>1.0</gain>
 		<input>
@@ -100,8 +100,8 @@
 	</filter>
 	
 	<filter>
-		<name>Alt error integrator</name>
-		<debug>false</debug>
+<!--		<name>Alt error integrator</name>
+		<debug>false</debug> -->
 		<type>integrator</type>
 		<gain>0.05</gain><!-- integrator gain -->
 
@@ -123,8 +123,8 @@
 	</filter>
 
 	<filter>
-		<name>Altitude Mode hdot feedback</name>
-		<debug>false</debug>
+<!--		<name>Altitude Mode hdot feedback</name>
+		<debug>false</debug> -->
 		<type>gain</type>
 		<gain>1.0</gain>
 		<input><property>fdm/jsbsim/velocities/h-dot-fps</property></input>
@@ -132,8 +132,8 @@
 	</filter>
 	
 	<filter>
-		<name>Altitude Mode pitch demand</name>
-		<debug>false</debug>
+<!--		<name>Altitude Mode pitch demand</name>
+		<debug>false</debug> -->
 		<type>gain</type>
 		<gain>1.0</gain>
 		<input>

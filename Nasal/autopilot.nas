@@ -127,7 +127,7 @@ var dt = 0.0;
 	props.globals.initNode("autopilot/Glideslope/hflare",200.0,"DOUBLE");
 	props.globals.initNode("autopilot/Glideslope/THECOM",0.0,"DOUBLE");
 	
-	props.globals.initNode("autopilot/switches/mode-knob",0,"DOUBLE");      # -1 HDG : 0 MAN : 1 VOR/LOC : 2 GS AUTO : 3 GS MAN : 4 FLARE :
+	props.globals.initNode("autopilot/switches/mode_knob",0,"DOUBLE");      # -1 HDG : 0 MAN : 1 VOR/LOC : 2 GS AUTO : 3 GS MAN : 4 FLARE :
 	props.globals.initNode("autopilot/settings/Mode","MAN","STRING");
 	props.globals.initNode("autopilot/settings/pitch-wheel-deg",1,"DOUBLE");# -14 .. 0 .. +14
 	props.globals.initNode("autopilot/settings/TurnKnob",0,"DOUBLE");		# -25 .. 0 .. +25
@@ -190,12 +190,12 @@ setlistener("sim/signals/fdm-initialized", listenerApInitFunc);
 #
 #
 var listenerModeKnobFunc = func {
-	print ("-> listenerModeKnobFunc -> Mode-selector = ", getprop("autopilot/switches/mode-knob"));
+	print ("-> listenerModeKnobFunc -> Mode-selector = ", getprop("autopilot/switches/mode_knob"));
 
 	if (getprop("autopilot/Logic/AP1orAP2-sw")) {
-		print ("-> listenerModeKnobFunc -> Mode-selector = ", getprop("autopilot/switches/mode-knob"));
+		print ("-> listenerModeKnobFunc -> Mode-selector = ", getprop("autopilot/switches/mode_knob"));
 		}
-		if (getprop("autopilot/switches/mode-knob") == 0) {
+		if (getprop("autopilot/switches/mode_knob") == 0) {
 			# MAN - Mode
 			var TurnKnobDeg = 0.0;
 			setprop("autopilot/settings/TurnKnob", TurnKnobDeg);
@@ -204,13 +204,13 @@ var listenerModeKnobFunc = func {
 # MAN - Mode - roll-selector
 var listenerTurnKnobFunc = func {
 	if(getprop("autopilot/settings/TurnKnobInDetent") == 0) {
-##		print (" if TurnKnob turn, the mode selector jumps to mode 0");
-		setprop("autopilot/switches/mode-knob", 0);   # MAN
+		print (" if TurnKnob turn, the mode selector jumps to mode 0");
+		setprop("autopilot/switches/mode_knob", 0);   # MAN
 		}
 
 	if (getprop("autopilot/Logic/AP1orAP2-sw") and
 
-		(getprop("autopilot/switches/mode-knob") == 0) ){   # MAN
+		(getprop("autopilot/switches/mode_knob") == 0) ){   # MAN
 
 	}
 }
@@ -218,7 +218,7 @@ setlistener("autopilot/settings/TurnKnob", listenerTurnKnobFunc);
 
 # MAN - Mode - pitch-wheel selector
 var listenerApMANPitchFunc = func {
-	if (getprop("autopilot/Logic/AP1orAP2-sw") and (getprop("autopilot/switches/mode-knob") == 0) )
+	if (getprop("autopilot/Logic/AP1orAP2-sw") and (getprop("autopilot/switches/mode_knob") == 0) )
 		{   # MAN
 		if (getprop("autopilot/Logic/ALT-sw") == 0) 
 			{
@@ -241,7 +241,7 @@ setlistener("controls/special/yoke-switch1", func (s1){
 		setprop("autopilot/Logic/IAS-sw", 0);
 		setprop("autopilot/Logic/MACH-sw", 0);
 		print (" AP disconnect sw");
-		setprop("autopilot/switches/mode-knob", 0);   # MAN
+		setprop("autopilot/switches/mode_knob", 0);   # MAN
 		setprop("autopilot/settings/pitch-wheel-deg", 0);
 		setprop("autopilot/settings/target-pitch-deg", 0);
 		setprop("autopilot/settings/TurnKnob",0);
@@ -380,9 +380,9 @@ listenerVLOC_ONC_testFunc = func {
 	if (getprop("autopilot/Logic/AP1orAP2-sw")){
 		var ONC = getprop("autopilot/Logic/VLOC_ONC");
 		var VLOC_ONC_test = getprop("autopilot/Logic/VLOC_ONC_test");
-		var modesw = getprop("autopilot/switches/mode-knob");
-        var VORLOC = (modesw > 0);		
-		print("ONC ",ONC, " Logic/VLOC_ONC_test ",VLOC_ONC_test, " Modesw ",modesw," VORLOC ", VORLOC);
+		var mode_knob = getprop("autopilot/switches/mode_knob");
+        var VORLOC = (mode_knob > 0);		
+		print("ONC ",ONC, " Logic/VLOC_ONC_test ",VLOC_ONC_test, " Mode_knob ",mode_knob," VORLOC ", VORLOC);
 		if (VLOC_ONC_test and !ONC and VORLOC){
 			print ("Localiser On course, set ONC");
 			setprop("autopilot/Logic/VLOC_ONC",true );
@@ -391,8 +391,8 @@ listenerVLOC_ONC_testFunc = func {
 	}
 	
 listenerGModeKnobFunc = func {
-print ("Mode Knob ", getprop("autopilot/switches/mode-knob"));
-	if (getprop("autopilot/switches/mode-knob") == -1)
+print ("Mode Knob ", getprop("autopilot/switches/mode_knob"));
+	if (getprop("autopilot/switches/mode_knob") == -1)
 		{
 		setprop("autopilot/settings/Mode", "HDG");
 		setprop("autopilot/Logic/HdgHold", false);
@@ -400,43 +400,42 @@ print ("Mode Knob ", getprop("autopilot/switches/mode-knob"));
 		setprop("autopilot/Logic/VLOC_ONC", false);
 		setprop("autopilot/Logic/VLOC_ONC_test", false);
 		}
- 	elsif (getprop("autopilot/switches/mode-knob") ==  0)
+ 	elsif (getprop("autopilot/switches/mode_knob") ==  0)
 		{
 		setprop("autopilot/settings/Mode", "MAN");
+		setprop("autopilot/Logic/VLOC_ONC", false);
+		setprop("autopilot/Logic/VLOC_ONC_test", false);
 		if (abs(getprop("autopilot/settings/TurnKnob")) < 3.0)
 			{
 			setprop("autopilot/Logic/HdgHold", true);
 			setprop("autopilot/Logic/TurnMode", false);
-			setprop("autopilot/Logic/VLOC_ONC", false);
-			setprop("autopilot/Logic/VLOC_ONC_test", false);
 			}
 			else 
 			{
 			setprop("autopilot/Logic/HdgHold", false);
 			setprop("autopilot/Logic/TurnMode", true);
-			setprop("autopilot/Logic/VLOC_ONC", false);
-			setprop("autopilot/Logic/VLOC_ONC_test", false);
+;
 			}
 		}
- 	elsif (getprop("autopilot/switches/mode-knob") ==  1)
+ 	elsif (getprop("autopilot/switches/mode_knob") ==  1)
 		{
 		setprop("autopilot/settings/Mode", "LOC_VOR");
 		setprop("autopilot/Logic/HdgHold", false);
 		setprop("autopilot/Logic/TurnMode", false);
 		}
-  	elsif (getprop("autopilot/switches/mode-knob") ==  2)
+  	elsif (getprop("autopilot/switches/mode_knob") ==  2)
 		{
 		setprop("autopilot/settings/Mode", "GS_AUTO");
 		setprop("autopilot/Logic/HdgHold", false);   # replaced by LOC_VOR
 		setprop("autopilot/Logic/TurnMode", false);
 		}
-  	elsif (getprop("autopilot/switches/mode-knob") ==  3)
+  	elsif (getprop("autopilot/switches/mode_knob") ==  3)
 		{
 		setprop("autopilot/settings/Mode", "GS_MAN");
 		setprop("autopilot/Logic/HdgHold", false);   # replaced by LOC_VOR
 		setprop("autopilot/Logic/TurnMode", false);
 		}
-  	elsif (getprop("autopilot/switches/mode-knob") ==  4)
+  	elsif (getprop("autopilot/switches/mode_knob") ==  4)
 		{
 		setprop("autopilot/settings/Mode", "FLARE");
 		setprop("autopilot/Logic/HdgHold", false);   # replaced by LOC_VOR
@@ -456,7 +455,7 @@ var clearmanometricmodes = func {
 	setlistener("autopilot/Logic/GS_Cap",listenerGSCapFunc,1,0);
 	setlistener("autopilot/Logic/AP1orAP2-sw",listenerAP_EngageFunc,1,0);
 	setlistener("autopilot/Logic/GS_sw",listenerGS_swFunc,1,0);
-	setlistener("autopilot/switches/mode-knob",listenerGModeKnobFunc,1,0);
+	setlistener("autopilot/switches/mode_knob",listenerGModeKnobFunc,1,0);
 	
 var GS_flare = func {
 	print (" Set GS_Flare ");
@@ -550,7 +549,7 @@ var update_autopilot = func {
 		setprop("autopilot/Logic/ALT-sw", 0);
 		setprop("autopilot/Logic/IAS-sw", 0);
 		setprop("autopilot/Logic/MACH-sw", 0);
-		setprop("autopilot/switches/mode-knob", 0);
+		setprop("autopilot/switches/mode_knob", 0);
 		setprop("autopilot/settings/pitch-wheel-deg", 0);
 		setprop("autopilot/settings/target-pitch-deg", 0);
 		setprop("autopilot/settings/datum_norm", 0);
@@ -584,15 +583,15 @@ var update_autopilot = func {
 		var eBetadot = abs(betadot/betamax);
 		var ePhi = abs(phi);
 		var apengaged = getprop("autopilot/Logic/AP1orAP2-sw");
-		var VLmode = (getprop("autopilot/switches/mode-knob") >  0);
-		var GSmode = (getprop("autopilot/switches/mode-knob") >  1);		
+		var VLmode = (getprop("autopilot/switches/mode_knob") >  0);
+		var GSmode = (getprop("autopilot/switches/mode_knob") >  1);		
 		var VLOC_ONC_test = (eBeta < e1) and (eBetadot < e2) and (ePhi < e3) and apengaged and VLmode;
 		
 ##		print ("Logic/VLOC_ONC_test ", VLOC_ONC_test, " eBeta ",eBeta , " eBetadot ", eBetadot, " ePhi ", ePhi, " VLmode ", VLmode);
 		setprop ("autopilot/Logic/VLOC_ONC_test", VLOC_ONC_test);
 
 ## Glideslope mode selection
-		var mode_sw = getprop("autopilot/switches/mode-knob") or 0;
+		var mode_knob = getprop("autopilot/switches/mode_knob") or 0;
 		var GS_mode = getprop("autopilot/Glideslope/Mode") or 0;
 		var GS_sw = getprop("autopilot/Glideslope/GS_sw") or 0;
 		var GS_Cap = getprop("autopilot/Logic/GS_Cap") or 0;
@@ -603,16 +602,16 @@ var update_autopilot = func {
 		var GS_alt_ft = getprop("instrumentation/altimeter/indicated-altitude-ft") or 0.0; ## should be radio altimter 
 		var GS_in_range = getprop("instrumentation/nav[0]/gs-in-range") or 0;
 
-		if (mode_sw < 2){ 
+		if (mode_knob < 2){ 
 			GS_mode = 0; # no GS mode selected
 		}
-		elsif (mode_sw == 2){ #GS auto mode
+		elsif (mode_knob == 2){ #GS auto mode
 			# GS auto mode logic
 			#if ((GS_error_deg < GS_capture_angle) and (GS_in_range)) {			
 			#	GS_Track();			
 			#}
 		}
-		elsif (mode_sw == 3){ #GS man mode
+		elsif (mode_knob == 3){ #GS man mode
 			# GS manual mode logic 
 			if ((GS_error_deg < GS_capture_angle) and (GS_in_range) and (!GS_sw) ) {
 			#	GS_Track();
@@ -622,7 +621,7 @@ var update_autopilot = func {
 #				print ("GS_sw ", getprop("autopilot/Glideslope/GS_sw");
 			}
 		}
-		elsif (mode_sw == 4){ #GS flare mode
+		elsif (mode_knob == 4){ #GS flare mode
 			# GS flare mode logic 
 			#if (GS_alt_ft > GS_hflare){
 			#	GS_Track();
@@ -633,9 +632,9 @@ var update_autopilot = func {
 
 
 		# save any updated logic and control variables
-		if (mode_sw > 0){
-#			print ("GS mode ", GS_mode, " mode_sw ",mode_sw, " GS in range ",GS_in_range, " GS_sw ", GS_sw);
-#			setprop("autopilot/Glideslope/Mode",mode_sw);
+		if (mode_knob > 0){
+#			print ("GS mode ", GS_mode, " mode_knob ",mode_knob, " GS in range ",GS_in_range, " GS_sw ", GS_sw);
+#			setprop("autopilot/Glideslope/Mode",mode_knob);
 #			setprop("autopilot/Logic/GS_sw",GS_sw);
 #			setprop("autopilot/Logic/GS_Cap",GS_Cap);
 #			setprop("autopilot/Logic/GS_Arm",GS_Arm);
@@ -679,7 +678,7 @@ var update_flight_controls = func {
 setlistener("sim/signals/fdm-initialized", func {
     settimer(update_autopilot,5);
     settimer(update_flight_controls,5);
-	setlistener("autopilot/switches/mode-knob", listenerModeKnobFunc, 1,0);
+	setlistener("autopilot/switches/mode_knob", listenerModeKnobFunc, 1,0);
 	setlistener("autopilot/Logic/VLOC_ONC_test",listenerVLOC_ONC_testFunc,1,0);
 	}
 );

@@ -12,7 +12,7 @@
     ===============
     -->
 	<filter>
-		<name>OneOverV</name>
+<!--		<name>OneOverV</name> -->
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1</gain>
@@ -35,7 +35,7 @@
     ===============
     -->
 	<filter>
-		<name>Mach 1 IAS</name>
+<!--		<name>Mach 1 IAS</name> -->
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1</gain>
@@ -65,7 +65,7 @@
 
 	<!-- limits -->
 	<filter>
-		<name>Phi_r_limit</name>
+<!--		<name>Phi_r_limit</name> -->
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1</gain>
@@ -80,7 +80,7 @@
 	</filter>
 
 	<filter>
-		<name>Phi_r_neglimit</name>
+<!--		<name>Phi_r_neglimit</name> -->
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>-1</gain>
@@ -91,7 +91,7 @@
 	</filter>
 
 	<filter>
-		<name>Roll driver limit</name>
+<!--		<name>Roll driver limit</name> -->
 		<debug>false</debug>
 		<type>gain</type>
 		<input>
@@ -101,7 +101,7 @@
 	</filter>
 
 	<filter>
-		<name>Roll driver negative limit</name>
+<!--		<name>Roll driver negative limit</name> -->
 		<debug>false</debug>
 		<type>gain</type>
 		<gain><value>-1.0</value></gain>
@@ -118,7 +118,7 @@
 
 
 	<filter>
-		<name>Gbetadot altitude limiter</name>
+<!--		<name>Gbetadot altitude limiter</name> -->
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
@@ -130,7 +130,7 @@
 
 
 	<filter>
-		<name>Localiser error gain</name>
+<!--		<name>Localiser error gain</name> -->
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
@@ -147,7 +147,7 @@
 	</filter>
 
 	<filter>
-		<name>Localiser bank command due to heading error error gain</name>
+<!--		<name>Localiser bank command due to heading error error gain</name> -->
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
@@ -163,7 +163,7 @@
 	</filter>
 
 	<filter>
-		<name>Localiser bank feedback gain</name>
+<!--		<name>Localiser bank feedback gain</name> -->
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>

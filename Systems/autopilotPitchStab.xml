@@ -15,7 +15,7 @@
     -->
 	<!-- pitch angle feedback gain -->
 	<filter>
-		<name>Gtheta</name>
+<!--		<name>Gtheta</name> -->
 		<debug>false</debug>
 		<type>gain</type>
 		<input>
@@ -38,7 +38,7 @@
 	
 	<!-- pitch rate feedback gain -->
 	<filter>
-		<name>Gq</name>
+<!--		<name>Gq</name> -->
 		<debug>false</debug>
 		<type>gain</type>
 		<input>
@@ -61,7 +61,7 @@
 	</filter>
 	
 	<filter>
-		<name>Pitch Error</name>
+<!--		<name>Pitch Error</name> -->
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
@@ -156,7 +156,7 @@
 	</filter>
 		
 	<filter>
-		<name>Pitch Inner Loop</name>
+<!--		<name>Pitch Inner Loop</name> -->
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
@@ -180,7 +180,7 @@
 	</filter>
 	
 	<filter>
-		<name>Pitch elevator Sum</name>
+<!--		<name>Pitch elevator Sum</name> -->
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>

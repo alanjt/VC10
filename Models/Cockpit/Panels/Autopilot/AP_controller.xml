@@ -405,12 +405,12 @@ Vickers VC10 for Flightgear
 		<object-name>ModeSelect</object-name>
 		<center><x-m>0</x-m><y-m>-0.1294</y-m><z-m>-0.0972</z-m></center>
 		<axis><x>-1</x><y>0</y><z>0</z></axis>
-		<property>autopilot/switches/mode-knob</property>
+		<property>autopilot/switches/mode_knob</property>
 		<factor>30.0</factor>
 		<action>
 			<binding>
 				<command>property-adjust</command>
-				<property>autopilot/switches/mode-knob</property>
+				<property>autopilot/switches/mode_knob</property>
 				<factor>1.0</factor>
 				<min>-1</min>
 				<max>4</max>
@@ -426,7 +426,7 @@ Vickers VC10 for Flightgear
 				<command>set-tooltip</command>
 				<label>AP Mode Sw: %.2f</label>
 				<tooltip-id>APModeKnob</tooltip-id>
-				<property>autopilot/switches/mode-knob</property>
+				<property>autopilot/switches/mode_knob</property>
 			</binding>
 		</hovered>
 	</animation>

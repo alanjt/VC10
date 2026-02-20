@@ -15,7 +15,7 @@
 
 	<!-- Ias Error (U-Ud) -->
 	<filter>
-		<name>U-Ud</name>
+<!--		<name>U-Ud</name> -->
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
@@ -27,7 +27,7 @@
 	</filter>
 	
 	<filter>
-		<name>IAS Demand Throttle</name>
+<!--		<name>IAS Demand Throttle</name> -->
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>-10.0</gain>
@@ -36,7 +36,7 @@
 	</filter>
 
 	<filter>
-		<name>IAS Error_integ</name>
+<!--		<name>IAS Error_integ</name> -->
 		<debug>false</debug>
 		<type>integrator</type>
 		<gain>0.1</gain>
@@ -68,7 +68,7 @@
 	</filter>
 
 	<filter>
-		<name>Autothrottle selector</name>
+<!--		<name>Autothrottle selector</name> -->
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>0.025</gain>
@@ -132,7 +132,7 @@
 		<max-rate-of-change>0.1</max-rate-of-change>
 	</filter> -->
 	<filter>
-		<name>SERVO-Datum:throttle 1</name>
+<!--		<name>SERVO-Datum:throttle 1</name> -->
 		<type>gain</type>
 		<debug>false</debug>
 		<feedback-if-disabled>true</feedback-if-disabled>
@@ -143,7 +143,7 @@
 		<output><property>autopilot/internal/AT1_Datum</property></output>
 	</filter>	
 	<filter>
-		<name>SERVO-Datum:throttle 2</name>
+<!--		<name>SERVO-Datum:throttle 2</name>  -->
 		<type>gain</type>
 		<debug>false</debug>
 		<feedback-if-disabled>true</feedback-if-disabled>
@@ -154,7 +154,7 @@
 		<output><property>autopilot/internal/AT2_Datum</property></output>
 	</filter>
 	<filter>
-		<name>SERVO-Datum:throttle 3</name>
+<!--		<name>SERVO-Datum:throttle 3</name> -->
 		<type>gain</type>
 		<debug>false</debug>
 		<feedback-if-disabled>true</feedback-if-disabled>
@@ -165,7 +165,7 @@
 		<output><property>autopilot/internal/AT3_Datum</property></output>
 	</filter>
 	<filter>
-		<name>SERVO-Datum:throttle 4</name>
+<!--		<name>SERVO-Datum:throttle 4</name> -->
 		<type>gain</type>
 		<debug>false</debug>
 		<feedback-if-disabled>true</feedback-if-disabled>
@@ -176,7 +176,7 @@
 		<output><property>autopilot/internal/AT4_Datum</property></output>
 	</filter>
 	<filter>
-		<name>SERVO-Datum:throttle 1</name>
+<!--		<name>SERVO-Datum:throttle 1</name> -->
 		<type>gain</type>
 		<debug>false</debug>
 		<feedback-if-disabled>true</feedback-if-disabled>
@@ -188,7 +188,7 @@
 	</filter>
 
 	<filter>
-		<name>SERVO-DRIVER:throttle 1</name>
+<!--		<name>SERVO-DRIVER:throttle 1</name> -->
 		<type>noise-spike</type>
 		<debug>false</debug>
 		<feedback-if-disabled>true</feedback-if-disabled>
@@ -210,7 +210,7 @@
 	</filter>
 	
 	<filter>
-		<name>SERVO-DRIVER:throttle 2</name>
+<!--		<name>SERVO-DRIVER:throttle 2</name> -->
 		<type>noise-spike</type>
 		<debug>false</debug>
 		<feedback-if-disabled>true</feedback-if-disabled>
@@ -231,7 +231,7 @@
 		<max-rate-of-change>0.1</max-rate-of-change>
 	</filter>
 	<filter>
-		<name>SERVO-DRIVER:throttle 3</name>
+<!--		<name>SERVO-DRIVER:throttle 3</name> -->
 		<type>noise-spike</type>
 		<debug>false</debug>
 		<feedback-if-disabled>true</feedback-if-disabled>

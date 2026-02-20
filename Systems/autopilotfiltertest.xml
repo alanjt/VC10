@@ -9,7 +9,7 @@
 
 	
 	<filter>
-		<name>exponential test0p5</name>
+<!--		<name>exponential test0p5</name> -->
 		<type>exponential</type>
 		<debug>false</debug>
 		<gain>1.0</gain>
@@ -19,7 +19,7 @@
 	</filter>
 	
 	<filter>
-		<name>exponential test1p0</name>
+<!--		<name>exponential test1p0</name> -->
 		<type>exponential</type>
 		<debug>false</debug>
 		<gain>1.0</gain>
@@ -29,7 +29,7 @@
 	</filter>
 	
 	<filter>
-		<name>exponential test1p5</name>
+<!--		<name>exponential test1p5</name> -->
 		<type>exponential</type>
 		<debug>false</debug>
 		<gain>1.0</gain>
@@ -39,7 +39,7 @@
 	</filter>
 	
 	<filter>
-		<name>high-pass test0p5</name>
+<!--		<name>high-pass test0p5</name> -->
 		<type>high-pass</type>
 		<debug>false</debug>
 		<gain>1.0</gain>
@@ -49,7 +49,7 @@
 	</filter>
 	
 	<filter>
-		<name>high-pass test1p0</name>
+<!--		<name>high-pass test1p0</name> -->
 		<type>high-pass</type>
 		<debug>false</debug>
 		<gain>1.0</gain>
@@ -59,7 +59,7 @@
 	</filter>
 	
 	<filter>
-		<name>high-pass test1p5</name>
+<!--		<name>high-pass test1p5</name> -->
 		<type>high-pass</type>
 		<debug>false</debug>
 		<gain>1.0</gain>
@@ -69,7 +69,7 @@
 	</filter>
 
 	<filter>
-		<name>lag test 0p5</name>
+<!--		<name>lag test 0p5</name> -->
 		<type>lag</type>
 		<debug>false</debug>
 		<gain>1.0</gain>
@@ -79,7 +79,7 @@
 	</filter>
 	
 	<filter>
-		<name>lag test 1p5</name>
+<!--		<name>lag test 1p5</name> -->
 		<type>lag</type>
 		<debug>false</debug>
 		<gain>1.0</gain>
@@ -89,7 +89,7 @@
 	</filter>
 	
 	<filter>
-		<name>high-pass test 0p5</name>
+<!--		<name>high-pass test 0p5</name> -->
 		<type>high-pass</type>
 		<debug>false</debug>
 		<gain>1.0</gain>
@@ -109,7 +109,7 @@
 	</filter>
 	
 	<filter>
-		<name>lead test</name>
+<!--		<name>lead test</name> -->
 		<debug>false</debug>
 		<type>lead</type>
 		<gain>1.0</gain>
@@ -119,7 +119,7 @@
 	</filter>
 	
 	<filter>
-		<name>lead lag</name>
+<!--		<name>lead lag</name> -->
 		<debug>false</debug>
 		<type>lead-lag</type>
 		<gain>1.0</gain>
@@ -141,7 +141,7 @@
 	</filter>
 
 	<filter>
-		<name>lead lag</name>
+<!--		<name>lead lag</name> -->
 		<debug>false</debug>
 		<type>lead-lag</type>
 		<gain>1.0</gain>
@@ -152,7 +152,7 @@
 	</filter>
 	
 	<filter>
-		<name>lead lag</name>
+<!--		<name>lead lag</name> -->
 		<debug>false</debug>
 		<type>lead-lag</type>
 		<gain>1.0</gain>
@@ -163,7 +163,7 @@
 	</filter>
 
 	<filter>
-		<name>lead lag</name>
+<!--		<name>lead lag</name> -->
 		<debug>false</debug>
 		<type>lead-lag</type>
 		<gain>autopilot/test/gain</gain>
@@ -174,7 +174,7 @@
 	</filter>
 	
 	<filter>
-		<name>lead lag with gain</name>
+<!--		<name>lead lag with gain</name> -->
 		<debug>false</debug>
 		<type>lead-lag</type>
 		<gain>2.0</gain>

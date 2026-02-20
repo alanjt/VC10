@@ -12,7 +12,7 @@
 	<!-- thetaRef_deg tracks pitch angle theta-deg while Glideslope mode not selected-->
 	
 	<filter>
-		<name>pitch_reference</name>
+<!--		<name>pitch_reference</name> -->
 		<debug>false</debug>
 		<type>integrator</type>
 		<gain>1.0</gain>
@@ -149,7 +149,7 @@
 	</filter -->
 	
 	<filter>
-		<name>Glideslope error degrees</name>
+<!--		<name>Glideslope error degrees</name> -->
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
@@ -188,7 +188,7 @@
 	</filter> -->
 	
 	<filter>
-		<name>GS error integrator</name>
+<!--		<name>GS error integrator</name> -->
 		<debug>false</debug>
 		<type>integrator</type>
 		<gain>0.05</gain><!-- 20 seconds -->
