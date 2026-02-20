@@ -8,8 +8,8 @@
 <PropertyList>
 
 	<filter>
-<!--		<name>Heading error gain</name> -->
-		<debug>false</debug>
+<!--		<name>Heading error gain</name>
+		<debug>false</debug> -->
 		<type>gain</type>
 		<gain>0.005</gain><!-- gain = -1 at uBody=200fps -->
 		<input><property>velocities/uBody-fps</property></input>
@@ -19,8 +19,8 @@
 	<!-- Heading mode -->
 
 	<filter>
-<!--		<name>heading bug error</name> -->
-		<debug>false</debug>
+<!--		<name>heading bug error</name>
+		<debug>false</debug> -->
 		<type>gain</type>
 		<gain>1.0</gain>
 		<input><property>orientation/heading-magnetic-deg</property></input>
@@ -39,8 +39,8 @@
 	
 	<!-- course error -->
 	<filter>
-<!--		<name>course bug error</name> -->
-		<debug>false</debug>
+<!--		<name>course bug error</name>
+		<debug>false</debug> -->
 		<type>gain</type>
 		<gain>1.0</gain>
 		<input><property>orientation/heading-magnetic-deg</property></input>
@@ -56,8 +56,8 @@
 
 	<!-- washed-out course error -->
 	<filter>
-<!--		<name>hdg-courseD washout</name> -->
-		<debug>false</debug>
+<!--		<name>hdg-courseD washout</name>
+		<debug>false</debug> -->
 		<type>high-pass</type>
 		<filter-time>1.0</filter-time>
 		<input><property>autopilot/FlightDirector/hdg-courseD</property></input>
@@ -66,8 +66,8 @@
 
 	<!-- beam error -->
 	<filter>
-<!--		<name>VOR/LOC Beam Error degrees</name> -->
-		<debug>false</debug>
+<!--		<name>VOR/LOC Beam Error degrees</name>
+		<debug>false</debug> -->
 		<type>gain</type>
 		<gain>-1.0</gain>
 		<input>				<!-- ILS - Full scale 2 dots = 2.5 deg -->
@@ -94,8 +94,8 @@
 	</filter>
 
 	<filter>
-<!--		<name>VOR/LOC Heading (QDM) Error degrees</name> -->
-		<debug>false</debug>
+<!--		<name>VOR/LOC Heading (QDM) Error degrees</name>
+		<debug>false</debug> -->
 		<type>gain</type>
 		<gain>1.0</gain>
 		<input>

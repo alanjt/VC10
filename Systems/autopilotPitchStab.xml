@@ -15,8 +15,8 @@
     -->
 	<!-- pitch angle feedback gain -->
 	<filter>
-<!--		<name>Gtheta</name> -->
-		<debug>false</debug>
+<!--		<name>Gtheta</name>
+		<debug>false</debug> -->
 		<type>gain</type>
 		<input>
 			<expression>
@@ -38,8 +38,8 @@
 	
 	<!-- pitch rate feedback gain -->
 	<filter>
-<!--		<name>Gq</name> -->
-		<debug>false</debug>
+<!--		<name>Gq</name>
+		<debug>false</debug> -->
 		<type>gain</type>
 		<input>
 			<expression>
@@ -61,8 +61,8 @@
 	</filter>
 	
 	<filter>
-<!--		<name>Pitch Error</name> -->
-		<debug>false</debug>
+<!--		<name>Pitch Error</name>
+		<debug>false</debug> -->
 		<type>gain</type>
 		<gain>1.0</gain>
 		<input>
@@ -139,7 +139,7 @@
 		<type>high-pass</type><!-- The high-pass filter is also known as a 1st order wash-out filter -->
 		<!-- pitch rate feedbck is required for stability, but needs to be washed out to allow sustained 
 		pitch rate during turns -->
-		<debug>false</debug>
+		<!--<debug>false</debug>  -->
 		<enable>
 			<condition><property>autopilot/Logic/AP1orAP2-sw</property></condition>
 		</enable>
@@ -156,8 +156,8 @@
 	</filter>
 		
 	<filter>
-<!--		<name>Pitch Inner Loop</name> -->
-		<debug>false</debug>
+<!--		<name>Pitch Inner Loop</name>
+		<debug>false</debug> -->
 		<type>gain</type>
 		<gain>1.0</gain>
 		<input>
@@ -180,8 +180,8 @@
 	</filter>
 	
 	<filter>
-<!--		<name>Pitch elevator Sum</name> -->
-		<debug>false</debug>
+<!--		<name>Pitch elevator Sum</name>
+		<debug>false</debug> -->
 		<type>gain</type>
 		<gain>1.0</gain>
 		<input>

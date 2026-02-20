@@ -92,13 +92,13 @@
 
 	<filter>
 <!--		<name>theta_washout</name>
-		<debug>false</debug>
+		<debug>false</debug> -->
 		<type>high-pass</type>
 		<filter-time>1.0</filter-time>
 		<input><property>fdm/jsbsim/attitude/theta</property></input>
 		<output><property>autopilot/internal/thetaWashout</property></output>
 		<u_min>-20</u_min>
-		<u_max>20</u_max> -->
+		<u_max>20</u_max>
 	</filter>
 
 </PropertyList>

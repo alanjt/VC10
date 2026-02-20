@@ -202,19 +202,16 @@ var listenerModeKnobFunc = func {
 		}
 
 # MAN - Mode - roll-selector
-var listenerTurnKnobFunc = func {
-	if(getprop("autopilot/settings/TurnKnobInDetent") == 0) {
-		print (" if TurnKnob turn, the mode selector jumps to mode 0");
-		setprop("autopilot/switches/mode_knob", 0);   # MAN
-		}
-
-	if (getprop("autopilot/Logic/AP1orAP2-sw") and
-
-		(getprop("autopilot/switches/mode_knob") == 0) ){   # MAN
-
-	}
-}
-setlistener("autopilot/settings/TurnKnob", listenerTurnKnobFunc);
+#var listenerTurnKnobFunc = func {
+#	if(getprop("autopilot/settings/TurnKnobInDetent") == 0) {
+#		print (" if TurnKnob turn, the mode selector jumps to mode 0");
+#		setprop("autopilot/switches/mode_knob", 0);   # MAN
+#		}
+#	if (getprop("autopilot/Logic/AP1orAP2-sw") and
+#		(getprop("autopilot/switches/mode_knob") == 0) ){   # MAN
+#	}
+#}
+#setlistener("autopilot/settings/TurnKnob", listenerTurnKnobFunc);
 
 # MAN - Mode - pitch-wheel selector
 var listenerApMANPitchFunc = func {
