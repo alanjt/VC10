@@ -230,7 +230,7 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
   <input> <!-- reset integrator output to zero when ONC is not set -->
     <expression>
       <product>
-        <value>-10.0</value>
+        <value>-100/.0</value>
         <property>autopilot/LGUIDE/Beta_Deg_Integ</property>
       </product>
     </expression>

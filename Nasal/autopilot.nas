@@ -250,12 +250,13 @@ setlistener("controls/special/yoke-switch1", func (s1){
 ## Basic Pitch modes (Attitude, IAS, MACH and Altitude hold) selection
 	
 PitchSwCommon = func {
-	var  altsw = getprop("autopilot/Logic/ALT-sw") != 0;
-	var  iassw = getprop("autopilot/Logic/IAS-sw") != 0;
-	var  machsw = getprop("autopilot/Logic/MACH-sw") != 0;
-	var  pitchsw = getprop("autopilot/Logic/Pitch_hold") != 0;
-	var  GS_sw = getprop("autopilot/Logic/GS_sw") != 0; 
+	var  altsw = getprop("autopilot/Logic/ALT-sw");
+	var  iassw = getprop("autopilot/Logic/IAS-sw");
+	var  machsw = getprop("autopilot/Logic/MACH-sw");
+	var  pitchsw = getprop("autopilot/Logic/Pitch_hold");
+	var  GS_sw = getprop("autopilot/Logic/GS_sw"); 
 	print ("PitchSwCommon  altsw ", altsw,"  iassw ", iassw,"  machsw ", machsw,"  GS_sw ", GS_sw, " Pitch_hold ", pitchsw );
+
 	if (!altsw and !iassw and !machsw and !GS_sw) 
 		{
 			setprop("autopilot/Logic/Pitch_hold", 1);
@@ -601,6 +602,7 @@ var update_autopilot = func {
 
 		if (mode_knob < 2){ 
 			GS_mode = 0; # no GS mode selected
+			GS_sw = 0; # no GS mode selected
 		}
 		elsif (mode_knob == 2){ #GS auto mode
 			# GS auto mode logic

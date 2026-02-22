@@ -154,6 +154,30 @@
 			<property>instrumentation/nav[0]/from-flag</property>
 		</condition>
 	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>LC-flag</object-name>
+		<condition>
+			<not><property>instrumentation/nav[0]/gs-in-range</property></not>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>GS-flag</object-name>
+		<condition>
+			<not><property>instrumentation/nav[0]/in-range</property></not>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Compass-flag</object-name>
+		<condition>
+			<not><property>systems/electrical/outputs/horizgyro[0]</property></not>
+		</condition>
+	</animation>
     
 	<animation>
 		<type>translate</type>
@@ -219,7 +243,15 @@
 		<axis><x>0</x><y>1</y><z>0</z></axis>
 	</animation>
 
-  
+ 	<animation>
+		<type>textranslate</type>
+		<object-name>CrsNum.3</object-name>
+		<property>instrumentation/nav[0]/in_range</property><!-- CRS knob -->
+		<factor>0.1</factor>
+		<step>1</step>
+		<scroll>1</scroll>
+		<axis><x>0</x><y>1</y><z>0</z></axis>
+	</animation>
 	<!-- 	<animation>
 		<type>material</type>
 			<object-name>off-flag</object-name>
