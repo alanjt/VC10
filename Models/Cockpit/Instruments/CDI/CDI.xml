@@ -25,9 +25,8 @@
 		<object-name>CDI-ring</object-name>
 		<object-name>CompassCard</object-name>
 		<object-name>hdg-arrow</object-name>
-		<object-name>To</object-name>
-		<object-name>From</object-name>
-		<object-name>noNav</object-name>
+<!--		<object-name>ToFrom-arrow</object-name>
+		<object-name>noNav</object-name> -->
 		<object-name>VorLocDeviationBar</object-name>
 		<object-name>VOR_LOC_dots</object-name>
 		<property>instrumentation/heading-indicator-dg[0]/indicated-heading-deg</property>
@@ -53,12 +52,11 @@
 	 
 	<animation>
 		<type>rotate</type>
-		<object-name>To</object-name>
-		<object-name>From</object-name>
-		<object-name>noNav</object-name>
+<!--		<object-name>ToFrom-arrow</object-name> -->
+		<object-name>crs-arrow</object-name>
 		<object-name>VorLocDeviationBar</object-name>
 		<object-name>VOR_LOC_dots</object-name>
-		<property>instrumentation/nav[0]/radials/selected-deg</property><!-- CRS knob -->
+		<property>instrumentation/nav[0]/radials/selected-deg</property>
 		<axis><x>-1.0</x><y>0.0</y><z>0.0</z></axis>
 	</animation>
 
@@ -119,7 +117,7 @@
  
 	<!-- action for nav -->
 
-	<animation>
+<!--	<animation>
 		<type>select</type>
 		<object-name>noNav</object-name>
 		<condition>
@@ -137,19 +135,19 @@
 				</and>
 			</or>
 		</condition>
-	</animation>
+	</animation> -->
 
 	<animation>
 		<type>select</type>
-		<object-name>To</object-name>
+		<object-name>ToFlag</object-name>
 		<condition>
 			<property>instrumentation/nav[0]/to-flag</property>
 		</condition>
 	</animation>
-
+	
 	<animation>
 		<type>select</type>
-		<object-name>From</object-name>
+		<object-name>FromFlag</object-name>
 		<condition>
 			<property>instrumentation/nav[0]/from-flag</property>
 		</condition>
@@ -265,8 +263,7 @@
 			<object-name>CrsNum.2</object-name>
 			<object-name>CrsNum.3</object-name>
 			<object-name>CrsNum.off</object-name>
-			<object-name>From</object-name>
-			<object-name>To</object-name>
+			<object-name>ToFrom-arrow</object-name>
 			<object-name>noNav</object-name>
 		<condition>
 			<less-than><property>systems/electrical/outputs/cabin-dim</property><value>0.8</value></less-than>
@@ -292,8 +289,7 @@
 		    <object-name>CrsNum.2</object-name>
 			<object-name>CrsNum.3</object-name>
 			<object-name>CrsNum.off</object-name>
-			<object-name>From</object-name>
-			<object-name>To</object-name>
+			<object-name>ToFrom-arrow</object-name>
 			<object-name>noNav</object-name> -->
 	<!--			<object-name>shadow</object-name> -->
 	<!--		<condition>

@@ -15,8 +15,8 @@
 
 	<!-- Ias Error (U-Ud) -->
 	<filter>
-<!--		<name>U-Ud</name> -->
-		<debug>false</debug>
+<!--		<name>U-Ud</name>
+		<debug>false</debug> -->
 		<type>gain</type>
 		<gain>1.0</gain>
 		<input><property>fdm/jsbsim/velocities/vc-kts</property></input>
@@ -27,8 +27,8 @@
 	</filter>
 	
 	<filter>
-<!--		<name>IAS Demand Throttle</name> -->
-		<debug>false</debug>
+<!--		<name>IAS Demand Throttle</name>
+		<debug>false</debug> -->
 		<type>gain</type>
 		<gain>-10.0</gain>
 		<input><property>autopilot/internal/AT_IAS_error</property></input>
@@ -36,8 +36,8 @@
 	</filter>
 
 	<filter>
-<!--		<name>IAS Error_integ</name> -->
-		<debug>false</debug>
+<!--		<name>IAS Error_integ</name>
+		<debug>false</debug> -->
 		<type>integrator</type>
 		<gain>0.1</gain>
 		<input>
@@ -68,8 +68,8 @@
 	</filter>
 
 	<filter>
-<!--		<name>Autothrottle selector</name> -->
-		<debug>false</debug>
+<!--		<name>Autothrottle selector</name>
+		<debug>false</debug> -->
 		<type>gain</type>
 		<gain>0.025</gain>
 		<input>
@@ -231,9 +231,9 @@
 		<max-rate-of-change>0.1</max-rate-of-change>
 	</filter>
 	<filter>
-<!--		<name>SERVO-DRIVER:throttle 3</name> -->
 		<type>noise-spike</type>
-		<debug>false</debug>
+<!--		<name>SERVO-DRIVER:throttle 3</name>
+		<debug>false</debug> -->
 		<feedback-if-disabled>true</feedback-if-disabled>
 		<enable>
 			<condition><property>autopilot/internal/AT3_engage</property></condition>
