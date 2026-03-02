@@ -1,18 +1,14 @@
 <?xml version="1.0"?>
 <!--###################################################################################
-		Lake of Constance Hangar :: M.Kraus
-		Septemper 2013
 		This file is licenced under the terms of the GNU General Public Licence V2 or later
-		###################################################################################
+	###################################################################################
 -->
 <PropertyList>
 
 	<path>CDI.ac</path>
- 
 
 	<animation>
 		<type>select</type>
-		<object-name>off-flag</object-name>
 		<object-name>CrsNum.off</object-name>
 		<condition>
 			<less-than>
@@ -28,14 +24,14 @@
 		<object-name>CDI-ring</object-name>
 		<object-name>CompassCard</object-name>
 		<object-name>hdg-arrow</object-name>
-		<object-name>To</object-name>
-		<object-name>From</object-name>
-		<object-name>noNav</object-name>
+<!--		<object-name>ToFrom-arrow</object-name>
+		<object-name>noNav</object-name> -->
 		<object-name>VorLocDeviationBar</object-name>
 		<object-name>VOR_LOC_dots</object-name>
 		<property>instrumentation/heading-indicator-dg[1]/indicated-heading-deg</property>
 		<factor>-1</factor>
-		<axis><x>-1</x><y>0</y><z>0</z></axis>
+		<axis><x>-1</x><y>0</y><z>0</z>
+		</axis>
 	</animation>
 	
 	<animation>
@@ -55,12 +51,11 @@
 	 
 	<animation>
 		<type>rotate</type>
-		<object-name>To</object-name>
-		<object-name>From</object-name>
-		<object-name>noNav</object-name>
+<!--		<object-name>ToFrom-arrow</object-name> -->
+		<object-name>crs-arrow</object-name>
 		<object-name>VorLocDeviationBar</object-name>
 		<object-name>VOR_LOC_dots</object-name>
-		<property>instrumentation/nav[1]/radials/selected-deg</property><!-- CRS knob -->
+		<property>instrumentation/nav[1]/radials/selected-deg</property>
 		<axis><x>-1.0</x><y>0.0</y><z>0.0</z></axis>
 	</animation>
 
@@ -121,7 +116,7 @@
  
 	<!-- action for nav -->
 
-	<animation>
+<!--	<animation>
 		<type>select</type>
 		<object-name>noNav</object-name>
 		<condition>
@@ -139,21 +134,45 @@
 				</and>
 			</or>
 		</condition>
-	</animation>
+	</animation> -->
 
 	<animation>
 		<type>select</type>
-		<object-name>To</object-name>
+		<object-name>ToFlag</object-name>
 		<condition>
 			<property>instrumentation/nav[1]/to-flag</property>
 		</condition>
 	</animation>
-
+	
 	<animation>
 		<type>select</type>
-		<object-name>From</object-name>
+		<object-name>FromFlag</object-name>
 		<condition>
 			<property>instrumentation/nav[1]/from-flag</property>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>LC-flag</object-name>
+		<condition>
+			<not><property>instrumentation/nav[1]/gs-in-range</property></not>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>GS-flag</object-name>
+		<condition>
+			<not><property>instrumentation/nav[1]/in-range</property></not>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Compass-flag</object-name>
+		<condition>
+			<not><property>systems/electrical/outputs/horizgyro[1]</property></not>
 		</condition>
 	</animation>
     
@@ -221,23 +240,28 @@
 		<axis><x>0</x><y>1</y><z>0</z></axis>
 	</animation>
 
- 
-	<animation>
-		<type>material</type>
-		<object-name>off-flag</object-name>
-		<object-name>DialCentre</object-name>
-		<object-name>hdg-arrow</object-name>
-		<object-name>arrow</object-name>
-		<object-name>CDI-ring</object-name>
-		<object-name>VorLocDeviationBar</object-name>
-		<object-name>VOR_LOC_dots</object-name>
-		<object-name>CrsNum.1</object-name>
-		<object-name>CrsNum.2</object-name>
+ 	<animation>
+		<type>textranslate</type>
 		<object-name>CrsNum.3</object-name>
-		<object-name>CrsNum.off</object-name>
-		<object-name>From</object-name>
-		<object-name>To</object-name>
-		<object-name>noNav</object-name>
+		<property>instrumentation/nav[1]/in_range</property><!-- CRS knob -->
+		<factor>0.1</factor>
+		<step>1</step>
+		<scroll>1</scroll>
+		<axis><x>0</x><y>1</y><z>0</z></axis>
+	</animation>
+	<!-- 	<animation>
+		<type>material</type>
+			<object-name>DialCentre</object-name>
+			<object-name>hdg-arrow</object-name>
+			<object-name>CDI-ring</object-name>
+			<object-name>VorLocDeviationBar</object-name>
+			<object-name>VOR_LOC_dots</object-name>			
+			<object-name>CrsNum.1</object-name>
+			<object-name>CrsNum.2</object-name>
+			<object-name>CrsNum.3</object-name>
+			<object-name>CrsNum.off</object-name>
+			<object-name>ToFrom-arrow</object-name>
+			<object-name>noNav</object-name>
 		<condition>
 			<less-than><property>systems/electrical/outputs/cabin-dim</property><value>0.8</value></less-than>
 		</condition>
@@ -247,36 +271,44 @@
 			<blue>0.3</blue>
 			<factor-prop>systems/electrical/outputs/panel-dim</factor-prop>
 		</emission>
-	</animation>
+	</animation> -->
 	
-	<animation>
+		<animation>
 		<type>material</type>
-		<object-name>off-flag</object-name>
-		<object-name>DialCentre</object-name>
-		<object-name>hdg-arrow</object-name>
-		<object-name>arrow</object-name>
-		<object-name>CDI-ring</object-name>
-		<object-name>VorLocDeviationBar</object-name>
-		<object-name>VOR_LOC_dots</object-name>
-		<object-name>CrsNum.1</object-name>
-		<object-name>CrsNum.2</object-name>
-		<object-name>CrsNum.3</object-name>
-		<object-name>CrsNum.off</object-name>
-		<object-name>From</object-name>
-		<object-name>To</object-name>
-		<object-name>noNav</object-name>
-		<!--			<object-name>shadow</object-name> -->
-		<condition>
+			<object-name>crs_knob</object-name>
+			<object-name>hdg_knob</object-name>	
+			<object-name>DialCentre</object-name>
+			<object-name>hdg-arrow</object-name>
+			<object-name>crs-arrow</object-name>
+			<object-name>arrows</object-name>
+			<object-name>CDI-ring</object-name>
+			<object-name>CompassCard</object-name>
+			<object-name>mount</object-name>
+			<object-name>GSDeviationBar</object-name>
+			<object-name>GS_dots</object-name>
+			<object-name>GS_flag</object-name>
+			<object-name>VorLocDeviationBar</object-name>
+			<object-name>VOR_LOC_dots</object-name>
+			<object-name>LC_flag</object-name>
+			<object-name>FromFlag</object-name>
+			<object-name>ToFlag</object-name>				
+			<object-name>CrsNum.1</object-name>
+		    <object-name>CrsNum.2</object-name>
+			<object-name>CrsNum.3</object-name>
+			<object-name>CrsNum.off</object-name>
+			<object-name>ToFrom-arrow</object-name>
+	<!--			<object-name>shadow</object-name> -->
+			<condition>
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
 			<property>systems/electrical/outputs/cabin-dim</property>
 		</condition>
 		<emission>
-			<red>0.8</red>
-			<green>0.8</green>
-			<blue>0.8</blue>
-			<factor-prop>systems/electrical/outputs/cabin-dim</factor-prop>
+		  <red>0.8</red>
+		  <green>0.8</green>
+		  <blue>0.8</blue>
+		  <factor-prop>systems/electrical/outputs/cabin-dim</factor-prop>
 		</emission>
-	</animation>
+	</animation> 
 
 	<animation>
 		<type>material</type>

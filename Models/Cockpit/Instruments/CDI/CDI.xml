@@ -9,7 +9,6 @@
 
 	<animation>
 		<type>select</type>
-		<object-name>off-flag</object-name>
 		<object-name>CrsNum.off</object-name>
 		<condition>
 			<less-than>
@@ -250,21 +249,29 @@
 		<scroll>1</scroll>
 		<axis><x>0</x><y>1</y><z>0</z></axis>
 	</animation>
-	<!-- 	<animation>
+	
+ 	<animation>
 		<type>material</type>
-			<object-name>off-flag</object-name>
 			<object-name>DialCentre</object-name>
 			<object-name>hdg-arrow</object-name>
-			<object-name>arrow</object-name>
+			<object-name>crs-arrow</object-name>
+			<object-name>arrows</object-name>
 			<object-name>CDI-ring</object-name>
+			<object-name>CompassCard</object-name>
+			<object-name>mount</object-name>
+			<object-name>GS_DeviationBar</object-name>
+			<object-name>GS_dots</object-name>
+			<object-name>GS_flag</object-name>
 			<object-name>VorLocDeviationBar</object-name>
-			<object-name>VOR_LOC_dots</object-name>			
+			<object-name>VOR_LOC_dots</object-name>
+			<object-name>LC_flag</object-name>
+			<object-name>FromFlag</object-name>
+			<object-name>ToFlag</object-name>				
 			<object-name>CrsNum.1</object-name>
-			<object-name>CrsNum.2</object-name>
+		    <object-name>CrsNum.2</object-name>
 			<object-name>CrsNum.3</object-name>
 			<object-name>CrsNum.off</object-name>
 			<object-name>ToFrom-arrow</object-name>
-			<object-name>noNav</object-name>
 		<condition>
 			<less-than><property>systems/electrical/outputs/cabin-dim</property><value>0.8</value></less-than>
 		</condition>
@@ -274,25 +281,34 @@
 			<blue>0.3</blue>
 			<factor-prop>systems/electrical/outputs/panel-dim</factor-prop>
 		</emission>
-	</animation> -->
+	</animation>
 	
-	<!--	<animation>
+		<animation>
 		<type>material</type>
-			<object-name>off-flag</object-name>
+			<object-name>crs_knob</object-name>
+			<object-name>hdg_knob</object-name>	
 			<object-name>DialCentre</object-name>
 			<object-name>hdg-arrow</object-name>
-			<object-name>arrow</object-name>
+			<object-name>crs-arrow</object-name>
+			<object-name>arrows</object-name>
 			<object-name>CDI-ring</object-name>
+			<object-name>CompassCard</object-name>
+			<object-name>mount</object-name>
+			<object-name>GS_DeviationBar</object-name>
+			<object-name>GS_dots</object-name>
+			<object-name>GS_flag</object-name>
 			<object-name>VorLocDeviationBar</object-name>
-			<object-name>VOR_LOC_dots</object-name>			
+			<object-name>VOR_LOC_dots</object-name>
+			<object-name>LC_flag</object-name>
+			<object-name>FromFlag</object-name>
+			<object-name>ToFlag</object-name>				
 			<object-name>CrsNum.1</object-name>
 		    <object-name>CrsNum.2</object-name>
 			<object-name>CrsNum.3</object-name>
 			<object-name>CrsNum.off</object-name>
 			<object-name>ToFrom-arrow</object-name>
-			<object-name>noNav</object-name> -->
 	<!--			<object-name>shadow</object-name> -->
-	<!--		<condition>
+			<condition>
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
 			<property>systems/electrical/outputs/cabin-dim</property>
 		</condition>
@@ -302,7 +318,7 @@
 		  <blue>0.8</blue>
 		  <factor-prop>systems/electrical/outputs/cabin-dim</factor-prop>
 		</emission>
-	</animation>  -->
+	</animation> 
 
 	<animation>
 		<type>material</type>

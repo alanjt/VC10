@@ -182,24 +182,27 @@ var listenerApInitFunc = func {
 	setprop("autopilot/Logic/VLOC_test", false);
 	setprop("autopilot/Logic/VLOC_intercept_test", false);
 	setprop("autopilot/Logic/VLOC_ONC_test", false);
+	
+	settimer(update_autopilot,5);
+    settimer(update_flight_controls,5);
 }
-setlistener("sim/signals/fdm-initialized", listenerApInitFunc);
+#setlistener("sim/signals/fdm-initialized", listenerApInitFunc);
 
 
 # Mode-selector
 #
 #
-var listenerModeKnobFunc = func {
-	print ("-> listenerModeKnobFunc -> Mode-selector = ", getprop("autopilot/switches/mode_knob"));
-
-	if (getprop("autopilot/Logic/AP1orAP2-sw")) {
-		print ("-> listenerModeKnobFunc -> Mode-selector = ", getprop("autopilot/switches/mode_knob"));
-		}
-		if (getprop("autopilot/switches/mode_knob") == 0) {
-			# MAN - Mode
-			var TurnKnobDeg = 0.0;
-			setprop("autopilot/settings/TurnKnob", TurnKnobDeg);
-		}
+#var listenerOLD   = func {
+#	print ("->listenerOLDModeKnobFunc -> Mode-selector = ", getprop("autopilot/switches/mode_knob"));
+#
+#	if (getprop("autopilot/Logic/AP1orAP2-sw")) {
+#		print ("-> listenerOLDModeKnobFunc -> Mode-selector = ", getprop("autopilot/switches/mode_knob"));
+#		}
+#		if (getprop("autopilot/switches/mode_knob") == 0) {
+#			# MAN - Mode
+#			var TurnKnobDeg = 0.0;
+#			setprop("autopilot/settings/TurnKnob", TurnKnobDeg);
+#		}
 
 # MAN - Mode - roll-selector
 #var listenerTurnKnobFunc = func {
@@ -226,7 +229,7 @@ var listenerApMANPitchFunc = func {
 			}
 		}
 	}
-}
+
 
 setlistener("controls/special/yoke-switch1", func (s1){
     var s1 = s1.getBoolValue();
@@ -388,8 +391,8 @@ listenerVLOC_ONC_testFunc = func {
 		}
 	}
 	
-listenerGModeKnobFunc = func {
-print ("Mode Knob ", getprop("autopilot/switches/mode_knob"));
+listenerModeKnobFunc = func {
+print ("listenerModeKnobFunc ", getprop("autopilot/switches/mode_knob"));
 	if (getprop("autopilot/switches/mode_knob") == -1)
 		{
 		setprop("autopilot/settings/Mode", "HDG");
@@ -400,6 +403,11 @@ print ("Mode Knob ", getprop("autopilot/switches/mode_knob"));
 		}
  	elsif (getprop("autopilot/switches/mode_knob") ==  0)
 		{
+		
+		if (getprop("autopilot/Logic/AP1orAP2-sw")) {
+			setprop("autopilot/settings/TurnKnob", 0.0);
+			}
+		
 		setprop("autopilot/settings/Mode", "MAN");
 		setprop("autopilot/Logic/VLOC_ONC", false);
 		setprop("autopilot/Logic/VLOC_ONC_test", false);
@@ -446,14 +454,8 @@ print ("Mode Knob ", getprop("autopilot/switches/mode_knob"));
 			
 var clearmanometricmodes = func {
 }
-	setlistener("autopilot/Logic/Pitch_hold", listenerPitchhHoldFunc,1,0); 	
-	setlistener("autopilot/Logic/ALT-sw", listenerAltSwFunc,1,0);
-	setlistener("autopilot/Logic/IAS-sw", listenerIasSwFunc,1,0);
-	setlistener("autopilot/Logic/MACH-sw",listenerMachSwFunc,1,0);
-	setlistener("autopilot/Logic/GS_Cap",listenerGSCapFunc,1,0);
-	setlistener("autopilot/Logic/AP1orAP2-sw",listenerAP_EngageFunc,1,0);
-	setlistener("autopilot/Logic/GS_sw",listenerGS_swFunc,1,0);
-	setlistener("autopilot/switches/mode_knob",listenerGModeKnobFunc,1,0);
+
+
 	
 var GS_flare = func {
 	print (" Set GS_Flare ");
@@ -464,6 +466,7 @@ var GS_flare = func {
 
 var update_autopilot = func {
 
+#print ("update_autopilot logic");
     current_time = getprop("/sim/time/elapsed-sec");
     dt = current_time - last_time;  # Note current_time is time in millisec since sim started.
     last_time = current_time;
@@ -667,17 +670,29 @@ var update_autopilot = func {
 ##############################################################################################
 ## this should be moved to PCU.nas when PCU´s (i.e. individual control surface servos) are simulated.
 var update_flight_controls = func {
-	setprop("/fdm/jsbsim/fcs/afcs-elevator-cmd-deg", getprop("autopilot/commands/afcs-elevator-deg"));
+	setprop("/fdm/jsbsim/fcs/afcs-elevator-cmd-deg", getprop("autopilot/commands/afcs-elevator-deg"));  
 	setprop("/fdm/jsbsim/fcs/afcs-aileron-cmd-deg", getprop("autopilot/commands/afcs-aileron-deg"));
 	settimer(update_flight_controls,0);   ## loop 
 };
 
 ##############################################################################################
 
-setlistener("sim/signals/fdm-initialized", func {
-    settimer(update_autopilot,5);
-    settimer(update_flight_controls,5);
-	setlistener("autopilot/switches/mode_knob", listenerModeKnobFunc, 1,0);
+#setlistener("sim/signals/fdm-initialized", func {
+#    settimer(update_autopilot,5);
+ #   settimer(update_flight_controls,5);
+#	}
+#)
+# set listeners	
 	setlistener("autopilot/Logic/VLOC_ONC_test",listenerVLOC_ONC_testFunc,1,0);
-	}
-);
+	setlistener("autopilot/Logic/Pitch_hold", listenerPitchhHoldFunc,1,0); 	
+	setlistener("autopilot/Logic/ALT-sw", listenerAltSwFunc,1,0);
+	setlistener("autopilot/Logic/IAS-sw", listenerIasSwFunc,1,0);
+	setlistener("autopilot/Logic/MACH-sw",listenerMachSwFunc,1,0);
+	setlistener("autopilot/Logic/GS_Cap",listenerGSCapFunc,1,0);
+	setlistener("autopilot/Logic/AP1orAP2-sw",listenerAP_EngageFunc,1,0);
+	setlistener("autopilot/Logic/GS_sw",listenerGS_swFunc,1,0);
+	setlistener("autopilot/switches/mode_knob",listenerModeKnobFunc,1,0);
+	setlistener("sim/signals/fdm-initialized", listenerApInitFunc);
+#	setlistener("autopilot/switches/mode_knob", listenerOLDModeKnobFunc, 1,0);
+	
+
