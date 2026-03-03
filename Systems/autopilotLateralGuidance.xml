@@ -76,12 +76,12 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 		<input>
 			<condition>
 				<!-- ILS - Full scale 2 dots = 2.5 deg -->
-				<property>instrumentation/nav/frequencies</property>
+				<property>instrumentation/nav/frequencies/is-localizer-frequency</property>
 			</condition>
 			<expression>
 				<product>
 					<property>instrumentation/nav/heading-needle-deflection</property>
-					<value>-2.5</value>
+					<value>2.5</value>
 				</product>
 			</expression>
 		</input>
@@ -92,7 +92,7 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 				<product>
 					<property>instrumentation/nav/heading-needle-deflection</property>
 					<value>-20.0</value>
-					<value>0.0</value>
+					<value>1p.0</value>
 				</product>
 			</expression>
 		</input>
@@ -186,7 +186,7 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 		<gain>1.0</gain>
 		<input>
 			<condition>
-				<property>instrumentation/nav/frequencies</property>
+				<property>instrumentation/nav/frequencies/is-localizer-frequency</property>
 			</condition>
 			<expression>
 				<!-- ILS frequency -->
@@ -317,7 +317,7 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 		<input>
 			<expression>
 				<product>
-					<value>0.0</value>
+					<value>1.0</value>
 					<property>autopilot/LGUIDE/Beta_E_sum</property>
 					<property>autopilot/LGUIDE/KBeta</property>
 					<!-- function of range -->
@@ -342,7 +342,7 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 						<property>autopilot/LGUIDE/COURSE_Error_scaled</property>
 					</product>
 					<product>
-						<value>0</value>
+						<value>1</value>
 						<property>autopilot/LGUIDE/Beta_E_scaled</property>
 					</product>
 				</sum>
@@ -569,7 +569,7 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 			<condition>
 				<greater-than>
 					<property>autopilot/switches/mode_knob</property>
-					<value>0</value>
+					<value>1</value>
 				</greater-than>
 			</condition>
 			<!--	VOR/LOC/GS/FLARE modes -->
