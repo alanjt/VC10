@@ -46,6 +46,7 @@ var dt = 0.0;
 	props.globals.initNode("autopilot/Logic/IAS-sw",0,"BOOL");			# true/false
 	props.globals.initNode("autopilot/Logic/MACH-sw",0,"BOOL");			# true/false
 	props.globals.initNode("autopilot/Logic/Pitch_hold",0,"BOOL");
+	props.globals.initNode("autopilot/Logic/TurnKnobInDetent",0,"BOOL");	
 	props.globals.initNode("autopilot/Logic/HdgHold",0,"BOOL");
 	props.globals.initNode("autopilot/Logic/TurnMode",0,"BOOL");
 	
@@ -136,7 +137,7 @@ var dt = 0.0;
 	props.globals.initNode("instrumentation/nav[0]/radials/selected-deg",0,"DOUBLE");# CRS knob on compass
 	
 	
-	props.globals.initNode("autopilot/settings/TurnKnobInDetent",0,"BOOL");	
+
 
 	props.globals.initNode("autopilot/gain/Gtheta",2.0,"DOUBLE");
 	props.globals.initNode("autopilot/gain/Gq",-0.2,"DOUBLE");
@@ -206,7 +207,7 @@ var listenerApInitFunc = func {
 
 # MAN - Mode - roll-selector
 #var listenerTurnKnobFunc = func {
-#	if(getprop("autopilot/settings/TurnKnobInDetent") == 0) {
+#	if(getprop("autopilot/Logic/TurnKnobInDetent") == 0) {
 #		print (" if TurnKnob turn, the mode selector jumps to mode 0");
 #		setprop("autopilot/switches/mode_knob", 0);   # MAN
 #		}
@@ -390,38 +391,44 @@ listenerVLOC_ONC_testFunc = func {
 			}
 		}
 	}
-	
+listenerTurnKnobFunc = func {
+print ("listenerTurnKnobFunc ", getprop("autopilot/switches/Turn_Knob"));
+
+ 	if (abs(getprop("autopilot/settings/TurnKnob")) < 3.0)
+		{
+		setprop("autopilot/Logic/HdgHold", true);
+		setprop("autopilot/Logic/TurnMode", false);
+		setprop("autopilot/Logic/TurnKnobInDetent", true);
+		}
+	else 
+		{
+		setprop("autopilot/Logic/HdgHold", false);
+		setprop("autopilot/Logic/TurnMode", true);
+		setprop("autopilot/Logic/TurnKnobInDetent", false);
+		}
+	}
+
+
+
 listenerModeKnobFunc = func {
 print ("listenerModeKnobFunc ", getprop("autopilot/switches/mode_knob"));
-	if (getprop("autopilot/switches/mode_knob") == -1)
+
+ 	if (getprop("autopilot/switches/mode_knob") ==  0)
+		{
+		if (getprop("autopilot/Logic/AP1orAP2-sw")) {
+##			setprop("autopilot/settings/TurnKnob", 0.0);
+			setprop("autopilot/settings/Mode", "MAN");
+			setprop("autopilot/Logic/VLOC_ONC", false);
+			setprop("autopilot/Logic/VLOC_ONC_test", false);
+			}
+		}
+ 	elsif (getprop("autopilot/switches/mode_knob") == -1)
 		{
 		setprop("autopilot/settings/Mode", "HDG");
 		setprop("autopilot/Logic/HdgHold", false);
 		setprop("autopilot/Logic/TurnMode", false);
 		setprop("autopilot/Logic/VLOC_ONC", false);
 		setprop("autopilot/Logic/VLOC_ONC_test", false);
-		}
- 	elsif (getprop("autopilot/switches/mode_knob") ==  0)
-		{
-		
-		if (getprop("autopilot/Logic/AP1orAP2-sw")) {
-			setprop("autopilot/settings/TurnKnob", 0.0);
-			}
-		
-		setprop("autopilot/settings/Mode", "MAN");
-		setprop("autopilot/Logic/VLOC_ONC", false);
-		setprop("autopilot/Logic/VLOC_ONC_test", false);
-		if (abs(getprop("autopilot/settings/TurnKnob")) < 3.0)
-			{
-			setprop("autopilot/Logic/HdgHold", true);
-			setprop("autopilot/Logic/TurnMode", false);
-			}
-			else 
-			{
-			setprop("autopilot/Logic/HdgHold", false);
-			setprop("autopilot/Logic/TurnMode", true);
-;
-			}
 		}
  	elsif (getprop("autopilot/switches/mode_knob") ==  1)
 		{
@@ -555,7 +562,7 @@ var update_autopilot = func {
 		setprop("autopilot/settings/target-pitch-deg", 0);
 		setprop("autopilot/settings/datum_norm", 0);
 	}
-##	setprop("autopilot/settings/TurnKnobInDetent",
+##	setprop("autopilot/Logic/TurnKnobInDetent",
 ##	(getprop("autopilot/settings/TurnKnob") < 0.11) and (getprop("autopilot/settings/TurnKnob") > -0.11));
 	
 	if (APengaged){   # Auto pitch-trim
@@ -692,7 +699,9 @@ var update_flight_controls = func {
 	setlistener("autopilot/Logic/AP1orAP2-sw",listenerAP_EngageFunc,1,0);
 	setlistener("autopilot/Logic/GS_sw",listenerGS_swFunc,1,0);
 	setlistener("autopilot/switches/mode_knob",listenerModeKnobFunc,1,0);
+	setlistener("autopilot/settings/TurnKnob",listenerTurnKnobFunc,1,0);
+
 	setlistener("sim/signals/fdm-initialized", listenerApInitFunc);
-#	setlistener("autopilot/switches/mode_knob", listenerOLDModeKnobFunc, 1,0);
+
 	
 

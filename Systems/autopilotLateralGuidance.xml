@@ -457,7 +457,7 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 			<property>autopilot/Logic/LOClimited</property>
 		</output>
 	</logic>
-	<!-- page 221 -->
+
 	<!-- ##############################################################################  -->
 	<!-- HDG Mode -->
 	<!-- MAN Mode is with the mode selector switch set to neutral. -->
@@ -465,24 +465,21 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 			HDG-Hold  - if the Turn knob is less than 3 degrees
 			TURN -      if the turn Turn knob is over 3 degrees -->
 	<filter>
-		<!--		<name>heading hold command</name> -->
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
-		<!--Update Heading-hold-deg to current heading when AP is not engaged. or not in heading hold mode-->
+		<!--Update Heading-hold-deg to current heading when
+		AP is not engaged		
+		or  Turn Knob is over 3 deg  autopilot/Logic/TurnMode -->
 		<input>
 			<condition>
 				<or>
-					<not>
-						<property>autopilot/Logic/AP1orAP2-sw</property>
-					</not>
-					<not>
-						<property>autopilot/Logic/HdgHold</property>
-					</not>
+					<not><property>autopilot/Logic/AP1orAP2-sw</property></not>
+					<property>autopilot/Logic/HdgHold</property>
 				</or>
 			</condition>
 			<property>autopilot/LGUIDE/Heading-magnetic-deg</property>
-		</input>
+		</input>			
 		<!-- otherwise hold current value -->
 		<input>
 			<property>autopilot/LGUIDE/Heading-hold-deg</property>
@@ -511,6 +508,7 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 		</period>
 		<!--		<u_min>-27.0</u_min><u_max>27.0</u_max> -->
 	</filter>
+	
 	<filter>
 		<!--		<name>Target Roll Filter</name> -->
 		<debug>false</debug>
@@ -576,7 +574,7 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 			<property>autopilot/LGUIDE/PHI_C</property>
 		</input>
 		<input>
-			<!-- default heading command -->
+			<!-- default bank command -->
 			<value>0.0001</value>
 		</input>
 		<u_min>
@@ -587,7 +585,7 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 		</u_max>
 		<!--  commanded bank angle -->
 		<output>
-			<property>autopilot/LGUIDE/PHICOM</property>
+			<property>autopilot/LGUIDE/PHICOM</property>  
 		</output>
 	</filter>
 	<!-- ############################################################################################ -->
