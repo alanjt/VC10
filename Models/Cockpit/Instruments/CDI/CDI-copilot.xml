@@ -26,6 +26,7 @@
 		<object-name>hdg-arrow</object-name>
 <!--		<object-name>ToFrom-arrow</object-name>
 		<object-name>noNav</object-name> -->
+		<object-name>crs-arrow</object-name>
 		<object-name>VorLocDeviationBar</object-name>
 		<object-name>VOR_LOC_dots</object-name>
 		<property>instrumentation/heading-indicator-dg[1]/indicated-heading-deg</property>
