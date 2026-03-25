@@ -97,7 +97,7 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 			<property>autopilot/LGUIDE/COURSE_Knob</property>
 		</reference>
 		<output>
-			<property>autopilot/LGUIDE/COURSE_Error</property>
+			<property>autopilot/LGUIDE/CRS_Err_Deg</property>
 		</output>
 		<period><min>-180</min><max>180</max></period>
 		<!--		<u_min>-25</u_min><u_max>25</u_max> -->
@@ -115,7 +115,7 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 			<property>autopilot/LGUIDE/Heading-magnetic-deg</property>
 		</reference>
 		<output>
-			<property>autopilot/LGUIDE/HdgKnob-Hdg</property>
+			<property>autopilot/LGUIDE/Hdg_Err_Deg</property>
 		</output>
 		<period>
 			<min>-180</min>
@@ -132,10 +132,10 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 			<property>autopilot/LGUIDE/t1</property>
 		</filter-time>
 		<input>
-			<property>autopilot/LGUIDE/COURSE_Error</property>
+			<property>autopilot/LGUIDE/CRS_Err_Deg</property>
 		</input>
 		<output>
-			<property>autopilot/LGUIDE/COURSE_Error_washout</property>
+			<property>autopilot/LGUIDE/CRS_Err_Deg_washout</property>
 		</output>
 	</filter>
 	<!-- After beam capture use washed out course error in place of course error -->
@@ -148,14 +148,14 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 				<property>autopilot/Logic/VLOC_ONC</property>
 				<!-- ONC set -->
 			</condition>
-			<property>autopilot/LGUIDE/COURSE_Error_washout</property>
+			<property>autopilot/LGUIDE/CRS_Err_Deg_washout</property>
 		</input>
 		<input>
-			<property>autopilot/LGUIDE/COURSE_Error</property>
+			<property>autopilot/LGUIDE/CRS_Err_Deg</property>
 			<!-- ONC not set -->
 		</input>
 		<output>
-			<property>autopilot/LGUIDE/COURSE_Error_F</property>
+			<property>autopilot/LGUIDE/CRS_Err_Deg_2</property>
 		</output>
 	</filter>
 	<!-- course error signal for roll command output -->
@@ -164,29 +164,13 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 		<type>gain</type>
 		<gain>1.0</gain>
 		<input>
-			<condition>
-				<property>instrumentation/nav/frequencies/is-localizer-frequency</property>
-			</condition>
-			<expression>
-				<!-- ILS frequency -->
 				<product>
-					<property>autopilot/LGUIDE/COURSE_Error_F</property>
+					<property>autopilot/LGUIDE/CRS_Err_Deg_2</property>
 					<property>autopilot/LGUIDE/b1</property>
 				</product>
-			</expression>
-		</input>
-		<input>
-			<expression>
-				<!-- not an ILS frequency - assume VOR -->
-				<product>
-					<property>autopilot/LGUIDE/COURSE_Error_F</property>
-					<property>autopilot/LGUIDE/b1</property>
-					<value>1.0</value>
-				</product>
-			</expression>
 		</input>
 		<output>
-			<property>autopilot/LGUIDE/COURSE_Error_scaled</property>
+			<property>autopilot/LGUIDE/CRS_Err_Deg_scaled</property>
 		</output>
 	</filter>
 	<!-- VOR/LOC beam error filters -->
@@ -318,7 +302,7 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 				<sum>
 					<product>
 						<value>-1</value>
-						<property>autopilot/LGUIDE/COURSE_Error_scaled</property>
+						<property>autopilot/LGUIDE/CRS_Err_Deg_scaled</property>
 					</product>
 					<product>
 						<value>1</value>
@@ -332,7 +316,7 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 			<property>autopilot/LGUIDE/PHI_C</property>
 		</output>
 	</filter>
-	<!-- Localiser capture trip level (CBTEST)-->
+	<!-- V/L Beam capture trip level (CBTEST)-->
 	<filter>
 		<debug>false</debug>
 		<type>gain</type>
@@ -344,7 +328,7 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 						<property>autopilot/LGUIDE/c1</property>
 						<sin>
 							<div>
-								<property>autopilot/LGUIDE/COURSE_Error</property>
+								<property>autopilot/LGUIDE/CRS_Err_Deg</property>
 								<value>57.3</value>
 							</div>
 						</sin>
@@ -360,8 +344,14 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 				</sum>
 			</expression>
 		</input>
-		<output>autopilot/Logic/VLOC_test</output>
+		<output>autopilot/LGUIDE/VLOC_Err</output>
+<!-- Vor/Loc beam capture is triggered when VLOC_Err is zero -->
+
+<!-- use autopilot/LGUIDE/PHI_C instead -->
+
 	</filter>
+	
+	
 	<filter>
 		<debug>false</debug>
 		<type>gain</type>
@@ -422,7 +412,7 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 			<property>autopilot/LGUIDE/roll-deg_abs</property>
 		</output>
 	</filter>
-	<!-- LOC signal at max limit -->
+	<!-- VOR signal at max limit -->
 	<!-- beam error -->
 	<logic>
 		<debug>false</debug>
@@ -538,7 +528,7 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 			<expression>
 				<product>
 					<property>autopilot/LGUIDE/KPSI</property>
-					<property>autopilot/LGUIDE/HdgKnob-Hdg</property>
+					<property>autopilot/LGUIDE/Hdg_Err_Deg</property>
 				</product>
 			</expression>
 		</input>
