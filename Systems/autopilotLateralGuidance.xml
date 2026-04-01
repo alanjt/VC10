@@ -123,7 +123,25 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 		</period>
 		<!--		<u_min>-24</u_min><u_max>24</u_max> -->
 	</filter>
+
 	<filter>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<expression>
+				<product>
+					<property>autopilot/LGUIDE/KPSI</property>
+					<property>autopilot/LGUIDE/Hdg_Err_Deg</property>
+				</product>
+			</expression>
+		</input>			
+		<output>
+			<property>autopilot/LGUIDE/HdgMode_PhiCmd</property>
+		</output>	
+	</filter>
+	
+	<filter>	
 		<!--		<name>Heading error washout</name> -->
 		<debug>false</debug>
 		<type>high-pass</type>
@@ -313,9 +331,10 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 		</input>
 		<!-- bank command -->
 		<output>
-			<property>autopilot/LGUIDE/PHI_C</property>
+			<property>autopilot/LGUIDE/VorLoc_PhiCmd</property>
 		</output>
 	</filter>
+	
 	<!-- V/L Beam capture trip level (CBTEST)-->
 	<filter>
 		<debug>false</debug>
@@ -344,14 +363,12 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 				</sum>
 			</expression>
 		</input>
-		<output>autopilot/LGUIDE/VLOC_Err</output>
-<!-- Vor/Loc beam capture is triggered when VLOC_Err is zero -->
+		<output>autopilot/LGUIDE/VorLoc_test</output>
+<!-- Vor/Loc beam capture is triggered when VorLoc_test is zero -->
 
-<!-- use autopilot/LGUIDE/PHI_C instead -->
-
+<!-- use autopilot/LGUIDE/VorLoc_PhiCmd instead -->
 	</filter>
-	
-	
+
 	<filter>
 		<debug>false</debug>
 		<type>gain</type>
@@ -479,6 +496,25 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 	</filter>
 	
 	<filter>
+		<!--		<name>heading hold roll demand</name> -->
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<expression>
+				<product>
+					<property>autopilot/LGUIDE/KPSI</property>
+					<property>autopilot/LGUIDE/HdgHold-Err</property>
+				</product>
+			</expression>
+		</input>
+		<output>
+			<property>autopilot/LGUIDE/HdgHold-PhiCmd</property>
+		</output>
+		<!--		<u_min>-27.0</u_min><u_max>27.0</u_max> -->
+	</filter>
+	
+	<filter>
 		<!--		<name>Target Roll Filter</name> -->
 		<debug>false</debug>
 		<type>rate-limit</type>
@@ -491,6 +527,7 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 		<max-rate-of-change>10.0</max-rate-of-change>
 		<min-rate-of-change>-10.0</min-rate-of-change>
 	</filter>
+	
 	<!-- ############################################################################################ -->
 	<!-- Set property autopilot/LGUIDE/PHICOM (bank angle command) acccording to selected lateral mode -->
 	<filter>
@@ -503,12 +540,7 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 				<property>autopilot/Logic/HdgHold</property>
 			</condition>
 			<!-- Heading hold mode -->
-			<expression>
-				<product>
-					<property>autopilot/LGUIDE/KPSI</property>
-					<property>autopilot/LGUIDE/HdgHold-Err</property>
-				</product>
-			</expression>
+			<property>autopilot/LGUIDE/HdgHold-PhiCmd</property>
 		</input>
 		<input>
 			<condition>
@@ -525,12 +557,7 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 				</equals>
 			</condition>
 			<!--	Heading mode -->
-			<expression>
-				<product>
-					<property>autopilot/LGUIDE/KPSI</property>
-					<property>autopilot/LGUIDE/Hdg_Err_Deg</property>
-				</product>
-			</expression>
+			<property>autopilot/LGUIDE/HdgMode_PhiCmd</property>
 		</input>
 		<input>
 			<condition>
@@ -540,7 +567,7 @@ instrumentation/nav/gs-distance and instrumentation/nav/nav-distance
 				</greater-than>
 			</condition>
 			<!--	VOR/LOC/GS/FLARE modes -->
-			<property>autopilot/LGUIDE/PHI_C</property>
+			<property>autopilot/LGUIDE/VorLoc_PhiCmd</property>
 		</input>
 		<input>
 			<!-- default bank command -->

@@ -112,7 +112,7 @@ var dt = 0.0;
 	
 	props.globals.initNode("autopilot/Logic/LOClimited",0,"BOOL");  # Localiser off scale	
 	props.globals.initNode("autopilot/Logic/VLOC_Capture",0,"BOOL");   # capture VOR radial or localiser beam
-	props.globals.initNode("autopilot/LGUIDE/VLOC_Err",0.0,"DOUBLE");
+	props.globals.initNode("autopilot/LGUIDE/VorLoc_test",0.0,"DOUBLE");
 	props.globals.initNode("autopilot/Logic/VLOC_intercept",0,"BOOL");   # VOR/LOC intercept Course hold
 	props.globals.initNode("autopilot/Logic/VLOC_intercept_test",0,"BOOL");
 	props.globals.initNode("autopilot/Logic/VLOC_ONC",0,"BOOL");  # on course
@@ -180,7 +180,7 @@ var listenerApInitFunc = func {
 	setprop("autopilot/Logic/VLOC_Capture", false);
 	setprop("autopilot/Logic/VLOC_intercept", false);
 	setprop("autopilot/Logic/VLOC_ONC", false);
-##	setprop("autopilot/LGUIDE/VLOC_Err", 0.0);
+##	setprop("autopilot/LGUIDE/VorLoc_test", 0.0);
 	setprop("autopilot/Logic/VLOC_intercept_test", false);
 	setprop("autopilot/Logic/VLOC_ONC_test", false);
 	
@@ -578,6 +578,10 @@ var update_autopilot = func {
 
 ## TURN mode
 
+## VOL/LOC captured flag
+# set when VorLoc_PhiCmd is close to HdgMode_PhiCmd and a VOR/LOC mode is selected
+
+	var vlca = getprop("autopilot/LGUIDE/Beta_Deg");
 
 ## Localiser On-Course Test
 		var beta = getprop("autopilot/LGUIDE/Beta_Deg");
